@@ -1,42 +1,44 @@
-# Checkpoint — EXP-01/S3 sesión F
+# Checkpoint — EXP-01/S3 sesión G
 
 ## Punto exacto de reanudación
-Lunes, 08:10. Inés Vidal (32) y Julián Rojas (34), ambos adultos, coinciden en el hall de su edificio antes de salir. La escena está activa y es pública.
+Lunes por la mañana, en el hall del edificio. Inés Vidal (32) y Julián Rojas (34), ambos adultos, siguen en una conversación breve antes de salir.
 
-Se completaron **69 turnos** en total; S3-F añadió los turnos 65–69.
+Se completaron **75 turnos** en total; S3-G añadió los turnos 70–75.
 
-El último turno fue de **Julián**. Inés explicó que no está decidiendo “entre Julián y un trabajo”; está decidiendo si quiere pasar seis meses en otra ciudad. Le pidió a Julián una sola pregunta: que le preguntara qué quiere si no tuviera que justificarlo todavía. Julián respondió exactamente con esa pregunta:
+Inés respondió a la pregunta de Julián diciendo primero **“Quiero ir”** y luego tomó su propia decisión: aceptó la oferta laboral de seis meses en otra ciudad y envió el correo de aceptación mientras Julián permanecía cerca porque ella se lo pidió.
 
-**“¿Qué quieres, Inés, si no tienes que justificarlo?”**
+El último turno fue de **Julián**. Dijo que se alegra por ella y, al mismo tiempo, le da pena pensar en la futura distancia. Añadió que ninguna de esas emociones decide por los dos qué harán con la relación.
 
 **El siguiente turno natural corresponde a Inés.**
 
 ## Relación actual
 - Interés romántico mutuo y explícito.
 - Sin compromiso formal.
-- Confianza moderada en aumento; intimidad emocional moderada.
-- Julián no está decidiendo ni presionando la decisión laboral.
+- Confianza e intimidad emocional han aumentado de forma moderada.
+- La aceptación de la oferta introduce una consecuencia real: habrá una distancia temporal de seis meses, aunque la fecha de inicio no está establecida.
+- No se ha decidido todavía cómo manejarán esa distancia.
 
 ## Threads
-1. **Oferta laboral:** ABIERTA y con respuesta debida hoy lunes. La decisión todavía no fue tomada.
-2. **Pregunta inmediata:** Inés debe responder qué quiere, sin justificarlo todavía.
-3. **Caminata del sábado:** completada.
+1. **Oferta laboral:** RESUELTA — Inés aceptó la oferta de seis meses en otra ciudad.
+2. **Consecuencia relacional de la distancia:** ABIERTA — ambos deben aclarar qué quieren hacer con la relación sin forzar compromiso.
+3. **Caminata del sábado / juego:** completados.
 4. **Boundary fotográfica:** clarificada, respetada y vigente.
-5. **Relación:** interés mutuo explícito, sin compromiso formal.
+5. **Quiebre del jueves:** resuelto.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián respeta que la decisión laboral es de ella.
-- Puede responder la pregunta sin convertirla en una promesa relacional.
-- Todavía no ha comunicado una decisión sobre la oferta.
+- Julián no intentó decidir por ella.
+- Él se alegra por su decisión y también siente pena por la distancia.
+- No existe todavía un acuerdo sobre qué harán cuando ella se vaya.
 
 ### Julián sabe
-- Inés debe responder hoy.
-- Ella no está planteando la decisión como una elección entre él y el trabajo.
-- Su función inmediata es escuchar la respuesta, no decidir por ella.
+- Inés aceptó la oferta y envió la aceptación.
+- La fecha de inicio no está establecida.
+- Inés no tomó la decisión “entre él y el trabajo”.
+- No corresponde asumir compromiso, ruptura ni plan a distancia sin hablarlo.
 
 ## Siguiente punto natural
-Inés responde a la pregunta directa. La Sesión G puede permitir que esa respuesta desemboque naturalmente en aceptar, rechazar o negociar la oferta. No predeterminar la opción.
+Inés responde a la apertura de Julián sobre la distancia. La Sesión H debe dar una resolución emocional clara al mini-arco: pueden acordar seguir conociéndose de forma intencional sin formalizar una relación ni prometer un resultado a distancia.
 
-## Persistencia
-`story.md + state.json + memory.md + checkpoint.md` bastan para reanudar G. No hace falta releer transcript salvo ambigüedad concreta.
+## Reanudación
+`story.md + state.json + memory.md + checkpoint.md` bastan para continuar H. Transcript no es necesario salvo ambigüedad concreta.

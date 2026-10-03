@@ -759,3 +759,73 @@ Dejó un pequeño silencio entre los dos.
 
 —¿Qué quieres, Inés, si no tienes que justificarlo?
 
+## Sesión S3-G — decisión laboral y consecuencia
+
+**Turno 70 — Inés**
+
+Inés bajó la mirada un instante.
+
+—Quiero ir.
+
+Lo dijo sin énfasis, como si necesitara oír la frase completa antes de añadir nada.
+
+—Eso fue lo primero que pensé cuando leí la oferta. Todo lo demás han sido argumentos para no tener que admitir que seis meses allá me asustan y me interesan al mismo tiempo.
+
+**Turno 71 — Julián**
+
+Julián asintió.
+
+—Entonces ya respondiste la pregunta que me pediste.
+
+Se cuidó de no acercarse a la conclusión por ella.
+
+—No te estoy diciendo qué correo enviar. Sólo escuché que quieres ir.
+
+**Turno 72 — Inés**
+
+—Sí.
+
+Inés sacó el teléfono otra vez y abrió el mensaje.
+
+—Quiero aceptar.
+
+Respiró por la nariz, breve.
+
+—Y me pone bastante nerviosa. Aparentemente la claridad no elimina esa parte.
+
+**Turno 73 — Julián**
+
+—Sería sospechoso que la eliminara del todo.
+
+Julián miró hacia la puerta, dándole espacio.
+
+—Si quieres, me voy y lo mandas tranquila. Si quieres que me quede mientras lo haces, también. Pero la decisión sigue siendo tuya.
+
+**Turno 74 — Inés**
+
+—Quédate.
+
+Levantó un dedo antes de volver a la pantalla.
+
+—No para validar nada. Sólo… quédate un minuto.
+
+Leyó una vez más, escribió dos líneas y pulsó enviar.
+
+Después bloqueó el teléfono.
+
+—Listo. Acepté.
+
+**Turno 75 — Julián**
+
+Julián dejó salir el aire despacio.
+
+—Bien.
+
+Sonrió, pero no intentó convertirlo en celebración automática.
+
+—Me alegro por ti. Y también me da un poco de pena pensar en la distancia que viene. Creo que las dos cosas pueden ser verdad.
+
+La miró con calma.
+
+—Y ninguna de esas dos cosas decide por nosotros qué hacemos con esto.
+

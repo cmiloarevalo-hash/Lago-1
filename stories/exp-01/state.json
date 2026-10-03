@@ -11,18 +11,18 @@
     ]
   },
   "relationship": {
-    "label": "vecinos con interés romántico mutuo explícito, explorándolo sin compromiso mientras la oferta laboral sigue pendiente",
-    "trust": "moderado_en_aumento",
-    "emotional_intimacy": "moderada",
+    "label": "vecinos con interés romántico mutuo explícito, sin compromiso formal, con futura distancia temporal reconocida tras la aceptación laboral de Inés",
+    "trust": "alto_moderado",
+    "emotional_intimacy": "moderada_en_aumento",
     "romantic_interest": "mutuo_explicito",
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "job_decision_question_open",
+  "beat": "job_offer_accepted_relational_consequence_open",
   "threads": [
     {
       "id": "ines_job_offer",
-      "status": "decision_due_today_direct_question_open"
+      "status": "accepted_six_months_other_city_start_date_unknown"
     },
     {
       "id": "julian_saturday_invitation",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "clarified_no_commitment"
+      "status": "reopened_due_to_future_distance"
     },
     {
       "id": "walk_home_after_cafe",
@@ -53,5 +53,5 @@
       "status": "clarified_and_respected"
     }
   ],
-  "turn_cursor": 69
+  "turn_cursor": 75
 }
