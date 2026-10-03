@@ -1987,3 +1987,33 @@ Julián envió una foto de su taza y una esquina vacía de la mesa.
 
 La conversación terminó ahí, ligera y sin agenda.
 
+## Sesión S6-X11 — preguntar antes de interpretar
+
+**Transición temporal — jueves, noche**
+
+**Turno 194 — Inés**
+
+—Hoy no voy a estar muy conversadora.
+
+El mensaje llegó sin explicación adicional.
+
+**Turno 195 — Julián**
+
+—Entendido.
+
+Un momento después escribió:
+
+—Sólo para no completar los espacios yo solo: ¿es cansancio general o prefieres distancia conmigo hoy?
+
+**Turno 196 — Inés**
+
+—Cansancio general. No contigo.
+
+—Y gracias por preguntar exactamente eso.
+
+**Turno 197 — Julián**
+
+—Perfecto. Entonces te dejo cansarte en paz.
+
+—Hablamos cuando tenga sentido.
+
