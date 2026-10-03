@@ -1,12 +1,14 @@
-# Checkpoint — EXP-01/S6 X18
+# Checkpoint — EXP-01/S6 X19
 
-Jueves por la tarde. La interacción quedó cerrada.
+Sábado por la tarde. La interacción quedó cerrada.
 
-Se completaron **228 turnos**; X18 añadió 224–228.
+Se completaron **233 turnos**; X19 añadió 229–233.
 
-Julián dijo que reorganizó su trabajo tras la cancelación y que el problema ya no está activo. Inés señaló que le gustó que él compartiera algo difícil propio, porque la comunicación a distancia había empezado muy centrada en su mudanza. Ambos reconocieron de forma ligera una mayor reciprocidad.
+Inés y Julián hablaron por primera vez de una posible visita. Ambos dijeron que les gustaría, pero Inés todavía no conoce suficientemente sus fines de semana libres. Decidieron no convertir el deseo en plan todavía.
 
-No hay nuevo compromiso ni acuerdo de exclusividad.
+**Estado exacto:** posibilidad mutua real, ningún viaje/fecha/reserva acordado.
+
+No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
+No inventar visita, fecha, transporte ni reserva. Puede retomarse cuando exista una agenda concreta dentro del roleplay. Transcript no es necesario para reconstrucción.
