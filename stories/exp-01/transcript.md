@@ -2193,3 +2193,35 @@ Inés envió una foto de un letrero ligeramente inclinado, sin personas.
 
 —Sabía que podía confiar en tu negativa a optimizar una mala tarde.
 
+## Sesión S6-X18 — reciprocidad
+
+**Transición temporal — jueves, tarde**
+
+**Turno 224 — Inés**
+
+—¿Cómo quedó lo del trabajo que se cayó?
+
+—No necesito buenas noticias. Sólo actualización.
+
+**Turno 225 — Julián**
+
+—Reorganicé las dos semanas. Sigo molesto, pero ya no estoy mirando el calendario como si me hubiera traicionado personalmente.
+
+**Turno 226 — Inés**
+
+—Bien.
+
+Después añadió:
+
+—Me gustó que me lo contaras. A veces siento que toda nuestra conversación a distancia empezó alrededor de mi cambio de ciudad.
+
+**Turno 227 — Julián**
+
+—No quiero que seas el único acontecimiento de la relación.
+
+—También puedo tener martes mediocres.
+
+**Turno 228 — Inés**
+
+—Excelente. Aspiremos a una distribución equilibrada de problemas menores.
+
