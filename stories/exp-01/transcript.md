@@ -160,3 +160,122 @@ Julián sonrió, más pequeño que antes.
 Inés tomó la taza, pero antes de beber volvió a mirarlo.
 
 —Entonces te toca una respuesta incómoda: ¿por qué me invitaste hoy, de verdad?
+
+## Sesión T03 — cold resume
+
+**Turno 18 — Julián**
+
+Julián dejó la taza sobre el plato y, por una vez, no intentó responder de inmediato.
+
+—Porque quería verte a propósito.
+
+Se pasó una mano por la nuca, con una sonrisa pequeña.
+
+—No coincidir en el ascensor, ni encontrarte aquí de casualidad. Quería saber cómo era pasar tiempo contigo cuando ninguno de los dos tenía una excusa para irse en treinta segundos.
+
+La miró con atención.
+
+—Y porque me gustas. No tenía una versión especialmente elegante de eso.
+
+**Turno 19 — Inés**
+
+Inés sostuvo su mirada unos segundos antes de asentir.
+
+—Eso es bastante más claro que la tecnología revolucionaria de sentarnos.
+
+La comisura de su boca se movió apenas.
+
+—¿Pensabas decírmelo hoy o tu plan era confiar en que yo no hiciera preguntas directas?
+
+**Turno 20 — Julián**
+
+—Mi plan era excelente hasta que lo describes así.
+
+Julián soltó una risa breve.
+
+—Pensaba proponerte lo del sábado, ver si aceptabas y, si todo seguía sintiéndose bien, dejar de esconderme detrás de planes.
+
+Su expresión se volvió más seria.
+
+—Luego me contaste lo de la oferta y reaccioné como si el lunes ya hubiera ocurrido. No quiero repetir eso. Me gustas y quiero conocerte mejor. Esa es la razón, aunque no sepa todavía qué forma tiene.
+
+**Turno 21 — Inés**
+
+Inés bajó la vista un momento hacia su taza.
+
+—Yo también vine porque quería averiguar si esto era algo más que ser vecinos que conocen el pedido de café del otro.
+
+Volvió a mirarlo.
+
+—Para mí sí lo es. Pero el lunes sigue existiendo, y no puedo prometerte nada que dependa de una decisión que todavía no he tomado.
+
+**Turno 22 — Julián**
+
+—Entonces no prometas.
+
+La respuesta salió rápida, pero esta vez Julián no añadió nada hasta pensarlo mejor.
+
+—El sábado puede ser sólo el sábado. El lunes es tu decisión. Si aceptas la oferta, no significa que hoy haya sido un error. Y si no la aceptas, tampoco convierte esto automáticamente en otra cosa.
+
+Levantó una ceja.
+
+—Estoy intentando demostrar que puedo aprender en menos de una hora.
+
+**Turno 23 — Inés**
+
+—El progreso es observable.
+
+Inés dejó escapar una risa baja.
+
+—Eso me ayuda. No quiero que la oferta se convierta en una prueba de si vale la pena seguir conociéndonos.
+
+Hizo una pausa.
+
+—Ni quiero tomar una decisión laboral para proteger una relación que todavía no existe.
+
+**Turno 24 — Julián**
+
+—De acuerdo.
+
+Julián asintió, sin apartar la mirada.
+
+—Y tampoco quiero que “seguir conociéndonos” suene a contrato. Me basta con que ambos queramos estar aquí y que el sábado siga en pie.
+
+Se encogió ligeramente de hombros.
+
+—Si después aparece una conversación más difícil, la tendremos cuando exista de verdad.
+
+**Turno 25 — Inés**
+
+—Una cantidad tolerable de sensatez para alguien que dice improvisar.
+
+Inés se recostó un poco en la silla.
+
+—Bien. Entonces explícame qué entiendes por “caminata fotográfica”. Porque si tu plan incluye convertirme en modelo involuntaria, puedo cancelar preventivamente.
+
+**Turno 26 — Julián**
+
+Julián abrió las manos en gesto de inocencia.
+
+—Cero modelos involuntarios.
+
+Sonrió.
+
+—Podemos caminar por el barrio viejo y elegir, no sé, cinco cosas cada uno que crea que el otro habría pasado por alto. Yo llevo cámara; si quieres probar una, te presto otra. Y si no, sirve igual.
+
+Después añadió, con menos broma:
+
+—La parte importante era tener otra excusa para pasar tiempo contigo.
+
+**Turno 27 — Inés**
+
+—Cinco cosas cada uno. Eso tiene reglas suficientes para resultarme aceptable.
+
+Inés lo señaló con un dedo, todavía sonriendo.
+
+—Y si vas a fotografiarme, preguntas primero.
+
+Tomó un sorbo de café.
+
+—¿Tienes una hora razonable en mente para el sábado, fotógrafo?
+

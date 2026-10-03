@@ -1,87 +1,61 @@
-# Checkpoint — EXP-01/T02 — COLD RESUME
+# Checkpoint — EXP-01/T03
 
 ## Punto exacto de reanudación
-Café Niebla, jueves, misma tarde. La escena sigue activa y pública. Inés y Julián están sentados frente a frente. Se completaron 17 turnos.
+Café Niebla, jueves, misma tarde. La escena sigue activa y pública. Inés y Julián continúan sentados frente a frente. Se completaron 27 turnos en total; T03 añadió los turnos 18–27.
 
-El último turno fue de Inés. Su pregunta quedó sin respuesta:
+El último turno fue de Inés. Después de acordar una estructura simple para la caminata y marcar que Julián debe pedir permiso antes de fotografiarla, preguntó:
 
-**“¿Por qué me invitaste hoy, de verdad?”**
+**“¿Tienes una hora razonable en mente para el sábado, fotógrafo?”**
 
 El siguiente turno natural corresponde a **Julián**.
 
-## Quiénes son
-- **Inés Vidal, 32**, coordinadora de producción cultural: metódica, observadora, reservada, humor seco; habla con precisión y no le gusta que decidan por ella.
-- **Julián Rojas, 34**, fotógrafo freelance: cálido, curioso, espontáneo; usa humor ligero cuando está nervioso y tiende a improvisar.
-
-Ambos son inequívocamente adultos.
-
-## Dónde y cuándo están
-- Café Niebla.
-- Jueves por la tarde.
-- Primera reunión intencional a solas.
-- No han cambiado de escena.
-
 ## Relación actual
-Empezaron como vecinos y conocidos amistosos con curiosidad mutua. Durante esta conversación:
-- Julián expresó interés invitando a Inés a una caminata fotográfica el sábado.
-- Inés aceptó.
-- Hubo un quiebre pequeño cuando Inés reveló una oferta laboral y Julián asumió demasiado rápido que hacer planes ya no tenía sentido.
-- El quiebre fue reparado: Julián reconoció el error y acordó no decidir por Inés.
-- La confianza y franqueza son ahora moderadas; no existe compromiso romántico.
+- El interés romántico es ahora mutuo y explícito.
+- Julián explicó que propuso el café porque quería verla intencionalmente, le gusta y quiere conocerla mejor.
+- Inés dijo que también vino para averiguar si entre ellos había algo más que vecindad amistosa y confirmó que, para ella, sí lo hay.
+- Ambos acordaron seguir conociéndose sin compromiso ni promesas condicionadas por la decisión laboral del lunes.
+- El quiebre anterior sigue reparado; no se borró la incertidumbre.
 
 ## Hechos canónicos actuales
-- Se conocen desde hace unos tres meses.
-- Son vecinos y coinciden en el café.
-- El plan del sábado está confirmado.
-- Inés tiene una oferta laboral de seis meses en otra ciudad.
-- Debe responder el lunes.
-- Inés todavía no sabe si la aceptará.
+- Inés Vidal tiene 32 años y Julián Rojas 34; ambos son adultos.
+- Son vecinos y se conocen desde hace unos tres meses.
+- Están en su primera reunión intencional a solas, en Café Niebla.
+- El plan de caminata fotográfica del sábado sigue confirmado.
+- Inés tiene una oferta laboral de seis meses en otra ciudad y debe responder el lunes.
+- Inés todavía no sabe si aceptará la oferta.
+- La logística de hora del sábado quedó pendiente.
+- Inés pidió que Julián solicite permiso antes de fotografiarla.
 
-## Qué sabe cada personaje
+## Knowledge boundaries
 ### Inés
-- Sabe que Julián quiere volver a verla.
-- Sabe que su revelación de la oferta lo sorprendió.
-- Sabe que Julián reconoció que reaccionó mal.
-- No sabe aún la respuesta completa a por qué Julián la invitó hoy; acaba de preguntárselo.
+- Conoce la razón personal de la invitación de Julián.
+- Sabe que él quiere seguir conociéndola sin exigir una promesa sobre el lunes.
+- Sabe que el sábado sigue en pie y espera una respuesta sobre la hora.
 
 ### Julián
-- Sabe de la oferta laboral y la fecha límite.
-- Sabe que Inés todavía no decidió.
-- Sabe que Inés quiere ir el sábado.
-- Sabe que no debe convertir la oferta en una decisión tomada por ella.
-- Debe responder la pregunta directa de Inés.
+- Sabe que el interés es correspondido.
+- Sabe que la oferta laboral no está decidida.
+- Sabe que no debe convertir esa incertidumbre en una decisión por Inés.
+- Sabe que debe pedir permiso antes de fotografiarla.
 
-## Tensión / threads abiertos
-1. **Pregunta inmediata:** por qué Julián invitó a Inés de verdad.
-2. **Oferta laboral:** decisión pendiente para el lunes.
-3. **Relación:** hay interés mutuo, pero todavía no han definido qué esperan uno del otro.
+## Threads abiertos
+1. **Logística inmediata:** Julián debe responder a qué hora propone empezar la caminata del sábado.
+2. **Oferta laboral:** decisión de Inés pendiente para el lunes.
+3. **Relación:** ambos quieren seguir conociéndose, sin compromiso definido.
 
-## Qué cambió en T02
-- Invitación del sábado: de intención privada → expresada → aceptada.
-- Oferta laboral: de conocimiento privado de Inés → revelada a Julián.
-- Relación: de curiosidad implícita → interés expresado y mayor franqueza.
-- Conflicto: apareció un quiebre pequeño → fue reparado sin borrar la incertidumbre.
+## Qué cambió en T03
+- `why_julian_invited_ines`: pendiente → respondido.
+- El interés mutuo quedó verbalizado por ambos.
+- Las expectativas se aclararon: seguir conociéndose sin convertir la oferta en prueba ni promesa.
+- La invitación del sábado sigue aceptada; falta fijar logística.
+- El cursor avanzó de 17 a 27.
 
 ## Siguiente punto natural
-Julián responde honestamente por qué propuso este café. Puede reconocer interés personal sin convertirlo en compromiso ni resolver la oferta laboral. Después, la conversación puede explorar qué esperan del sábado o qué significa seguir conociéndose mientras la decisión del lunes permanece abierta.
+Julián responde la hora propuesta para el sábado. La conversación puede cerrar la logística y, si continúa, mantener el tono cotidiano sin resolver antes de tiempo la decisión laboral ni formalizar la relación.
 
-No obligar un resultado romántico específico.
-
-## Bootstrap para un chat nuevo
-Leer, en este orden:
-1. `story.md`
-2. `state.json`
-3. `memory.md`
-4. este `checkpoint.md`
-
-Para el primer turno de cold resume **no es necesario leer el transcript completo**. El transcript queda disponible sólo para verificar detalle si aparece una ambigüedad.
-
-## Recorder observations de T02
-- Bloques persistidos: 4.
-- Checkpoint actualizado después de cada bloque T02: 4 veces.
-- El writer pudo generar los bloques 2, 3 y 4 leyendo `state.json + memory.md + checkpoint.md` sin releer el transcript completo.
-- `state.json` fue suficiente para escena, relación, beat, threads y cursor.
-- `memory.md` fue suficiente para hechos materiales y knowledge boundaries.
-- Información no usada para continuar: decoración del café y formulaciones exactas de los primeros turnos.
-- Información faltante detectada: ninguna esencial durante T02.
-- Dependencia observada del contexto privado de este chat: no fue necesaria para decidir continuidad entre bloques; el estado durable contenía el punto de partida suficiente.
+## Observaciones de cold resume
+- La reconstrucción narrativa fue posible desde `story.md + state.json + memory.md + checkpoint.md` después de leer el contexto del proyecto y las Issues #16/#19.
+- No faltó información narrativa esencial.
+- Fue necesario consultar sólo una muestra mínima de `transcript.md` para resolver una ambigüedad de formato antes del append; no se usó para reconstruir la historia.
+- El contexto durable fue suficiente para decidir quién hablaba, qué sabía cada personaje, qué conflicto estaba reparado y qué thread debía continuar.
+- Información redundante para la reanudación: decoración del café, frases exactas previas y gestos momentáneos ya no materiales.

@@ -5,28 +5,30 @@
 - Son vecinos del mismo edificio y se conocen desde hace aproximadamente tres meses.
 - Coinciden habitualmente en Café Niebla e intercambiaron números durante un corte de agua del edificio.
 - Este jueves están en su primera reunión intencional a solas.
-- Julián invitó a Inés a una caminata fotográfica por el barrio viejo el sábado; Inés aceptó.
+- Julián invitó a Inés a una caminata fotográfica por el barrio viejo el sábado; Inés aceptó. La logística exacta todavía no está cerrada.
 - Inés recibió una oferta laboral de seis meses en otra ciudad y debe responder el lunes; todavía no sabe si la aceptará.
-- Julián conoce ahora la oferta. Su primera reacción fue asumir que el plan del sábado quizá no tenía sentido.
-- Inés le pidió que no decidiera por ella qué significa la oferta. Julián reconoció el error y acordó tratar la oferta como una posibilidad hasta que Inés decida.
-- El quiebre pequeño quedó reparado por ahora; aumentaron la franqueza y la confianza.
+- Julián conoce la oferta. Su primera reacción fue asumir que el plan del sábado quizá no tenía sentido; Inés le pidió que no decidiera por ella y Julián reconoció el error.
+- Julián explicó que la invitó porque quería verla a propósito, le gusta y quiere conocerla mejor.
+- Inés reconoció que también vino para averiguar si entre ellos había algo más que vecindad amistosa y dijo que, para ella, sí lo hay.
+- Ambos acordaron seguir conociéndose sin convertir la oferta laboral en una prueba ni asumir compromiso. El sábado sigue en pie y el lunes sigue siendo decisión de Inés.
+- Para la caminata, Inés marcó una regla explícita: si Julián quiere fotografiarla, debe preguntarle primero.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Aún no sabe si aceptará la oferta laboral.
-- Sabe que Julián quiere verla el sábado y que está intentando no anticipar su decisión.
-- Acaba de preguntarle directamente por qué la invitó hoy.
+- Julián la invitó por interés personal y quiere conocerla mejor.
+- Julián acepta que ella no puede prometer nada ligado a la decisión del lunes.
+- El sábado sigue confirmado; acaba de preguntarle a qué hora propone empezar.
 
 ### Julián sabe
-- Inés tiene una oferta de seis meses, con decisión pendiente el lunes.
-- Inés quiere ir a la caminata del sábado.
-- Su reacción inicial la molestó y la reparación requirió dejar de decidir por ella.
-- Debe responder ahora por qué la invitó a tomar café de verdad.
+- Inés tiene una oferta de seis meses, con decisión pendiente el lunes, y todavía no sabe si la aceptará.
+- Inés comparte el interés por explorar la relación, sin compromiso definido.
+- No debe convertir la oferta en una decisión tomada por ella.
+- Debe pedir permiso antes de fotografiar a Inés.
 
 ### Ambos saben
-- Existe interés mutuo explícito suficiente para volver a verse.
-- El plan del sábado está confirmado.
-- La oferta laboral sigue abierta y no debe tratarse como una partida decidida.
+- El interés romántico es mutuo y explícito.
+- Quieren seguir conociéndose sin definir todavía una relación formal.
+- El plan del sábado está confirmado y la oferta laboral sigue abierta.
 
 ## No promover a memoria
 - Detalles decorativos del café.

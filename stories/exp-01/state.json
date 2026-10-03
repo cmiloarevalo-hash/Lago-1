@@ -5,17 +5,20 @@
     "time": "jueves, misma tarde",
     "privacy": "public",
     "status": "active",
-    "participants": ["ines", "julian"]
+    "participants": [
+      "ines",
+      "julian"
+    ]
   },
   "relationship": {
-    "label": "vecinos con interés romántico incipiente, mayor franqueza y un quiebre pequeño reparado",
+    "label": "vecinos con interés romántico mutuo explícito, explorándolo sin compromiso mientras la oferta laboral sigue pendiente",
     "trust": "moderado",
     "emotional_intimacy": "moderada",
-    "romantic_interest": "expresado",
+    "romantic_interest": "mutuo_explicito",
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "reparacion_completada_pregunta_abierta",
+  "beat": "intenciones_aclaradas_incertidumbre_aceptada",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -23,7 +26,7 @@
     },
     {
       "id": "julian_saturday_invitation",
-      "status": "accepted"
+      "status": "accepted_logistics_pending"
     },
     {
       "id": "reaction_repair",
@@ -31,8 +34,12 @@
     },
     {
       "id": "why_julian_invited_ines",
-      "status": "awaiting_julian_response"
+      "status": "answered"
+    },
+    {
+      "id": "relationship_expectations",
+      "status": "clarified_no_commitment"
     }
   ],
-  "turn_cursor": 17
+  "turn_cursor": 27
 }
