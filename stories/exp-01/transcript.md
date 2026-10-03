@@ -1895,3 +1895,39 @@ Hizo una pausa antes de enviar otro mensaje.
 
 —Estoy descubriendo que la claridad tiene menos efectos secundarios que improvisar disponibilidad.
 
+## Sesión S6-X08 — límites recíprocos
+
+**Transición temporal — viernes, noche**
+
+**Turno 182 — Julián**
+
+—Ahora sí tengo cabeza. ¿Sigues queriendo contarme?
+
+**Turno 183 — Inés**
+
+—Sí.
+
+Durante la llamada, después de hablar del trabajo, Inés añadió:
+
+—Ayer me decepcionó un poco que no pudieras. No contigo; con el momento.
+
+—Pero prefiero eso a que estés presente a medias.
+
+**Turno 184 — Julián**
+
+Julián asintió.
+
+—Me preocupó que decir que no fuera a sonar como falta de interés.
+
+—Supongo que también tengo que aprender que no estar disponible siempre no equivale a desaparecer.
+
+**Turno 185 — Inés**
+
+—Exacto.
+
+—Podemos decepcionarnos un poco sin convertirlo en problema moral.
+
+Julián soltó una risa.
+
+—Esa frase merece marco.
+
