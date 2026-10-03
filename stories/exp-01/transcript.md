@@ -1739,3 +1739,31 @@ Julián respondió por texto.
 
 —Plan excelente. Nos leemos cuando vuelva a existir tu batería social.
 
+## Sesión S6-X03 — juego de observación a distancia
+
+**Transición temporal — miércoles, tarde**
+
+**Turno 161 — Julián**
+
+Julián envió una foto de la sombra de una escalera sobre una pared, sin personas.
+
+—Esto me pareció una continuación razonable de nuestro antiguo campeonato.
+
+**Turno 162 — Inés**
+
+—La sombra gana. La pared necesita mantenimiento.
+
+Un minuto después añadió:
+
+—Y no conviertas esto en liga internacional.
+
+**Turno 163 — Julián**
+
+—Demasiado tarde. Ya encargué trofeo.
+
+**Turno 164 — Inés**
+
+—Cancélalo por razones presupuestarias.
+
+La conversación siguió un poco más y se apagó sin necesidad de cierre formal.
+
