@@ -2383,3 +2383,31 @@ Hizo una pausa antes de enviar el siguiente mensaje.
 
 —Alojamiento por mi cuenta, logística mínima y espacio para decidir sobre la marcha. Me sirve.
 
+
+## Sesión T05-A — preferencia de llegada
+
+**Transición temporal — sábado, tarde**
+
+**Turno 251 — Julián**
+
+—Estuve mirando opciones para la visita, pero antes de elegir una quiero preguntarte algo simple.
+
+—¿Te acomoda más que llegue el sábado temprano o más cerca del mediodía?
+
+**Turno 252 — Inés**
+
+—Más cerca del mediodía.
+
+—El sábado temprano quiero tener margen para ordenar mi semana sin convertir tu llegada en una carrera.
+
+**Turno 253 — Julián**
+
+—Perfecto. Entonces busco algo que apunte a eso.
+
+—Cuando tenga una opción concreta te la paso antes de reservar.
+
+**Turno 254 — Inés**
+
+—Eso me sirve.
+
+—Hora aproximada primero; operativo después, sólo si hace falta.
