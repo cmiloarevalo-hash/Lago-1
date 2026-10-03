@@ -1367,3 +1367,45 @@ Julián abrió la puerta, pero se quedó un momento.
 
 La escena terminó allí, con una expectativa de comunicación sencilla y explícita.
 
+## Sesión S5-Q — una conversación sin logística
+
+**Transición temporal — martes, final de la tarde**
+
+Sin narrar acontecimientos intermedios, la historia salta al martes. Inés está en Café Niebla cuando Julián entra y se sienta frente a ella después de preguntarle con un gesto si puede acompañarla.
+
+**Turno 125 — Julián**
+
+Julián dejó el teléfono sobre la mesa y le mostró una fotografía de una fachada, sin personas.
+
+—Necesito una evaluación profesional completamente ajena a cualquier mudanza, viaje o sistema de comunicación.
+
+**Turno 126 — Inés**
+
+Inés estudió la imagen.
+
+—La línea del toldo está torcida.
+
+Le devolvió el teléfono.
+
+—Y acabas de pedirle opinión técnica a alguien que pasa el día corrigiendo cosas torcidas.
+
+**Turno 127 — Julián**
+
+—Error de selección de jurado.
+
+Julián miró de nuevo la foto.
+
+—Yo estaba mirando la luz.
+
+**Turno 128 — Inés**
+
+—La luz está bien.
+
+Inés tomó su taza.
+
+—Mira, acabamos de sostener cuatro minutos de conversación sin organizar el futuro.
+
+—Un récord —dijo Julián.
+
+La escena siguió unos minutos más en temas cotidianos y terminó sin nuevos acuerdos.
+
