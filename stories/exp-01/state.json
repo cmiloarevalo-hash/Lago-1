@@ -2,7 +2,7 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "comunicación a distancia",
-    "time": "martes, noche",
+    "time": "jueves, tarde",
     "privacy": "remote",
     "status": "closed",
     "participants": [
@@ -13,12 +13,12 @@
   "relationship": {
     "label": "interés romántico mutuo; ambos aceptan describirse como personas que se están viendo, sin relación formal",
     "trust": "alto_estable",
-    "emotional_intimacy": "alta_estable",
+    "emotional_intimacy": "alta_reciproca",
     "romantic_interest": "mutuo_explicito_confirmado",
     "commitment": "sin_relacion_formal_y_sin_acuerdo_de_exclusividad",
     "conflict": "resuelto"
   },
-  "beat": "julian_vulnerability_received_without_fixing",
+  "beat": "relationship_support_becomes_reciprocal",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -134,8 +134,8 @@
     },
     {
       "id": "julian_work_uncertainty",
-      "status": "freelance_job_cancelled_temporary_replanning"
+      "status": "replanned_no_longer_active_problem"
     }
   ],
-  "turn_cursor": 223
+  "turn_cursor": 228
 }
