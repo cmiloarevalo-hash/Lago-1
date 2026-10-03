@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "Café Niebla",
-    "time": "miércoles, final de la tarde",
+    "location": "lugar de empanadas de la esquina del edificio",
+    "time": "viernes, noche",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -12,13 +12,13 @@
   },
   "relationship": {
     "label": "interés romántico mutuo explícito; continúan conociéndose intencionalmente sin compromiso formal pese a futura distancia temporal",
-    "trust": "alto_moderado",
-    "emotional_intimacy": "moderada_en_aumento",
+    "trust": "alto",
+    "emotional_intimacy": "alta_moderada",
     "romantic_interest": "mutuo_explicito",
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "ordinary_friday_plan_confirmed",
+  "beat": "countdown_anxiety_named_and_reframed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "continue_intentionally_no_formal_commitment_avoid_farewell_countdown"
+      "status": "continue_intentionally_one_plan_at_a_time_no_countdown"
     },
     {
       "id": "walk_home_after_cafe",
@@ -58,12 +58,16 @@
     },
     {
       "id": "friday_meal",
-      "status": "confirmed_friday_2000_empanada_place_near_building"
+      "status": "completed"
     },
     {
       "id": "photo_print",
-      "status": "ines_requested_first_saturday_photo_julian_will_print"
+      "status": "completed_delivered_to_ines"
+    },
+    {
+      "id": "countdown_tension",
+      "status": "resolved_for_now_one_plan_at_a_time"
     }
   ],
-  "turn_cursor": 91
+  "turn_cursor": 98
 }

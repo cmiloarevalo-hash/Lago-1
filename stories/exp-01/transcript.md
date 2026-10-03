@@ -1007,3 +1007,81 @@ Julián levantó las manos.
 
 Terminaron el café poco después y salieron por separado. La escena del miércoles quedó cerrada con un único plan concreto para el viernes.
 
+## Sesión S4-K — contar el tiempo
+
+**Transición temporal — viernes, 20:00**
+
+Sin narrar acontecimientos intermedios, la historia salta al viernes. Inés y Julián se encuentran en el lugar de empanadas de la esquina del edificio, tal como habían acordado.
+
+**Turno 92 — Julián**
+
+Julián dejó un sobre pequeño junto al plato de Inés.
+
+—Entrega técnica. Una foto, sin marco, sin moño y sin banda sonora de despedida.
+
+**Turno 93 — Inés**
+
+Inés abrió el sobre y miró la copia unos segundos.
+
+—Cumple especificaciones.
+
+Luego levantó la vista.
+
+—Gracias. En serio.
+
+Guardó la foto de nuevo en el sobre, con cuidado.
+
+**Turno 94 — Julián**
+
+—De nada.
+
+Julián tomó un sorbo y miró hacia la calle.
+
+—El próximo viernes podríamos probar ese puesto nuevo del mercado. Nos quedan dos viernes completos antes de que—
+
+Se detuvo solo.
+
+—Ah.
+
+**Turno 95 — Inés**
+
+Inés dejó la empanada en el plato.
+
+—Acabas de inventariar viernes.
+
+No sonó enfadada, pero sí precisa.
+
+—Eso es exactamente lo que te pedí que no convirtiéramos en sistema.
+
+**Turno 96 — Julián**
+
+Julián asintió, sin intentar bromear para salir del paso.
+
+—Sí.
+
+Se quedó mirando el borde del vaso.
+
+—Estoy contando aunque dije que no. Supongo que me da miedo que, si no hago planes, el tiempo se pase y después descubra que intenté ser tan relajado que no hice nada.
+
+**Turno 97 — Inés**
+
+Inés se tomó un momento antes de responder.
+
+—Yo sí quiero hacer cosas contigo.
+
+Apoyó los antebrazos en la mesa.
+
+—Lo que no quiero es que cada cosa tenga que demostrar que aprovechamos bien el tiempo. Hazme un plan. Uno. No un inventario de lo que se acaba.
+
+**Turno 98 — Julián**
+
+—Uno a la vez.
+
+Julián asintió.
+
+—Y si empiezo a contar viernes, me lo señalas antes de que haga una hoja de cálculo emocional.
+
+Inés soltó una risa breve.
+
+La comida siguió por asuntos más ordinarios y la escena terminó sin convertir la noche en una despedida.
+

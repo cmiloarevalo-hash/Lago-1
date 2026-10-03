@@ -7,7 +7,7 @@
 - Cuando Inés reveló inicialmente la oferta, Julián asumió demasiado rápido que hacer planes quizá no tenía sentido. Inés le pidió que no decidiera por ella; Julián reconoció el error y el quiebre quedó reparado.
 - La caminata fotográfica del sábado se realizó y terminó positivamente.
 - Para fotografiar a Inés, pedir permiso es una boundary real: le importa poder decidir antes y puede decir sí o no sin justificarse.
-- Tras aceptar la oferta, Inés y Julián acordaron seguir viéndose mientras ambos estén en la ciudad y seguir hablando cuando ella se vaya, sin formalizar una relación ni prometer de antemano cómo funcionarán los seis meses. Inés no quiere que el tiempo restante se convierta en una cuenta regresiva de “últimas veces”.
+- Tras aceptar la oferta, Inés y Julián acordaron seguir viéndose mientras ambos estén en la ciudad y seguir hablando cuando ella se vaya, sin formalizar una relación. Inés no quiere una cuenta regresiva de “últimas veces”; Julián admitió que tiende a contar el tiempo porque teme dejarlo pasar. Acordaron hacer un plan a la vez, sin inventariar despedidas.
 - Acordaron una regla relacional: si seguir conociéndose deja de tener sentido para alguno, lo dirán en vez de desaparecer o decidir por el otro.
 
 ## Knowledge boundaries
