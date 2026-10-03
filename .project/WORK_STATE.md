@@ -7,36 +7,59 @@
 Supervisor
 
 ## Work Item activo
-**Phase 0 Research**
+**Fase 1 — Fundamentos narrativos, personajes y estado mínimo**
 
 ## Actividad activa
-**R12 — Diseñar y justificar las cinco fases del proyecto**  
-GitHub Issue: #14
+**R03 — Modelo de personajes, roles y estado de relación**  
+GitHub Issue: #4
 
-## Baseline observado
-`1a0431f60c8645b6e56a592657d87fd1ec56bdd6`
+## Última decisión del Supervisor
+**R12 — ACCEPT**
+
+R12 fue aceptada como plan de exactamente cinco fases y la Issue #14 fue cerrada por el Supervisor.
+
+## Baseline previo
+`11b938f582c112d46f58c4abfbd97907defb358b`
 
 ## Estado
 ACTIVE — IMPLEMENTER RESEARCH
 
 ## Objetivo inmediato
-Obtener una propuesta de exactamente cinco fases que lleve el proyecto desde investigación hasta **Cuentos románticos — Prototipo 1 evaluado**, usando actividades pequeñas, persistentes y verificables.
+Definir el modelo mínimo y persistente de los dos protagonistas adultos, personajes secundarios y estado de relación, de forma que pueda alimentar posteriormente memoria, orquestación y continuidad narrativa.
+
+## Alcance autorizado
+Trabajar únicamente R03.
+
+Debe cubrir:
+- ficha mínima estable de protagonista;
+- atributos dinámicos;
+- identidad, antecedentes y estilo verbal;
+- metas, preferencias, límites y conocimiento;
+- estado de relación entre protagonistas;
+- dimensiones de confianza, interés, conflicto, intimidad emocional y compromiso;
+- invariantes de continuidad;
+- relación conceptual con secundarios, sin resolver todavía toda R11;
+- reglas para evitar estereotipos rígidos asociados a los roles masculino/femenino.
 
 ## Actividades en espera
 - R01 — estructura narrativa
-- R10 — protocolo experimental de conversación/cadencia
-- R11 — secundarios y memoria reducida
-- R13 — layout de archivos y memoria en GitHub
-
-Estas actividades no están canceladas; quedan pendientes de secuenciación después de la revisión de R12.
+- R02 — escenarios
+- R04 — memoria mínima
+- R05 — orquestación
+- R06 — persistencia técnica
+- R07 — límites/consentimiento
+- R08 — evaluación
+- R10 — protocolo experimental
+- R11 — secundarios
+- R13 — layout GitHub
 
 ## Bloqueadas por dependencia
 - R09 — síntesis arquitectónica
-- cualquier implementación sustancial de la aplicación
-- EVAL-00 final
+- cualquier implementación sustancial
+- EVAL-00
 
 ## Próxima transición válida
-El Implementador entrega R12 con **READY FOR SUPERVISOR REVIEW**.
+El Implementador entrega R03 con **READY FOR SUPERVISOR REVIEW**.
 
 El Supervisor responde con exactamente una decisión:
 - ACCEPT
@@ -44,11 +67,12 @@ El Supervisor responde con exactamente una decisión:
 - BLOCK
 - ESCALATE
 
-Si R12 recibe ACCEPT, el Supervisor autoriza el siguiente bloque de investigación.
+Si R03 recibe ACCEPT, el Supervisor decidirá si activar R04 o abrir otro componente de Fase 1 según dependencias reales.
 
 ## Regla de continuidad
-Un nuevo agente debe leer, en este orden:
+Un agente nuevo debe leer, en este orden:
 1. `.project/CONTEXT.md`
 2. este archivo;
 3. Issue #1;
-4. Issue #14 y sus comentarios.
+4. Issue #4 y sus comentarios;
+5. última decisión del Supervisor en Issue #14.
