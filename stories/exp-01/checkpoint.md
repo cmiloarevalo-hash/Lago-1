@@ -1,12 +1,12 @@
-# Checkpoint — EXP-01/S6 X08
+# Checkpoint — EXP-01/S6 X09
 
-Viernes por la noche. La llamada terminó.
+Domingo por la tarde, dos semanas después de la llegada. La interacción quedó cerrada.
 
-Se completaron **185 turnos**; X08 añadió 182–185.
+Se completaron **189 turnos**; X09 añadió 186–189.
 
-Inés dijo que sí sintió una pequeña decepción cuando Julián no pudo hablar el día anterior, pero que prefiere un límite claro a atención a medias. Julián reconoció que teme que decir “no puedo hoy” parezca falta de interés. Ambos acordaron implícitamente que una decepción puntual no equivale a rechazo ni problema moral.
+Inés avisó que el próximo sábado tendrá una actividad laboral durante todo el día. Lo presentó como información de agenda, no como disculpa. Julián lo recibió así. El domingo posterior podría ser de descanso; no existe plan obligatorio.
 
 No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una nueva interacción explícita. La disponibilidad no es obligación constante. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. El próximo sábado de Inés está ocupado por trabajo. Transcript no es necesario para reconstrucción.
