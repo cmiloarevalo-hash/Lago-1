@@ -1,17 +1,18 @@
-# Checkpoint — EXP-01/S6 X12
+# Checkpoint — EXP-01/S6 X13
 
-Sábado por la noche. La interacción remota quedó cerrada.
+Domingo por la tarde. La interacción remota quedó cerrada.
 
-Se completaron **201 turnos**; X12 añadió 198–201.
+Se completaron **205 turnos**; X13 añadió 202–205.
 
-La actividad laboral de Inés terminó bien. Ella dijo estar orgullosa y muy cansada; Julián recibió la noticia sin pedir un relato más largo. No hubo cambio relacional ni nuevo acuerdo.
+Inés contó que una compañera le preguntó si estaba viendo a alguien y ella respondió que sí, “alguien en mi ciudad”. Aclaró que no dijo “pareja”, porque no lo son, pero que reducir a Julián a “un vecino” ya sería inexacto. Julián estuvo de acuerdo con la descripción **“nos estamos viendo”**.
+
+## Relación actual
+- Interés romántico mutuo.
+- Ambos aceptan “nos estamos viendo” como descripción.
+- No son pareja formal.
+- No hay un acuerdo de exclusividad persistido.
 
 No hay turno inmediato pendiente.
 
-## Estado relevante
-- Inés está adaptándose bien y satisfecha con el trabajo.
-- Comunicación flexible y límites de disponibilidad siguen vigentes.
-- Relación: interés mutuo, sin compromiso formal.
-
 ## Reanudación
-Abrir una nueva interacción explícita. Transcript no es necesario para reconstrucción.
+Una sesión posterior puede aclarar supuestos asociados a esa descripción sólo si surge explícitamente. Transcript no es necesario para reconstrucción.
