@@ -6,73 +6,86 @@
 ## Rol de control
 Supervisor
 
-## Work Item activo
-**Fase 1 — Fundamentos narrativos, personajes y estado mínimo**
+## Modo actual
+**RESEARCH-PERSISTENT — BATCH MODE**
 
-## Actividad activa
-**R03 — Modelo de personajes, roles y estado de relación**  
-GitHub Issue: #4
+El Implementador avanza por una cola secuencial de investigaciones. No espera evaluación del Supervisor entre actividades.
 
-## Última decisión del Supervisor
+## Antecedente cerrado
 **R12 — ACCEPT**
 
-R12 fue aceptada como plan de exactamente cinco fases y la Issue #14 fue cerrada por el Supervisor.
+R12 definió el plan de cinco fases. A partir de la aclaración operativa posterior, la ejecución de investigación cambia a revisión por lote al final.
 
-## Baseline previo
-`11b938f582c112d46f58c4abfbd97907defb358b`
+## Cola persistente autorizada
 
-## Estado
-ACTIVE — IMPLEMENTER RESEARCH
+1. R03 / #4 — personajes, roles y estado de relación
+2. R01 / #2 — estructura narrativa romántica
+3. R02 / #3 — escenarios y transiciones
+4. R07 / #8 — límites, consentimiento e intimidad adulta
+5. R04 / #5 — memoria mínima persistente
+6. R11 / #13 — secundarios y memoria reducida
+7. R05 / #6 — orquestación de dos chats
+8. R06 / #7 — persistencia técnica y escalabilidad
+9. R10 / #12 — protocolo experimental y cadencia
+10. R13 / #15 — layout de archivos/memoria en GitHub
+11. R08 / #9 — métricas y protocolo de evaluación
+12. R09 / #10 — síntesis de investigación y arquitectura candidata
 
-## Objetivo inmediato
-Definir el modelo mínimo y persistente de los dos protagonistas adultos, personajes secundarios y estado de relación, de forma que pueda alimentar posteriormente memoria, orquestación y continuidad narrativa.
+## Actividad actual
+**R03 / Issue #4**
 
-## Alcance autorizado
-Trabajar únicamente R03.
+## Regla de transición
+Al terminar una actividad, el Implementador publica:
 
-Debe cubrir:
-- ficha mínima estable de protagonista;
-- atributos dinámicos;
-- identidad, antecedentes y estilo verbal;
-- metas, preferencias, límites y conocimiento;
-- estado de relación entre protagonistas;
-- dimensiones de confianza, interés, conflicto, intimidad emocional y compromiso;
-- invariantes de continuidad;
-- relación conceptual con secundarios, sin resolver todavía toda R11;
-- reglas para evitar estereotipos rígidos asociados a los roles masculino/femenino.
+**IMPLEMENTER COMPLETE — RXX**
 
-## Actividades en espera
-- R01 — estructura narrativa
-- R02 — escenarios
-- R04 — memoria mínima
-- R05 — orquestación
-- R06 — persistencia técnica
-- R07 — límites/consentimiento
-- R08 — evaluación
-- R10 — protocolo experimental
-- R11 — secundarios
-- R13 — layout GitHub
+y continúa inmediatamente con la siguiente actividad de la cola.
 
-## Bloqueadas por dependencia
-- R09 — síntesis arquitectónica
-- cualquier implementación sustancial
-- EVAL-00
+No espera ACCEPT.
+No cierra la issue.
+No inicia código de aplicación.
 
-## Próxima transición válida
-El Implementador entrega R03 con **READY FOR SUPERVISOR REVIEW**.
+## Checkpoints
+Cada actividad debe poder pausarse y reanudarse. Antes de una pausa, guardar:
+- estado;
+- baseline/HEAD observado;
+- evidencia añadida;
+- hallazgos;
+- supuestos;
+- preguntas abiertas;
+- next action.
 
-El Supervisor responde con exactamente una decisión:
+## Bloqueos
+Si una actividad queda bloqueada:
+- publicar **IMPLEMENTER BLOCKED — RXX**;
+- documentar causa y evidencia;
+- continuar sólo con una siguiente actividad que no dependa de ese bloqueo;
+- si el resto depende del bloqueo, detener la cola.
+
+## Fin del batch de investigación
+Después de completar R09:
+1. actualizar Issue #1;
+2. publicar **READY FOR SUPERVISOR BATCH REVIEW**;
+3. detenerse;
+4. no implementar.
+
+Entonces el Supervisor ejecuta EVAL-00 / #11 sobre el conjunto completo.
+
+## Resultado del Supervisor
+Una sola decisión formal sobre el batch:
 - ACCEPT
 - REWORK
 - BLOCK
 - ESCALATE
 
-Si R03 recibe ACCEPT, el Supervisor decidirá si activar R04 o abrir otro componente de Fase 1 según dependencias reales.
+Si hay REWORK, el Supervisor genera nuevas actividades concretas y el Implementador vuelve a modo persistente.
 
-## Regla de continuidad
-Un agente nuevo debe leer, en este orden:
+## Continuidad para un agente nuevo
+Leer en este orden:
 1. `.project/CONTEXT.md`
-2. este archivo;
-3. Issue #1;
-4. Issue #4 y sus comentarios;
-5. última decisión del Supervisor en Issue #14.
+2. `.project/WORK_STATE.md`
+3. Issue #1
+4. issue actual de la cola
+5. último checkpoint de esa issue
+
+La conversación privada del chat no es fuente de estado.
