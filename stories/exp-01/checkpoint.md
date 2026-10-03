@@ -1,19 +1,21 @@
-# Checkpoint — EXP-01/T04 sesión A
+# Checkpoint — EXP-01/T04 sesión B
 
-Miércoles por la noche. La interacción remota quedó cerrada.
+Jueves por la noche. La interacción remota quedó cerrada.
 
-Se completaron **242 turnos**; T04-A añadió 239–242.
+Se completaron **246 turnos**; T04-B añadió 243–246.
 
-Inés dijo que **dentro de dos fines de semana** tiene libres sábado y domingo y propuso esa ventana como posible momento para una visita. Julián confirmó que todavía quiere ir, pero dijo que revisará su trabajo antes de convertir la posibilidad en plan.
+Julián confirmó que su trabajo le permite viajar durante la ventana que Inés había propuesto. Inés respondió que la propuesta sigue en pie y que quiere que vaya.
 
-**Estado exacto de la visita:** hay una ventana candidata real, pero la visita **todavía no está confirmada**. No hay transporte, reserva, alojamiento ni fechas de calendario persistidas.
+**Estado exacto de la visita:** CONFIRMADA para la ventana relativa **dentro de dos fines de semana** respecto de T04-A. Todavía no hay fechas de calendario, transporte, horarios, reserva ni alojamiento persistidos.
+
+Julián dijo que revisará opciones y compartirá horarios antes de reservar. Inés pidió confirmar sólo lo necesario y evitar una coreografía excesiva.
 
 No hay turno inmediato pendiente.
 
 ## Relación
-- Se están viendo a distancia con interés mutuo.
+- Se están viendo a distancia con interés romántico mutuo.
 - Sin pareja formal.
 - Sin exclusividad acordada.
 
 ## Reanudación
-La siguiente sesión puede abrir después de que Julián revise su disponibilidad. No asumir que la visita quedó confirmada antes de que él lo diga explícitamente. Transcript no es necesario para reconstrucción.
+La siguiente sesión puede aclarar límites o logística mínima de la visita. No inventar transporte, alojamiento ni fechas exactas si no aparecen dentro del roleplay. Transcript no es necesario para reconstrucción.
