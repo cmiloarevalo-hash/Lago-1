@@ -1,12 +1,17 @@
-# Checkpoint — EXP-01/S6 X11
+# Checkpoint — EXP-01/S6 X12
 
-Jueves por la noche. La interacción quedó cerrada.
+Sábado por la noche. La interacción remota quedó cerrada.
 
-Se completaron **197 turnos**; X11 añadió 194–197.
+Se completaron **201 turnos**; X12 añadió 198–201.
 
-Inés dijo que no estaría muy conversadora. Julián preguntó si era cansancio general o si ella quería distancia con él, en vez de asumir. Inés aclaró que era cansancio y valoró la pregunta.
+La actividad laboral de Inés terminó bien. Ella dijo estar orgullosa y muy cansada; Julián recibió la noticia sin pedir un relato más largo. No hubo cambio relacional ni nuevo acuerdo.
 
 No hay turno inmediato pendiente.
 
+## Estado relevante
+- Inés está adaptándose bien y satisfecha con el trabajo.
+- Comunicación flexible y límites de disponibilidad siguen vigentes.
+- Relación: interés mutuo, sin compromiso formal.
+
 ## Reanudación
-Abrir una interacción posterior explícita. El próximo sábado Inés tiene actividad laboral todo el día. Transcript no es necesario para reconstrucción.
+Abrir una nueva interacción explícita. Transcript no es necesario para reconstrucción.
