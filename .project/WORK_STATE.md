@@ -1,58 +1,51 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01 — REWORK**
+**EXP-01 — ACCEPT**
 
-## Motivo del REWORK
-T04 fue ejecutada con el mismo chat narrativo previo, no con un chat completamente nuevo.
+## Estado
+EXP-01 está COMPLETADO y cerrado.
 
-Por tanto T04 conserva valor como evidencia de continuidad y persistencia segura, pero NO valida reemplazabilidad.
+## Resultado final
+El prototipo validó que GitHub puede actuar como memoria durable externa para un Narrative Test Agent y que el trabajador puede ser reemplazado por una conversación nueva bajo protocolo explícito.
 
-## Evidencia todavía válida
-- continuidad narrativa hasta 250 turnos;
-- reentradas repetidas desde GitHub;
+## Evidencia validada
+- continuidad narrativa hasta 262 turnos;
+- reentradas repetidas desde durable state;
+- transcript no utilizado como memoria primaria;
 - memory compacta;
-- escritura segura por scope + diff;
-- batches autónomos de 5, 10 y 20 micro-sesiones;
-- 86 turnos bajo una sola solicitud persistente en S6.
+- persistencia segura por baseline/scope/diff;
+- batch autónomo de 5 micro-sesiones / 32 turnos;
+- batch autónomo de 10 micro-sesiones / 40 turnos;
+- batch autónomo de 20 micro-sesiones / 86 turnos;
+- T05: fresh-chat takeover de 3 micro-sesiones / 12 turnos.
 
-## Evidencia pendiente
-Reemplazo real por un chat web completamente nuevo.
+## Corrección histórica
+T04 fue ejecutada con el mismo chat previo y NO cuenta como prueba de reemplazabilidad.
 
-## Actividad actual
-**T05 — Verified fresh-chat takeover**
+T05 fue creada específicamente para repetir esa dimensión desde una conversación nueva.
 
-## Precondición humana
-Abrir una conversación web completamente nueva antes de ejecutar T05.
+## Caveat
+La condición de chat nuevo es atestada por el humano; GitHub no puede verificar identidad de conversación.
 
-No reutilizar el chat fijo ni el chat que ejecutó T04.
+El no uso de transcript para bootstrap es un reporte operacional; Git sí verifica la coherencia del resultado persistido.
 
-No proporcionar resumen narrativo.
+## Arquitectura mínima validada
+- `stories/exp-01/story.md` — configuración estable;
+- `stories/exp-01/state.json` — estado actual;
+- `stories/exp-01/memory.md` — hechos durables mínimos;
+- `stories/exp-01/checkpoint.md` — punto exacto de reanudación;
+- `stories/exp-01/transcript.md` — archivo histórico/evidencia;
+- `.project/NARRATIVE_CHAT_PROTOCOL.md` — protocolo operativo.
 
-## Protocolo
-El nuevo chat debe asumir `NARRATIVE TEST AGENT` y reconstruir todo desde:
-- `.project/CONTEXT.md`;
-- `.project/WORK_STATE.md`;
-- `.project/NARRATIVE_CHAT_PROTOCOL.md`;
-- Issue T05;
-- story/state/memory/checkpoint.
+## Trabajo activo
+Ninguno.
 
-`transcript.md` no debe usarse para bootstrap salvo ambigüedad concreta.
+## Próxima decisión humana
+No iniciar nada automáticamente.
 
-## Escritura autorizada
-Sólo:
-- `stories/exp-01/transcript.md`
-- `stories/exp-01/state.json`
-- `stories/exp-01/memory.md`
-- `stories/exp-01/checkpoint.md`
-
-## Read-only
-- `stories/exp-01/story.md`
-- `.project/*`
-- `README.md`
-
-## Gate T05
-`IMPLEMENTER COMPLETE — EXP-01/T05`
-`READY FOR SUPERVISOR VERIFIED-FRESH-CHAT REVIEW`
-
-Después detenerse.
+Opciones futuras:
+1. generalizar a otra historia;
+2. repetir fresh-chat takeover varias veces para estimar tasa de éxito;
+3. introducir Chat B como continuity controller;
+4. probar el mismo patrón en una tarea no narrativa.
