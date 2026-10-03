@@ -2133,3 +2133,31 @@ Inés envió una foto de un letrero ligeramente inclinado, sin personas.
 
 —Tú evitas accidentes. Yo documento el ángulo.
 
+## Sesión S6-X16 — un mes sin ceremonia
+
+**Transición temporal — domingo, tarde; aproximadamente cuatro semanas después de la llegada**
+
+**Turno 215 — Inés**
+
+—Me di cuenta de que llevo casi un mes aquí.
+
+—No como cuenta regresiva. Sólo porque el calendario dejó de sentirse provisional.
+
+**Turno 216 — Julián**
+
+—Prometo no restar ese mes de seis en voz alta.
+
+—¿Se siente normal?
+
+**Turno 217 — Inés**
+
+—Más de lo que esperaba.
+
+—Y hablar contigo también. Ya no siento que cada conversación tenga que verificar si “esto sigue funcionando”.
+
+**Turno 218 — Julián**
+
+—Bien.
+
+—Prefiero que funcione sin auditoría semanal.
+
