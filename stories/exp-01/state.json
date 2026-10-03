@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "salida del edificio hacia el barrio viejo",
-    "time": "sábado, 10:20",
+    "location": "barrio viejo, primeras cuadras de la caminata",
+    "time": "sábado, mañana",
     "privacy": "public",
     "status": "active",
     "participants": [
@@ -12,13 +12,13 @@
   },
   "relationship": {
     "label": "vecinos con interés romántico mutuo explícito, explorándolo sin compromiso mientras la oferta laboral sigue pendiente",
-    "trust": "moderado",
+    "trust": "moderado_en_aumento",
     "emotional_intimacy": "moderada",
     "romantic_interest": "mutuo_explicito",
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "saturday_walk_started",
+  "beat": "photo_boundary_clarified",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -43,7 +43,15 @@
     {
       "id": "walk_home_after_cafe",
       "status": "completed"
+    },
+    {
+      "id": "observation_game",
+      "status": "in_progress"
+    },
+    {
+      "id": "photo_boundary",
+      "status": "clarified_and_respected"
     }
   ],
-  "turn_cursor": 48
+  "turn_cursor": 54
 }
