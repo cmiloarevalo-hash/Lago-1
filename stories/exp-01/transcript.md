@@ -1085,3 +1085,75 @@ Inés soltó una risa breve.
 
 La comida siguió por asuntos más ordinarios y la escena terminó sin convertir la noche en una despedida.
 
+## Sesión S4-L — fecha de viaje y acuerdo práctico
+
+**Transición temporal — martes, final de la tarde**
+
+Sin narrar acontecimientos intermedios, la historia salta al martes siguiente. Inés y Julián coinciden junto a los buzones del hall del edificio.
+
+**Turno 99 — Inés**
+
+Inés cerró uno de los buzones y se volvió hacia Julián.
+
+—Ya decidí cuándo viajo.
+
+Guardó una carta en el bolso.
+
+—El domingo anterior a empezar. Por la mañana.
+
+**Turno 100 — Julián**
+
+Julián asintió.
+
+—Bien. Eso ya es una fecha de verdad.
+
+La miró un momento.
+
+—¿Cómo se siente tenerla?
+
+**Turno 101 — Inés**
+
+—Útil y bastante molesta.
+
+Inés se apoyó un instante contra la pared.
+
+—Pero hay una cosa práctica: no quiero convertir el viaje en seguimiento en tiempo real. No soy buena mandando “salí”, “llegué a tal parte”, “ahora estoy aquí”.
+
+**Turno 102 — Julián**
+
+—No necesito telemetría.
+
+Julián sonrió.
+
+—Con un “llegué” cuando tengas cabeza para mandarlo me basta. Y si tarda, no voy a interpretar una tragedia en cada minuto.
+
+**Turno 103 — Inés**
+
+—Eso sí me sirve.
+
+Inés asintió.
+
+—Un mensaje cuando llegue y pueda. Sin interrogatorio posterior de veinte preguntas.
+
+**Turno 104 — Julián**
+
+—Puedo limitarme a diecinueve.
+
+Esperó a que ella negara con la mirada.
+
+—Era broma. Una confirmación y espacio.
+
+Luego añadió:
+
+—¿Y para esta semana? Un plan. No un inventario.
+
+**Turno 105 — Inés**
+
+—Jueves, seis y media, Café Niebla.
+
+La respuesta fue inmediata.
+
+—Uno.
+
+Se despidieron junto a los ascensores. La escena quedó cerrada con la fecha de viaje ya definida y un único plan próximo.
+

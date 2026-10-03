@@ -1,47 +1,46 @@
-# Checkpoint — EXP-01/S4 sesión K
+# Checkpoint — EXP-01/S4 sesión L
 
 ## Punto exacto de reanudación
-Viernes por la noche. La comida en el lugar de empanadas de la esquina del edificio terminó y la escena quedó cerrada.
+Martes, final de la tarde. La escena junto a los buzones del hall del edificio quedó cerrada.
 
-Se completaron **98 turnos** en total; S4-K añadió los turnos 92–98.
+Se completaron **105 turnos** en total; S4-L añadió los turnos 99–105.
 
-Julián entregó a Inés la copia impresa de la primera foto del sábado. Después, al proponer otro plan, contó en voz alta cuántos viernes quedaban antes del nuevo trabajo. Inés señaló que eso convertía el tiempo restante en el inventario que había pedido evitar.
+Inés estableció por primera vez una fecha de viaje dentro de la historia: **viajará el domingo anterior al inicio del nuevo trabajo, por la mañana**.
 
-Julián reconoció una vulnerabilidad nueva: está contando porque teme que, si no hace planes, el tiempo pase y descubra que no hizo nada. Inés aclaró que sí quiere hacer cosas con él; lo que rechaza es que cada encuentro tenga que probar que “aprovecharon” el tiempo.
+También definieron un acuerdo práctico para la distancia: Inés no quiere seguimiento en tiempo real durante el viaje; enviará un mensaje de “llegué” cuando haya llegado y tenga espacio para hacerlo. Julián aceptó no interpretar demoras ni exigir reportes.
 
-Acordaron una regla práctica: **un plan a la vez, sin inventariar despedidas**.
+Al final, Julián pidió exactamente un próximo plan, respetando el acuerdo de no contar el tiempo. Inés propuso: **jueves, 18:30, Café Niebla**.
 
-La escena cerró sin conflicto pendiente inmediato.
+No hay turno inmediato pendiente porque la escena quedó cerrada.
 
 ## Relación actual
 - Interés romántico mutuo explícito.
 - Sin compromiso formal.
 - Confianza alta; intimidad emocional alta-moderada.
-- Ambos quieren seguir viéndose.
-- El desacuerdo sobre la cuenta regresiva fue pequeño, explícito y quedó reparado mediante un acuerdo práctico.
+- Mantienen el acuerdo de un plan a la vez.
+- La futura distancia ya tiene una logística mínima, sin convertirla en relación formal a distancia.
 
 ## Threads
-1. **Trabajo de Inés:** comienza dentro de tres semanas desde la confirmación del miércoles.
-2. **Fecha de viaje:** ABIERTA — Inés aún no la decidió.
-3. **Cuenta regresiva:** RESUELTA POR AHORA — un plan a la vez; no contar “últimas veces”.
-4. **Foto impresa:** COMPLETADA — Julián entregó a Inés la primera foto del sábado.
-5. **Comida del viernes:** COMPLETADA.
-6. **Relación:** continuar intencionalmente sin compromiso formal.
-7. **Boundary fotográfica:** vigente.
+1. **Trabajo de Inés:** aceptado; inicio dentro de tres semanas desde la confirmación del miércoles.
+2. **Fecha de viaje:** RESUELTA — domingo anterior al inicio del trabajo, por la mañana.
+3. **Check-in de llegada:** ACORDADO — un mensaje cuando Inés llegue y pueda; sin seguimiento en tiempo real.
+4. **Cuenta regresiva:** resuelta por ahora — un plan a la vez.
+5. **Próximo plan:** CONFIRMADO — jueves 18:30, Café Niebla.
+6. **Boundary fotográfica:** vigente.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián cuenta el tiempo porque teme dejarlo pasar sin hacer planes.
-- Julián aceptó el acuerdo de un plan a la vez.
-- La fecha de viaje sigue sin decidirse.
+- Julián conoce ya el día relativo de viaje.
+- Julián acepta un check-in mínimo y no espera telemetría.
+- El siguiente plan es jueves 18:30 en Café Niebla.
 
 ### Julián sabe
-- Inés sí quiere seguir haciendo planes con él.
-- Lo que rechaza es convertirlos en prueba o inventario de despedida.
-- La fecha de viaje sigue sin decidirse.
+- Inés viajará el domingo anterior al inicio del trabajo, por la mañana.
+- Inés enviará “llegué” cuando pueda, no durante cada tramo.
+- El siguiente plan es jueves 18:30 en Café Niebla.
 
 ## Siguiente acción natural
-La siguiente sesión debe abrir una escena nueva explícita. Puede emerger un dato logístico concreto sobre el viaje sólo si se introduce dentro del roleplay; no inventar una fecha fuera de escena.
+Abrir explícitamente el jueves a las 18:30 en Café Niebla. El segundo arco puede resolverse mostrando que cercanía presente y preparación práctica pueden coexistir sin formalizar la relación ni convertir cada encuentro en despedida.
 
 ## Reanudación
-`story.md + state.json + memory.md + checkpoint.md` bastan para continuar L. Transcript no es necesario para reconstrucción.
+`story.md + state.json + memory.md + checkpoint.md` bastan para continuar M. Transcript no es necesario para reconstrucción.

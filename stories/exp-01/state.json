@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "lugar de empanadas de la esquina del edificio",
-    "time": "viernes, noche",
+    "location": "hall de su edificio, junto a los buzones",
+    "time": "martes, final de la tarde",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -18,11 +18,11 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "countdown_anxiety_named_and_reframed",
+  "beat": "departure_day_set_contact_agreement",
   "threads": [
     {
       "id": "ines_job_offer",
-      "status": "accepted_start_in_three_weeks_departure_date_undecided"
+      "status": "accepted_start_in_three_weeks_travel_sunday_before_start_morning"
     },
     {
       "id": "julian_saturday_invitation",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "continue_intentionally_one_plan_at_a_time_no_countdown"
+      "status": "continue_intentionally_one_plan_at_a_time_simple_arrival_checkin"
     },
     {
       "id": "walk_home_after_cafe",
@@ -54,7 +54,7 @@
     },
     {
       "id": "departure_logistics",
-      "status": "job_starts_in_three_weeks_travel_date_undecided"
+      "status": "travel_sunday_before_job_start_morning"
     },
     {
       "id": "friday_meal",
@@ -67,7 +67,15 @@
     {
       "id": "countdown_tension",
       "status": "resolved_for_now_one_plan_at_a_time"
+    },
+    {
+      "id": "arrival_checkin",
+      "status": "agreed_one_message_when_ines_arrives_and_can_no_live_tracking"
+    },
+    {
+      "id": "thursday_cafe",
+      "status": "confirmed_1830_cafe_niebla"
     }
   ],
-  "turn_cursor": 98
+  "turn_cursor": 105
 }
