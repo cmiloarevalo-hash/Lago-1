@@ -1,10 +1,10 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "barrio viejo, caminata en curso",
-    "time": "sábado, media mañana",
+    "location": "hall de su edificio",
+    "time": "sábado, fin de la mañana",
     "privacy": "public",
-    "status": "active",
+    "status": "closed",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "observation_game_continues",
+  "beat": "saturday_walk_closed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -26,7 +26,7 @@
     },
     {
       "id": "julian_saturday_invitation",
-      "status": "accepted_in_progress"
+      "status": "completed"
     },
     {
       "id": "reaction_repair",
@@ -46,12 +46,12 @@
     },
     {
       "id": "observation_game",
-      "status": "in_progress"
+      "status": "completed"
     },
     {
       "id": "photo_boundary",
       "status": "clarified_and_respected"
     }
   ],
-  "turn_cursor": 59
+  "turn_cursor": 64
 }
