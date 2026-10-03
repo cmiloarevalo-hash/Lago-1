@@ -1833,3 +1833,37 @@ Inés apoyó la barbilla en una mano.
 
 —Trato —dijo Julián.
 
+## Sesión S6-X06 — empezar a sentirse cotidiana
+
+**Transición temporal — martes, noche**
+
+**Turno 174 — Inés**
+
+Inés envió un audio.
+
+—Hoy fue el primer día en que volví y no sentí que estaba alojándome en una pausa.
+
+Hizo un pequeño silencio.
+
+—Ya sé cómo llegar al trabajo sin mirar el mapa y dónde comprar algo decente para cenar.
+
+**Turno 175 — Julián**
+
+—Eso suena peligrosamente parecido a tener rutina.
+
+—¿Te gusta?
+
+**Turno 176 — Inés**
+
+—Sí.
+
+La respuesta llegó sin rodeos.
+
+—Me está gustando estar aquí. Pensé que admitirlo iba a sentirse como estar traicionando algo de mi vida anterior, pero no.
+
+**Turno 177 — Julián**
+
+—No tienes que estar incómoda para demostrar que extrañas cosas.
+
+—Puedes construir una vida allí durante seis meses y seguir teniendo una aquí.
+
