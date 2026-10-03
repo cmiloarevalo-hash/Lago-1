@@ -513,3 +513,77 @@ Después guardó la cámara contra el pecho y abrió la puerta hacia la calle.
 
 —Ahora sí. Cinco cosas cada uno que el otro habría pasado por alto. Empiezas tú, si quieres.
 
+## Sesión S2-C — profundización durante la caminata
+
+**Turno 49 — Inés**
+
+Inés avanzó media cuadra antes de detenerse frente al zócalo de una tienda cerrada.
+
+—Primera.
+
+Señaló una baldosa azul colocada al revés entre una fila perfectamente alineada.
+
+—Creo que tú mirarías el reflejo del vidrio antes que esto.
+
+**Turno 50 — Julián**
+
+Julián se agachó apenas para verla mejor.
+
+—Correcto. Y eso me molesta porque ahora parece obvio.
+
+Levantó la vista hacia la vereda opuesta.
+
+—La mía: el reflejo del letrero de la panadería en esa persiana metálica. No el letrero; el reflejo deformado.
+
+Sonrió.
+
+—Uno a uno. De momento.
+
+**Turno 51 — Inés**
+
+—Eso sí lo habría visto tarde.
+
+Inés observó la persiana un instante.
+
+—Yo noto primero lo que está fuera de lugar. Supongo que es deformación profesional. En producción, una cinta donde no debe estar termina siendo alguien tropezando cinco minutos después.
+
+Volvió a caminar.
+
+—No es una habilidad muy poética.
+
+**Turno 52 — Julián**
+
+—Depende. Evitar que la gente se caiga tiene una dignidad subestimada.
+
+Caminó a su lado unos pasos antes de preguntar, sin levantar la cámara:
+
+—¿Tiene algo que ver con que prefieras que te pregunte antes de fotografiarte? Lo de saber qué está pasando antes de que pase.
+
+**Turno 53 — Inés**
+
+Inés tardó un momento en responder.
+
+—Un poco.
+
+Miró al frente.
+
+—No me molesta una cámara. Me molesta enterarme después de que alguien decidió cómo verme sin preguntarme. Si me preguntas, puedo decir que sí o que no. Parece pequeño, pero no siempre pasa.
+
+Entonces lo miró de reojo.
+
+—Hoy fue distinto porque preguntaste.
+
+**Turno 54 — Julián**
+
+Julián asintió sin bromear de inmediato.
+
+—Entonces no es cortesía. Es una regla.
+
+Se acomodó la correa de la cámara.
+
+—Te pregunto cada vez. Y si dices que no, seguimos caminando. No hace falta una defensa oral.
+
+Después señaló la calle delante de ellos.
+
+—Ahora, para recuperar algo de prestigio: sigo buscando mi segunda cosa antes de que producción me gane por goleada.
+
