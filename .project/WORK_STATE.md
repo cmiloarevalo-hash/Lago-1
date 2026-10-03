@@ -3,41 +3,67 @@
 ## Última decisión formal
 **EXP-01 — REWORK**
 
-## Motivo
-T03 demostró continuidad narrativa en cold resume, pero su commit final eliminó archivos fuera de scope:
-- `.project/CONTEXT.md`
-- `.project/WORK_STATE.md`
-- `README.md`
+## Hallazgo
+El cold resume narrativo de T03 funcionó, pero el commit final modificó/eliminó archivos fuera de scope. Por ello se requiere mejorar disciplina de persistencia antes de continuar con reemplazos de chat.
+
+## Protocolo operativo nuevo
+Existe:
+`.project/NARRATIVE_CHAT_PROTOCOL.md`
+
+Todo chat narrativo debe ejecutar ese protocolo de entrada antes de generar contenido.
+
+## Estrategia actual
+**FIXED NARRATIVE TEST AGENT**
+
+Por decisión humana, durante la etapa de estabilización se utilizará el mismo chat web como agente narrativo fijo.
+
+El chat conserva una identidad operativa estable:
+**NARRATIVE TEST AGENT**
+
+Aunque sea el mismo chat, al comenzar cada sesión debe actuar como si su memoria privada no fuera autoridad:
+- releer repositorio;
+- declarar baseline;
+- reconstruir contexto;
+- declarar paths autorizados;
+- persistir sólo dentro de scope.
+
+## Actividad inmediata
+**R1 / Issue #20 — Restaurar integridad y acotar escrituras**
+
+R1 debe restaurar `stories/exp-01/story.md` y documentar la causa del borrado inesperado.
+
+## Siguiente actividad
+Después de R1:
+**S1 / Issue #22 — Estabilizar Narrative Test Agent fijo**
+
+S1 usa el mismo chat narrativo durante tres bloques cortos persistentes.
+
+## Actividad diferida
+**T04 / Issue #21 — cold resume desde otro chat nuevo**
+
+T04 queda PAUSED hasta que S1 reciba revisión del Supervisor.
+
+## Paths narrativos mutables autorizados
+- `stories/exp-01/transcript.md`
+- `stories/exp-01/state.json`
+- `stories/exp-01/memory.md`
+- `stories/exp-01/checkpoint.md`
+
+## Read-only para el Narrative Test Agent
 - `stories/exp-01/story.md`
+- `.project/*`
+- `README.md`
 
-Los documentos de control `.project/CONTEXT.md` y `README.md` ya fueron restaurados por el Supervisor.
+## Regla de persistencia
+Antes de considerar completa cualquier escritura:
+1. registrar HEAD baseline;
+2. aplicar sólo cambios autorizados;
+3. inspeccionar diff;
+4. confirmar cero deletes inesperados;
+5. confirmar cero paths fuera de scope.
 
-## Estado actual
-**REWORK — SAFE PERSISTENCE**
+## Gate de estabilización
+Después de tres bloques S1:
+**READY FOR SUPERVISOR FIXED-CHAT REVIEW**
 
-## Objetivo
-Corregir la integridad del repositorio y volver a probar persistencia con escritura acotada.
-
-## Trabajo autorizado
-1. restaurar `stories/exp-01/story.md` exactamente desde baseline pre-T03;
-2. identificar causa del borrado inesperado;
-3. documentar regla de escritura segura;
-4. ejecutar una nueva reanudación corta desde otro chat nuevo;
-5. antes de commit final, inspeccionar diff vs baseline;
-6. aceptar sólo cambios en paths autorizados.
-
-## Regla de seguridad
-Antes de cualquier commit final:
-- comparar contra baseline;
-- listar archivos modificados;
-- abortar si aparece cualquier archivo no autorizado;
-- abortar si aparece un borrado inesperado.
-
-## Bloqueado
-- Chat B;
-- aplicación/backend;
-- cualquier expansión arquitectónica.
-
-## Próximo gate
-La revalidación termina con:
-**READY FOR SUPERVISOR EXP-01 REWORK REVIEW**
+Sólo después se decidirá cuándo volver a probar reemplazo/cold-resume con otro chat.
