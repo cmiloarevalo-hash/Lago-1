@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "saturday_logistics_confirmed",
+  "beat": "walk_home_proposed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -39,7 +39,11 @@
     {
       "id": "relationship_expectations",
       "status": "clarified_no_commitment"
+    },
+    {
+      "id": "walk_home_after_cafe",
+      "status": "proposed_by_ines_pending_julian"
     }
   ],
-  "turn_cursor": 31
+  "turn_cursor": 35
 }
