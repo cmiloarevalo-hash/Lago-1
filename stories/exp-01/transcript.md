@@ -324,3 +324,49 @@ Inés asintió, satisfecha.
 La sonrisa volvió a asomarle.
 
 —No te acostumbres; podría arruinar tu reputación de improvisador.
+
+## Sesión S1 — bloque 2
+
+**Turno 32 — Julián**
+
+—Mi reputación sobrevivirá.
+
+Julián apoyó una mano sobre el pecho con solemnidad fingida.
+
+—El sábado me bastará con dudar frente a dos calles durante cinco minutos para restaurarla por completo.
+
+Bajó la mano y añadió:
+
+—¿Te parece bien si te escribo el viernes para confirmar que el plan sigue igual?
+
+**Turno 33 — Inés**
+
+—Un mensaje el viernes está permitido.
+
+Inés levantó un dedo.
+
+—Uno. Si recibo un itinerario en PDF con puntos de control, consideraré que te has pasado al enemigo.
+
+La seriedad le duró apenas un segundo.
+
+—Confirmamos y ya.
+
+**Turno 34 — Julián**
+
+Julián soltó una risa.
+
+—Un mensaje. Sin adjuntos. Sin mapas tácticos.
+
+Levantó la taza, casi vacía.
+
+—Y con eso declaro oficialmente cerrada la parte administrativa de esta cita.
+
+**Turno 35 — Inés**
+
+Inés miró hacia la ventana. La lluvia había bajado a una llovizna fina.
+
+—Entonces propongo algo menos administrativo.
+
+Volvió la mirada hacia él.
+
+—Cuando terminemos, ¿volvemos caminando juntos? Vivimos en el mismo edificio; fingir que necesitamos rutas independientes sería exceso de método.
