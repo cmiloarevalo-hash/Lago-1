@@ -2045,3 +2045,31 @@ Un momento después escribió:
 
 —Descansa, Vidal.
 
+## Sesión S6-X13 — cómo nombrarlo sin formalizarlo
+
+**Transición temporal — domingo, tarde**
+
+**Turno 202 — Inés**
+
+—Hoy una compañera me preguntó si estoy viendo a alguien.
+
+Hizo una pausa antes del segundo mensaje.
+
+—Le dije que sí. Que hay alguien en mi ciudad.
+
+**Turno 203 — Julián**
+
+—¿Y cómo se sintió decirlo?
+
+**Turno 204 — Inés**
+
+—Bastante exacto.
+
+—No dije “pareja”. No somos eso. Pero “un vecino con el que hablo” ya sería ridículamente incompleto.
+
+**Turno 205 — Julián**
+
+—Estoy a favor de las descripciones que no necesitan fingir que no pasó nada.
+
+—“Viendo a alguien” me parece correcto, si a ti también.
+
