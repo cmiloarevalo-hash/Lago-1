@@ -5,6 +5,56 @@ Este archivo existe para que cualquier agente o colaborador que reciba acceso al
 
 No es documentación promocional ni README.
 
+## Hipótesis primaria del experimento
+
+La prioridad del Prototipo 1 es **validar ejecución persistente**, no maximizar sofisticación literaria ni arquitectónica.
+
+La pregunta principal es:
+
+> Si a un chatbot web se le entrega una instrucción de trabajo persistente por lote, ¿puede ejecutar una secuencia prolongada de tareas, generar una historia/roleplay, guardar conversación, memoria y contexto en GitHub, interrumpirse y posteriormente continuar sólo desde ese estado durable?
+
+El romance funciona como **carga de trabajo experimental** porque obliga al agente a conservar identidad, relación, escena, hechos previos y progresión narrativa.
+
+El éxito inicial no se mide por producir la mejor novela posible. Se mide por demostrar que el bucle persistente funciona de manera observable y reproducible.
+
+### Principio de simplicidad
+
+El Prototipo 1 debe usar la menor cantidad de piezas posible.
+
+Evitar inicialmente:
+- bases de datos externas;
+- servicios distribuidos;
+- múltiples capas de agentes;
+- memoria vectorial;
+- pipelines complejos;
+- optimización prematura;
+- grandes taxonomías narrativas obligatorias.
+
+Preferir inicialmente:
+- uno o dos chats web;
+- archivos de texto/Markdown/JSON simples;
+- GitHub como almacenamiento durable experimental;
+- transcript append-only;
+- memoria resumida pequeña;
+- checkpoint explícito;
+- estado narrativo mínimo;
+- reglas claras de lectura/escritura.
+
+### Bucle mínimo que se quiere validar
+
+1. leer configuración + memoria + checkpoint;
+2. continuar roleplay/conversación;
+3. guardar el nuevo tramo de conversación;
+4. actualizar sólo los hechos/memoria necesarios;
+5. escribir un checkpoint de reanudación;
+6. continuar con la siguiente tarea/turno;
+7. cerrar el chat;
+8. abrir un chat nuevo;
+9. reconstruir el contexto exclusivamente desde GitHub;
+10. continuar de forma coherente.
+
+La investigación actual también sirve como ensayo de este mismo patrón: el Implementador recibe una cola persistente, completa actividades una tras otra y conserva su estado en GitHub.
+
 ## Objetivo del proyecto
 Construir un prototipo llamado **La U** para experimentar con **tareas persistentes y conversaciones persistentes entre chats web de inteligencia artificial**.
 
