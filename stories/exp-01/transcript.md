@@ -701,3 +701,61 @@ Al llegar al hall, se detuvo antes de ir hacia su ascensor.
 
 Se despidieron allí, sin añadir promesas. La caminata del sábado quedó terminada.
 
+## Sesión S3-F — lunes, decisión pendiente
+
+**Transición temporal — lunes, 08:10**
+
+Sin narrar acontecimientos intermedios, la historia salta al lunes por la mañana. Inés y Julián coinciden en el hall del edificio cuando ambos se disponen a salir.
+
+**Turno 65 — Julián**
+
+Julián levantó una mano a modo de saludo y, después de un segundo, señaló el teléfono que Inés sostenía.
+
+—Hoy es el lunes famoso.
+
+Su tono perdió la broma antes de convertirse en pregunta.
+
+—¿Día de respuesta?
+
+**Turno 66 — Inés**
+
+Inés miró la pantalla y la bloqueó.
+
+—Sí. Tengo un correo abierto desde hace veinte minutos y ninguna mejora perceptible después de releerlo seis veces.
+
+Guardó el teléfono.
+
+—Y, antes de que esto se vuelva más dramático de lo que es: no estoy decidiendo entre tú y un trabajo. Estoy decidiendo si quiero seis meses allá.
+
+**Turno 67 — Julián**
+
+—Bien.
+
+Julián asintió despacio.
+
+—No voy a pedirte un avance exclusivo del resultado.
+
+Se apoyó un instante contra la pared junto al ascensor.
+
+—¿Te sirve una pregunta o te sirve más que me calle?
+
+**Turno 68 — Inés**
+
+Inés lo estudió como si evaluara las dos opciones.
+
+—Una pregunta.
+
+Ajustó la correa del bolso sobre el hombro.
+
+—Pero que no sea “¿qué vas a hacer?”. Pregúntame qué quiero si no tuviera que justificarlo todavía.
+
+**Turno 69 — Julián**
+
+Julián no sonrió esta vez.
+
+—Entonces eso.
+
+Dejó un pequeño silencio entre los dos.
+
+—¿Qué quieres, Inés, si no tienes que justificarlo?
+
