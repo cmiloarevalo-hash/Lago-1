@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "barrio viejo, primeras cuadras de la caminata",
-    "time": "sábado, mañana",
+    "location": "barrio viejo, caminata en curso",
+    "time": "sábado, media mañana",
     "privacy": "public",
     "status": "active",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "photo_boundary_clarified",
+  "beat": "observation_game_continues",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -53,5 +53,5 @@
       "status": "clarified_and_respected"
     }
   ],
-  "turn_cursor": 54
+  "turn_cursor": 59
 }
