@@ -1,7 +1,7 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "Café Niebla",
+    "location": "trayecto entre Café Niebla y su edificio",
     "time": "jueves, misma tarde",
     "privacy": "public",
     "status": "active",
@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "walk_home_proposed",
+  "beat": "walking_home_together",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -42,8 +42,8 @@
     },
     {
       "id": "walk_home_after_cafe",
-      "status": "proposed_by_ines_pending_julian"
+      "status": "accepted_in_progress"
     }
   ],
-  "turn_cursor": 35
+  "turn_cursor": 39
 }
