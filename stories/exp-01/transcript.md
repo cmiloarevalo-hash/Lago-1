@@ -114,3 +114,49 @@ Julián exhaló y asintió.
 Apartó la vista un instante y volvió a ella.
 
 —No quería decir que no valiera la pena hacer planes. Me sorprendió y respondí mal.
+
+## Sesión T02 — bloque 4
+
+**Turno 13 — Inés**
+
+Inés sostuvo la mirada de Julián unos segundos antes de responder.
+
+—No necesito que finjas que la oferta no cambia nada.
+
+Su tono ya no era frío, pero seguía siendo preciso.
+
+—Sólo necesito que no decidas por mí qué significa.
+
+**Turno 14 — Julián**
+
+—Vale.
+
+Julián asintió, esta vez sin intentar llenar el silencio con una broma.
+
+—Entonces no decido. Si quieres venir el sábado, quiero que vengas. Y si el lunes eliges aceptar ese trabajo, hablaremos de eso cuando sea una decisión y no una posibilidad.
+
+**Turno 15 — Inés**
+
+La tensión en los hombros de Inés cedió un poco.
+
+—Quiero ir el sábado.
+
+Miró la lluvia detrás de la ventana y luego a él.
+
+—Y todavía no sé qué voy a responder el lunes. Esa era la parte que no quería convertir en un anuncio definitivo.
+
+**Turno 16 — Julián**
+
+—Entonces el sábado sigue siendo sábado.
+
+Julián sonrió, más pequeño que antes.
+
+—Y el lunes puede esperar hasta el lunes. Puedo intentar esa idea radical de escuchar antes de escribir finales.
+
+**Turno 17 — Inés**
+
+—Bien. Una mejora estadísticamente significativa.
+
+Inés tomó la taza, pero antes de beber volvió a mirarlo.
+
+—Entonces te toca una respuesta incómoda: ¿por qué me invitaste hoy, de verdad?
