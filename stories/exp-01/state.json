@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "comunicación a distancia; Julián en Café Niebla",
-    "time": "martes, final de la tarde; tercera semana",
+    "location": "comunicación a distancia",
+    "time": "jueves, noche; tercera semana",
     "privacy": "remote",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "shared_home_detail_without_countdown",
+  "beat": "ambiguity_clarified_before_assumption",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -129,5 +129,5 @@
       "status": "ines_work_event_all_day"
     }
   ],
-  "turn_cursor": 193
+  "turn_cursor": 197
 }
