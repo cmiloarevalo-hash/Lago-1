@@ -1,10 +1,10 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "entrada de su edificio",
-    "time": "jueves, final de la tarde",
+    "location": "salida del edificio hacia el barrio viejo",
+    "time": "sábado, 10:20",
     "privacy": "public",
-    "status": "closed",
+    "status": "active",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "thursday_scene_closed",
+  "beat": "saturday_walk_started",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -26,7 +26,7 @@
     },
     {
       "id": "julian_saturday_invitation",
-      "status": "accepted_logistics_confirmed_1020_building_lobby"
+      "status": "accepted_in_progress"
     },
     {
       "id": "reaction_repair",
@@ -45,5 +45,5 @@
       "status": "completed"
     }
   ],
-  "turn_cursor": 43
+  "turn_cursor": 48
 }
