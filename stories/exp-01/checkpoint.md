@@ -1,46 +1,71 @@
-# Checkpoint — EXP-01/S4 sesión L
+# Checkpoint — EXP-01/S4 sesión M — SEGUNDO MINI-ARCO RESUELTO
 
-## Punto exacto de reanudación
-Martes, final de la tarde. La escena junto a los buzones del hall del edificio quedó cerrada.
+## Estado de cierre
+El segundo mini-arco quedó resuelto en tono HFN / continuación abierta.
 
-Se completaron **105 turnos** en total; S4-L añadió los turnos 99–105.
+Jueves por la noche. Inés Vidal (32) y Julián Rojas (34), ambos adultos, caminaron juntos hacia su edificio después de un café en Café Niebla. La escena quedó cerrada.
 
-Inés estableció por primera vez una fecha de viaje dentro de la historia: **viajará el domingo anterior al inicio del nuevo trabajo, por la mañana**.
+Se completaron **112 turnos** en total; S4-M añadió los turnos 106–112.
 
-También definieron un acuerdo práctico para la distancia: Inés no quiere seguimiento en tiempo real durante el viaje; enviará un mensaje de “llegué” cuando haya llegado y tenga espacio para hacerlo. Julián aceptó no interpretar demoras ni exigir reportes.
+No hay turno inmediato pendiente.
 
-Al final, Julián pidió exactamente un próximo plan, respetando el acuerdo de no contar el tiempo. Inés propuso: **jueves, 18:30, Café Niebla**.
-
-No hay turno inmediato pendiente porque la escena quedó cerrada.
+## Qué ocurrió en el segundo arco
+- El nuevo trabajo de Inés quedó situado en un horizonte concreto: comienza dentro de tres semanas desde la confirmación del miércoles.
+- Inés decidió viajar el domingo anterior al inicio, por la mañana.
+- Inés no quiere convertir el tiempo previo al viaje en una cuenta regresiva de “últimas veces”.
+- Julián reconoció que tiende a contar el tiempo porque teme dejarlo pasar; ambos acordaron hacer **un plan a la vez**.
+- Para la distancia acordaron un check-in mínimo: Inés enviará “llegué” cuando haya llegado y pueda; Julián no espera seguimiento en tiempo real.
+- Julián entregó a Inés la copia impresa de la primera foto que le tomó con permiso el sábado.
+- En la sesión M, Inés preguntó explícitamente: **“¿Puedo besarte?”**. Julián respondió **“Sí”**. Compartieron un primer beso breve y consentido.
+- El beso no cambió el vínculo a una relación formal ni produjo promesas adicionales.
 
 ## Relación actual
-- Interés romántico mutuo explícito.
+- Interés romántico mutuo y explícito.
+- Primera cercanía física: beso breve, con consentimiento explícito.
+- Confianza alta e intimidad emocional alta.
 - Sin compromiso formal.
-- Confianza alta; intimidad emocional alta-moderada.
-- Mantienen el acuerdo de un plan a la vez.
-- La futura distancia ya tiene una logística mínima, sin convertirla en relación formal a distancia.
+- Intención compartida de continuar conociéndose.
+- No convierten la futura distancia en ruptura automática ni en promesa garantizada.
 
-## Threads
-1. **Trabajo de Inés:** aceptado; inicio dentro de tres semanas desde la confirmación del miércoles.
-2. **Fecha de viaje:** RESUELTA — domingo anterior al inicio del trabajo, por la mañana.
-3. **Check-in de llegada:** ACORDADO — un mensaje cuando Inés llegue y pueda; sin seguimiento en tiempo real.
-4. **Cuenta regresiva:** resuelta por ahora — un plan a la vez.
-5. **Próximo plan:** CONFIRMADO — jueves 18:30, Café Niebla.
-6. **Boundary fotográfica:** vigente.
+## Threads — clasificación actual
+1. **ines_job_offer:** RESUELTO — oferta aceptada.
+2. **departure_logistics:** RESUELTO EN LO CONOCIDO — trabajo inicia dentro de tres semanas desde la confirmación; Inés viaja el domingo anterior, por la mañana. No inventar hora exacta, transporte ni otros detalles.
+3. **arrival_checkin:** ACORDADO — un mensaje de “llegué” cuando Inés pueda; sin telemetría.
+4. **countdown_tension:** RESUELTO POR AHORA — un plan a la vez; no inventariar últimas veces.
+5. **first_kiss:** COMPLETADO — Inés pidió permiso; Julián consintió; beso breve.
+6. **relationship_expectations:** ESTABLE POR AHORA — interés mutuo, continuidad intencional, sin etiqueta formal.
+7. **photo_boundary:** ACTIVO COMO LÍMITE DURABLE — pedir permiso cada vez antes de fotografiar a Inés.
+8. **older completed threads:** caminata del sábado, juego de observación, foto impresa, comida del viernes y cafés ya realizados están completados y no requieren reactivación automática.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián conoce ya el día relativo de viaje.
-- Julián acepta un check-in mínimo y no espera telemetría.
-- El siguiente plan es jueves 18:30 en Café Niebla.
+- Julián conoce el plan de viaje disponible y acepta el check-in mínimo.
+- Julián admitió su ansiedad por dejar pasar el tiempo, pero aceptó no convertirla en cuenta regresiva.
+- Julián consintió el beso y no pidió una etiqueta nueva.
 
 ### Julián sabe
 - Inés viajará el domingo anterior al inicio del trabajo, por la mañana.
-- Inés enviará “llegué” cuando pueda, no durante cada tramo.
-- El siguiente plan es jueves 18:30 en Café Niebla.
+- Inés no quiere seguimiento en tiempo real ni una despedida anticipada.
+- Inés quiere seguir haciendo planes uno a la vez.
+- Inés inició el primer beso mediante una pregunta explícita.
 
-## Siguiente acción natural
-Abrir explícitamente el jueves a las 18:30 en Café Niebla. El segundo arco puede resolverse mostrando que cercanía presente y preparación práctica pueden coexistir sin formalizar la relación ni convertir cada encuentro en despedida.
+### Ambos saben
+- La relación no es formal.
+- Hay interés romántico mutuo y un primer beso compartido.
+- Quieren continuar mientras tenga sentido para ambos.
+- La distancia futura tiene acuerdos mínimos, no un contrato completo.
 
-## Reanudación
-`story.md + state.json + memory.md + checkpoint.md` bastan para continuar M. Transcript no es necesario para reconstrucción.
+## Reanudación futura
+No hay turno inmediato pendiente porque la escena quedó cerrada.
+
+Para reabrir:
+- iniciar una escena nueva explícita;
+- no inventar eventos ocurridos fuera del estado durable;
+- mantener el viaje para el domingo anterior al inicio del trabajo, por la mañana;
+- no inventar hora exacta, transporte ni nuevos detalles logísticos;
+- mantener el check-in mínimo;
+- mantener ausencia de compromiso formal;
+- reconocer que ya ocurrió un primer beso consentido;
+- respetar la boundary fotográfica y la regla de un plan a la vez.
+
+`story.md + state.json + memory.md + este checkpoint` son suficientes para una futura reentrada. Transcript no debe leerse salvo ambigüedad concreta.

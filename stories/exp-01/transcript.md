@@ -1157,3 +1157,81 @@ La respuesta fue inmediata.
 
 Se despidieron junto a los ascensores. La escena quedó cerrada con la fecha de viaje ya definida y un único plan próximo.
 
+## Sesión S4-M — una cercanía nueva
+
+**Transición temporal — jueves, 18:30**
+
+Sin narrar acontecimientos intermedios, la historia salta al jueves. Inés y Julián vuelven a encontrarse en Café Niebla, tal como habían acordado.
+
+**Turno 106 — Julián**
+
+Julián se sentó frente a Inés y dejó el teléfono boca abajo sobre la mesa.
+
+—Hoy traje cero calendarios.
+
+Miró alrededor con exagerada cautela.
+
+—También cero hojas de cálculo emocionales.
+
+**Turno 107 — Inés**
+
+—Progreso medible.
+
+Inés rodeó la taza con ambas manos.
+
+—Tener decidido el viaje me tranquiliza más de lo que esperaba. Sigue sin gustarme la logística, pero ya no está ocupando toda la habitación.
+
+Lo miró directamente.
+
+—Y no quiero que todo lo que hagamos de aquí a entonces sea preparación.
+
+**Turno 108 — Julián**
+
+—Yo tampoco.
+
+Julián apoyó los antebrazos en la mesa.
+
+—Creo que durante unos días estaba tratando de sacar rendimiento del tiempo, como si al final alguien fuera a evaluarme.
+
+Sonrió apenas.
+
+—Prefiero esto. Café que sólo es café.
+
+**Turno 109 — Inés**
+
+Más tarde, al salir de Café Niebla, Inés se detuvo bajo el alero.
+
+—Hay otra cosa que quiero hacer.
+
+Esperó a que Julián la mirara.
+
+—No es logística. ¿Puedo besarte?
+
+**Turno 110 — Julián**
+
+Julián dejó de sonreír por un instante, sorprendido, y luego asintió.
+
+—Sí.
+
+No acortó la distancia hasta que Inés lo hizo primero. El beso fue breve y tranquilo; cuando se separaron, ninguno intentó convertirlo en una declaración.
+
+**Turno 111 — Inés**
+
+Inés respiró una vez, todavía cerca.
+
+—Bien.
+
+La comisura de su boca subió apenas.
+
+—Confirmo que preguntar directamente sigue siendo un sistema bastante eficiente.
+
+**Turno 112 — Julián**
+
+—Y menos burocrático de lo que parece.
+
+Julián sonrió.
+
+—No necesito llamarlo nada distinto hoy.
+
+Caminaron juntos hacia el edificio. La noche terminó sin promesas nuevas: había una fecha de viaje, un acuerdo práctico para la distancia y, ahora, una cercanía elegida por ambos.
+

@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "hall de su edificio, junto a los buzones",
-    "time": "martes, final de la tarde",
+    "location": "trayecto entre Café Niebla y su edificio",
+    "time": "jueves, noche",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -11,14 +11,14 @@
     ]
   },
   "relationship": {
-    "label": "interés romántico mutuo explícito; continúan conociéndose intencionalmente sin compromiso formal pese a futura distancia temporal",
+    "label": "interés romántico mutuo explícito con primera cercanía física consentida; continúan conociéndose sin compromiso formal ante futura distancia",
     "trust": "alto",
-    "emotional_intimacy": "alta_moderada",
-    "romantic_interest": "mutuo_explicito",
+    "emotional_intimacy": "alta",
+    "romantic_interest": "mutuo_explicito_confirmado",
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "departure_day_set_contact_agreement",
+  "beat": "second_arc_resolved_present_closeness_and_practical_distance_plan",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "continue_intentionally_one_plan_at_a_time_simple_arrival_checkin"
+      "status": "continue_intentionally_no_formal_label_one_plan_at_a_time"
     },
     {
       "id": "walk_home_after_cafe",
@@ -74,8 +74,12 @@
     },
     {
       "id": "thursday_cafe",
-      "status": "confirmed_1830_cafe_niebla"
+      "status": "completed"
+    },
+    {
+      "id": "first_kiss",
+      "status": "completed_mutual_explicit_consent_initiated_by_ines"
     }
   ],
-  "turn_cursor": 105
+  "turn_cursor": 112
 }
