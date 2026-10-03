@@ -1957,3 +1957,33 @@ Julián soltó una risa.
 
 —Te escribiré cuando exista evidencia de que despertaste.
 
+## Sesión S6-X10 — Café Niebla sin Inés
+
+**Transición temporal — martes, final de la tarde**
+
+Julián está en Café Niebla. Inés está en la otra ciudad; su ubicación específica no se establece.
+
+**Turno 190 — Julián**
+
+Julián envió una foto de su taza y una esquina vacía de la mesa.
+
+—Reporte objetivo: el café sigue igual de discutible.
+
+**Turno 191 — Inés**
+
+—Eso me tranquiliza más de lo que debería.
+
+—¿Sigue la mesa coja?
+
+**Turno 192 — Julián**
+
+—Confirmado. Tecnología estable.
+
+—No voy a arreglarla; ya forma parte de la identidad institucional.
+
+**Turno 193 — Inés**
+
+—Por una vez apoyo tu falta de iniciativa.
+
+La conversación terminó ahí, ligera y sin agenda.
+
