@@ -1797,3 +1797,39 @@ La respuesta llegó más tarde.
 
 —Lenta, pero prometedora.
 
+## Sesión S6-X05 — primera llamada desde lejos
+
+**Transición temporal — domingo, tarde; una semana después de la llegada**
+
+**Turno 169 — Inés**
+
+—¿Tienes veinte minutos para una llamada?
+
+—Hoy sí quiero verte la cara.
+
+**Turno 170 — Julián**
+
+—Sí. Dame dos minutos para dejar de parecer alguien sorprendido por una cámara frontal.
+
+La llamada comenzó poco después.
+
+**Turno 171 — Inés**
+
+—El trabajo me gusta más de lo que esperaba.
+
+Inés apoyó la barbilla en una mano.
+
+—Y extraño cosas absurdamente específicas. El ruido del ascensor. El café mediocre de la máquina del centro cultural.
+
+**Turno 172 — Julián**
+
+—Puedes estar bien allí y extrañar cosas de aquí. No parece una contradicción particularmente grave.
+
+**Turno 173 — Inés**
+
+—Bien. Entonces dejémoslo así.
+
+—Y no programemos la próxima llamada todavía.
+
+—Trato —dijo Julián.
+
