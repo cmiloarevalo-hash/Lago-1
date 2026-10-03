@@ -88,7 +88,10 @@ Para investigación:
 - inferencias;
 - decisiones provisionales;
 - preguntas abiertas;
-- resultado marcado READY FOR SUPERVISOR REVIEW.
+- cierre técnico marcado **IMPLEMENTER COMPLETE — RXX**;
+- avance inmediato a la siguiente actividad de la cola persistente.
+
+La evaluación formal no ocurre actividad por actividad. El Supervisor revisa el conjunto completo después de la síntesis R09, cuando la Issue #1 queda marcada **READY FOR SUPERVISOR BATCH REVIEW**.
 
 Para implementación futura:
 - cambios versionados;
@@ -116,9 +119,9 @@ No entregar actividades enormes. Cada actividad debe ser suficientemente pequeñ
 - ser revisada por el Supervisor.
 
 ## Estado actual
-La Fase 0 de investigación está abierta en GitHub Issues. No existe autorización todavía para construir la aplicación completa.
+La investigación está en **modo persistente por lote**. El Implementador ejecuta secuencialmente la cola definida en `.project/WORK_STATE.md`, guardando checkpoints y cierres técnicos sin esperar evaluación entre tareas.
 
-Antes de implementación deben resolverse las investigaciones de narrativa, escenas, personajes, memoria, orquestación, persistencia, límites de contenido, evaluación, cadencia conversacional, secundarios y plan de fases.
+No existe autorización todavía para construir la aplicación completa. La revisión del Supervisor ocurre al final del batch, después de R09.
 
 ## Continuidad para nuevos agentes
 Al entrar al proyecto:
@@ -128,7 +131,9 @@ Al entrar al proyecto:
 4. leer checkpoints previos;
 5. trabajar sólo dentro del scope;
 6. persistir evidencia antes de detenerse;
-7. no autoaprobar el resultado.
+7. marcar la actividad **IMPLEMENTER COMPLETE — RXX** al terminar;
+8. continuar con la siguiente actividad de la cola sin esperar evaluación;
+9. detenerse sólo al completar R09 o ante un bloqueo que impida continuar.
 
 ## Nombre de producto
 **La U**
