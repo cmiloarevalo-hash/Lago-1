@@ -1,33 +1,32 @@
 # Memoria mínima — EXP-01
 
 ## Hechos durables
-- Inés Vidal (32) y Julián Rojas (34) son adultos, vecinos del mismo edificio, con interés romántico mutuo explícito. No tienen compromiso formal.
-- Inés aceptó un trabajo de seis meses en otra ciudad. Viajará el domingo anterior al inicio, por la mañana, y planea bajar con la maleta a las 09:00. Mantendrá su departamento durante esos seis meses y espera volver a él; esto no implica una promesa relacional.
+- Inés Vidal (32) y Julián Rojas (34) son adultos, vecinos del mismo edificio, con interés romántico mutuo explícito y sin compromiso formal.
+- Inés aceptó un trabajo de seis meses en otra ciudad. El domingo anterior al inicio salió de su edificio a las 09:00 para viajar; el transporte y la hora de llegada no están persistidos. Mantendrá su departamento durante los seis meses y espera volver a él; esto no implica una promesa relacional.
 - Inés y Julián acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
-- Evitan convertir el tiempo previo al viaje en una cuenta regresiva: hacen un plan a la vez. Julián reconoció que contar el tiempo le nace del miedo a dejarlo pasar.
-- Inés quiere separar la despedida emocional de la salida práctica: el sábado será su despedida intencional; el domingo a las 09:00 Julián sólo ayudará con la maleta desde su puerta hasta el hall y no la acompañará más allá. Durante el viaje Inés enviará un “llegué” cuando pueda; Julián no espera seguimiento en tiempo real.
+- Antes del viaje evitaron una cuenta regresiva y funcionaron con un plan a la vez. Separaron la despedida emocional del sábado de la salida práctica del domingo.
+- El domingo Julián llevó la maleta desde la puerta de Inés hasta el hall y respetó el límite de no acompañarla más allá. Inés salió sola del edificio.
+- El check-in pendiente es mínimo: Inés enviará un “llegué” cuando haya llegado y pueda; Julián no espera seguimiento en tiempo real.
 - Para la distancia prefieren mensajes o audios asincrónicos, sin frecuencia mínima. Las llamadas se acuerdan cuando quieran; ante silencios ambiguos, preguntarán antes de asumir.
+- Han compartido besos con consentimiento explícito; eso no convirtió el vínculo en una relación formal.
 - Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarlo.
-- Ya compartieron un primer beso breve con consentimiento explícito iniciado por Inés. Eso no cambió la relación a una etiqueta formal.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián conoce el plan de viaje, el check-in mínimo y que conservará el departamento.
-- Julián acepta continuar sin etiqueta formal y sin cuenta regresiva.
+- Julián conoce y respeta los acuerdos de viaje, comunicación y ausencia de etiqueta formal.
+- Julián no la acompañó más allá del hall.
 
 ### Julián sabe
-- Inés viajará el domingo anterior al inicio del trabajo y mantendrá su departamento durante los seis meses.
-- Conservar el departamento significa que piensa volver a su casa, no una promesa sobre la relación.
-- La comunicación a distancia será asincrónica y sin cuota mínima.
-- La boundary fotográfica sigue vigente.
+- Inés salió del edificio para viajar, pero todavía no sabe si llegó.
+- Debe esperar el check-in sin exigir telemetría.
+- Inés mantiene su departamento y la comunicación será asincrónica, sin cuota mínima.
 
 ### Ambos saben
-- Hay interés mutuo y un primer beso compartido.
+- Hay interés mutuo y cercanía física consentida.
 - No existe compromiso formal.
-- Harán un plan a la vez.
 - Si algo cambia entre ellos, deben decirlo en vez de asumir por el otro.
 
 ## No promover a memoria
 - Decoración de escenas.
-- Planes puntuales ya completados.
+- Planes puntuales ya completados que no cambien continuidad.
 - Frases exactas o gestos sin consecuencia durable.

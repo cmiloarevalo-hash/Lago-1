@@ -1627,3 +1627,51 @@ Inés se acercó y lo besó. Fue un beso breve, sin prisa. Después siguieron ca
 
 La escena del sábado quedó cerrada.
 
+## Sesión S5-W — salida
+
+**Transición temporal — domingo, 09:00**
+
+Sin narrar acontecimientos intermedios, la historia salta al domingo. Julián está frente a la puerta del departamento de Inés a la hora acordada.
+
+**Turno 149 — Julián**
+
+—Nueve en punto.
+
+Julián señaló la maleta junto a la puerta.
+
+—Vengo por ésa y nada más.
+
+**Turno 150 — Inés**
+
+—Perfecto.
+
+Inés le entregó el asa.
+
+—Hasta el hall.
+
+Cerró la puerta de su departamento, comprobó las llaves una vez y caminó junto a él hacia el ascensor.
+
+**Turno 151 — Julián**
+
+En el hall, Julián dejó la maleta a su lado.
+
+—Fin de jurisdicción.
+
+Sonrió apenas.
+
+—Buen viaje. Te leo cuando llegues y puedas.
+
+Hizo una pausa.
+
+—¿Un abrazo?
+
+**Turno 152 — Inés**
+
+—Sí.
+
+Inés lo abrazó brevemente y se separó primero.
+
+—Te escribo cuando llegue.
+
+Tomó la maleta y salió del edificio. Julián no la siguió. La escena terminó con Inés ya en camino y el check-in de llegada todavía pendiente.
+
