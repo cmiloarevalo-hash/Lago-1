@@ -1,9 +1,9 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "llamada a distancia",
-    "time": "viernes, noche; segunda semana",
-    "privacy": "remote_private",
+    "location": "comunicación a distancia",
+    "time": "domingo, tarde; dos semanas después de la llegada",
+    "privacy": "remote",
     "status": "closed",
     "participants": [
       "ines",
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "mutual_availability_limits_reinforced",
+  "beat": "work_schedule_shared_without_obligation",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -123,7 +123,11 @@
     {
       "id": "availability_boundary",
       "status": "mutually_understood_no_constant_availability_required"
+    },
+    {
+      "id": "next_saturday_work",
+      "status": "ines_work_event_all_day"
     }
   ],
-  "turn_cursor": 185
+  "turn_cursor": 189
 }
