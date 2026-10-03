@@ -6,6 +6,7 @@
 - Cuando la oferta apareció por primera vez, Julián asumió demasiado rápido qué significaba para los planes entre ambos. Inés le pidió que no decidiera por ella; él reconoció el error. Desde entonces mantienen como regla no decidir ni desaparecer por el otro.
 - Inés no quiere convertir el tiempo previo al viaje en una cuenta regresiva de “últimas veces”. Julián admitió que tiende a contar el tiempo porque teme dejarlo pasar. Acordaron hacer un plan a la vez, sin inventariar despedidas.
 - Para el viaje, acordaron un check-in mínimo: Inés enviará un mensaje de “llegué” cuando haya llegado y tenga espacio para hacerlo; Julián no espera seguimiento en tiempo real.
+- Para la distancia prefieren comunicación asincrónica: mensajes o audios sin frecuencia mínima. Las llamadas se acuerdan cuando quieran hacerlas; si un silencio genera duda, preguntarán antes de asumir una explicación.
 - Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarlo.
 - El jueves, después de un café ordinario, Inés preguntó explícitamente si podía besar a Julián; él dijo que sí. Compartieron un primer beso breve. No cambiaron la relación a una etiqueta formal ni hicieron nuevas promesas por ello.
 

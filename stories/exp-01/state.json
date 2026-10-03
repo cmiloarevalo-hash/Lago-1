@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "mercado del barrio",
-    "time": "sábado, media mañana",
+    "location": "entrada de su edificio",
+    "time": "lunes, final de la tarde",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "spontaneous_market_encounter_closed",
+  "beat": "distance_communication_preferences_agreed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -83,7 +83,11 @@
     {
       "id": "market_walk",
       "status": "completed"
+    },
+    {
+      "id": "distance_communication",
+      "status": "async_messages_voice_notes_no_minimum_frequency_calls_by_agreement"
     }
   ],
-  "turn_cursor": 120
+  "turn_cursor": 124
 }

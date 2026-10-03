@@ -1319,3 +1319,51 @@ Inés levantó la bolsa a modo de despedida.
 
 Se separaron en la salida del mercado y la escena quedó cerrada.
 
+## Sesión S5-P — cómo hablar cuando estén lejos
+
+**Transición temporal — lunes, final de la tarde**
+
+Sin narrar acontecimientos intermedios, la historia salta al lunes. Inés encuentra a Julián junto a la entrada del edificio cuando él está por salir.
+
+**Turno 121 — Inés**
+
+—Tengo una pregunta práctica.
+
+Inés se apoyó junto a la puerta.
+
+—Cuando esté allá, ¿qué forma de hablar te resulta realmente sostenible? No la versión ideal. La real.
+
+**Turno 122 — Julián**
+
+Julián pensó antes de responder.
+
+—Mensajes y audios que podamos contestar cuando podamos. Las videollamadas me gustan, pero si las ponemos en calendario todas las semanas voy a empezar a sentir que tengo una reunión.
+
+Se encogió de hombros.
+
+—Y no necesito una prueba diaria de que seguimos hablando.
+
+**Turno 123 — Inés**
+
+—Bien. A mí me pasa algo parecido.
+
+Inés asintió.
+
+—Prefiero mensajes que no exijan respuesta inmediata. Y si queremos una llamada, la acordamos ese día o con poco margen.
+
+Hizo una pausa.
+
+—No quiero una frecuencia mínima.
+
+**Turno 124 — Julián**
+
+—Yo tampoco.
+
+Julián abrió la puerta, pero se quedó un momento.
+
+—Entonces: sin cuota. Y si un silencio me confunde, pregunto antes de inventarme una explicación.
+
+—Eso sí —dijo Inés.
+
+La escena terminó allí, con una expectativa de comunicación sencilla y explícita.
+

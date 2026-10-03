@@ -1,21 +1,24 @@
-# Checkpoint — EXP-01/S5 sesión O
+# Checkpoint — EXP-01/S5 sesión P
 
 ## Punto exacto
-Sábado, media mañana. El encuentro espontáneo en el mercado terminó; la escena está cerrada.
+Lunes, final de la tarde. La conversación en la entrada del edificio terminó y la escena está cerrada.
 
-Se completaron **120 turnos**; S5-O añadió 117–120.
+Se completaron **124 turnos**; S5-P añadió 121–124.
 
-Inés y Julián disfrutaron el encuentro casual sin convertirlo en nuevo sistema ni en parte de una cuenta regresiva. Inés dijo que le gustó encontrarlo allí; Julián correspondió. No hubo cambio de compromiso ni nuevo acuerdo durable.
+Inés abrió una conversación práctica sobre cómo comunicarse cuando esté en la otra ciudad. Acordaron:
+- mensajes y audios asincrónicos;
+- ninguna frecuencia mínima;
+- llamadas acordadas cuando quieran hacerlas, sin calendario fijo obligatorio;
+- si un silencio genera duda, preguntar antes de inventar una explicación.
 
-No hay turno inmediato pendiente.
+No cambió el compromiso formal: sigue sin haber etiqueta de relación.
 
 ## Estado relevante
-- Interés mutuo explícito; sin compromiso formal.
-- Primer beso ya ocurrido.
 - Viaje: domingo anterior al inicio del trabajo, por la mañana.
-- Check-in mínimo al llegar.
-- Un plan a la vez; sin inventario de despedidas.
-- Encuentro del mercado completado.
+- Check-in de llegada: un mensaje cuando Inés llegue y pueda.
+- Comunicación posterior: asincrónica, sin cuota mínima.
+- Relación: interés mutuo, primer beso compartido, sin compromiso formal.
+- Boundary fotográfica vigente.
 
 ## Reanudación
-Abrir una nueva escena explícita. No hace falta transcript para reconstrucción.
+No hay turno inmediato pendiente. Abrir una nueva escena explícita. Transcript no es necesario para reconstrucción.
