@@ -1,42 +1,42 @@
-# Checkpoint — EXP-01/S3 sesión E
+# Checkpoint — EXP-01/S3 sesión F
 
 ## Punto exacto de reanudación
-La escena del sábado terminó. Inés Vidal (32) y Julián Rojas (34), ambos adultos, completaron la caminata fotográfica por el barrio viejo y regresaron al hall de su edificio.
+Lunes, 08:10. Inés Vidal (32) y Julián Rojas (34), ambos adultos, coinciden en el hall de su edificio antes de salir. La escena está activa y es pública.
 
-Se completaron **64 turnos** en total; S3-E añadió los turnos 60–64.
+Se completaron **69 turnos** en total; S3-F añadió los turnos 65–69.
 
-El último intercambio cerró la caminata sin nuevas promesas: Julián agradeció a Inés que hubiera ido; Inés respondió “Gracias por preguntar”, reforzando de forma sobria que él respetó su boundary fotográfica.
+El último turno fue de **Julián**. Inés explicó que no está decidiendo “entre Julián y un trabajo”; está decidiendo si quiere pasar seis meses en otra ciudad. Le pidió a Julián una sola pregunta: que le preguntara qué quiere si no tuviera que justificarlo todavía. Julián respondió exactamente con esa pregunta:
 
-No hay un turno inmediato pendiente dentro de la escena cerrada.
+**“¿Qué quieres, Inés, si no tienes que justificarlo?”**
+
+**El siguiente turno natural corresponde a Inés.**
 
 ## Relación actual
 - Interés romántico mutuo y explícito.
-- Siguen conociéndose sin compromiso formal.
+- Sin compromiso formal.
 - Confianza moderada en aumento; intimidad emocional moderada.
-- El quiebre del jueves permanece reparado.
-- La caminata del sábado terminó de forma positiva, sin formalizar la relación.
+- Julián no está decidiendo ni presionando la decisión laboral.
 
 ## Threads
-1. **Caminata del sábado:** completada.
-2. **Juego de observación:** completado para esta escena.
-3. **Boundary fotográfica:** clarificada y respetada; sigue vigente para futuras fotografías.
-4. **Oferta laboral:** ABIERTA. Inés tiene una oferta de seis meses en otra ciudad y debe responder el lunes. Todavía no sabe si la aceptará.
+1. **Oferta laboral:** ABIERTA y con respuesta debida hoy lunes. La decisión todavía no fue tomada.
+2. **Pregunta inmediata:** Inés debe responder qué quiere, sin justificarlo todavía.
+3. **Caminata del sábado:** completada.
+4. **Boundary fotográfica:** clarificada, respetada y vigente.
 5. **Relación:** interés mutuo explícito, sin compromiso formal.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián quiere seguir conociéndola.
 - Julián respeta que la decisión laboral es de ella.
-- Julián comprendió la boundary de pedir permiso antes de fotografiarla.
+- Puede responder la pregunta sin convertirla en una promesa relacional.
+- Todavía no ha comunicado una decisión sobre la oferta.
 
 ### Julián sabe
-- Inés comparte el interés por seguir conociéndose.
-- La oferta laboral sigue pendiente hasta el lunes.
-- No debe decidir ni interpretar por Inés qué hará con la oferta.
-- Debe pedir permiso antes de fotografiarla y aceptar un no sin exigir explicación.
+- Inés debe responder hoy.
+- Ella no está planteando la decisión como una elección entre él y el trabajo.
+- Su función inmediata es escuchar la respuesta, no decidir por ella.
 
-## Siguiente acción natural
-La próxima micro-sesión debe hacer una transición temporal **explícita** a domingo o lunes y abrir una escena en la que la decisión laboral vuelva a ser relevante. No inventar acontecimientos intermedios no persistidos.
+## Siguiente punto natural
+Inés responde a la pregunta directa. La Sesión G puede permitir que esa respuesta desemboque naturalmente en aceptar, rechazar o negociar la oferta. No predeterminar la opción.
 
 ## Persistencia
-`story.md + state.json + memory.md + checkpoint.md` bastan para la siguiente reentrada. No se necesita releer el transcript salvo ambigüedad concreta.
+`story.md + state.json + memory.md + checkpoint.md` bastan para reanudar G. No hace falta releer transcript salvo ambigüedad concreta.
