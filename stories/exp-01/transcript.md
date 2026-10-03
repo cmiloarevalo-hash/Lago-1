@@ -2295,3 +2295,35 @@ Después añadió:
 
 La conversación terminó allí, sin nuevo plan y sin nueva etiqueta.
 
+## Sesión T04-A — una ventana real
+
+**Transición temporal — miércoles, noche**
+
+**Turno 239 — Inés**
+
+—Ya tengo mejor idea de mi agenda.
+
+—Dentro de dos fines de semana tengo libres sábado y domingo.
+
+Hizo una pausa antes de enviar el siguiente mensaje.
+
+—Si todavía quieres venir, ese podría funcionar.
+
+**Turno 240 — Julián**
+
+—Todavía quiero.
+
+—Pero voy a revisar mi trabajo mañana antes de convertir “podría” en pasaje, mochila y entusiasmo prematuro.
+
+**Turno 241 — Inés**
+
+—Bien.
+
+—Ventana real, visita todavía no confirmada.
+
+**Turno 242 — Julián**
+
+—Exacto.
+
+—Mañana te digo si mi calendario coopera con nuestra prudencia administrativa.
+
