@@ -1,36 +1,38 @@
-# Checkpoint — EXP-01/S1 bloque 1
+# Checkpoint — EXP-01/S1 bloque 2
 
 ## Punto exacto de reanudación
-Café Niebla, jueves, misma tarde. La escena sigue activa y pública. Se completaron 31 turnos en total; S1 bloque 1 añadió los turnos 28–31.
+Café Niebla, jueves, misma tarde. La escena sigue activa y pública. Se completaron 35 turnos en total; S1 bloque 2 añadió los turnos 32–35.
 
-El último turno fue de Inés. Confirmó la logística del sábado: **10:20 en el hall del edificio**, para caminar juntos desde allí al barrio viejo. Cerró con una broma sobre la reputación improvisadora de Julián.
+El último turno fue de Inés. Después de acordar que Julián enviará un único mensaje el viernes para confirmar el plan del sábado, Inés propuso que, al terminar el café, vuelvan caminando juntos al edificio.
+
+La pregunta pendiente es: **¿Julián acepta volver caminando juntos?**
 
 El siguiente turno natural corresponde a **Julián**.
 
 ## Relación actual
 - Interés romántico mutuo y explícito.
 - Siguen conociéndose sin compromiso formal.
-- El quiebre por la reacción inicial de Julián ante la oferta permanece reparado.
-- La incertidumbre laboral de Inés sigue abierta y no debe resolverse anticipadamente.
+- El quiebre por la oferta laboral permanece reparado.
+- La incertidumbre laboral de Inés sigue abierta.
 
 ## Hechos canónicos actuales
 - Inés Vidal tiene 32 años y Julián Rojas 34; ambos son adultos.
 - Siguen en su primera reunión intencional a solas, en Café Niebla.
-- La caminata fotográfica del sábado está confirmada.
-- Quedaron en encontrarse a las 10:20 en el hall del edificio y caminar desde allí al barrio viejo.
-- Inés mantiene la regla de que Julián debe pedir permiso antes de fotografiarla.
+- La caminata fotográfica del sábado está confirmada con encuentro a las 10:20 en el hall del edificio.
+- Julián puede escribir el viernes para confirmar el plan; el detalle no se promovió a memoria mínima por no ser necesario para continuidad de largo plazo.
 - La oferta laboral de seis meses sigue pendiente de decisión para el lunes.
 
 ## Threads
-1. **Caminata del sábado:** logística inmediata resuelta; encuentro 10:20 en el hall.
-2. **Oferta laboral:** decisión de Inés pendiente para el lunes.
-3. **Relación:** interés mutuo explícito, sin compromiso definido.
+1. **walk_home_after_cafe:** Inés propuso volver caminando juntos; respuesta de Julián pendiente.
+2. **Caminata del sábado:** confirmada y con logística cerrada.
+3. **Oferta laboral:** decisión de Inés pendiente para el lunes.
+4. **Relación:** interés mutuo explícito, sin compromiso definido.
 
 ## Cambios materiales del bloque
-- `julian_saturday_invitation`: `accepted_logistics_pending` → `accepted_logistics_confirmed_1020_building_lobby`.
-- `beat`: `intenciones_aclaradas_incertidumbre_aceptada` → `saturday_logistics_confirmed`.
-- `turn_cursor`: 27 → 31.
-- Memoria mínima actualizada sólo con la logística durable del sábado.
+- Nuevo thread inmediato `walk_home_after_cafe`: `proposed_by_ines_pending_julian`.
+- `beat`: `saturday_logistics_confirmed` → `walk_home_proposed`.
+- `turn_cursor`: 31 → 35.
+- `memory.md` se mantuvo sin cambios para evitar promover detalles transitorios.
 
 ## Siguiente punto natural
-Julián puede responder a la broma de Inés y dejar que la conversación avance de forma cotidiana. No necesita reabrir la oferta laboral ni formalizar la relación.
+Julián responde a la propuesta de Inés. Si acepta, el bloque siguiente puede cerrar el café y efectuar una transición de escena al trayecto de regreso, sin resolver la decisión laboral ni formalizar la relación.
