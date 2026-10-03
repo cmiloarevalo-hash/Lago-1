@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "hall de su edificio",
-    "time": "miércoles, comienzo de la noche",
+    "location": "hall de su edificio, frente a los ascensores",
+    "time": "jueves, comienzo de la noche",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "housing_continuity_clarified",
+  "beat": "single_saturday_plan_confirmed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -91,7 +91,15 @@
     {
       "id": "apartment_status",
       "status": "ines_keeps_apartment_during_six_months"
+    },
+    {
+      "id": "saturday_plaza",
+      "status": "confirmed_saturday_1700_one_hour_approx"
+    },
+    {
+      "id": "friday_space",
+      "status": "ines_wants_no_plan_to_finish_packing_alone"
     }
   ],
-  "turn_cursor": 132
+  "turn_cursor": 136
 }

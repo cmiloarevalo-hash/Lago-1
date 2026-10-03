@@ -1,20 +1,20 @@
-# Checkpoint — EXP-01/S5 sesión R
+# Checkpoint — EXP-01/S5 sesión S
 
 ## Punto exacto
-Miércoles, comienzo de la noche. La escena del hall terminó.
+Jueves, comienzo de la noche. La escena frente a los ascensores terminó.
 
-Se completaron **132 turnos**; S5-R añadió 129–132.
+Se completaron **136 turnos**; S5-S añadió 133–136.
 
-Inés aclaró un nuevo hecho logístico: **mantendrá su departamento actual durante los seis meses** y se llevará sólo lo necesario. Explicó expresamente que piensa volver a su casa, pero que eso no debe leerse como una promesa sobre la relación. Julián entendió la distinción. Inés prefirió hacer sola el embalaje inmediato.
+Inés propuso un único plan: **sábado a las 17:00, caminar por la plaza del barrio durante aproximadamente una hora**. Julián aceptó sin añadir actividades. Inés además dejó claro que el viernes quiere terminar de ordenar sola y no quiere plan; Julián lo respetó.
 
-No hay turno pendiente.
+No hay turno inmediato pendiente.
 
 ## Estado relevante
-- Viaje: domingo anterior al inicio del trabajo, por la mañana.
-- Departamento: Inés lo conserva durante los seis meses.
-- Comunicación a distancia/check-in: acordados.
+- Viaje: domingo por la mañana, anterior al inicio del trabajo.
+- Viernes: Inés quiere espacio para terminar de ordenar.
+- Sábado 17:00: caminata en la plaza confirmada.
 - Relación: interés mutuo, sin compromiso formal.
-- Un plan a la vez; boundary fotográfica vigente.
+- Comunicación/check-in y regla de un plan a la vez vigentes.
 
 ## Reanudación
-Abrir una nueva escena explícita. Transcript no es necesario para reconstrucción.
+La siguiente sesión puede abrir el viernes con un encuentro casual que respete que no hay plan, o saltar al sábado. No inventar ayuda de embalaje no solicitada.

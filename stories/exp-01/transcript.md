@@ -1455,3 +1455,43 @@ Inés abrió la puerta del ascensor.
 
 Julián sonrió y la dejó ir. La escena quedó cerrada.
 
+## Sesión S5-S — un solo plan
+
+**Transición temporal — jueves, comienzo de la noche**
+
+Sin narrar acontecimientos intermedios, la historia salta al jueves. Inés y Julián coinciden frente a los ascensores del edificio.
+
+**Turno 133 — Inés**
+
+—Un plan.
+
+Inés levantó un dedo.
+
+—Sábado, cinco de la tarde. Caminamos por la plaza del barrio. Una hora, aproximadamente.
+
+**Turno 134 — Julián**
+
+—Aceptado.
+
+Julián imitó el gesto de un dedo.
+
+—Un plan, sin actividades sorpresa escondidas dentro.
+
+**Turno 135 — Inés**
+
+—Bien.
+
+Las puertas del ascensor se abrieron.
+
+—Y mañana no quiero plan. Necesito terminar de ordenar y prefiero hacerlo sola.
+
+**Turno 136 — Julián**
+
+—Entonces mañana no hay plan.
+
+Julián dio un paso atrás para dejarla entrar.
+
+—Nos vemos el sábado a las cinco.
+
+Inés asintió y las puertas se cerraron. La escena terminó con un único encuentro futuro acordado.
+
