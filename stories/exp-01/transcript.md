@@ -2073,3 +2073,35 @@ Hizo una pausa antes del segundo mensaje.
 
 —“Viendo a alguien” me parece correcto, si a ti también.
 
+## Sesión S6-X14 — no asumir exclusividad
+
+**Transición temporal — martes, noche**
+
+**Turno 206 — Julián**
+
+—Me quedó dando vueltas lo de “nos estamos viendo”.
+
+—No por la frase. Por lo que otra gente puede meter dentro de ella.
+
+**Turno 207 — Inés**
+
+—¿Exclusividad?
+
+**Turno 208 — Julián**
+
+—Sí.
+
+—Nosotros no la hemos acordado. No quiero descubrir dentro de dos meses que alguno asumió una regla que nunca hablamos.
+
+**Turno 209 — Inés**
+
+—De acuerdo.
+
+—No voy a asumir exclusividad. Si alguno quiere cambiar eso, se habla explícitamente.
+
+**Turno 210 — Julián**
+
+—Perfecto.
+
+—Otra victoria menor de la burocracia bien usada.
+
