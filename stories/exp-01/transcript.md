@@ -370,3 +370,43 @@ Inés miró hacia la ventana. La lluvia había bajado a una llovizna fina.
 Volvió la mirada hacia él.
 
 —Cuando terminemos, ¿volvemos caminando juntos? Vivimos en el mismo edificio; fingir que necesitamos rutas independientes sería exceso de método.
+
+## Sesión S1 — bloque 3
+
+**Turno 36 — Julián**
+
+—Sí. Volvamos juntos.
+
+Julián sonrió.
+
+—Prometo no convertir el trayecto en una segunda actividad calendarizada.
+
+**Turno 37 — Inés**
+
+—Perfecto.
+
+Inés tomó el último sorbo de café y dejó la taza sobre el plato.
+
+—Entonces terminamos aquí y nos vamos antes de que la lluvia recuerde que estaba trabajando.
+
+**Turno 38 — Julián**
+
+Julián miró hacia la ventana y luego volvió a ella.
+
+—Trato hecho.
+
+Se puso de pie y añadió, con una sonrisa leve:
+
+—Y no voy a llamar a esto “extensión oficial de la cita”, por si el comité lleva actas.
+
+**Turno 39 — Inés**
+
+Inés se levantó y tomó su abrigo.
+
+—Eso sería insoportablemente administrativo.
+
+Se lo puso y señaló la salida.
+
+—Vamos.
+
+Salieron juntos de Café Niebla hacia la calle húmeda, rumbo al edificio.
