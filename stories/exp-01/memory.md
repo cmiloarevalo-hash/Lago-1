@@ -2,7 +2,7 @@
 
 ## Hechos durables
 - Inés Vidal (32) y Julián Rojas (34) son adultos, vecinos del mismo edificio, con interés romántico mutuo explícito y sin compromiso formal.
-- Inés aceptó un trabajo de seis meses en otra ciudad. El domingo anterior al inicio salió de su edificio a las 09:00 y más tarde confirmó que llegó a la otra ciudad. El transporte y la hora exacta de llegada no están persistidos. Mantendrá su departamento durante los seis meses y espera volver a él; esto no implica una promesa relacional.
+- Inés aceptó un trabajo de seis meses en otra ciudad y confirmó su llegada. Está adaptándose bien: le gusta el trabajo y ya empieza a sentirse cotidiana allí. Mantendrá su departamento durante los seis meses y espera volver a él; eso no implica una promesa relacional. Transporte y hora exacta de llegada no están persistidos.
 - Inés y Julián acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
 - Antes del viaje evitaron una cuenta regresiva y funcionaron con un plan a la vez. Separaron la despedida emocional del sábado de la salida práctica del domingo.
 - El domingo Julián llevó la maleta desde la puerta de Inés hasta el hall y respetó el límite de no acompañarla más allá. Inés salió sola del edificio.
