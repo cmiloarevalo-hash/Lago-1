@@ -1,12 +1,12 @@
-# Checkpoint — EXP-01/S6 X02
+# Checkpoint — EXP-01/S6 X03
 
-Lunes, después de la primera jornada laboral. La interacción remota quedó cerrada.
+Miércoles por la tarde. La interacción remota quedó cerrada.
 
-Se completaron **160 turnos**; X02 añadió 157–160.
+Se completaron **164 turnos**; X03 añadió 161–164.
 
-Inés dijo que le gustó el equipo en su primer día y que estaba muy cansada. Julián no exigió conversación adicional. No hay acuerdo nuevo ni cambio de compromiso.
+Julián retomó de forma ligera el juego de observación mediante una foto sin personas. Inés respondió con su humor seco. No se creó una rutina obligatoria ni un nuevo acuerdo.
 
 No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita. Mantener comunicación asincrónica y sin cuota. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita; no tratar el intercambio de fotos como obligación. Transcript no es necesario para reconstrucción.
