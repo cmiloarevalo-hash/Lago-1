@@ -2105,3 +2105,31 @@ Hizo una pausa antes del segundo mensaje.
 
 —Otra victoria menor de la burocracia bien usada.
 
+## Sesión S6-X15 — algo torcido
+
+**Transición temporal — jueves, tarde**
+
+**Turno 211 — Inés**
+
+Inés envió una foto de un letrero ligeramente inclinado, sin personas.
+
+—Esto lleva tres días molestándome.
+
+**Turno 212 — Julián**
+
+—Yo lo habría fotografiado.
+
+—Tú quieres llamar a alguien con un nivel.
+
+**Turno 213 — Inés**
+
+—Correcto.
+
+—La diferencia entre arte y mantenimiento preventivo sigue siendo preocupante.
+
+**Turno 214 — Julián**
+
+—Por eso funcionamos bien como comité de observación.
+
+—Tú evitas accidentes. Yo documento el ángulo.
+
