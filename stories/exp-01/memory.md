@@ -6,7 +6,7 @@
 - Antes de la distancia acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
 - La comunicación es flexible: mensajes y audios asincrónicos sin frecuencia mínima; llamadas sólo cuando ambos quieran. Ante silencios o frases ambiguas, preguntan antes de asumir.
 - La disponibilidad no es obligación constante: ambos pueden decir “hoy no” sin que equivalga a rechazo.
-- Han compartido besos con consentimiento explícito. Ambos aceptan describir el vínculo como “estamos viendo a alguien / nos estamos viendo”, pero no como pareja formal.
+- Han compartido besos con consentimiento explícito. Ambos aceptan describir el vínculo como “nos estamos viendo”, pero no como pareja formal. No han acordado exclusividad y no deben asumirla; cualquier cambio requiere conversación explícita.
 - Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarse.
 
 ## Knowledge boundaries
