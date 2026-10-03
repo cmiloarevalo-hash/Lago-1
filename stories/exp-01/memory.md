@@ -12,12 +12,12 @@
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián acepta el ritmo flexible, la ausencia de exclusividad y la falta de plan de visita.
+- Julián acepta el ritmo flexible y la ausencia de exclusividad. Sabe que la visita quedó confirmada para la ventana relativa acordada, con logística todavía pendiente.
 - Julián puede compartir sus propios problemas y marcar límites de disponibilidad.
 
 ### Julián sabe
 - Inés está adaptándose bien y quiere mantener el vínculo sin cuotas.
-- No debe asumir exclusividad ni una visita futura.
+- No debe asumir exclusividad ni detalles logísticos de la visita confirmada que todavía no se hayan acordado.
 - Una demora o un límite de disponibilidad no debe interpretarse sin preguntar.
 
 ### Ambos saben
