@@ -887,3 +887,63 @@ Miró hacia la puerta.
 
 Se despidieron en el hall y salieron en direcciones distintas. La oferta estaba decidida; lo que había entre ellos no tenía un nombre nuevo, pero sí una intención compartida de continuar.
 
+## Sesión S4-I — la distancia adquiere calendario
+
+**Transición temporal — miércoles, final de la tarde**
+
+Sin narrar acontecimientos intermedios, la historia salta al miércoles. Inés está sola en Café Niebla cuando Julián entra y la reconoce desde la puerta.
+
+**Turno 81 — Julián**
+
+Julián se acercó a la mesa con la cámara guardada en el bolso, sin sacarla.
+
+—Pregunta de alto riesgo: ¿esa silla está libre o pertenece a una reunión de producción invisible?
+
+**Turno 82 — Inés**
+
+Inés apartó una libreta de la silla.
+
+—Está libre.
+
+Esperó a que se sentara antes de añadir:
+
+—Hoy me confirmaron la incorporación. Empiezo dentro de tres semanas.
+
+Pasó el pulgar por el borde de la taza.
+
+—Todavía no sé qué día voy a viajar.
+
+**Turno 83 — Julián**
+
+La broma desapareció de la cara de Julián sin convertirse en alarma.
+
+—Tres semanas ya suena bastante más concreto.
+
+Se apoyó en el respaldo.
+
+—¿Quieres hablar de eso o quieres que finjamos, con muchísimo profesionalismo, que este café no tiene ninguna relación con calendarios?
+
+**Turno 84 — Inés**
+
+—La segunda opción, al menos durante diez minutos.
+
+Inés cerró la libreta.
+
+—Desde que acepté, todo el mundo formula las cosas como “antes de que te vayas”. Cena antes de que te vayas. Trámite antes de que te vayas. Compra esto antes de que te vayas.
+
+Levantó una ceja.
+
+—Empiezo a sentirme como una exposición temporal.
+
+**Turno 85 — Julián**
+
+—Entonces café ordinario.
+
+Julián levantó la taza como si brindara con ella.
+
+—Sin cuenta regresiva, sin lista de últimas veces y sin convertir cada martes en patrimonio histórico.
+
+Después sonrió.
+
+—Y si en algún momento necesitas un plan de verdad, me avisas. Puedo improvisar con estructura limitada.
+

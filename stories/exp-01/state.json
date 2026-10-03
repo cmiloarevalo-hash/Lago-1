@@ -1,10 +1,10 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "hall de su edificio",
-    "time": "lunes, mañana",
+    "location": "Café Niebla",
+    "time": "miércoles, final de la tarde",
     "privacy": "public",
-    "status": "closed",
+    "status": "active",
     "participants": [
       "ines",
       "julian"
@@ -18,11 +18,11 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "mini_arc_resolved_hfn",
+  "beat": "departure_timeline_concrete_countdown_rejected",
   "threads": [
     {
       "id": "ines_job_offer",
-      "status": "accepted_six_months_other_city_start_date_unknown"
+      "status": "accepted_start_in_three_weeks_departure_date_undecided"
     },
     {
       "id": "julian_saturday_invitation",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "resolved_for_now_continue_intentionally_no_formal_commitment"
+      "status": "continue_intentionally_no_formal_commitment_avoid_farewell_countdown"
     },
     {
       "id": "walk_home_after_cafe",
@@ -51,7 +51,11 @@
     {
       "id": "photo_boundary",
       "status": "ongoing_boundary_clarified_and_respected"
+    },
+    {
+      "id": "departure_logistics",
+      "status": "job_starts_in_three_weeks_travel_date_undecided"
     }
   ],
-  "turn_cursor": 80
+  "turn_cursor": 85
 }
