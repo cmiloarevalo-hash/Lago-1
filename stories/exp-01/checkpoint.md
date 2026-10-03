@@ -1,49 +1,42 @@
-# Checkpoint — EXP-01/S2 sesión D
+# Checkpoint — EXP-01/S3 sesión E
 
-## Reinicio exacto
-Sábado, media mañana. Inés Vidal (32) y Julián Rojas (34), ambos adultos, caminan juntos por el barrio viejo en espacio público. La caminata fotográfica acordada para las 10:20 está en curso.
+## Punto exacto de reanudación
+La escena del sábado terminó. Inés Vidal (32) y Julián Rojas (34), ambos adultos, completaron la caminata fotográfica por el barrio viejo y regresaron al hall de su edificio.
 
-Se completaron **59 turnos** en total. La sesión S2-D añadió los turnos 55–59.
+Se completaron **64 turnos** en total; S3-E añadió los turnos 60–64.
 
-El último turno fue de **Inés**. Julián le prestó la segunda cámara; Inés la tiene ahora consigo y, siguiendo el juego de observación, le dijo: “Camina, Rojas. Vas perdiendo.”
+El último intercambio cerró la caminata sin nuevas promesas: Julián agradeció a Inés que hubiera ido; Inés respondió “Gracias por preguntar”, reforzando de forma sobria que él respetó su boundary fotográfica.
 
-**El siguiente turno natural corresponde a Julián.**
-
-## Personajes / voces
-- **Inés:** metódica, precisa, observadora, humor seco; prefiere claridad y no sentirse presionada.
-- **Julián:** cálido, curioso, espontáneo, atento a detalles visuales; usa humor ligero cuando está nervioso.
+No hay un turno inmediato pendiente dentro de la escena cerrada.
 
 ## Relación actual
 - Interés romántico mutuo y explícito.
 - Siguen conociéndose sin compromiso formal.
 - Confianza moderada en aumento; intimidad emocional moderada.
-- El quiebre del jueves por la reacción de Julián a la oferta laboral está reparado.
+- El quiebre del jueves permanece reparado.
+- La caminata del sábado terminó de forma positiva, sin formalizar la relación.
 
-## Escena y threads activos
-1. **Caminata del sábado:** en curso por el barrio viejo.
-2. **Juego de observación:** en curso; ambos buscan cosas que creen que el otro habría pasado por alto. Inés lleva temporalmente la segunda cámara de Julián.
-3. **Boundary fotográfica:** Julián debe pedir permiso cada vez antes de fotografiar a Inés; un “no” no requiere explicación. Esta regla ya fue comprendida y respetada.
-4. **Oferta laboral:** Inés tiene una oferta de seis meses en otra ciudad y debe decidir el lunes. Todavía no sabe si la aceptará. No necesita ser reabierta ahora.
-5. **Relación:** no asumir compromiso, despedida, mudanza ni decisión laboral que no haya ocurrido.
+## Threads
+1. **Caminata del sábado:** completada.
+2. **Juego de observación:** completado para esta escena.
+3. **Boundary fotográfica:** clarificada y respetada; sigue vigente para futuras fotografías.
+4. **Oferta laboral:** ABIERTA. Inés tiene una oferta de seis meses en otra ciudad y debe responder el lunes. Todavía no sabe si la aceptará.
+5. **Relación:** interés mutuo explícito, sin compromiso formal.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián la invitó porque le gusta y quiere conocerla mejor.
-- Julián acepta que la decisión laboral es de ella.
-- Julián entendió la boundary fotográfica.
+- Julián quiere seguir conociéndola.
+- Julián respeta que la decisión laboral es de ella.
+- Julián comprendió la boundary de pedir permiso antes de fotografiarla.
 
 ### Julián sabe
+- Inés comparte el interés por seguir conociéndose.
 - La oferta laboral sigue pendiente hasta el lunes.
-- Inés comparte el interés por seguir conociéndose, sin compromiso definido.
+- No debe decidir ni interpretar por Inés qué hará con la oferta.
 - Debe pedir permiso antes de fotografiarla y aceptar un no sin exigir explicación.
 
-### Ambos saben
-- Existe interés mutuo.
-- La caminata del sábado está ocurriendo ahora.
-- No han definido una relación formal.
+## Siguiente acción natural
+La próxima micro-sesión debe hacer una transición temporal **explícita** a domingo o lunes y abrir una escena en la que la decisión laboral vuelva a ser relevante. No inventar acontecimientos intermedios no persistidos.
 
-## Siguiente punto natural
-Julián responde al desafío ligero de Inés y continúa el juego mientras caminan. Puede avanzar la escena con observaciones, conversación cotidiana o una profundización gradual. No es necesario introducir conflicto, resolver la oferta laboral ni acelerar el romance.
-
-## Reanudación
-Para continuar son suficientes `state.json + memory.md + checkpoint.md` junto con `story.md` y el protocolo operativo. No es necesario releer el transcript salvo una ambigüedad concreta.
+## Persistencia
+`story.md + state.json + memory.md + checkpoint.md` bastan para la siguiente reentrada. No se necesita releer el transcript salvo ambigüedad concreta.
