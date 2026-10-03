@@ -1235,3 +1235,45 @@ Julián sonrió.
 
 Caminaron juntos hacia el edificio. La noche terminó sin promesas nuevas: había una fecha de viaje, un acuerdo práctico para la distancia y, ahora, una cercanía elegida por ambos.
 
+## Sesión S5-N — encuentro ordinario
+
+**Transición temporal — sábado, media mañana**
+
+Sin narrar acontecimientos intermedios, la historia salta al sábado. Inés y Julián coinciden en el mercado del barrio, junto a un puesto de pan.
+
+**Turno 113 — Julián**
+
+Julián levantó la bolsa de pan a modo de saludo.
+
+—Antes de que digas nada: prometo no declarar esto “plan oficial número dos”.
+
+**Turno 114 — Inés**
+
+—Excelente.
+
+Inés miró la bolsa.
+
+—Porque encontrarte comprando pan no cuenta como gestión estratégica del tiempo.
+
+Señaló el pasillo del mercado.
+
+—Estoy buscando té.
+
+**Turno 115 — Julián**
+
+—Puedo acompañarte hasta el puesto de té sin convertirlo en itinerario.
+
+Julián dio un paso a su lado.
+
+—Después sigo mi camino. Máximo quince minutos de espontaneidad regulada.
+
+**Turno 116 — Inés**
+
+Inés empezó a caminar.
+
+—Quince minutos suena sospechosamente estructurado, pero lo permitiré.
+
+Lo miró de reojo.
+
+—Ven. Y no cuentes los puestos.
+

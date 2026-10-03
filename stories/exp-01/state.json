@@ -1,10 +1,10 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "trayecto entre Café Niebla y su edificio",
-    "time": "jueves, noche",
+    "location": "mercado del barrio",
+    "time": "sábado, media mañana",
     "privacy": "public",
-    "status": "closed",
+    "status": "active",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "second_arc_resolved_present_closeness_and_practical_distance_plan",
+  "beat": "spontaneous_market_walk_started",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -79,7 +79,11 @@
     {
       "id": "first_kiss",
       "status": "completed_mutual_explicit_consent_initiated_by_ines"
+    },
+    {
+      "id": "market_walk",
+      "status": "in_progress_spontaneous_no_countdown"
     }
   ],
-  "turn_cursor": 112
+  "turn_cursor": 116
 }
