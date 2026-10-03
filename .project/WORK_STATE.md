@@ -1,64 +1,60 @@
 # Estado de trabajo — La U
 
-## Repositorio
-`cmiloarevalo-hash/Lago-1`
-
 ## Última decisión formal
 **EVAL-00 — ACCEPT**
-
-El batch de investigación R03→R09 fue aceptado como evidencia suficiente para avanzar a un experimento operativo mínimo.
-
-## Objetivo estratégico vigente
-Validar primero el bucle persistente de un chatbot, no construir todavía una aplicación compleja.
 
 ## Work Item activo
 **EXP-01 — Persistent Roleplay Cold Resume**  
 Issue #16
 
-## Cola inicial
-
-1. **T01 / #17** — crear paquete mínimo de historia persistente
-2. **T02 / #18** — ejecutar roleplay, persistir y producir checkpoint
-3. **T03 / #19** — cold resume desde un chat web nuevo
-
-## Actividad actual
-**T01 / Issue #17**
-
-## Regla persistente
-El Implementador actual ejecuta T01 y continúa inmediatamente con T02.
-
-Al final de T02 debe publicar:
+## Estado experimental
 **HANDOFF REQUIRED — COLD RESUME**
 
-y detenerse.
+T01 y T02 fueron completadas por el primer chat Implementador.
 
-T03 NO puede ejecutarse en el mismo chat. Requiere un chat web nuevo sin contexto privado de T01/T02.
+## Evidencia T02
+- HEAD final: `8ef334751ac1e6a0ce723f6a6c2faf2934fb13e3`
+- 17 turnos de roleplay
+- 4 bloques persistidos
+- cinco artefactos únicamente bajo `stories/exp-01/`:
+  - `story.md`
+  - `state.json`
+  - `memory.md`
+  - `transcript.md`
+  - `checkpoint.md`
+- Issue #18 contiene:
+  - `IMPLEMENTER COMPLETE — EXP-01/T02`
+  - `HANDOFF REQUIRED — COLD RESUME`
 
-## Artefactos permitidos para EXP-01
-Una historia de prueba con solamente:
-- story.md
-- state.json
-- memory.md
-- transcript.md
-- checkpoint.md
+## Actividad siguiente
+**T03 / Issue #19 — Cold resume desde un chat web nuevo**
 
-No añadir arquitectura salvo bloqueo demostrado.
+## Regla crítica
+T03 NO puede ejecutarse en el chat que realizó T01/T02 ni en un chat que reciba un resumen manual de la historia.
 
-## Fuera de alcance
-- aplicación/backend;
-- DB externa;
-- vector memory;
-- event sourcing completo;
-- Chat B;
-- evaluator LLM;
-- infraestructura multiagente;
-- producción.
+El nuevo chat debe reconstruir el estado desde GitHub.
 
-## Criterio de éxito
-Un chat nuevo reconstruye la historia desde GitHub y continúa de manera coherente sin resumen manual del chat anterior.
+## Orden de lectura para el nuevo chat
+1. `.project/CONTEXT.md`
+2. `.project/WORK_STATE.md`
+3. Issue #16
+4. Issue #19
+5. `stories/exp-01/story.md`
+6. `stories/exp-01/state.json`
+7. `stories/exp-01/memory.md`
+8. `stories/exp-01/checkpoint.md`
+
+El transcript completo sólo debe consultarse si aparece una ambigüedad concreta.
+
+## Objetivo T03
+- reconstruir el contexto sin explicación humana;
+- declarar qué entiende que ocurre;
+- continuar 8–12 turnos;
+- persistir los mismos cinco artefactos;
+- registrar faltantes/contradicciones;
+- cerrar con:
+  - `IMPLEMENTER COMPLETE — EXP-01/T03`
+  - `READY FOR SUPERVISOR EXP-01 REVIEW`
 
 ## Próximo gate
-Después de T03:
-**READY FOR SUPERVISOR EXP-01 REVIEW**
-
-El Supervisor evalúa continuidad, simplicidad y suficiencia de la persistencia antes de autorizar un experimento de dos chats.
+Después de T03, el Supervisor evalúa si la persistencia mínima es suficiente.
