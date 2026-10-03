@@ -1,12 +1,12 @@
-# Checkpoint — EXP-01/S6 X16
+# Checkpoint — EXP-01/S6 X17
 
-Domingo por la tarde, aproximadamente cuatro semanas después de la llegada. La interacción quedó cerrada.
+Martes por la noche. La interacción quedó cerrada.
 
-Se completaron **218 turnos**; X16 añadió 215–218.
+Se completaron **223 turnos**; X17 añadió 219–223.
 
-Inés observó que su vida allí y la comunicación con Julián empiezan a sentirse normales, no provisionales. Dijo que ya no siente que cada conversación tenga que verificar si el vínculo “sigue funcionando”. Julián estuvo de acuerdo.
+Julián contó que un trabajo freelance que daba por seguro se cayó y que tendrá que reorganizar dos semanas. No lo presentó como crisis. Inés preguntó qué tipo de apoyo quería y, cuando él pidió poder quejarse, lo escuchó sin intentar convertirlo en oportunidad.
 
-No hay nuevo compromiso, exclusividad ni calendario.
+No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. El revés laboral de Julián es temporal y no debe magnificarse sin nueva evidencia. Transcript no es necesario para reconstrucción.
