@@ -1,58 +1,49 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01/S5 — ACCEPT**
+**EXP-01/S6 — ACCEPT**
 
 ## Capacidad demostrada
 Una sola solicitud persistente completó:
-- 10 micro-sesiones autónomas N → W;
-- 40 turnos narrativos nuevos;
-- cursor total 113 → 152;
-- 10 reentradas desde estado durable;
-- 10 persistencias;
-- 10 verificaciones de diff;
+- 20 micro-sesiones autónomas X01 → X20;
+- 86 turnos narrativos nuevos;
+- cursor total 153 → 238;
+- 20 reentradas desde estado durable;
+- 20 persistencias;
+- 20 verificaciones de diff;
 - 0 bloqueos reales;
 - 0 reentradas que necesitaran transcript para reconstrucción;
 - 0 dependencia declarada de memoria privada.
 
-## Memoria al cierre S5
-- memory.md: 2163 caracteres;
-- checkpoint.md: 2983 caracteres;
-- transcript.md: 42401 caracteres.
+## Escala al cierre S6
+- transcript.md: 55802 caracteres;
+- memory.md: 1957 caracteres;
+- checkpoint.md: 3170 caracteres.
 
 ## Protocolo vigente
 `.project/NARRATIVE_CHAT_PROTOCOL.md`
 
-## Estrategia actual
-**FIXED NARRATIVE TEST AGENT**
+## Decisión estratégica
+No se escala inmediatamente a 40 micro-sesiones.
 
-Se mantiene el mismo chat narrativo.
+El siguiente experimento cambia de dimensión: comprobar si un chat completamente nuevo puede asumir el rol a partir de GitHub, después de la estabilización extensa del chat fijo.
 
 ## Actividad actual
-**S6 / Issue #27 — Capacity probe — 20 micro-sesiones autónomas**
+**T04 / Issue #21 — Fresh-chat takeover / cold resume**
 
-## Objetivo
-Extender el mínimo demostrado desde 10 a 20 micro-sesiones consecutivas bajo una sola solicitud persistente.
+## Requisito crítico
+Ejecutar T04 desde un chat web completamente nuevo.
 
-## Batch S6
-**X01 → X02 → X03 → X04 → X05 → X06 → X07 → X08 → X09 → X10 → X11 → X12 → X13 → X14 → X15 → X16 → X17 → X18 → X19 → X20**
+El humano NO debe proporcionar resumen narrativo manual.
 
-Cada micro-sesión:
-- 3–5 turnos;
-- reentrada desde estado durable;
-- ENTRY CHECKPOINT;
-- roleplay;
-- persistencia;
-- diff;
-- checkpoint;
-- continuar inmediatamente si no hay bloqueo.
-
-## Estado narrativo de entrada
-- Inés salió del edificio el domingo a las 09:00;
-- transporte y hora de llegada no persistidos;
-- check-in de llegada pendiente;
-- relación con interés mutuo, sin compromiso formal;
-- comunicación a distancia asincrónica y sin frecuencia mínima.
+El nuevo chat debe:
+- asumir `NARRATIVE TEST AGENT`;
+- leer CONTEXT, WORK_STATE y NARRATIVE_CHAT_PROTOCOL;
+- reconstruir la historia desde story/state/memory/checkpoint;
+- no usar transcript para bootstrap salvo ambigüedad concreta;
+- publicar ENTRY CHECKPOINT antes de narrar;
+- ejecutar 3 micro-sesiones A → B → C;
+- persistir y verificar diff después de cada una.
 
 ## Escritura autorizada
 Sólo:
@@ -66,17 +57,11 @@ Sólo:
 - `.project/*`
 - `README.md`
 
-## Regla de autonomía
-No esperar revisión entre X01–X20.
-No pedir autorización.
-Detenerse sólo ante bloqueo real o al gate final.
+## Gate T04
+Después de C:
+`IMPLEMENTER COMPLETE — EXP-01/T04`
 
-## Actividad diferida
-**T04 / Issue #21 — reemplazo por chat nuevo**
-Permanece PAUSED.
-
-## Gate S6
-Después de X20:
-**READY FOR SUPERVISOR CAPACITY-20 REVIEW**
+y
+`READY FOR SUPERVISOR EXP-01 REPLACEMENT REVIEW`
 
 Después detenerse.
