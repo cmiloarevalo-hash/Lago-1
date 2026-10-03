@@ -410,3 +410,48 @@ Se lo puso y señaló la salida.
 —Vamos.
 
 Salieron juntos de Café Niebla hacia la calle húmeda, rumbo al edificio.
+
+## Sesión S2-A — cierre del jueves
+
+**Turno 40 — Julián**
+
+Julián acomodó el paso al de Inés y miró hacia la esquina donde ya se veía el edificio.
+
+—Voy a defender una cosa de esta noche: volver caminando fue una buena idea.
+
+Sonrió de lado.
+
+—Aunque sospecho que tampoco puedo atribuírmela.
+
+**Turno 41 — Inés**
+
+—Correcto. La idea fue mía.
+
+Inés respondió sin apurar el paso.
+
+—Pero aceptarla estuvo bien. Puedes quedarte con ese mérito, que es más verificable.
+
+Cuando llegaron bajo el alero de la entrada, buscó las llaves en el bolso.
+
+**Turno 42 — Julián**
+
+—Acepto el premio consuelo.
+
+Julián se detuvo junto a la puerta, dejando espacio para que ella entrara.
+
+—Entonces: sábado, diez veinte, aquí abajo. Prometo no aparecer a las diez diecinueve y llamarlo puntualidad artística.
+
+**Turno 43 — Inés**
+
+Inés encontró las llaves y levantó la vista.
+
+—Diez veinte. Y si llegas a las diez diecinueve, creo que podré sobrellevarlo.
+
+Abrió la puerta y sostuvo una media sonrisa antes de entrar.
+
+—Buenas noches, Julián. Me alegra que hayamos hecho esto.
+
+—Buenas noches, Inés —respondió él.
+
+La puerta se cerró detrás de ella y la tarde del jueves quedó, por fin, terminada.
+
