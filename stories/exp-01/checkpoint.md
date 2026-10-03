@@ -1,12 +1,14 @@
-# Checkpoint — EXP-01/S6 X03
+# Checkpoint — EXP-01/S6 X04
 
-Miércoles por la tarde. La interacción remota quedó cerrada.
+Viernes, después de un intercambio asincrónico. La escena quedó cerrada.
 
-Se completaron **164 turnos**; X03 añadió 161–164.
+Se completaron **168 turnos**; X04 añadió 165–168.
 
-Julián retomó de forma ligera el juego de observación mediante una foto sin personas. Inés respondió con su humor seco. No se creó una rutina obligatoria ni un nuevo acuerdo.
+Julián notó que estaba empezando a interpretar una demora, lo dijo y corrigió antes de asumir. Inés explicó que estaba trabajando y valoró que no convirtiera el silencio en incidente.
+
+El acuerdo existente —preguntar antes de asumir— funcionó; no se creó una regla nueva.
 
 No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita; no tratar el intercambio de fotos como obligación. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
