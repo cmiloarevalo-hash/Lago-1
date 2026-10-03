@@ -1,37 +1,26 @@
-# Checkpoint — EXP-01/S1 bloque 3
+# Checkpoint — EXP-01/S2 sesión A
 
 ## Punto exacto de reanudación
-Jueves, misma tarde. Inés y Julián ya salieron de Café Niebla y caminan juntos por la calle hacia su edificio. La escena sigue activa y pública. Se completaron 39 turnos en total; S1 bloque 3 añadió los turnos 36–39.
+La escena del jueves terminó. Inés y Julián caminaron desde Café Niebla hasta la entrada de su edificio, confirmaron de nuevo la caminata del sábado a las 10:20 y se despidieron sin abrir nuevos conflictos.
 
-El último turno fue de Inés. Aceptó cerrar el café y ambos salieron juntos rumbo al edificio.
+Se completaron 43 turnos en total; la sesión S2-A añadió los turnos 40–43.
 
-El siguiente turno natural corresponde a **Julián**.
+## Estado actual
+- **Escena:** jueves cerrado en la entrada del edificio.
+- **Relación:** interés romántico mutuo explícito, sin compromiso formal; confianza e intimidad moderadas.
+- **Oferta laboral:** sigue pendiente de decisión de Inés para el lunes; no se reabrió en esta sesión.
+- **Caminata del sábado:** confirmada a las 10:20 en el hall del edificio.
+- **Regla durable:** Julián debe pedir permiso antes de fotografiar a Inés.
+- **walk_home_after_cafe:** completado.
 
-## Relación actual
-- Interés romántico mutuo y explícito.
-- Siguen conociéndose sin compromiso formal.
-- El quiebre por la oferta laboral permanece reparado.
-- La incertidumbre laboral de Inés sigue abierta.
+## Siguiente acción natural
+La siguiente sesión debe hacer una **transición temporal explícita al sábado** y abrir la caminata fotográfica a las 10:20 en el hall del edificio. No es necesario narrar el tiempo intermedio.
 
-## Hechos canónicos actuales
-- Inés Vidal tiene 32 años y Julián Rojas 34; ambos son adultos.
-- La primera reunión intencional en Café Niebla terminó y ahora vuelven caminando juntos al edificio.
-- La caminata fotográfica del sábado sigue confirmada con encuentro a las 10:20 en el hall.
-- Inés mantiene la regla de que Julián debe pedir permiso antes de fotografiarla.
-- La oferta laboral de seis meses sigue pendiente de decisión para el lunes.
+## Knowledge boundaries relevantes
+- Ambos saben que existe interés mutuo y que siguen conociéndose sin compromiso.
+- Ambos conocen la cita del sábado a las 10:20.
+- Julián sabe que la oferta laboral de Inés sigue abierta hasta el lunes.
+- Inés sabe que Julián debe pedir permiso antes de fotografiarla.
 
-## Threads
-1. **walk_home_after_cafe:** aceptado y en curso.
-2. **Caminata del sábado:** confirmada y con logística cerrada.
-3. **Oferta laboral:** decisión de Inés pendiente para el lunes.
-4. **Relación:** interés mutuo explícito, sin compromiso definido.
-
-## Cambios materiales del bloque
-- La escena cambió de Café Niebla al trayecto público hacia el edificio.
-- `walk_home_after_cafe`: `proposed_by_ines_pending_julian` → `accepted_in_progress`.
-- `beat`: `walk_home_proposed` → `walking_home_together`.
-- `turn_cursor`: 35 → 39.
-- `memory.md` se mantuvo sin cambios: el nuevo estado inmediato está suficientemente representado por `state.json` y este checkpoint.
-
-## Siguiente punto natural
-Julián puede iniciar una conversación ligera durante el trayecto. No necesita reabrir la oferta laboral ni definir la relación. El estado durable es suficiente para una reanudación posterior.
+## Persistencia
+El estado durable basta para iniciar el sábado sin releer el transcript completo.
