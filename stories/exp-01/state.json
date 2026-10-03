@@ -2,7 +2,7 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "comunicación a distancia",
-    "time": "lunes, después de la primera jornada laboral",
+    "time": "miércoles, tarde",
     "privacy": "remote",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "first_workday_positive_and_tired",
+  "beat": "shared_observation_game_remote",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -109,5 +109,5 @@
       "status": "completed_emotional_goodbye_saturday"
     }
   ],
-  "turn_cursor": 160
+  "turn_cursor": 164
 }
