@@ -1,12 +1,12 @@
-# Checkpoint — EXP-01/S6 X17
+# Checkpoint — EXP-01/S6 X18
 
-Martes por la noche. La interacción quedó cerrada.
+Jueves por la tarde. La interacción quedó cerrada.
 
-Se completaron **223 turnos**; X17 añadió 219–223.
+Se completaron **228 turnos**; X18 añadió 224–228.
 
-Julián contó que un trabajo freelance que daba por seguro se cayó y que tendrá que reorganizar dos semanas. No lo presentó como crisis. Inés preguntó qué tipo de apoyo quería y, cuando él pidió poder quejarse, lo escuchó sin intentar convertirlo en oportunidad.
+Julián dijo que reorganizó su trabajo tras la cancelación y que el problema ya no está activo. Inés señaló que le gustó que él compartiera algo difícil propio, porque la comunicación a distancia había empezado muy centrada en su mudanza. Ambos reconocieron de forma ligera una mayor reciprocidad.
 
-No hay turno inmediato pendiente.
+No hay nuevo compromiso ni acuerdo de exclusividad.
 
 ## Reanudación
-Abrir una interacción posterior explícita. El revés laboral de Julián es temporal y no debe magnificarse sin nueva evidencia. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
