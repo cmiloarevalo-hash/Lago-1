@@ -2,9 +2,9 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "hall de su edificio",
-    "time": "sábado, fin de la mañana",
+    "time": "lunes, 08:10",
     "privacy": "public",
-    "status": "closed",
+    "status": "active",
     "participants": [
       "ines",
       "julian"
@@ -18,11 +18,11 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "saturday_walk_closed",
+  "beat": "job_decision_question_open",
   "threads": [
     {
       "id": "ines_job_offer",
-      "status": "revealed_decision_pending_monday"
+      "status": "decision_due_today_direct_question_open"
     },
     {
       "id": "julian_saturday_invitation",
@@ -53,5 +53,5 @@
       "status": "clarified_and_respected"
     }
   ],
-  "turn_cursor": 64
+  "turn_cursor": 69
 }
