@@ -7,7 +7,7 @@
 - La comunicación a distancia es flexible: mensajes/audios asincrónicos sin frecuencia mínima; llamadas sólo cuando ambos quieran. Ante silencios o frases ambiguas, preguntan antes de asumir.
 - La disponibilidad no es obligación constante: cualquiera puede decir “hoy no” sin que equivalga a rechazo.
 - El apoyo es recíproco; la relación ya no gira sólo alrededor del cambio de ciudad de Inés.
-- Ambos han dicho que les gustaría una visita de Julián en algún momento, pero **no existe plan, fecha, reserva ni viaje acordado**; lo retomarán cuando haya una agenda real.
+- La visita de Julián quedó confirmada para la ventana que Inés propuso: **dentro de dos fines de semana** respecto de la sesión T04-A. No hay fechas de calendario, transporte, reserva ni alojamiento persistidos todavía.
 - Han compartido besos con consentimiento explícito. Para fotografiar a Inés, Julián debe pedir permiso cada vez.
 
 ## Knowledge boundaries
