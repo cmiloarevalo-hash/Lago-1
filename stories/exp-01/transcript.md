@@ -2439,3 +2439,31 @@ Hizo una pausa antes de enviar el siguiente mensaje.
 —Perfecto.
 
 —Confírmame cuando esté reservado. Lo demás puede seguir siendo flexible.
+
+## Sesión T05-C — logística mínima confirmada
+
+**Transición temporal — lunes, noche**
+
+**Turno 259 — Julián**
+
+—Reservé la opción de las 11:40.
+
+—Y ya dejé resuelto el alojamiento por mi cuenta. No necesitas organizar mi llegada.
+
+**Turno 260 — Inés**
+
+—Perfecto.
+
+—Instálate primero y escríbeme cuando estés listo. No necesito fijar desde ahora la hora exacta en que nos vamos a ver.
+
+**Turno 261 — Julián**
+
+—Hecho.
+
+—Llegar, instalarme, avisarte. Después decidimos sin convertir el sábado en una planilla.
+
+**Turno 262 — Inés**
+
+—Eso sí parece una visita.
+
+—Me sirve.
