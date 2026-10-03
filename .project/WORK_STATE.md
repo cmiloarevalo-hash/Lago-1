@@ -1,18 +1,21 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01/S3 — ACCEPT**
+**EXP-01/S4 — ACCEPT**
 
-## Hallazgo de S3
-El Narrative Test Agent fijo completó un mini-arco romántico persistente de 80 turnos totales con:
-- múltiples reentradas desde estado durable;
-- cierre y apertura de escenas;
-- salto temporal explícito;
-- decisión narrativa no predeterminada;
-- resolución HFN;
-- memoria compacta;
-- checkpoint autosuficiente;
-- cero cambios fuera de scope.
+## Hallazgo de S4
+El Narrative Test Agent fijo completó un batch creativo autónomo de 5 micro-sesiones consecutivas bajo una sola instrucción persistente.
+
+Capacidad demostrada:
+- 5 micro-sesiones I → M;
+- 32 turnos narrativos nuevos;
+- cursor total 80 → 112;
+- 5 reentradas desde estado durable;
+- 5 persistencias;
+- 5 verificaciones de diff;
+- cero intervención de Supervisor entre bloques;
+- cero cambios fuera de scope;
+- memory final ~2.5 KB.
 
 ## Protocolo vigente
 `.project/NARRATIVE_CHAT_PROTOCOL.md`
@@ -20,25 +23,27 @@ El Narrative Test Agent fijo completó un mini-arco romántico persistente de 80
 ## Estrategia actual
 **FIXED NARRATIVE TEST AGENT**
 
-La ruta fixed-chat queda validada para el alcance actual.
+Se mantiene el mismo chat narrativo.
 
 ## Actividad actual
-**S4 / Issue #25 — Batch creativo autónomo persistente — segundo arco**
+**S5 / Issue #26 — Capacity probe — 10 micro-sesiones autónomas**
 
-## Hipótesis S4
-El mismo chat puede recibir un objetivo narrativo amplio y ejecutar persistentemente cinco micro-sesiones consecutivas sin intervención del Supervisor, guardando después de cada bloque y deteniéndose sólo en el gate final.
+## Objetivo
+Medir capacidad práctica de una sola solicitud persistente, no complejidad literaria.
 
-## Batch S4
-Sesiones I → M.
+## Batch S5
+Ejecutar:
+**N → O → P → Q → R → S → T → U → V → W**
 
-Cada sesión:
-- 4–7 turnos;
-- entry checkpoint desde estado durable;
+Cada micro-sesión:
+- 3–5 turnos;
+- reentrada desde estado durable;
+- ENTRY CHECKPOINT;
 - roleplay;
 - persistencia;
-- diff seguro;
+- diff;
 - checkpoint;
-- continuar inmediatamente con la siguiente si no hay bloqueo real.
+- continuar inmediatamente.
 
 ## Escritura autorizada
 Sólo:
@@ -53,19 +58,16 @@ Sólo:
 - `README.md`
 
 ## Regla de autonomía
-No esperar revisión entre I/J/K/L/M.
-No pedir autorización entre bloques.
-No emitir decisiones de Supervisor.
-
-Si existe bloqueo real:
-`IMPLEMENTER BLOCKED — EXP-01/S4`
+No esperar revisión entre N–W.
+No pedir autorización.
+Detenerse sólo ante bloqueo real o al llegar al gate final.
 
 ## Actividad diferida
 **T04 / Issue #21 — reemplazo por chat nuevo**
 Permanece PAUSED.
 
-## Gate S4
-Después de la Sesión M:
-**READY FOR SUPERVISOR AUTONOMOUS-BATCH REVIEW**
+## Gate S5
+Después de W:
+**READY FOR SUPERVISOR CAPACITY REVIEW**
 
 Después detenerse.
