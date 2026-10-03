@@ -2161,3 +2161,35 @@ Inés envió una foto de un letrero ligeramente inclinado, sin personas.
 
 —Prefiero que funcione sin auditoría semanal.
 
+## Sesión S6-X17 — esta vez habla Julián
+
+**Transición temporal — martes, noche**
+
+**Turno 219 — Julián**
+
+—Hoy se cayó un trabajo que daba por bastante seguro.
+
+—No es una catástrofe. Pero estoy más molesto de lo que quiero admitir.
+
+**Turno 220 — Inés**
+
+—¿Quieres solución, distracción o que te escuche quejarte con precisión?
+
+**Turno 221 — Julián**
+
+—La tercera.
+
+—Me había organizado alrededor de ese ingreso y ahora tengo que rearmar dos semanas.
+
+**Turno 222 — Inés**
+
+—Entonces quéjate.
+
+—No voy a explicarte por qué “quizás sea una oportunidad”. Eso sería insoportable.
+
+**Turno 223 — Julián**
+
+—Gracias.
+
+—Sabía que podía confiar en tu negativa a optimizar una mala tarde.
+
