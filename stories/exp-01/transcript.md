@@ -2017,3 +2017,31 @@ Un momento después escribió:
 
 —Hablamos cuando tenga sentido.
 
+## Sesión S6-X12 — orgullo sin informe
+
+**Transición temporal — sábado, noche**
+
+**Turno 198 — Inés**
+
+—Terminó.
+
+—Salió bien y estoy orgullosa. También estoy tan cansada que no quiero explicarlo durante cuarenta minutos.
+
+**Turno 199 — Julián**
+
+—Con esas dos líneas me alcanza.
+
+—Felicitaciones por lo que salió bien. El informe puede no existir.
+
+**Turno 200 — Inés**
+
+—Gracias.
+
+—Mañana mi proyecto principal es dormir.
+
+**Turno 201 — Julián**
+
+—Proyecto aprobado sin comité.
+
+—Descansa, Vidal.
+
