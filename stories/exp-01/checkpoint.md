@@ -1,24 +1,21 @@
-# Checkpoint — EXP-01/T05 sesión B
+# Checkpoint — EXP-01/T05 sesión C
 
-Domingo por la noche. La interacción remota quedó cerrada.
+Lunes por la noche. La interacción remota quedó cerrada.
 
-Se completaron **258 turnos** totales; T05-B añadió 255–258.
+Se completaron **262 turnos** totales; T05-C añadió 259–262.
 
 ## Punto exacto
-Julián encontró una opción de viaje que llegaría el sábado a las **11:40**. La opción **todavía no está reservada**.
+La visita de Julián sigue confirmada para la ventana relativa ya acordada.
 
-Inés confirmó que 11:40 le funciona y dejó claro que Julián puede instalarse primero y escribirle después; no espera recibirlo inmediatamente al llegar.
-
-Julián tomó 11:40 como la opción preferida y debe confirmar cuando la reserva exista.
-
-Siguen sin persistirse como hechos confirmados:
-- fecha de calendario exacta;
-- medio de transporte;
-- reserva de viaje efectiva;
-- hora de salida;
-- alojamiento concreto.
-
-El límite de alojamiento separado sigue vigente: Julián lo resolverá por su cuenta.
+Logística mínima ahora confirmada dentro del roleplay:
+- Julián **reservó** la opción con llegada el sábado a las **11:40**;
+- el medio de transporte no está persistido;
+- la fecha de calendario exacta no está persistida;
+- Julián resolvió alojamiento separado por su cuenta, sin persistir alojamiento concreto;
+- Inés no espera recibirlo inmediatamente al llegar;
+- Julián se instalará primero y escribirá a Inés después;
+- no existe todavía una hora exacta para que se encuentren ese sábado;
+- no existe itinerario completo para la visita.
 
 ## Relación actual
 - Se están viendo a distancia con interés romántico mutuo.
@@ -29,20 +26,21 @@ El límite de alojamiento separado sigue vigente: Julián lo resolverá por su c
 
 ## Knowledge boundaries
 ### Inés sabe
-- Existe una opción de llegada el sábado a las 11:40 y ella la acepta.
-- La opción aún no está reservada.
-- Julián puede instalarse primero y contactarla después.
+- La opción de llegada de las 11:40 fue reservada.
+- Julián resolvió alojamiento separado por su cuenta.
+- Él se instalará primero y le escribirá después.
+- No hay una hora exacta acordada para verse.
 
 ### Julián sabe
 - 11:40 le funciona a Inés.
 - No se espera un encuentro inmediato a la llegada.
-- Debe confirmar cuando la reserva esté hecha y mantener alojamiento separado.
+- Debe instalarse primero y escribirle después.
+- El resto de la visita puede mantenerse flexible.
 
 ### Ambos saben
-- La visita sigue confirmada.
-- 11:40 es una opción aceptada, no todavía una llegada reservada.
-- El resto de la visita puede permanecer flexible.
+- La visita está confirmada y tiene logística mínima suficiente para continuar.
+- El medio de transporte, la fecha exacta de calendario y el alojamiento concreto siguen sin persistirse.
 - Cualquier cambio de etiqueta o exclusividad debe hablarse explícitamente.
 
 ## Reanudación futura
-Abrir una nueva interacción desde este estado. El siguiente punto natural es que Julián confirme o descarte la opción de 11:40 después de intentar reservarla. No convertirla en reserva efectiva antes de que aparezca dentro del roleplay.
+El siguiente punto natural sería la proximidad o llegada de la visita, pero T05 termina aquí. Una futura sesión debe reentrar desde durable state y no inventar medio de transporte, fecha exacta, alojamiento concreto ni una hora de encuentro no acordada.
