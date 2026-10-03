@@ -1,9 +1,9 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "hall y entrada de su edificio",
-    "time": "domingo, 09:00",
-    "privacy": "public",
+    "location": "comunicación a distancia; Inés ya en la otra ciudad, ubicación específica no persistida",
+    "time": "domingo, después de la llegada; hora no especificada",
+    "privacy": "remote",
     "status": "closed",
     "participants": [
       "ines",
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "departure_completed_arrival_checkin_pending",
+  "beat": "arrival_checkin_completed_first_workday_next",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -54,7 +54,7 @@
     },
     {
       "id": "departure_logistics",
-      "status": "ines_departed_building_sunday_0900_transport_unspecified"
+      "status": "completed_arrived_transport_and_arrival_time_unspecified"
     },
     {
       "id": "friday_meal",
@@ -70,7 +70,7 @@
     },
     {
       "id": "arrival_checkin",
-      "status": "pending_after_arrival"
+      "status": "completed_ines_arrived_checkin_sent"
     },
     {
       "id": "thursday_cafe",
@@ -109,5 +109,5 @@
       "status": "completed_emotional_goodbye_saturday"
     }
   ],
-  "turn_cursor": 152
+  "turn_cursor": 156
 }

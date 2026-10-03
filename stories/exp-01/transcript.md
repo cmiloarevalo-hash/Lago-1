@@ -1675,3 +1675,39 @@ Inés lo abrazó brevemente y se separó primero.
 
 Tomó la maleta y salió del edificio. Julián no la siguió. La escena terminó con Inés ya en camino y el check-in de llegada todavía pendiente.
 
+## Sesión S6-X01 — llegada
+
+**Transición temporal — domingo, más tarde; hora no especificada**
+
+Después de llegar a la otra ciudad y cuando ya tiene espacio para hacerlo, Inés abre el chat con Julián.
+
+**Turno 153 — Inés**
+
+—Llegué.
+
+Un segundo mensaje apareció poco después.
+
+—Eso es todo el parte oficial de viaje.
+
+**Turno 154 — Julián**
+
+—Recibido.
+
+Julián respondió sin preguntar por el trayecto.
+
+—Me alegra saber que llegaste. No necesito la edición extendida.
+
+**Turno 155 — Inés**
+
+—Bien.
+
+Inés tardó un momento antes de añadir:
+
+—Mañana empiezo. Probablemente te escriba cuando tenga cabeza para ser una persona otra vez.
+
+**Turno 156 — Julián**
+
+—Perfecto. Cero cuota de persona funcional.
+
+—Suerte mañana, Vidal.
+
