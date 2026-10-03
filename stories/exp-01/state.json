@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "hall de su edificio, frente a los ascensores",
-    "time": "jueves, comienzo de la noche",
+    "location": "entrada de su edificio",
+    "time": "viernes, comienzo de la noche",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "single_saturday_plan_confirmed",
+  "beat": "departure_help_scope_agreed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -98,8 +98,12 @@
     },
     {
       "id": "friday_space",
-      "status": "ines_wants_no_plan_to_finish_packing_alone"
+      "status": "respected_no_plan"
+    },
+    {
+      "id": "departure_help",
+      "status": "sunday_0900_julian_carries_suitcase_from_ines_door_to_hall_only"
     }
   ],
-  "turn_cursor": 136
+  "turn_cursor": 140
 }

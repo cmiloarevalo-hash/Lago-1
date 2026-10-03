@@ -1495,3 +1495,49 @@ Julián dio un paso atrás para dejarla entrar.
 
 Inés asintió y las puertas se cerraron. La escena terminó con un único encuentro futuro acordado.
 
+## Sesión S5-T — ayuda acotada para el domingo
+
+**Transición temporal — viernes, comienzo de la noche**
+
+Sin narrar acontecimientos intermedios, la historia salta al viernes. Inés y Julián se cruzan en la entrada del edificio cuando él llega y ella baja con una bolsa de reciclaje.
+
+**Turno 137 — Julián**
+
+—No estoy aquí con un plan clandestino.
+
+Julián señaló la puerta detrás de él.
+
+—Literalmente acabo de llegar.
+
+**Turno 138 — Inés**
+
+—Te creo.
+
+Inés dejó la bolsa junto al contenedor.
+
+—Pero sí voy a pedirte algo para el domingo. A las nueve quiero bajar con la maleta. ¿Puedes ayudarme desde mi puerta hasta el hall?
+
+Añadió enseguida:
+
+—Hasta el hall. No necesito acompañamiento después.
+
+**Turno 139 — Julián**
+
+—Domingo a las nueve. Maleta hasta el hall y ahí termina mi jurisdicción.
+
+Asintió.
+
+—Sí, puedo.
+
+**Turno 140 — Inés**
+
+—Perfecto.
+
+Inés recogió la bolsa vacía.
+
+—Eso era todo. Y mañana, cinco de la tarde.
+
+—Plaza —confirmó Julián.
+
+Se despidieron sin extender el encuentro.
+

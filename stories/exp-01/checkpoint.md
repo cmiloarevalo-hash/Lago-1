@@ -1,20 +1,20 @@
-# Checkpoint — EXP-01/S5 sesión S
+# Checkpoint — EXP-01/S5 sesión T
 
 ## Punto exacto
-Jueves, comienzo de la noche. La escena frente a los ascensores terminó.
+Viernes, comienzo de la noche. El encuentro casual en la entrada del edificio terminó.
 
-Se completaron **136 turnos**; S5-S añadió 133–136.
+Se completaron **140 turnos**; S5-T añadió 137–140.
 
-Inés propuso un único plan: **sábado a las 17:00, caminar por la plaza del barrio durante aproximadamente una hora**. Julián aceptó sin añadir actividades. Inés además dejó claro que el viernes quiere terminar de ordenar sola y no quiere plan; Julián lo respetó.
+Inés pidió una ayuda concreta para el día del viaje: **domingo a las 09:00**, Julián llevará la maleta desde la puerta de su departamento hasta el hall. Inés especificó que no quiere acompañamiento después del hall; Julián aceptó ese límite.
 
-No hay turno inmediato pendiente.
+El plan del sábado a las 17:00 en la plaza sigue confirmado.
 
 ## Estado relevante
-- Viaje: domingo por la mañana, anterior al inicio del trabajo.
-- Viernes: Inés quiere espacio para terminar de ordenar.
-- Sábado 17:00: caminata en la plaza confirmada.
+- Sábado 17:00: caminata en la plaza.
+- Domingo 09:00: ayuda con la maleta desde la puerta de Inés hasta el hall, y no más allá.
+- Viaje: domingo por la mañana.
+- Check-in de llegada y comunicación asincrónica: vigentes.
 - Relación: interés mutuo, sin compromiso formal.
-- Comunicación/check-in y regla de un plan a la vez vigentes.
 
 ## Reanudación
-La siguiente sesión puede abrir el viernes con un encuentro casual que respete que no hay plan, o saltar al sábado. No inventar ayuda de embalaje no solicitada.
+Abrir explícitamente el sábado a las 17:00 en la plaza. Transcript no es necesario para reconstrucción.
