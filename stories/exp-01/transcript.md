@@ -637,3 +637,67 @@ Bajó la cámara y lo miró con una sonrisa breve.
 
 —Camina, Rojas. Vas perdiendo.
 
+## Sesión S3-E — cierre de la caminata del sábado
+
+**Turno 60 — Julián**
+
+Julián obedeció y echó a andar con una dignidad deliberadamente herida.
+
+—Queda registrado que acepté competir con alguien que detecta baldosas mal puestas a veinte metros.
+
+Señaló una ventana alta donde una cortina roja se movía detrás del vidrio.
+
+—Tercera. No la cortina: el pedazo de cielo que aparece y desaparece cuando se mueve.
+
+**Turno 61 — Inés**
+
+Inés levantó la cámara prestada y esperó a que la tela volviera a abrir el hueco azul.
+
+—Eso es irritantemente bueno.
+
+Tomó la foto y revisó la pantalla.
+
+—Y ahora entiendo por qué haces esto. Hay que esperar más de lo que parece.
+
+Bajó la cámara.
+
+—En producción, si esperas demasiado, normalmente algo empeora.
+
+**Turno 62 — Julián**
+
+—En fotografía también. Sólo que a veces empeora de una forma interesante.
+
+Julián miró la imagen en la pantalla cuando Inés se la mostró, sin tocar la cámara.
+
+—Te salió bien.
+
+Luego señaló la esquina siguiente.
+
+—Propongo una reforma reglamentaria: terminamos esta calle, declaramos empate administrativo y buscamos café antes de que esto se convierta en deporte competitivo.
+
+**Turno 63 — Inés**
+
+—No voy a aceptar un empate sólo porque estás perdiendo.
+
+Inés sostuvo la cámara un momento más y luego se la devolvió con cuidado.
+
+—Pero acepto café. Y admito que estuvo mejor de lo que esperaba.
+
+Hizo una pausa breve.
+
+—La caminata, no tu desempeño.
+
+**Turno 64 — Julián**
+
+—Qué alivio. Por un segundo pensé que estaba recibiendo una evaluación integral.
+
+Julián guardó la segunda cámara y caminó con ella de regreso hacia el edificio.
+
+Al llegar al hall, se detuvo antes de ir hacia su ascensor.
+
+—Gracias por venir.
+
+—Gracias por preguntar —respondió Inés.
+
+Se despidieron allí, sin añadir promesas. La caminata del sábado quedó terminada.
+
