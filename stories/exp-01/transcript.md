@@ -2259,3 +2259,39 @@ Después añadió:
 
 —Posibilidad real, plan inexistente.
 
+## Sesión S6-X20 — ritmo estable
+
+**Transición temporal — lunes, noche**
+
+**Turno 234 — Inés**
+
+—He estado pensando en lo de la visita.
+
+—No tengo fechas nuevas. Sólo quería decir que me gusta que no hayamos convertido la idea en obligación.
+
+**Turno 235 — Julián**
+
+—A mí también.
+
+—Cuando exista un fin de semana real, vemos si encaja. Hasta entonces no necesito reservar una versión imaginaria de nosotros.
+
+**Turno 236 — Inés**
+
+—Bien.
+
+—Y el resto también me está funcionando: mensajes cuando podemos, llamadas cuando queremos, preguntar si algo se siente raro.
+
+**Turno 237 — Julián**
+
+—Mismo diagnóstico desde aquí.
+
+—Sin auditoría semanal.
+
+**Turno 238 — Inés**
+
+—Perfecto.
+
+—Entonces no cambiemos una cosa que está funcionando sólo porque ya pasó tiempo.
+
+La conversación terminó allí, sin nuevo plan y sin nueva etiqueta.
+
