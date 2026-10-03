@@ -1,14 +1,12 @@
-# Checkpoint — EXP-01/S6 X04
+# Checkpoint — EXP-01/S6 X05
 
-Viernes, después de un intercambio asincrónico. La escena quedó cerrada.
+Domingo por la tarde, una semana después de la llegada. La primera videollamada desde la distancia terminó.
 
-Se completaron **168 turnos**; X04 añadió 165–168.
+Se completaron **173 turnos**; X05 añadió 169–173.
 
-Julián notó que estaba empezando a interpretar una demora, lo dijo y corrigió antes de asumir. Inés explicó que estaba trabajando y valoró que no convirtiera el silencio en incidente.
-
-El acuerdo existente —preguntar antes de asumir— funcionó; no se creó una regla nueva.
+Inés pidió una llamada puntual. Dijo que el trabajo le gusta más de lo esperado y que extraña detalles cotidianos de su vida anterior. Ambos aceptaron que esas cosas pueden coexistir. No programaron una siguiente llamada recurrente.
 
 No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. Mantener llamadas por acuerdo, sin calendario fijo. Transcript no es necesario para reconstrucción.
