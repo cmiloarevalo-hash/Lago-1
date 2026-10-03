@@ -1,18 +1,12 @@
-# Checkpoint — EXP-01/S6 X14
+# Checkpoint — EXP-01/S6 X15
 
-Martes por la noche. La interacción remota quedó cerrada.
+Jueves por la tarde. La interacción quedó cerrada.
 
-Se completaron **210 turnos**; X14 añadió 206–210.
+Se completaron **214 turnos**; X15 añadió 211–214.
 
-Julián planteó que “nos estamos viendo” puede implicar exclusividad para otras personas. Ambos aclararon que **no han acordado exclusividad** y que ninguno debe asumirla. Si quieren cambiar ese estado, lo hablarán explícitamente.
-
-## Relación actual
-- Se están viendo / existe interés romántico mutuo.
-- No son pareja formal.
-- No existe acuerdo de exclusividad.
-- Cualquier cambio de exclusividad requiere conversación explícita.
+Inés y Julián intercambiaron humor sobre un letrero torcido. No se abrió ningún thread relacional o logístico nuevo.
 
 No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita sin inventar conductas románticas con terceros ni asumir exclusividad. Transcript no es necesario para reconstrucción.
+Abrir una nueva interacción explícita. Mantener la relación como “nos estamos viendo”, sin pareja formal ni exclusividad acordada. Transcript no es necesario para reconstrucción.
