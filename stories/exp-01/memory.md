@@ -7,17 +7,17 @@
 - La comunicación a distancia es flexible: mensajes/audios asincrónicos sin frecuencia mínima; llamadas sólo cuando ambos quieran. Ante silencios o frases ambiguas, preguntan antes de asumir.
 - La disponibilidad no es obligación constante: cualquiera puede decir “hoy no” sin que equivalga a rechazo.
 - El apoyo es recíproco; la relación ya no gira sólo alrededor del cambio de ciudad de Inés.
-- La visita de Julián quedó confirmada para la ventana que Inés propuso: **dentro de dos fines de semana** respecto de la sesión T04-A. No hay fechas de calendario, transporte, reserva ni alojamiento persistidos todavía.
+- La visita de Julián quedó confirmada para la ventana que Inés propuso: **dentro de dos fines de semana** respecto de T04-A. Julián organizará alojamiento por su cuenta; no debe asumirse que se quedará con Inés. Transporte, horarios, reservas y fechas de calendario siguen sin persistirse.
 - Han compartido besos con consentimiento explícito. Para fotografiar a Inés, Julián debe pedir permiso cada vez.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián acepta el ritmo flexible y la ausencia de exclusividad. Sabe que la visita quedó confirmada para la ventana relativa acordada, con logística todavía pendiente.
+- Julián acepta el ritmo flexible y la ausencia de exclusividad. Sabe que la visita quedó confirmada y que él debe resolver alojamiento por su cuenta.
 - Julián puede compartir sus propios problemas y marcar límites de disponibilidad.
 
 ### Julián sabe
 - Inés está adaptándose bien y quiere mantener el vínculo sin cuotas.
-- No debe asumir exclusividad ni detalles logísticos de la visita confirmada que todavía no se hayan acordado.
+- No debe asumir exclusividad ni alojamiento con Inés; transporte y horarios de la visita siguen pendientes.
 - Una demora o un límite de disponibilidad no debe interpretarse sin preguntar.
 
 ### Ambos saben
