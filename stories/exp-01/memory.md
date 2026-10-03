@@ -1,32 +1,31 @@
 # Memoria mínima — EXP-01
 
 ## Hechos durables
-- Inés Vidal (32) y Julián Rojas (34) son adultos, vecinos del mismo edificio, con interés romántico mutuo explícito y sin compromiso formal.
-- Inés aceptó un trabajo de seis meses en otra ciudad y confirmó su llegada. Está adaptándose bien: le gusta el trabajo y ya empieza a sentirse cotidiana allí. Mantendrá su departamento durante los seis meses y espera volver a él; eso no implica una promesa relacional. Transporte y hora exacta de llegada no están persistidos.
-- Inés y Julián acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
-- Antes del viaje evitaron una cuenta regresiva y funcionaron con un plan a la vez. Separaron la despedida emocional del sábado de la salida práctica del domingo.
-- El domingo Julián llevó la maleta desde la puerta de Inés hasta el hall y respetó el límite de no acompañarla más allá. Inés salió sola del edificio.
-- El check-in de llegada se completó: Inés envió “Llegué” cuando pudo; Julián respetó el acuerdo y no pidió seguimiento del trayecto.
-- Para la distancia prefieren mensajes o audios asincrónicos, sin frecuencia mínima. Las llamadas se acuerdan cuando quieran; ante silencios ambiguos, preguntarán antes de asumir.
-- Han compartido besos con consentimiento explícito; eso no convirtió el vínculo en una relación formal.
-- Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarlo.
+- Inés Vidal (32) y Julián Rojas (34) son adultos, vecinos del mismo edificio, con interés romántico mutuo y sin compromiso formal.
+- Inés está en otra ciudad por un trabajo de seis meses. Ya llegó, se está adaptando bien y le gusta el trabajo. Mantiene su departamento de origen y espera volver a él; eso no implica una promesa relacional.
+- Antes de la distancia acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
+- La comunicación es flexible: mensajes y audios asincrónicos sin frecuencia mínima; llamadas sólo cuando ambos quieran. Ante silencios o frases ambiguas, preguntan antes de asumir.
+- La disponibilidad no es obligación constante: ambos pueden decir “hoy no” sin que equivalga a rechazo.
+- Han compartido besos con consentimiento explícito, pero siguen sin etiqueta formal.
+- Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarse.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián conoce y respeta los acuerdos de viaje, comunicación y ausencia de etiqueta formal.
-- Julián no la acompañó más allá del hall.
+- Julián respeta su autonomía, su adaptación positiva y el ritmo flexible de contacto.
+- Julián puede marcar límites de disponibilidad sin retirarse del vínculo.
 
 ### Julián sabe
-- Inés confirmó que llegó a la otra ciudad; Julián no conoce transporte ni hora exacta de llegada.
-- Debe esperar el check-in sin exigir telemetría.
-- Inés mantiene su departamento y la comunicación será asincrónica, sin cuota mínima.
+- Inés está adaptándose bien y le gusta estar allí.
+- Ella mantiene su departamento de origen y quiere contacto sin cuotas.
+- La ausencia de respuesta o de disponibilidad no debe interpretarse sin preguntar.
 
 ### Ambos saben
 - Hay interés mutuo y cercanía física consentida.
 - No existe compromiso formal.
-- Si algo cambia entre ellos, deben decirlo en vez de asumir por el otro.
+- Si algo cambia, deben decirlo en vez de asumir por el otro.
 
 ## No promover a memoria
-- Decoración de escenas.
-- Planes puntuales ya completados que no cambien continuidad.
+- Agenda semanal.
+- Escenas ya cerradas.
+- Detalles de trabajo que no cambien continuidad.
 - Frases exactas o gestos sin consecuencia durable.
