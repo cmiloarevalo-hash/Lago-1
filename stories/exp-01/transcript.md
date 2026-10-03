@@ -1409,3 +1409,49 @@ Inés tomó su taza.
 
 La escena siguió unos minutos más en temas cotidianos y terminó sin nuevos acuerdos.
 
+## Sesión S5-R — no es una mudanza definitiva
+
+**Transición temporal — miércoles, comienzo de la noche**
+
+Sin narrar acontecimientos intermedios, la historia salta al miércoles. Julián encuentra a Inés en el hall con un paquete de cajas plegadas bajo el brazo.
+
+**Turno 129 — Julián**
+
+Julián miró las cajas y luego a Inés.
+
+—Eso tiene una estética peligrosamente parecida a una mudanza.
+
+**Turno 130 — Inés**
+
+—Es embalaje, no desalojo.
+
+Inés ajustó las cajas contra su costado.
+
+—Voy a conservar el departamento durante los seis meses. Me llevo lo necesario y el resto se queda aquí.
+
+Añadió, precisa:
+
+—Eso significa que pienso volver a mi casa. No es una promesa sobre nada más.
+
+**Turno 131 — Julián**
+
+—Entendido.
+
+Julián asintió.
+
+—Dato de vivienda, no metáfora romántica.
+
+Señaló las cajas.
+
+—¿Necesitas ayuda?
+
+**Turno 132 — Inés**
+
+—Con esto no. Prefiero ordenar sola.
+
+Inés abrió la puerta del ascensor.
+
+—Pero gracias por preguntar antes de convertirte en brigada de embalaje.
+
+Julián sonrió y la dejó ir. La escena quedó cerrada.
+

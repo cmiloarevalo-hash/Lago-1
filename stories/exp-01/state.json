@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "Café Niebla",
-    "time": "martes, final de la tarde",
+    "location": "hall de su edificio",
+    "time": "miércoles, comienzo de la noche",
     "privacy": "public",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "ordinary_connection_without_logistics",
+  "beat": "housing_continuity_clarified",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -87,7 +87,11 @@
     {
       "id": "distance_communication",
       "status": "async_messages_voice_notes_no_minimum_frequency_calls_by_agreement"
+    },
+    {
+      "id": "apartment_status",
+      "status": "ines_keeps_apartment_during_six_months"
     }
   ],
-  "turn_cursor": 128
+  "turn_cursor": 132
 }

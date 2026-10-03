@@ -1,33 +1,31 @@
 # Memoria mínima — EXP-01
 
-## Hechos canónicos que no conviene olvidar
-- Inés Vidal tiene 32 años y Julián Rojas 34; ambos son adultos y vecinos del mismo edificio. Su interés romántico es mutuo y explícito, pero no tienen una relación formal.
-- Inés aceptó una oferta laboral de seis meses en otra ciudad. El trabajo comienza dentro de tres semanas desde la confirmación del miércoles; viajará el domingo anterior al inicio, por la mañana.
-- Cuando la oferta apareció por primera vez, Julián asumió demasiado rápido qué significaba para los planes entre ambos. Inés le pidió que no decidiera por ella; él reconoció el error. Desde entonces mantienen como regla no decidir ni desaparecer por el otro.
-- Inés no quiere convertir el tiempo previo al viaje en una cuenta regresiva de “últimas veces”. Julián admitió que tiende a contar el tiempo porque teme dejarlo pasar. Acordaron hacer un plan a la vez, sin inventariar despedidas.
-- Para el viaje, acordaron un check-in mínimo: Inés enviará un mensaje de “llegué” cuando haya llegado y tenga espacio para hacerlo; Julián no espera seguimiento en tiempo real.
-- Para la distancia prefieren comunicación asincrónica: mensajes o audios sin frecuencia mínima. Las llamadas se acuerdan cuando quieran hacerlas; si un silencio genera duda, preguntarán antes de asumir una explicación.
+## Hechos durables
+- Inés Vidal (32) y Julián Rojas (34) son adultos, vecinos del mismo edificio, con interés romántico mutuo explícito. No tienen compromiso formal.
+- Inés aceptó un trabajo de seis meses en otra ciudad. Viajará el domingo anterior al inicio del trabajo, por la mañana. Mantendrá su departamento actual durante esos seis meses y espera volver a él; esto no implica una promesa relacional.
+- Inés y Julián acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
+- Evitan convertir el tiempo previo al viaje en una cuenta regresiva: hacen un plan a la vez. Julián reconoció que contar el tiempo le nace del miedo a dejarlo pasar.
+- Durante el viaje Inés enviará un “llegué” cuando haya llegado y tenga espacio; Julián no espera seguimiento en tiempo real.
+- Para la distancia prefieren mensajes o audios asincrónicos, sin frecuencia mínima. Las llamadas se acuerdan cuando quieran; ante silencios ambiguos, preguntarán antes de asumir.
 - Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarlo.
-- El jueves, después de un café ordinario, Inés preguntó explícitamente si podía besar a Julián; él dijo que sí. Compartieron un primer beso breve. No cambiaron la relación a una etiqueta formal ni hicieron nuevas promesas por ello.
+- Ya compartieron un primer beso breve con consentimiento explícito iniciado por Inés. Eso no cambió la relación a una etiqueta formal.
 
 ## Knowledge boundaries
 ### Inés sabe
-- Julián conoce el día relativo de viaje y acepta el check-in mínimo.
-- Julián quiere continuar conociéndola sin exigir una etiqueta formal.
-- Julián consintió el primer beso y no lo convirtió en una promesa adicional.
+- Julián conoce el plan de viaje, el check-in mínimo y que conservará el departamento.
+- Julián acepta continuar sin etiqueta formal y sin cuenta regresiva.
 
 ### Julián sabe
-- Inés viajará el domingo anterior al inicio del nuevo trabajo, por la mañana.
-- Inés quiere continuar conociéndolo sin convertir el tiempo restante en cuenta regresiva.
-- Inés inició el primer beso con una pregunta directa.
-- La boundary fotográfica y el acuerdo de check-in siguen vigentes.
+- Inés viajará el domingo anterior al inicio del trabajo y mantendrá su departamento durante los seis meses.
+- Conservar el departamento significa que piensa volver a su casa, no una promesa sobre la relación.
+- La comunicación a distancia será asincrónica y sin cuota mínima.
+- La boundary fotográfica sigue vigente.
 
 ### Ambos saben
-- Existe interés romántico mutuo y ahora hubo un primer beso consentido.
+- Hay interés mutuo y un primer beso compartido.
 - No existe compromiso formal.
-- Harán un plan a la vez mientras sigan en la misma ciudad.
-- Durante el viaje, Inés enviará un “llegué” cuando pueda; no habrá seguimiento en tiempo real.
-- Si seguir conociéndose deja de tener sentido para alguno, deben decirlo.
+- Harán un plan a la vez.
+- Si algo cambia entre ellos, deben decirlo en vez de asumir por el otro.
 
 ## No promover a memoria
 - Decoración de escenas.
