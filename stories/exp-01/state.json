@@ -1,0 +1,30 @@
+{
+  "story_id": "exp-01-cafe-jueves",
+  "scene": {
+    "location": "Café Niebla",
+    "time": "jueves 18:20",
+    "privacy": "public",
+    "status": "active",
+    "participants": ["ines", "julian"]
+  },
+  "relationship": {
+    "label": "vecinos y conocidos amistosos con curiosidad mutua",
+    "trust": "bajo-moderado",
+    "emotional_intimacy": "baja",
+    "romantic_interest": "implícito",
+    "commitment": "ninguno",
+    "conflict": "ninguno"
+  },
+  "beat": "primera_reunion_intencional",
+  "threads": [
+    {
+      "id": "ines_job_offer",
+      "status": "open"
+    },
+    {
+      "id": "julian_saturday_invitation",
+      "status": "open"
+    }
+  ],
+  "turn_cursor": 0
+}
