@@ -2355,3 +2355,31 @@ Hizo una pausa antes de enviar el siguiente mensaje.
 
 —Confirmemos primero lo necesario y dejemos el resto sin coreografía excesiva.
 
+## Sesión T04-C — límites mínimos para la visita
+
+**Transición temporal — viernes, noche**
+
+**Turno 247 — Inés**
+
+—Una cosa antes de que reserves nada.
+
+—No quiero que demos por sentado que vas a quedarte conmigo. Prefiero que el alojamiento lo resuelvas por tu cuenta.
+
+**Turno 248 — Julián**
+
+—Perfecto. No lo estaba dando por sentado.
+
+—Resuelvo alojamiento por mi lado y te paso sólo los horarios cuando tenga opciones concretas.
+
+**Turno 249 — Inés**
+
+—Bien.
+
+—Y tampoco quiero un itinerario de cuarenta y ocho horas. Quiero verte, no producir una gira.
+
+**Turno 250 — Julián**
+
+—Visita, no operativo.
+
+—Alojamiento por mi cuenta, logística mínima y espacio para decidir sobre la marcha. Me sirve.
+
