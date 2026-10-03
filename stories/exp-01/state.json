@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "intenciones_aclaradas_incertidumbre_aceptada",
+  "beat": "saturday_logistics_confirmed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -26,7 +26,7 @@
     },
     {
       "id": "julian_saturday_invitation",
-      "status": "accepted_logistics_pending"
+      "status": "accepted_logistics_confirmed_1020_building_lobby"
     },
     {
       "id": "reaction_repair",
@@ -41,5 +41,5 @@
       "status": "clarified_no_commitment"
     }
   ],
-  "turn_cursor": 27
+  "turn_cursor": 31
 }
