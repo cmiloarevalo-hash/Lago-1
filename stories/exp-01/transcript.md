@@ -72,3 +72,45 @@ La sequedad de la pregunta quedó suavizada por una sonrisa.
 Julián apoyó los antebrazos en la mesa.
 
 —Pero es una invitación de verdad. Si te apetece. No quiero convertir un café agradable en un contrato para ocupar tu sábado.
+
+## Sesión T02 — bloque 3
+
+**Turno 9 — Inés**
+
+Inés bajó la mirada a la taza.
+
+—Sí quiero ir.
+
+La respuesta salió rápida; lo siguiente no.
+
+—Pero antes de que eso suene tan simple como debería, hay algo que no te he contado. Me ofrecieron un trabajo de seis meses en otra ciudad. Tengo que responder el lunes.
+
+**Turno 10 — Julián**
+
+La sonrisa de Julián se apagó apenas.
+
+—Ah.
+
+Se tomó un segundo, pero no el suficiente.
+
+—Entonces quizá lo del sábado no tiene demasiado sentido.
+
+**Turno 11 — Inés**
+
+Inés dejó la taza sobre el plato con cuidado.
+
+—Eso es exactamente por lo que no te lo había dicho.
+
+Su voz siguió tranquila, aunque más fría.
+
+—No dije que me voy. Dije que me hicieron una oferta.
+
+**Turno 12 — Julián**
+
+Julián exhaló y asintió.
+
+—Tienes razón. Me adelanté varios capítulos y decidí el final sin preguntarte.
+
+Apartó la vista un instante y volvió a ella.
+
+—No quería decir que no valiera la pena hacer planes. Me sorprendió y respondí mal.

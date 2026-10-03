@@ -1,27 +1,30 @@
-# Checkpoint — EXP-01/T02 — bloque 2
+# Checkpoint — EXP-01/T02 — bloque 3
 
 ## Desde dónde continuar
-Café Niebla, jueves por la tarde. Se completaron 8 turnos. Inés debe responder a la invitación de Julián.
+Café Niebla, jueves por la tarde. Se completaron 12 turnos. La conversación acaba de pasar por un quiebre pequeño.
 
 ## Qué acaba de ocurrir
-Julián invitó explícitamente a Inés a una caminata fotográfica por el barrio viejo el sábado. Inés respondió con humor preguntando si era una excusa para volver a verla. Julián reconoció que quiere volver a verla, pero dejó la decisión abierta y sin presión.
+Inés respondió que sí quería ir a la caminata del sábado, pero reveló su oferta laboral de seis meses en otra ciudad, con decisión pendiente para el lunes. Julián reaccionó diciendo que quizá el plan del sábado ya no tenía sentido. Inés se enfrió y le recordó que ella no había decidido irse. Julián reconoció que se adelantó y que respondió mal.
 
 ## Qué cambió
-- El interés romántico pasó de implícito a parcialmente expresado.
-- El thread de la invitación está pendiente de respuesta.
-- No hay conflicto.
+- La oferta laboral dejó de ser privada: Julián ya la conoce.
+- El interés romántico es explícito en la intención de volver a verse.
+- Existe conflicto leve activo, con reparación iniciada.
+- El plan del sábado quedó momentáneamente incierto.
 
 ## Knowledge boundaries
-- Inés sigue siendo la única que conoce su oferta laboral de seis meses y la fecha límite del lunes.
-- Julián ya no tiene como secreto la intención de invitarla: la invitación fue expresada.
-- Julián todavía no conoce la oferta.
+- Ambos conocen ahora la oferta y su fecha límite.
+- Sólo Inés conoce su decisión interna completa, que todavía es incierta.
+- Julián sabe que su reacción la molestó; no debe asumir que la relación o el plan están cerrados.
 
 ## Pendiente
-- Inés debe responder a la invitación.
-- La oferta laboral sigue sin revelarse.
+- Inés debe responder a la disculpa/clarificación.
+- Confirmar o cancelar el plan del sábado.
+- La decisión laboral del lunes sigue abierta.
+- Completar o no la reparación del quiebre.
 
 ## Próximo punto natural
-Inés puede responder a la invitación. La decisión puede hacerle presente la incertidumbre de su oferta y abrir la posibilidad de revelarla, pero no se debe forzar el quiebre.
+Dar espacio a Inés para decir qué necesitaba de Julián en ese momento. La reparación debe surgir de escucha y claridad, no de borrar el conflicto.
 
 ## Recorder observation
-Para generar este bloque bastaron state + memory + checkpoint; no fue necesario releer el transcript completo. La invitación sí es un hecho material y fue promovida a state/memory.
+De nuevo bastaron state + memory + checkpoint para generar el bloque; no fue necesario releer el transcript completo. En este bloque sí hubo dos cambios materiales: revelación de la oferta y quiebre relacional, por lo que state, memory y checkpoint se actualizaron.

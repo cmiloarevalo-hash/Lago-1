@@ -2,29 +2,33 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "Café Niebla",
-    "time": "jueves, después de las 18:20",
+    "time": "jueves, más avanzada la tarde",
     "privacy": "public",
     "status": "active",
     "participants": ["ines", "julian"]
   },
   "relationship": {
-    "label": "vecinos y conocidos amistosos con interés más visible",
+    "label": "vecinos con interés romántico incipiente y un quiebre pequeño en reparación",
     "trust": "bajo-moderado",
-    "emotional_intimacy": "baja",
-    "romantic_interest": "incipiente y parcialmente expresado",
+    "emotional_intimacy": "baja-moderada",
+    "romantic_interest": "expresado",
     "commitment": "ninguno",
-    "conflict": "ninguno"
+    "conflict": "leve_activo"
   },
-  "beat": "invitacion_realizada",
+  "beat": "quiebre_pequeno",
   "threads": [
     {
       "id": "ines_job_offer",
-      "status": "open"
+      "status": "revealed_decision_pending"
     },
     {
       "id": "julian_saturday_invitation",
-      "status": "awaiting_ines_response"
+      "status": "accepted_then_uncertain_after_reaction"
+    },
+    {
+      "id": "reaction_repair",
+      "status": "in_progress"
     }
   ],
-  "turn_cursor": 8
+  "turn_cursor": 12
 }
