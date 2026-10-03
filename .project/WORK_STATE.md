@@ -89,3 +89,9 @@ Leer en este orden:
 5. último checkpoint de esa issue
 
 La conversación privada del chat no es fuente de estado.
+
+## Criterio estratégico de Prototipo 1
+
+La investigación debe favorecer una solución mínima. El objetivo principal es validar el bucle persistente chatbot → producción → persistencia GitHub → reanudación.
+
+Las investigaciones creativas sirven para proporcionar una carga de trabajo suficientemente rica, pero no deben forzar complejidad antes de demostrar este bucle.
