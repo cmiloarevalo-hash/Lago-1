@@ -829,3 +829,61 @@ La miró con calma.
 
 —Y ninguna de esas dos cosas decide por nosotros qué hacemos con esto.
 
+## Sesión S3-H — resolución del mini-arco
+
+**Turno 76 — Inés**
+
+Inés sostuvo la mirada de Julián antes de responder.
+
+—No quiero que esto se convierta en una despedida anticipada.
+
+Ajustó el bolso sobre el hombro.
+
+—Quiero seguir viéndote mientras estemos aquí. Y cuando me vaya, quiero seguir hablando contigo. No sé qué forma tendrá eso y no quiero ponerle un nombre sólo para tranquilizarnos.
+
+**Turno 77 — Julián**
+
+—Me sirve.
+
+Julián sonrió apenas.
+
+—Yo también quiero seguir viéndote. Y cuando estés allá, quiero que sigamos hablando porque queremos, no porque hayamos firmado una cuota semanal de mensajes.
+
+La sonrisa cedió a algo más serio.
+
+—No necesito que hoy resolvamos seis meses enteros.
+
+**Turno 78 — Inés**
+
+—Bien.
+
+Inés asintió.
+
+—Entonces no prometamos seis meses antes de vivirlos.
+
+Hizo una pausa breve.
+
+—Prometamos algo más pequeño: si esto deja de tener sentido para alguno, lo decimos. Sin desaparecer y sin decidir por el otro.
+
+**Turno 79 — Julián**
+
+—Trato.
+
+Julián levantó una mano como si formalizara el acuerdo y luego la dejó caer.
+
+—Y mientras tanto, ¿puedo invitarte a otro café sin que parezca una negociación internacional?
+
+**Turno 80 — Inés**
+
+—Puedes.
+
+La respuesta llegó acompañada de una sonrisa breve.
+
+—Y esta vez no necesitas una agenda.
+
+Miró hacia la puerta.
+
+—Ahora sí tengo que ir.
+
+Se despidieron en el hall y salieron en direcciones distintas. La oferta estaba decidida; lo que había entre ellos no tenía un nombre nuevo, pero sí una intención compartida de continuar.
+

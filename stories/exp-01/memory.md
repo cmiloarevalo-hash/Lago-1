@@ -4,27 +4,29 @@
 - Inés Vidal tiene 32 años y Julián Rojas 34; ambos son adultos, vecinos del mismo edificio y se conocen desde hace aproximadamente tres meses.
 - Su primera reunión intencional a solas fue el jueves en Café Niebla. Allí verbalizaron interés mutuo y acordaron seguir conociéndose sin compromiso formal.
 - Inés recibió una oferta laboral de seis meses en otra ciudad. El lunes decidió aceptarla y envió la aceptación. La fecha de inicio no está establecida en el estado durable.
-- Cuando Inés reveló inicialmente la oferta, Julián asumió demasiado rápido que hacer planes quizá no tenía sentido. Inés le pidió que no decidiera por ella; Julián reconoció el error y desde entonces ha respetado que la decisión laboral es de Inés.
+- Cuando Inés reveló inicialmente la oferta, Julián asumió demasiado rápido que hacer planes quizá no tenía sentido. Inés le pidió que no decidiera por ella; Julián reconoció el error y el quiebre quedó reparado.
 - La caminata fotográfica del sábado se realizó y terminó positivamente.
 - Para fotografiar a Inés, pedir permiso es una boundary real: le importa poder decidir antes y puede decir sí o no sin justificarse.
-- Tras la aceptación laboral, Julián expresó dos cosas a la vez: se alegra por Inés y le da pena la futura distancia. No convirtió ninguna emoción en una decisión sobre la relación.
+- Tras aceptar la oferta, Inés y Julián acordaron seguir viéndose mientras ambos estén en la ciudad y seguir hablando cuando ella se vaya, sin formalizar una relación ni prometer de antemano cómo funcionarán los seis meses.
+- Acordaron una regla relacional: si seguir conociéndose deja de tener sentido para alguno, lo dirán en vez de desaparecer o decidir por el otro.
 
 ## Knowledge boundaries
 ### Inés sabe
 - Julián quiere seguir conociéndola y respeta su autonomía.
-- Julián sabe que ella aceptó la oferta.
-- Julián reconoce que la futura distancia le provoca una mezcla de alegría por ella y pena.
+- Julián sabe que ella aceptó la oferta y que la fecha de inicio aún no está establecida.
+- Julián comparte la intención de continuar sin exigir una etiqueta formal.
 
 ### Julián sabe
 - Inés aceptó la oferta de seis meses en otra ciudad.
-- La fecha de inicio no ha sido establecida.
-- Inés comparte el interés romántico, pero no existe compromiso formal.
+- La fecha de inicio no está establecida.
+- Inés quiere seguir viéndolo y mantener contacto cuando se vaya, sin prometer un resultado específico.
 - Debe pedir permiso antes de fotografiarla y aceptar un no sin exigir explicación.
 
 ### Ambos saben
 - El interés romántico es mutuo y explícito.
 - La oferta fue aceptada y habrá una distancia temporal de seis meses.
-- Todavía no han decidido qué significa esa distancia para la relación.
+- No existe compromiso formal.
+- La intención compartida es continuar de forma honesta y revisar lo que signifique la distancia cuando haya información concreta.
 
 ## No promover a memoria
 - Decoración de escenas.

@@ -2,23 +2,23 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "hall de su edificio",
-    "time": "lunes, 08:10",
+    "time": "lunes, mañana",
     "privacy": "public",
-    "status": "active",
+    "status": "closed",
     "participants": [
       "ines",
       "julian"
     ]
   },
   "relationship": {
-    "label": "vecinos con interés romántico mutuo explícito, sin compromiso formal, con futura distancia temporal reconocida tras la aceptación laboral de Inés",
+    "label": "interés romántico mutuo explícito; continúan conociéndose intencionalmente sin compromiso formal pese a futura distancia temporal",
     "trust": "alto_moderado",
     "emotional_intimacy": "moderada_en_aumento",
     "romantic_interest": "mutuo_explicito",
-    "commitment": "ninguno",
-    "conflict": "resuelto_por_ahora"
+    "commitment": "ninguno_formal",
+    "conflict": "resuelto"
   },
-  "beat": "job_offer_accepted_relational_consequence_open",
+  "beat": "mini_arc_resolved_hfn",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "reopened_due_to_future_distance"
+      "status": "resolved_for_now_continue_intentionally_no_formal_commitment"
     },
     {
       "id": "walk_home_after_cafe",
@@ -50,8 +50,8 @@
     },
     {
       "id": "photo_boundary",
-      "status": "clarified_and_respected"
+      "status": "ongoing_boundary_clarified_and_respected"
     }
   ],
-  "turn_cursor": 75
+  "turn_cursor": 80
 }
