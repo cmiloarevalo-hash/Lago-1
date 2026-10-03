@@ -2225,3 +2225,37 @@ Después añadió:
 
 —Excelente. Aspiremos a una distribución equilibrada de problemas menores.
 
+## Sesión S6-X19 — una visita que todavía no es plan
+
+**Transición temporal — sábado, tarde**
+
+**Turno 229 — Inés**
+
+—Hoy alguien me preguntó si vas a venir a visitarme.
+
+—Me di cuenta de que nosotros ni siquiera lo hemos hablado.
+
+**Turno 230 — Julián**
+
+—He pensado que me gustaría.
+
+—Pero no quiero convertir “me gustaría” en un pasaje comprado por ansiedad.
+
+**Turno 231 — Inés**
+
+—A mí también me gustaría que vinieras en algún momento.
+
+—Y todavía no sé qué fines de semana voy a tener realmente libres.
+
+**Turno 232 — Julián**
+
+—Entonces no hay plan todavía.
+
+—Cuando tengas una agenda que no sea hipotética, lo volvemos a hablar.
+
+**Turno 233 — Inés**
+
+—Exacto.
+
+—Posibilidad real, plan inexistente.
+
