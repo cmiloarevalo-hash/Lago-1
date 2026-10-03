@@ -1767,3 +1767,33 @@ Un minuto después añadió:
 
 La conversación siguió un poco más y se apagó sin necesidad de cierre formal.
 
+## Sesión S6-X04 — silencio sin diagnóstico
+
+**Transición temporal — viernes, tarde**
+
+**Turno 165 — Julián**
+
+Julián envió un audio breve.
+
+—¿Cómo cerró la semana? Responde cuando puedas.
+
+Pasaron varias horas dentro de la misma tarde sin respuesta.
+
+**Turno 166 — Julián**
+
+—Corrección preventiva: no hace falta que respondas hoy. Me escuché a mí mismo esperando una señal y prefiero decirlo antes de inventarme una historia.
+
+**Turno 167 — Inés**
+
+La respuesta llegó más tarde.
+
+—Estaba trabajando. Estoy bien.
+
+—Y agradezco que hayas hecho la corrección sin convertir el silencio en incidente.
+
+**Turno 168 — Julián**
+
+—Estoy desarrollando una habilidad revolucionaria llamada preguntar.
+
+—Lenta, pero prometedora.
+
