@@ -2,7 +2,7 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "comunicación a distancia",
-    "time": "domingo, noche; aproximadamente un mes después de la llegada",
+    "time": "lunes, noche; aproximadamente un mes después de la llegada",
     "privacy": "remote",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "sin_relacion_formal_y_sin_acuerdo_de_exclusividad",
     "conflict": "resuelto"
   },
-  "beat": "visit_arrival_option_accepted_pending_booking",
+  "beat": "visit_minimum_logistics_confirmed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -138,12 +138,12 @@
     },
     {
       "id": "possible_visit",
-      "status": "confirmed_candidate_weekend_separate_lodging_arrival_option_saturday_1140_accepted_not_booked"
+      "status": "confirmed_travel_booked_saturday_1140_separate_lodging_resolved_contact_after_settling"
     },
     {
       "id": "visit_lodging_boundary",
-      "status": "julian_arranges_separate_lodging_no_assumption_of_staying_with_ines"
+      "status": "resolved_separate_lodging_arranged_by_julian_details_unspecified"
     }
   ],
-  "turn_cursor": 258
+  "turn_cursor": 262
 }
