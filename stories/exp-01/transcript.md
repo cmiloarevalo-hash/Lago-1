@@ -2327,3 +2327,31 @@ Hizo una pausa antes de enviar el siguiente mensaje.
 
 —Mañana te digo si mi calendario coopera con nuestra prudencia administrativa.
 
+## Sesión T04-B — visita confirmada
+
+**Transición temporal — jueves, noche**
+
+**Turno 243 — Julián**
+
+—Revisé mi trabajo.
+
+—Ese fin de semana me funciona. Si sigue en pie, quiero ir.
+
+**Turno 244 — Inés**
+
+—Sigue en pie.
+
+—Quiero que vengas.
+
+**Turno 245 — Julián**
+
+—Entonces ahora sí: visita confirmada.
+
+—Voy a revisar opciones y te paso horarios antes de reservar nada.
+
+**Turno 246 — Inés**
+
+—Perfecto.
+
+—Confirmemos primero lo necesario y dejemos el resto sin coreografía excesiva.
+
