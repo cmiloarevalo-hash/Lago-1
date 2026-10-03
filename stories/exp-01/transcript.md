@@ -1541,3 +1541,47 @@ Inés recogió la bolsa vacía.
 
 Se despidieron sin extender el encuentro.
 
+## Sesión S5-U — separar despedida y logística
+
+**Transición temporal — sábado, 17:00**
+
+Sin narrar acontecimientos intermedios, la historia salta al sábado. Inés y Julián se encuentran en la plaza del barrio para la caminata acordada.
+
+**Turno 141 — Julián**
+
+Julián miró el reloj una sola vez y volvió a guardarlo.
+
+—Cinco en punto. Prometo no hacer ninguna operación matemática con mañana.
+
+**Turno 142 — Inés**
+
+—Te lo agradezco.
+
+Caminaron unos metros antes de que Inés continuara.
+
+—Hay algo que quiero dejar claro: mañana a las nueve quiero que sea práctico. Maleta, hall, gracias.
+
+Lo miró.
+
+—Si vamos a despedirnos de verdad, prefiero hacerlo hoy, sin equipaje en medio.
+
+**Turno 143 — Julián**
+
+Julián asintió sin discutir.
+
+—Me parece mejor.
+
+Después de un momento añadió:
+
+—Entonces mañana sólo hago exactamente lo que me pediste. Hoy podemos ser nosotros sin convertirlo en operación de salida.
+
+**Turno 144 — Inés**
+
+—Exacto.
+
+Inés metió las manos en los bolsillos y siguió caminando.
+
+—Y todavía nos queda una plaza entera. No la desperdicies hablando del domingo.
+
+La escena continúa.
+

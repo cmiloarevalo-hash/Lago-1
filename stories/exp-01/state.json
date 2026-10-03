@@ -1,10 +1,10 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "entrada de su edificio",
-    "time": "viernes, comienzo de la noche",
+    "location": "plaza del barrio",
+    "time": "sábado, 17:00",
     "privacy": "public",
-    "status": "closed",
+    "status": "active",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "departure_help_scope_agreed",
+  "beat": "emotional_goodbye_separated_from_departure_logistics",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -94,7 +94,7 @@
     },
     {
       "id": "saturday_plaza",
-      "status": "confirmed_saturday_1700_one_hour_approx"
+      "status": "in_progress"
     },
     {
       "id": "friday_space",
@@ -103,7 +103,11 @@
     {
       "id": "departure_help",
       "status": "sunday_0900_julian_carries_suitcase_from_ines_door_to_hall_only"
+    },
+    {
+      "id": "goodbye_boundary",
+      "status": "emotional_goodbye_saturday_departure_sunday_practical_only"
     }
   ],
-  "turn_cursor": 140
+  "turn_cursor": 144
 }

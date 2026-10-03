@@ -5,7 +5,7 @@
 - Inés aceptó un trabajo de seis meses en otra ciudad. Viajará el domingo anterior al inicio, por la mañana, y planea bajar con la maleta a las 09:00. Mantendrá su departamento durante esos seis meses y espera volver a él; esto no implica una promesa relacional.
 - Inés y Julián acordaron no decidir por el otro ni desaparecer si el vínculo deja de tener sentido.
 - Evitan convertir el tiempo previo al viaje en una cuenta regresiva: hacen un plan a la vez. Julián reconoció que contar el tiempo le nace del miedo a dejarlo pasar.
-- El domingo a las 09:00 Julián ayudará a llevar la maleta desde la puerta de Inés hasta el hall, y no la acompañará más allá porque ella pidió ese límite. Durante el viaje Inés enviará un “llegué” cuando haya llegado y tenga espacio; Julián no espera seguimiento en tiempo real.
+- Inés quiere separar la despedida emocional de la salida práctica: el sábado será su despedida intencional; el domingo a las 09:00 Julián sólo ayudará con la maleta desde su puerta hasta el hall y no la acompañará más allá. Durante el viaje Inés enviará un “llegué” cuando pueda; Julián no espera seguimiento en tiempo real.
 - Para la distancia prefieren mensajes o audios asincrónicos, sin frecuencia mínima. Las llamadas se acuerdan cuando quieran; ante silencios ambiguos, preguntarán antes de asumir.
 - Para fotografiar a Inés, Julián debe pedir permiso cada vez; ella puede decir sí o no sin justificarlo.
 - Ya compartieron un primer beso breve con consentimiento explícito iniciado por Inés. Eso no cambió la relación a una etiqueta formal.
