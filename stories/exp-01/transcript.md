@@ -1711,3 +1711,31 @@ Inés tardó un momento antes de añadir:
 
 —Suerte mañana, Vidal.
 
+## Sesión S6-X02 — primer día
+
+**Transición temporal — lunes, después de la jornada laboral**
+
+**Turno 157 — Inés**
+
+Inés envió un audio corto.
+
+—Sobreviví al primer día. Me gusta el equipo. También estoy demasiado cansada para construir una opinión más sofisticada.
+
+**Turno 158 — Julián**
+
+—“Me gusta el equipo” parece un buen dato para el día uno.
+
+Julián respondió por texto.
+
+—No hace falta que fabriques una reseña completa hoy.
+
+**Turno 159 — Inés**
+
+—Eso ayuda.
+
+—Voy a comer algo y desaparecer un rato.
+
+**Turno 160 — Julián**
+
+—Plan excelente. Nos leemos cuando vuelva a existir tu batería social.
+

@@ -1,8 +1,8 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "comunicación a distancia; Inés ya en la otra ciudad, ubicación específica no persistida",
-    "time": "domingo, después de la llegada; hora no especificada",
+    "location": "comunicación a distancia",
+    "time": "lunes, después de la primera jornada laboral",
     "privacy": "remote",
     "status": "closed",
     "participants": [
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "arrival_checkin_completed_first_workday_next",
+  "beat": "first_workday_positive_and_tired",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -109,5 +109,5 @@
       "status": "completed_emotional_goodbye_saturday"
     }
   ],
-  "turn_cursor": 156
+  "turn_cursor": 160
 }
