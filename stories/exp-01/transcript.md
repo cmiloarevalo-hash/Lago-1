@@ -279,3 +279,48 @@ Tomó un sorbo de café.
 
 —¿Tienes una hora razonable en mente para el sábado, fotógrafo?
 
+## Sesión S1 — bloque 1
+
+**Turno 28 — Julián**
+
+Julián fingió considerar una cifra con gravedad profesional.
+
+—Diez y media. Lo bastante tarde para que el sábado siga siendo sábado y lo bastante temprano para que la luz no se haya vuelto perezosa.
+
+Alzó una ceja.
+
+—¿Te parece una hora civilizada?
+
+**Turno 29 — Inés**
+
+Inés hizo una pausa breve, como si realmente estuviera comprobando la propuesta contra una agenda invisible.
+
+—Diez y media funciona.
+
+Luego señaló la ventana con la barbilla.
+
+—¿Nos encontramos abajo en el edificio o pretendes que cada uno llegue por su cuenta al barrio viejo para preservar el misterio?
+
+**Turno 30 — Julián**
+
+—Abajo es más sensato.
+
+Julián sonrió.
+
+—Diez veinte en el hall y caminamos desde ahí. Así además tengo diez minutos de margen para fingir que soy una persona puntual.
+
+Se inclinó apenas hacia delante.
+
+—Y prometo no añadir ninguna regla nueva sin aprobación del comité.
+
+**Turno 31 — Inés**
+
+—Diez veinte en el hall, entonces.
+
+Inés asintió, satisfecha.
+
+—Y el comité agradece que por fin hayas descubierto las ventajas de un plan concreto.
+
+La sonrisa volvió a asomarle.
+
+—No te acostumbres; podría arruinar tu reputación de improvisador.
