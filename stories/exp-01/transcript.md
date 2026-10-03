@@ -587,3 +587,53 @@ Después señaló la calle delante de ellos.
 
 —Ahora, para recuperar algo de prestigio: sigo buscando mi segunda cosa antes de que producción me gane por goleada.
 
+## Sesión S2-D — reentrada desde estado durable
+
+**Turno 55 — Inés**
+
+Inés retomó el paso y, a los pocos metros, señaló una placa de bronce casi cubierta por pintura en el marco de una puerta.
+
+—Segunda.
+
+Se inclinó apenas para leer las letras gastadas.
+
+—Un nombre antiguo debajo del nuevo. Tú estabas mirando hacia arriba, así que ésta cuenta.
+
+**Turno 56 — Julián**
+
+Julián observó la placa y aceptó la derrota con un gesto grave.
+
+—Dos a uno. Empiezo a sospechar que diseñaste el juego para humillar al fotógrafo en su hábitat natural.
+
+Señaló entonces la sombra de una escalera exterior proyectada sobre una pared amarilla.
+
+—Mi segunda. No la escalera: la sombra. Dentro de diez minutos va a ser otra cosa.
+
+**Turno 57 — Inés**
+
+Inés levantó la vista y siguió la diagonal oscura sobre la pared.
+
+—Ésa sí te la concedo.
+
+Miró la bolsa que Julián llevaba.
+
+—¿La segunda cámara sigue disponible o la oferta tenía una ventana contractual limitada?
+
+**Turno 58 — Julián**
+
+—Sigue disponible. Cláusula de renovación automática.
+
+Julián sacó la cámara de la bolsa y se la entregó con cuidado.
+
+—Sólo te explico dos controles. Prometo no corregir cómo la sostienes salvo que esté a punto de conocer el suelo.
+
+**Turno 59 — Inés**
+
+Inés ajustó la correa, probó el peso de la cámara y miró por el visor hacia la calle.
+
+—Perfecto. Entonces tu tercera cosa va a tener competencia documentada.
+
+Bajó la cámara y lo miró con una sonrisa breve.
+
+—Camina, Rojas. Vas perdiendo.
+
