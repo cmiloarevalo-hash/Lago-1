@@ -947,3 +947,63 @@ Después sonrió.
 
 —Y si en algún momento necesitas un plan de verdad, me avisas. Puedo improvisar con estructura limitada.
 
+## Sesión S4-J — un plan ordinario
+
+**Turno 86 — Inés**
+
+—Estructura limitada suena aceptable.
+
+Inés abrió de nuevo la libreta, pero no escribió nada.
+
+—Una cosa a la vez. Y quiero una copia de una de las fotos del sábado.
+
+**Turno 87 — Julián**
+
+Julián inclinó la cabeza.
+
+—Eso puedo hacerlo sin convertirlo en un archivo conmemorativo de doce tomos.
+
+Señaló la libreta cerrada.
+
+—¿Cuál quieres?
+
+**Turno 88 — Inés**
+
+—La primera. La del hall.
+
+Inés lo dijo después de pensarlo un segundo.
+
+—No porque crea que sea la mejor. Me acuerdo de que preguntaste y yo elegí que sí. Quiero esa.
+
+**Turno 89 — Julián**
+
+La expresión de Julián se suavizó.
+
+—Entonces ésa.
+
+No hizo ademán de sacar la cámara.
+
+—Te la imprimo. Una copia, sin marco, sin cinta negra y sin discurso de despedida.
+
+**Turno 90 — Inés**
+
+—Excelente política de producción.
+
+Inés bebió el último sorbo de café.
+
+—Y otra cosa a la vez: viernes, ocho de la noche, el lugar de empanadas de la esquina del edificio. Comemos algo.
+
+Levantó una ceja.
+
+—Sin categoría especial.
+
+**Turno 91 — Julián**
+
+—Viernes, ocho. Comida completamente ordinaria.
+
+Julián levantó las manos.
+
+—Prometo no llamarla “la cena número uno de las tres semanas”.
+
+Terminaron el café poco después y salieron por separado. La escena del miércoles quedó cerrada con un único plan concreto para el viernes.
+

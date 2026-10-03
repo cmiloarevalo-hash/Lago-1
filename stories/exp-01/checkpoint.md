@@ -1,46 +1,32 @@
-# Checkpoint — EXP-01/S4 sesión I
+# Checkpoint — EXP-01/S4 sesión J
 
 ## Punto exacto de reanudación
-Miércoles, final de la tarde. Inés Vidal (32) y Julián Rojas (34), ambos adultos, están sentados en Café Niebla. La escena es pública y sigue activa.
+Miércoles, final de la tarde. La escena de Café Niebla quedó cerrada.
 
-Se completaron **85 turnos** en total; S4-I añadió los turnos 81–85.
+Se completaron **91 turnos** en total; S4-J añadió los turnos 86–91.
 
-Inés reveló un dato nuevo y durable: su nuevo trabajo comienza **dentro de tres semanas**. Todavía **no ha decidido qué día viajará**.
+Inés pidió una copia impresa de la primera fotografía que Julián le tomó el sábado, la del hall. Explicó que la quiere porque recuerda que Julián preguntó antes y ella eligió que sí. Julián aceptó imprimir una sola copia, sin convertirla en objeto de despedida.
 
-También explicó que le incomoda que todo empiece a formularse como “antes de que te vayas”; no quiere vivir las próximas semanas como una cuenta regresiva de últimas veces. Julián aceptó ese marco y propuso tratar el momento como un café ordinario, dejando abierta la posibilidad de planificar algo si ella lo pide.
+Después Inés propuso un plan ordinario y concreto: **viernes a las 20:00, comer en el lugar de empanadas de la esquina del edificio**. Julián aceptó. Ambos acordaron explícitamente no tratarlo como parte de una cuenta regresiva.
 
-El último turno fue de **Julián**.
-
-**El siguiente turno natural corresponde a Inés.**
+No hay turno inmediato pendiente porque la escena quedó cerrada.
 
 ## Relación actual
-- Interés romántico mutuo y explícito.
+- Interés romántico mutuo explícito.
 - Sin compromiso formal.
 - Confianza alta-moderada; intimidad emocional moderada en aumento.
-- Intención compartida de continuar conociéndose.
-- Nueva tensión del arco: la distancia ya tiene horizonte temporal, pero Inés no quiere que todo quede convertido en despedida.
+- Intención de seguir compartiendo tiempo sin etiquetar cada encuentro como despedida.
 
 ## Threads
-1. **Trabajo de Inés:** aceptado; comienza dentro de tres semanas.
-2. **Fecha de viaje:** ABIERTA — Inés todavía no la decidió. No inventarla.
-3. **Uso del tiempo restante:** ABIERTA — Inés rechaza el marco de cuenta regresiva; Julián aceptó no convertir cada encuentro en “última vez”.
-4. **Relación:** continuar intencionalmente, sin compromiso formal.
-5. **Boundary fotográfica:** vigente y respetada.
+1. **Trabajo de Inés:** comienza dentro de tres semanas.
+2. **Fecha de viaje:** ABIERTA — aún no decidida.
+3. **Viernes 20:00:** CONFIRMADO — comida en el lugar de empanadas de la esquina del edificio.
+4. **Foto impresa:** PENDIENTE — Julián imprimirá la primera foto del sábado para Inés.
+5. **Uso del tiempo restante:** continuar con planes ordinarios, evitando marco de cuenta regresiva.
+6. **Boundary fotográfica:** vigente.
 
-## Knowledge boundaries
-### Inés sabe
-- Julián conoce ahora el horizonte de tres semanas.
-- Julián aceptó no tratar cada encuentro como despedida.
-- Puede pedir estructura si la necesita sin que eso implique formalizar la relación.
-
-### Julián sabe
-- El trabajo empieza dentro de tres semanas.
-- Inés todavía no decidió qué día viajará.
-- A Inés le incomoda el lenguaje constante de “antes de que te vayas”.
-- No debe inventar ni asumir una fecha de partida.
-
-## Siguiente punto natural
-Inés responde a la oferta de “improvisación con estructura limitada”. La conversación puede explorar qué clase de tiempo juntos sí les resulta natural sin convertirlo en un calendario de despedida.
+## Siguiente acción natural
+La próxima sesión puede abrir explícitamente el viernes a las 20:00 en el lugar de empanadas ya acordado. No afirmar acontecimientos entre miércoles y viernes que no estén persistidos.
 
 ## Reanudación
-`story.md + state.json + memory.md + checkpoint.md` bastan para continuar J. Transcript no es necesario para reconstrucción.
+`story.md + state.json + memory.md + checkpoint.md` bastan para continuar K. Transcript no es necesario para reconstrucción.

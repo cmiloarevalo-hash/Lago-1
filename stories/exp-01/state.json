@@ -4,7 +4,7 @@
     "location": "Café Niebla",
     "time": "miércoles, final de la tarde",
     "privacy": "public",
-    "status": "active",
+    "status": "closed",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "departure_timeline_concrete_countdown_rejected",
+  "beat": "ordinary_friday_plan_confirmed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -55,7 +55,15 @@
     {
       "id": "departure_logistics",
       "status": "job_starts_in_three_weeks_travel_date_undecided"
+    },
+    {
+      "id": "friday_meal",
+      "status": "confirmed_friday_2000_empanada_place_near_building"
+    },
+    {
+      "id": "photo_print",
+      "status": "ines_requested_first_saturday_photo_julian_will_print"
     }
   ],
-  "turn_cursor": 85
+  "turn_cursor": 91
 }
