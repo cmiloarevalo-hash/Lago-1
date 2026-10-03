@@ -1,9 +1,9 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "videollamada a distancia; ubicaciones específicas no persistidas",
-    "time": "domingo, tarde; una semana después de la llegada",
-    "privacy": "remote_private",
+    "location": "comunicación a distancia",
+    "time": "martes, noche; segunda semana",
+    "privacy": "remote",
     "status": "closed",
     "participants": [
       "ines",
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "first_distance_video_call_positive",
+  "beat": "ines_adapting_well_without_disowning_home",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -115,7 +115,11 @@
     {
       "id": "video_calls",
       "status": "first_call_completed_no_recurring_schedule"
+    },
+    {
+      "id": "adaptation",
+      "status": "ines_settling_in_and_likes_being_there"
     }
   ],
-  "turn_cursor": 173
+  "turn_cursor": 177
 }
