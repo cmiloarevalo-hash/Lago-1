@@ -1585,3 +1585,45 @@ Inés metió las manos en los bolsillos y siguió caminando.
 
 La escena continúa.
 
+## Sesión S5-V — despedida elegida
+
+**Turno 145 — Julián**
+
+Julián caminó unos pasos en silencio antes de hablar.
+
+—Te voy a extrañar.
+
+No añadió ninguna condición a la frase.
+
+**Turno 146 — Inés**
+
+Inés lo miró.
+
+—Yo también.
+
+Su voz fue tranquila.
+
+—Y eso no cambia nada de lo que acordamos. No necesito demostrarlo escribiéndote todos los días.
+
+**Turno 147 — Julián**
+
+—Lo sé.
+
+Julián asintió.
+
+Después de un momento preguntó:
+
+—¿Puedo besarte?
+
+**Turno 148 — Inés**
+
+—Sí.
+
+Inés se acercó y lo besó. Fue un beso breve, sin prisa. Después siguieron caminando hasta la salida de la plaza.
+
+—Mañana, nueve —dijo ella.
+
+—Maleta y hall —respondió Julián.
+
+La escena del sábado quedó cerrada.
+

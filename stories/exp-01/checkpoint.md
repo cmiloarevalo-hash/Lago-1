@@ -1,22 +1,22 @@
-# Checkpoint — EXP-01/S5 sesión U
+# Checkpoint — EXP-01/S5 sesión V
 
 ## Punto exacto
-Sábado, 17:00. Inés y Julián caminan por la plaza del barrio. La escena está activa.
+Sábado, final de la tarde. La caminata en la plaza terminó y la despedida emocional quedó completada.
 
-Se completaron **144 turnos**; S5-U añadió 141–144.
+Se completaron **148 turnos**; S5-V añadió 145–148.
 
-Inés estableció una distinción durable: quiere que **la despedida emocional ocurra durante la caminata del sábado**. El domingo a las 09:00 debe ser práctico: Julián lleva la maleta hasta el hall y termina allí su ayuda. Julián aceptó.
+Julián dijo que va a extrañar a Inés; ella respondió que también lo extrañará y aclaró que eso no modifica el acuerdo de comunicación sin frecuencia mínima. Julián pidió permiso para besarla; Inés dijo que sí. Compartieron un beso breve.
 
-El último turno fue de **Inés**: “Y todavía nos queda una plaza entera. No la desperdicies hablando del domingo.”
+Antes de separarse confirmaron únicamente la logística del domingo: **09:00, maleta hasta el hall**.
 
-**Siguiente turno natural: Julián.**
+No hay turno inmediato pendiente.
 
 ## Estado relevante
-- Caminata del sábado: en curso.
-- Despedida emocional: sábado.
-- Domingo 09:00: maleta hasta el hall, sin acompañamiento posterior.
-- Check-in tras llegar: vigente.
-- Relación: interés mutuo; sin compromiso formal.
+- Despedida emocional: completada el sábado.
+- Domingo 09:00: Julián ayuda con la maleta hasta el hall.
+- No acompañamiento posterior.
+- Check-in de llegada pendiente tras el viaje.
+- Relación: interés mutuo, sin compromiso formal.
 
 ## Reanudación
-Continuar la caminata desde Julián sin reabrir logística innecesariamente. Transcript no es necesario para reconstrucción.
+Abrir explícitamente el domingo a las 09:00 en la puerta del departamento de Inés. Mantener la escena práctica, conforme al límite acordado. Transcript no es necesario para reconstrucción.
