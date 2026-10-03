@@ -1277,3 +1277,45 @@ Lo miró de reojo.
 
 —Ven. Y no cuentes los puestos.
 
+## Sesión S5-O — cerrar el mercado
+
+**Turno 117 — Julián**
+
+—No prometo nada sobre contar puestos. Mi disciplina tiene límites.
+
+Julián caminó a su lado hasta el extremo del pasillo.
+
+—Pero puedo fingir que no estoy muy impresionado por la variedad absurda de tés.
+
+**Turno 118 — Inés**
+
+—Eso sería una actuación mediocre.
+
+Inés tomó una caja de té y la examinó.
+
+—Este encuentro está funcionando bien precisamente porque ninguno lo organizó.
+
+La dejó en la cesta.
+
+—No quiero que eso se vuelva una regla tampoco.
+
+**Turno 119 — Julián**
+
+—Perfecto. Queda prohibido convertir la espontaneidad en sistema.
+
+Sonrió.
+
+—Me voy antes de que encontremos una metodología para no tener metodología.
+
+**Turno 120 — Inés**
+
+—Decisión sensata.
+
+Inés levantó la bolsa a modo de despedida.
+
+—Me gustó encontrarte aquí.
+
+—A mí también —respondió Julián.
+
+Se separaron en la salida del mercado y la escena quedó cerrada.
+

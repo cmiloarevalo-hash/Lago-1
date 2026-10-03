@@ -1,21 +1,21 @@
-# Checkpoint — EXP-01/S5 sesión N
+# Checkpoint — EXP-01/S5 sesión O
 
 ## Punto exacto
-Sábado, media mañana. Inés Vidal (32) y Julián Rojas (34) coinciden de forma casual en el mercado del barrio. La escena está activa y es pública.
+Sábado, media mañana. El encuentro espontáneo en el mercado terminó; la escena está cerrada.
 
-Se completaron **116 turnos**; S5-N añadió 113–116.
+Se completaron **120 turnos**; S5-O añadió 117–120.
 
-Inés buscaba té. Julián ofreció acompañarla durante un tramo breve sin convertir el encuentro en un plan de cuenta regresiva. Inés aceptó y cerró su turno con: **“Ven. Y no cuentes los puestos.”**
+Inés y Julián disfrutaron el encuentro casual sin convertirlo en nuevo sistema ni en parte de una cuenta regresiva. Inés dijo que le gustó encontrarlo allí; Julián correspondió. No hubo cambio de compromiso ni nuevo acuerdo durable.
 
-**Siguiente turno natural: Julián.**
+No hay turno inmediato pendiente.
 
 ## Estado relevante
 - Interés mutuo explícito; sin compromiso formal.
-- Ya hubo un primer beso consentido.
-- Inés viajará el domingo anterior al inicio del trabajo, por la mañana.
-- Mantienen el acuerdo de un plan a la vez y check-in mínimo al llegar.
-- La caminata espontánea por el mercado está en curso.
-- Boundary fotográfica vigente.
+- Primer beso ya ocurrido.
+- Viaje: domingo anterior al inicio del trabajo, por la mañana.
+- Check-in mínimo al llegar.
+- Un plan a la vez; sin inventario de despedidas.
+- Encuentro del mercado completado.
 
 ## Reanudación
-Continuar el paseo breve por el mercado desde Julián. No hace falta transcript para reconstrucción.
+Abrir una nueva escena explícita. No hace falta transcript para reconstrucción.

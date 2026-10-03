@@ -4,7 +4,7 @@
     "location": "mercado del barrio",
     "time": "sábado, media mañana",
     "privacy": "public",
-    "status": "active",
+    "status": "closed",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno_formal",
     "conflict": "resuelto"
   },
-  "beat": "spontaneous_market_walk_started",
+  "beat": "spontaneous_market_encounter_closed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -82,8 +82,8 @@
     },
     {
       "id": "market_walk",
-      "status": "in_progress_spontaneous_no_countdown"
+      "status": "completed"
     }
   ],
-  "turn_cursor": 116
+  "turn_cursor": 120
 }
