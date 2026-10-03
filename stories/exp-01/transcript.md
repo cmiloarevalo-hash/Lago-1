@@ -2411,3 +2411,31 @@ Hizo una pausa antes de enviar el siguiente mensaje.
 —Eso me sirve.
 
 —Hora aproximada primero; operativo después, sólo si hace falta.
+
+## Sesión T05-B — opción de llegada
+
+**Transición temporal — domingo, noche**
+
+**Turno 255 — Julián**
+
+—Encontré una opción que llega el sábado a las 11:40.
+
+—No la he reservado. ¿Ese horario sigue dentro de tu definición de “cerca del mediodía”?
+
+**Turno 256 — Inés**
+
+—Sí. 11:40 me funciona.
+
+—Y no hace falta que conviertas la llegada en un encuentro inmediato; puedes instalarte primero y escribirme después.
+
+**Turno 257 — Julián**
+
+—Me gusta más así.
+
+—Entonces tomo 11:40 como la opción buena y mantengo la llegada sin comité de recepción.
+
+**Turno 258 — Inés**
+
+—Perfecto.
+
+—Confírmame cuando esté reservado. Lo demás puede seguir siendo flexible.
