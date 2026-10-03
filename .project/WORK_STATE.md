@@ -3,95 +3,62 @@
 ## Repositorio
 `cmiloarevalo-hash/Lago-1`
 
-## Rol de control
-Supervisor
+## Última decisión formal
+**EVAL-00 — ACCEPT**
 
-## Modo actual
-**RESEARCH-PERSISTENT — BATCH MODE**
+El batch de investigación R03→R09 fue aceptado como evidencia suficiente para avanzar a un experimento operativo mínimo.
 
-El Implementador avanza por una cola secuencial de investigaciones. No espera evaluación del Supervisor entre actividades.
+## Objetivo estratégico vigente
+Validar primero el bucle persistente de un chatbot, no construir todavía una aplicación compleja.
 
-## Antecedente cerrado
-**R12 — ACCEPT**
+## Work Item activo
+**EXP-01 — Persistent Roleplay Cold Resume**  
+Issue #16
 
-R12 definió el plan de cinco fases. A partir de la aclaración operativa posterior, la ejecución de investigación cambia a revisión por lote al final.
+## Cola inicial
 
-## Cola persistente autorizada
-
-1. R03 / #4 — personajes, roles y estado de relación
-2. R01 / #2 — estructura narrativa romántica
-3. R02 / #3 — escenarios y transiciones
-4. R07 / #8 — límites, consentimiento e intimidad adulta
-5. R04 / #5 — memoria mínima persistente
-6. R11 / #13 — secundarios y memoria reducida
-7. R05 / #6 — orquestación de dos chats
-8. R06 / #7 — persistencia técnica y escalabilidad
-9. R10 / #12 — protocolo experimental y cadencia
-10. R13 / #15 — layout de archivos/memoria en GitHub
-11. R08 / #9 — métricas y protocolo de evaluación
-12. R09 / #10 — síntesis de investigación y arquitectura candidata
+1. **T01 / #17** — crear paquete mínimo de historia persistente
+2. **T02 / #18** — ejecutar roleplay, persistir y producir checkpoint
+3. **T03 / #19** — cold resume desde un chat web nuevo
 
 ## Actividad actual
-**R03 / Issue #4**
+**T01 / Issue #17**
 
-## Regla de transición
-Al terminar una actividad, el Implementador publica:
+## Regla persistente
+El Implementador actual ejecuta T01 y continúa inmediatamente con T02.
 
-**IMPLEMENTER COMPLETE — RXX**
+Al final de T02 debe publicar:
+**HANDOFF REQUIRED — COLD RESUME**
 
-y continúa inmediatamente con la siguiente actividad de la cola.
+y detenerse.
 
-No espera ACCEPT.
-No cierra la issue.
-No inicia código de aplicación.
+T03 NO puede ejecutarse en el mismo chat. Requiere un chat web nuevo sin contexto privado de T01/T02.
 
-## Checkpoints
-Cada actividad debe poder pausarse y reanudarse. Antes de una pausa, guardar:
-- estado;
-- baseline/HEAD observado;
-- evidencia añadida;
-- hallazgos;
-- supuestos;
-- preguntas abiertas;
-- next action.
+## Artefactos permitidos para EXP-01
+Una historia de prueba con solamente:
+- story.md
+- state.json
+- memory.md
+- transcript.md
+- checkpoint.md
 
-## Bloqueos
-Si una actividad queda bloqueada:
-- publicar **IMPLEMENTER BLOCKED — RXX**;
-- documentar causa y evidencia;
-- continuar sólo con una siguiente actividad que no dependa de ese bloqueo;
-- si el resto depende del bloqueo, detener la cola.
+No añadir arquitectura salvo bloqueo demostrado.
 
-## Fin del batch de investigación
-Después de completar R09:
-1. actualizar Issue #1;
-2. publicar **READY FOR SUPERVISOR BATCH REVIEW**;
-3. detenerse;
-4. no implementar.
+## Fuera de alcance
+- aplicación/backend;
+- DB externa;
+- vector memory;
+- event sourcing completo;
+- Chat B;
+- evaluator LLM;
+- infraestructura multiagente;
+- producción.
 
-Entonces el Supervisor ejecuta EVAL-00 / #11 sobre el conjunto completo.
+## Criterio de éxito
+Un chat nuevo reconstruye la historia desde GitHub y continúa de manera coherente sin resumen manual del chat anterior.
 
-## Resultado del Supervisor
-Una sola decisión formal sobre el batch:
-- ACCEPT
-- REWORK
-- BLOCK
-- ESCALATE
+## Próximo gate
+Después de T03:
+**READY FOR SUPERVISOR EXP-01 REVIEW**
 
-Si hay REWORK, el Supervisor genera nuevas actividades concretas y el Implementador vuelve a modo persistente.
-
-## Continuidad para un agente nuevo
-Leer en este orden:
-1. `.project/CONTEXT.md`
-2. `.project/WORK_STATE.md`
-3. Issue #1
-4. issue actual de la cola
-5. último checkpoint de esa issue
-
-La conversación privada del chat no es fuente de estado.
-
-## Criterio estratégico de Prototipo 1
-
-La investigación debe favorecer una solución mínima. El objetivo principal es validar el bucle persistente chatbot → producción → persistencia GitHub → reanudación.
-
-Las investigaciones creativas sirven para proporcionar una carga de trabajo suficientemente rica, pero no deben forzar complejidad antes de demostrar este bucle.
+El Supervisor evalúa continuidad, simplicidad y suficiencia de la persistencia antes de autorizar un experimento de dos chats.
