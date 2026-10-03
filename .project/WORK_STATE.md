@@ -1,20 +1,18 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01/S2 — ACCEPT**
+**EXP-01/S3 — ACCEPT**
 
-## Hallazgo de S2
-El Narrative Test Agent fijo sostuvo cuatro micro-sesiones A–D con:
-- reentrada desde estado durable;
-- cierre de escena;
+## Hallazgo de S3
+El Narrative Test Agent fijo completó un mini-arco romántico persistente de 80 turnos totales con:
+- múltiples reentradas desde estado durable;
+- cierre y apertura de escenas;
 - salto temporal explícito;
-- nueva escena;
-- checkpoint autosuficiente;
+- decisión narrativa no predeterminada;
+- resolución HFN;
 - memoria compacta;
-- cero dependencia declarada de memoria privada;
+- checkpoint autosuficiente;
 - cero cambios fuera de scope.
-
-La revisión independiente confirmó que todos los diffs afectaron únicamente paths narrativos autorizados.
 
 ## Protocolo vigente
 `.project/NARRATIVE_CHAT_PROTOCOL.md`
@@ -22,26 +20,25 @@ La revisión independiente confirmó que todos los diffs afectaron únicamente p
 ## Estrategia actual
 **FIXED NARRATIVE TEST AGENT**
 
-Se mantiene el mismo chat narrativo.
+La ruta fixed-chat queda validada para el alcance actual.
 
 ## Actividad actual
-**S3 / Issue #24 — Completar mini-arco narrativo persistente**
+**S4 / Issue #25 — Batch creativo autónomo persistente — segundo arco**
 
-## Estado narrativo de entrada
-- cursor: 59;
-- sábado por la mañana;
-- barrio viejo, caminata en curso;
-- Inés lleva temporalmente la segunda cámara de Julián;
-- interés romántico mutuo explícito, sin compromiso formal;
-- oferta laboral de Inés pendiente para el lunes.
+## Hipótesis S4
+El mismo chat puede recibir un objetivo narrativo amplio y ejecutar persistentemente cinco micro-sesiones consecutivas sin intervención del Supervisor, guardando después de cada bloque y deteniéndose sólo en el gate final.
 
-## Batch S3
-1. Sesión E — continuar y cerrar caminata del sábado.
-2. Sesión F — salto temporal controlado a domingo/lunes.
-3. Sesión G — decisión laboral y consecuencia relacional.
-4. Sesión H — resolución emocional clara del mini-arco.
+## Batch S4
+Sesiones I → M.
 
-Cada sesión debe ejecutarse como reentrada operativa desde estado durable.
+Cada sesión:
+- 4–7 turnos;
+- entry checkpoint desde estado durable;
+- roleplay;
+- persistencia;
+- diff seguro;
+- checkpoint;
+- continuar inmediatamente con la siguiente si no hay bloqueo real.
 
 ## Escritura autorizada
 Sólo:
@@ -55,27 +52,20 @@ Sólo:
 - `.project/*`
 - `README.md`
 
-## Regla de persistencia
-Antes de cerrar cada sesión:
-1. baseline;
-2. cambios sólo en scope;
-3. revisión de diff;
-4. cero deletes/renames inesperados;
-5. checkpoint autosuficiente.
+## Regla de autonomía
+No esperar revisión entre I/J/K/L/M.
+No pedir autorización entre bloques.
+No emitir decisiones de Supervisor.
+
+Si existe bloqueo real:
+`IMPLEMENTER BLOCKED — EXP-01/S4`
 
 ## Actividad diferida
 **T04 / Issue #21 — reemplazo por chat nuevo**
-
 Permanece PAUSED.
 
-## Gate S3
-Después de la Sesión H:
-**READY FOR SUPERVISOR MINI-ARC REVIEW**
+## Gate S4
+Después de la Sesión M:
+**READY FOR SUPERVISOR AUTONOMOUS-BATCH REVIEW**
 
-El Supervisor evaluará:
-- continuidad del arco completo;
-- coherencia de la decisión laboral;
-- relación;
-- memoria compacta;
-- checkpoint final;
-- seguridad de persistencia.
+Después detenerse.
