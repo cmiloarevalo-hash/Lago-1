@@ -1,12 +1,17 @@
-# Checkpoint — EXP-01/S6 X05
+# Checkpoint — EXP-01/S6 X06
 
-Domingo por la tarde, una semana después de la llegada. La primera videollamada desde la distancia terminó.
+Martes por la noche, segunda semana. La interacción remota quedó cerrada.
 
-Se completaron **173 turnos**; X05 añadió 169–173.
+Se completaron **177 turnos**; X06 añadió 174–177.
 
-Inés pidió una llamada puntual. Dijo que el trabajo le gusta más de lo esperado y que extraña detalles cotidianos de su vida anterior. Ambos aceptaron que esas cosas pueden coexistir. No programaron una siguiente llamada recurrente.
+Inés dijo que empieza a sentirse cotidiana en la otra ciudad, que ya tiene pequeñas rutinas y que le gusta estar allí. También dejó claro que sentirse bien no significa renunciar a su vida anterior. Julián sostuvo ambas cosas sin plantearlas como competencia.
 
 No hay turno inmediato pendiente.
 
+## Estado relevante
+- Inés está adaptándose bien y le gusta el trabajo/la vida cotidiana allí.
+- Mantiene su departamento de origen.
+- Relación y acuerdos de comunicación no cambian.
+
 ## Reanudación
-Abrir una interacción posterior explícita. Mantener llamadas por acuerdo, sin calendario fijo. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
