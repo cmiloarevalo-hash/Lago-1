@@ -1,26 +1,29 @@
-# Checkpoint — EXP-01/S2 sesión A
+# Checkpoint — EXP-01/S2 sesión B
 
 ## Punto exacto de reanudación
-La escena del jueves terminó. Inés y Julián caminaron desde Café Niebla hasta la entrada de su edificio, confirmaron de nuevo la caminata del sábado a las 10:20 y se despidieron sin abrir nuevos conflictos.
+Sábado, poco después de las 10:20. Inés y Julián se encontraron puntualmente en el hall del edificio y acaban de salir hacia el barrio viejo para iniciar la caminata fotográfica.
 
-Se completaron 43 turnos en total; la sesión S2-A añadió los turnos 40–43.
+Se completaron 48 turnos en total; la sesión S2-B añadió los turnos 44–48.
+
+El último turno fue de **Julián**. Después de pedir permiso y tomar una sola fotografía de Inés, le mostró la imagen y propuso comenzar el juego acordado: cada uno elegirá cinco cosas que crea que el otro habría pasado por alto. Julián ofreció que Inés empiece.
+
+El siguiente turno natural corresponde a **Inés**.
 
 ## Estado actual
-- **Escena:** jueves cerrado en la entrada del edificio.
-- **Relación:** interés romántico mutuo explícito, sin compromiso formal; confianza e intimidad moderadas.
-- **Oferta laboral:** sigue pendiente de decisión de Inés para el lunes; no se reabrió en esta sesión.
-- **Caminata del sábado:** confirmada a las 10:20 en el hall del edificio.
-- **Regla durable:** Julián debe pedir permiso antes de fotografiar a Inés.
-- **walk_home_after_cafe:** completado.
+- **Escena:** sábado, 10:20 aprox.; salida del edificio hacia el barrio viejo; espacio público y activo.
+- **Relación:** interés mutuo explícito, sin compromiso formal; confianza e intimidad moderadas.
+- **Caminata:** iniciada.
+- **Consentimiento fotográfico:** Julián respetó la regla de preguntar antes de fotografiar; Inés autorizó una foto concreta.
+- **Oferta laboral:** sigue pendiente hasta el lunes; no se trató en esta sesión.
 
-## Siguiente acción natural
-La siguiente sesión debe hacer una **transición temporal explícita al sábado** y abrir la caminata fotográfica a las 10:20 en el hall del edificio. No es necesario narrar el tiempo intermedio.
+## Threads
+1. **Caminata del sábado:** en curso.
+2. **Juego de observación:** recién abierto; Inés puede elegir la primera cosa que cree que Julián pasaría por alto.
+3. **Oferta laboral:** sigue abierta y no requiere atención inmediata.
+4. **Relación:** continuar conociéndose sin compromiso formal.
 
-## Knowledge boundaries relevantes
-- Ambos saben que existe interés mutuo y que siguen conociéndose sin compromiso.
-- Ambos conocen la cita del sábado a las 10:20.
-- Julián sabe que la oferta laboral de Inés sigue abierta hasta el lunes.
-- Inés sabe que Julián debe pedir permiso antes de fotografiarla.
+## Siguiente punto natural
+Inés responde al juego de observación y la caminata avanza por el barrio. No es necesario reabrir la oferta ni aumentar el compromiso romántico.
 
 ## Persistencia
-El estado durable basta para iniciar el sábado sin releer el transcript completo.
+El estado, la memoria y este checkpoint bastan para continuar sin reconstruir desde transcript.
