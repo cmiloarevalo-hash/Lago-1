@@ -1,67 +1,54 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01/S6 — ACCEPT**
+**EXP-01 — ACCEPT**
+
+## Estado
+EXP-01 está COMPLETADO y cerrado.
+
+## Resultado principal
+Se validó un patrón mínimo de roleplay persistente basado en:
+- configuración estable;
+- estado mutable compacto;
+- memoria durable mínima;
+- checkpoint de reanudación;
+- transcript histórico como evidencia;
+- protocolo operativo explícito.
 
 ## Capacidad demostrada
-Una sola solicitud persistente completó:
-- 20 micro-sesiones autónomas X01 → X20;
-- 86 turnos narrativos nuevos;
-- cursor total 153 → 238;
-- 20 reentradas desde estado durable;
-- 20 persistencias;
-- 20 verificaciones de diff;
-- 0 bloqueos reales;
-- 0 reentradas que necesitaran transcript para reconstrucción;
-- 0 dependencia declarada de memoria privada.
+- continuidad narrativa hasta 250 turnos;
+- reentradas repetidas sin usar transcript como memoria primaria;
+- batch autónomo de 5 micro-sesiones;
+- batch autónomo de 10 micro-sesiones;
+- batch autónomo de 20 micro-sesiones / 86 turnos bajo una sola solicitud;
+- reemplazo por chat completamente nuevo después de 238 turnos acumulados;
+- T04 añadió 12 turnos y terminó en cursor 250.
 
-## Escala al cierre S6
-- transcript.md: 55802 caracteres;
-- memory.md: 1957 caracteres;
-- checkpoint.md: 3170 caracteres.
+## Persistencia segura
+Después del fallo T03 se adoptó:
+- baseline explícito;
+- escritura sólo en paths autorizados;
+- revisión obligatoria de diff;
+- cero deletes/renames inesperados;
+- detener/reparar ante inconsistencia.
 
-## Protocolo vigente
-`.project/NARRATIVE_CHAT_PROTOCOL.md`
+Esta disciplina fue validada durante S1–S6 y T04.
 
-## Decisión estratégica
-No se escala inmediatamente a 40 micro-sesiones.
+## Arquitectura mínima validada
+- `stories/exp-01/story.md` — configuración estable;
+- `stories/exp-01/state.json` — estado actual;
+- `stories/exp-01/memory.md` — hechos durables mínimos;
+- `stories/exp-01/checkpoint.md` — punto exacto de reanudación;
+- `stories/exp-01/transcript.md` — archivo histórico/evidencia;
+- `.project/NARRATIVE_CHAT_PROTOCOL.md` — protocolo de entrada y operación.
 
-El siguiente experimento cambia de dimensión: comprobar si un chat completamente nuevo puede asumir el rol a partir de GitHub, después de la estabilización extensa del chat fijo.
+## Trabajo activo
+Ninguno.
 
-## Actividad actual
-**T04 / Issue #21 — Fresh-chat takeover / cold resume**
+## Próxima decisión humana
+Elegir el siguiente eje experimental:
+1. generalizar el patrón a otra historia / otro Narrative Test Agent;
+2. introducir Chat B como curador/continuity controller;
+3. diseñar otra prueba específica antes de añadir arquitectura.
 
-## Requisito crítico
-Ejecutar T04 desde un chat web completamente nuevo.
-
-El humano NO debe proporcionar resumen narrativo manual.
-
-El nuevo chat debe:
-- asumir `NARRATIVE TEST AGENT`;
-- leer CONTEXT, WORK_STATE y NARRATIVE_CHAT_PROTOCOL;
-- reconstruir la historia desde story/state/memory/checkpoint;
-- no usar transcript para bootstrap salvo ambigüedad concreta;
-- publicar ENTRY CHECKPOINT antes de narrar;
-- ejecutar 3 micro-sesiones A → B → C;
-- persistir y verificar diff después de cada una.
-
-## Escritura autorizada
-Sólo:
-- `stories/exp-01/transcript.md`
-- `stories/exp-01/state.json`
-- `stories/exp-01/memory.md`
-- `stories/exp-01/checkpoint.md`
-
-## Read-only
-- `stories/exp-01/story.md`
-- `.project/*`
-- `README.md`
-
-## Gate T04
-Después de C:
-`IMPLEMENTER COMPLETE — EXP-01/T04`
-
-y
-`READY FOR SUPERVISOR EXP-01 REPLACEMENT REVIEW`
-
-Después detenerse.
+No iniciar automáticamente ninguna de estas rutas.
