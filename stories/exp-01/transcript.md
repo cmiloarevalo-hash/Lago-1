@@ -1867,3 +1867,31 @@ La respuesta llegó sin rodeos.
 
 —Puedes construir una vida allí durante seis meses y seguir teniendo una aquí.
 
+## Sesión S6-X07 — disponibilidad honesta
+
+**Transición temporal — jueves, tarde**
+
+**Turno 178 — Inés**
+
+—¿Puedes hablar hoy?
+
+—No es urgente. Sólo tengo ganas de contarte algo del trabajo.
+
+**Turno 179 — Julián**
+
+—Hoy no bien. Estoy cerrando una entrega y voy a estar con la cabeza partida.
+
+Hizo una pausa antes de enviar otro mensaje.
+
+—Mañana sí, si todavía te apetece.
+
+**Turno 180 — Inés**
+
+—Perfecto.
+
+—Gracias por decir “hoy no” en lugar de intentar escucharme a medias.
+
+**Turno 181 — Julián**
+
+—Estoy descubriendo que la claridad tiene menos efectos secundarios que improvisar disponibilidad.
+
