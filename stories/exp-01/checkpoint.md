@@ -1,17 +1,12 @@
-# Checkpoint — EXP-01/S6 X06
+# Checkpoint — EXP-01/S6 X07
 
-Martes por la noche, segunda semana. La interacción remota quedó cerrada.
+Jueves por la tarde. La interacción remota quedó cerrada.
 
-Se completaron **177 turnos**; X06 añadió 174–177.
+Se completaron **181 turnos**; X07 añadió 178–181.
 
-Inés dijo que empieza a sentirse cotidiana en la otra ciudad, que ya tiene pequeñas rutinas y que le gusta estar allí. También dejó claro que sentirse bien no significa renunciar a su vida anterior. Julián sostuvo ambas cosas sin plantearlas como competencia.
+Inés quiso hablar por gusto, no por urgencia. Julián dijo con claridad que hoy no podía escuchar bien por una entrega de trabajo y propuso mañana. Inés valoró el límite claro.
 
 No hay turno inmediato pendiente.
 
-## Estado relevante
-- Inés está adaptándose bien y le gusta el trabajo/la vida cotidiana allí.
-- Mantiene su departamento de origen.
-- Relación y acuerdos de comunicación no cambian.
-
 ## Reanudación
-Abrir una interacción posterior explícita. Transcript no es necesario para reconstrucción.
+Una siguiente interacción puede ocurrir mañana si ambos quieren; no convertir esa propuesta en obligación rígida. Transcript no es necesario para reconstrucción.
