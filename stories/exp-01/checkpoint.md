@@ -1,41 +1,26 @@
-# Checkpoint — EXP-01/T01
+# Checkpoint — EXP-01/T02 — bloque 1
 
 ## Desde dónde continuar
-Café Niebla, jueves 18:20. Inés y Julián están sentados frente a frente. Sus bebidas acaban de llegar. La conversación de roleplay todavía no ha comenzado.
+Café Niebla, jueves poco después de las 18:20. Inés y Julián siguen sentados frente a frente. Se completaron 4 turnos.
 
-## Quiénes son
-- Inés Vidal, 32: metódica, reservada, humor seco, coordinadora de producción cultural.
-- Julián Rojas, 34: cálido, espontáneo, observador, fotógrafo freelance.
+## Qué acaba de ocurrir
+La conversación empezó con humor. Inés reconoció que la reunión se siente distinta a sus encuentros casuales; Julián dejó claro, sin declararlo románticamente, que quería pasar más tiempo hablando con ella.
 
-## Relación actual
-Vecinos y conocidos amistosos con curiosidad mutua. Es su primera reunión intencional a solas. No hay compromiso romántico.
-
-## Hechos canónicos relevantes
-- Se conocen desde hace unos tres meses.
-- Coinciden en el edificio y en Café Niebla.
-- Intercambiaron números durante un corte de agua.
+## Estado material
+Sin cambio material suficiente para modificar `state.json`.
+No se promovió nada nuevo a `memory.md`.
 
 ## Knowledge boundaries
-- Sólo Inés sabe que recibió una oferta laboral de seis meses en otra ciudad y que debe responder el lunes.
-- Sólo Julián sabe que quiere invitarla a una caminata fotográfica el sábado.
-- Ninguno debe actuar como si conociera el hecho privado del otro antes de que sea revelado.
-
-## Tensión / objetivo
-Ambos quieren descubrir si existe una conexión más personal. La posible mudanza de Inés puede introducir un quiebre pequeño.
+- Inés sigue siendo la única que conoce su oferta laboral y la fecha límite del lunes.
+- Julián sigue siendo el único que conoce su intención de invitarla a la caminata del sábado.
 
 ## Pendiente
-- Julián aún no ha hecho su invitación.
-- Inés aún no ha revelado la oferta.
-- No hay conflicto todavía.
+- Invitación del sábado no realizada.
+- Oferta laboral no revelada.
+- No hay conflicto.
 
 ## Próximo punto natural
-Iniciar con conversación cotidiana y dejar que aparezca gradualmente algo más personal. La invitación o la revelación pueden surgir si el diálogo lo justifica, pero no deben forzarse.
+Profundizar un poco la conversación. Julián puede buscar una apertura para la invitación o Inés puede preguntar por qué quiso verla; no forzar ninguno de los dos threads.
 
-## Bootstrap mínimo
-Para reconstruir el contexto inicial basta leer:
-1. story.md
-2. state.json
-3. memory.md
-4. checkpoint.md
-
-transcript.md no es necesario antes del primer turno porque todavía no contiene historia previa.
+## Recorder observation
+Para este bloque bastó el checkpoint anterior; no fue necesario releer transcript histórico para decidir continuidad. Las cuatro intervenciones son útiles como evidencia de voz, pero no merecen memoria durable adicional.
