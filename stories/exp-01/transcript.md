@@ -1931,3 +1931,29 @@ Julián soltó una risa.
 
 —Esa frase merece marco.
 
+## Sesión S6-X09 — agenda de trabajo real
+
+**Transición temporal — domingo, tarde; dos semanas después de la llegada**
+
+**Turno 186 — Inés**
+
+—Aviso de producción: el próximo sábado tengo actividad todo el día.
+
+—No es una disculpa anticipada. Sólo para que no confundamos agenda con misterio.
+
+**Turno 187 — Julián**
+
+—Recibido.
+
+—Agenda, no misterio. Suena sorprendentemente compatible con nuestro sistema.
+
+**Turno 188 — Inés**
+
+—Y probablemente el domingo duerma hasta una hora poco respetable.
+
+**Turno 189 — Julián**
+
+—Eso sí exige investigación independiente.
+
+—Te escribiré cuando exista evidencia de que despertaste.
+
