@@ -1,21 +1,47 @@
-# Checkpoint — EXP-01/T04 sesión B
+# Checkpoint — EXP-01/T04 sesión C — FRESH-CHAT TAKEOVER COMPLETE
 
-Jueves por la noche. La interacción remota quedó cerrada.
+Viernes por la noche. La interacción remota quedó cerrada.
 
-Se completaron **246 turnos**; T04-B añadió 243–246.
+Se completaron **250 turnos** totales; T04-C añadió 247–250.
 
-Julián confirmó que su trabajo le permite viajar durante la ventana que Inés había propuesto. Inés respondió que la propuesta sigue en pie y que quiere que vaya.
+## Punto exacto
+La visita de Julián está **confirmada** para la ventana relativa que Inés propuso en T04-A: **dentro de dos fines de semana** desde aquella sesión.
 
-**Estado exacto de la visita:** CONFIRMADA para la ventana relativa **dentro de dos fines de semana** respecto de T04-A. Todavía no hay fechas de calendario, transporte, horarios, reserva ni alojamiento persistidos.
+Límites/logística ya acordados:
+- Julián organizará **alojamiento por su cuenta**; no debe asumirse que se quedará con Inés.
+- Ambos quieren una visita de estructura ligera, no un itinerario completo.
+- Julián compartirá horarios cuando tenga opciones concretas.
 
-Julián dijo que revisará opciones y compartirá horarios antes de reservar. Inés pidió confirmar sólo lo necesario y evitar una coreografía excesiva.
+Todavía **no están persistidos**:
+- fechas de calendario exactas;
+- transporte;
+- horarios de llegada/salida;
+- reservas concretas;
+- alojamiento concreto.
 
-No hay turno inmediato pendiente.
-
-## Relación
+## Relación actual
 - Se están viendo a distancia con interés romántico mutuo.
+- Confianza alta y estable; intimidad alta, recíproca y estable.
 - Sin pareja formal.
-- Sin exclusividad acordada.
+- Sin acuerdo de exclusividad.
+- Comunicación flexible, sin frecuencia mínima.
 
-## Reanudación
-La siguiente sesión puede aclarar límites o logística mínima de la visita. No inventar transporte, alojamiento ni fechas exactas si no aparecen dentro del roleplay. Transcript no es necesario para reconstrucción.
+## Knowledge boundaries
+### Inés sabe
+- Julián quiere hacer la visita y puede durante la ventana acordada.
+- Él organizará alojamiento por su cuenta.
+- No hay transporte ni horarios confirmados todavía.
+
+### Julián sabe
+- Inés quiere que vaya.
+- No debe asumir que se alojará con ella.
+- Inés no quiere una agenda excesivamente estructurada para la visita.
+
+### Ambos saben
+- La visita está confirmada, pero su logística concreta sigue parcialmente abierta.
+- Cualquier cambio de etiqueta o exclusividad debe hablarse explícitamente.
+
+## Reanudación futura
+Abrir una nueva interacción explícita desde este estado. Puede avanzarse la logística sólo si aparece dentro del roleplay. No inventar fechas de calendario, transporte, reserva, alojamiento concreto ni llegada.
+
+`story.md + state.json + memory.md + checkpoint.md` fueron suficientes para completar T04 sin usar transcript para bootstrap.
