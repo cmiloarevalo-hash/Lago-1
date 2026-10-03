@@ -1,10 +1,10 @@
 {
   "story_id": "exp-01-cafe-jueves",
   "scene": {
-    "location": "trayecto entre Café Niebla y su edificio",
-    "time": "jueves, misma tarde",
+    "location": "entrada de su edificio",
+    "time": "jueves, final de la tarde",
     "privacy": "public",
-    "status": "active",
+    "status": "closed",
     "participants": [
       "ines",
       "julian"
@@ -18,7 +18,7 @@
     "commitment": "ninguno",
     "conflict": "resuelto_por_ahora"
   },
-  "beat": "walking_home_together",
+  "beat": "thursday_scene_closed",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -42,8 +42,8 @@
     },
     {
       "id": "walk_home_after_cafe",
-      "status": "accepted_in_progress"
+      "status": "completed"
     }
   ],
-  "turn_cursor": 39
+  "turn_cursor": 43
 }
