@@ -1,12 +1,12 @@
-# Checkpoint — EXP-01/S6 X09
+# Checkpoint — EXP-01/S6 X10
 
-Domingo por la tarde, dos semanas después de la llegada. La interacción quedó cerrada.
+Martes, final de la tarde. Julián estaba en Café Niebla y compartió con Inés un detalle cotidiano del lugar; la interacción remota quedó cerrada.
 
-Se completaron **189 turnos**; X09 añadió 186–189.
+Se completaron **193 turnos**; X10 añadió 190–193.
 
-Inés avisó que el próximo sábado tendrá una actividad laboral durante todo el día. Lo presentó como información de agenda, no como disculpa. Julián lo recibió así. El domingo posterior podría ser de descanso; no existe plan obligatorio.
+No hubo acuerdo nuevo, conflicto ni logística. El intercambio mantuvo conexión con la vida de origen sin convertirla en nostalgia obligatoria ni cuenta regresiva.
 
 No hay turno inmediato pendiente.
 
 ## Reanudación
-Abrir una interacción posterior explícita. El próximo sábado de Inés está ocupado por trabajo. Transcript no es necesario para reconstrucción.
+Abrir una interacción posterior explícita. Recordar que el próximo sábado Inés trabaja todo el día. Transcript no es necesario para reconstrucción.
