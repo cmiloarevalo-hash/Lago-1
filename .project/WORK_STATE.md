@@ -1,21 +1,24 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01/S4 — ACCEPT**
+**EXP-01/S5 — ACCEPT**
 
-## Hallazgo de S4
-El Narrative Test Agent fijo completó un batch creativo autónomo de 5 micro-sesiones consecutivas bajo una sola instrucción persistente.
+## Capacidad demostrada
+Una sola solicitud persistente completó:
+- 10 micro-sesiones autónomas N → W;
+- 40 turnos narrativos nuevos;
+- cursor total 113 → 152;
+- 10 reentradas desde estado durable;
+- 10 persistencias;
+- 10 verificaciones de diff;
+- 0 bloqueos reales;
+- 0 reentradas que necesitaran transcript para reconstrucción;
+- 0 dependencia declarada de memoria privada.
 
-Capacidad demostrada:
-- 5 micro-sesiones I → M;
-- 32 turnos narrativos nuevos;
-- cursor total 80 → 112;
-- 5 reentradas desde estado durable;
-- 5 persistencias;
-- 5 verificaciones de diff;
-- cero intervención de Supervisor entre bloques;
-- cero cambios fuera de scope;
-- memory final ~2.5 KB.
+## Memoria al cierre S5
+- memory.md: 2163 caracteres;
+- checkpoint.md: 2983 caracteres;
+- transcript.md: 42401 caracteres.
 
 ## Protocolo vigente
 `.project/NARRATIVE_CHAT_PROTOCOL.md`
@@ -26,14 +29,13 @@ Capacidad demostrada:
 Se mantiene el mismo chat narrativo.
 
 ## Actividad actual
-**S5 / Issue #26 — Capacity probe — 10 micro-sesiones autónomas**
+**S6 / Issue #27 — Capacity probe — 20 micro-sesiones autónomas**
 
 ## Objetivo
-Medir capacidad práctica de una sola solicitud persistente, no complejidad literaria.
+Extender el mínimo demostrado desde 10 a 20 micro-sesiones consecutivas bajo una sola solicitud persistente.
 
-## Batch S5
-Ejecutar:
-**N → O → P → Q → R → S → T → U → V → W**
+## Batch S6
+**X01 → X02 → X03 → X04 → X05 → X06 → X07 → X08 → X09 → X10 → X11 → X12 → X13 → X14 → X15 → X16 → X17 → X18 → X19 → X20**
 
 Cada micro-sesión:
 - 3–5 turnos;
@@ -43,7 +45,14 @@ Cada micro-sesión:
 - persistencia;
 - diff;
 - checkpoint;
-- continuar inmediatamente.
+- continuar inmediatamente si no hay bloqueo.
+
+## Estado narrativo de entrada
+- Inés salió del edificio el domingo a las 09:00;
+- transporte y hora de llegada no persistidos;
+- check-in de llegada pendiente;
+- relación con interés mutuo, sin compromiso formal;
+- comunicación a distancia asincrónica y sin frecuencia mínima.
 
 ## Escritura autorizada
 Sólo:
@@ -58,16 +67,16 @@ Sólo:
 - `README.md`
 
 ## Regla de autonomía
-No esperar revisión entre N–W.
+No esperar revisión entre X01–X20.
 No pedir autorización.
-Detenerse sólo ante bloqueo real o al llegar al gate final.
+Detenerse sólo ante bloqueo real o al gate final.
 
 ## Actividad diferida
 **T04 / Issue #21 — reemplazo por chat nuevo**
 Permanece PAUSED.
 
-## Gate S5
-Después de W:
-**READY FOR SUPERVISOR CAPACITY REVIEW**
+## Gate S6
+Después de X20:
+**READY FOR SUPERVISOR CAPACITY-20 REVIEW**
 
 Después detenerse.
