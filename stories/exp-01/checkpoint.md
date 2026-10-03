@@ -1,26 +1,27 @@
-# Checkpoint — EXP-01/T02 — bloque 1
+# Checkpoint — EXP-01/T02 — bloque 2
 
 ## Desde dónde continuar
-Café Niebla, jueves poco después de las 18:20. Inés y Julián siguen sentados frente a frente. Se completaron 4 turnos.
+Café Niebla, jueves por la tarde. Se completaron 8 turnos. Inés debe responder a la invitación de Julián.
 
 ## Qué acaba de ocurrir
-La conversación empezó con humor. Inés reconoció que la reunión se siente distinta a sus encuentros casuales; Julián dejó claro, sin declararlo románticamente, que quería pasar más tiempo hablando con ella.
+Julián invitó explícitamente a Inés a una caminata fotográfica por el barrio viejo el sábado. Inés respondió con humor preguntando si era una excusa para volver a verla. Julián reconoció que quiere volver a verla, pero dejó la decisión abierta y sin presión.
 
-## Estado material
-Sin cambio material suficiente para modificar `state.json`.
-No se promovió nada nuevo a `memory.md`.
-
-## Knowledge boundaries
-- Inés sigue siendo la única que conoce su oferta laboral y la fecha límite del lunes.
-- Julián sigue siendo el único que conoce su intención de invitarla a la caminata del sábado.
-
-## Pendiente
-- Invitación del sábado no realizada.
-- Oferta laboral no revelada.
+## Qué cambió
+- El interés romántico pasó de implícito a parcialmente expresado.
+- El thread de la invitación está pendiente de respuesta.
 - No hay conflicto.
 
+## Knowledge boundaries
+- Inés sigue siendo la única que conoce su oferta laboral de seis meses y la fecha límite del lunes.
+- Julián ya no tiene como secreto la intención de invitarla: la invitación fue expresada.
+- Julián todavía no conoce la oferta.
+
+## Pendiente
+- Inés debe responder a la invitación.
+- La oferta laboral sigue sin revelarse.
+
 ## Próximo punto natural
-Profundizar un poco la conversación. Julián puede buscar una apertura para la invitación o Inés puede preguntar por qué quiso verla; no forzar ninguno de los dos threads.
+Inés puede responder a la invitación. La decisión puede hacerle presente la incertidumbre de su oferta y abrir la posibilidad de revelarla, pero no se debe forzar el quiebre.
 
 ## Recorder observation
-Para este bloque bastó el checkpoint anterior; no fue necesario releer transcript histórico para decidir continuidad. Las cuatro intervenciones son útiles como evidencia de voz, pero no merecen memoria durable adicional.
+Para generar este bloque bastaron state + memory + checkpoint; no fue necesario releer el transcript completo. La invitación sí es un hecho material y fue promovida a state/memory.

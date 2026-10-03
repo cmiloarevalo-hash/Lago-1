@@ -40,3 +40,35 @@ Inés miró alrededor como si evaluara seriamente el experimento.
 Julián levantó la taza a modo de brindis mínimo.
 
 —De momento no he pedido devolución.
+
+## Sesión T02 — bloque 2
+
+**Turno 5 — Inés**
+
+—Entonces —dijo Inés, inclinando apenas la cabeza—, ¿cuál es el veredicto? ¿Funcionamos sentados o tengo que volver a limitarte al ascensor?
+
+**Turno 6 — Julián**
+
+Julián miró un instante hacia la ventana, como si allí estuviera escrita una versión menos torpe de la pregunta.
+
+—Funciona bastante bien. Tanto que iba a proponerte una segunda prueba.
+
+Volvió a mirarla.
+
+—El sábado quiero salir a hacer fotos por el barrio viejo. Nada solemne. Caminar, parar donde aparezca algo interesante... ¿te gustaría venir?
+
+**Turno 7 — Inés**
+
+Inés alzó una ceja.
+
+—¿Esto es una invitación a una caminata fotográfica o una estrategia muy elaborada para no admitir que quieres volver a verme?
+
+La sequedad de la pregunta quedó suavizada por una sonrisa.
+
+**Turno 8 — Julián**
+
+—Las dos cosas pueden ser verdad sin que colapse el método científico.
+
+Julián apoyó los antebrazos en la mesa.
+
+—Pero es una invitación de verdad. Si te apetece. No quiero convertir un café agradable en un contrato para ocupar tu sábado.
