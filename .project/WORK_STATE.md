@@ -1,70 +1,67 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01 — REWORK**
+**EXP-01/S1 — ACCEPT**
 
-## Hallazgo
-El cold resume narrativo de T03 funcionó, pero el commit final modificó/eliminó archivos fuera de scope. Por ello se requiere mejorar disciplina de persistencia antes de continuar con reemplazos de chat.
+## Hallazgo de S1
+El Narrative Test Agent fijo completó tres bloques persistentes sin depender de memoria privada como fuente de verdad.
 
-## Protocolo operativo nuevo
-Existe:
+La revisión independiente confirmó:
+- sólo paths narrativos autorizados modificados;
+- cero deletes inesperados;
+- cero renames inesperados;
+- `story.md` intacto;
+- `.project/*` intacto;
+- `README.md` intacto;
+- memoria mínima sin crecimiento innecesario.
+
+## Protocolo vigente
+Todo trabajo narrativo sigue:
 `.project/NARRATIVE_CHAT_PROTOCOL.md`
-
-Todo chat narrativo debe ejecutar ese protocolo de entrada antes de generar contenido.
 
 ## Estrategia actual
 **FIXED NARRATIVE TEST AGENT**
 
-Por decisión humana, durante la etapa de estabilización se utilizará el mismo chat web como agente narrativo fijo.
+Se mantiene el mismo chat narrativo para mejorar continuidad y disciplina antes de volver a probar reemplazo.
 
-El chat conserva una identidad operativa estable:
-**NARRATIVE TEST AGENT**
+## Actividad actual
+**S2 / Issue #23 — Fixed-chat narrative endurance y reentrada por sesiones**
 
-Aunque sea el mismo chat, al comenzar cada sesión debe actuar como si su memoria privada no fuera autoridad:
-- releer repositorio;
-- declarar baseline;
-- reconstruir contexto;
-- declarar paths autorizados;
-- persistir sólo dentro de scope.
+## Batch S2
+1. Sesión A — cerrar naturalmente la escena del jueves.
+2. Sesión B — reentrada operativa + transición explícita al sábado.
+3. Sesión C — reentrada + profundización narrativa.
+4. Sesión D — reentrada + pausa/reanudación y checkpoint autosuficiente.
 
-## Reparación de integridad
-`stories/exp-01/story.md` fue restaurado por el Supervisor desde el baseline durable pre-T03 en el commit `a5b2fc813bb31f47cbfb8430731b077e5a32259e`.
+Cada sesión debe ejecutar de nuevo el protocolo de entrada desde estado durable.
 
-La causa exacta del borrado T03 no está demostrada; la hipótesis más probable es una operación de escritura que no preservó correctamente el árbol base. La mitigación obligatoria es revisión de diff y scope antes de completar cualquier persistencia.
-
-## Actividad inmediata
-**S1 / Issue #22 — Estabilizar Narrative Test Agent fijo**
-
-S1 está DESBLOQUEADA. El mismo chat narrativo fijo debe reiniciar su protocolo de entrada contra el HEAD actual.
-
-S1 usa el mismo chat narrativo durante tres bloques cortos persistentes.
-
-## Actividad diferida
-**T04 / Issue #21 — cold resume desde otro chat nuevo**
-
-T04 queda PAUSED hasta que S1 reciba revisión del Supervisor.
-
-## Paths narrativos mutables autorizados
+## Escritura autorizada
+Sólo:
 - `stories/exp-01/transcript.md`
 - `stories/exp-01/state.json`
 - `stories/exp-01/memory.md`
 - `stories/exp-01/checkpoint.md`
 
-## Read-only para el Narrative Test Agent
+## Read-only
 - `stories/exp-01/story.md`
 - `.project/*`
 - `README.md`
 
 ## Regla de persistencia
-Antes de considerar completa cualquier escritura:
-1. registrar HEAD baseline;
+Antes de considerar completa cada micro-sesión:
+1. registrar baseline;
 2. aplicar sólo cambios autorizados;
-3. inspeccionar diff;
-4. confirmar cero deletes inesperados;
+3. revisar diff;
+4. confirmar cero deletes/renames inesperados;
 5. confirmar cero paths fuera de scope.
 
-## Gate de estabilización
-Después de tres bloques S1:
-**READY FOR SUPERVISOR FIXED-CHAT REVIEW**
+## Actividad diferida
+**T04 / Issue #21 — reemplazo por chat nuevo**
 
-Sólo después se decidirá cuándo volver a probar reemplazo/cold-resume con otro chat.
+Permanece PAUSED.
+
+## Gate S2
+Después de las cuatro sesiones:
+**READY FOR SUPERVISOR FIXED-CHAT ENDURANCE REVIEW**
+
+El Supervisor revisará continuidad, voz, crecimiento de memoria, checkpoints y seguridad de persistencia.
