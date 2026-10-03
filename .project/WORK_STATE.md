@@ -27,14 +27,15 @@ Aunque sea el mismo chat, al comenzar cada sesión debe actuar como si su memori
 - declarar paths autorizados;
 - persistir sólo dentro de scope.
 
+## Reparación de integridad
+`stories/exp-01/story.md` fue restaurado por el Supervisor desde el baseline durable pre-T03 en el commit `a5b2fc813bb31f47cbfb8430731b077e5a32259e`.
+
+La causa exacta del borrado T03 no está demostrada; la hipótesis más probable es una operación de escritura que no preservó correctamente el árbol base. La mitigación obligatoria es revisión de diff y scope antes de completar cualquier persistencia.
+
 ## Actividad inmediata
-**R1 / Issue #20 — Restaurar integridad y acotar escrituras**
-
-R1 debe restaurar `stories/exp-01/story.md` y documentar la causa del borrado inesperado.
-
-## Siguiente actividad
-Después de R1:
 **S1 / Issue #22 — Estabilizar Narrative Test Agent fijo**
+
+S1 está DESBLOQUEADA. El mismo chat narrativo fijo debe reiniciar su protocolo de entrada contra el HEAD actual.
 
 S1 usa el mismo chat narrativo durante tres bloques cortos persistentes.
 
