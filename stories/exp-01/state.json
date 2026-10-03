@@ -2,7 +2,7 @@
   "story_id": "exp-01-cafe-jueves",
   "scene": {
     "location": "comunicación a distancia",
-    "time": "domingo, tarde; tercera semana",
+    "time": "martes, noche",
     "privacy": "remote",
     "status": "closed",
     "participants": [
@@ -15,10 +15,10 @@
     "trust": "alto_estable",
     "emotional_intimacy": "alta_estable",
     "romantic_interest": "mutuo_explicito_confirmado",
-    "commitment": "ninguno_formal",
+    "commitment": "sin_relacion_formal_y_sin_acuerdo_de_exclusividad",
     "conflict": "resuelto"
   },
-  "beat": "relationship_public_framing_seeing_someone",
+  "beat": "non_exclusivity_explicit_no_silent_assumptions",
   "threads": [
     {
       "id": "ines_job_offer",
@@ -38,7 +38,7 @@
     },
     {
       "id": "relationship_expectations",
-      "status": "seeing_each_other_description_accepted_no_formal_label"
+      "status": "seeing_each_other_no_formal_label_no_exclusivity_assumption"
     },
     {
       "id": "walk_home_after_cafe",
@@ -127,7 +127,11 @@
     {
       "id": "next_saturday_work",
       "status": "completed_went_well"
+    },
+    {
+      "id": "exclusivity",
+      "status": "not_agreed_changes_require_explicit_conversation"
     }
   ],
-  "turn_cursor": 205
+  "turn_cursor": 210
 }
