@@ -455,3 +455,61 @@ Abrió la puerta y sostuvo una media sonrisa antes de entrar.
 
 La puerta se cerró detrás de ella y la tarde del jueves quedó, por fin, terminada.
 
+## Sesión S2-B — sábado, inicio de la caminata
+
+**Transición temporal — sábado, 10:20**
+
+Dos días después, el hall del edificio estaba silencioso salvo por el ruido breve del ascensor. Julián esperaba junto a la puerta con una cámara colgada al hombro y otra guardada en una bolsa pequeña.
+
+**Turno 44 — Julián**
+
+Al ver salir a Inés, Julián miró el reloj con una solemnidad exagerada.
+
+—Diez veinte exactas. Esto pone una presión terrible sobre el resto de la mañana.
+
+Levantó apenas la bolsa.
+
+—Traje una segunda cámara, por si quieres probar. Sin obligación contractual.
+
+**Turno 45 — Inés**
+
+Inés miró primero el reloj del hall y después la bolsa.
+
+—Llegué a las diez diecinueve y cuarenta y cinco. Quince segundos de margen me parecen una concesión razonable al caos.
+
+Se acercó y señaló la cámara que él llevaba al hombro.
+
+—¿Esa es la que usas normalmente o la que sacas cuando quieres parecer profesional?
+
+**Turno 46 — Julián**
+
+—La profesional es la expresión de concentración. La cámara sólo ayuda.
+
+Julián sonrió y abrió la puerta del edificio.
+
+Antes de salir, levantó la cámara un poco, sin apuntarla todavía.
+
+—Pregunta reglamentaria: ¿te puedo hacer una foto aquí, antes de que empecemos? Una sola.
+
+**Turno 47 — Inés**
+
+Inés lo observó un segundo, como si comprobara que la pregunta había llegado antes que el gesto.
+
+—Sí. Una.
+
+Luego añadió:
+
+—Y me la muestras después. No porque quiera aprobarla; quiero saber qué viste tú.
+
+**Turno 48 — Julián**
+
+—Trato hecho.
+
+Julián esperó a que Inés estuviera lista, tomó una sola fotografía y bajó la cámara de inmediato. Revisó la pantalla apenas un instante antes de girarla hacia ella.
+
+—Ésta.
+
+Después guardó la cámara contra el pecho y abrió la puerta hacia la calle.
+
+—Ahora sí. Cinco cosas cada uno que el otro habría pasado por alto. Empiezas tú, si quieres.
+
