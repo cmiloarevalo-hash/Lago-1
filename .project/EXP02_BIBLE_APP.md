@@ -1,201 +1,127 @@
 # EXP-02 — Bible Topic Explorer Mobile
 
+## Estado del plan
+
+**P00 — ACCEPT. Cola final congelada por Supervisor.**
+
+La cola siguiente sustituye la cola candidata anterior. Es el plan autorizado de EXP-02.
+
+La autorización de ejecución debe respetar las dependencias: **R01–R10 primero; I01–I10 sólo después de cerrar R10 y su contrato del MVP.**
+
 ## Propósito
+Construir un prototipo móvil en español para explorar la Biblia por temas con resultados trazables, búsqueda offline y recordatorio matutino local.
 
-Investigar y construir un prototipo móvil sencillo para explorar la Biblia por temas.
+## Decisiones congeladas de P00
+- Baseline recomendado: Reina-Valera 1909; ninguna ingestión sin gate de licencia ELIGIBLE.
+- Segunda traducción sólo si R04 demuestra valor/licencia/costo aceptables.
+- No prometer deuterocanónicos hasta validar fuente estructurada y procedencia.
+- Separar `translation`, `book_coverage`, `canon_profile` y `versification_profile`.
+- Tanaj/texto hebreo es corpus contextual, no denominación cristiana.
+- Hebreo/griego contextual no bloquea el MVP español.
+- Import preferido: USFM 3.1 / USX / USJ; OSIS como adapter; USFX sólo legado.
+- Runtime: SQLite local normalizado.
+- Conteo literal, formas normalizadas y cobertura temática son métricas distintas.
+- Baseline de búsqueda: FTS5 lexical + expansión temática curada/versionada/explicable.
+- Embeddings, vector DB y LLM no son requisitos del MVP.
+- Explicaciones MVP deterministas y trazables.
+- Stack candidato: React Native + Expo + TypeScript + SQLite empaquetado.
+- Función matutina: notificación local; no alarma exacta/critical alert.
+- Búsqueda y lectura básica deben funcionar offline.
+- Sin backend, cuentas, pagos ni API runtime obligatoria.
 
-Ejemplos de temas:
-- amor;
-- perdón;
-- misericordia;
-- esperanza;
-- fe;
-- justicia;
-- temor;
-- gracia.
-
-El usuario debe poder escribir un tema y recibir resultados útiles y trazables:
-- versículos;
-- referencias;
-- capítulos relacionados;
-- traducción/corpus usado;
-- conteos;
-- explicación breve;
-- contexto;
-- comparación cuando corresponda.
-
-El prototipo también debe evaluar una función matutina de recordatorio/notificación con un mensaje o versículo relacionado.
-
-## Hipótesis principal
-
-Un agente implementador nuevo puede investigar fuentes bíblicas abiertas, definir una representación neutral entre tradiciones cristianas, construir un buscador temático móvil mínimo y ejecutar una cola mediana de trabajo persistente desde GitHub.
-
-## Principios
-
-1. GitHub es estado durable.
-2. El chat es trabajador reemplazable.
-3. No asumir que todas las Biblias cristianas tienen exactamente el mismo canon.
-4. No confundir:
-   - ocurrencia literal de una palabra;
-   - versículo relacionado semánticamente con un tema.
-5. Toda cita bíblica debe conservar referencia y traducción.
-6. No inventar versículos ni referencias.
-7. No presentar una tradición cristiana como teológicamente superior.
-8. Licencia y derechos de redistribución son requisito de entrada, no detalle posterior.
-
-## Alcance religioso inicial
-
-La investigación debe distinguir, como mínimo:
-- tradición católica;
-- tradición protestante/evangélica;
-- tradición ortodoxa;
-- texto hebreo/Tanaj como corpus contextual no cristiano cuando sea útil para el Antiguo Testamento.
-
-Para el Nuevo Testamento, investigar el núcleo de 27 libros compartido por las tradiciones cristianas principales y separar las diferencias de canon que aparecen sobre todo en el Antiguo Testamento.
-
-No intentar representar en el MVP todas las denominaciones cristianas existentes.
-
-## Hallazgos iniciales del Supervisor que deben ser verificados
-
-- Reina-Valera 1909 tiene fuentes digitales de dominio público.
-- eBible.org ofrece Biblias españolas abiertas y formatos de desarrollo.
-- BibleAquifer publica recursos bíblicos abiertamente licenciados.
-- Open Scriptures Hebrew Bible ofrece un corpus hebreo con licencia abierta.
-- SBL Greek New Testament tiene licencia CC BY 4.0.
-- USFM/USFX y OSIS son candidatos de interoperabilidad.
-- Algunas Biblias abiertas incluyen libros de canon ampliado.
-- Una “alarma” móvil y una notificación local programada no son necesariamente la misma capacidad en Android/iOS.
-
-Estos son puntos de partida, no decisiones finales.
-
-## MVP deseado
-
-Aplicación móvil, inicialmente en español.
-
-Flujo principal:
-1. usuario abre app;
-2. escribe tema;
-3. ve resultados ordenados;
-4. distingue conteo literal de cobertura temática;
-5. abre un resultado;
-6. ve versículo + referencia + traducción + contexto breve;
-7. puede filtrar por corpus/tradición/traducción si los datos lo permiten;
-8. puede activar un mensaje matutino programado.
-
-## Métricas mínimas del buscador
-
-Para un tema como “amor”, el prototipo debe poder mostrar por separado:
-- número de ocurrencias literales del término o formas normalizadas;
-- número de versículos recuperados por expansión temática;
-- fuentes/traducciones en las que se calculó;
-- criterios usados.
-
-Nunca presentar un conteo temático como si fuera un conteo literal.
-
-## Explicaciones
-
-Las explicaciones deben ser:
-- cortas;
-- trazables al texto;
-- descriptivas;
-- sensibles a diferencias de traducción;
-- explícitas cuando una interpretación varíe por tradición.
-
-Para el MVP, investigar si conviene:
-- explicación determinista;
-- resumen generado por LLM con grounding;
-- explicación precalculada;
-- combinación.
-
-No implementar una capa teológica compleja sin necesidad.
-
-## Recordatorio matutino
-
-El MVP debe investigar y, si es viable, implementar:
-- hora elegida por usuario;
-- notificación local;
-- mensaje/versículo del día;
-- funcionamiento razonable sin backend.
-
-No prometer comportamiento de “reloj despertador exacto” multiplataforma hasta validar restricciones de Android/iOS.
-
-## Datos
-
-Preferir inicialmente:
-- dominio público;
-- CC0;
-- CC BY;
-- otras licencias abiertas compatibles y documentadas.
-
-No copiar al repositorio traducciones modernas con derechos incompatibles.
-
-Toda fuente incorporada debe tener:
-- nombre;
-- idioma;
-- tradición/canon cuando corresponda;
-- licencia;
-- URL de origen;
-- formato;
-- versión/fecha si existe.
-
-## No objetivos del prototipo
-
-- comentario teológico exhaustivo;
-- doctrina comparada completa;
-- IA pastoral;
-- reemplazar estudio bíblico académico;
-- sincronización de cuentas;
-- backend complejo;
-- pagos;
-- red social;
-- vector DB obligatorio;
-- soportar todas las Biblias del mundo;
-- alarma exacta tipo despertador si requiere complejidad nativa desproporcionada.
-
-## Cola candidata de 20 actividades medianas
+## Cola final — exactamente 20 actividades medianas
 
 ### Investigación
-R01. Landscape de repositorios, APIs y datasets bíblicos abiertos.
-R02. Matriz de licencias y redistribución para traducciones/corpus candidatos.
-R03. Mapa de canon/tradición: católico, protestante/evangélico, ortodoxo y contexto hebreo.
-R04. Selección de corpus españoles para MVP y corpus originales/contextuales opcionales.
-R05. Formatos y normalización: USFM/USFX/OSIS/JSON; identificadores libro-capítulo-versículo.
-R06. Definición de “tema”: ocurrencia literal vs tema semántico; taxonomía mínima.
-R07. Evaluación de búsqueda lexical, sinónimos, lemas, embeddings y enfoque híbrido.
-R08. Política de explicación, citas, contexto y neutralidad intertradicional.
-R09. Investigación móvil: stack, almacenamiento offline y notificaciones/alarma.
-R10. Arquitectura MVP, criterios de éxito y plan de evaluación.
+
+**R01 — Inventario de corpus, repositorios y procedencia**  
+Entregable: catálogo de fuentes candidatas españolas y contextuales con URL primaria, mantenedor, formato, versión/release y estado de mantenimiento. No copiar textos.  
+Dependencia: P00.
+
+**R02 — Matriz de licencias, redistribución y atribución**  
+Entregable: por candidato, rights holder/source, licencia exacta, redistribución, derivados, ShareAlike, atribución y decisión `ELIGIBLE / DEFER / REJECT`.  
+Dependencia: R01.
+
+**R03 — Modelo de canon, tradición y versificación**  
+Entregable: especificación separada de `translation`, `book_coverage`, `canon_profile` y `versification_profile`; perfiles mínimos católico, `protestant_66`, ortodoxo documentado y hebreo contextual.  
+Dependencia: R01.
+
+**R04 — Selección de corpus español y gate de cobertura**  
+Entregable: corpus primario MVP; decisión sobre segunda traducción; validar o diferir fuente estructurada de deuterocanónicos; matriz libro/cobertura/licencia.  
+Dependencias: R02, R03.
+
+**R05 — Evaluar corpus hebreo/griego contextual**  
+Entregable: decisión `BUNDLE / TOOLING-ONLY / DEFER` para OSHB/WLC y SBLGNT con utilidad, licencia y costo de integración.  
+Dependencias: R02, R03.
+
+**R06 — Contrato de ingestión, IDs y normalización**  
+Entregable: contrato de import para USFM 3.1/USX/USJ y OSIS cuando aplique; USFX sólo legado; IDs de libro/capítulo/verso, metadata fuente/licencia y esquema SQLite interno mínimo.  
+Dependencias: R03, R04, R05.
+
+**R07 — Definición formal de tema y métricas**  
+Entregable: especificar literal exacto, formas normalizadas y cobertura temática como métricas distintas; pequeño gold set trazable para amor, perdón y misericordia.  
+Dependencias: R04, R06.
+
+**R08 — Baseline de búsqueda y ranking explicable**  
+Entregable: diseñar/evaluar FTS5 lexical + expansión temática versionada/curada; definir gate medible para una prueba posterior de dense/hybrid.  
+Dependencias: R06, R07.
+
+**R09 — Freeze móvil: offline, almacenamiento y notificaciones**  
+Entregable: decisión de stack, SQLite empaquetado, permisos/scheduling Android/iOS y semántica de notificación local; no alarma exacta.  
+Dependencias: R06, R08.
+
+**R10 — Contrato final del MVP y protocolo de evaluación**  
+Entregable: congelar alcance, criterios de aceptación, dataset de prueba y gates de licencia, offline, canon/cobertura, exactitud de conteos, calidad temática, atribución y notificaciones.  
+Dependencias: R02–R09.
 
 ### Implementación
-I01. Scaffold del prototipo móvil y estructura de proyecto.
-I02. Pipeline reproducible de ingestión para corpus abiertos seleccionados.
-I03. Modelo normalizado de versos, traducciones, canon/tradición y metadatos.
-I04. Índice local y conteo literal por término/forma normalizada.
-I05. Motor temático mínimo con expansión de términos y ranking explicable.
-I06. Pantalla principal de búsqueda y resultados por tema.
-I07. Vista de versículo/contexto y comparación entre traducciones/corpus.
-I08. Filtros por traducción/canon/tradición + transparencia de fuente/licencia.
-I09. Recordatorio matutino/notificación local con mensaje o versículo.
-I10. Dataset de prueba, QA temático, evaluación de precisión y demo del MVP.
 
-## Gate de planificación
+**I01 — Scaffold móvil mínimo y harness de pruebas**  
+Entregable: proyecto Expo/React Native/TypeScript ejecutable en Android/iOS, pruebas básicas y estructura mínima. Sin backend/cuentas/API runtime obligatoria.  
+Dependencia: R10.
 
-Estas 20 actividades son una cola candidata.
+**I02 — Modelo SQLite local y metadata de fuentes/canon**  
+Entregable: tablas normalizadas para traducciones, libros, versículos, cobertura, perfiles de canon, temas y licencia/atribución; soporte para DB preempaquetada.  
+Dependencias: R06, R10, I01.
 
-Antes de ejecutarlas, un Implementador nuevo debe auditarlas y responder:
-- qué mantendría;
-- qué fusionaría;
-- qué dividiría;
-- qué reordenaría;
-- dependencias;
-- riesgos;
-- fuentes/repositories prioritarios;
-- definición exacta del MVP;
-- propuesta final de 20 actividades medianas.
+**I03 — Pipeline reproducible de ingestión del corpus aprobado**  
+Entregable: importar sólo corpus `ELIGIBLE`, con source/release/checksum/licencia pinneados; generar asset SQLite reproducible.  
+Dependencias: R02, R04, R06, I02.
 
-El Implementador NO debe comenzar implementación en P00.
+**I04 — Búsqueda literal e índice FTS5**  
+Entregable: consulta token/frase, normalización documentada, resultados trazables y conteo literal reproducible por traducción; no usar stemmer inglés para español.  
+Dependencias: R07, R08, I03.
 
-Después:
-`READY FOR SUPERVISOR EXP-02 PLAN REVIEW`
+**I05 — Motor temático mínimo explicable**  
+Entregable: topic definitions versionadas, expansión de términos y ranking explicable; cada hit indica criterio de recuperación. Sin embeddings obligatorios.  
+Dependencias: R07, R08, I04.
 
-y detenerse.
+**I06 — Pantalla de búsqueda y resultados**  
+Entregable: entrada de tema; conteo literal separado del número/cobertura de versículos temáticos; referencia y traducción visibles.  
+Dependencias: I04, I05.
+
+**I07 — Vista de versículo, contexto y procedencia**  
+Entregable: versículo + referencia + contexto local + traducción + fuente/licencia; comparación sólo si R04 aprobó una segunda traducción y fue ingerida.  
+Dependencias: I03, I06.
+
+**I08 — Filtros por traducción/canon/tradición con disclosure de cobertura**  
+Entregable: filtros sólo cuando datos reales los soporten; no insinuar cobertura inexistente.  
+Dependencias: R03, R04, I02, I07.
+
+**I09 — Recordatorio matutino local y offline**  
+Entregable: permisos, hora elegida, programación/reprogramación local y selección determinista de mensaje/versículo offline; degradación clara si se deniega permiso. Sin exact alarm/critical alert.  
+Dependencias: R09, I01, I03.
+
+**I10 — QA end-to-end, evaluación y demo del MVP**  
+Entregable: ejecutar gold set y verificar conteos/referencias, thematic retrieval, canon/cobertura, atribución/licencias, airplane mode/offline, cold start y notificación; documentar fallos y readiness.  
+Dependencias: R10, I04–I09.
+
+## Política de ejecución persistente
+- Cada actividad deja evidencia durable y checkpoint antes de avanzar.
+- El agente continúa sin esperar revisión entre actividades autorizadas salvo bloqueo real o gate explícito.
+- Ningún corpus se ingiere antes de `ELIGIBLE`.
+- R01–R10 constituyen el batch de investigación autorizado siguiente.
+- I01–I10 permanecen bloqueadas hasta que R10 congele el contrato final del MVP y exista autorización durable de implementación.
+- Todo cambio de alcance se registra antes de ejecutarse.
+
+## Primer siguiente paso
+**R01 — Inventario de corpus, repositorios y procedencia.**
