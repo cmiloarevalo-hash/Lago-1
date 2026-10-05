@@ -1,48 +1,55 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-01 — ACCEPT**
+**EXP-02/P00 — ACCEPT**
 
-EXP-01 está cerrado.
+## Estado
+P00 está completado. La cola final de 20 actividades quedó congelada en `.project/EXP02_BIBLE_APP.md`.
 
-## Nueva actividad
-**EXP-02 / Issue #29 — Bible Topic Explorer Mobile**
+## Evidencia de P00
+- investigación y planificación únicamente;
+- baseline P00: `5d859b97e186640158bf1e0368e42070e80066a4`;
+- durante P00 no hubo commits de implementación ni ingestión;
+- fuentes/licencias, canon/tradición/versificación, formatos, búsqueda, offline y notificaciones fueron auditados;
+- cola final: 10 actividades de investigación + 10 de implementación.
 
-## Estado actual
-PLANNING ONLY.
+## Actividad autorizada siguiente
+**Batch de investigación R01 → R10.**
 
-Actividad activa:
-**P00 / Issue #30 — Auditar alcance y congelar cola de 20 actividades**
+El agente debe ejecutar R01–R10 secuencialmente, persistiendo evidencia y checkpoint por actividad, sin esperar revisión intermedia salvo bloqueo real.
 
-## Objetivo de P00
-Un chat completamente nuevo debe asumir el rol `RESEARCH & PROTOTYPE IMPLEMENTER`, reconstruir el contexto desde GitHub, auditar el alcance del prototipo bíblico y proponer una cola final de exactamente 20 actividades medianas.
+## Gate duro
+**I01–I10 NO están autorizadas todavía.**
 
-## Archivos obligatorios
-- `.project/CONTEXT.md`
-- `.project/WORK_STATE.md`
-- `.project/IMPLEMENTER_PROTOCOL.md`
-- `.project/EXP02_BIBLE_APP.md`
+La implementación sólo puede comenzar después de:
+1. completar R10;
+2. congelar el contrato final del MVP;
+3. publicar el gate final del batch de investigación;
+4. recibir decisión formal del Supervisor.
 
-## Hipótesis del prototipo
-Aplicación móvil en español para explorar la Biblia por tema, mostrando referencias, versículos, contexto, conteo literal separado de cobertura temática, explicación breve y filtros por corpus/traducción/tradición, más una función matutina de recordatorio/notificación.
+## Archivos obligatorios de entrada
+1. `.project/CONTEXT.md`
+2. `.project/WORK_STATE.md`
+3. `.project/IMPLEMENTER_PROTOCOL.md`
+4. `.project/EXP02_BIBLE_APP.md`
+5. Issue #29
+6. Issue #30 y decisión P00
 
-## Restricciones
-- no implementación todavía;
-- no backend;
-- no vector DB obligatorio;
-- no textos con licencia no verificada;
-- no presentar una tradición como superior;
-- no confundir ocurrencia literal con relevancia temática.
+## Primer siguiente paso
+**R01 — Inventario de corpus, repositorios y procedencia.**
 
-## Cola
-Existe una cola candidata de 20 actividades en `.project/EXP02_BIBLE_APP.md`.
+## Reglas críticas
+- no ingerir ningún corpus sin decisión `ELIGIBLE` de R02/R04;
+- no confundir conteo literal con cobertura temática;
+- no asumir equivalencia traducción/tradición/canon;
+- Tanaj/hebreo es corpus contextual, no denominación cristiana;
+- no backend/vector DB/LLM obligatorios;
+- notificación local, no alarma exacta;
+- función principal offline-first.
 
-P00 debe auditarla y proponer la versión final.
+## Gate del batch de investigación
+Al completar R10 publicar:
+`IMPLEMENTER COMPLETE — EXP-02/R01-R10`
+`READY FOR SUPERVISOR EXP-02 RESEARCH BATCH REVIEW`
 
-## Gate
-`READY FOR SUPERVISOR EXP-02 PLAN REVIEW`
-
-Después detenerse.
-
-## Próximo paso humano
-Abrir un chat web completamente nuevo y pegar el prompt mínimo de bootstrap para P00.
+Después detenerse. No iniciar I01.
