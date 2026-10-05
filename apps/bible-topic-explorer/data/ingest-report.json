@@ -1,0 +1,18 @@
+{
+  "source_release": "v2026-09-18",
+  "source_asset": "Spanish-json.zip",
+  "source_sha256": "06b93ab84958f9d3fc7841444c49232f95e006cb24cf2aa9e67c1253443bf7f3",
+  "source_content_sha256": "acbbf6ace2d8ad75bbe210c33d8027c1f9878ccbf9b3794a2abb04a69799d95c",
+  "license_identifier": "CC0-1.0",
+  "book_count": 66,
+  "verse_count": 31084,
+  "duplicate_reference_count": 0,
+  "unknown_book_count": 0,
+  "observed_html_tags": [
+    "p",
+    "sup"
+  ],
+  "database_path": "assets/data/bible-topic-explorer.db",
+  "database_sha256": "474c743865e30a8cb98730b7a2280566ac60b8c3c21a3b8c0bfb2118a739c1fb",
+  "normalization_policy": "drop only p/sup markup and verse-number superscript; decode HTML entities; collapse whitespace; preserve biblical wording"
+}
