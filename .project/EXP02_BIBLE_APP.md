@@ -125,3 +125,35 @@ Dependencias: R10, I04–I09.
 
 ## Primer siguiente paso
 **R01 — Inventario de corpus, repositorios y procedencia.**
+
+## Estado posterior a R01–R10
+
+**R01–R10 — ACCEPT. Contrato de investigación congelado.**
+
+Decisiones de R10 que gobiernan I01–I10:
+- runtime corpus: Reina-Valera 1909 únicamente;
+- upstream preferido: BibleAquifer release `v2026-09-18`; eBible `spaRV1909` como cross-check;
+- segunda traducción: fuera del MVP;
+- deuterocanónicos: diferidos;
+- OSHB/WLC y SBLGNT: tooling-only;
+- modelo separado de translation / book_coverage / canon_profile / versification_profile;
+- SQLite normalizado como autoridad local;
+- FTS5 unicode61 como baseline lexical;
+- métricas independientes: literal_exact / lexical_related_forms / thematic_retrieval;
+- topics v1: amor / perdón / misericordia;
+- gold set inicial: 9 referencias;
+- explanations deterministas;
+- detail context: hasta ±2 versos dentro del mismo capítulo;
+- coverage disclosure antes que filtros de tradición engañosos;
+- Expo + React Native + TypeScript + expo-sqlite + expo-notifications;
+- core completamente offline;
+- reminder local best-effort; no exact alarm / critical alert;
+- sin backend, cuentas, vector DB, embeddings ni LLM.
+
+### Implementación autorizada
+I01–I10 están autorizadas mediante Issue #31.
+
+Scope exclusivo de escritura:
+`apps/bible-topic-explorer/**`
+
+Los archivos de control `.project/*`, README y stories permanecen read-only durante el batch.
