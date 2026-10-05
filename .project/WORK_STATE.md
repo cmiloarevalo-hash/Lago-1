@@ -1,55 +1,56 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-02/P00 — ACCEPT**
+**EXP-02/R01-R10 — ACCEPT**
 
 ## Estado
-P00 está completado. La cola final de 20 actividades quedó congelada en `.project/EXP02_BIBLE_APP.md`.
+La investigación R01–R10 está completada y aceptada.
 
-## Evidencia de P00
-- investigación y planificación únicamente;
-- baseline P00: `5d859b97e186640158bf1e0368e42070e80066a4`;
-- durante P00 no hubo commits de implementación ni ingestión;
-- fuentes/licencias, canon/tradición/versificación, formatos, búsqueda, offline y notificaciones fueron auditados;
-- cola final: 10 actividades de investigación + 10 de implementación.
+## Evidencia
+- R01–R10 completadas en orden en Issue #29;
+- baseline y HEAD de investigación: `328201a3ced41a1997911843b537f1315602f12b`;
+- 0 commits durante investigación;
+- 0 ingestión;
+- 0 implementación;
+- contrato final del MVP congelado por R10.
 
-## Actividad autorizada siguiente
-**Batch de investigación R01 → R10.**
+## Actividad actual
+**Issue #31 — EXP-02/I01-I10 — Implementar MVP Bible Topic Explorer Mobile**
 
-El agente debe ejecutar R01–R10 secuencialmente, persistiendo evidencia y checkpoint por actividad, sin esperar revisión intermedia salvo bloqueo real.
+## Batch autorizado
+**I01 → I02 → I03 → I04 → I05 → I06 → I07 → I08 → I09 → I10**
 
-## Gate duro
-**I01–I10 NO están autorizadas todavía.**
+Ejecutar en continuidad, con persistencia/checkpoint/diff después de cada actividad y sin esperar revisión intermedia salvo bloqueo real.
 
-La implementación sólo puede comenzar después de:
-1. completar R10;
-2. congelar el contrato final del MVP;
-3. publicar el gate final del batch de investigación;
-4. recibir decisión formal del Supervisor.
+## Scope de escritura
+Únicamente:
+`apps/bible-topic-explorer/**`
 
-## Archivos obligatorios de entrada
-1. `.project/CONTEXT.md`
-2. `.project/WORK_STATE.md`
-3. `.project/IMPLEMENTER_PROTOCOL.md`
-4. `.project/EXP02_BIBLE_APP.md`
-5. Issue #29
-6. Issue #30 y decisión P00
+## Read-only / forbidden
+- `README.md`
+- `.project/*`
+- `stories/*`
+- cualquier otro path.
 
-## Primer siguiente paso
-**R01 — Inventario de corpus, repositorios y procedencia.**
+## Contrato MVP
+- RV1909 única traducción runtime;
+- source/release/license/checksum pinneados;
+- 66 libros esperados;
+- sin deuterocanónicos runtime;
+- sin bundle hebreo/griego;
+- SQLite local + FTS5;
+- literal / lexical-related / thematic separados;
+- temas v1: amor, perdón, misericordia;
+- 9 fixtures gold;
+- explanations deterministas;
+- Expo + React Native + TypeScript;
+- offline-first;
+- reminder local best-effort;
+- sin backend/vector DB/LLM/exact alarm.
 
-## Reglas críticas
-- no ingerir ningún corpus sin decisión `ELIGIBLE` de R02/R04;
-- no confundir conteo literal con cobertura temática;
-- no asumir equivalencia traducción/tradición/canon;
-- Tanaj/hebreo es corpus contextual, no denominación cristiana;
-- no backend/vector DB/LLM obligatorios;
-- notificación local, no alarma exacta;
-- función principal offline-first.
+## Gate final
+Después de I10:
+`IMPLEMENTER COMPLETE — EXP-02/I01-I10`
+`READY FOR SUPERVISOR EXP-02 MVP REVIEW`
 
-## Gate del batch de investigación
-Al completar R10 publicar:
-`IMPLEMENTER COMPLETE — EXP-02/R01-R10`
-`READY FOR SUPERVISOR EXP-02 RESEARCH BATCH REVIEW`
-
-Después detenerse. No iniciar I01.
+Después detenerse.
