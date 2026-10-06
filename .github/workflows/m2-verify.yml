@@ -35,3 +35,5 @@ jobs:
         run: npx expo install --check
       - name: Expo Android runtime bundle smoke
         run: npx expo export --platform android --output-dir dist-smoke
+
+# trigger: R01 final verification 5b63925eb31cec94ce91773be58d5c0f7b75ad68
