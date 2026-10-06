@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   verify:
@@ -19,12 +19,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: apps/bible-topic-explorer/package-lock.json
+      - name: Regenerate package lock
+        run: npm install --package-lock-only --ignore-scripts
+      - name: Commit regenerated package lock
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/bible-topic-explorer/package-lock.json
+          if git diff --cached --quiet; then
+            echo "No lockfile changes"
+          else
+            git commit -m "ci: regenerate package lock [skip ci]"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
       - name: Install dependencies
         run: npm ci
       - name: Typecheck
