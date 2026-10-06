@@ -1,84 +1,84 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-02 / M5 — ACCEPT**
+**EXP-02 / D01–D08 VISUAL REDESIGN — ACCEPT**
 
-## Estado del programa
-El ciclo V1 M1→M5 alcanzó **100%**.
+## Estado del producto
+El ciclo funcional V1 M1→M5 permanece en **100% ACCEPT**.
 
-Milestones aceptados:
-- M1 — definición de producto: ACCEPT → 20%;
-- M2 — base técnica + UI funcional: ACCEPT → 40%;
-- M3 — integración funcional local: ACCEPT → 60%;
-- M4 — hardening + UX: ACCEPT → 80%;
-- M5 — APK Android + verificación física: ACCEPT → 100%.
+El rediseño visual/accesible post-M5 D01→D08 también está **ACCEPTED**.
 
-## M5 aceptado
-Candidate source probado:
-`2c97ff81fedc2a6abde806c8fea94c7cf70b39b5`
+## Baseline y HEAD visual
+- baseline D01: `21de4309923c575cd2f43f866d5d925255293e7e`;
+- final D08 / canonical `main`: `d464ff79c20b787b54a34ba2f053b0829b1107ab`;
+- compare: 8 commits ahead, 0 behind;
+- Issue #44: CLOSED / COMPLETED.
 
-PR #41 merge:
-`dafbaf8cbcb01b43b988e15a2f09f37a855f1e54`
+## Evidencia D01→D08
+- 8 actividades completadas, una por commit;
+- scope completo dentro de `apps/bible-topic-explorer/**`;
+- typecheck: PASS;
+- tests finales: 74/74 PASS;
+- Expo dependency check: PASS;
+- Android export/bundle smoke: PASS;
+- contrastes light/dark automatizados dentro de thresholds congelados;
+- minimum touch target: 48dp;
+- structural 200% text scaling contract: PASS;
+- selected states no dependen sólo de color;
+- Reduce Motion policy: PASS.
 
-Artifact:
-- ID `11388962164`;
-- APK SHA-256 `5f0257c3becad918117206c819670f7123792b6571173667aa4c28ebd6e0da8e`.
-
-Evidencia física:
-- Product Owner reportó `celular pass` para el checklist M5.6;
-- esta parte es evidencia humana/procedural;
-- GitHub/CI verifica por separado source, tests y artifact.
-
-Correcciones M5 preservadas:
+## Contrato funcional preservado
+- RV1909 intacta;
 - exactamente 100 temas curados;
-- selector A–Z explícito;
-- búsqueda libre separada de selección temática;
-- matching por términos completos, no substrings arbitrarios;
-- regresión `amor` / `llamó`.
+- selector A–Z preservado;
+- free-form separado de tema curado;
+- matching por términos completos preservado;
+- regresión `amor` / `llamó`: PASS;
+- literal / related / thematic siguen separados;
+- core offline SQLite preservado.
 
-## P02 — investigación visual
-**ACCEPT / CLOSED**
+Frozen blobs reportados byte-identical baseline→HEAD:
+- `assets/data/bible-topic-explorer.db`;
+- `src/product/topics.ts`;
+- `src/product/search.ts`;
+- `data/schema.sql`.
 
-Dirección congelada:
+## Diseño aceptado
+Dirección:
 `calma viva`.
 
-Principios congelados:
-- base neutra + acentos verde/ámbar/coral/cielo controlados;
-- jerarquía tipográfica ampliada;
+Implementado:
+- paletas light/dark multirole;
+- tipografía semántica;
 - spacing 4/8/12/16/24/32/48;
-- radii 8/12/16/24; pill sólo chips/selectors;
-- menos card-heavy UI;
-- tabs Hoy / Explorar / Leer / Biblioteca;
-- progreso descriptivo, sin guilt/streak coercitivo;
-- WCAG/Android/Apple thresholds cuantitativos.
+- radii 8/12/16/24, pills reservados;
+- shared primitives accesibles;
+- navegación Hoy / Explorar / Leer / Biblioteca;
+- Explorar con Temas A–Z separado de búsqueda textual;
+- Reader con jerarquía libro→capítulo→texto;
+- Biblioteca/Ajustes/Hoy refinados;
+- onboarding contextual;
+- feedback success/info/warning/error sin coerción.
 
-## Actividad actual
-**Issue #44 — D01–D08 Rediseño visual y accesibilidad post-M5**
+## Limitaciones de hardware QA pendientes
+Estas limitaciones NO bloquean el ACCEPT del batch visual de prototipo, pero sí deben ejecutarse antes de declarar accesibilidad plenamente validada para producción:
+- manual visual traversal a 200% system text size;
+- TalkBack manual en Android;
+- VoiceOver manual en iOS.
 
-Estado:
-**AUTHORIZED**
+El Implementer no reportó estas pruebas como PASS; quedaron correctamente marcadas NOT RUN por falta de runtime/dispositivo.
 
-Baseline exacto de ejecución:
-persistido en la autorización de Issue #44; no inferirlo de memoria privada.
+## Próximo gate recomendado
+Antes de considerar una release visual de producción:
+1. construir APK post-redesign desde `d464ff79...`;
+2. prueba física Android de flujos visuales principales;
+3. 200% text size real;
+4. TalkBack traversal;
+5. VoiceOver traversal cuando exista target iOS;
+6. persistir hallazgos/correcciones como un gate separado.
 
-Batch:
-`D01 → D02 → D03 → D04 → D05 → D06 → D07 → D08`
+## Actividad activa
+Ningún batch de implementación abierto.
 
-Scope de escritura:
-`apps/bible-topic-explorer/**`
-
-Read-only/forbidden durante ejecución:
-- `.project/*`;
-- `README.md`;
-- `stories/*`;
-- cualquier path fuera de `apps/bible-topic-explorer/**`.
-
-Restricción funcional:
-preservar exactamente corpus RV1909, semántica search/topic, catálogo de 100 temas y corrección M5.
-
-## Gate final D08
-Publicar:
-`IMPLEMENTER COMPLETE — D01-D08 VISUAL REDESIGN`
-`READY FOR SUPERVISOR D01-D08 REVIEW`
-
-Después detenerse.
+Estado actual:
+**EXP-02 prototype functional + visual redesign accepted.**
