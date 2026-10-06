@@ -82,3 +82,24 @@ Ningún batch de implementación abierto.
 
 Estado actual:
 **EXP-02 prototype functional + visual redesign accepted.**
+## Corrección activa — F01 Android Back
+**Issue #46 — AUTHORIZED**
+
+Evidencia física:
+el botón Atrás de Android puede cerrar la aplicación en vez de volver dentro de ella.
+
+Diagnóstico:
+`App.tsx` no mantenía historial de Route ni interceptaba `hardwareBackPress`.
+
+Baseline exacto:
+`bf8448ecc2d97c67e221abd182bd8c69fdd65ade`
+
+Contrato:
+- si existe historial interno: volver dentro de la app;
+- si no existe historial: mostrar `Salir de la aplicación` / `¿Realmente quieres salir?`;
+- `Cancelar`: permanecer;
+- `Salir`: cierre Android explícito;
+- preservar corpus/search/100 temas/offline/rediseño visual.
+
+Gate:
+`READY FOR SUPERVISOR F01 REVIEW`.
