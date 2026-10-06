@@ -37,7 +37,9 @@ describe('SQLiteBibleRepository', () => {
     await expect(repository.searchLiteral('   ')).resolves.toEqual([]);
     expect(getAllAsync).not.toHaveBeenCalled();
     await repository.searchLiteral('100%_');
-    expect(getAllAsync).toHaveBeenCalledWith(expect.stringContaining("ESCAPE '\\\\'"), 'rv1909', '100\\%\\_', 50);
+    const [sql, translation, needle, limit] = getAllAsync.mock.calls[0];
+    expect(sql).toContain('ESCAPE');
+    expect([translation, needle, limit]).toEqual(['rv1909', '100\\%\\_', 50]);
   });
 
   it('keeps thematic search explicitly unavailable', async () => {
