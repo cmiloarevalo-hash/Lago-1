@@ -4,6 +4,7 @@ import { useSQLiteContext } from 'expo-sqlite';
 import { SQLiteBibleRepository } from '../../db/sqliteBibleRepository';
 import type { BibleVerse } from '../../product/adapters';
 import { books, runtimeCoverage } from '../../product/books';
+import { scaledScriptureMetrics } from '../readingScale';
 import type { Theme } from '../theme';
 import { radius, spacing, type as typography } from '../theme';
 import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
@@ -14,10 +15,12 @@ const newTestament = books.slice(39);
 export function BibleScreen({
   theme,
   reader,
+  readingScale = 1,
   onOpenReader,
 }: {
   theme: Theme;
   reader?: { book: string; chapter: number; verse?: number };
+  readingScale?: number;
   onOpenReader: (book: string, chapter: number, verse?: number) => void;
 }) {
   const db = useSQLiteContext();
@@ -31,6 +34,7 @@ export function BibleScreen({
   const [pickerChapterCount, setPickerChapterCount] = useState(0);
   const [pickerLoading, setPickerLoading] = useState(false);
   const [pickerError, setPickerError] = useState(false);
+  const scriptureMetrics = scaledScriptureMetrics(readingScale);
 
   useEffect(() => {
     let active = true;
@@ -113,7 +117,7 @@ export function BibleScreen({
               <Text style={[typography.label, { color: selected ? theme.primary : theme.secondary }]}>
                 {verse.sourceVerseLabel}{selected ? ' · seleccionado' : ''}
               </Text>
-              <Text style={[typography.scripture, { color: theme.text }]}>{verse.text}</Text>
+              <Text style={[typography.scripture, scriptureMetrics, { color: theme.text }]}>{verse.text}</Text>
             </View>;
           })}
         </View> : null}

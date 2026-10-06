@@ -4,11 +4,12 @@ import { useSQLiteContext } from 'expo-sqlite';
 import { SQLiteBibleRepository } from '../../db/sqliteBibleRepository';
 import type { BibleVerse } from '../../product/adapters';
 import { readingForDate } from '../../product/today';
+import { scaledScriptureMetrics } from '../readingScale';
 import type { Theme } from '../theme';
 import { radius, spacing, type as typography } from '../theme';
 import { Action, Body, Card, Metadata, Screen, StatusBanner } from '../primitives';
 
-export function TodayScreen({ theme, onOpenReader }: { theme: Theme; onOpenReader: (book: string, chapter: number, verse?: number) => void }) {
+export function TodayScreen({ theme, readingScale = 1, onOpenReader }: { theme: Theme; readingScale?: number; onOpenReader: (book: string, chapter: number, verse?: number) => void }) {
   const db = useSQLiteContext();
   const repository = useMemo(() => new SQLiteBibleRepository(db), [db]);
   const reading = useMemo(() => readingForDate(new Date()), []);
@@ -35,6 +36,7 @@ export function TodayScreen({ theme, onOpenReader }: { theme: Theme; onOpenReade
 
   const book = verse?.bookName ?? reading.book;
   const ref = book + ' ' + reading.chapter + ':' + reading.verse;
+  const scriptureMetrics = scaledScriptureMetrics(readingScale);
 
   return <Screen theme={theme}>
     <ScrollView contentContainerStyle={styles.stack}>
@@ -49,7 +51,7 @@ export function TodayScreen({ theme, onOpenReader }: { theme: Theme; onOpenReade
         <Text style={[typography.sectionTitle, { color: theme.text }]}>{ref}</Text>
         {loading ? <StatusBanner theme={theme} kind="info">Cargando lectura desde el corpus local…</StatusBanner> : null}
         {error ? <StatusBanner theme={theme} kind="error">No se pudo cargar la lectura local. El resto del contenido offline sigue disponible.</StatusBanner> : null}
-        {!loading && !error && verse ? <Text style={[typography.scripture, { color: theme.text }]}>{verse.text}</Text> : null}
+        {!loading && !error && verse ? <Text style={[typography.scripture, scriptureMetrics, { color: theme.text }]}>{verse.text}</Text> : null}
         {!loading && !error && !verse ? <StatusBanner theme={theme} kind="info">La referencia de hoy no está disponible en el corpus local.</StatusBanner> : null}
         <Body theme={theme} muted>{reading.prompt}</Body>
         <Action label={'Leer ' + ref + ' en contexto'} theme={theme} onPress={() => onOpenReader(reading.book, reading.chapter, reading.verse)} />

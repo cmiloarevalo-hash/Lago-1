@@ -48,13 +48,13 @@ function AppContent() {
   const content = route.kind === 'settings'
     ? <SettingsScreen theme={theme} onPreferencesChange={setPreferences} />
     : route.kind === 'reader'
-      ? <BibleScreen theme={theme} reader={{ book: route.book, chapter: route.chapter, verse: route.verse }} onOpenReader={openReader} />
+      ? <BibleScreen theme={theme} readingScale={preferences.fontScale} reader={{ book: route.book, chapter: route.chapter, verse: route.verse }} onOpenReader={openReader} />
       : route.tab === 'today'
-        ? <TodayScreen theme={theme} onOpenReader={openReader} />
+        ? <TodayScreen theme={theme} readingScale={preferences.fontScale} onOpenReader={openReader} />
         : route.tab === 'search'
           ? <SearchScreen theme={theme} onOpenReader={openReader} />
           : route.tab === 'bible'
-            ? <BibleScreen theme={theme} onOpenReader={openReader} />
+            ? <BibleScreen theme={theme} readingScale={preferences.fontScale} onOpenReader={openReader} />
             : <LibraryScreen theme={theme} onOpenReader={openReader} />;
 
   return <SafeAreaView style={[styles.root, { backgroundColor: theme.background }]}>
@@ -114,10 +114,12 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
     borderBottomWidth: 1,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: spacing.xs,
   },
-  brand: { gap: 1 },
+  brand: { gap: 1, flexShrink: 1 },
   settings: {
     minHeight: minimumTouchTarget,
     minWidth: minimumTouchTarget,

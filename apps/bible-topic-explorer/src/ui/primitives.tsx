@@ -73,7 +73,7 @@ export function Action({
     ]}
   >
     {icon}
-    <Text style={[type.label, { color: inactive ? theme.disabledText : visual.color }]}>{loading ? 'Cargando…' : label}</Text>
+    <Text style={[type.label, styles.actionLabel, { color: inactive ? theme.disabledText : visual.color }]}>{loading ? 'Cargando…' : label}</Text>
   </Pressable>;
 }
 
@@ -93,7 +93,7 @@ export function ChoiceChip({ label, theme, selected, onPress }: { label: string;
     ]}
   >
     {selected ? <Text accessibilityElementsHidden style={[type.label, { color: theme.primary }]}>✓</Text> : null}
-    <Text style={[type.label, { color: selected ? theme.primary : theme.text }]}>{label}</Text>
+    <Text style={[type.label, styles.flexibleLabel, { color: selected ? theme.primary : theme.text }]}>{label}</Text>
   </Pressable>;
 }
 
@@ -126,7 +126,7 @@ export function ResultRow({
 }
 
 export function SettingRow({ theme, label, value, onPress, hint }: { theme: Theme; label: string; value?: string; onPress?: () => void; hint?: string }) {
-  const content = <><View style={styles.settingCopy}><Text style={[type.subhead, { color: theme.text }]}>{label}</Text>{hint ? <Text style={[type.metadata, { color: theme.secondary }]}>{hint}</Text> : null}</View>{value ? <Text style={[type.label, { color: theme.primary }]}>{value}</Text> : null}</>;
+  const content = <><View style={styles.settingCopy}><Text style={[type.subhead, { color: theme.text }]}>{label}</Text>{hint ? <Text style={[type.metadata, { color: theme.secondary }]}>{hint}</Text> : null}</View>{value ? <Text style={[type.label, styles.settingValue, { color: theme.primary }]}>{value}</Text> : null}</>;
   if (!onPress) return <View style={[styles.settingRow, { borderBottomColor: theme.border }]}>{content}</View>;
   return <Pressable accessibilityRole="button" accessibilityLabel={value ? `${label}: ${value}` : label} onPress={onPress} style={({ pressed }) => [styles.settingRow, { borderBottomColor: theme.border, backgroundColor: pressed ? theme.surfaceSoft : 'transparent' }]}>{content}</Pressable>;
 }
@@ -193,12 +193,15 @@ const styles = StyleSheet.create({
   section: { gap: spacing.md, marginBottom: spacing.xl },
   card: { borderWidth: 1, borderRadius: radius.md, padding: spacing.lg, gap: spacing.sm },
   featuredCard: { borderRadius: radius.lg, padding: spacing.xl },
-  action: { minHeight: 52, borderWidth: 1, borderRadius: radius.md, paddingHorizontal: spacing.lg, paddingVertical: spacing.md, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: spacing.sm },
+  action: { minHeight: 52, borderWidth: 1, borderRadius: radius.md, paddingHorizontal: spacing.lg, paddingVertical: spacing.md, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  actionLabel: { flexShrink: 1, textAlign: 'center' },
   tertiaryAction: { minHeight: minimumTouchTarget, alignSelf: 'flex-start', paddingHorizontal: spacing.sm },
   chip: { minHeight: minimumTouchTarget, borderWidth: 1, borderRadius: radius.pill, paddingHorizontal: spacing.md, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.xs },
+  flexibleLabel: { flexShrink: 1 },
   resultRow: { minHeight: minimumTouchTarget, borderBottomWidth: 1, paddingVertical: spacing.lg, gap: spacing.sm },
-  settingRow: { minHeight: minimumTouchTarget, borderBottomWidth: 1, paddingVertical: spacing.md, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: spacing.lg },
-  settingCopy: { flex: 1, gap: spacing.xs },
+  settingRow: { minHeight: minimumTouchTarget, borderBottomWidth: 1, paddingVertical: spacing.md, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.lg },
+  settingCopy: { flexGrow: 1, flexShrink: 1, flexBasis: 180, gap: spacing.xs },
+  settingValue: { flexShrink: 1, textAlign: 'right' },
   field: { gap: spacing.sm },
   input: { minHeight: 52, borderRadius: radius.md, paddingHorizontal: spacing.lg, paddingVertical: spacing.md, fontSize: 17, lineHeight: 26 },
   multilineInput: { minHeight: 120, textAlignVertical: 'top' },
