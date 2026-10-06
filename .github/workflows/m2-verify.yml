@@ -1,0 +1,35 @@
+name: M2 verification
+
+on:
+  pull_request:
+    paths:
+      - 'apps/bible-topic-explorer/**'
+      - '.github/workflows/m2-verify.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/bible-topic-explorer
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/bible-topic-explorer/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Tests
+        run: npm test
+      - name: Expo dependency check
+        run: npx expo install --check
