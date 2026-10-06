@@ -3,81 +3,81 @@
 ## Última decisión formal
 **EXP-02 / D01–D08 VISUAL REDESIGN — ACCEPT**
 
-## Producto aceptado hasta ahora
-- ciclo funcional M1→M5: ACCEPT;
-- rediseño visual D01→D08: ACCEPT;
-- evidencia física Android posterior detectó defectos adicionales de navegación/localización/safe-area que requieren corrección separada.
+## Estado actual
+Las pruebas físicas Android posteriores revelaron defectos y oportunidades que no deben corregirse de forma aislada sin una planificación integral.
 
-## Evidencia física Android
-Ruta:
+## Evidencia física
+Ruta durable:
 `evidence/exp02/android-physical-2026-10-06/`
 
-Commit de evidencia:
-`1c4c71a7526c796c158ac8b6afbe95e7e1d023e4`
-
-La evidencia física del dispositivo prevalece sobre supuestos derivados sólo de tests.
+La evidencia de dispositivo físico prevalece sobre inferencias derivadas sólo de tests.
 
 ## Actividad activa
-**F01 — Android Back: navegación interna + confirmación de salida**
+**P03 — Auditoría física integral + plan maestro de correcciones UX/Android**
 
 Issue:
-`#46`
+`#48`
 
 Estado:
-**AUTHORIZED / ACTIVE**
+**AUTHORIZED / RESEARCH-PLANNING ONLY**
 
-Exact execution baseline:
-`592d232e3c528a7f20bc99c486602b66e853d257`
+Implementer debe ejecutar:
+`P03-01 → P03-02 → ... → P03-15`
 
-Implementer writable scope:
-`apps/bible-topic-explorer/**`
+Objetivo:
+- inventariar evidencia;
+- auditar navegación Android;
+- safe areas/system chrome;
+- español/naming;
+- jerarquía/densidad;
+- percepción real del rediseño;
+- pantalla por pantalla;
+- Explorar;
+- Reader;
+- Hoy/Biblioteca/Ajustes;
+- accesibilidad/device QA;
+- impacto técnico/dependencias;
+- registro de preguntas/inconsistencias;
+- plan maestro de implementación;
+- contrato final de ejecución persistente/anidada.
 
-Read-only / forbidden:
-- `.project/*`;
-- `README.md`;
-- `stories/*`;
-- `evidence/*`;
-- paths outside the app;
-- corpus/search semantics.
+Restricción:
+**NO IMPLEMENTATION DURING P03.**
 
-F01 acceptance contract:
-- hardware Back uses internal app history when available;
-- Reader/Ajustes return to their prior in-app destination;
-- no exit dialog while an internal destination exists;
-- at root, Android Back shows:
-  - `Salir de la aplicación`;
-  - `¿Realmente quieres salir?`;
-  - `Cancelar`;
-  - `Salir`;
-- Cancelar keeps app open;
-- Salir explicitly exits Android;
-- listener cleanup and history semantics are deterministic;
-- tests/typecheck/regressions pass.
+Final gate:
+`IMPLEMENTER COMPLETE — P03 MASTER REMEDIATION PLAN`
+`READY FOR SUPERVISOR P03 PLAN REVIEW`
 
-Final F01 gate markers:
-`IMPLEMENTER COMPLETE — F01 ANDROID BACK`
-`READY FOR SUPERVISOR F01 REVIEW`
-
-Implementer must stop after those markers.
-
-## Siguiente actividad
-**F02 — Localización visible al español + safe areas Android**
-
-Issue:
-`#47`
-
+## F01 / Issue #46
 Estado:
-**BLOCKED BY F01**
+**PAUSED / INPUT TO P03**
 
-Do not implement F02 until F01 receives Supervisor ACCEPT.
+Requisito conocido:
+- hardware Back debe volver dentro de la app;
+- sólo en raíz preguntar `¿Realmente quieres salir?`;
+- Cancelar mantiene la app;
+- Salir cierra Android.
 
-Frozen F02 decisions:
-- visible product name: `Explorador Bíblico`;
-- visible `offline` → `sin conexión`;
-- preserve technical slug/package/npm/db names;
-- correct top status-bar and bottom navigation/gesture safe areas based on physical evidence.
+## F02 / Issue #47
+Estado:
+**PAUSED / INPUT TO P03**
 
-After F01 ACCEPT, F02 baseline becomes the accepted F01 HEAD and Supervisor publishes a separate Work Order.
+Requisitos conocidos:
+- nombre visible propuesto: `Explorador Bíblico`;
+- copy visible en español (`sin conexión`);
+- safe areas top/bottom;
+- identificadores técnicos internos preservados salvo razón concreta.
 
-## Workflow
-`F01 Implementer → Supervisor review → F01 ACCEPT → F02 Implementer → Supervisor review → build APK → physical Android verification`.
+## Próximo gate Supervisor
+Cuando P03 esté listo:
+1. revisar evidencia y plan;
+2. resolver Q-IDs/dudas;
+3. corregir inconsistencias;
+4. congelar plan final;
+5. crear/autorizAR un master implementation batch persistente/anidado;
+6. ejecutar por waves con checkpoints y gates sólo donde hagan falta;
+7. construir APK final;
+8. validar físicamente en Android.
+
+## Política
+Private chat history is not authoritative. GitHub durable state is authoritative.
