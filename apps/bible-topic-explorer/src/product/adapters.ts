@@ -19,6 +19,7 @@ export interface BibleSearchHit extends BibleVerse {
 /** Read-only boundary over the authoritative bundled RV1909 SQLite corpus. */
 export interface BibleRepository {
   getChapter(bookId: string, chapter: number): Promise<readonly BibleVerse[]>;
+  getBookChapterCount(bookId: string): Promise<number>;
   searchLiteral(query: string, limit?: number): Promise<readonly BibleSearchHit[]>;
   searchTopic(topicId: string, limit?: number): Promise<readonly BibleSearchHit[]>;
 }

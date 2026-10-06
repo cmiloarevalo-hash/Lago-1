@@ -4,6 +4,7 @@ import type { BibleRepository, LocalPersistence } from './adapters';
 
 const bible: BibleRepository = {
   async getChapter() { return []; },
+  async getBookChapterCount() { return 0; },
   async searchLiteral() { return []; },
   async searchTopic() { return []; },
 };
