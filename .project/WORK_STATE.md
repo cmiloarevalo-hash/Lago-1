@@ -103,3 +103,45 @@ Contrato:
 
 Gate:
 `READY FOR SUPERVISOR F01 REVIEW`.
+## Evidencia física Android persistida
+Commit de evidencia:
+`1c4c71a7526c796c158ac8b6afbe95e7e1d023e4`
+
+Ruta:
+`evidence/exp02/android-physical-2026-10-06/`
+
+Contiene:
+- contact sheet de 9 capturas de dispositivo real;
+- hashes SHA-256 de las capturas originales;
+- hallazgos observables de UI.
+
+La evidencia física debe prevalecer sobre supuestos derivados sólo de tests.
+
+## Correcciones activas
+
+### F01 — Android Back
+Issue #46 — AUTHORIZED / FIRST
+
+Contrato:
+- back interno navega dentro de la app;
+- en raíz pregunta `¿Realmente quieres salir?`;
+- `Cancelar` mantiene la app;
+- `Salir` cierra Android explícitamente.
+
+### F02 — Español visible + safe areas
+Issue #47 — AUTHORIZED AFTER F01
+
+Nombre visible congelado:
+`Explorador Bíblico`
+
+Copy:
+- `offline` visible → `sin conexión`;
+- mantener identificadores internos técnicos sin renombrar.
+
+Safe-area:
+- header fuera de status bar;
+- bottom nav fuera de navigation/gesture area;
+- sin paddings específicos por modelo.
+
+Secuencia:
+`F01 → Supervisor gate → F02 → Supervisor gate → nuevo APK físico`.
