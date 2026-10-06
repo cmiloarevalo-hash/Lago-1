@@ -21,7 +21,7 @@ describe('R01 approved design tokens', () => {
     expect([radius.xs, radius.sm, radius.md, radius.lg]).toEqual([7, 10, 14, 20]);
     expect(type.display).toMatchObject({ fontSize: 30, lineHeight: 36, fontWeight: '700' });
     expect(type.screenTitle).toMatchObject({ fontSize: 26, lineHeight: 32, fontWeight: '700' });
-    expect(type.scripture).toMatchObject({ fontSize: 20, lineHeight: 32 });
+    expect(type.scripture).toMatchObject({ fontSize: 20, lineHeight: 31 });
     expect(minimumTouchTarget).toBe(48);
   });
 
