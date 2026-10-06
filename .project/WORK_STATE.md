@@ -82,3 +82,30 @@ Issue #31 corresponde al batch MVP anterior y ya no es la autoridad operativa ac
 
 ## Próxima acción autorizada
 Ejecutar verificación física Android sobre el APK corregido de HEAD `2c97ff81...`, persistir evidencia en Issue #40 y volver a gate de Supervisor.
+## Investigación de diseño completada — P02
+**P02 — Psicología visual y UX móvil: ACCEPT**
+
+Issue #43 quedó cerrada.
+
+Decisiones congeladas:
+- dirección emocional: `calma viva`;
+- paleta light/dark multirole con verde base + amber/coral/sky controlados;
+- tipografía semántica ampliada;
+- spacing 4/8/12/16/24/32/48;
+- radii 8/12/16/24; pill sólo chips/selectors;
+- menos card-heavy UI;
+- navegación Hoy / Explorar / Leer / Biblioteca;
+- CTA y selected states explícitos;
+- progreso descriptivo sin streak/guilt;
+- WCAG/Android/Apple thresholds cuantitativos;
+- recorrido principal orientado siempre de vuelta al texto.
+
+Batch visual propuesto:
+`D01 → D02 → D03 → D04 → D05 → D06 → D07 → D08`
+
+**Estado del batch visual: PLANIFICADO, NO AUTORIZADO.**
+
+Gate previo obligatorio:
+terminar M5 / Issue #40 con verificación física del APK corregido.
+
+Después de M5 ACCEPT podrá autorizarse D01–D08 sin cambiar search/corpus semantics.
