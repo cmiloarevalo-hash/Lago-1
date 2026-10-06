@@ -65,3 +65,18 @@ La evidencia física prevalece sobre proxies estáticos para safe areas, Back, 2
 
 ## Política
 Private chat history is not authoritative. GitHub durable state is authoritative.
+## Product Owner visual clarification — color
+Explicit preference:
+the current dark-green dominant look feels too dark/depressing.
+
+W3/W4 must therefore:
+- move away from dark-green-dominant surfaces;
+- use brighter warm-neutral canvases;
+- keep green only as a fresher functional/brand accent;
+- make amber/coral/sky visibly present where semantically useful;
+- use neutral charcoal/navy rather than green-black as dark-mode base;
+- preserve contrast/accessibility;
+- produce a physically obvious mood change versus the previous APK.
+
+Acceptance rule:
+if the new physical APK can reasonably be perceived as `se ve igual`, the color objective is NOT satisfied.
