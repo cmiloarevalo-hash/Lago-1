@@ -8,7 +8,7 @@ export type TodayReading = {
   prompt: string;
 };
 
-const readingPlan: readonly Omit<TodayReading, 'translationId'>[] = [
+export const dailyReadings = [
   { book: 'Salmos', chapter: 23, verse: 1, prompt: 'Lee con calma y observa qué palabra destaca.' },
   { book: 'Mateo', chapter: 6, verse: 34, prompt: 'Lee el contexto y piensa en el día que tienes delante.' },
   { book: 'Filipenses', chapter: 4, verse: 6, prompt: 'Lee, respira y conserva una idea para volver a ella.' },
@@ -16,10 +16,10 @@ const readingPlan: readonly Omit<TodayReading, 'translationId'>[] = [
   { book: 'Juan', chapter: 15, verse: 12, prompt: 'Lee el capítulo y observa cómo se describe el amor.' },
   { book: 'Romanos', chapter: 12, verse: 12, prompt: 'Lee el contexto y elige una frase para recordar.' },
   { book: 'Isaías', chapter: 41, verse: 10, prompt: 'Lee el pasaje completo antes de sacar una conclusión.' },
-];
+] as const;
 
 export function readingForDate(date: Date): TodayReading {
   const day = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000);
-  const reading = readingPlan[((day % readingPlan.length) + readingPlan.length) % readingPlan.length];
+  const reading = dailyReadings[((day % dailyReadings.length) + dailyReadings.length) % dailyReadings.length];
   return { translationId: RUNTIME_TRANSLATION_ID, ...reading };
 }
