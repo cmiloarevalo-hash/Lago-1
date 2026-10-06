@@ -56,3 +56,5 @@ jobs:
           path: apps/bible-topic-explorer/bible-topic-explorer-v1.apk
           if-no-files-found: error
           retention-days: 90
+
+# trigger: R01 final APK pass ea9f2a551c982cbecc4ffa3973ed0a81d4932e21
