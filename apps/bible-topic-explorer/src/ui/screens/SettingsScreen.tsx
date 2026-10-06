@@ -3,9 +3,11 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 import { SQLiteLocalPersistence } from '../../db/sqliteLocalPersistence';
 import { defaultPreferences, onboardingSteps, type LocalPreferences, type ThemePreference } from '../../product/preferences';
+import { uxCopy } from '../../product/uxCopy';
 import type { Theme } from '../theme';
 import { spacing } from '../theme';
 import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
+import type { StatusKind } from '../visualSemantics';
 
 const themeOptions: readonly { id: ThemePreference; label: string }[] = [
   { id: 'system', label: 'Sistema' },
@@ -26,7 +28,7 @@ export function SettingsScreen({ theme, onPreferencesChange }: { theme: Theme; o
   const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]);
   const [prefs, setPrefs] = useState(defaultPreferences);
   const [status, setStatus] = useState('Cargando preferencias locales…');
-  const [isError, setIsError] = useState(false);
+  const [statusKind, setStatusKind] = useState<StatusKind>('info');
 
   useEffect(() => {
     let active = true;
@@ -35,12 +37,12 @@ export function SettingsScreen({ theme, onPreferencesChange }: { theme: Theme; o
         setPrefs(value);
         onPreferencesChange?.(value);
         setStatus('');
-        setIsError(false);
+        setStatusKind('info');
       }
     }).catch(() => {
       if (active) {
         setStatus('No se pudieron leer las preferencias locales.');
-        setIsError(true);
+        setStatusKind('error');
       }
     });
     return () => { active = false; };
@@ -52,10 +54,10 @@ export function SettingsScreen({ theme, onPreferencesChange }: { theme: Theme; o
     try {
       await persistence.setPreferences(next);
       setStatus('Preferencias guardadas en este dispositivo.');
-      setIsError(false);
+      setStatusKind('success');
     } catch {
       setStatus('No se pudieron guardar las preferencias locales.');
-      setIsError(true);
+      setStatusKind('error');
     }
   };
 
@@ -66,7 +68,7 @@ export function SettingsScreen({ theme, onPreferencesChange }: { theme: Theme; o
         <Body theme={theme} muted>Preferencias locales, sin cuenta obligatoria.</Body>
       </View>
 
-      {status ? <StatusBanner theme={theme} kind={isError ? 'error' : 'info'}>{status}</StatusBanner> : null}
+      {status ? <StatusBanner theme={theme} kind={statusKind}>{status}</StatusBanner> : null}
 
       <Section theme={theme} title="Apariencia" description="Elige una apariencia explícita; la opción Sistema sigue el modo del dispositivo.">
         <View style={styles.choices}>
@@ -102,7 +104,7 @@ export function SettingsScreen({ theme, onPreferencesChange }: { theme: Theme; o
           theme={theme}
           onPress={() => { void update({ ...prefs, reminderEnabled: !prefs.reminderEnabled }); }}
         />
-        <Body theme={theme} muted>La entrega depende del sistema operativo. Puedes apagarlo cuando quieras; la app funciona igual sin notificaciones.</Body>
+        <StatusBanner theme={theme} kind="warning">{uxCopy.reminderCaution}</StatusBanner>
       </Section>
 
       <Section theme={theme} title="Introducción">

@@ -173,6 +173,21 @@ export function StatusBanner({ theme, kind, children }: PropsWithChildren<{ them
   </View>;
 }
 
+export function ContextualTip({
+  theme,
+  title,
+  children,
+  onDismiss,
+}: PropsWithChildren<{ theme: Theme; title: string; onDismiss: () => void }>) {
+  return <View style={[styles.contextualTip, { backgroundColor: theme.infoBg, borderColor: theme.sky }]}>
+    <View style={styles.contextualTipCopy}>
+      <Text style={[type.subhead, { color: theme.infoText }]}>{title}</Text>
+      <Text style={[type.body, { color: theme.text }]}>{children}</Text>
+    </View>
+    <Action label="Entendido" variant="tertiary" theme={theme} onPress={onDismiss} />
+  </View>;
+}
+
 const styles = StyleSheet.create({
   screen: { flex: 1, paddingHorizontal: 20, paddingTop: spacing.lg },
   section: { gap: spacing.md, marginBottom: spacing.xl },
@@ -190,4 +205,6 @@ const styles = StyleSheet.create({
   status: { minHeight: minimumTouchTarget, borderRadius: radius.sm, padding: spacing.md, flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm },
   statusMarker: { width: 24, height: 24, borderWidth: 2, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   statusText: { flex: 1 },
+  contextualTip: { borderWidth: 1, borderRadius: radius.md, padding: spacing.lg, gap: spacing.sm },
+  contextualTipCopy: { gap: spacing.sm },
 });

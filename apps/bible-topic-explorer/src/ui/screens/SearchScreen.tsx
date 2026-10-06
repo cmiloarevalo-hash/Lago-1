@@ -6,9 +6,10 @@ import type { BibleSearchHit } from '../../product/adapters';
 import { classifyQuery, intentLabels, parseReference } from '../../product/search';
 import { summarizeMatchTiers } from '../../product/searchPresentation';
 import { normalizeTopicText, topicCatalog, type TopicDefinition } from '../../product/topics';
+import { uxCopy } from '../../product/uxCopy';
 import type { Theme } from '../theme';
 import { radius, spacing, type as typography } from '../theme';
-import { Action, Body, Card, ChoiceChip, Field, Metadata, ResultRow, Screen, ScreenTitle, Section, StatusBanner, Subhead } from '../primitives';
+import { Action, Body, Card, ChoiceChip, ContextualTip, Field, Metadata, ResultRow, Screen, ScreenTitle, Section, StatusBanner, Subhead } from '../primitives';
 
 const matchLabel = {
   literal_exact: 'Literal',
@@ -28,6 +29,7 @@ export function SearchScreen({ theme, onOpenReader }: { theme: Theme; onOpenRead
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [showExploreTip, setShowExploreTip] = useState(true);
 
   const intent = query.trim() ? classifyQuery(query) : null;
   const parsed = intent === 'reference' ? parseReference(query) : null;
@@ -87,6 +89,8 @@ export function SearchScreen({ theme, onOpenReader }: { theme: Theme; onOpenRead
         <ScreenTitle theme={theme}>Explorar</ScreenTitle>
         <Body theme={theme} muted>Elige uno de los 100 temas curados o busca texto y referencias de forma literal. Son recorridos distintos.</Body>
       </View>
+
+      {showExploreTip ? <ContextualTip theme={theme} title={uxCopy.exploreTipTitle} onDismiss={() => setShowExploreTip(false)}>{uxCopy.exploreTipBody}</ContextualTip> : null}
 
       <Section theme={theme} title="Temas A–Z" description="La selección temática usa términos completos curados; nunca se infiere desde lo que escribes en búsqueda libre.">
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.letters}>

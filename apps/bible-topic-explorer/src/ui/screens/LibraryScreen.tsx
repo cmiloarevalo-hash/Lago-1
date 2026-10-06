@@ -3,9 +3,11 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 import { SQLiteLocalPersistence } from '../../db/sqliteLocalPersistence';
 import type { ReadingHistoryEntry, Reflection, SavedReference } from '../../product/adapters';
+import { uxCopy } from '../../product/uxCopy';
 import type { Theme } from '../theme';
 import { spacing } from '../theme';
 import { Action, Body, Card, Field, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
+import type { StatusKind } from '../visualSemantics';
 
 const DEMO_REFERENCE = { bookId: 'Salmos', chapter: 23, verse: 1 } as const;
 const LIBRARY_REFLECTION_ID = 'library-private-reflection';
@@ -21,7 +23,7 @@ export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenRea
   const [history, setHistory] = useState<readonly ReadingHistoryEntry[]>([]);
   const [note, setNote] = useState('');
   const [status, setStatus] = useState('Cargando biblioteca local…');
-  const [isError, setIsError] = useState(false);
+  const [statusKind, setStatusKind] = useState<StatusKind>('info');
   const [showAllHistory, setShowAllHistory] = useState(false);
 
   const refresh = useCallback(async () => {
@@ -35,10 +37,10 @@ export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenRea
       setHistory(nextHistory);
       setNote(reflections.find(item => item.id === LIBRARY_REFLECTION_ID)?.body ?? '');
       setStatus('');
-      setIsError(false);
+      setStatusKind('info');
     } catch {
       setStatus('No se pudo leer la biblioteca local.');
-      setIsError(true);
+      setStatusKind('error');
     }
   }, [persistence]);
 
@@ -52,12 +54,12 @@ export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenRea
     try {
       if (isDemoSaved) await persistence.removeSavedReference(DEMO_REFERENCE);
       else await persistence.saveReference({ ...DEMO_REFERENCE, savedAt: new Date().toISOString() });
-      setStatus(isDemoSaved ? 'Referencia retirada de guardados.' : 'Guardado en tu biblioteca.');
-      setIsError(false);
       await refresh();
+      setStatus(isDemoSaved ? uxCopy.removedReference : uxCopy.savedReference);
+      setStatusKind('success');
     } catch {
       setStatus('No se pudo actualizar el guardado local.');
-      setIsError(true);
+      setStatusKind('error');
     }
   };
 
@@ -65,11 +67,11 @@ export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenRea
     try {
       const reflection: Reflection = { id: LIBRARY_REFLECTION_ID, body: note, updatedAt: new Date().toISOString() };
       await persistence.upsertReflection(reflection);
-      setStatus('Reflexión guardada en este dispositivo.');
-      setIsError(false);
+      setStatus(uxCopy.savedReflection);
+      setStatusKind('success');
     } catch {
       setStatus('No se pudo guardar la reflexión local.');
-      setIsError(true);
+      setStatusKind('error');
     }
   };
 
@@ -82,7 +84,7 @@ export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenRea
         <Body theme={theme} muted>Retoma lecturas, guardados y reflexiones que permanecen en este dispositivo.</Body>
       </View>
 
-      {status ? <StatusBanner theme={theme} kind={isError ? 'error' : 'info'}>{status}</StatusBanner> : null}
+      {status ? <StatusBanner theme={theme} kind={statusKind}>{status}</StatusBanner> : null}
 
       <Section theme={theme} title="Continuar">
         {latest ? <Card featured theme={theme} label={'Última lectura: ' + readingLabel(latest)}>
