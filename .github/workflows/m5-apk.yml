@@ -1,0 +1,58 @@
+name: M5 Android APK
+
+on:
+  pull_request:
+    paths:
+      - 'apps/bible-topic-explorer/**'
+      - '.github/workflows/m5-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/bible-topic-explorer
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/bible-topic-explorer/package-lock.json
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Verify hosted Android SDK
+        run: |
+          test -n "$ANDROID_HOME"
+          test -x "$ANDROID_HOME/platform-tools/adb"
+          "$ANDROID_HOME/platform-tools/adb" version
+      - name: Install dependencies
+        run: npm ci
+      - name: Regression typecheck
+        run: npm run typecheck
+      - name: Regression tests
+        run: npm test
+      - name: Expo dependency check
+        run: npx expo install --check
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --no-install --non-interactive
+      - name: Build release APK
+        run: cd android && ./gradlew assembleRelease --no-daemon
+      - name: Stage APK
+        run: cp android/app/build/outputs/apk/release/app-release.apk bible-topic-explorer-v1.apk
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bible-topic-explorer-v1-apk
+          path: apps/bible-topic-explorer/bible-topic-explorer-v1.apk
+          if-no-files-found: error
+          retention-days: 90
