@@ -1,16 +1,150 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 import { SQLiteLocalPersistence } from '../../db/sqliteLocalPersistence';
 import type { ReadingHistoryEntry, Reflection, SavedReference } from '../../product/adapters';
-import type { Theme } from '../theme'; import { spacing } from '../theme'; import { Action, Body, Card, Heading, Screen } from '../primitives';
-const DEMO_REFERENCE = { bookId: 'Salmos', chapter: 23, verse: 1 } as const; const LIBRARY_REFLECTION_ID = 'library-private-reflection';
-export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenReader:(book:string,chapter:number,verse?:number)=>void }) {
-  const db = useSQLiteContext(); const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]); const [saved,setSaved]=useState<readonly SavedReference[]>([]); const [history,setHistory]=useState<readonly ReadingHistoryEntry[]>([]); const [note,setNote]=useState(''); const [status,setStatus]=useState('Cargando biblioteca local…'); const [isError,setIsError]=useState(false);
-  const refresh = useCallback(async () => { try { const [nextSaved,nextHistory,reflections] = await Promise.all([persistence.listSavedReferences(), persistence.listReadingHistory(), persistence.listReflections()]); setSaved(nextSaved); setHistory(nextHistory); setNote(reflections.find(item => item.id === LIBRARY_REFLECTION_ID)?.body ?? ''); setStatus(''); setIsError(false); } catch { setStatus('No se pudo leer la biblioteca local.'); setIsError(true); } }, [persistence]);
-  useEffect(() => { void refresh(); }, [refresh]); const isDemoSaved = saved.some(item => item.bookId===DEMO_REFERENCE.bookId && item.chapter===23 && item.verse===1); const uniqueChapters = new Set(history.map(item=>`${item.bookId}:${item.chapter}`)).size; const latest = history[0];
-  const toggleDemoSaved = async () => { try { if (isDemoSaved) await persistence.removeSavedReference(DEMO_REFERENCE); else await persistence.saveReference({...DEMO_REFERENCE,savedAt:new Date().toISOString()}); await refresh(); } catch { setStatus('No se pudo actualizar el guardado local.'); setIsError(true); } };
-  const saveReflection = async () => { try { const reflection: Reflection = {id:LIBRARY_REFLECTION_ID,body:note,updatedAt:new Date().toISOString()}; await persistence.upsertReflection(reflection); setStatus('Reflexión guardada en este dispositivo.'); setIsError(false); } catch { setStatus('No se pudo guardar la reflexión local.'); setIsError(true); } };
-  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><Heading theme={theme}>Biblioteca</Heading>{status?<Text accessibilityRole={isError?'alert':undefined} accessibilityLiveRegion="polite" style={{color:isError?theme.text:theme.muted}}>{status}</Text>:null}<Card theme={theme}><Heading theme={theme}>Progreso local</Heading><Body theme={theme}>{uniqueChapters} capítulos abiertos · {saved.length} guardados</Body><Body theme={theme} muted>{latest?`Última lectura: ${latest.bookId} ${latest.chapter}${latest.verse?`:${latest.verse}`:''}`:'Tu progreso aparecerá al abrir capítulos.'}</Body>{latest?<Action label="Continuar última lectura" theme={theme} onPress={()=>onOpenReader(latest.bookId,latest.chapter,latest.verse)}/>:null}</Card><Card theme={theme}><Heading theme={theme}>Guardados</Heading>{saved.length===0?<Body theme={theme} muted>Aún no guardas referencias.</Body>:saved.map(ref=><View key={`${ref.bookId}-${ref.chapter}-${ref.verse}`} style={styles.row}><Body theme={theme}>{ref.bookId} {ref.chapter}:{ref.verse}</Body><Action label={`Abrir ${ref.bookId} ${ref.chapter}:${ref.verse}`} secondary theme={theme} onPress={()=>onOpenReader(ref.bookId,ref.chapter,ref.verse)}/></View>)}<Action label={isDemoSaved?'Quitar Salmos 23:1':'Guardar Salmos 23:1'} secondary theme={theme} onPress={()=>void toggleDemoSaved()}/></Card><Card theme={theme}><Heading theme={theme}>Reflexión privada</Heading><Body theme={theme} muted>Se guarda únicamente en este dispositivo.</Body><TextInput accessibilityLabel="Reflexión privada" multiline value={note} onChangeText={setNote} placeholder="Escribe para ti…" placeholderTextColor={theme.muted} style={[styles.note,{color:theme.text,borderColor:theme.border}]}/><Action label="Guardar reflexión" theme={theme} onPress={()=>void saveReflection()}/></Card><Card theme={theme}><Heading theme={theme}>Historial</Heading>{history.length===0?<Body theme={theme} muted>Aún no hay lecturas registradas.</Body>:history.slice(0,10).map((item,index)=><Action key={`${item.openedAt}-${index}`} label={`${item.bookId} ${item.chapter}${item.verse?`:${item.verse}`:''}`} secondary theme={theme} onPress={()=>onOpenReader(item.bookId,item.chapter,item.verse)}/>)}</Card></ScrollView></Screen>;
+import type { Theme } from '../theme';
+import { spacing } from '../theme';
+import { Action, Body, Card, Field, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
+
+const DEMO_REFERENCE = { bookId: 'Salmos', chapter: 23, verse: 1 } as const;
+const LIBRARY_REFLECTION_ID = 'library-private-reflection';
+
+function readingLabel(item: Pick<ReadingHistoryEntry, 'bookId' | 'chapter' | 'verse'>) {
+  return item.bookId + ' ' + item.chapter + (item.verse ? ':' + item.verse : '');
 }
-const styles=StyleSheet.create({stack:{gap:spacing.lg,paddingBottom:spacing.xxl},row:{gap:spacing.sm},note:{minHeight:120,borderWidth:1,borderRadius:16,padding:12,textAlignVertical:'top',fontSize:17}});
+
+export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenReader: (book: string, chapter: number, verse?: number) => void }) {
+  const db = useSQLiteContext();
+  const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]);
+  const [saved, setSaved] = useState<readonly SavedReference[]>([]);
+  const [history, setHistory] = useState<readonly ReadingHistoryEntry[]>([]);
+  const [note, setNote] = useState('');
+  const [status, setStatus] = useState('Cargando biblioteca local…');
+  const [isError, setIsError] = useState(false);
+  const [showAllHistory, setShowAllHistory] = useState(false);
+
+  const refresh = useCallback(async () => {
+    try {
+      const [nextSaved, nextHistory, reflections] = await Promise.all([
+        persistence.listSavedReferences(),
+        persistence.listReadingHistory(),
+        persistence.listReflections(),
+      ]);
+      setSaved(nextSaved);
+      setHistory(nextHistory);
+      setNote(reflections.find(item => item.id === LIBRARY_REFLECTION_ID)?.body ?? '');
+      setStatus('');
+      setIsError(false);
+    } catch {
+      setStatus('No se pudo leer la biblioteca local.');
+      setIsError(true);
+    }
+  }, [persistence]);
+
+  useEffect(() => { void refresh(); }, [refresh]);
+
+  const isDemoSaved = saved.some(item => item.bookId === DEMO_REFERENCE.bookId && item.chapter === 23 && item.verse === 1);
+  const uniqueChapters = new Set(history.map(item => item.bookId + ':' + item.chapter)).size;
+  const latest = history[0];
+
+  const toggleDemoSaved = async () => {
+    try {
+      if (isDemoSaved) await persistence.removeSavedReference(DEMO_REFERENCE);
+      else await persistence.saveReference({ ...DEMO_REFERENCE, savedAt: new Date().toISOString() });
+      setStatus(isDemoSaved ? 'Referencia retirada de guardados.' : 'Guardado en tu biblioteca.');
+      setIsError(false);
+      await refresh();
+    } catch {
+      setStatus('No se pudo actualizar el guardado local.');
+      setIsError(true);
+    }
+  };
+
+  const saveReflection = async () => {
+    try {
+      const reflection: Reflection = { id: LIBRARY_REFLECTION_ID, body: note, updatedAt: new Date().toISOString() };
+      await persistence.upsertReflection(reflection);
+      setStatus('Reflexión guardada en este dispositivo.');
+      setIsError(false);
+    } catch {
+      setStatus('No se pudo guardar la reflexión local.');
+      setIsError(true);
+    }
+  };
+
+  const visibleHistory = showAllHistory ? history.slice(0, 10) : history.slice(0, 4);
+
+  return <Screen theme={theme}>
+    <ScrollView contentContainerStyle={styles.stack}>
+      <View style={styles.intro}>
+        <ScreenTitle theme={theme}>Biblioteca</ScreenTitle>
+        <Body theme={theme} muted>Retoma lecturas, guardados y reflexiones que permanecen en este dispositivo.</Body>
+      </View>
+
+      {status ? <StatusBanner theme={theme} kind={isError ? 'error' : 'info'}>{status}</StatusBanner> : null}
+
+      <Section theme={theme} title="Continuar">
+        {latest ? <Card featured theme={theme} label={'Última lectura: ' + readingLabel(latest)}>
+          <Metadata theme={theme}>ÚLTIMA LECTURA</Metadata>
+          <Body theme={theme}>{readingLabel(latest)}</Body>
+          <Action label="Continuar leyendo" theme={theme} onPress={() => onOpenReader(latest.bookId, latest.chapter, latest.verse)} />
+        </Card> : <Body theme={theme} muted>Cuando abras un capítulo, podrás retomarlo desde aquí.</Body>}
+      </Section>
+
+      <Section theme={theme} title="Actividad reciente">
+        <Body theme={theme}>{uniqueChapters} capítulos abiertos · {saved.length} guardados</Body>
+        <Body theme={theme} muted>Es una descripción local de tu actividad, no una meta ni una racha.</Body>
+      </Section>
+
+      <Section theme={theme} title="Guardados">
+        {saved.length === 0 ? <Body theme={theme} muted>Aún no guardas referencias.</Body> : saved.map(ref => <SettingRow
+          key={[ref.bookId, ref.chapter, ref.verse].join('-')}
+          theme={theme}
+          label={ref.bookId + ' ' + ref.chapter + ':' + ref.verse}
+          value="Abrir →"
+          onPress={() => onOpenReader(ref.bookId, ref.chapter, ref.verse)}
+        />)}
+        <Action
+          label={isDemoSaved ? 'Quitar Salmos 23:1' : 'Guardar Salmos 23:1'}
+          variant="tertiary"
+          theme={theme}
+          onPress={() => { void toggleDemoSaved(); }}
+        />
+      </Section>
+
+      <Section theme={theme} title="Reflexión privada" description="Se guarda únicamente en este dispositivo.">
+        <Field
+          theme={theme}
+          label="Tu reflexión"
+          multiline
+          value={note}
+          onChangeText={setNote}
+          placeholder="Escribe para ti…"
+        />
+        <Action label="Guardar reflexión" variant="secondary" theme={theme} onPress={() => { void saveReflection(); }} />
+      </Section>
+
+      <Section theme={theme} title="Historial">
+        {history.length === 0 ? <Body theme={theme} muted>Aún no hay lecturas registradas.</Body> : visibleHistory.map((item, index) => <SettingRow
+          key={item.openedAt + '-' + index}
+          theme={theme}
+          label={readingLabel(item)}
+          value="Abrir →"
+          onPress={() => onOpenReader(item.bookId, item.chapter, item.verse)}
+        />)}
+        {history.length > 4 ? <Action
+          label={showAllHistory ? 'Mostrar menos' : 'Ver historial reciente'}
+          variant="tertiary"
+          theme={theme}
+          onPress={() => setShowAllHistory(value => !value)}
+        /> : null}
+      </Section>
+    </ScrollView>
+  </Screen>;
+}
+
+const styles = StyleSheet.create({
+  stack: { gap: spacing.xl, paddingBottom: spacing.xxxl },
+  intro: { gap: spacing.sm },
+});

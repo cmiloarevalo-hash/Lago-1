@@ -1,17 +1,133 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useSQLiteContext } from 'expo-sqlite';
 import { SQLiteLocalPersistence } from '../../db/sqliteLocalPersistence';
-import { defaultPreferences, onboardingSteps, type LocalPreferences } from '../../product/preferences';
+import { defaultPreferences, onboardingSteps, type LocalPreferences, type ThemePreference } from '../../product/preferences';
 import type { Theme } from '../theme';
 import { spacing } from '../theme';
-import { Action, Body, Card, Heading, Screen } from '../primitives';
+import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
 
-export function SettingsScreen({theme,onPreferencesChange}:{theme:Theme;onPreferencesChange?:(value:LocalPreferences)=>void}){
-  const db=useSQLiteContext(); const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);
-  const [prefs,setPrefs]=useState(defaultPreferences); const [status,setStatus]=useState('Cargando preferencias locales…');
-  useEffect(()=>{let active=true;void persistence.getPreferences().then(value=>{if(active){setPrefs(value);onPreferencesChange?.(value);setStatus('');}}).catch(()=>{if(active)setStatus('No se pudieron leer las preferencias locales.');});return()=>{active=false};},[persistence,onPreferencesChange]);
-  const update=async(next:LocalPreferences)=>{setPrefs(next);onPreferencesChange?.(next);try{await persistence.setPreferences(next);setStatus('Preferencias guardadas en este dispositivo.');}catch{setStatus('No se pudieron guardar las preferencias locales.');}};
-  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><Heading theme={theme}>Ajustes</Heading>{status?<Body theme={theme} muted>{status}</Body>:null}<Card theme={theme}><Heading theme={theme}>Lectura</Heading><Body theme={theme}>Tamaño: {Math.round(prefs.fontScale*100)}%</Body><Action label="Aumentar texto" secondary theme={theme} onPress={()=>void update({...prefs,fontScale:Math.min(1.6,prefs.fontScale+.1)})}/><Action label="Reducir texto" secondary theme={theme} onPress={()=>void update({...prefs,fontScale:Math.max(.8,prefs.fontScale-.1)})}/><Action label="Restablecer tamaño" secondary theme={theme} onPress={()=>void update({...prefs,fontScale:1})}/><Action label={`Tema: ${prefs.theme}`} secondary theme={theme} onPress={()=>void update({...prefs,theme:prefs.theme==='system'?'light':prefs.theme==='light'?'dark':'system'})}/></Card><Card theme={theme}><Heading theme={theme}>Introducción</Heading><Body theme={theme} muted>{onboardingSteps.map(step=>step.title).join(' · ')}</Body><Body theme={theme}>{prefs.onboardingComplete?'Completada':'Pendiente'}</Body><Action label={prefs.onboardingComplete?'Reiniciar introducción':'Marcar introducción completada'} secondary theme={theme} onPress={()=>void update({...prefs,onboardingComplete:!prefs.onboardingComplete})}/></Card><Card theme={theme}><Heading theme={theme}>Recordatorio</Heading><Body theme={theme}>{prefs.reminderEnabled?`Preferencia activa · ${prefs.reminderTime}`:'Desactivado'}</Body><Action label={prefs.reminderEnabled?'Desactivar preferencia':'Activar preferencia de las 08:00'} theme={theme} onPress={()=>void update({...prefs,reminderEnabled:!prefs.reminderEnabled})}/><Body theme={theme} muted>Esta versión guarda la preferencia localmente; no promete una alarma del sistema ni una entrega exacta.</Body></Card><Card theme={theme}><Heading theme={theme}>Privacidad y fuente</Heading><Body theme={theme}>Sin cuenta obligatoria. Preferencias y datos de uso permanecen locales.</Body><Body theme={theme} muted>Reina-Valera 1909 · fuente BibleAquifer · dominio público/CC0 del paquete.</Body></Card></ScrollView></Screen>;
+const themeOptions: readonly { id: ThemePreference; label: string }[] = [
+  { id: 'system', label: 'Sistema' },
+  { id: 'light', label: 'Claro' },
+  { id: 'dark', label: 'Oscuro' },
+];
+
+const fontOptions = [
+  { scale: 0.8, label: '80%' },
+  { scale: 1, label: '100%' },
+  { scale: 1.2, label: '120%' },
+  { scale: 1.4, label: '140%' },
+  { scale: 1.6, label: '160%' },
+] as const;
+
+export function SettingsScreen({ theme, onPreferencesChange }: { theme: Theme; onPreferencesChange?: (value: LocalPreferences) => void }) {
+  const db = useSQLiteContext();
+  const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]);
+  const [prefs, setPrefs] = useState(defaultPreferences);
+  const [status, setStatus] = useState('Cargando preferencias locales…');
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    void persistence.getPreferences().then(value => {
+      if (active) {
+        setPrefs(value);
+        onPreferencesChange?.(value);
+        setStatus('');
+        setIsError(false);
+      }
+    }).catch(() => {
+      if (active) {
+        setStatus('No se pudieron leer las preferencias locales.');
+        setIsError(true);
+      }
+    });
+    return () => { active = false; };
+  }, [persistence, onPreferencesChange]);
+
+  const update = async (next: LocalPreferences) => {
+    setPrefs(next);
+    onPreferencesChange?.(next);
+    try {
+      await persistence.setPreferences(next);
+      setStatus('Preferencias guardadas en este dispositivo.');
+      setIsError(false);
+    } catch {
+      setStatus('No se pudieron guardar las preferencias locales.');
+      setIsError(true);
+    }
+  };
+
+  return <Screen theme={theme}>
+    <ScrollView contentContainerStyle={styles.stack}>
+      <View style={styles.intro}>
+        <ScreenTitle theme={theme}>Ajustes</ScreenTitle>
+        <Body theme={theme} muted>Preferencias locales, sin cuenta obligatoria.</Body>
+      </View>
+
+      {status ? <StatusBanner theme={theme} kind={isError ? 'error' : 'info'}>{status}</StatusBanner> : null}
+
+      <Section theme={theme} title="Apariencia" description="Elige una apariencia explícita; la opción Sistema sigue el modo del dispositivo.">
+        <View style={styles.choices}>
+          {themeOptions.map(option => <ChoiceChip
+            key={option.id}
+            label={option.label}
+            theme={theme}
+            selected={prefs.theme === option.id}
+            onPress={() => { void update({ ...prefs, theme: option.id }); }}
+          />)}
+        </View>
+      </Section>
+
+      <Section theme={theme} title="Tamaño de lectura" description="La app también respeta el escalado de texto del sistema. Esta preferencia local se conserva para la experiencia de lectura.">
+        <View style={styles.choices}>
+          {fontOptions.map(option => <ChoiceChip
+            key={option.scale}
+            label={option.label}
+            theme={theme}
+            selected={Math.abs(prefs.fontScale - option.scale) < 0.01}
+            onPress={() => { void update({ ...prefs, fontScale: option.scale }); }}
+          />)}
+        </View>
+        <Metadata theme={theme}>Preferencia guardada: {Math.round(prefs.fontScale * 100)}%</Metadata>
+      </Section>
+
+      <Section theme={theme} title="Recordatorio" description="Es opcional y local. No es una alarma exacta ni una obligación de lectura.">
+        <SettingRow theme={theme} label="Hora guardada" value={prefs.reminderTime} />
+        <SettingRow theme={theme} label="Estado" value={prefs.reminderEnabled ? 'Activo' : 'Desactivado'} />
+        <Action
+          label={prefs.reminderEnabled ? 'Desactivar recordatorio' : 'Activar recordatorio de las ' + prefs.reminderTime}
+          variant={prefs.reminderEnabled ? 'secondary' : 'primary'}
+          theme={theme}
+          onPress={() => { void update({ ...prefs, reminderEnabled: !prefs.reminderEnabled }); }}
+        />
+        <Body theme={theme} muted>La entrega depende del sistema operativo. Puedes apagarlo cuando quieras; la app funciona igual sin notificaciones.</Body>
+      </Section>
+
+      <Section theme={theme} title="Introducción">
+        <Body theme={theme} muted>{onboardingSteps.map(step => step.title).join(' · ')}</Body>
+        <SettingRow theme={theme} label="Estado" value={prefs.onboardingComplete ? 'Completada' : 'Pendiente'} />
+        <Action
+          label={prefs.onboardingComplete ? 'Volver a mostrar ayudas contextuales' : 'Marcar introducción como vista'}
+          variant="tertiary"
+          theme={theme}
+          onPress={() => { void update({ ...prefs, onboardingComplete: !prefs.onboardingComplete }); }}
+        />
+      </Section>
+
+      <Section theme={theme} title="Privacidad y fuente">
+        <SettingRow theme={theme} label="Cuenta" value="No requerida" />
+        <SettingRow theme={theme} label="Datos de uso" value="Locales" />
+        <SettingRow theme={theme} label="Traducción" value="RV1909" />
+        <Metadata theme={theme}>Reina-Valera 1909 · fuente BibleAquifer · dominio público/CC0 del paquete.</Metadata>
+      </Section>
+    </ScrollView>
+  </Screen>;
 }
-const styles=StyleSheet.create({stack:{gap:spacing.lg,paddingBottom:spacing.xxl}});
+
+const styles = StyleSheet.create({
+  stack: { gap: spacing.xl, paddingBottom: spacing.xxxl },
+  intro: { gap: spacing.sm },
+  choices: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+});
