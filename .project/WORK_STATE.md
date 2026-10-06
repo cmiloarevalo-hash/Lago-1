@@ -3,80 +3,70 @@
 ## Última decisión formal
 **P03 MASTER REMEDIATION PLAN — SUPERVISOR ACCEPT**
 
-## P03
-Issue `#48` completó P03-01→P03-15 sin cambios de código/dependencias/app. Baseline de planificación verificado intacto:
-`062069a45094876fe28dd9cc7ebc6cfab2a2d9e5`.
-
-Plan aceptado:
-`W1 [gate] → W2 [gate] → W3 [gate] → W4 persistent nested [gate] → W5 physical/release [final gate]`.
-
-## Decisiones congeladas
-- Book picker: orden canónico AT/NT.
-- Explorar: búsqueda libre/referencia primero; Temas A–Z inmediatamente descubrible y separado.
-- Hoy: `Continúa a tu ritmo` se conserva como apoyo compacto de una línea.
-- Biblioteca/Reader: reemplazar demo-save por guardado real desde Reader usando persistencia local existente.
-- Safe area: `react-native-safe-area-context` sólo si se verifica compatibilidad Expo 57 antes de escribir dependencia; ninguna otra dependencia nueva autorizada.
-- Android Back: cambios significativos de tab participan en historial acotado/deduplicado; reselecciones/redirecciones programáticas no agregan ruido; confirmación de salida sólo cuando se agota historial.
-- Evidencia visual final: originales individuales + SHA-256 + manifest obligatorio.
-- Gate actual Android; VoiceOver NOT RUN salvo autorización iOS separada.
-
-## Invariantes globales
-Preservar en cada wave:
-- RV1909 + SQLite bundled;
-- exactamente 100 temas;
-- A–Z;
-- free-form/topic separados;
-- whole-term/topic y literal/reference semantics;
-- regresión `amor` / `llamó`;
-- core offline/local;
-- slug/package/npm/DB identities;
-- compatibilidad de persistencia local.
-
 ## Actividad activa
-**R01 — Master remediation Android/UX W1→W5**
-Issue `#49`.
+**R01 — implementación continua W1→W4**
 
-### W1 — ACTIVE / AUTHORIZED
-W1.1 deterministic route history → W1.2 Android Back/root exit → W1.3 Leer sub-navigation coherence.
+Issue:
+`#49`
 
-Implementer writable scope:
-`apps/bible-topic-explorer/**`.
+Estado:
+**AUTHORIZED / ACTIVE — ONE CONTINUOUS BATCH**
 
-Implementer debe publicar ENTRY CHECKPOINT antes de código y detenerse al publicar:
-`IMPLEMENTER COMPLETE — R01 W1 ANDROID CORRECTNESS`
-`READY FOR SUPERVISOR R01 W1 REVIEW`.
+Exact implementation baseline:
+`47b769d2b8f9af2e9ff710969f3bdc0af2ef76e8`
 
-### W2-W5
-**PLANNED / SEQUENCE-BLOCKED** hasta el gate anterior correspondiente.
+## Cambios a implementar sin pausas intermedias
+1. Android Back navega dentro de la app; en raíz pregunta si realmente se quiere salir.
+2. UI visible en español: `Explorador Bíblico`, `sin conexión`.
+3. Safe areas reales para status/navigation bars Android.
+4. Identidad visual más luminosa, cálida y atractiva; eliminar dominancia verde oscuro.
+5. Compactar hero/cards/spacing manteniendo >=48dp y legibilidad.
+6. Aplicar el tratamiento a Hoy, Explorar, Leer/Reader, Biblioteca y Ajustes.
+7. Guardado real desde Reader usando persistencia local existente.
 
-W2: español visible + safe areas + chrome compacto.
-W3: densidad/jerarquía compartida + color funcional.
-W4: Explore → Leer/Reader → Hoy → Biblioteca → Ajustes/onboarding/feedback como batch persistente anidado.
-W5: CI/static → APK exact candidate → prueba física Android → evidencia original → final gate.
+## Paleta visual aprobada por Product Owner
+- background `#FAF9F6`;
+- surface `#FFFFFF`;
+- primary green `#16A34A`;
+- blue `#3B82F6`;
+- amber `#F59E0B`;
+- coral `#F97316`;
+- purple `#8B5CF6`;
+- primary text `#111827`;
+- secondary text `#6B7280`;
+- border `#E5E7EB`.
 
-## F01 / F02
-Issues #46/#47 permanecen como inputs históricos; sus requisitos están absorbidos por R01 W1/W2. No ejecutar como batches paralelos.
+Dark mode:
+base neutral charcoal/navy, no green-black dominance.
+
+Acceptance visual:
+el cambio debe ser inmediatamente perceptible físicamente; si puede describirse como `se ve igual`, falla el objetivo visual.
+
+## Invariantes
+Preservar:
+- RV1909/SQLite;
+- 100 temas;
+- A–Z;
+- free-form/topic;
+- whole-term/literal/reference semantics;
+- `amor`/`llamó`;
+- offline/local;
+- slug/package/npm/DB identities;
+- persistencia local.
+
+## Workflow simplificado
+Implementer ejecuta:
+`W1 → W2 → W3 → W4`
+
+Checkpoint breve tras cada wave, pero **sin esperar Supervisor**.
+
+Gate único al final:
+`IMPLEMENTER COMPLETE — R01 W1-W4 CONTINUOUS REMEDIATION`
+`READY FOR SUPERVISOR R01 IMPLEMENTATION REVIEW`
+
+Después Supervisor revisa una vez, genera W5/APK y se hace prueba física.
 
 ## Evidencia física
-Ruta actual:
-`evidence/exp02/android-physical-2026-10-06/`.
+`evidence/exp02/android-physical-2026-10-06/`
 
-La evidencia física prevalece sobre proxies estáticos para safe areas, Back, 200% y TalkBack.
-
-## Política
-Private chat history is not authoritative. GitHub durable state is authoritative.
-## Product Owner visual clarification — color
-Explicit preference:
-the current dark-green dominant look feels too dark/depressing.
-
-W3/W4 must therefore:
-- move away from dark-green-dominant surfaces;
-- use brighter warm-neutral canvases;
-- keep green only as a fresher functional/brand accent;
-- make amber/coral/sky visibly present where semantically useful;
-- use neutral charcoal/navy rather than green-black as dark-mode base;
-- preserve contrast/accessibility;
-- produce a physically obvious mood change versus the previous APK.
-
-Acceptance rule:
-if the new physical APK can reasonably be perceived as `se ve igual`, the color objective is NOT satisfied.
+Private chat history is not authoritative; GitHub durable state is authoritative.
