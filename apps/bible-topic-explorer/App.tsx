@@ -1,20 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { initialRoute, tabLabels, tabs, type Route, type TabId } from './src/product/navigation';
+import { themes, type ThemeMode } from './src/ui/theme';
+import { TodayScreen } from './src/ui/screens/TodayScreen';
+import { SearchScreen } from './src/ui/screens/SearchScreen';
+import { BibleScreen } from './src/ui/screens/BibleScreen';
+import { LibraryScreen } from './src/ui/screens/LibraryScreen';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+  const [route, setRoute] = useState<Route>(initialRoute());
+  const [mode] = useState<ThemeMode>('light');
+  const theme = themes[mode];
+  const activeTab: TabId = route.kind === 'tab' ? route.tab : route.origin;
+  const openReader = (book: string, chapter: number, verse?: number) => setRoute({ kind: 'reader', book, chapter, verse, origin: activeTab });
+
+  const content = route.kind === 'reader'
+    ? <BibleScreen theme={theme} reader={{ book: route.book, chapter: route.chapter, verse: route.verse }} onOpenReader={openReader} />
+    : route.tab === 'today' ? <TodayScreen theme={theme} onOpenReader={openReader} />
+    : route.tab === 'search' ? <SearchScreen theme={theme} onOpenReader={openReader} />
+    : route.tab === 'bible' ? <BibleScreen theme={theme} onOpenReader={openReader} />
+    : <LibraryScreen theme={theme} onOpenReader={openReader} />;
+
+  return <SafeAreaView style={[styles.root, { backgroundColor: theme.background }]}>
+    <View style={styles.content}>{content}</View>
+    <View accessibilityRole="tablist" style={[styles.tabs, { borderTopColor: theme.border, backgroundColor: theme.surface }]}>
+      {tabs.map(tab => <Pressable key={tab} accessibilityRole="tab" accessibilityState={{ selected: activeTab === tab }} onPress={() => setRoute({ kind: 'tab', tab })} style={styles.tab}>
+        <Text style={{ color: activeTab === tab ? theme.accent : theme.muted, fontWeight: activeTab === tab ? '700' : '500' }}>{tabLabels[tab]}</Text>
+      </Pressable>)}
     </View>
-  );
+    <StatusBar style={mode === 'dark' ? 'light' : 'dark'} />
+  </SafeAreaView>;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({ root: { flex: 1 }, content: { flex: 1 }, tabs: { minHeight: 64, borderTopWidth: 1, flexDirection: 'row' }, tab: { flex: 1, minHeight: 56, alignItems: 'center', justifyContent: 'center' } });
