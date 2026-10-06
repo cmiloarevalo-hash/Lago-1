@@ -23,14 +23,7 @@ export function TodayScreen({ theme, readingScale = 1, onOpenReader }: { theme: 
     setError(false);
     void repository.getChapter(reading.book, reading.chapter).then(rows => {
       if (active) setVerse(rows.find(row => row.verse === reading.verse || row.sourceVerseLabel === String(reading.verse)) ?? null);
-    }).catch(() => {
-      if (active) {
-        setVerse(null);
-        setError(true);
-      }
-    }).finally(() => {
-      if (active) setLoading(false);
-    });
+    }).catch(() => { if (active) { setVerse(null); setError(true); } }).finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
   }, [reading.book, reading.chapter, reading.verse, repository]);
 
@@ -44,22 +37,20 @@ export function TodayScreen({ theme, readingScale = 1, onOpenReader }: { theme: 
         <Text style={[typography.label, { color: theme.amber }]}>HOY</Text>
         <Text accessibilityRole="header" style={[typography.display, { color: theme.text }]}>Un momento para volver a la Palabra.</Text>
       </View>
-
       <Card featured theme={theme} label={'Lectura de hoy, ' + ref}>
         <View accessibilityElementsHidden style={[styles.warmAccent, { backgroundColor: theme.amber }]} />
         <Metadata theme={theme}>LECTURA DE HOY · RV1909 · LOCAL</Metadata>
         <Text style={[typography.sectionTitle, { color: theme.text }]}>{ref}</Text>
         {loading ? <StatusBanner theme={theme} kind="info">Cargando lectura desde el corpus local…</StatusBanner> : null}
-        {error ? <StatusBanner theme={theme} kind="error">No se pudo cargar la lectura local. El resto del contenido offline sigue disponible.</StatusBanner> : null}
+        {error ? <StatusBanner theme={theme} kind="error">No se pudo cargar la lectura local. El resto del contenido sin conexión sigue disponible.</StatusBanner> : null}
         {!loading && !error && verse ? <Text style={[typography.scripture, scriptureMetrics, { color: theme.text }]}>{verse.text}</Text> : null}
         {!loading && !error && !verse ? <StatusBanner theme={theme} kind="info">La referencia de hoy no está disponible en el corpus local.</StatusBanner> : null}
         <Body theme={theme} muted>{reading.prompt}</Body>
         <Action label={'Leer ' + ref + ' en contexto'} theme={theme} onPress={() => onOpenReader(reading.book, reading.chapter, reading.verse)} />
       </Card>
-
       <View style={styles.calmNote}>
         <Text style={[typography.subhead, { color: theme.text }]}>Continúa a tu ritmo</Text>
-        <Body theme={theme} muted>Las aperturas del lector se guardan localmente para ayudarte a retomar. No necesitas cuenta ni conexión.</Body>
+        <Body theme={theme} muted>Retoma tus lecturas cuando quieras; no necesitas cuenta ni conexión.</Body>
       </View>
     </ScrollView>
   </Screen>;
