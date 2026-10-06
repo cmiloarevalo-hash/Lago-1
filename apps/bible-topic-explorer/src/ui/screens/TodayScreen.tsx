@@ -1,0 +1,2 @@
+import { View } from 'react-native'; import type { Theme } from '../theme'; import { Body, Heading, Screen } from '../primitives';
+export function TodayScreen({ theme }: { theme: Theme; onOpenReader: (book:string, chapter:number, verse?:number)=>void }) { return <Screen theme={theme}><View><Heading theme={theme}>Hoy</Heading><Body theme={theme}>Tu espacio diario para leer y continuar.</Body></View></Screen>; }
