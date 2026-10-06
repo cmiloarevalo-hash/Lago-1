@@ -33,3 +33,5 @@ jobs:
         run: npm test
       - name: Expo dependency check
         run: npx expo install --check
+      - name: Expo Android runtime bundle smoke
+        run: npx expo export --platform android --output-dir dist-smoke
