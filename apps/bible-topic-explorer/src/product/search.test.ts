@@ -1,0 +1,2 @@
+import { describe, expect, it } from 'vitest'; import { classifyQuery, parseReference } from './search';
+describe('search intent',()=>{it('distinguishes reference phrase topic and word',()=>{expect(classifyQuery('Juan 3:16')).toBe('reference');expect(classifyQuery('"no temas"')).toBe('phrase');expect(classifyQuery('amor')).toBe('topic');expect(classifyQuery('cordero')).toBe('word');});it('parses references',()=>{expect(parseReference('Juan 3:16')).toEqual({book:'Juan',chapter:3,verse:16});});});
