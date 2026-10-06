@@ -16,12 +16,16 @@ export function BibleScreen({
   theme,
   reader,
   readingScale = 1,
+  initialBook,
+  onBookContextChange,
   onOpenReader,
 }: {
   theme: Theme;
   reader?: { book: string; chapter: number; verse?: number };
   readingScale?: number;
-  onOpenReader: (book: string, chapter: number, verse?: number) => void;
+  initialBook?: string;
+  onBookContextChange?: (book?: string) => void;
+  onOpenReader: (book: string, chapter: number, verse?: number, recordHistory?: boolean) => void;
 }) {
   const db = useSQLiteContext();
   const repository = useMemo(() => new SQLiteBibleRepository(db), [db]);
@@ -30,11 +34,15 @@ export function BibleScreen({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [selectedBook, setSelectedBook] = useState<string>();
+  const [selectedBook, setSelectedBook] = useState<string | undefined>(initialBook);
   const [pickerChapterCount, setPickerChapterCount] = useState(0);
   const [pickerLoading, setPickerLoading] = useState(false);
   const [pickerError, setPickerError] = useState(false);
   const scriptureMetrics = scaledScriptureMetrics(readingScale);
+
+  useEffect(() => {
+    if (!reader && initialBook && initialBook !== selectedBook) void chooseBook(initialBook, false);
+  }, [initialBook, reader]);
 
   useEffect(() => {
     let active = true;
@@ -66,8 +74,9 @@ export function BibleScreen({
     return () => { active = false; };
   }, [reader?.book, reader?.chapter, repository]);
 
-  const chooseBook = async (book: string) => {
+  const chooseBook = async (book: string, publishContext = true) => {
     setSelectedBook(book);
+    if (publishContext) onBookContextChange?.(book);
     setPickerLoading(true);
     setPickerError(false);
     try {
@@ -108,15 +117,10 @@ export function BibleScreen({
               accessibilityState={{ selected }}
               style={[
                 styles.verse,
-                selected && {
-                  backgroundColor: theme.selectionBg,
-                  borderLeftColor: theme.selectionBorder,
-                },
+                selected && { backgroundColor: theme.selectionBg, borderLeftColor: theme.selectionBorder },
               ]}
             >
-              <Text style={[typography.label, { color: selected ? theme.primary : theme.secondary }]}>
-                {verse.sourceVerseLabel}{selected ? ' · seleccionado' : ''}
-              </Text>
+              <Text style={[typography.label, { color: selected ? theme.primary : theme.secondary }]}>{verse.sourceVerseLabel}{selected ? ' · seleccionado' : ''}</Text>
               <Text style={[typography.scripture, scriptureMetrics, { color: theme.text }]}>{verse.text}</Text>
             </View>;
           })}
@@ -124,20 +128,8 @@ export function BibleScreen({
 
         <Section theme={theme} title="Navegar por el capítulo">
           <View style={styles.readerActions}>
-            <Action
-              label="Capítulo anterior"
-              variant="secondary"
-              disabled={atFirstChapter}
-              theme={theme}
-              onPress={() => onOpenReader(reader.book, Math.max(1, reader.chapter - 1))}
-            />
-            <Action
-              label="Capítulo siguiente"
-              variant="secondary"
-              disabled={atLastChapter}
-              theme={theme}
-              onPress={() => onOpenReader(reader.book, reader.chapter + 1)}
-            />
+            <Action label="Capítulo anterior" variant="secondary" disabled={atFirstChapter} theme={theme} onPress={() => onOpenReader(reader.book, Math.max(1, reader.chapter - 1), undefined, false)} />
+            <Action label="Capítulo siguiente" variant="secondary" disabled={atLastChapter} theme={theme} onPress={() => onOpenReader(reader.book, reader.chapter + 1, undefined, false)} />
           </View>
         </Section>
 
@@ -151,6 +143,7 @@ export function BibleScreen({
       <ScrollView contentContainerStyle={styles.stack}>
         <Action label="← Cambiar libro" variant="tertiary" theme={theme} onPress={() => {
           setSelectedBook(undefined);
+          onBookContextChange?.(undefined);
           setPickerChapterCount(0);
           setPickerError(false);
         }} />
@@ -163,13 +156,7 @@ export function BibleScreen({
         {pickerLoading ? <StatusBanner theme={theme} kind="info">Cargando capítulos disponibles…</StatusBanner> : null}
         {pickerError ? <StatusBanner theme={theme} kind="error">No se pudo leer la metadata local de capítulos.</StatusBanner> : null}
         {!pickerLoading && !pickerError && pickerChapterCount > 0 ? <View style={styles.chapterGrid}>
-          {Array.from({ length: pickerChapterCount }, (_, index) => index + 1).map(chapter => <ChoiceChip
-            key={chapter}
-            label={String(chapter)}
-            theme={theme}
-            selected={false}
-            onPress={() => onOpenReader(selectedBook, chapter)}
-          />)}
+          {Array.from({ length: pickerChapterCount }, (_, index) => index + 1).map(chapter => <ChoiceChip key={chapter} label={String(chapter)} theme={theme} selected={false} onPress={() => onOpenReader(selectedBook, chapter)} />)}
         </View> : null}
       </ScrollView>
     </Screen>;
@@ -181,25 +168,11 @@ export function BibleScreen({
         <ScreenTitle theme={theme}>Leer</ScreenTitle>
         <Body theme={theme} muted>{runtimeCoverage.translation} · {runtimeCoverage.books} libros disponibles offline. Primero elige un libro; después, un capítulo.</Body>
       </View>
-
       <Section theme={theme} title="Antiguo Testamento">
-        {oldTestament.map(book => <SettingRow
-          key={book}
-          theme={theme}
-          label={book}
-          value="Capítulos →"
-          onPress={() => { void chooseBook(book); }}
-        />)}
+        {oldTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Capítulos →" onPress={() => { void chooseBook(book); }} />)}
       </Section>
-
       <Section theme={theme} title="Nuevo Testamento">
-        {newTestament.map(book => <SettingRow
-          key={book}
-          theme={theme}
-          label={book}
-          value="Capítulos →"
-          onPress={() => { void chooseBook(book); }}
-        />)}
+        {newTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Capítulos →" onPress={() => { void chooseBook(book); }} />)}
       </Section>
     </ScrollView>
   </Screen>;
@@ -211,13 +184,6 @@ const styles = StyleSheet.create({
   readerHeader: { gap: spacing.sm },
   chapterGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
   scripture: { gap: spacing.xs },
-  verse: {
-    borderLeftWidth: 4,
-    borderLeftColor: 'transparent',
-    borderRadius: radius.sm,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-    gap: spacing.xs,
-  },
+  verse: { borderLeftWidth: 4, borderLeftColor: 'transparent', borderRadius: radius.sm, paddingHorizontal: spacing.md, paddingVertical: spacing.md, gap: spacing.xs },
   readerActions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
 });
