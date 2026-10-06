@@ -3,145 +3,81 @@
 ## Última decisión formal
 **EXP-02 / D01–D08 VISUAL REDESIGN — ACCEPT**
 
-## Estado del producto
-El ciclo funcional V1 M1→M5 permanece en **100% ACCEPT**.
+## Producto aceptado hasta ahora
+- ciclo funcional M1→M5: ACCEPT;
+- rediseño visual D01→D08: ACCEPT;
+- evidencia física Android posterior detectó defectos adicionales de navegación/localización/safe-area que requieren corrección separada.
 
-El rediseño visual/accesible post-M5 D01→D08 también está **ACCEPTED**.
-
-## Baseline y HEAD visual
-- baseline D01: `21de4309923c575cd2f43f866d5d925255293e7e`;
-- final D08 / canonical `main`: `d464ff79c20b787b54a34ba2f053b0829b1107ab`;
-- compare: 8 commits ahead, 0 behind;
-- Issue #44: CLOSED / COMPLETED.
-
-## Evidencia D01→D08
-- 8 actividades completadas, una por commit;
-- scope completo dentro de `apps/bible-topic-explorer/**`;
-- typecheck: PASS;
-- tests finales: 74/74 PASS;
-- Expo dependency check: PASS;
-- Android export/bundle smoke: PASS;
-- contrastes light/dark automatizados dentro de thresholds congelados;
-- minimum touch target: 48dp;
-- structural 200% text scaling contract: PASS;
-- selected states no dependen sólo de color;
-- Reduce Motion policy: PASS.
-
-## Contrato funcional preservado
-- RV1909 intacta;
-- exactamente 100 temas curados;
-- selector A–Z preservado;
-- free-form separado de tema curado;
-- matching por términos completos preservado;
-- regresión `amor` / `llamó`: PASS;
-- literal / related / thematic siguen separados;
-- core offline SQLite preservado.
-
-Frozen blobs reportados byte-identical baseline→HEAD:
-- `assets/data/bible-topic-explorer.db`;
-- `src/product/topics.ts`;
-- `src/product/search.ts`;
-- `data/schema.sql`.
-
-## Diseño aceptado
-Dirección:
-`calma viva`.
-
-Implementado:
-- paletas light/dark multirole;
-- tipografía semántica;
-- spacing 4/8/12/16/24/32/48;
-- radii 8/12/16/24, pills reservados;
-- shared primitives accesibles;
-- navegación Hoy / Explorar / Leer / Biblioteca;
-- Explorar con Temas A–Z separado de búsqueda textual;
-- Reader con jerarquía libro→capítulo→texto;
-- Biblioteca/Ajustes/Hoy refinados;
-- onboarding contextual;
-- feedback success/info/warning/error sin coerción.
-
-## Limitaciones de hardware QA pendientes
-Estas limitaciones NO bloquean el ACCEPT del batch visual de prototipo, pero sí deben ejecutarse antes de declarar accesibilidad plenamente validada para producción:
-- manual visual traversal a 200% system text size;
-- TalkBack manual en Android;
-- VoiceOver manual en iOS.
-
-El Implementer no reportó estas pruebas como PASS; quedaron correctamente marcadas NOT RUN por falta de runtime/dispositivo.
-
-## Próximo gate recomendado
-Antes de considerar una release visual de producción:
-1. construir APK post-redesign desde `d464ff79...`;
-2. prueba física Android de flujos visuales principales;
-3. 200% text size real;
-4. TalkBack traversal;
-5. VoiceOver traversal cuando exista target iOS;
-6. persistir hallazgos/correcciones como un gate separado.
-
-## Actividad activa
-Ningún batch de implementación abierto.
-
-Estado actual:
-**EXP-02 prototype functional + visual redesign accepted.**
-## Corrección activa — F01 Android Back
-**Issue #46 — AUTHORIZED**
-
-Evidencia física:
-el botón Atrás de Android puede cerrar la aplicación en vez de volver dentro de ella.
-
-Diagnóstico:
-`App.tsx` no mantenía historial de Route ni interceptaba `hardwareBackPress`.
-
-Baseline exacto:
-`bf8448ecc2d97c67e221abd182bd8c69fdd65ade`
-
-Contrato:
-- si existe historial interno: volver dentro de la app;
-- si no existe historial: mostrar `Salir de la aplicación` / `¿Realmente quieres salir?`;
-- `Cancelar`: permanecer;
-- `Salir`: cierre Android explícito;
-- preservar corpus/search/100 temas/offline/rediseño visual.
-
-Gate:
-`READY FOR SUPERVISOR F01 REVIEW`.
-## Evidencia física Android persistida
-Commit de evidencia:
-`1c4c71a7526c796c158ac8b6afbe95e7e1d023e4`
-
+## Evidencia física Android
 Ruta:
 `evidence/exp02/android-physical-2026-10-06/`
 
-Contiene:
-- contact sheet de 9 capturas de dispositivo real;
-- hashes SHA-256 de las capturas originales;
-- hallazgos observables de UI.
+Commit de evidencia:
+`1c4c71a7526c796c158ac8b6afbe95e7e1d023e4`
 
-La evidencia física debe prevalecer sobre supuestos derivados sólo de tests.
+La evidencia física del dispositivo prevalece sobre supuestos derivados sólo de tests.
 
-## Correcciones activas
+## Actividad activa
+**F01 — Android Back: navegación interna + confirmación de salida**
 
-### F01 — Android Back
-Issue #46 — AUTHORIZED / FIRST
+Issue:
+`#46`
 
-Contrato:
-- back interno navega dentro de la app;
-- en raíz pregunta `¿Realmente quieres salir?`;
-- `Cancelar` mantiene la app;
-- `Salir` cierra Android explícitamente.
+Estado:
+**AUTHORIZED / ACTIVE**
 
-### F02 — Español visible + safe areas
-Issue #47 — AUTHORIZED AFTER F01
+Exact execution baseline:
+`592d232e3c528a7f20bc99c486602b66e853d257`
 
-Nombre visible congelado:
-`Explorador Bíblico`
+Implementer writable scope:
+`apps/bible-topic-explorer/**`
 
-Copy:
-- `offline` visible → `sin conexión`;
-- mantener identificadores internos técnicos sin renombrar.
+Read-only / forbidden:
+- `.project/*`;
+- `README.md`;
+- `stories/*`;
+- `evidence/*`;
+- paths outside the app;
+- corpus/search semantics.
 
-Safe-area:
-- header fuera de status bar;
-- bottom nav fuera de navigation/gesture area;
-- sin paddings específicos por modelo.
+F01 acceptance contract:
+- hardware Back uses internal app history when available;
+- Reader/Ajustes return to their prior in-app destination;
+- no exit dialog while an internal destination exists;
+- at root, Android Back shows:
+  - `Salir de la aplicación`;
+  - `¿Realmente quieres salir?`;
+  - `Cancelar`;
+  - `Salir`;
+- Cancelar keeps app open;
+- Salir explicitly exits Android;
+- listener cleanup and history semantics are deterministic;
+- tests/typecheck/regressions pass.
 
-Secuencia:
-`F01 → Supervisor gate → F02 → Supervisor gate → nuevo APK físico`.
+Final F01 gate markers:
+`IMPLEMENTER COMPLETE — F01 ANDROID BACK`
+`READY FOR SUPERVISOR F01 REVIEW`
+
+Implementer must stop after those markers.
+
+## Siguiente actividad
+**F02 — Localización visible al español + safe areas Android**
+
+Issue:
+`#47`
+
+Estado:
+**BLOCKED BY F01**
+
+Do not implement F02 until F01 receives Supervisor ACCEPT.
+
+Frozen F02 decisions:
+- visible product name: `Explorador Bíblico`;
+- visible `offline` → `sin conexión`;
+- preserve technical slug/package/npm/db names;
+- correct top status-bar and bottom navigation/gesture safe areas based on physical evidence.
+
+After F01 ACCEPT, F02 baseline becomes the accepted F01 HEAD and Supervisor publishes a separate Work Order.
+
+## Workflow
+`F01 Implementer → Supervisor review → F01 ACCEPT → F02 Implementer → Supervisor review → build APK → physical Android verification`.
