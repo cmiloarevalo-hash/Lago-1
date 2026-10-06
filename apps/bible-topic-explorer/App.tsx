@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
-import { useEffect, useMemo, useState } from 'react';
-import { Pressable, SafeAreaView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Alert, BackHandler, Platform, Pressable, SafeAreaView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { DATABASE_NAME } from './src/db/model';
 import { SQLiteLocalPersistence } from './src/db/sqliteLocalPersistence';
-import { initialRoute, tabIcons, tabLabels, tabs, type Route, type TabId } from './src/product/navigation';
+import { goBack as previousNavigation, initialNavigationState, navigate as nextNavigation, tabIcons, tabLabels, tabs, type NavigationState, type Route, type TabId } from './src/product/navigation';
 import { defaultPreferences, type LocalPreferences } from './src/product/preferences';
 import { minimumTouchTarget, radius, spacing, themes, type as typography, type ThemeMode } from './src/ui/theme';
 import { TodayScreen } from './src/ui/screens/TodayScreen';
@@ -16,7 +16,8 @@ import { SettingsScreen } from './src/ui/screens/SettingsScreen';
 const bundledBible = { assetId: require('./assets/data/bible-topic-explorer.db') };
 
 function AppContent() {
-  const [route, setRoute] = useState<Route>(initialRoute());
+  const [navigation, setNavigation] = useState<NavigationState>(initialNavigationState());
+  const route = navigation.current;
   const db = useSQLiteContext();
   const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]);
   const [preferences, setPreferences] = useState<LocalPreferences>(defaultPreferences);
@@ -29,20 +30,57 @@ function AppContent() {
     return () => { active = false; };
   }, [persistence]);
 
+  const navigate = useCallback((next: Route, recordHistory = true) => {
+    setNavigation(state => nextNavigation(state, next, recordHistory));
+  }, []);
+
+  const goBack = useCallback(() => {
+    let handled = false;
+    setNavigation(state => {
+      const previous = previousNavigation(state);
+      if (previous) {
+        handled = true;
+        return previous;
+      }
+      return state;
+    });
+    return handled;
+  }, []);
+
+  useEffect(() => {
+    if (Platform.OS !== 'android') return;
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (navigation.history.length) {
+        setNavigation(state => previousNavigation(state) ?? state);
+        return true;
+      }
+      Alert.alert(
+        'Salir de la aplicación',
+        '¿Realmente quieres salir?',
+        [
+          { text: 'Cancelar', style: 'cancel' },
+          { text: 'Salir', onPress: () => BackHandler.exitApp() },
+        ],
+      );
+      return true;
+    });
+    return () => subscription.remove();
+  }, [navigation.history.length]);
+
   const scheme = useColorScheme();
   const systemMode: ThemeMode = scheme === 'dark' ? 'dark' : 'light';
   const mode: ThemeMode = preferences.theme === 'system' ? systemMode : preferences.theme;
   const theme = themes[mode];
   const activeTab: TabId = route.kind === 'tab' ? route.tab : route.origin;
 
-  const openReader = (book: string, chapter: number, verse?: number) => {
+  const openReader = (book: string, chapter: number, verse?: number, recordHistory = true) => {
     void persistence.recordReading({
       bookId: book,
       chapter,
       ...(verse == null ? {} : { verse }),
       openedAt: new Date().toISOString(),
     });
-    setRoute({ kind: 'reader', book, chapter, verse, origin: activeTab });
+    navigate({ kind: 'reader', book, chapter, verse, origin: activeTab }, recordHistory);
   };
 
   const content = route.kind === 'settings'
@@ -54,7 +92,7 @@ function AppContent() {
         : route.tab === 'search'
           ? <SearchScreen theme={theme} onOpenReader={openReader} />
           : route.tab === 'bible'
-            ? <BibleScreen theme={theme} readingScale={preferences.fontScale} onOpenReader={openReader} />
+            ? <BibleScreen theme={theme} readingScale={preferences.fontScale} initialBook={route.bibleBook} onBookContextChange={book => navigate({ kind: 'tab', tab: 'bible', ...(book ? { bibleBook: book } : {}) })} onOpenReader={openReader} />
             : <LibraryScreen theme={theme} onOpenReader={openReader} />;
 
   return <SafeAreaView style={[styles.root, { backgroundColor: theme.background }]}>
@@ -67,7 +105,7 @@ function AppContent() {
         accessibilityRole="button"
         accessibilityLabel="Abrir ajustes"
         hitSlop={4}
-        onPress={() => setRoute({ kind: 'settings', origin: activeTab })}
+        onPress={() => navigate({ kind: 'settings', origin: activeTab })}
         style={({ pressed }) => [styles.settings, { backgroundColor: pressed ? theme.surfaceSoft : 'transparent' }]}
       >
         <Text accessibilityElementsHidden style={[styles.settingsIcon, { color: theme.primary }]}>⚙</Text>
@@ -85,7 +123,7 @@ function AppContent() {
           accessibilityRole="tab"
           accessibilityLabel={tabLabels[tab]}
           accessibilityState={{ selected }}
-          onPress={() => setRoute({ kind: 'tab', tab })}
+          onPress={() => navigate({ kind: 'tab', tab })}
           style={({ pressed }) => [
             styles.tab,
             selected && { backgroundColor: theme.selectionBg },
