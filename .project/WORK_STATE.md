@@ -109,3 +109,29 @@ Gate previo obligatorio:
 terminar M5 / Issue #40 con verificación física del APK corregido.
 
 Después de M5 ACCEPT podrá autorizarse D01–D08 sin cambiar search/corpus semantics.
+## Batch visual preparado
+**Issue #44 — D01–D08 Rediseño visual y accesibilidad post-M5**
+
+Estado:
+**PREPARED / NOT AUTHORIZED**
+
+Precondición:
+M5 / Issue #40 debe recibir Supervisor ACCEPT.
+
+Baseline de D01:
+se fijará al post-M5 accepted HEAD; no existe SHA autorizado todavía.
+
+Alcance:
+- design tokens;
+- shared components;
+- navigation chrome;
+- Explorar;
+- Leer/Reader;
+- Biblioteca/Ajustes/Hoy;
+- onboarding/feedback;
+- QA visual/accesible.
+
+Restricción:
+preservar exactamente corpus/search semantics y la corrección M5 del catálogo de 100 temas.
+
+No iniciar D01 antes del cierre de M5.
