@@ -1,83 +1,67 @@
 # Estado de trabajo — La U
 
 ## Última decisión formal
-**EXP-02 / D01–D08 VISUAL REDESIGN — ACCEPT**
+**P03 MASTER REMEDIATION PLAN — SUPERVISOR ACCEPT**
 
-## Estado actual
-Las pruebas físicas Android posteriores revelaron defectos y oportunidades que no deben corregirse de forma aislada sin una planificación integral.
+## P03
+Issue `#48` completó P03-01→P03-15 sin cambios de código/dependencias/app. Baseline de planificación verificado intacto:
+`062069a45094876fe28dd9cc7ebc6cfab2a2d9e5`.
 
-## Evidencia física
-Ruta durable:
-`evidence/exp02/android-physical-2026-10-06/`
+Plan aceptado:
+`W1 [gate] → W2 [gate] → W3 [gate] → W4 persistent nested [gate] → W5 physical/release [final gate]`.
 
-La evidencia de dispositivo físico prevalece sobre inferencias derivadas sólo de tests.
+## Decisiones congeladas
+- Book picker: orden canónico AT/NT.
+- Explorar: búsqueda libre/referencia primero; Temas A–Z inmediatamente descubrible y separado.
+- Hoy: `Continúa a tu ritmo` se conserva como apoyo compacto de una línea.
+- Biblioteca/Reader: reemplazar demo-save por guardado real desde Reader usando persistencia local existente.
+- Safe area: `react-native-safe-area-context` sólo si se verifica compatibilidad Expo 57 antes de escribir dependencia; ninguna otra dependencia nueva autorizada.
+- Android Back: cambios significativos de tab participan en historial acotado/deduplicado; reselecciones/redirecciones programáticas no agregan ruido; confirmación de salida sólo cuando se agota historial.
+- Evidencia visual final: originales individuales + SHA-256 + manifest obligatorio.
+- Gate actual Android; VoiceOver NOT RUN salvo autorización iOS separada.
+
+## Invariantes globales
+Preservar en cada wave:
+- RV1909 + SQLite bundled;
+- exactamente 100 temas;
+- A–Z;
+- free-form/topic separados;
+- whole-term/topic y literal/reference semantics;
+- regresión `amor` / `llamó`;
+- core offline/local;
+- slug/package/npm/DB identities;
+- compatibilidad de persistencia local.
 
 ## Actividad activa
-**P03 — Auditoría física integral + plan maestro de correcciones UX/Android**
+**R01 — Master remediation Android/UX W1→W5**
+Issue `#49`.
 
-Issue:
-`#48`
+### W1 — ACTIVE / AUTHORIZED
+W1.1 deterministic route history → W1.2 Android Back/root exit → W1.3 Leer sub-navigation coherence.
 
-Estado:
-**AUTHORIZED / RESEARCH-PLANNING ONLY**
+Implementer writable scope:
+`apps/bible-topic-explorer/**`.
 
-Implementer debe ejecutar:
-`P03-01 → P03-02 → ... → P03-15`
+Implementer debe publicar ENTRY CHECKPOINT antes de código y detenerse al publicar:
+`IMPLEMENTER COMPLETE — R01 W1 ANDROID CORRECTNESS`
+`READY FOR SUPERVISOR R01 W1 REVIEW`.
 
-Objetivo:
-- inventariar evidencia;
-- auditar navegación Android;
-- safe areas/system chrome;
-- español/naming;
-- jerarquía/densidad;
-- percepción real del rediseño;
-- pantalla por pantalla;
-- Explorar;
-- Reader;
-- Hoy/Biblioteca/Ajustes;
-- accesibilidad/device QA;
-- impacto técnico/dependencias;
-- registro de preguntas/inconsistencias;
-- plan maestro de implementación;
-- contrato final de ejecución persistente/anidada.
+### W2-W5
+**PLANNED / SEQUENCE-BLOCKED** hasta el gate anterior correspondiente.
 
-Restricción:
-**NO IMPLEMENTATION DURING P03.**
+W2: español visible + safe areas + chrome compacto.
+W3: densidad/jerarquía compartida + color funcional.
+W4: Explore → Leer/Reader → Hoy → Biblioteca → Ajustes/onboarding/feedback como batch persistente anidado.
+W5: CI/static → APK exact candidate → prueba física Android → evidencia original → final gate.
 
-Final gate:
-`IMPLEMENTER COMPLETE — P03 MASTER REMEDIATION PLAN`
-`READY FOR SUPERVISOR P03 PLAN REVIEW`
+## F01 / F02
+Issues #46/#47 permanecen como inputs históricos; sus requisitos están absorbidos por R01 W1/W2. No ejecutar como batches paralelos.
 
-## F01 / Issue #46
-Estado:
-**PAUSED / INPUT TO P03**
+## Evidencia física
+Ruta actual:
+`evidence/exp02/android-physical-2026-10-06/`.
 
-Requisito conocido:
-- hardware Back debe volver dentro de la app;
-- sólo en raíz preguntar `¿Realmente quieres salir?`;
-- Cancelar mantiene la app;
-- Salir cierra Android.
-
-## F02 / Issue #47
-Estado:
-**PAUSED / INPUT TO P03**
-
-Requisitos conocidos:
-- nombre visible propuesto: `Explorador Bíblico`;
-- copy visible en español (`sin conexión`);
-- safe areas top/bottom;
-- identificadores técnicos internos preservados salvo razón concreta.
-
-## Próximo gate Supervisor
-Cuando P03 esté listo:
-1. revisar evidencia y plan;
-2. resolver Q-IDs/dudas;
-3. corregir inconsistencias;
-4. congelar plan final;
-5. crear/autorizAR un master implementation batch persistente/anidado;
-6. ejecutar por waves con checkpoints y gates sólo donde hagan falta;
-7. construir APK final;
-8. validar físicamente en Android.
+La evidencia física prevalece sobre proxies estáticos para safe areas, Back, 200% y TalkBack.
 
 ## Política
 Private chat history is not authoritative. GitHub durable state is authoritative.
