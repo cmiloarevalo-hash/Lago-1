@@ -15,12 +15,12 @@ function contrast(foreground: string, background: string) {
   return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
 }
 
-describe('D01 design tokens', () => {
+describe('R01 approved design tokens', () => {
   it('freezes the accepted spacing, radii and typography scales', () => {
-    expect(Object.values(spacing)).toEqual([4, 8, 12, 16, 24, 32, 48]);
-    expect([radius.xs, radius.sm, radius.md, radius.lg]).toEqual([8, 12, 16, 24]);
-    expect(type.display).toMatchObject({ fontSize: 34, lineHeight: 40, fontWeight: '700' });
-    expect(type.screenTitle).toMatchObject({ fontSize: 28, lineHeight: 34, fontWeight: '700' });
+    expect(Object.values(spacing)).toEqual([4, 8, 12, 16, 20, 28, 32]);
+    expect([radius.xs, radius.sm, radius.md, radius.lg]).toEqual([7, 10, 14, 20]);
+    expect(type.display).toMatchObject({ fontSize: 30, lineHeight: 36, fontWeight: '700' });
+    expect(type.screenTitle).toMatchObject({ fontSize: 26, lineHeight: 32, fontWeight: '700' });
     expect(type.scripture).toMatchObject({ fontSize: 20, lineHeight: 32 });
     expect(minimumTouchTarget).toBe(48);
   });
