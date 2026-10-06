@@ -1,3 +1,13 @@
+import { RUNTIME_TRANSLATION_ID } from '../db/model';
+
+export type TodayReading = {
+  translationId: typeof RUNTIME_TRANSLATION_ID;
+  book: string;
+  chapter: number;
+  verse: number;
+  prompt: string;
+};
+
 export const dailyReadings = [
   { book: 'Salmos', chapter: 23, verse: 1, prompt: 'Lee con calma y observa qué palabra destaca.' },
   { book: 'Mateo', chapter: 6, verse: 34, prompt: 'Lee el contexto y piensa en el día que tienes delante.' },
@@ -7,4 +17,9 @@ export const dailyReadings = [
   { book: 'Romanos', chapter: 12, verse: 12, prompt: 'Lee el contexto y elige una frase para recordar.' },
   { book: 'Isaías', chapter: 41, verse: 10, prompt: 'Lee el pasaje completo antes de sacar una conclusión.' },
 ] as const;
-export function readingForDate(date: Date) { const day = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000); return dailyReadings[((day % dailyReadings.length) + dailyReadings.length) % dailyReadings.length]; }
+
+export function readingForDate(date: Date): TodayReading {
+  const day = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000);
+  const reading = dailyReadings[((day % dailyReadings.length) + dailyReadings.length) % dailyReadings.length];
+  return { translationId: RUNTIME_TRANSLATION_ID, ...reading };
+}
