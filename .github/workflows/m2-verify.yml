@@ -25,6 +25,13 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: apps/bible-topic-explorer/package-lock.json
+      - name: Synchronize package lock for repair artifact
+        run: npm install --package-lock-only --ignore-scripts
+      - name: Upload repaired package lock
+        uses: actions/upload-artifact@v4
+        with:
+          name: repaired-package-lock
+          path: apps/bible-topic-explorer/package-lock.json
       - name: Install dependencies
         run: npm ci
       - name: Typecheck
