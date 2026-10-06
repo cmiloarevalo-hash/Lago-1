@@ -42,7 +42,7 @@ describe('D08 accessibility and frozen functional contracts', () => {
     expect(minimumTouchTarget).toBeGreaterThanOrEqual(48);
     expect(primitivesSource).toContain('minHeight: 52');
     expect(primitivesSource).toContain('minHeight: minimumTouchTarget');
-    expect(appSource).toContain('minHeight: minimumTouchTarget');
+    expect(appSource).toMatch(/minHeight\s*:\s*minimumTouchTarget/);
   });
 
   it('keeps system text scaling enabled and layouts structurally reflow-friendly at 200%', () => {
@@ -52,7 +52,7 @@ describe('D08 accessibility and frozen functional contracts', () => {
     expect(allUi).not.toContain('ellipsizeMode=');
     expect(allUi).not.toContain('numberOfLines=');
     expect(primitivesSource).toContain("flexWrap: 'wrap'");
-    expect(appSource).toContain("flexWrap: 'wrap'");
+    expect(appSource).toMatch(/flexWrap\s*:\s*['\"]wrap['\"]/);
     expect(type.body.fontSize * 2).toBe(34);
     expect(type.scripture.fontSize * 2).toBe(40);
   });
@@ -60,7 +60,7 @@ describe('D08 accessibility and frozen functional contracts', () => {
   it('makes selected states multichannel rather than color-only', () => {
     expect(primitivesSource).toContain('accessibilityState={{ selected }}');
     expect(primitivesSource).toContain('✓');
-    expect(appSource).toContain('accessibilityState={{ selected }}');
+    expect(appSource).toMatch(/accessibilityState=\{\{\s*selected\s*\}\}/);
     expect(appSource).toContain('tabIndicator');
     expect(readerSource).toContain('accessibilityState={{ selected }}');
     expect(readerSource).toContain('seleccionado');
