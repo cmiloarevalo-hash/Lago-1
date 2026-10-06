@@ -1,6 +1,6 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 import type { LocalPersistence, ReadingHistoryEntry, Reflection, SavedReference } from '../product/adapters';
-import { defaultPreferences, type LocalPreferences } from '../product/preferences';
+import { defaultPreferences, type LocalPreferences, type ThemePreference } from '../product/preferences';
 
 export class SQLiteLocalPersistence implements LocalPersistence {
   private ready: Promise<void> | null = null;
@@ -21,13 +21,35 @@ export class SQLiteLocalPersistence implements LocalPersistence {
         id TEXT PRIMARY KEY, body TEXT NOT NULL, updated_at TEXT NOT NULL,
         book_id TEXT, chapter INTEGER, verse INTEGER
       );
+      CREATE TABLE IF NOT EXISTS app_preferences (
+        id INTEGER PRIMARY KEY CHECK (id = 1), theme TEXT NOT NULL, font_scale REAL NOT NULL,
+        reminder_enabled INTEGER NOT NULL, reminder_time TEXT NOT NULL, onboarding_complete INTEGER NOT NULL
+      );
     `);
     return this.ready;
   }
 
-  // Preference durability is intentionally M3.7; keep the M3.1 boundary compatible without anticipating it.
-  async getPreferences(): Promise<LocalPreferences> { return defaultPreferences; }
-  async setPreferences(_value: LocalPreferences): Promise<void> {}
+  async getPreferences(): Promise<LocalPreferences> {
+    await this.ensureReady();
+    const row = await this.db.getFirstAsync<{theme:string;font_scale:number;reminder_enabled:number;reminder_time:string;onboarding_complete:number}>(
+      'SELECT theme, font_scale, reminder_enabled, reminder_time, onboarding_complete FROM app_preferences WHERE id = 1'
+    );
+    if (!row) return defaultPreferences;
+    const theme: ThemePreference = row.theme === 'light' || row.theme === 'dark' ? row.theme : 'system';
+    return { theme, fontScale: row.font_scale, reminderEnabled: row.reminder_enabled === 1, reminderTime: row.reminder_time, onboardingComplete: row.onboarding_complete === 1 };
+  }
+
+  async setPreferences(value: LocalPreferences): Promise<void> {
+    await this.ensureReady();
+    await this.db.runAsync(
+      `INSERT INTO app_preferences (id, theme, font_scale, reminder_enabled, reminder_time, onboarding_complete)
+       VALUES (1, ?, ?, ?, ?, ?)
+       ON CONFLICT(id) DO UPDATE SET theme=excluded.theme, font_scale=excluded.font_scale,
+       reminder_enabled=excluded.reminder_enabled, reminder_time=excluded.reminder_time,
+       onboarding_complete=excluded.onboarding_complete`,
+      value.theme, value.fontScale, value.reminderEnabled ? 1 : 0, value.reminderTime, value.onboardingComplete ? 1 : 0
+    );
+  }
 
   async listSavedReferences(): Promise<readonly SavedReference[]> {
     await this.ensureReady();
@@ -39,10 +61,7 @@ export class SQLiteLocalPersistence implements LocalPersistence {
 
   async saveReference(value: SavedReference): Promise<void> {
     await this.ensureReady();
-    await this.db.runAsync(
-      'INSERT OR REPLACE INTO app_saved_references (book_id, chapter, verse, saved_at) VALUES (?, ?, ?, ?)',
-      value.bookId, value.chapter, value.verse, value.savedAt
-    );
+    await this.db.runAsync('INSERT OR REPLACE INTO app_saved_references (book_id, chapter, verse, saved_at) VALUES (?, ?, ?, ?)', value.bookId, value.chapter, value.verse, value.savedAt);
   }
 
   async removeSavedReference(value: Pick<SavedReference, 'bookId'|'chapter'|'verse'>): Promise<void> {
@@ -52,37 +71,26 @@ export class SQLiteLocalPersistence implements LocalPersistence {
 
   async listReadingHistory(): Promise<readonly ReadingHistoryEntry[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{book_id:string;chapter:number;verse:number|null;opened_at:string}>(
-      'SELECT book_id, chapter, verse, opened_at FROM app_reading_history ORDER BY opened_at DESC, id DESC LIMIT 50'
-    );
+    const rows = await this.db.getAllAsync<{book_id:string;chapter:number;verse:number|null;opened_at:string}>('SELECT book_id, chapter, verse, opened_at FROM app_reading_history ORDER BY opened_at DESC, id DESC LIMIT 50');
     return rows.map(row => ({ bookId: row.book_id, chapter: row.chapter, ...(row.verse == null ? {} : {verse: row.verse}), openedAt: row.opened_at }));
   }
 
   async recordReading(value: ReadingHistoryEntry): Promise<void> {
     await this.ensureReady();
-    await this.db.runAsync(
-      'INSERT INTO app_reading_history (book_id, chapter, verse, opened_at) VALUES (?, ?, ?, ?)',
-      value.bookId, value.chapter, value.verse ?? null, value.openedAt
-    );
+    await this.db.runAsync('INSERT INTO app_reading_history (book_id, chapter, verse, opened_at) VALUES (?, ?, ?, ?)', value.bookId, value.chapter, value.verse ?? null, value.openedAt);
   }
 
   async listReflections(): Promise<readonly Reflection[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{id:string;body:string;updated_at:string;book_id:string|null;chapter:number|null;verse:number|null}>(
-      'SELECT id, body, updated_at, book_id, chapter, verse FROM app_reflections ORDER BY updated_at DESC'
-    );
-    return rows.map(row => ({
-      id: row.id, body: row.body, updatedAt: row.updated_at,
-      ...(row.book_id != null && row.chapter != null && row.verse != null ? {reference:{bookId:row.book_id,chapter:row.chapter,verse:row.verse}} : {})
-    }));
+    const rows = await this.db.getAllAsync<{id:string;body:string;updated_at:string;book_id:string|null;chapter:number|null;verse:number|null}>('SELECT id, body, updated_at, book_id, chapter, verse FROM app_reflections ORDER BY updated_at DESC');
+    return rows.map(row => ({ id: row.id, body: row.body, updatedAt: row.updated_at, ...(row.book_id != null && row.chapter != null && row.verse != null ? {reference:{bookId:row.book_id,chapter:row.chapter,verse:row.verse}} : {}) }));
   }
 
   async upsertReflection(value: Reflection): Promise<void> {
     await this.ensureReady();
     await this.db.runAsync(
       `INSERT INTO app_reflections (id, body, updated_at, book_id, chapter, verse) VALUES (?, ?, ?, ?, ?, ?)
-       ON CONFLICT(id) DO UPDATE SET body=excluded.body, updated_at=excluded.updated_at,
-       book_id=excluded.book_id, chapter=excluded.chapter, verse=excluded.verse`,
+       ON CONFLICT(id) DO UPDATE SET body=excluded.body, updated_at=excluded.updated_at, book_id=excluded.book_id, chapter=excluded.chapter, verse=excluded.verse`,
       value.id, value.body, value.updatedAt, value.reference?.bookId ?? null, value.reference?.chapter ?? null, value.reference?.verse ?? null
     );
   }
