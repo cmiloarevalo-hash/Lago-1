@@ -1,0 +1,2 @@
+import type { Theme } from '../theme'; import { Body, Heading, Screen } from '../primitives';
+export function BibleScreen({ theme, reader }: { theme: Theme; reader?: {book:string;chapter:number;verse?:number}; onOpenReader: (book:string, chapter:number, verse?:number)=>void }) { return <Screen theme={theme}><Heading theme={theme}>Biblia</Heading><Body theme={theme}>{reader ? `${reader.book} ${reader.chapter}${reader.verse ? `:${reader.verse}` : ''}` : 'Elige un libro y capítulo.'}</Body></Screen>; }
