@@ -38,4 +38,6 @@ export const themes = {
 
 export type Theme = (typeof themes)[ThemeMode];
 export const minimumTouchTarget = 48;
+// Persistent chrome remains responsive to Android font scaling, but is bounded so fixed bars stay usable.
+export const shellMaxFontSizeMultiplier = 1.25;
 export const stateLabels = { success: 'Correcto', warning: 'Atención', error: 'Error', info: 'Información' } as const;

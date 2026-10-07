@@ -45,10 +45,12 @@ describe('D08 accessibility and frozen functional contracts', () => {
     expect(appSource).toMatch(/minHeight\s*:\s*minimumTouchTarget/);
   });
 
-  it('keeps system text scaling enabled and layouts structurally reflow-friendly at 200%', () => {
-    const allUi = runtimeSources('src/ui').join('\n') + appSource;
+  it('keeps content scaling enabled while bounding only persistent shell text', () => {
+    const scalableUi = runtimeSources('src/ui').join('\n');
+    const allUi = scalableUi + appSource;
     expect(allUi).not.toContain('allowFontScaling={false}');
-    expect(allUi).not.toContain('maxFontSizeMultiplier');
+    expect(scalableUi).not.toContain('maxFontSizeMultiplier');
+    expect(appSource).toContain('maxFontSizeMultiplier={shellMaxFontSizeMultiplier}');
     expect(allUi).not.toContain('ellipsizeMode=');
     expect(allUi).not.toContain('numberOfLines=');
     expect(primitivesSource).toContain("flexWrap: 'wrap'");
