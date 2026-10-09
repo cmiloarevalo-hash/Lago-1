@@ -5,6 +5,7 @@ on:
     paths:
       - 'apps/bible-topic-explorer/**'
       - '.github/workflows/m5-apk.yml'
+  # 2026-10-09: one deliberate RC02 REWORK candidate after M2 (97 tests) passed.
   # A mature RC02 candidate is built only when this release workflow itself
   # is deliberately updated; routine app pushes still cannot trigger APKs.
   push:
@@ -54,15 +55,15 @@ jobs:
       - name: Build release APK
         run: cd android && ./gradlew assembleRelease --no-daemon
       - name: Stage APK
-        run: cp android/app/build/outputs/apk/release/app-release.apk bible-topic-explorer-rc02.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk bible-topic-explorer-rc02-rework.apk
       - name: SHA-256 candidate APK
-        run: sha256sum bible-topic-explorer-rc02.apk | tee bible-topic-explorer-rc02.apk.sha256
+        run: sha256sum bible-topic-explorer-rc02-rework.apk | tee bible-topic-explorer-rc02-rework.apk.sha256
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bible-topic-explorer-rc02-apk
+          name: bible-topic-explorer-rc02-rework-apk
           path: |
-            apps/bible-topic-explorer/bible-topic-explorer-rc02.apk
-            apps/bible-topic-explorer/bible-topic-explorer-rc02.apk.sha256
+            apps/bible-topic-explorer/bible-topic-explorer-rc02-rework.apk
+            apps/bible-topic-explorer/bible-topic-explorer-rc02-rework.apk.sha256
           if-no-files-found: error
           retention-days: 90
