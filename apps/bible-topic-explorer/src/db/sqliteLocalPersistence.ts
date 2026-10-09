@@ -1,5 +1,5 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
-import type { LocalPersistence, ReadingHistoryEntry, Reflection, SavedReference } from '../product/adapters';
+import type { HighlightTone, LocalPersistence, ReadingHistoryEntry, Reflection, SavedReference, VerseHighlight, VerseIdentity, VerseNote } from '../product/adapters';
 import { defaultPreferences, type LocalPreferences, type ThemePreference } from '../product/preferences';
 
 export class SQLiteLocalPersistence implements LocalPersistence {
@@ -20,6 +20,17 @@ export class SQLiteLocalPersistence implements LocalPersistence {
       CREATE TABLE IF NOT EXISTS app_reflections (
         id TEXT PRIMARY KEY, body TEXT NOT NULL, updated_at TEXT NOT NULL,
         book_id TEXT, chapter INTEGER, verse INTEGER
+      );
+      CREATE TABLE IF NOT EXISTS app_verse_notes (
+        translation_id TEXT NOT NULL DEFAULT 'rv1909', book_id TEXT NOT NULL,
+        chapter INTEGER NOT NULL, source_verse_label TEXT NOT NULL, body TEXT NOT NULL,
+        updated_at TEXT NOT NULL, PRIMARY KEY (translation_id, book_id, chapter, source_verse_label)
+      );
+      CREATE TABLE IF NOT EXISTS app_verse_highlights (
+        translation_id TEXT NOT NULL DEFAULT 'rv1909', book_id TEXT NOT NULL,
+        chapter INTEGER NOT NULL, source_verse_label TEXT NOT NULL,
+        tone TEXT NOT NULL CHECK (tone IN ('rose','lavender','peach')),
+        updated_at TEXT NOT NULL, PRIMARY KEY (translation_id, book_id, chapter, source_verse_label)
       );
       CREATE TABLE IF NOT EXISTS app_preferences (
         id INTEGER PRIMARY KEY CHECK (id = 1), theme TEXT NOT NULL, font_scale REAL NOT NULL,
@@ -94,4 +105,47 @@ export class SQLiteLocalPersistence implements LocalPersistence {
       value.id, value.body, value.updatedAt, value.reference?.bookId ?? null, value.reference?.chapter ?? null, value.reference?.verse ?? null
     );
   }
+  /** Additive SQLite tables preserve all existing bookmarks, history, reflections and preferences. */
+  async listVerseNotes(): Promise<readonly VerseNote[]> {
+    await this.ensureReady();
+    const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;body:string;updated_at:string}>(
+      "SELECT translation_id,book_id,chapter,source_verse_label,body,updated_at FROM app_verse_notes WHERE translation_id='rv1909'"
+    );
+    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,body:r.body,updatedAt:r.updated_at}));
+  }
+
+  async upsertVerseNote(note: VerseNote): Promise<void> {
+    await this.ensureReady();
+    await this.db.runAsync(`INSERT INTO app_verse_notes (translation_id,book_id,chapter,source_verse_label,body,updated_at)
+      VALUES (?,?,?,?,?,?) ON CONFLICT(translation_id,book_id,chapter,source_verse_label)
+      DO UPDATE SET body=excluded.body,updated_at=excluded.updated_at`,
+      'rv1909',note.bookId,note.chapter,note.sourceVerseLabel,note.body,note.updatedAt);
+  }
+
+  async deleteVerseNote(ref: VerseIdentity): Promise<void> {
+    await this.ensureReady();
+    await this.db.runAsync("DELETE FROM app_verse_notes WHERE translation_id='rv1909' AND book_id=? AND chapter=? AND source_verse_label=?",ref.bookId,ref.chapter,ref.sourceVerseLabel);
+  }
+
+  async listHighlights(): Promise<readonly VerseHighlight[]> {
+    await this.ensureReady();
+    const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;tone:string;updated_at:string}>(
+      "SELECT translation_id,book_id,chapter,source_verse_label,tone,updated_at FROM app_verse_highlights WHERE translation_id='rv1909'"
+    );
+    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,tone:(r.tone==='lavender'||r.tone==='peach'?r.tone:'rose') as HighlightTone,updatedAt:r.updated_at}));
+  }
+
+  async setHighlight(ref: VerseIdentity, tone: HighlightTone): Promise<void> {
+    await this.ensureReady();
+    await this.db.runAsync(`INSERT INTO app_verse_highlights (translation_id,book_id,chapter,source_verse_label,tone,updated_at)
+      VALUES (?,?,?,?,?,?) ON CONFLICT(translation_id,book_id,chapter,source_verse_label)
+      DO UPDATE SET tone=excluded.tone,updated_at=excluded.updated_at`,
+      'rv1909',ref.bookId,ref.chapter,ref.sourceVerseLabel,tone,new Date().toISOString());
+  }
+
+  async removeHighlight(ref: VerseIdentity): Promise<void> {
+    await this.ensureReady();
+    await this.db.runAsync("DELETE FROM app_verse_highlights WHERE translation_id='rv1909' AND book_id=? AND chapter=? AND source_verse_label=?",ref.bookId,ref.chapter,ref.sourceVerseLabel);
+  }
+
 }

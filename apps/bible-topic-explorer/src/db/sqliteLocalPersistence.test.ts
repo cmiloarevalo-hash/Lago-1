@@ -41,3 +41,23 @@ describe('SQLiteLocalPersistence', () => {
     expect(runAsync).toHaveBeenCalledWith(expect.stringContaining('app_preferences'),'dark',1.2,1,'08:00',1);
   });
 });
+
+
+describe('RC02 verse annotations',()=>{
+  it('adds non-destructive per-verse RV1909 notes and highlights tables',async()=>{
+    const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync:vi.fn().mockResolvedValue({}),getAllAsync:vi.fn().mockResolvedValue([]),getFirstAsync:vi.fn()};
+    const p=new SQLiteLocalPersistence(db as never);
+    await p.upsertVerseNote({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1',body:'Privada',updatedAt:'u'});
+    await p.setHighlight({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1'},'rose');
+    const schema=db.execAsync.mock.calls[0][0] as string;
+    expect(schema).toContain('app_verse_notes');expect(schema).toContain('app_verse_highlights');
+    expect(schema).toContain('app_saved_references');expect(schema).toContain('app_reading_history');
+    expect(db.runAsync).toHaveBeenCalledWith(expect.stringContaining('app_verse_notes'),'rv1909','Salmos',23,'1','Privada','u');
+  });
+  it('keeps deletion scoped to edition and exact source verse label',async()=>{
+    const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync:vi.fn().mockResolvedValue({}),getAllAsync:vi.fn().mockResolvedValue([]),getFirstAsync:vi.fn()};
+    const p=new SQLiteLocalPersistence(db as never);
+    await p.deleteVerseNote({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1'});
+    expect(db.runAsync.mock.calls[0][0]).toContain("translation_id='rv1909'");
+  });
+});
