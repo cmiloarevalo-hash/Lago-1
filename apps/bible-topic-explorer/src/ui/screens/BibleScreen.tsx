@@ -55,7 +55,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
           onLayout={selected?event=>{const y=event.nativeEvent.layout.y;setVerseOffset(prev=>prev?.key===targetKey&&prev.y===y?prev:{key:targetKey,y});}:undefined}
           style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
           <Pressable accessibilityRole="button" accessibilityLabel={'Opciones de versículo. '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+'. '+verse.text}
-            accessibilityState={{selected}} onPress={()=>openVerseMenu(verse)}
+            accessibilityState={{ selected }} onPress={()=>openVerseMenu(verse)}
             style={({pressed})=>[styles.verse,pressed&&{opacity:0.75}]}>
             <Text style={[typography.label,{color:tone?tone.ink:selected?theme.primaryText:isSaved?theme.amber:theme.secondary}]}>
               {verse.sourceVerseLabel}{selected?' · versículo elegido':''}{isSaved?' · guardado':''}{mark?' · destacado':''}
