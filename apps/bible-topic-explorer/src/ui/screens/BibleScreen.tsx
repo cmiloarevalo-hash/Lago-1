@@ -58,7 +58,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
             accessibilityState={{ selected }} onPress={()=>openVerseMenu(verse)}
             style={({pressed})=>[styles.verse,pressed&&{opacity:0.75}]}>
             <Text style={[typography.label,{color:tone?tone.ink:selected?theme.primaryText:isSaved?theme.amber:theme.secondary}]}>
-              {verse.sourceVerseLabel}{selected?' · versículo elegido':''}{isSaved?' · guardado':''}{mark?' · destacado':''}
+              {verse.sourceVerseLabel}{selected?' · seleccionado':''}{isSaved?' · guardado':''}{mark?' · destacado':''}
             </Text>
             <Text style={[typography.scripture,scriptureMetrics,{color:tone?tone.ink:theme.text}]}>{verse.text}</Text>
           </Pressable>
