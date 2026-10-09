@@ -29,8 +29,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
    <View style={styles.drawerOverlay}>
     <SafeAreaView edges={['top','bottom']} style={[styles.drawerPanel,{backgroundColor:theme.surface}]}>
       <ScrollView contentContainerStyle={styles.drawerContents} keyboardShouldPersistTaps="handled">
-        <Text accessibilityRole="header" style={[typography.sectionTitle,{color:theme.text}]}>☰ Menú de La U</Text>
-        <Text style={[typography.metadata,{color:theme.secondary}]}>Biblia RV1909 · funciones existentes y próximas</Text>
+        <Text accessibilityRole="header" style={[typography.subhead,{color:theme.text}]}>Menú de La U</Text>
         {drawerDestinations.map(item=><Pressable key={item.id} accessibilityRole="button"
           accessibilityLabel={item.available?item.label:item.label+' · Próximamente, no disponible'}
           accessibilityState={{disabled:!item.available}}
@@ -39,11 +38,13 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
           <Text style={[typography.body,{color:item.available?theme.text:theme.disabledText},styles.drawerItemLabel]}>{item.label}{item.available?'':' · próximamente'}</Text>
           {item.available?<Text style={[typography.label,{color:theme.primaryText}]}>›</Text>:null}
         </Pressable>)}
+      </ScrollView>
+      <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}
           style={[styles.drawerClose,{borderColor:theme.border}]}>
           <Text style={[typography.label,{color:theme.primaryText}]}>Cerrar menú</Text>
         </Pressable>
-      </ScrollView>
+      </View>
     </SafeAreaView>
     <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú tocando fuera" onPress={()=>setDrawerOpen(false)} style={styles.drawerDismiss}/>
    </View>
@@ -51,4 +52,4 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  </SafeAreaView>;
 }
 export default function App(){return <SafeAreaProvider><SQLiteProvider databaseName={DATABASE_NAME} assetSource={bundledBible}><AppContent/></SQLiteProvider></SafeAreaProvider>;}
-const styles=StyleSheet.create({root:{flex:1},top:{minHeight:52,paddingHorizontal:20,paddingVertical:spacing.xs,borderBottomWidth:1,flexDirection:'row',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:spacing.xs},brand:{gap:1,flexShrink:1},brandRow:{flexDirection:'row',flexShrink:1,alignItems:'center',gap:spacing.xs},menuButton:{minHeight:minimumTouchTarget,minWidth:minimumTouchTarget,borderRadius:radius.sm,alignItems:'center',justifyContent:'center'},menuGlyph:{fontSize:24,lineHeight:28},settings:{minHeight:minimumTouchTarget,minWidth:minimumTouchTarget,borderRadius:radius.sm,paddingHorizontal:spacing.sm,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:spacing.xs},settingsIcon:{fontSize:18,lineHeight:22},content:{flex:1},tabs:{minHeight:60,borderTopWidth:1,flexDirection:'row',paddingHorizontal:spacing.xs,paddingVertical:spacing.xs,gap:spacing.xs},tab:{flex:1,minHeight:minimumTouchTarget,borderRadius:radius.sm,alignItems:'center',justifyContent:'center',gap:1,position:'relative'},tabIndicator:{position:'absolute',top:2,width:28,height:3,borderRadius:2},tabIcon:{fontSize:17,lineHeight:19},drawerOverlay:{flex:1,flexDirection:'row',backgroundColor:'rgba(0,0,0,0.55)'},drawerPanel:{width:'84%',maxWidth:390,height:'100%'},drawerContents:{padding:spacing.md,paddingBottom:spacing.xxxl,gap:spacing.xs},drawerItem:{minHeight:minimumTouchTarget,borderRadius:radius.sm,borderWidth:1,paddingHorizontal:spacing.md,paddingVertical:spacing.xs,flexDirection:'row',alignItems:'center',justifyContent:'space-between',gap:spacing.sm},drawerItemLabel:{flexShrink:1,flexGrow:1},drawerClose:{minHeight:minimumTouchTarget,alignItems:'center',justifyContent:'center',borderRadius:radius.sm,borderWidth:1,marginTop:spacing.md},drawerDismiss:{flex:1}});
+const styles=StyleSheet.create({root:{flex:1},top:{minHeight:52,paddingHorizontal:20,paddingVertical:spacing.xs,borderBottomWidth:1,flexDirection:'row',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:spacing.xs},brand:{gap:1,flexShrink:1},brandRow:{flexDirection:'row',flexShrink:1,alignItems:'center',gap:spacing.xs},menuButton:{minHeight:minimumTouchTarget,minWidth:minimumTouchTarget,borderRadius:radius.sm,alignItems:'center',justifyContent:'center'},menuGlyph:{fontSize:24,lineHeight:28},settings:{minHeight:minimumTouchTarget,minWidth:minimumTouchTarget,borderRadius:radius.sm,paddingHorizontal:spacing.sm,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:spacing.xs},settingsIcon:{fontSize:18,lineHeight:22},content:{flex:1},tabs:{minHeight:60,borderTopWidth:1,flexDirection:'row',paddingHorizontal:spacing.xs,paddingVertical:spacing.xs,gap:spacing.xs},tab:{flex:1,minHeight:minimumTouchTarget,borderRadius:radius.sm,alignItems:'center',justifyContent:'center',gap:1,position:'relative'},tabIndicator:{position:'absolute',top:2,width:28,height:3,borderRadius:2},tabIcon:{fontSize:17,lineHeight:19},drawerOverlay:{flex:1,flexDirection:'row',backgroundColor:'rgba(0,0,0,0.55)'},drawerPanel:{width:'88%',maxWidth:420,height:'100%'},drawerContents:{padding:spacing.md,paddingBottom:spacing.lg,gap:spacing.xs},drawerItem:{minHeight:minimumTouchTarget,borderRadius:radius.sm,borderWidth:1,paddingHorizontal:spacing.md,paddingVertical:spacing.xs,flexDirection:'row',alignItems:'center',justifyContent:'space-between',gap:spacing.sm},drawerItemLabel:{flexShrink:1,flexGrow:1},drawerFooter:{padding:spacing.sm,borderTopWidth:1},drawerClose:{minHeight:minimumTouchTarget,alignItems:'center',justifyContent:'center',borderRadius:radius.sm,borderWidth:1},drawerDismiss:{flex:1}});
