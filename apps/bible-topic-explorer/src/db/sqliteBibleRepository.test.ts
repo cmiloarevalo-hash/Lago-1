@@ -20,3 +20,25 @@ describe('RC02 H search-v2 literal matching',()=>{
     expect(hits[1].matchType).toBe('thematic_term');
   });
 });
+
+
+describe('Phone-QA A2 bounded topic pagination',()=>{
+ it('bounds every SQLite round trip and returns stable lexical-first matches even with thematic overflow',async()=>{
+  const lexicalRows=[{bookId:'John',bookName:'Juan',chapter:1,verse:1,sourceVerseLabel:'1',text:'gran amor'}];
+  const thematicRows=[{bookId:'Luke',bookName:'Lucas',chapter:1,verse:2,sourceVerseLabel:'2',text:'mi prójimo'}];
+  const query=vi.fn().mockResolvedValueOnce(lexicalRows).mockResolvedValueOnce(thematicRows);
+  const hits=await new SQLiteBibleRepository({getAllAsync:query} as never).searchTopic('amor',50);
+  expect(hits.map(h=>h.matchType)).toEqual(['lexical_related_form','thematic_term']);
+  for(const args of query.mock.calls){expect(args[0]).toContain('LIMIT ? OFFSET ?');expect(args.at(-2)).toBe(128);}
+ });
+ it('can cancel a long-running topic after a bounded asynchronous page',async()=>{
+  const controller=new AbortController();const query=vi.fn().mockImplementation(async()=>{controller.abort();return [{bookId:'John',bookName:'Juan',chapter:1,verse:1,sourceVerseLabel:'1',text:'amor'}]});
+  const hits=await new SQLiteBibleRepository({getAllAsync:query} as never).searchTopic('amor',50,controller.signal);
+  expect(hits).toEqual([]);expect(query).toHaveBeenCalledTimes(1);
+ });
+ it('never returns unrelated substring hits in the bounded cursor',async()=>{
+  const query=vi.fn().mockResolvedValue([{bookId:'Gen',bookName:'Génesis',chapter:1,verse:1,sourceVerseLabel:'1',text:'llamó a su padre'}]);
+  const hits=await new SQLiteBibleRepository({getAllAsync:query} as never).searchTopic('amor');
+  expect(hits).toEqual([]);
+ });
+});
