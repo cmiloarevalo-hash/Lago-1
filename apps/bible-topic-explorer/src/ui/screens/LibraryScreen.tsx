@@ -21,7 +21,7 @@ export function LibraryScreen({ theme, onOpenReader }: { theme: Theme; onOpenRea
   useEffect(() => { void refresh(); }, [refresh]);
   const uniqueChapters = new Set(history.map(item => item.bookId + ':' + item.chapter)).size; const latest = history[0];
   const saveReflection = async () => { try { const reflection: Reflection = { id: LIBRARY_REFLECTION_ID, body: note, updatedAt: new Date().toISOString() }; await persistence.upsertReflection(reflection); setStatus(uxCopy.savedReflection); setStatusKind('success'); } catch { setStatus('No se pudo guardar la reflexión local.'); setStatusKind('error'); } };
-  const canonicalOrder=(a:{bookId:string;chapter:number;sourceVerseLabel:string},b:{bookId:string;chapter:number;sourceVerseLabel:string})=>{const x=a.bookOrder??999,y=b.bookOrder??999;return x-y||a.bookId.localeCompare(b.bookId,'es')||a.chapter-b.chapter||Number.parseInt(a.sourceVerseLabel,10)-Number.parseInt(b.sourceVerseLabel,10)||a.sourceVerseLabel.localeCompare(b.sourceVerseLabel,'es');};
+  const canonicalOrder=(a:{bookId:string;chapter:number;sourceVerseLabel:string;bookOrder?:number},b:{bookId:string;chapter:number;sourceVerseLabel:string;bookOrder?:number})=>{const x=a.bookOrder??999,y=b.bookOrder??999;return x-y||a.bookId.localeCompare(b.bookId,'es')||a.chapter-b.chapter||Number.parseInt(a.sourceVerseLabel,10)-Number.parseInt(b.sourceVerseLabel,10)||a.sourceVerseLabel.localeCompare(b.sourceVerseLabel,'es');};
   const sortedNotes=[...verseNotes].sort(canonicalOrder);const sortedHighlights=[...highlights].sort(canonicalOrder);
   const visibleHistory = showAllHistory ? history.slice(0, 10) : history.slice(0, 4);
 
