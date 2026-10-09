@@ -1,6 +1,12 @@
 name: M2 verification
 
 on:
+  # RC02: verify direct source commits without launching M5 APK on routine changes.
+  push:
+    branches: [main]
+    paths:
+      - 'apps/bible-topic-explorer/**'
+      - '.github/workflows/m2-verify.yml'
   pull_request:
     paths:
       - 'apps/bible-topic-explorer/**'
