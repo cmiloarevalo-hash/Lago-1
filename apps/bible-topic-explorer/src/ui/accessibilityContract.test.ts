@@ -69,13 +69,13 @@ describe('D08 accessibility and frozen functional contracts', () => {
   });
 
   it.each([
-    ['light selected indicator', themes.light.selectionBorder, themes.light.surface],
+    ['lavender selected indicator', themes.lavender.selectionBorder, themes.lavender.surface],
     ['dark selected indicator', themes.dark.selectionBorder, themes.dark.surface],
-    ['light warning banner', themes.light.warningText, themes.light.warningBg],
+    ['lavender warning banner', themes.lavender.warningText, themes.lavender.warningBg],
     ['dark warning banner', themes.dark.warningText, themes.dark.warningBg],
-    ['light error banner', themes.light.errorText, themes.light.errorBg],
+    ['lavender error banner', themes.lavender.errorText, themes.lavender.errorBg],
     ['dark error banner', themes.dark.errorText, themes.dark.errorBg],
-    ['light info banner', themes.light.infoText, themes.light.infoBg],
+    ['lavender info banner', themes.lavender.infoText, themes.lavender.infoBg],
     ['dark info banner', themes.dark.infoText, themes.dark.infoBg],
   ])('%s meets essential contrast', (_name, foreground, background) => {
     const ratio = contrast(foreground, background);
