@@ -40,3 +40,13 @@ describe('R01 deterministic history', () => {
     expect(goBack(initialNavigationState())).toBeNull();
   });
 });
+
+
+describe('RC02 music secondary route',()=>{
+  it('opens Spotify selection from Hoy without adding a fifth tab',()=>{
+    expect(tabs).toHaveLength(4);
+    const from=initialNavigationState();const mus=navigate(from,{kind:'music',origin:'today'});
+    expect(mus.current).toEqual({kind:'music',origin:'today'});
+    expect(goBack(mus)?.current).toEqual({kind:'tab',tab:'today'});
+  });
+});
