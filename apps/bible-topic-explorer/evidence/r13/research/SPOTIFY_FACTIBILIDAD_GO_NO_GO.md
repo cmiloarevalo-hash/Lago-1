@@ -1,0 +1,28 @@
+# R1.3 — Spotify estilo Waze | Factibilidad y decisión condicionada
+**Fecha de contraste:** 2026-10-09. **Tipo:** estudio de factibilidad, NO prueba SDK real, NO reproducción acreditada, NO código. **Fuente del requisito:** [Supervisor Gate S en #58](https://github.com/cmiloarevalo-hash/Lago-1/issues/58#issuecomment-6083580487) y [referencia UX 04](https://github.com/cmiloarevalo-hash/Lago-1/blob/evidence/r13-approved-ux-reference/apps/bible-topic-explorer/evidence/r13/visual-references/04-spotify-compacto.svg).
+
+## Patrón deseado: navegación no equivale a streaming
+Waze muestra controles para proveedor de música compatible y mantiene mapa, mientras la música real vive en la app/servicio Spotify. Para La U: el usuario selecciona `☰ > Música y Spotify`, consentimiento `Conectar`, vuelve a Biblia, mini-bar no tapa versículo ni burbuja de nota, plegable a icono ♫, estado/tema e idioma de controles. **Nunca** mostrar Play/Pausa o ⏮/⏭ si la conexión no autoriza esos comandos. Botón constante `Abrir Spotify` y playlist del Product Owner <https://open.spotify.com/playlist/25HDm6Qx8mZoJWWdgFLz62>.
+
+## Viabilidad por integración
+| Escenario | Qué permite / dependencia | Dictamen |
+|---|---|---|
+| Enlace HTTPS externo actual | `Linking.openURL`, abre Spotify instalado o navegador; app Biblia sigue offline | **GO** independiente de SDK; no muestra/controla pista |
+| Spotify Android App Remote SDK | Spotify separado instalado y sesión de usuario; dev-app `client_id`, redirect, package+fingerprint, consentimiento; `PlayerState` y Play/Pausa/Siguiente/Anterior del SDK **en principio**; política y acceso vigentes se verifican en teléfono | **GO SOLO piloto restringido** tras acceso/términos, no producto masivo |
+| Spotify Web API + remote player | OAuth, scopes, endpoints limitados y cuota dev; no es sustituto directo de App Remote para control permanente; comandos pueden exigir elegibilidad y dispositivo activo | **NO GO como alternativa MVP general** |
+| Spotify Embeds / iFrame | render web oficial, no mini-bar nativo con controles persistentes equivalentes ni offline | **NO GO para prometer Waze** |
+| Grabar/cachear audio Spotify y ponerlo en APK | derechos y políticas no permiten redistribución independiente | **BLOCK** |
+| Pantalla de canciones para grupo pastoral | guía textual original con referencias y enlaces oficiales, sin audio ni letras | **GO catálogo informativo**, derechos públicos pendientes |
+
+## Políticas primarias (verificadas el 2026-10-09)
+1. [Spotify Android SDK](https://developer.spotify.com/documentation/android): App Remote controla la app Spotify de fondo, metadatos/estado y reproducción, requiere permiso. [Tutorial](https://developer.spotify.com/documentation/android/tutorials/getting-started): `client_id`, redirect, Android package/fingerprint, Spotify instalada, autorizar `app-remote-control`, `subscribeToPlayerState`, reproducción de playlist. El SDK es un módulo Android, no basta JavaScript en Expo Go; requiere **prebuild/bridge/config plugin** y pruebas reales (riesgo alto de integración).
+2. [Spotify lifecycle](https://developer.spotify.com/documentation/android/tutorials/application-lifecycle): conectar cuando UI activa, desconectar al salir, no mantener Spotify despierto por un servicio propio. Al pausar/reanudar La U, el mini-bar debe representar estado real.
+3. [Spotify 2026 Feb + Mar](https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security): **Dev Mode** requiere titular Premium y máximo **5 usuarios autorizados** por nueva app; el límite antiguo 1 client ID se **modificó en julio 2026**.
+4. [Spotify 2026 Jul](https://developer.spotify.com/blog/2026-07-23-web-api-quota-updates): **25 client IDs por cuenta de desarrollador** (en vez de uno), cuota común por cuenta. **No aumentó la cuota de usuarios: siguen 5** según [página actual de quota modes](https://developer.spotify.com/documentation/web-api/concepts/quota-modes). No atribuir automáticamente todos los límites específicos de Web API al SDK App Remote: pedir **confirmación explícita de modalidad/distribución**.
+5. [Extended mode](https://developer.spotify.com/documentation/web-api/concepts/quota-modes): dirigida a organización legal, servicio activo, aproximadamente 250k MAU, mercados clave y viabilidad, revisión por Spotify; no presuponer elegibilidad de La U.
+6. [Spotify uso público/comercial](https://support.spotify.com/es-gl/article/spotify-public-commercial-use/): licencia de uso personal no faculta ambiente escolar/actividad pública; no usar la cuenta personal como autorización de canto o reproducción grupal.
+
+## Estados de UI auténticos y aceptación previa de producto
+`sin instalar` → botón instalar/abrir; `no conectado` → conectar; `auth pendiente` → esperar sin mostrar play; `sin permiso/denegado` → salida externa, restablecer desde ajustes; `conectado sin pista` → reproducir playlist solo con autorización y elegibilidad; `reproduciendo` → suscripción a pista + play/pause/prev/next con manejo de error; `sin internet` → no prometer acceso a música (Spotify gestiona su caché, no La U); `fuera de cuota/no autorizado` → aviso y fallback.
+
+**Prueba Android futura necesaria:** cuenta Premium del desarrollador y usuario de prueba autorizado, paquete/fingerprint real, reproducción y control 3 veces, cambios de actividad, pantalla bloqueada, Spotify no instalado, sin internet, cuenta Free/no allowlist, retorno a RV1909, 100/160/200%, TalkBack, batería, cronómetro y logs. No hay esas pruebas **NO RUN**. Decisión: **HOLD mini-player en release**; MVP conserva enlace external.
