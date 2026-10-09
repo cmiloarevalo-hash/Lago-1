@@ -22,10 +22,10 @@ export function MusicScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
       <Metadata theme={theme}>{entry.category.toUpperCase()}</Metadata>
       <Body theme={theme}>{entry.title}</Body>
       <Metadata theme={theme}>Fuente/curador: {entry.curator}</Metadata>
-      <Action label={'Abrir '+entry.category+' en Spotify'} theme={theme} variant="secondary" onPress={()=>{void open(entry.url);}}/>
+      <View style={styles.cta}><Action label="Abrir en Spotify ↗" theme={theme} variant="secondary" onPress={()=>{void open(entry.url);}}/></View>
     </Card>)}
    </Section>
    <Body theme={theme} muted>La U no reproduce ni guarda música. Los enlaces y su disponibilidad pueden cambiar; para reuniones públicas comprueba permisos musicales del lugar.</Body>
  </ScrollView></Screen>;
 }
-const styles=StyleSheet.create({stack:{gap:spacing.md,paddingBottom:spacing.xxl}});
+const styles=StyleSheet.create({stack:{gap:spacing.md,paddingBottom:spacing.xxl},cta:{width:'100%',alignSelf:'stretch',minWidth:0}});

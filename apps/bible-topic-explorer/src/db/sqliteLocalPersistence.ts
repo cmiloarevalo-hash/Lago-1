@@ -46,7 +46,8 @@ export class SQLiteLocalPersistence implements LocalPersistence {
       'SELECT theme, font_scale, reminder_enabled, reminder_time, onboarding_complete FROM app_preferences WHERE id = 1'
     );
     if (!row) return defaultPreferences;
-    const theme: ThemePreference = row.theme === 'light' || row.theme === 'dark' ? row.theme : 'system';
+    // Migrate old light/system settings to the new explicit three-theme selector without touching user notes.
+    const theme: ThemePreference = row.theme === 'sky' || row.theme === 'dark' ? row.theme : 'lavender';
     return { theme, fontScale: row.font_scale, reminderEnabled: row.reminder_enabled === 1, reminderTime: row.reminder_time, onboardingComplete: row.onboarding_complete === 1 };
   }
 

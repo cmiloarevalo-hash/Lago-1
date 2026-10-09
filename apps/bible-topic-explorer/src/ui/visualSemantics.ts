@@ -6,7 +6,7 @@ export type StatusKind = 'success' | 'warning' | 'error' | 'info';
 export function actionVisuals(theme: Theme, variant: ActionVariant) {
   if (variant === 'primary') return { backgroundColor: theme.primary, color: theme.onPrimary, borderColor: theme.primary };
   if (variant === 'secondary') return { backgroundColor: theme.surfaceSoft, color: theme.text, borderColor: theme.selectionBorder };
-  return { backgroundColor: 'transparent', color: theme.primary, borderColor: 'transparent' };
+  return { backgroundColor: 'transparent', color: theme.primaryText, borderColor: 'transparent' };
 }
 
 export function statusVisuals(theme: Theme, kind: StatusKind) {

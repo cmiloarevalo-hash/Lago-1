@@ -26,12 +26,15 @@ describe('R01 approved design tokens', () => {
   });
 
   it.each([
-    ['light text/background', themes.light.text, themes.light.background, 4.5],
-    ['light secondary/background', themes.light.secondary, themes.light.background, 4.5],
-    ['light on-primary/primary', themes.light.onPrimary, themes.light.primary, 4.5],
-    ['light warning', themes.light.warningText, themes.light.warningBg, 4.5],
-    ['light error', themes.light.errorText, themes.light.errorBg, 4.5],
-    ['light info', themes.light.infoText, themes.light.infoBg, 4.5],
+    ['lavender text/background', themes.lavender.text, themes.lavender.background, 4.5],
+    ['lavender secondary/background', themes.lavender.secondary, themes.lavender.background, 4.5],
+    ['lavender on-primary/primary', themes.lavender.onPrimary, themes.lavender.primary, 4.5],
+    ['lavender warning', themes.lavender.warningText, themes.lavender.warningBg, 4.5],
+    ['lavender error', themes.lavender.errorText, themes.lavender.errorBg, 4.5],
+    ['lavender info', themes.lavender.infoText, themes.lavender.infoBg, 4.5],
+    ['sky text/background', themes.sky.text, themes.sky.background, 4.5],
+    ['sky secondary/background', themes.sky.secondary, themes.sky.background, 4.5],
+    ['sky on-primary/primary', themes.sky.onPrimary, themes.sky.primary, 4.5],
     ['dark text/background', themes.dark.text, themes.dark.background, 4.5],
     ['dark secondary/background', themes.dark.secondary, themes.dark.background, 4.5],
     ['dark on-primary/primary', themes.dark.onPrimary, themes.dark.primary, 4.5],
@@ -43,21 +46,25 @@ describe('R01 approved design tokens', () => {
   });
 
   it('gives essential selection/focus indicators at least 3:1 against surfaces', () => {
-    expect(contrast(themes.light.selectionBorder, themes.light.surface)).toBeGreaterThanOrEqual(3);
+    expect(contrast(themes.lavender.selectionBorder, themes.lavender.surface)).toBeGreaterThanOrEqual(3);
     expect(contrast(themes.dark.selectionBorder, themes.dark.surface)).toBeGreaterThanOrEqual(3);
-    expect(contrast(themes.light.focusRing, themes.light.surface)).toBeGreaterThanOrEqual(3);
+    expect(contrast(themes.lavender.focusRing, themes.lavender.surface)).toBeGreaterThanOrEqual(3);
     expect(contrast(themes.dark.focusRing, themes.dark.surface)).toBeGreaterThanOrEqual(3);
   });
 });
 
 
 describe('RC02 Calma viva v2', () => {
-  it('uses warm plum/rose tokens instead of green as the primary identity', () => {
-    expect(themes.light.primary).toBe('#8F3F72');
+  it('uses user-selected lavender, neutral sky and charcoal dark palettes', () => {
+    expect(themes.lavender.primary).toBe('#E0E7FF');
+    expect(themes.sky.primary).toBe('#D5F0FF');
     expect(themes.dark.primary).toBe('#F5A5CC');
-    expect(themes.light.background).toBe('#FFF9F7');
+    expect(themes.lavender.background).toBe('#F7F8FF');
     expect(themes.dark.background).toBe('#17151E');
-    expect(themes.light.selectionBg).toBe('#FCE7F3');
+    expect(themes.lavender.selectionBg).toBe('#E0E7FF');
     expect(themes.dark.selectionBg).toBe('#493246');
+    expect(contrast(themes.lavender.primaryText,themes.lavender.surface)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(themes.sky.primaryText,themes.sky.surface)).toBeGreaterThanOrEqual(4.5);
+    expect(contrast(themes.sky.selectionBorder,themes.sky.surface)).toBeGreaterThanOrEqual(3);
   });
 });

@@ -36,7 +36,7 @@ describe('SQLiteLocalPersistence', () => {
     const runAsync=vi.fn().mockResolvedValue({}); const getFirstAsync=vi.fn().mockResolvedValue(null);
     const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync,getAllAsync:vi.fn(),getFirstAsync};
     const persistence=new SQLiteLocalPersistence(db as never);
-    await expect(persistence.getPreferences()).resolves.toMatchObject({theme:'system',fontScale:1,onboardingComplete:false});
+    await expect(persistence.getPreferences()).resolves.toMatchObject({theme:'lavender',fontScale:1,onboardingComplete:false});
     await persistence.setPreferences({theme:'dark',fontScale:1.2,reminderEnabled:true,reminderTime:'08:00',onboardingComplete:true});
     expect(runAsync).toHaveBeenCalledWith(expect.stringContaining('app_preferences'),'dark',1.2,1,'08:00',1);
   });
