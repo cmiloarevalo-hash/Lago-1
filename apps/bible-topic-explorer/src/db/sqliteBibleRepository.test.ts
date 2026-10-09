@@ -3,3 +3,20 @@ describe('SQLiteBibleRepository',()=>{it('maps bundled chapter rows',async()=>{c
 
 
 describe('D05 book navigation metadata',()=>{it('reads chapter count from existing translation metadata without changing corpus',async()=>{const getAllAsync=vi.fn().mockResolvedValue([{chapterCount:21}]);const r=new SQLiteBibleRepository({getAllAsync} as never);await expect(r.getBookChapterCount('Juan')).resolves.toBe(21);expect(getAllAsync).toHaveBeenCalledTimes(1);});});
+
+
+describe('RC02 H search-v2 literal matching',()=>{
+  it('rejects substring matching inside unrelated words',async()=>{
+    const db={getAllAsync:vi.fn().mockResolvedValue([{bookId:'Psa',bookName:'Salmos',chapter:1,verse:1,sourceVerseLabel:'1',text:'El enamorado llamó a otra persona'},{bookId:'Psa',bookName:'Salmos',chapter:1,verse:2,sourceVerseLabel:'2',text:'El amor es paciente'}])};
+    const repo=new SQLiteBibleRepository(db as never);
+    const result=await repo.searchLiteral('amor');
+    expect(result.map(v=>v.sourceVerseLabel)).toEqual(['2']);
+  });
+  it('ranks whole-word lexical evidence ahead of thematic evidence deterministically',async()=>{
+    const db={getAllAsync:vi.fn().mockResolvedValue([{bookId:'Gen',bookName:'Génesis',chapter:1,verse:1,sourceVerseLabel:'1',text:'...a tu prójimo como a ti mismo'}, {bookId:'John',bookName:'Juan',chapter:1,verse:1,sourceVerseLabel:'1',text:'Con gran amor'}])};
+    const repo=new SQLiteBibleRepository(db as never);
+    const hits=await repo.searchTopic('amor');
+    expect(hits[0].matchType).toBe('lexical_related_form');
+    expect(hits[1].matchType).toBe('thematic_term');
+  });
+});
