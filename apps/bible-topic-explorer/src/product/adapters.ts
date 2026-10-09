@@ -61,5 +61,5 @@ export interface LocalPersistence {
 /** Verse-level private annotations belong to the sole bundled RV1909 edition. */
 export type HighlightTone = 'rose' | 'lavender' | 'peach';
 export interface VerseIdentity { translationId: 'rv1909'; bookId: string; chapter: number; sourceVerseLabel: string; }
-export interface VerseNote extends VerseIdentity { body: string; updatedAt: string; }
-export interface VerseHighlight extends VerseIdentity { tone: HighlightTone; updatedAt: string; }
+export interface VerseNote extends VerseIdentity { bookName?: string; bookOrder?: number; body: string; updatedAt: string; }
+export interface VerseHighlight extends VerseIdentity { bookName?: string; bookOrder?: number; tone: HighlightTone; updatedAt: string; }

@@ -1,5 +1,5 @@
 import * as Notifications from 'expo-notifications';
-import {configureReminder,isDailyReminderResponse} from './src/product/reminders';
+import {isDailyReminderResponse} from './src/product/reminders';
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useMemo, useState } from 'react';

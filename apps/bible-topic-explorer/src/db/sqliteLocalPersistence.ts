@@ -108,10 +108,10 @@ export class SQLiteLocalPersistence implements LocalPersistence {
   /** Additive SQLite tables preserve all existing bookmarks, history, reflections and preferences. */
   async listVerseNotes(): Promise<readonly VerseNote[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;body:string;updated_at:string}>(
-      "SELECT translation_id,book_id,chapter,source_verse_label,body,updated_at FROM app_verse_notes WHERE translation_id='rv1909'"
+    const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;body:string;updated_at:string;book_name:string|null;book_order:number|null}>(
+      "SELECT n.translation_id,n.book_id,n.chapter,n.source_verse_label,n.body,n.updated_at, b.default_name_es AS book_name, tb.order_index AS book_order FROM app_verse_notes n LEFT JOIN books b ON b.id=n.book_id LEFT JOIN translation_books tb ON tb.translation_id=n.translation_id AND tb.book_id=n.book_id WHERE n.translation_id='rv1909' ORDER BY tb.order_index, n.chapter, CAST(n.source_verse_label AS INTEGER), n.source_verse_label"
     );
-    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,body:r.body,updatedAt:r.updated_at}));
+    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,bookName:r.book_name??r.book_id,bookOrder:r.book_order??999,body:r.body,updatedAt:r.updated_at}));
   }
 
   async upsertVerseNote(note: VerseNote): Promise<void> {
@@ -129,10 +129,10 @@ export class SQLiteLocalPersistence implements LocalPersistence {
 
   async listHighlights(): Promise<readonly VerseHighlight[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;tone:string;updated_at:string}>(
-      "SELECT translation_id,book_id,chapter,source_verse_label,tone,updated_at FROM app_verse_highlights WHERE translation_id='rv1909'"
+    const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;tone:string;updated_at:string;book_name:string|null;book_order:number|null}>(
+      "SELECT n.translation_id,n.book_id,n.chapter,n.source_verse_label,n.tone,n.updated_at, b.default_name_es AS book_name, tb.order_index AS book_order FROM app_verse_highlights n LEFT JOIN books b ON b.id=n.book_id LEFT JOIN translation_books tb ON tb.translation_id=n.translation_id AND tb.book_id=n.book_id WHERE n.translation_id='rv1909' ORDER BY tb.order_index, n.chapter, CAST(n.source_verse_label AS INTEGER), n.source_verse_label"
     );
-    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,tone:(r.tone==='lavender'||r.tone==='peach'?r.tone:'rose') as HighlightTone,updatedAt:r.updated_at}));
+    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,bookName:r.book_name??r.book_id,bookOrder:r.book_order??999,tone:(r.tone==='lavender'||r.tone==='peach'?r.tone:'rose') as HighlightTone,updatedAt:r.updated_at}));
   }
 
   async setHighlight(ref: VerseIdentity, tone: HighlightTone): Promise<void> {
