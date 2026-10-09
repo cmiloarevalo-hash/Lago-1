@@ -5,9 +5,9 @@ on:
     paths:
       - 'apps/bible-topic-explorer/**'
       - '.github/workflows/m5-apk.yml'
-  # 2026-10-09: FINAL RC02 REWORK candidate after emulator QA and M2 97/97 PASS.
-  # A mature RC02 candidate is built only when this release workflow itself
-  # is deliberately updated; routine app pushes still cannot trigger APKs.
+  # 2026-10-09: Human-authorized phone QA release for RC02 A1-A6 fixes,
+  # on verified M2 source (103/103). Deliberate single candidate v1.1.2/code4.
+  # Routine app pushes still cannot trigger release APK builds.
   push:
     branches: [main]
     paths:
@@ -55,15 +55,15 @@ jobs:
       - name: Build release APK
         run: cd android && ./gradlew assembleRelease --no-daemon
       - name: Stage APK
-        run: cp android/app/build/outputs/apk/release/app-release.apk bible-topic-explorer-rc02-rework-final.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk La-U-RC02-phone-QA-v1.1.2.apk
       - name: SHA-256 candidate APK
-        run: sha256sum bible-topic-explorer-rc02-rework-final.apk | tee bible-topic-explorer-rc02-rework-final.apk.sha256
+        run: sha256sum La-U-RC02-phone-QA-v1.1.2.apk | tee La-U-RC02-phone-QA-v1.1.2.apk.sha256
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bible-topic-explorer-rc02-rework-final-apk
+          name: La-U-RC02-phone-QA-v1.1.2-apk
           path: |
-            apps/bible-topic-explorer/bible-topic-explorer-rc02-rework-final.apk
-            apps/bible-topic-explorer/bible-topic-explorer-rc02-rework-final.apk.sha256
+            apps/bible-topic-explorer/La-U-RC02-phone-QA-v1.1.2.apk
+            apps/bible-topic-explorer/La-U-RC02-phone-QA-v1.1.2.apk.sha256
           if-no-files-found: error
           retention-days: 90
