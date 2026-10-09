@@ -49,3 +49,15 @@ describe('R01 approved design tokens', () => {
     expect(contrast(themes.dark.focusRing, themes.dark.surface)).toBeGreaterThanOrEqual(3);
   });
 });
+
+
+describe('RC02 Calma viva v2', () => {
+  it('uses warm plum/rose tokens instead of green as the primary identity', () => {
+    expect(themes.light.primary).toBe('#8F3F72');
+    expect(themes.dark.primary).toBe('#F5A5CC');
+    expect(themes.light.background).toBe('#FFF9F7');
+    expect(themes.dark.background).toBe('#17151E');
+    expect(themes.light.selectionBg).toBe('#FCE7F3');
+    expect(themes.dark.selectionBg).toBe('#493246');
+  });
+});

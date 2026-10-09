@@ -17,22 +17,22 @@ export const type = { display, screenTitle, sectionTitle, subhead, body, scriptu
 
 export const themes = {
   light: {
-    background: '#FAF9F6', surface: '#FFFFFF', raised: '#FFFFFF', surfaceSoft: '#F3F4F6',
-    text: '#111827', secondary: '#6B7280', muted: '#6B7280',
-    primary: '#16A34A', accent: '#16A34A', onPrimary: '#07140B', accentText: '#07140B',
-    amber: '#B45309', coral: '#C2410C', sky: '#2563EB', purple: '#7C3AED',
-    border: '#E5E7EB', selectionBg: '#DCFCE7', selectionBorder: '#15803D', success: '#15803D',
+    background: '#FFF9F7', surface: '#FFFFFF', raised: '#FFF5F2', surfaceSoft: '#FFF1F4',
+    text: '#28212C', secondary: '#675B68', muted: '#675B68',
+    primary: '#8F3F72', accent: '#8F3F72', onPrimary: '#FFFFFF', accentText: '#FFFFFF',
+    amber: '#9A5616', coral: '#AD503E', sky: '#345C9D', purple: '#7551A1',
+    border: '#E9DDE5', selectionBg: '#FCE7F3', selectionBorder: '#9C366F', success: '#216B4A',
     warningText: '#78350F', warningBg: '#FEF3C7', errorText: '#991B1B', errorBg: '#FEE2E2', danger: '#B91C1C',
-    infoText: '#1E40AF', infoBg: '#DBEAFE', focusRing: '#2563EB', disabledBg: '#E5E7EB', disabledText: '#4B5563', soft: '#F3F4F6',
+    infoText: '#1E40AF', infoBg: '#DBEAFE', focusRing: '#9C366F', disabledBg: '#E9DDE5', disabledText: '#4B5563', soft: '#FFF1F4',
   },
   dark: {
-    background: '#111827', surface: '#1F2937', raised: '#273449', surfaceSoft: '#273449',
-    text: '#F9FAFB', secondary: '#D1D5DB', muted: '#D1D5DB',
-    primary: '#4ADE80', accent: '#4ADE80', onPrimary: '#052E16', accentText: '#052E16',
-    amber: '#FBBF24', coral: '#FB923C', sky: '#60A5FA', purple: '#A78BFA',
-    border: '#4B5563', selectionBg: '#14532D', selectionBorder: '#86EFAC', success: '#86EFAC',
+    background: '#17151E', surface: '#241F2B', raised: '#352737', surfaceSoft: '#372938',
+    text: '#F9F3F7', secondary: '#D3C7D1', muted: '#D3C7D1',
+    primary: '#F5A5CC', accent: '#F5A5CC', onPrimary: '#281626', accentText: '#281626',
+    amber: '#F2C17A', coral: '#FFAD9C', sky: '#B2C8FF', purple: '#D0B0FF',
+    border: '#5C4C5C', selectionBg: '#493246', selectionBorder: '#F5A5CC', success: '#A1D5B1',
     warningText: '#FDE68A', warningBg: '#422006', errorText: '#FECACA', errorBg: '#450A0A', danger: '#FCA5A5',
-    infoText: '#BFDBFE', infoBg: '#172554', focusRing: '#93C5FD', disabledBg: '#374151', disabledText: '#D1D5DB', soft: '#273449',
+    infoText: '#BFDBFE', infoBg: '#172554', focusRing: '#F5A5CC', disabledBg: '#3B3440', disabledText: '#D3C7D1', soft: '#372938',
   },
 } as const;
 
