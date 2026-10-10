@@ -62,7 +62,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenYouTube,onOpe
 const styles=StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxxl+12},
  hero:{height:238,borderRadius:radius.lg,overflow:'hidden',justifyContent:'flex-start'},
- heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.44)'},
+ heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.21)'},
  heroCopy:{paddingHorizontal:22,paddingTop:20,maxWidth:330,gap:7},
  kicker:{fontSize:11,fontWeight:'800',letterSpacing:1.35},
  heroTitle:{fontSize:31,lineHeight:36,fontFamily:'serif',fontWeight:'700',maxWidth:260},

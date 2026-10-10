@@ -26,7 +26,7 @@ export function YouTubeScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
      <View style={styles.emptyAccent}><Text style={styles.emptyGlyph}>▣</Text></View>
      <Text style={styles.emptyTitle}>Selecciona una lista de YouTube</Text>
      <Text style={styles.emptyMessage}>Aún no hay playlist aprobada ni vista previa real.</Text>
-     <Text style={styles.state}>{youtubePlaylistStatus}</Text>
+     <Text style={styles.state}>Lista pendiente de aprobación</Text>
     </View>}
    {selected?<View style={styles.playerActions}><Action theme={theme} variant="secondary" label="Abrir esta lista en YouTube ↗" onPress={()=>openExternal(youtubeExternalUrl(selected))}/><Action theme={theme} variant="tertiary" label="Quitar vídeo visible" onPress={()=>setSelected(null)}/></View>:null}
   </View>
@@ -55,7 +55,7 @@ const styles=StyleSheet.create({
  emptyAccent:{borderRadius:15,width:52,height:45,backgroundColor:'#263644',alignItems:'center',justifyContent:'center'},
  emptyGlyph:{color:'#DDDEE0',fontSize:25},emptyTitle:{fontSize:16,fontWeight:'700',color:'#FFFFFF',textAlign:'center'},
  emptyMessage:{fontSize:13,lineHeight:20,color:'#D1DBE3',textAlign:'center'},
- state:{fontSize:11,fontWeight:'800',color:'#E7C77A',letterSpacing:.75},
+ state:{fontSize:12,fontWeight:'500',color:'#F4DEB3',letterSpacing:0},
  playerActions:{gap:9},selector:{padding:15,borderRadius:20,borderWidth:.7,gap:12},
  sectionTitle:{fontFamily:'serif',fontSize:21,fontWeight:'700'},helper:{fontSize:14,lineHeight:22},
  input:{minHeight:52,borderWidth:1,borderRadius:14,fontSize:15,padding:12}

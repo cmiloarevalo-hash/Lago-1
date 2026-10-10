@@ -6,9 +6,9 @@ import {minimumTouchTarget,spacing,type Theme} from '../theme';
 const linkBlue='#155E99'; // dark link blue on light surfaces, distinguishable independently of theme accent
 function shortSource(src:PastoralSource) {
  const org=src.sourceAuthorOrOrg.toLocaleLowerCase('es');
- if(org.includes('unicef'))return 'UNICEF · Adolescent Kit';
- if(org.includes('usccb')||org.includes('bishops'))return 'USCCB · Renewing the Vision';
- if(org.includes('santa sede'))return 'Santa Sede · Protección de menores (2019)';
+ if(org.includes('unicef'))return 'UNICEF · Formación Kit Adolescente · 2018';
+ if(org.includes('usccb')||org.includes('bishops'))return 'USCCB · Renewing the Vision · 1997';
+ if(org.includes('santa sede'))return 'Santa Sede · Protección de menores · 2019';
  return src.sourceAuthorOrOrg+' · '+src.sourceTitle;
 }
 export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>void;onRead:(book:string,chapter:number,start:number,end:number)=>void}){
@@ -38,11 +38,11 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
        <Text style={[styles.sourcesTitle,{color:theme.text}]}>Fuentes y referencias</Text>
        {item.sources.map((src,index)=><Pressable key={index} accessibilityRole="link" accessibilityLabel={'Abrir '+shortSource(src)} onPress={()=>{void Linking.openURL(src.sourceUrl).catch(()=>setLinkError('No fue posible abrir la fuente externa. Puedes seguir leyendo sin conexión.'));}} style={styles.sourceLink}>
         <Text style={styles.blueLink}>{shortSource(src)} ↗</Text>
-        <Text style={[styles.sourceHint,{color:theme.secondary}]}>{src.applicableSection}{src.sourceDateOrVersion==='2019'?' · 2019':''}</Text>
+
        </Pressable>)}
        <Pressable accessibilityRole="link" accessibilityLabel={'Leer pasaje RV1909 '+item.biblical.book+' '+item.biblical.chapter+':'+item.biblical.start+' a '+item.biblical.end} onPress={()=>onRead(item.biblical.book,item.biblical.chapter,item.biblical.start,item.biblical.end)} style={styles.sourceLink}>
-        <Text style={styles.blueLink}>RV1909 · {item.biblical.book} {item.biblical.chapter}:{item.biblical.start}–{item.biblical.end} ↗</Text>
-        <Text style={[styles.sourceHint,{color:theme.secondary}]}>Abrir pasaje en la Biblia local · sin conexión</Text>
+        <Text style={styles.blueLink}>RV1909 · {item.biblical.book} {item.biblical.chapter}:{item.biblical.start}–{item.biblical.end} · 1909 ↗</Text>
+
        </Pressable>
       </View>
      </View>:null}
@@ -60,8 +60,8 @@ const styles=StyleSheet.create({
  detail:{padding:17,paddingTop:12,gap:20},purpose:{fontFamily:'serif',fontSize:18,lineHeight:27},
  section:{gap:9},step:{flexDirection:'row',alignItems:'flex-start',gap:8},stepIndex:{fontSize:16,fontWeight:'700'},
  safety:{padding:13,borderRadius:14,gap:6},safetyLabel:{fontWeight:'700',fontSize:14},
- sources:{borderTopWidth:1,paddingTop:17,gap:8},sourcesTitle:{fontFamily:'serif',fontSize:18,fontWeight:'700',marginBottom:4},
- sourceLink:{minHeight:minimumTouchTarget,justifyContent:'center',gap:4,paddingVertical:5},
- blueLink:{color:linkBlue,fontSize:15,lineHeight:22,fontWeight:'700',textDecorationLine:'underline'},
+ sources:{borderTopWidth:.6,paddingTop:11,gap:1},sourcesTitle:{fontFamily:'serif',fontSize:15,fontWeight:'600',marginBottom:1},
+ sourceLink:{minHeight:minimumTouchTarget,justifyContent:'center',paddingVertical:3},
+ blueLink:{color:linkBlue,fontSize:13.5,lineHeight:21,fontWeight:'500',textDecorationLine:'underline'},
  sourceHint:{fontSize:12,lineHeight:18}
 });

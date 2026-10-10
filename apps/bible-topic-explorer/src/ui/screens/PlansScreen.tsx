@@ -84,7 +84,7 @@ const styles=StyleSheet.create({
  highlightPill:{alignSelf:'flex-start',borderRadius:999,paddingVertical:8,paddingHorizontal:13},pillText:{fontSize:12,fontWeight:'800',letterSpacing:.5},
  planText:{padding:17,gap:12},planTitle:{fontFamily:'serif',fontSize:25,lineHeight:32,fontWeight:'700'},caption:{fontSize:13,lineHeight:19},captionStrong:{fontSize:16,fontWeight:'700'},
  selectedHero:{height:215,borderRadius:20,justifyContent:'flex-end',overflow:'hidden'},roundImage:{borderRadius:20},
- heroTint:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,240,.58)'},selectedHeroText:{padding:18,gap:8},
+ heroTint:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,240,.24)'},selectedHeroText:{padding:18,gap:8},
  heroKicker:{fontSize:12,letterSpacing:1,fontWeight:'800'},selectedTitle:{fontFamily:'serif',fontSize:28,lineHeight:35,fontWeight:'700'},
  progressPanel:{borderWidth:1,borderRadius:20,padding:14,gap:13,elevation:2},progressHeading:{flexDirection:'row',justifyContent:'space-between',alignItems:'center'},
  progressTrack:{height:8,borderRadius:8,overflow:'hidden'},progressFill:{height:8,borderRadius:8},
