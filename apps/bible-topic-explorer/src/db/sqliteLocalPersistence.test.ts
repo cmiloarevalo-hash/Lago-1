@@ -36,9 +36,9 @@ describe('SQLiteLocalPersistence', () => {
     const runAsync=vi.fn().mockResolvedValue({}); const getFirstAsync=vi.fn().mockResolvedValue(null);
     const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync,getAllAsync:vi.fn(),getFirstAsync};
     const persistence=new SQLiteLocalPersistence(db as never);
-    await expect(persistence.getPreferences()).resolves.toMatchObject({theme:'lavender',fontScale:1,onboardingComplete:false});
+    await expect(persistence.getPreferences()).resolves.toMatchObject({theme:'natural',fontScale:1,onboardingComplete:false});
     await persistence.setPreferences({theme:'dark',fontScale:1.2,reminderEnabled:true,reminderTime:'08:00',onboardingComplete:true});
-    expect(runAsync).toHaveBeenCalledWith(expect.stringContaining('app_preferences'),'dark',1.2,1,'08:00',1);
+    expect(runAsync).toHaveBeenCalledWith(expect.stringContaining('app_preferences'),'marine',1.2,1,'08:00',1);
   });
 });
 
@@ -60,4 +60,24 @@ describe('RC02 verse annotations',()=>{
     await p.deleteVerseNote({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1'});
     expect(db.runAsync.mock.calls[0][0]).toContain("translation_id='rv1909'");
   });
+});
+
+describe('R13 legacy theme migration without user-data loss',()=>{
+ it('migrates lavender to Coral by one idempotent theme-only update',async()=>{
+  const runAsync=vi.fn().mockResolvedValue({});
+  const row={theme:'lavender',font_scale:1.6,reminder_enabled:1,reminder_time:'20:30',onboarding_complete:1};
+  const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync,getFirstAsync:vi.fn().mockResolvedValue(row),getAllAsync:vi.fn()};
+  const p=new SQLiteLocalPersistence(db as never);
+  const value=await p.getPreferences();
+  expect(value).toEqual({theme:'coral',fontScale:1.6,reminderEnabled:true,reminderTime:'20:30',onboardingComplete:true});
+  expect(runAsync).toHaveBeenCalledTimes(1);
+  expect(runAsync).toHaveBeenCalledWith('UPDATE app_preferences SET theme = ? WHERE id = 1 AND theme = ?','coral','lavender');
+  expect(runAsync.mock.calls[0][0]).not.toMatch(/app_verse_notes|app_verse_highlights|DELETE|DROP|REPLACE/i);
+ });
+ it('does not rewrite an already migrated preference',async()=>{
+  const runAsync=vi.fn();
+  const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync,getFirstAsync:vi.fn().mockResolvedValue({theme:'marine',font_scale:1,reminder_enabled:0,reminder_time:'08:00',onboarding_complete:0}),getAllAsync:vi.fn()};
+  await new SQLiteLocalPersistence(db as never).getPreferences();
+  expect(runAsync).not.toHaveBeenCalled();
+ });
 });

@@ -42,11 +42,11 @@ describe('R01 deterministic history', () => {
 });
 
 
-describe('RC02 music secondary route',()=>{
-  it('opens Spotify selection from Hoy without adding a fifth tab',()=>{
+describe('R13 YouTube as secondary destination',()=>{
+  it('opens real video destination from Hoy without a fifth tab or Spotify route',()=>{
     expect(tabs).toHaveLength(4);
-    const from=initialNavigationState();const mus=navigate(from,{kind:'music',origin:'today'});
-    expect(mus.current).toEqual({kind:'music',origin:'today'});
-    expect(goBack(mus)?.current).toEqual({kind:'tab',tab:'today'});
+    const from=initialNavigationState();const video=navigate(from,{kind:'youtube',origin:'today'});
+    expect(video.current).toEqual({kind:'youtube',origin:'today'});
+    expect(goBack(video)?.current).toEqual({kind:'tab',tab:'today'});
   });
 });

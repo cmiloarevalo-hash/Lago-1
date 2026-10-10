@@ -44,8 +44,9 @@ describe('R13 I13-A3 truthful drawer stays secondary',()=>{
  it('has a close/Back path, disabled future routes and does not add a tab',()=>{
   expect(app).toContain('accessibilityLabel="Abrir menú de navegación"');
   expect(app).toContain('onRequestClose={()=>setDrawerOpen(false)}');
-  expect(app).toContain('disabled={!item.available}');
-  expect(app).toContain("kind:'tab',tab:item.tab");
-  expect(app).toContain("kind:'music',origin:activeTab");
+  expect(app).toContain("item.group===group");
+  expect(app).toContain('onPress={()=>openDrawerItem(item)}');
+  expect(app).toContain("kind:'youtube',origin:'today'");
+  expect(app).not.toContain("kind:'music'");
  });
 });

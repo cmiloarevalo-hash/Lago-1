@@ -11,9 +11,9 @@ import {youtubeEmbedUrl,youtubePlaylistId,youtubePlaylistStatus} from './youtube
 import {tabs,goBack,initialNavigationState,navigate} from './navigation';
 import {drawerDestinations} from './secondaryMenu';
 describe('R1.3 final integrated plan contracts',()=>{
- it('preserves classic themes, four NEW light/contrast themes, and existing user default',()=>{
+ it('preserves historic tokens internally and migrates to three visible light themes',()=>{
   expect(Object.keys(themes)).toEqual(['lavender','sky','dark','coral','natural','marine','contrast']);
-  expect(defaultPreferences.theme).toBe('lavender');
+  expect(defaultPreferences.theme).toBe('natural');
   expect(themes.marine.background).toBe('#F8FAFC');
   expect(themes.marine.onPrimary).toBe('#FFFFFF');
   expect(themes.contrast.text).toBe('#000000');
@@ -57,7 +57,7 @@ describe('R1.3 final integrated plan contracts',()=>{
   expect(youtubePlaylistId('http://www.youtube.com/playlist?list=PL1234567890ABCDEFG')).toBeNull();
   expect(youtubePlaylistId('https://youtube.com/playlist?list=%3Ciframe%3E')).toBeNull();
   const url=youtubeEmbedUrl('PL1234567890ABCDEFG');expect(url).toContain('autoplay=0');expect(url).toContain('controls=1');
-  const screen=readFileSync('src/ui/screens/YouTubeScreen.tsx','utf8');expect(screen).toContain('<WebView');expect(screen).toContain('video:{height:245,minHeight:200');expect(screen).not.toContain('injectedJavaScript');
+  const screen=readFileSync('src/ui/screens/YouTubeScreen.tsx','utf8');expect(screen).toContain('<WebView');expect(screen).toContain('aspectRatio:16/9');expect(screen).not.toContain('injectedJavaScript');
  });
  it('keeps original four tabs and nested Back for all five new modules',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);
@@ -69,7 +69,7 @@ describe('R1.3 final integrated plan contracts',()=>{
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor'});
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor',day:3});
   expect(goBack(state)?.current).toMatchObject({kind:'plans',planId:'amor'});
-  expect(drawerDestinations.filter(x=>x.kind==='tab')).toHaveLength(4);
+  expect(drawerDestinations).toHaveLength(8);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
   expect(drawerDestinations.some(x=>x.kind==='pastoral')).toBe(true);
  });
  it('protects reset and persistence in additive tables without destructive note migration',()=>{
@@ -78,6 +78,6 @@ describe('R1.3 final integrated plan contracts',()=>{
   expect(sql).toContain('UPDATE app_plan_days SET done=0');
   expect(sql).not.toContain('DROP TABLE');
   expect(sql).not.toMatch(/DELETE FROM/i);
-  const prefs=readFileSync('src/db/sqliteLocalPersistence.ts','utf8');expect(prefs).toContain("'marine'");
+  const prefs=readFileSync('src/db/sqliteLocalPersistence.ts','utf8');expect(prefs).toContain('visibleTheme(row.theme)');
  });
 });

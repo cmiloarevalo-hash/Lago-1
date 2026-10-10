@@ -1,6 +1,6 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 import type { HighlightTone, LocalPersistence, ReadingHistoryEntry, Reflection, SavedReference, VerseHighlight, VerseIdentity, VerseNote } from '../product/adapters';
-import { defaultPreferences, type LocalPreferences, type ThemePreference } from '../product/preferences';
+import { defaultPreferences, visibleTheme, type LocalPreferences } from '../product/preferences';
 
 export class SQLiteLocalPersistence implements LocalPersistence {
   private ready: Promise<void> | null = null;
@@ -46,9 +46,11 @@ export class SQLiteLocalPersistence implements LocalPersistence {
       'SELECT theme, font_scale, reminder_enabled, reminder_time, onboarding_complete FROM app_preferences WHERE id = 1'
     );
     if (!row) return defaultPreferences;
-    // Migrate old light/system settings to the new explicit three-theme selector without touching user notes.
-    const supported:readonly string[]=['lavender','sky','dark','coral','natural','marine','contrast'];
-    const theme:ThemePreference = supported.includes(row.theme)?row.theme as ThemePreference:'lavender';
+    // Migrate only the theme field; never reset or rewrite notes, marks, books or other preferences.
+    const theme = visibleTheme(row.theme);
+    if (row.theme !== theme) {
+      await this.db.runAsync('UPDATE app_preferences SET theme = ? WHERE id = 1 AND theme = ?', theme, row.theme);
+    }
     return { theme, fontScale: row.font_scale, reminderEnabled: row.reminder_enabled === 1, reminderTime: row.reminder_time, onboardingComplete: row.onboarding_complete === 1 };
   }
 
@@ -60,7 +62,7 @@ export class SQLiteLocalPersistence implements LocalPersistence {
        ON CONFLICT(id) DO UPDATE SET theme=excluded.theme, font_scale=excluded.font_scale,
        reminder_enabled=excluded.reminder_enabled, reminder_time=excluded.reminder_time,
        onboarding_complete=excluded.onboarding_complete`,
-      value.theme, value.fontScale, value.reminderEnabled ? 1 : 0, value.reminderTime, value.onboardingComplete ? 1 : 0
+      visibleTheme(value.theme), value.fontScale, value.reminderEnabled ? 1 : 0, value.reminderTime, value.onboardingComplete ? 1 : 0
     );
   }
 
