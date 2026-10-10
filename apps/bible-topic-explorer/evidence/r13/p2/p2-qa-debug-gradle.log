@@ -1,4 +1,4 @@
-﻿Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
 > Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
@@ -83,4 +83,3 @@ Using expo modules
   - [33m[?][0m [32mexpo-notifications[0m (57.0.22)
   - [33m[?][0m [32mexpo-sqlite[0m (57.0.4)
   - [33m[?][0m [32mexpo-status-bar[0m (57.0.1)
-

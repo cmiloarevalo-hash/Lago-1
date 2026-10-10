@@ -1,4 +1,4 @@
-﻿
+
 > bible-topic-explorer@1.0.0 test
 > vitest run
 
@@ -39,4 +39,3 @@
 
 [2m    Isolate [22m [33m26 workers spawned[39m[2m ┬À ~315ms startup each (spawn + environment, per file)[22m
 [2m            [22m [2mat least ~429ms faster with [22m[33misolate: false[39m[2m ÔÇö reuses workers across files instead of one per file[22m
-
