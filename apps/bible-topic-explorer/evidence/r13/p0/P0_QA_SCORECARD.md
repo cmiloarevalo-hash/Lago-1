@@ -1,0 +1,44 @@
+# La U R1.3 — P0 I13-A1…A5: Android QA and numeric scorecard
+**Date:** 2026-10-09 · **Scope:** Issue [#65](https://github.com/cmiloarevalo-hash/Lago-1/issues/65) latest Supervisor master GO [#6091966347](https://github.com/cmiloarevalo-hash/Lago-1/issues/65#issuecomment-6091966347).
+**Exact implemented source tested:** `feat/r13-a1-a5 @ fe343d41f4c6921f9bc5710053d87402ac2c794e`, descendant of frozen `main @ f5ddc402375692aa9cb18cafe76e36992310cda0`.
+**QA target:** Windows emulator `emulator-5554` Android 16 / API36, 1080×2400 / ~420dpi; private `com.lago.bibletopicexplorer.qa` (version 1.1.2/code4), with existing **synthetic QA note data only**. Tested via local QA worktree and Metro/diagnostic package; **not proof of production 1.1.2 behavior**. Production `com.lago.bibletopicexplorer` v1.1.2/code4 NOT installed over, uninstalled, reset or cleared. Screenshots are from QA namespace only, NO user phone.
+
+## 1. Scoped functional evidence
+| Scenario | Observation | Verdict / evidence |
+|---|---|---|
+| A1 discrete note bubble | Mateo 6:1 existing long note: 14dp visual dot with 48dp hit box opens ONLY note reading (full body, Expandir, Editar, Cerrar), no highlight controls in note-only modal | **PASS** [note](android16-100-lavender-bubble-readonly.png) |
+| A1 expand/scroll | Expandir changed modal and exposed Contraer; body remained whole, independent scroll | **PASS** [expanded](android16-100-lavender-expanded-note.png), [UI](android16-100-lavender-expanded-note.xml) |
+| A2 editor long note | Editar opened multiline editor (min height 220dp), existing full note shown, Cancelar edición returned to options with unchanged text | **PASS** [editor](android16-100-lavender-note-editor.png) |
+| A2 long press verse | Held Mateo 6:2 for 850ms, options opened at correct source verse label 2; on-screen access to options exists for accessibility | **PASS observed**; options UI dynamic, no destructive action |
+| A2 three tone controls | Rosa applied (UI ✓ moved to rosa), same rosa tapped again removed ✓, lavanda subsequently reapplied (UI ✓ lavanda); durazno visually displayed but not selected in this QA | **PASS rosa toggle + switch, durazno runtime NOT RUN** [rosa](p0-100-rose-active.png) |
+| A2 deletion | Confirm dialog exists in source and is tested by code contract; destructive removal was intentionally **not executed** | **NOT RUN end-to-end**, no QA note deleted |
+| A2 brief note | Added synthetic `QA_R13_short_offline_note` on Mateo 6:2 via long press > Agregar nota > Guardar. Dot opened note-only view. Force-stop/relaunch and Biblioteca still contained **both** original synthetic long note and new short note | **PASS** [short note](p0-100-short-note-only.png) |
+| A2 persistence | Mateo 6:1 previously stored long note and lavanda highlight persisted through force-stop; newly saved Mateo 6:2 short note persisted after separate force-stop/relaunch. No SQLite migration | **PASS** from actual Biblioteca ADB UI dump |
+| A3 four tabs & ☰ | Same four tabs Hoy/Explorar/Leer/Biblioteca; menu distinguishes six real routes from four future disabled items; real `Música y Spotify` opened. The Android Back key dismisses drawer | **PASS** [100%](p0-100-lavender-drawer.png) |
+| A3 accessibility 160/200 | In 160% and 200%, complete ten destinations exposed by UI Automation, bottom fixed Cerrar menú visible at 2190–2316px; disabled Temas did not navigate after tap; same at 200 sky/dark; physical scroll swipe did not conceal fixed Close | **PASS targeted** [160%](p0-160-lavender-drawer.png), [200% lavender](p0-200-lavender-drawer.png), [sky](p0-200-sky-drawer.png), [dark](p0-200-dark-drawer.png) |
+| A3 full matrix & TalkBack | Screenshots cover **100%,160%,200%** in lavanda and **200%** in celeste/oscuro. Full 3×3=9 combinations, automated TalkBack and external phone **not exercised** | **PARTIAL/NOT RUN residual** |
+| A4 Spotify App Remote real commands | Spotify app **absent** on emulator; authorized Spotify developer client/package fingerprint/redirect/Premium allowlist **unavailable**; did not show, call or claim real Play/Pause/Next/Prev | **BLOCKED EXTERNAL** per [#6085974007](https://github.com/cmiloarevalo-hash/Lago-1/issues/65#issuecomment-6085974007) |
+| A4 approved playlist fallback | In actual QA app MusicScreen, clicked first approved `Abrir en Spotify ↗`; Android launched `com.android.chrome/IntentDispatcher`. Chrome first-run account consent prompt intercepted further URL/content confirmation. No Spotify playback claimed | **PASS external intent only / NOT RUN destination playback** |
+| A5 TypeScript | `npm run typecheck` against exact source SHA | **PASS**, [log](typescript.log) |
+| A5 unit+contract | `npm test`: **110 passed / 25 test files / 0 failed**, including 5 R13 source contracts | **PASS**, [log](vitest.log) |
+| A5 Metro Android export | `npx expo export --platform android --output-dir dist-r13-p0-local`: bundled 714 modules / RV1909 SQLite asset 7 MB | **PASS**, [log](expo-export.log) |
+| A5 GitHub M2 for feature commit | Workflow triggers not configured for feature branch; historical 1.1.2 M2 on main does **not** prove new commit | **NOT RUN CI; local equivalent PASS** |
+
+## 2. Scorecard — forecast vs observed
+| Activity | Original human engineering equivalent forecast | Scope actual outcome | Actual human time | Observable automated time |
+|---|---:|---|---|---|
+| I13-A1 bubble read-only | **2.0h** | PASS in .qa, no data write on viewing by code path | NO MEDIDO | Included Android UI/manual script session; no per-task stopwatch |
+| I13-A2 note editor/tone | **2.0h** | PASS long+short note, switch/toggle/persistence; deleting not end-to-end tested | NO MEDIDO | UI dumps ~3–4s each (instrumentation overhead, not UI latency) |
+| I13-A3 ☰ compact/Back | **1.5h** | PASS targeted 100/160/200; earlier density issue corrected in `fe343d` prior to this session | NO MEDIDO | UI dumps ~3–4s each; not true interaction latency |
+| I13-A4 Spotify gate | **2.0h** | BLOCKED real App Remote; fallback intent PASS | NO MEDIDO | No native SDK test, 0s eligible integration |
+| I13-A5 tests and Android | **1.5h** | local-equivalent PASS, QA evidence and residual flags | NO MEDIDO | local test job **13.13s** (typecheck+tests+Android export); Vitest 1.69s; export 8.37s |
+| **TOTAL initial** | **9.0h** | **3 groups PASS (A1, A2, A3); A4 BLOCKED; A5 PASS with residual NOT RUN** | **NO MEDIDO** | Android QA observed during session, no reliable exclusive AI-active clock |
+
+**Time facts:** current verification 2026-10-09 evening (device clock checked **22:29:50.781-03:00**); initial request local time **22:11-03:00**, approximate session span >=18m50s including waiting and tools, **NOT** a measured human-engineering duration. Source local feature tests 110/110, new GitHub Actions M2 runs **0**, local equivalent cycles **1**. Prior diagnostic native APK build in first-lot session took **2m29s Gradle / 161.45s process**, separate from this test run, QA package only (not distributed). No new APK generated in this continuation.
+
+**Defect/rework accounting:** 200%-font menu density issue observed by Supervisor and corrected in source `fe343d` before resumption (1 known targeted rework). New critical crash/regression detected here: **0**; residual unverified scenarios: TalkBack, destructive deletion confirmation, every theme×font combination, Spotify native auth and actual playback, Chrome first-use destination confirmation. All four tabs remained. Source unchanged in this continuation except scoped QA evidence; protected source Git blob identities match baseline: `assets/data/bible-topic-explorer.db = def02a2ca0684d6b4d8491c7f12d06e910d76519`; `src/product/topics.ts = d96a9d32e0ab2ffa7ada1205e7d29b05ff01f8ea`.
+
+## 3. Handoff / STOP gate
+**P0 functional result:** targeted A1/A2/A3 and local A5 **PASS**, with residual Android submatrix/TalkBack marked NOT RUN. **P1 Spotify native: BLOCKED** on externally owned developer app registration/account, Spotify installed/signed-in and allowlisted test user consent. Exact Owner steps: create/authorize Spotify developer app and native package+SHA-1 redirect, furnish nonsecret configuration through an approved secure channel; set up *lawfully authorized* test account, Premium mode eligibility and test device with Spotify, then grant separate test gate. Clarify Spotify SDK vs Web API developer quota/policy. Until then keep existing approved external playlist, no fake controls/audio, **do not advance automatically to P2** under Supervisor fail/block rule.
+
+**All source/QA activity on feature branch, no main change, no release APK, no merge, no new PR/Issue, no changed RV1909.** Supervision needed to ACCEPT P0 and resolve/defer P1 before further R1.3 integration.
