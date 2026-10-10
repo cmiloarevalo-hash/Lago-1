@@ -1,24 +1,30 @@
-# La U 1.3 — APK QA 4 (SoundCloud externo y Temas para jóvenes)
+# La U 1.3 — APK QA5 de alto contraste (Coral / Natural / Marino)
 
-**Descargar [LaU-1.3-QA4-SoundCloud-Temas-ARM64.apk](LaU-1.3-QA4-SoundCloud-Temas-ARM64.apk)**
+**[Descargar APK Android ARM64](LaU-1.3-QA5-AltoContraste-ARM64.apk)**
 
-> APK Android **DEBUG/QA**, no firma ni aprobación de producción. Diseñado para teléfonos Android **ARM64** (Android 7.0 o posterior) y paquete separado de la aplicación oficial. No desinstalar la oficial ni borrar sus datos.
+> **Aplicación de prueba DEBUG/QA, no versión de producción.** Está separada de la aplicación oficial mediante el identificador `com.lago.bibletopicexplorer.qa`. Compatible con teléfonos ARM64 a partir de Android 7 (API 24). No desinstalar ni limpiar datos de la aplicación oficial.
 
-## Identidad
+## Identidad e integridad
 
-- Archivo: `LaU-1.3-QA4-SoundCloud-Temas-ARM64.apk`
-- Tamaño: **61.596.012 bytes** (≈61,6 MB decimales).
-- SHA-256: **`9daa4c42cb54eb29ba080b00ca82020b6779e58262bae05d742edf9f9f5b88b3`**
-- Versión Android: `1.3-qa.4` (`versionCode 7`), aplicación `com.lago.bibletopicexplorer.qa`, Android mínimo API 24, ABI `arm64-v8a`.
-- Certificado: **CN=Android Debug**, verificado con `apksigner`; JS/Hermes y assets están incorporados. Funciona sin Metro, pero **SoundCloud externo requiere conexión**.
-- Fuente y evidencia: [`feat/r13-p2-topic-ui @ cfc918f21ac3c6951cae574b732dbafe5cfee424`](https://github.com/cmiloarevalo-hash/Lago-1/commit/cfc918f21ac3c6951cae574b732dbafe5cfee424), [informe de QA](https://github.com/cmiloarevalo-hash/Lago-1/blob/cfc918f21ac3c6951cae574b732dbafe5cfee424/apps/bible-topic-explorer/evidence/r13/owner-ux-update/SOUNDCLOUD_YOUTH_QA_REPORT.md).
+- Archivo: `LaU-1.3-QA5-AltoContraste-ARM64.apk`
+- Versión en manifiesto: `1.3-qa.5` (`versionCode 8`), paquete `com.lago.bibletopicexplorer.qa`.
+- Tamaño: **61.707.377 bytes**.
+- SHA-256: **`b63e8226e5267aab259e3dca3bbf13c99bca7b3e5cb754c4e1eeb0554dcb04c2`**.
+- ABI: `arm64-v8a`; JavaScript/Hermes y contenido bíblico local incorporados; sin dependencia de Metro para abrir la app.
+- Firma `apksigner`: certificado **CN=Android Debug**, no firma oficial de publicación.
+- Compilación: `gradlew.bat :app:assembleDebug -PreactNativeArchitectures=arm64-v8a --offline --console=plain` **PASS**.
+- Fuente: [`feat/r13-p2-topic-ui @ e3cea7bc360c7fc97187639ca2f72b0c046d6a4a`](https://github.com/cmiloarevalo-hash/Lago-1/commit/e3cea7bc360c7fc97187639ca2f72b0c046d6a4a).
+- Evidencias de pruebas y comparativa [nueve pantallas Android](https://github.com/cmiloarevalo-hash/Lago-1/blob/e3cea7bc360c7fc97187639ca2f72b0c046d6a4a/apps/bible-topic-explorer/evidence/r13/high-fidelity-qa/comparison-owner-vs-android-3x3.jpg); [informe](https://github.com/cmiloarevalo-hash/Lago-1/blob/e3cea7bc360c7fc97187639ca2f72b0c046d6a4a/apps/bible-topic-explorer/evidence/r13/high-fidelity-qa/R13_HIGH_FIDELITY_DELIVERY.md).
 
-## Qué cambió
+## Novedades
 
-SoundCloud ya **NO** muestra simulación de reproductor ni campo de URL HTTP/HTTPS: solo botón para abrir SoundCloud (app o navegador según Android) y tres enlaces a listas reales **de terceros** (niños, instrumental de estudio y pastoral juvenil). Su contenido es externo, mutable, **no aprobado ni licenciado por La U**; revisar todas las pistas con una persona responsable antes de usarlas con menores.
+Rework de **mayor contraste** solicitado por el Owner: Coral rosa definido, Natural oliva profundo, Marino azul intenso; fondos claros, fotografías retocadas, tres adornos botánicos originales en Planes, CTA/destacados/progreso visibles. Mantiene cuatro tabs Hoy, Explorar, Leer, Biblioteca, Biblia RV1909, 100 temas, progreso 7 días, SoundCloud externo (sin audio integrado), Cancionero y YouTube ocultos y datos privados sin limpieza.
 
-Explorar → Temas presenta tarjetas compactas, iconos discretos, títulos mejor proporcionados y lenguaje para jóvenes en 23 previews, con **46 referencias bíblicas intactas RV1909**. Los 100 IDs y demás datos locales permanecen sin cambio. Se conserva además el trabajo anterior: Dinámicas visuales, bibliografía, tres temas claros, Cancionero/YouTube ocultos, estado privado.
+## Estado de QA
 
-**QA:** TypeScript PASS; 149/149 pruebas fuente PASS; compilación DEBUG e instalación en emulador PASS, UX focal de SoundCloud/Paz/Esperanza/Back PASS. No se ha probado reproducción SoundCloud con cuenta/pista en un dispositivo físico, ni QA global TalkBack, respaldos, contenido editorial o derechos de músicas: siguen pendientes/aplazados.
+- TypeScript `tsc --noEmit` **PASS** y **150/150 tests fuente PASS**.
+- Compilación DEBUG universal y ARM64 **PASS**, 9 capturas Android de emulador + 6 rechecks para cambios de Hoy/Planes.
+- **Fidelidad visual:** mejora de contraste y ornamento comprobada; sigue habiendo diferencias de composición, fotos, contenido RV1909 real y navegación Android respecto a mocks iOS «Luz». El Owner debe decidir si la estética final le satisface.
+- Auditoría global TalkBack/accesibilidad, PDF/EPUB nuevos, backup, derechos musicales y revisión editorial siguen sin aprobarse o aplazados. No es un APK de tienda ni habilita merge a `main`.
 
-**Importante:** `main` no cambia; es un APK de prueba separada, no entrega productiva ni Play Store.
+**Descarga directa alternativa:** https://raw.githubusercontent.com/cmiloarevalo-hash/Lago-1/downloads/r13-qa/LaU-1.3-QA5-AltoContraste-ARM64.apk
