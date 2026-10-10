@@ -6,11 +6,13 @@ describe('R13 editorial drawer, Spotify removed',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);
   expect(drawerDestinations.some(x=>['today','search','bible','library'].includes(x.id))).toBe(false);
  });
- it('groups exactly eight working destinations, with no Spotify or duplicate tabs',()=>{
-  expect(drawerDestinations.map(x=>x.id)).toEqual(['plans','topics','pastoral','games','songs','youtube','my-books','settings']);
+ it('groups seven working destinations, with no Spotify or duplicate tabs',()=>{
+  expect(drawerDestinations.map(x=>x.id)).toEqual(['plans','topics','pastoral','games','soundcloud','my-books','settings']);
   expect(drawerDestinations.every(x=>x.available)).toBe(true);
-  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(8);
+  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(7);
   expect(drawerDestinations.every(x=>x.symbol.length>0&&x.group.length>0)).toBe(true);
   expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
+  expect(drawerDestinations.map(x=>x.id)).not.toContain('songs');
+  expect(drawerDestinations.map(x=>x.id)).not.toContain('youtube');
  });
 });

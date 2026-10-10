@@ -78,19 +78,21 @@ describe('R13 P2 reader exact range and Back',()=>{
    const after=navigate(from,target);
    expect(after.current).toEqual(target);
    expect(goBack(after)?.current).toEqual({kind:'tab',tab:'search'});
-   expect(initialTopicUiState).toEqual({mode:'words',scrollY:0});
+   expect(initialTopicUiState).toEqual({mode:'topics',scrollY:0,selectedLetter:'A'});
  });
- it('keeps literal search code in Palabras while isolating concept data from SQL searchTopic',()=>{
-   const src=readFileSync(resolve(process.cwd(),'src/ui/screens/SearchScreen.tsx'),'utf8');
-   const app=readFileSync(resolve(process.cwd(),'App.tsx'),'utf8');
-   const bible=readFileSync(resolve(process.cwd(),'src/ui/screens/BibleScreen.tsx'),'utf8');
-   expect(src).toContain('searchLiteral(query)');
-   expect(src).not.toContain('.searchTopic(');
-   expect(src).toContain('Palabras · búsqueda literal');
-   expect(src).toContain('Temas · índice conceptual');
-   expect(src).toContain('sourceVerseLabels');
-   expect(app).toContain('onTopicUiChange={setTopicUi}');
-   expect(bible).toContain('focusMatchesVerse(verse,reader)');
-   expect(bible).toContain('Volver a Explorar');
+ it('shows only canonical topics and hides literal-search UI, preserving scroll on Back',()=>{
+  const src=readFileSync(resolve(process.cwd(),'src/ui/screens/SearchScreen.tsx'),'utf8');
+  const app=readFileSync(resolve(process.cwd(),'App.tsx'),'utf8');
+  const bible=readFileSync(resolve(process.cwd(),'src/ui/screens/BibleScreen.tsx'),'utf8');
+  expect(src).not.toContain('Palabras · búsqueda literal');
+  expect(src).not.toContain('Buscar texto literal');
+  expect(src).not.toContain('searchLiteral(');
+  expect(src).toContain('ⓘ');
+  expect(src).toContain('listScrollY');
+  expect(src).toContain('scrollTo');
+  expect(src).toContain('sourceVerseLabels');
+  expect(app).toContain('onTopicUiChange={setTopicUi}');
+  expect(bible).toContain('focusMatchesVerse(verse,reader)');
+  expect(bible).toContain('Volver a Explorar');
  });
 });

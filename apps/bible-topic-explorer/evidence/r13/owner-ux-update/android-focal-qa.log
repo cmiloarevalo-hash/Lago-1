@@ -1,0 +1,39 @@
+CHECK Today loaded PASS
+CHECK SoundCloud tile PASS
+CHECK No YouTube home PASS
+EVIDENCE owner-hoy-soundcloud
+TAP SoundCloud ('SoundCloud · Música oficial', 665, 2000, 'true')
+CHECK SoundCloud actual official module PASS
+CHECK Honest no-playback state PASS
+EVIDENCE owner-soundcloud-empty
+TAP ← Recursos ('← Recursos', 172, 394, 'true')
+TAP Abrir men ('Abrir menú de navegación', 105, 202, 'true')
+CHECK SoundCloud drawer PASS
+CHECK Songs hidden PASS
+CHECK YouTube hidden PASS
+EVIDENCE owner-drawer-no-songs-youtube
+TAP pastoral ('Guía pastoral', 475, 1178, 'true')
+TAP Acogida con respeto ('Acogida con respeto', 540, 1137, 'true')
+CHECK First expansion PASS
+TAP consentimiento ('Protección y consentimiento', 540, 2121, 'true')
+CHECK Fourth expansion heading near top PASS
+CHECK Fourth start visible PASS
+EVIDENCE owner-pastoral-fourth-top
+TAP Hoy ('Hoy', 139, 2260, 'true')
+TAP Explorar ('Explorar · 100 temas', 414, 2000, 'true')
+CHECK Explore topics only PASS
+CHECK Literal search hidden PASS
+CHECK Editorial notice initially hidden PASS
+EVIDENCE owner-explore-top
+TAP informaci ('Información sobre las fichas', 970, 765, 'true')
+CHECK Editorial notice on demand PASS
+EVIDENCE owner-explore-info-open
+TAP Ocultar informaci ('Ocultar información sobre las fichas', 970, 765, 'true')
+TAP Ver los 100 temas ('Ver los 100 temas A–Z', 261, 2219, 'true')
+CHECK Topic letter list PASS
+EVIDENCE owner-explore-index
+TAP Biblioteca ('Biblioteca · Tus guardados', 917, 2000, 'true')
+CHECK Library tab PASS
+CHECK Highlights hidden from library PASS
+EVIDENCE owner-library-highlights-hidden
+QA_OWNER_UX_FOCAL_PASS

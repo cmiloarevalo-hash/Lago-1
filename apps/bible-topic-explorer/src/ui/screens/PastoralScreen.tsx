@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef,useState} from 'react';
 import {Linking,Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
 import {pastoralTopics,type PastoralSource} from '../../product/pastoralTopics';
 import {Body,Metadata,Screen,Subhead,Action} from '../primitives';
@@ -13,7 +13,11 @@ function shortSource(src:PastoralSource) {
 }
 export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>void;onRead:(book:string,chapter:number,start:number,end:number)=>void}){
  const [expanded,setExpanded]=useState<string|null>(null),[linkError,setLinkError]=useState('');
- return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
+ const scrollRef=useRef<ScrollView>(null);
+ const headings=useRef<Record<string,number>>({});
+ const focusNext=useRef<string|null>(null);
+ const scrollToOpen=()=>{const id=focusNext.current;if(!id)return;const y=headings.current[id];if(y===undefined)return;scrollRef.current?.scrollTo({y:Math.max(0,y-14),animated:true});focusNext.current=null;};
+ return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.stack} >
   <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>
   <Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>Guía pastoral</Text>
   <Body theme={theme} muted>Ocho temas para acompañar encuentros juveniles, con propuestas originales y referencias al final de cada tema.</Body>
@@ -22,8 +26,8 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
   {pastoralTopics.map(item=>{
    const open=expanded===item.id;
    const preview=item.purpose.length>100?item.purpose.slice(0,98).trimEnd()+'…':item.purpose;
-   return <View key={item.id} style={[styles.accordion,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-    <Pressable accessibilityRole="button" accessibilityLabel={item.title} accessibilityHint={open?'Contraer tema':'Desplegar tema'} accessibilityState={{expanded:open}} onPress={()=>setExpanded(v=>v===item.id?null:item.id)} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
+   return <View key={item.id} onLayout={e=>{headings.current[item.id]=e.nativeEvent.layout.y;}} style={[styles.accordion,{backgroundColor:theme.surface,borderColor:theme.border}]}>
+    <Pressable accessibilityRole="button" accessibilityLabel={item.title} accessibilityHint={open?'Contraer tema':'Desplegar tema'} accessibilityState={{expanded:open}} onPress={()=>{focusNext.current=open?null:item.id;setExpanded(open?null:item.id);if(!open)setTimeout(scrollToOpen,180);}} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
      <View style={styles.headingText}><Text style={[styles.title,{color:theme.text}]}>{item.title}</Text>{!open?<Text style={[styles.preview,{color:theme.secondary}]}>{preview}</Text>:null}</View>
      <Text accessibilityElementsHidden style={[styles.chevron,{color:theme.primaryText}]}>{open?'−':'⌄'}</Text>
     </Pressable>

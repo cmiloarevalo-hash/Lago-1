@@ -1,0 +1,24 @@
+TAP Abrir menÃº
+ASSERT drawer-credits-link PASS
+ASSERT no-youtube-songs PASS
+CAPTURE ux3-drawer-credits
+TAP DinÃ¡micas y juegos
+ASSERT activities-overview PASS
+ASSERT twenty-activities PASS
+ASSERT illustration-on-screen PASS
+ASSERT no-prominent-blue-editorial PASS
+CAPTURE ux3-activities-overview
+TAP Abrir guÃ­a Ronda de nombres y gestos
+ASSERT real-group-size PASS
+ASSERT real-duration PASS
+ASSERT original-art-in-guide PASS
+ASSERT short-step-guide PASS
+ASSERT consent-info-collapsed FAIL
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\owner-ux-update\qa_activities_sources_part2.py", line 45, in <module>
+    verify('consent-info-collapsed',contains('Cuidado y accesibilidad') and not contains('No exigir participación ni contacto físico'))
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\owner-ux-update\qa_activities_sources_part2.py", line 15, in verify
+    if not condition:raise AssertionError(label+' '+str(labels()[:22]))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: consent-info-collapsed ['Abrir menú de navegación', '\u2630', 'La U', 'RV1909 · sin conexión', 'Abrir ajustes', '\u2699', 'Ajustes', '\u2190 Volver a dinámicas', '\u2190 Volver a dinámicas', 'Ronda de nombres y gestos', 'Aprender nombres sin exponer historias personales.', '\U0001f465', '5–20', 'personas', '\u25f7', '10', 'minutos', '\u2726', '12+', 'edad sugerida', 'Dibujo original de cuatro personas conversando en grupo', '···']

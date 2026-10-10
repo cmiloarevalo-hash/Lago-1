@@ -1,0 +1,17 @@
+ASSERT prototype-at-start PASS
+CAPTURE ux3-hoy-prototype
+TAP Prototipo creado con apoyo
+ASSERT about-sources-title PASS
+ASSERT bibliography-and-linkography PASS
+ASSERT USCCB-sourced PASS
+ASSERT UNICEF-sourced PASS
+ASSERT Vatican-sourced PASS
+ASSERT photographer-credits PASS
+CAPTURE ux3-about-credits
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\owner-ux-update\qa_activities_sources.py", line 50, in <module>
+    tap('\u2190 Volver')
+    ~~~^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\owner-ux-update\qa_activities_sources.py", line 24, in tap
+    raise AssertionError('missing button '+needle+' '+str(labels()[:30]))
+AssertionError: missing button \u2190 Volver ['Abrir menú de navegación', '\u2630', 'La U', 'RV1909 · sin conexión', 'Abrir ajustes', '\u2699', 'Ajustes', 'Abrir fuente Santa Sede · Guidelines for the Protection of Children and Vulnerable Persons', '2019 · Referencia para protección de menores y personas vulnerables; jurisdicción específica', 'Biblia y recursos locales', 'Reina-Valera 1909 (RV1909): corpus bíblico de lectura local. Los pasajes se identifican por libro, capítulo y versículo. El contenido personal (notas, destacados y progreso) queda en el dispositivo.', 'Imágenes y créditos', 'Abrir fuente Jordan Moore · Paisaje natural', 'Jordan Moore · Paisaje natural \u2197', 'Fotografía de paisaje utilizada como base de tratamiento tonal propio.', 'Abrir fuente Sixteen Miles Out · Libro abierto', 'Sixteen Miles Out · Libro abierto \u2197', 'Fotografía de libro utilizada como base de tratamiento tonal propio.', 'Abrir fuente Unsplash License', 'Unsplash License \u2197', 'Condiciones aplicables a las fotografías anteriores.', 'Música y contenidos propios', 'SoundCloud utiliza enlaces y el reproductor de su propia plataforma; La U no aloja ni redistribuye música. Las ilustraciones geométricas de actividades son dibujos originales del proyecto. No se muestran letras de canciones de terceros sin autorización.', 'Consultar siempre la licencia vigente en cada origen. Las fuentes son bibliografía de contexto, no permisos generales para copiar contenidos ni respaldo editorial o institucional.', 'Hoy', '\u25c9', 'Hoy', 'Explorar', '\u2315', 'Explorar']

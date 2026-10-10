@@ -46,7 +46,7 @@ describe('R13 I13-A3 truthful drawer stays secondary',()=>{
   expect(app).toContain('onRequestClose={()=>setDrawerOpen(false)}');
   expect(app).toContain("item.group===group");
   expect(app).toContain('onPress={()=>openDrawerItem(item)}');
-  expect(app).toContain("kind:'youtube',origin:'today'");
+  expect(app).toContain("kind:'soundcloud',origin:'today'");
   expect(app).not.toContain("kind:'music'");
  });
 });

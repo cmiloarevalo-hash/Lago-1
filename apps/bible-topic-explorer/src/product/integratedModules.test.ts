@@ -46,7 +46,7 @@ describe('R1.3 private documents safety and real nested Back state',()=>{
    expect(goBack(state)?.current).toEqual({kind,origin:'today'});
    expect(goBack(goBack(state)!)?.current).toEqual({kind:'tab',tab:'today'});
   }
-  expect(drawerDestinations).toHaveLength(8);
+  expect(drawerDestinations).toHaveLength(7);
  });
  it('uses truly private additive SQLite data, never UPDATE/DELETE bookmarks or notes',async()=>{
   const source=await import('node:fs');

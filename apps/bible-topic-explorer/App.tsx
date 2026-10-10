@@ -2,7 +2,7 @@ import * as Notifications from 'expo-notifications';
 import {isDailyReminderResponse} from './src/product/reminders';
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, BackHandler, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {Modal, ScrollView} from 'react-native';
@@ -19,10 +19,11 @@ import {PlansScreen} from './src/ui/screens/PlansScreen';
 import {PastoralScreen} from './src/ui/screens/PastoralScreen';
 import {PastoralGamesScreen} from './src/ui/screens/PastoralGamesScreen';
 import {HymnalScreen} from './src/ui/screens/HymnalScreen';
-import {YouTubeScreen} from './src/ui/screens/YouTubeScreen';
+import {SoundCloudScreen} from './src/ui/screens/SoundCloudScreen';
+import {AboutSourcesScreen} from './src/ui/screens/AboutSourcesScreen';
 import {SQLiteBibleRepository} from './src/db/sqliteBibleRepository';
 const bundledBible={assetId:require('./assets/data/bible-topic-explorer.db')};
-function AppContent(){const [navigation,setNavigation]=useState<NavigationState>(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState<TopicUiState>(initialTopicUiState);const route=navigation.current;const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState<LocalPreferences>(defaultPreferences);
+function AppContent(){const [navigation,setNavigation]=useState<NavigationState>(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState<TopicUiState>(initialTopicUiState);const libraryScrollY=useRef(0);const activitiesScrollY=useRef(0);const route=navigation.current;const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState<LocalPreferences>(defaultPreferences);
  useEffect(()=>{let active=true;void persistence.getPreferences().then(value=>{if(active)setPreferences(value);}).catch(()=>{});return()=>{active=false;};},[persistence]); const navigate=useCallback((next:Route,recordHistory=true)=>{setNavigation(state=>nextNavigation(state,next,recordHistory));},[]);
  useEffect(()=>{if(Platform.OS!=='android')return;const subscription=Notifications.addNotificationResponseReceivedListener(response=>{if(isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});});void Notifications.getLastNotificationResponseAsync().then(response=>{if(response&&isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});}).catch(()=>{});return()=>subscription.remove();},[navigate]);
  useEffect(()=>{if(Platform.OS!=='android')return;const subscription=BackHandler.addEventListener('hardwareBackPress',()=>{if(drawerOpen){setDrawerOpen(false);return true;}if(navigation.history.length){setNavigation(state=>previousNavigation(state)??state);return true;}Alert.alert('Salir de la aplicación','¿Realmente quieres salir?',[{text:'Cancelar',style:'cancel'},{text:'Salir',onPress:()=>BackHandler.exitApp()}]);return true;});return()=>subscription.remove();},[navigation.history.length,drawerOpen]);
@@ -36,7 +37,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  else if(item.kind==='my-books')navigate({kind:'my-books',origin:activeTab});
  else if(item.kind==='plans')navigate({kind:'plans',origin:activeTab});
  else if(item.kind==='pastoral')navigate({kind:'pastoral',origin:activeTab});
- else if(item.kind==='youtube')navigate({kind:'youtube',origin:activeTab});
+ else if(item.kind==='soundcloud')navigate({kind:'soundcloud',origin:activeTab});
  };
  const back=()=>setNavigation(state=>previousNavigation(state)??state);
  const content=
@@ -44,16 +45,17 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  route.kind==='plans'?<PlansScreen theme={theme} appearance={mode} planId={route.planId} day={route.day} onBack={back} onSelect={(planId,day)=>navigate({...route,planId,day})} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
  route.kind==='pastoral'?<PastoralScreen theme={theme} onBack={back} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
  route.kind==='games'?<PastoralGamesScreen theme={theme} onBack={back}/>:
- route.kind==='youtube'?<YouTubeScreen theme={theme} onBack={back}/>: 
+ route.kind==='soundcloud'?<SoundCloudScreen theme={theme} onBack={back}/>:
  route.kind==='settings'?<SettingsScreen theme={theme} onPreferencesChange={setPreferences}/>:
- route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} onSelect={guideId=>navigate({...route,guideId})} onBack={back} onPlay={()=>navigate({kind:'games',origin:activeTab})}/>: 
+ route.kind==='about'?<AboutSourcesScreen theme={theme} onBack={back}/>:
+ route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} restoreY={activitiesScrollY.current} onScrollY={v=>{activitiesScrollY.current=v;}} onSelect={guideId=>navigate({...route,guideId})} onBack={back} onPlay={()=>navigate({kind:'games',origin:activeTab})}/>:
  route.kind==='songs'?<HymnalScreen theme={theme} readingScale={preferences.fontScale} onBack={back}/>: 
  route.kind==='my-books'?<PersonalBooksScreen theme={theme} bookId={route.bookId} readingScale={preferences.fontScale} onSelect={bookId=>navigate({...route,bookId})} onBack={back}/>:
  route.kind==='reader'?<BibleScreen theme={theme} readingScale={preferences.fontScale} reader={{book:route.book,chapter:route.chapter,verse:route.verse,sourceVerseLabel:route.sourceVerseLabel,verseEnd:route.verseEnd,sourceVerseLabels:route.sourceVerseLabels}} onBack={route.origin==='search'?back:undefined} onOpenReader={openReader}/>:
- route.tab==='today'?<TodayScreen theme={theme} appearance={mode} readingScale={preferences.fontScale} onOpenYouTube={()=>navigate({kind:'youtube',origin:'today'})} onOpenPlans={()=>navigate({kind:'plans',origin:'today'})} onOpenReader={openReader} onOpenExplore={()=>navigate({kind:'tab',tab:'search'})} onOpenLibrary={()=>navigate({kind:'tab',tab:'library'})}/>:
+ route.tab==='today'?<TodayScreen theme={theme} appearance={mode} readingScale={preferences.fontScale} onOpenSoundCloud={()=>navigate({kind:'soundcloud',origin:'today'})} onOpenAbout={()=>navigate({kind:'about',origin:'today'})} onOpenPlans={()=>navigate({kind:'plans',origin:'today'})} onOpenReader={openReader} onOpenExplore={()=>navigate({kind:'tab',tab:'search'})} onOpenLibrary={()=>navigate({kind:'tab',tab:'library'})}/>:
  route.tab==='search'?<SearchScreen theme={theme} onOpenReader={openReader} topicUi={topicUi} onTopicUiChange={setTopicUi}/>:
  route.tab==='bible'?<BibleScreen theme={theme} readingScale={preferences.fontScale} initialBook={route.bibleBook} onBookContextChange={book=>navigate({kind:'tab',tab:'bible',...(book?{bibleBook:book}:{})})} onOpenReader={openReader}/>:
- <LibraryScreen theme={theme} onOpenReader={(book,chapter,verse,sourceVerseLabel)=>openReader(book,chapter,verse,true,sourceVerseLabel)}/>;
+ <LibraryScreen theme={theme} restoreY={libraryScrollY.current} onScrollY={y=>{libraryScrollY.current=y;}} onOpenReader={(book,chapter,verse,sourceVerseLabel)=>openReader(book,chapter,verse,true,sourceVerseLabel)}/>;
  return <SafeAreaView edges={['top','bottom']} style={[styles.root,{backgroundColor:theme.background}]}><View style={[styles.top,{borderBottomColor:theme.border,backgroundColor:theme.surface}]}><View style={styles.brandRow}><Pressable accessibilityRole="button" accessibilityLabel="Abrir menú de navegación" accessibilityHint="Abre los destinos reales de La U, incluidos temas, dinámicas, canciones y libros personales." onPress={()=>setDrawerOpen(true)}
  style={({pressed})=>[styles.menuButton,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text style={[styles.menuGlyph,{color:theme.primaryText}]}>☰</Text></Pressable><View style={styles.brand}><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.text,fontFamily:'serif',fontSize:23,fontWeight:'700'}]}>La U</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.micro,{color:theme.secondary}]}>RV1909 · sin conexión</Text></View></View><Pressable accessibilityRole="button" accessibilityLabel="Abrir ajustes" hitSlop={4} onPress={()=>navigate({kind:'settings',origin:activeTab})} style={({pressed})=>[styles.settings,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.settingsIcon,{color:theme.primaryText}]}>⚙</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.primaryText}]}>Ajustes</Text></Pressable></View><View style={styles.content}>{content}</View><View accessibilityRole="tablist" style={[styles.tabs,{borderTopColor:theme.border,backgroundColor:theme.surface}]}>{tabs.map(tab=>{const selected=activeTab===tab;return <Pressable key={tab} accessibilityRole="tab" accessibilityLabel={tabLabels[tab]} accessibilityState={{selected}} onPress={()=>navigate({kind:'tab',tab})} style={({pressed})=>[styles.tab,selected&&{backgroundColor:theme.selectionBg},pressed&&{opacity:0.78}]}>{selected?<View accessibilityElementsHidden style={[styles.tabIndicator,{backgroundColor:theme.primaryText}]}/>:null}<Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.tabIcon,{color:selected?theme.primaryText:theme.secondary}]}>{tabIcons[tab]}</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.metadata,{color:selected?theme.primaryText:theme.secondary,fontWeight:selected?'700':'500'}]}>{tabLabels[tab]}</Text></Pressable>;})}</View><StatusBar style='dark'/>
   <Modal visible={drawerOpen} transparent animationType="fade" onRequestClose={()=>setDrawerOpen(false)}>
@@ -75,6 +77,10 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
         </View>)}
       </ScrollView>
       <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
+        <Pressable accessibilityRole="link" accessibilityLabel="Sobre La U, bibliografía, linkografía y créditos" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
+         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Prototipo · IA y estudios</Text>
+         <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Bibliografía y fuentes ↗</Text>
+        </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}
           style={[styles.drawerClose,{borderColor:theme.border}]}>
           <Text style={[typography.label,{color:theme.primaryText}]}>Cerrar menú</Text>
@@ -92,4 +98,4 @@ drawerBrand:{fontFamily:'serif',fontSize:37,fontWeight:'700'},drawerHeading:{fon
 drawerGroup:{marginTop:17,gap:4},drawerGroupLabel:{fontSize:11,fontWeight:'800',letterSpacing:1.3,marginBottom:6},
 drawerItem:{minHeight:56,borderBottomWidth:.55,paddingHorizontal:2,paddingVertical:5,flexDirection:'row',alignItems:'center',justifyContent:'space-between',gap:12},
 drawerSymbol:{width:42,height:42,borderRadius:14,justifyContent:'center',alignItems:'center'},
-drawerSymbolText:{fontSize:23},drawerArrow:{fontSize:25},drawerItemLabel:{flexShrink:1,flexGrow:1},drawerFooter:{padding:spacing.sm,borderTopWidth:1},drawerClose:{minHeight:minimumTouchTarget,alignItems:'center',justifyContent:'center',borderRadius:radius.pill,borderWidth:1},drawerDismiss:{flex:1}});
+drawerSymbolText:{fontSize:23},drawerArrow:{fontSize:25},drawerItemLabel:{flexShrink:1,flexGrow:1},drawerFooter:{padding:spacing.sm,borderTopWidth:1},drawerCredits:{minHeight:57,paddingHorizontal:8,paddingVertical:5,alignItems:'center',justifyContent:'center',gap:2},drawerCreditsText:{fontSize:12},drawerCreditsLink:{fontSize:12,fontWeight:'700'},drawerClose:{minHeight:minimumTouchTarget,alignItems:'center',justifyContent:'center',borderRadius:radius.pill,borderWidth:1},drawerDismiss:{flex:1}});

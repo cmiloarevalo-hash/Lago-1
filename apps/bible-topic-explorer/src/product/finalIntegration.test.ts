@@ -7,7 +7,7 @@ import {pastoralTopics} from './pastoralTopics';
 import {originalLyrics} from './originalLyrics';
 import {songGuides} from './pastoralSongs';
 import {triviaQuestions,trueFalseQuestions,sequenceGame} from './pastoralGames';
-import {youtubeEmbedUrl,youtubePlaylistId,youtubePlaylistStatus} from './youtube';
+import {soundcloudEmbedUrl,soundcloudTrackUrl} from './soundcloud';
 import {tabs,goBack,initialNavigationState,navigate} from './navigation';
 import {drawerDestinations} from './secondaryMenu';
 describe('R1.3 final integrated plan contracts',()=>{
@@ -50,18 +50,23 @@ describe('R1.3 final integrated plan contracts',()=>{
   expect(lyricsDb).toContain('app_personal_lyrics');expect(lyricsDb).not.toContain('DROP TABLE');
   expect(lyricsDb).not.toContain('fetch(');
  });
- it('rejects untrusted YouTube URLs and uses visible official embed with controls, no autoplay',()=>{
-  expect(youtubePlaylistStatus).toBe('PENDIENTE_PLAYLIST');
-  expect(youtubePlaylistId('https://youtube.com/playlist?list=PL1234567890ABCDEFG')).toBe('PL1234567890ABCDEFG');
-  expect(youtubePlaylistId('https://evil.example/playlist?list=PL1234567890ABCDEFG')).toBeNull();
-  expect(youtubePlaylistId('http://www.youtube.com/playlist?list=PL1234567890ABCDEFG')).toBeNull();
-  expect(youtubePlaylistId('https://youtube.com/playlist?list=%3Ciframe%3E')).toBeNull();
-  const url=youtubeEmbedUrl('PL1234567890ABCDEFG');expect(url).toContain('autoplay=0');expect(url).toContain('controls=1');
-  const screen=readFileSync('src/ui/screens/YouTubeScreen.tsx','utf8');expect(screen).toContain('<WebView');expect(screen).toContain('aspectRatio:16/9');expect(screen).not.toContain('injectedJavaScript');
+ it('allows only real SoundCloud HTTPS track/set URLs and embeds with user action',()=>{
+  const track='https://soundcloud.com/artist-name/song-name';
+  expect(soundcloudTrackUrl(track)).toBe(track);
+  expect(soundcloudTrackUrl('http://soundcloud.com/artist/song')).toBeNull();
+  expect(soundcloudTrackUrl('https://evil.example/artist/song')).toBeNull();
+  expect(soundcloudTrackUrl('https://soundcloud.com/artist/%2Fetc')).toBeNull();
+  const url=soundcloudEmbedUrl(track);
+  expect(url).toContain('w.soundcloud.com/player/');
+  expect(url).toContain('auto_play=false');
+  const screen=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
+  expect(screen).toContain('<WebView');
+  expect(screen).toContain('mediaPlaybackRequiresUserAction');
+  expect(screen).not.toContain('injectedJavaScript');
  });
  it('keeps original four tabs and nested Back for all five new modules',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);
-  for(const kind of ['plans','pastoral','games','youtube'] as const){
+  for(const kind of ['plans','pastoral','games','soundcloud'] as const){
    const state=navigate(initialNavigationState(),{kind,origin:'today'});
    expect(goBack(state)?.current).toEqual({kind:'tab',tab:'today'});
   }
@@ -69,7 +74,7 @@ describe('R1.3 final integrated plan contracts',()=>{
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor'});
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor',day:3});
   expect(goBack(state)?.current).toMatchObject({kind:'plans',planId:'amor'});
-  expect(drawerDestinations).toHaveLength(8);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
+  expect(drawerDestinations).toHaveLength(7);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
   expect(drawerDestinations.some(x=>x.kind==='pastoral')).toBe(true);
  });
  it('protects reset and persistence in additive tables without destructive note migration',()=>{

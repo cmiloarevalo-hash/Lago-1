@@ -2,8 +2,8 @@ import {topicCatalog, type TopicDefinition} from './topics';
 import {conceptPreviews, previewByTopicId, type ConceptPreview, type ConceptPassage} from './conceptPreviews';
 
 export type ExploreMode = 'words'|'topics';
-export interface TopicUiState {mode:ExploreMode; family?:string; topicId?:string; scrollY:number;}
-export const initialTopicUiState:TopicUiState={mode:'words',scrollY:0};
+export interface TopicUiState {mode:ExploreMode; family?:string; topicId?:string; scrollY:number; listScrollY?:number; selectedLetter?:string;}
+export const initialTopicUiState:TopicUiState={mode:'topics',scrollY:0,selectedLetter:'A'};
 export const conceptFamilies=Array.from(new Set(topicCatalog.map(topic=>topic.family)));
 export function familyTopics(family:string):readonly TopicDefinition[]{return topicCatalog.filter(topic=>topic.family===family);}
 export function availablePreview(topicId:string):ConceptPreview|undefined{return previewByTopicId.get(topicId);}

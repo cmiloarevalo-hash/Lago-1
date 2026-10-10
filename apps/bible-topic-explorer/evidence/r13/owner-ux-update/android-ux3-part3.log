@@ -1,0 +1,9 @@
+CHECK guide-title FAIL
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\owner-ux-update\qa_activities_sources_part3.py", line 18, in <module>
+    require('guide-title',has('Ronda de nombres y gestos'))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\owner-ux-update\qa_activities_sources_part3.py", line 14, in require
+    if not check:raise AssertionError(name+' '+repr(labels()))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: guide-title ['Abrir menú de navegación', '\u2630', 'La U', 'RV1909 · sin conexión', 'Abrir ajustes', '\u2699', 'Ajustes', '\u2190 Recursos', '\u2190 Recursos', 'Música en SoundCloud', 'Escucha desde el reproductor oficial de SoundCloud. La Biblia y tus notas siguen disponibles sin conexión.', '\u2601', 'SoundCloud', 'REPRODUCTOR OFICIAL', 'SoundCloud sin pista seleccionada. El reproductor no está reproduciendo.', '\u2601', 'Tu música, en SoundCloud', 'Elige una pista o lista oficial para mostrar su reproductor.', 'Escoger música', 'Pega el enlace HTTPS de una pista o lista pública de SoundCloud. Algunas grabaciones no permiten reproducción integrada.', 'https://soundcloud.com/artista/pista', 'Cargar reproductor SoundCloud', 'Cargar reproductor SoundCloud', 'Hoy', '\u25c9', 'Hoy', 'Explorar', '\u2315', 'Explorar', 'Leer', '\u25a4', 'Leer', 'Biblioteca', '\u25a3', 'Biblioteca']

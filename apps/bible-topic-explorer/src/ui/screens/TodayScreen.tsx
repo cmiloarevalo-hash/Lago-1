@@ -9,8 +9,8 @@ import {scaledScriptureMetrics} from '../readingScale';
 import {editorialArt} from '../editorialArt';
 import {Action,Body,Card,Metadata,Screen,StatusBanner} from '../primitives';
 import {radius,spacing,type as typography,type Theme} from '../theme';
-type Props={theme:Theme;appearance:VisibleTheme;readingScale?:number;onOpenYouTube:()=>void;onOpenPlans:()=>void;onOpenReader:(book:string,chapter:number,verse?:number)=>void;onOpenExplore:()=>void;onOpenLibrary:()=>void};
-export function TodayScreen({theme,appearance,readingScale=1,onOpenYouTube,onOpenPlans,onOpenReader,onOpenExplore,onOpenLibrary}:Props){
+type Props={theme:Theme;appearance:VisibleTheme;readingScale?:number;onOpenSoundCloud:()=>void;onOpenAbout:()=>void;onOpenPlans:()=>void;onOpenReader:(book:string,chapter:number,verse?:number)=>void;onOpenExplore:()=>void;onOpenLibrary:()=>void};
+export function TodayScreen({theme,appearance,readingScale=1,onOpenSoundCloud,onOpenAbout,onOpenPlans,onOpenReader,onOpenExplore,onOpenLibrary}:Props){
  const db=useSQLiteContext(),repo=useMemo(()=>new SQLiteBibleRepository(db),[db]);
  const [dayKey,setDayKey]=useState(()=>localDayKey(new Date()));
  const reading=useMemo(()=>readingForDate(new Date(Number(dayKey.slice(0,4)),Number(dayKey.slice(5,7))-1,Number(dayKey.slice(8,10)))),[dayKey]);
@@ -19,8 +19,12 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenYouTube,onOpe
  useEffect(()=>{let live=true;setLoading(true);setError(false);void repo.getChapter(reading.book,reading.chapter).then(rows=>{if(live)setVerse(rows.find(v=>v.verse===reading.verse||v.sourceVerseLabel===String(reading.verse))??null);}).catch(()=>{if(live){setVerse(null);setError(true);}}).finally(()=>{if(live)setLoading(false);});return()=>{live=false;};},[repo,reading.book,reading.chapter,reading.verse]);
  const ref=(verse?.bookName??reading.book)+' '+reading.chapter+':'+reading.verse;
  const art=editorialArt(appearance);
- const quick=[{key:'planes',icon:'▤',title:'Planes',description:'A tu ritmo',tint:'#FCEEF1',onPress:onOpenPlans},{key:'buscar',icon:'⌕',title:'Explorar',description:'Palabras y temas',tint:'#E9F3FB',onPress:onOpenExplore},{key:'musica',icon:'♫',title:'YouTube',description:'Vídeo visible',tint:'#E7F0E9',onPress:onOpenYouTube},{key:'favoritos',icon:'♡',title:'Biblioteca',description:'Tus guardados',tint:'#FFF0D8',onPress:onOpenLibrary}];
+ const quick=[{key:'planes',icon:'▤',title:'Planes',description:'A tu ritmo',tint:'#FCEEF1',onPress:onOpenPlans},{key:'buscar',icon:'⌕',title:'Explorar',description:'100 temas',tint:'#E9F3FB',onPress:onOpenExplore},{key:'musica',icon:'♫',title:'SoundCloud',description:'Música oficial',tint:'#FFF0E4',onPress:onOpenSoundCloud},{key:'favoritos',icon:'♡',title:'Biblioteca',description:'Tus guardados',tint:'#FFF0D8',onPress:onOpenLibrary}];
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
+  <Pressable accessibilityRole="link" accessibilityLabel="Prototipo creado con apoyo de IA y estudios. Ver bibliografía y créditos." onPress={onOpenAbout} style={styles.prototypeNote}>
+   <Text style={[styles.prototypeText,{color:theme.secondary}]}>ⓘ  Prototipo con apoyo de IA y estudios</Text>
+   <Text style={[styles.prototypeLink,{color:theme.primaryText}]}>Fuentes ↗</Text>
+  </Pressable>
   <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={styles.hero}>
    <View style={styles.heroScrim}/>
    <View style={styles.heroCopy}>
@@ -46,7 +50,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenYouTube,onOpe
    </Card>
   </View>
   <View style={styles.quickRow}>{quick.map(item=><Pressable key={item.key} accessibilityRole="button" accessibilityLabel={item.title+' · '+item.description} onPress={item.onPress} style={({pressed})=>[styles.quickTile,{backgroundColor:item.tint,opacity:pressed?.8:1}]}>
-   <Text style={[styles.quickIcon,{color:item.key==='musica'?'#256844':item.key==='buscar'?'#246694':item.key==='favoritos'?'#A36A1B':theme.primaryText}]}>{item.icon}</Text>
+   <Text style={[styles.quickIcon,{color:item.key==='musica'?'#F05B13':item.key==='buscar'?'#246694':item.key==='favoritos'?'#A36A1B':theme.primaryText}]}>{item.icon}</Text>
    <Text style={styles.quickLabel}>{item.title}</Text>
   </Pressable>)}</View>
   <View style={styles.sectionTitle}><Text style={[styles.sectionHeading,{color:theme.text}]}>Para ti hoy</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Acompaña tu camino</Text></View>
@@ -54,13 +58,15 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenYouTube,onOpe
    <View style={[styles.recoSymbol,{backgroundColor:theme.selectionBg}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>❧</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Un camino de siete días</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Lecturas y reflexiones con progreso local.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
   </Pressable>
   <Pressable accessibilityRole="button" accessibilityLabel="Explorar pasajes y temas" onPress={onOpenExplore} style={[styles.recommendation,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <View style={[styles.recoSymbol,{backgroundColor:theme.surfaceSoft}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>☼</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Encuentra tu próximo pasaje</Text><Text style={[typography.metadata,{color:theme.secondary}]}>100 temas y búsqueda literal separados.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
+   <View style={[styles.recoSymbol,{backgroundColor:theme.surfaceSoft}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>☼</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Encuentra tu próximo pasaje</Text><Text style={[typography.metadata,{color:theme.secondary}]}>100 temas para explorar la Palabra.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
   </Pressable>
   <Metadata theme={theme}>La lectura RV1909 y tus notas funcionan sin conexión.</Metadata>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxxl+12},
+ prototypeNote:{minHeight:48,paddingHorizontal:2,flexDirection:'row',alignItems:'center',flexWrap:'wrap',justifyContent:'space-between',gap:6},
+ prototypeText:{fontSize:12,lineHeight:18},prototypeLink:{fontSize:12,fontWeight:'700'},
  hero:{height:238,borderRadius:radius.lg,overflow:'hidden',justifyContent:'flex-start'},
  heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.21)'},
  heroCopy:{paddingHorizontal:22,paddingTop:20,maxWidth:330,gap:7},
