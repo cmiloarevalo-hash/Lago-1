@@ -27,3 +27,7 @@
 Los enlaces a playlists no autorizan bajar, copiar, distribuir letras/audio, sincronizar música ni reproducirla públicamente sin permisos pertinentes. Los catálogos externos son dinámicos; **un adulto debe escuchar y revisar las canciones antes de usarlas con menores**. El prototipo no afirma aval de una institución ni aprobación doctrinal humana. Candidatos de música mencionados en SoundCloud: Syntax Creative / Christian Kids, Bassage / Christian Instrumental, Worship Music Recordings / Christian Youth Club EDM.
 
 **Invariantes:** ningún merge a `main`, sin publicación de APK de producción, sin eliminación de datos de usuarios, sin tocar SQLite RV1909, notas, destacados, progreso, 66 libros, 100 IDs ni versión oficial instalada. La versión entregable sigue siendo APK Android DEBUG QA aislada, no release firmado.
+
+## Comprobación adicional de apertura externa del botón principal
+
+Se pulsó realmente `Abrir SoundCloud ↗` en el emulador Android de QA. **PASS de entrega al navegador externo:** `dumpsys activity` confirmó `com.android.chrome/...FirstRunActivity` como actividad en primer plano; el emulador estaba en la primera ejecución de Chrome y **NO** se inició reproducción (ni se prueba un teléfono con la aplicación SoundCloud instalada). Prueba `qa_soundcloud_open_button.py`, log `soundcloud-open-button-android.log`. El sistema Android puede decidir si un enlace se abre en la aplicación SoundCloud instalada o en un navegador; La U no lo fuerza ni lo garantiza.

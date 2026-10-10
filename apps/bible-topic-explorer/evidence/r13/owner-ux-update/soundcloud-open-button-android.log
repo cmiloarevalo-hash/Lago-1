@@ -1,0 +1,6 @@
+CLICK ('Hoy', 139, 2260, 'true')
+CLICK ('SoundCloud · Música oficial', 665, 2110, 'true')
+CLICK ('Abrir SoundCloud ↗', 540, 1217, 'true')
+FOREGROUND topResumedActivity=ActivityRecord{161600980 u0 com.android.chrome/org.chromium.chrome.browser.firstrun.FirstRunActivity t97}
+AFTER_OPEN_LABELS ['Make Chrome your own', 'Sign in to get your bookmarks, passwords, and more on all your devices', 'Add account to device', 'Use without an account', 'By continuing, you agree to the Terms of Service. To help improve the app, Chrome sends usage and crash data to Google. Manage']
+BUTTON_TAPPED_NO_AUDIO_IN_APP
