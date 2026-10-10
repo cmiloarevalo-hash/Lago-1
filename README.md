@@ -1,21 +1,24 @@
-# La U 1.3 — APK Android QA `1.3-qa.3`
+# La U 1.3 — APK QA 4 (SoundCloud externo y Temas para jóvenes)
 
-**[DESCARGAR APK ARM64 — LaU-1.3-QA-UX3-ARM64-debug.apk](LaU-1.3-QA-UX3-ARM64-debug.apk)**
+**Descargar [LaU-1.3-QA4-SoundCloud-Temas-ARM64.apk](LaU-1.3-QA4-SoundCloud-Temas-ARM64.apk)**
 
-> Versión **DEBUG / QA**, no producción ni tienda. Para teléfonos Android modernos ARM64 (`arm64-v8a`) con Android 7.0 o superior; requiere permitir instalación desde el navegador o gestor de archivos. Mantén instalada la versión oficial y sus datos.
+> APK Android **DEBUG/QA**, no firma ni aprobación de producción. Diseñado para teléfonos Android **ARM64** (Android 7.0 o posterior) y paquete separado de la aplicación oficial. No desinstalar la oficial ni borrar sus datos.
 
-**Fuente exacta:** rama `feat/r13-p2-topic-ui` commit [`ff92566fd813b2df1a10d0a9cb10794709ff850a`](https://github.com/cmiloarevalo-hash/Lago-1/commit/ff92566fd813b2df1a10d0a9cb10794709ff850a). El artefacto fue compilado localmente desde ese código, con versión de empaquetado `1.3-qa.3` (versionCode 6) en configuración de compilación DEBUG local.
+## Identidad
 
-- APK: `LaU-1.3-QA-UX3-ARM64-debug.apk`
-- Tamaño: **61.605.808 bytes**
-- SHA-256: **`561a4546fa8ba9482c3b964dcdd9a7056d32a5e867671d487f51c735c1256f5f`**
-- App ID: `com.lago.bibletopicexplorer.qa` (aislado de `com.lago.bibletopicexplorer` oficial)
-- Compilación: `gradlew.bat :app:assembleDebug -PreactNativeArchitectures=arm64-v8a --offline --console=plain`
-- JavaScript y recursos embebidos (NO requiere Metro/PC para abrir La U).
-- Certificado: **Android Debug**, no firma de distribución de producción.
+- Archivo: `LaU-1.3-QA4-SoundCloud-Temas-ARM64.apk`
+- Tamaño: **61.596.012 bytes** (≈61,6 MB decimales).
+- SHA-256: **`9daa4c42cb54eb29ba080b00ca82020b6779e58262bae05d742edf9f9f5b88b3`**
+- Versión Android: `1.3-qa.4` (`versionCode 7`), aplicación `com.lago.bibletopicexplorer.qa`, Android mínimo API 24, ABI `arm64-v8a`.
+- Certificado: **CN=Android Debug**, verificado con `apksigner`; JS/Hermes y assets están incorporados. Funciona sin Metro, pero **SoundCloud externo requiere conexión**.
+- Fuente y evidencia: [`feat/r13-p2-topic-ui @ cfc918f21ac3c6951cae574b732dbafe5cfee424`](https://github.com/cmiloarevalo-hash/Lago-1/commit/cfc918f21ac3c6951cae574b732dbafe5cfee424), [informe de QA](https://github.com/cmiloarevalo-hash/Lago-1/blob/cfc918f21ac3c6951cae574b732dbafe5cfee424/apps/bible-topic-explorer/evidence/r13/owner-ux-update/SOUNDCLOUD_YOUTH_QA_REPORT.md).
 
-**Incluye:** SoundCloud (embed oficial condicionado a URL de pista/lista aportada por usuario; reproducción no probada), YouTube y Cancionero ocultos sin borrar datos, Explorar solo temas, navegación/scroll mejorados, Biblioteca sin Destacados visibles pero conservados en SQLite, guías pastorales que centran encabezado y nueva interfaz visual de Dinámicas con iconos y figuras humanas originales. Declaración de prototipo con apoyo de IA al principio y enlace de bibliografía, linkografía y licencias al pie del menú ☰.
+## Qué cambió
 
-**Evidencia:** [Informe de QA UX y derechos](https://github.com/cmiloarevalo-hash/Lago-1/blob/ff92566fd813b2df1a10d0a9cb10794709ff850a/apps/bible-topic-explorer/evidence/r13/owner-ux-update/OWNER_UX_QA_REPORT.md) · [Issue #65](https://github.com/cmiloarevalo-hash/Lago-1/issues/65). QA funcional global, TalkBack, backlinks externos y derechos/editorial siguen pendientes según aprobación del Owner; hay una comprobación focal de expandir aviso de cuidado de la guía todavía NOT COMPLETED en emulador. No hay merge a `main` ni publicación comercial.
+SoundCloud ya **NO** muestra simulación de reproductor ni campo de URL HTTP/HTTPS: solo botón para abrir SoundCloud (app o navegador según Android) y tres enlaces a listas reales **de terceros** (niños, instrumental de estudio y pastoral juvenil). Su contenido es externo, mutable, **no aprobado ni licenciado por La U**; revisar todas las pistas con una persona responsable antes de usarlas con menores.
 
-**La rama `downloads/r13-qa` distribuye solamente este APK y su descripción.**
+Explorar → Temas presenta tarjetas compactas, iconos discretos, títulos mejor proporcionados y lenguaje para jóvenes en 23 previews, con **46 referencias bíblicas intactas RV1909**. Los 100 IDs y demás datos locales permanecen sin cambio. Se conserva además el trabajo anterior: Dinámicas visuales, bibliografía, tres temas claros, Cancionero/YouTube ocultos, estado privado.
+
+**QA:** TypeScript PASS; 149/149 pruebas fuente PASS; compilación DEBUG e instalación en emulador PASS, UX focal de SoundCloud/Paz/Esperanza/Back PASS. No se ha probado reproducción SoundCloud con cuenta/pista en un dispositivo físico, ni QA global TalkBack, respaldos, contenido editorial o derechos de músicas: siguen pendientes/aplazados.
+
+**Importante:** `main` no cambia; es un APK de prueba separada, no entrega productiva ni Play Store.
