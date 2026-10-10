@@ -1,0 +1,8 @@
+ASSERT Ordenar versículos PASS
+ASSERT Dinámicas pastorales PASS
+ASSERT Filipenses 4 PASS
+ASSERT Qué bueno que estás aquí PASS
+ASSERT Salir de la aplicación PASS
+CLICK ('CANCELAR', 684, 1365, 'true')
+ASSERT Qué bueno que estás aquí PASS
+ANDROID_BACK_NESTED_ROOT_CANCEL_PASS

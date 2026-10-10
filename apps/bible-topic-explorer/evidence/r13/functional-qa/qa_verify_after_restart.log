@@ -1,0 +1,7 @@
+CLICK ('Continuar lectura  →', 540, 1701, 'true')
+ASSERT note-bubble-after-cold-restart PASS
+ASSERT rose-highlight-after-cold-restart PASS
+CLICK ('Leer nota privada de Filipenses 4:6', 152, 1110, 'true')
+ASSERT exact-note-token-after-cold-restart PASS
+CLICK ('Cerrar lectura', 214, 1401, 'true')
+PERSISTENT_NOTE_HIGHLIGHT_PASS

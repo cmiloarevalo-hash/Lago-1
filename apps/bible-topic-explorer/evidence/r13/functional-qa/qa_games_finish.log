@@ -1,0 +1,22 @@
+ASSERT En Juan 15 PASS
+TAP Verdadero ('Verdadero', 540, 1460, 'true')
+ASSERT Respuesta correcta PASS
+ASSERT Puntuación provisional: 1 de 1 PASS
+CAPTURE games-truefalse-feedback
+TAP Siguiente pregunta ('Siguiente pregunta', 540, 1689, 'true')
+ASSERT Pregunta 2 de 5 PASS
+TAP Reiniciar juego ('Reiniciar juego', 194, 1942, 'true')
+ASSERT Pregunta 1 de 5 PASS
+ASSERT Puntuación provisional: 0 de 0 PASS
+TRUE_FALSE_AND_RESTART_PASS
+TAP Ordenar versículos ('Ordenar versículos', 813, 1005, 'true')
+ASSERT RV1909 · Salmos 23: PASS
+SEQUENCE_INITIAL ['2', '3', '1']
+TAP Subir versículo 1 ('Subir versículo 1', 274, 1600, 'true')
+TAP Subir versículo 1 ('Subir versículo 1', 274, 1261, 'true')
+SEQUENCE_FINAL ['1', '2', '3']
+ASSERT Orden correcto de los versículos en Salmos 23. PASS
+CAPTURE games-sequence-complete
+TAP Mezclar de nuevo ('Mezclar de nuevo', 540, 1997, 'true')
+SEQUENCE_RESET_PASS
+GAMES_THREE_MODES_PASS

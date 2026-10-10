@@ -1,0 +1,18 @@
+ASSERT Leer nota privada de Filipenses 4:6 PASS
+CLICK ('Abrir opciones de Filipenses 4:6', 368, 1110, 'true')
+ASSERT QA_R13_SYNTHETIC_NOTE_20261010 PASS
+CLICK ('Destacar rosa', 129, 1330, 'true')
+HIGHLIGHT_APPLIED
+CAPTURE note-and-mark-before-restart
+CLICK ('Cerrar opciones', 221, 1645, 'true')
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_notes_recheck.py", line 34, in <module>
+    hit('Continuar lectura')
+    ~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_notes_recheck.py", line 15, in hit
+    def hit(s):q.click(s);wait()
+               ~~~~~~~^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\android-visual-qa\qa_device.py", line 29, in click
+    if not a:raise RuntimeError('Cannot find '+repr(needle)+'; visible: '+str([x[0] for x in nodes()]))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Cannot find 'Continuar lectura'; visible: []

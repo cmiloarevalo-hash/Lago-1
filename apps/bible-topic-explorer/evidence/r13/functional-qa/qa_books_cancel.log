@@ -1,0 +1,15 @@
+CLICK ('Abrir menú de navegación', 105, 202, 'true')
+CLICK ('Mis libros PDF/EPUB', 475, 1934, 'true')
+ASSERT Mis libros PDF/EPUB PASS
+ASSERT Elegir PDF o EPUB de mi dispositivo PASS
+CLICK ('Elegir PDF o EPUB de mi dispositivo', 540, 994, 'true')
+DOCUMENT_PICKER_OPEN_ATTEMPT
+ASSERT Mis libros PDF/EPUB FAIL
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_books_cancel.py", line 23, in <module>
+    ensure('Mis libros PDF/EPUB')
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_books_cancel.py", line 12, in ensure
+    if not result:raise AssertionError(s)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Mis libros PDF/EPUB

@@ -1,0 +1,11 @@
+ASSERT LaU-QA-test.epub PASS
+ASSERT Sección 2 de 2 PASS
+CLICK ('← Anterior', 182, 1749, 'true')
+ASSERT Sección 1 de 2 PASS
+CLICK ('Siguiente →', 484, 1749, 'true')
+ASSERT Sección 2 de 2 PASS
+ASSERT Lectura y progreso local de prueba. PASS
+EPUB_LOCAL_TWO_CHAPTERS_PASS
+CLICK ('← Mis libros', 176, 394, 'true')
+ASSERT Retomar LaU-QA-test.pdf PASS
+BOOK_INDEX_PASS

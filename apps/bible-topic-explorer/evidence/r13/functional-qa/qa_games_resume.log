@@ -1,0 +1,16 @@
+ASSERT Puntuación provisional: 1 de 1 PASS
+CAPTURE games-trivia-correct
+TAP Siguiente pregunta ('Siguiente pregunta', 540, 1689, 'true')
+ASSERT Pregunta 2 de 5 PASS
+TAP Reiniciar juego ('Reiniciar juego', 194, 2003, 'true')
+ASSERT Pregunta 1 de 5 PASS
+ASSERT Puntuación provisional: 0 de 0 PASS
+TRIVIA_RESTART_PASS
+TAP Verdadero/falso ('Verdadero/falso', 436, 898, 'true')
+ASSERT Pregunta 1 de PASS
+TAP Verdadero ('Verdadero/falso', 415, 1005, 'true')
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_games_resume.py", line 44, in <module>
+    assert any('Respuesta correcta' in x or 'Respuesta para revisar' in x for x in labels()),'No explanation after V/F choice'
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: No explanation after V/F choice

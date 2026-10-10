@@ -1,0 +1,15 @@
+ASSERT LaU-QA-test.pdf PASS
+ASSERT Progreso anotado manualmente: 10% PASS
+CLICK ('+ 10 %', 365, 2057, 'true')
+ASSERT Progreso anotado manualmente: 20% PASS
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_pdf_progress.py", line 27, in <module>
+    hit('Abrir menú de navegación');hit('Mis libros PDF/EPUB')
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_pdf_progress.py", line 12, in hit
+    def hit(t):q.click(t);time.sleep(.75)
+               ~~~~~~~^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\android-visual-qa\qa_device.py", line 29, in click
+    if not a:raise RuntimeError('Cannot find '+repr(needle)+'; visible: '+str([x[0] for x in nodes()]))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Cannot find 'Abrir menú de navegación'; visible: ['Abrir menú de navegación', '\u2630', 'La U', 'RV1909 · sin conexión', 'Abrir ajustes', '\u2699', 'Ajustes', 'LA U · UN MOMENTO PARA TI', 'Qué bueno que estás aquí.', 'Una pausa para que la Palabra ilumine tu día.', 'Versículo de hoy Filipenses 4:6', '\u2600  VERSÍCULO DEL DÍA', 'Filipenses 4:6 · RV1909', '“Por nada estéis afanosos; sino sean notorias vuestras peticiones delante de Dios en toda oración y ruego, con hacimiento de gracias.”', '\u2727', 'Continuar lectura  \u2192', 'Continuar lectura  \u2192', 'Planes · A tu ritmo', '\u25a4', 'Planes', 'Explorar · Palabras y temas', '\u2315', 'Explorar', 'YouTube · Vídeo visible', '\u266b', 'YouTube', 'Biblioteca · Tus guardados', '\u2661', 'Biblioteca', 'Para ti hoy', 'Acompaña tu camino', 'Comenzar un plan de lectura', '\u2767', 'Un camino de siete días', '›', 'Hoy', '\u25c9', 'Hoy', 'Explorar', '\u2315', 'Explorar', 'Leer', '\u25a4', 'Leer', 'Biblioteca', '\u25a3', 'Biblioteca']

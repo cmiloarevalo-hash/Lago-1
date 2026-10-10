@@ -1,0 +1,10 @@
+ASSERT Qué bueno que estás aquí PASS
+CLICK ('Abrir menú de navegación', 105, 202, 'true')
+CLICK ('Mis libros PDF/EPUB', 475, 1934, 'true')
+ASSERT Retomar LaU-QA-test.pdf PASS
+CLICK ('Retomar LaU-QA-test.pdf', 540, 1679, 'true')
+ASSERT Progreso anotado manualmente: 20% PASS
+PDF_PROGRESS_AFTER_COLD_RESTART_PASS
+CLICK ('− 10 %', 146, 1851, 'true')
+ASSERT Progreso anotado manualmente: 10% PASS
+SYNTHETIC_PDF_PROGRESS_RESTORED

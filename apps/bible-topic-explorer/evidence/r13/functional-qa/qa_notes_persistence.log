@@ -1,0 +1,14 @@
+ASSERT Tu nota privada PASS
+ASSERT Guardar nota PASS
+CLICK ('Escribe tu nota personal…', 540, 1038, 'true')
+ASSERT QA_R13_SYNTHETIC_NOTE_20261010 PASS
+CLICK ('Guardar nota', 540, 1427, 'true')
+ASSERT Nota privada guardada. FAIL
+Traceback (most recent call last):
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_notes_persistence.py", line 30, in <module>
+    require('Nota privada guardada.')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\R13\apps\bible-topic-explorer\evidence\r13\functional-qa\qa_notes_persistence.py", line 14, in require
+    if not found:raise AssertionError(x)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Nota privada guardada.
