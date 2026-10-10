@@ -1,4 +1,4 @@
-export type ThemeMode = 'lavender' | 'sky' | 'dark';
+export type ThemeMode = 'lavender' | 'sky' | 'dark' | 'coral' | 'natural' | 'marine' | 'contrast';
 
 export const spacing = { xs: 4, sm: 8, md: 12, lg: 16, xl: 20, xxl: 28, xxxl: 32 } as const;
 export const radius = { xs: 7, sm: 10, md: 14, lg: 20, pill: 999 } as const;
@@ -52,6 +52,38 @@ export const themes = {
     warningText: '#FDE68A', warningBg: '#422006', errorText: '#FECACA', errorBg: '#450A0A',
     danger: '#FCA5A5', infoText: '#BFDBFE', infoBg: '#172554',
     focusRing: '#F5A5CC', disabledBg: '#3B3440', disabledText: '#D3C7D1', soft: '#372938',
+  },
+  coral: {
+    background:'#FFF7F4',surface:'#FFFFFF',raised:'#FCE8EB',surfaceSoft:'#FFF0F1',
+    text:'#30222D',secondary:'#61525B',muted:'#61525B',
+    primary:'#A33A60',primaryText:'#922C52',accent:'#A33A60',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    amber:'#865515',coral:'#A33A60',sky:'#295F7B',purple:'#744171',
+    border:'#D6BEC5',selectionBg:'#FCE6EC',selectionBorder:'#922C52',success:'#246B4A',
+    ...feedback,focusRing:'#922C52',disabledBg:'#F0E7E8',disabledText:'#635760',soft:'#FFF0F1'
+  },
+  natural: {
+    background:'#F5F5EE',surface:'#FFFFFF',raised:'#E9EDE4',surfaceSoft:'#F1F3EC',
+    text:'#242A20',secondary:'#4E5847',muted:'#4E5847',
+    primary:'#425835',primaryText:'#36512B',accent:'#425835',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    amber:'#775316',coral:'#98534E',sky:'#375F77',purple:'#61517B',
+    border:'#C9D3C4',selectionBg:'#E3EBD9',selectionBorder:'#425835',success:'#256C42',
+    ...feedback,focusRing:'#425835',disabledBg:'#E4E8E1',disabledText:'#515A50',soft:'#F1F3EC'
+  },
+  marine: {
+    background:'#F8FAFC',surface:'#FFFFFF',raised:'#EDF3F8',surfaceSoft:'#F1F5F9',
+    text:'#172839',secondary:'#425366',muted:'#425366',
+    primary:'#123B61',primaryText:'#123B61',accent:'#123B61',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    amber:'#83600D',coral:'#994B49',sky:'#123B61',purple:'#544B80',
+    border:'#C5D2DC',selectionBg:'#E3EDF5',selectionBorder:'#123B61',success:'#286343',
+    ...feedback,focusRing:'#123B61',disabledBg:'#E7ECF0',disabledText:'#4E5D69',soft:'#F1F5F9'
+  },
+  contrast: {
+    background:'#FFFFFF',surface:'#FFFFFF',raised:'#F5F5F5',surfaceSoft:'#F5F5F5',
+    text:'#000000',secondary:'#292929',muted:'#292929',
+    primary:'#111111',primaryText:'#000000',accent:'#111111',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    amber:'#704000',coral:'#850000',sky:'#001A65',purple:'#38165D',
+    border:'#111111',selectionBg:'#E8E8E8',selectionBorder:'#000000',success:'#116130',
+    ...feedback,focusRing:'#000000',disabledBg:'#E7E7E7',disabledText:'#424242',soft:'#F5F5F5'
   },
 } as const;
 export type Theme = (typeof themes)[ThemeMode];

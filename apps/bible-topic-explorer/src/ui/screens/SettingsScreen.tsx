@@ -11,7 +11,7 @@ import type { Theme } from '../theme';
 import { spacing } from '../theme';
 import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
 import type { StatusKind } from '../visualSemantics';
-const themeOptions:readonly{id:ThemePreference;label:string}[]=[{id:'lavender',label:'Lavanda claro'},{id:'sky',label:'Celeste neutro'},{id:'dark',label:'Oscuro'}];
+const themeOptions:readonly{id:ThemePreference;label:string}[]=[{id:'lavender',label:'Lavanda claro'},{id:'sky',label:'Celeste neutro'},{id:'dark',label:'Oscuro clásico'},{id:'coral',label:'Coral / crema'},{id:'natural',label:'Oliva / salvia'},{id:'marine',label:'Marino claro / dorado'},{id:'contrast',label:'Blanco y negro · alto contraste'}];
 const fontOptions=[{scale:0.8,label:'80%'},{scale:1,label:'100%'},{scale:1.2,label:'120%'},{scale:1.4,label:'140%'},{scale:1.6,label:'160%'}] as const;
 export function SettingsScreen({theme,onPreferencesChange}:{theme:Theme;onPreferencesChange?:(value:LocalPreferences)=>void}){
  const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [prefs,setPrefs]=useState(defaultPreferences);const [status,setStatus]=useState('Cargando preferencias locales…');const [statusKind,setStatusKind]=useState<StatusKind>('info');const [reminderState,setReminderState]=useState<ReminderState>('off');

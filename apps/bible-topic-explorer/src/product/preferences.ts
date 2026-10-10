@@ -1,4 +1,4 @@
-export type ThemePreference='lavender'|'sky'|'dark';
+export type ThemePreference='lavender'|'sky'|'dark'|'coral'|'natural'|'marine'|'contrast';
 export interface LocalPreferences { theme:ThemePreference; fontScale:number; reminderEnabled:boolean; reminderTime:string; onboardingComplete:boolean; }
 export const defaultPreferences:LocalPreferences={theme:'lavender',fontScale:1,reminderEnabled:false,reminderTime:'08:00',onboardingComplete:false};
 export const onboardingSteps=[

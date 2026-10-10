@@ -7,9 +7,9 @@ describe('R13 integrated drawer real route contract',()=>{
   expect(drawerDestinations.filter(x=>x.kind==='tab').map(x=>x.id)).toEqual(tabs);
  });
  it('routes all real secondary modules, with no decorative future screens',()=>{
-  expect(drawerDestinations.map(x=>x.id)).toEqual(['today','search','bible','library','topics','games','songs','my-books','spotify','settings']);
+  expect(drawerDestinations.map(x=>x.id)).toEqual(['today','search','bible','library','plans','topics','pastoral','games','songs','youtube','my-books','spotify','settings']);
   expect(drawerDestinations.every(x=>x.available)).toBe(true);
-  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(10);
+  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(13);
   expect(drawerDestinations.map(x=>x.kind)).not.toContain('future');
  });
 });

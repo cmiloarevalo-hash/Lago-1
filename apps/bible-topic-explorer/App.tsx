@@ -15,12 +15,19 @@ import { TodayScreen } from './src/ui/screens/TodayScreen'; import { SearchScree
 import {ActivitiesScreen} from './src/ui/screens/ActivitiesScreen';
 import {SongsScreen} from './src/ui/screens/SongsScreen';
 import {PersonalBooksScreen} from './src/ui/screens/PersonalBooksScreen';
+import {PlansScreen} from './src/ui/screens/PlansScreen';
+import {PastoralScreen} from './src/ui/screens/PastoralScreen';
+import {PastoralGamesScreen} from './src/ui/screens/PastoralGamesScreen';
+import {HymnalScreen} from './src/ui/screens/HymnalScreen';
+import {YouTubeScreen} from './src/ui/screens/YouTubeScreen';
+import {SQLiteBibleRepository} from './src/db/sqliteBibleRepository';
 const bundledBible={assetId:require('./assets/data/bible-topic-explorer.db')};
 function AppContent(){const [navigation,setNavigation]=useState<NavigationState>(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState<TopicUiState>(initialTopicUiState);const route=navigation.current;const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState<LocalPreferences>(defaultPreferences);
  useEffect(()=>{let active=true;void persistence.getPreferences().then(value=>{if(active)setPreferences(value);}).catch(()=>{});return()=>{active=false;};},[persistence]); const navigate=useCallback((next:Route,recordHistory=true)=>{setNavigation(state=>nextNavigation(state,next,recordHistory));},[]);
  useEffect(()=>{if(Platform.OS!=='android')return;const subscription=Notifications.addNotificationResponseReceivedListener(response=>{if(isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});});void Notifications.getLastNotificationResponseAsync().then(response=>{if(response&&isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});}).catch(()=>{});return()=>subscription.remove();},[navigate]);
  useEffect(()=>{if(Platform.OS!=='android')return;const subscription=BackHandler.addEventListener('hardwareBackPress',()=>{if(drawerOpen){setDrawerOpen(false);return true;}if(navigation.history.length){setNavigation(state=>previousNavigation(state)??state);return true;}Alert.alert('Salir de la aplicación','¿Realmente quieres salir?',[{text:'Cancelar',style:'cancel'},{text:'Salir',onPress:()=>BackHandler.exitApp()}]);return true;});return()=>subscription.remove();},[navigation.history.length,drawerOpen]);
  const mode=preferences.theme;const theme=themes[mode];const activeTab:TabId=route.kind==='tab'?route.tab:route.origin; const openReader=(book:string,chapter:number,verse?:number,recordHistory=true,sourceVerseLabel?:string,verseEnd?:number,sourceVerseLabels?:readonly string[])=>{void persistence.recordReading({bookId:book,chapter,...(verse==null?{}:{verse}),openedAt:new Date().toISOString()});navigate({kind:'reader',book,chapter,verse,...(sourceVerseLabel?{sourceVerseLabel}:{}),...(verseEnd===undefined?{}:{verseEnd}),...(sourceVerseLabels?{sourceVerseLabels}:{}),origin:activeTab},recordHistory);};
+ const openRange=async(book:string,chapter:number,start:number,end:number)=>{try{const rows=await new SQLiteBibleRepository(db).getChapter(book,chapter);const inRange=rows.filter(row=>row.verse>=start&&row.verse<=end);if(!inRange.length)throw Error('Rango no encontrado');openReader(book,chapter,start,true,inRange[0].sourceVerseLabel,end,inRange.map(row=>row.sourceVerseLabel));}catch{Alert.alert('Lectura no disponible','No fue posible abrir ese rango RV1909 en el corpus local.');}};
  const openDrawerItem=(item:DrawerDestination)=>{if(!item.available)return;setDrawerOpen(false);
  if(item.kind==='tab')navigate({kind:'tab',tab:item.tab});
  else if(item.kind==='music')navigate({kind:'music',origin:activeTab});
@@ -29,16 +36,23 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  else if(item.kind==='guides')navigate({kind:'guides',origin:activeTab});
  else if(item.kind==='songs')navigate({kind:'songs',origin:activeTab});
  else if(item.kind==='my-books')navigate({kind:'my-books',origin:activeTab});
+ else if(item.kind==='plans')navigate({kind:'plans',origin:activeTab});
+ else if(item.kind==='pastoral')navigate({kind:'pastoral',origin:activeTab});
+ else if(item.kind==='youtube')navigate({kind:'youtube',origin:activeTab});
  };
  const back=()=>setNavigation(state=>previousNavigation(state)??state);
  const content=
  route.kind==='music'?<MusicScreen theme={theme} onBack={back}/>:
+ route.kind==='plans'?<PlansScreen theme={theme} planId={route.planId} day={route.day} onBack={back} onSelect={(planId,day)=>navigate({...route,planId,day})} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
+ route.kind==='pastoral'?<PastoralScreen theme={theme} onBack={back} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
+ route.kind==='games'?<PastoralGamesScreen theme={theme} onBack={back}/>:
+ route.kind==='youtube'?<YouTubeScreen theme={theme} onBack={back}/>: 
  route.kind==='settings'?<SettingsScreen theme={theme} onPreferencesChange={setPreferences}/>:
- route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} onSelect={guideId=>navigate({...route,guideId})} onBack={back}/>:
- route.kind==='songs'?<SongsScreen theme={theme} songId={route.songId} onSelect={songId=>navigate({...route,songId})} onBack={back}/>:
+ route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} onSelect={guideId=>navigate({...route,guideId})} onBack={back} onPlay={()=>navigate({kind:'games',origin:activeTab})}/>: 
+ route.kind==='songs'?<HymnalScreen theme={theme} readingScale={preferences.fontScale} onBack={back}/>: 
  route.kind==='my-books'?<PersonalBooksScreen theme={theme} bookId={route.bookId} readingScale={preferences.fontScale} onSelect={bookId=>navigate({...route,bookId})} onBack={back}/>:
  route.kind==='reader'?<BibleScreen theme={theme} readingScale={preferences.fontScale} reader={{book:route.book,chapter:route.chapter,verse:route.verse,sourceVerseLabel:route.sourceVerseLabel,verseEnd:route.verseEnd,sourceVerseLabels:route.sourceVerseLabels}} onBack={route.origin==='search'?back:undefined} onOpenReader={openReader}/>:
- route.tab==='today'?<TodayScreen theme={theme} readingScale={preferences.fontScale} onOpenMusic={()=>navigate({kind:'music',origin:'today'})} onOpenReader={openReader}/>:
+ route.tab==='today'?<TodayScreen theme={theme} readingScale={preferences.fontScale} onOpenMusic={()=>navigate({kind:'music',origin:'today'})} onOpenPlans={()=>navigate({kind:'plans',origin:'today'})} onOpenReader={openReader}/>: 
  route.tab==='search'?<SearchScreen theme={theme} onOpenReader={openReader} topicUi={topicUi} onTopicUiChange={setTopicUi}/>:
  route.tab==='bible'?<BibleScreen theme={theme} readingScale={preferences.fontScale} initialBook={route.bibleBook} onBookContextChange={book=>navigate({kind:'tab',tab:'bible',...(book?{bibleBook:book}:{})})} onOpenReader={openReader}/>:
  <LibraryScreen theme={theme} onOpenReader={(book,chapter,verse,sourceVerseLabel)=>openReader(book,chapter,verse,true,sourceVerseLabel)}/>;

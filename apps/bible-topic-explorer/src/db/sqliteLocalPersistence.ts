@@ -47,7 +47,8 @@ export class SQLiteLocalPersistence implements LocalPersistence {
     );
     if (!row) return defaultPreferences;
     // Migrate old light/system settings to the new explicit three-theme selector without touching user notes.
-    const theme: ThemePreference = row.theme === 'sky' || row.theme === 'dark' ? row.theme : 'lavender';
+    const supported:readonly string[]=['lavender','sky','dark','coral','natural','marine','contrast'];
+    const theme:ThemePreference = supported.includes(row.theme)?row.theme as ThemePreference:'lavender';
     return { theme, fontScale: row.font_scale, reminderEnabled: row.reminder_enabled === 1, reminderTime: row.reminder_time, onboardingComplete: row.onboarding_complete === 1 };
   }
 
