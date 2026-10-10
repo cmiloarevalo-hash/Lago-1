@@ -17,7 +17,7 @@ export const tabIcons: Record<TabId, string> = {
 
 export type Route =
   | { kind: 'tab'; tab: TabId; bibleBook?: string }
-  | { kind: 'reader'; book: string; chapter: number; verse?: number; sourceVerseLabel?: string; origin: TabId }
+  | { kind: 'reader'; book: string; chapter: number; verse?: number; sourceVerseLabel?: string; verseEnd?: number; sourceVerseLabels?: readonly string[]; origin: TabId }
   | { kind: 'settings'; origin: TabId }
   | { kind: 'music'; origin: TabId };
 
@@ -42,7 +42,7 @@ export function routeEquals(a: Route, b: Route): boolean {
   if (a.kind === 'settings' && b.kind === 'settings') return a.origin === b.origin;
   if (a.kind === 'music' && b.kind === 'music') return a.origin === b.origin;
   if (a.kind === 'reader' && b.kind === 'reader') {
-    return a.book === b.book && a.chapter === b.chapter && a.verse === b.verse && a.sourceVerseLabel === b.sourceVerseLabel && a.origin === b.origin;
+    return a.book === b.book && a.chapter === b.chapter && a.verse === b.verse && a.sourceVerseLabel === b.sourceVerseLabel && a.verseEnd === b.verseEnd && JSON.stringify(a.sourceVerseLabels) === JSON.stringify(b.sourceVerseLabels) && a.origin === b.origin;
   }
   return false;
 }

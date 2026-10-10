@@ -6,6 +6,7 @@ import { SQLiteLocalPersistence } from '../../db/sqliteLocalPersistence';
 import type { BibleVerse, SavedReference, VerseHighlight, VerseNote, HighlightTone } from '../../product/adapters';
 import { books, runtimeCoverage } from '../../product/books';
 import {highlightColors,nextHighlightTone,verseMatchesTarget} from '../../product/verseAnnotations';
+import {focusMatchesVerse,isFirstFocusedVerse} from '../../product/conceptIndex';
 import { uxCopy } from '../../product/uxCopy';
 import { scaledScriptureMetrics } from '../readingScale';
 import type { Theme } from '../theme';
@@ -13,7 +14,7 @@ import { minimumTouchTarget, radius, spacing, type as typography } from '../them
 import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
 
 const oldTestament = books.slice(0, 39); const newTestament = books.slice(39);
-export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBookContextChange, onOpenReader }: { theme: Theme; reader?: { book: string; chapter: number; verse?: number; sourceVerseLabel?: string }; readingScale?: number; initialBook?: string; onBookContextChange?: (book?: string) => void; onOpenReader: (book: string, chapter: number, verse?: number, recordHistory?: boolean) => void }) {
+export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBookContextChange, onOpenReader, onBack }: { theme: Theme; reader?: { book: string; chapter: number; verse?: number; sourceVerseLabel?: string; verseEnd?: number; sourceVerseLabels?: readonly string[] }; readingScale?: number; initialBook?: string; onBookContextChange?: (book?: string) => void; onOpenReader: (book: string, chapter: number, verse?: number, recordHistory?: boolean) => void; onBack?:()=>void }) {
   const db = useSQLiteContext(); const repository = useMemo(() => new SQLiteBibleRepository(db), [db]); const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]);
   const [verses, setVerses] = useState<readonly BibleVerse[]>([]); const [chapterCount, setChapterCount] = useState(0); const [loading, setLoading] = useState(false); const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState<readonly SavedReference[]>([]); const [saveStatus, setSaveStatus] = useState('');
@@ -27,7 +28,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const scrollRef=useRef<ScrollView>(null);
   const [scriptureY,setScriptureY]=useState(0);
   const [verseOffset,setVerseOffset]=useState<{key:string;y:number}|null>(null);
-  const targetKey=reader?[reader.book,reader.chapter,reader.sourceVerseLabel??reader.verse??''].join('|'):'';
+  const targetKey=reader?[reader.book,reader.chapter,reader.sourceVerseLabel??reader.verse??'',reader.verseEnd??'',(reader.sourceVerseLabels??[]).join(',')].join('|'):'';
   useEffect(()=>{setVerseOffset(null);},[targetKey]);
   useEffect(()=>{
    if(!reader||(reader.verse===undefined&&reader.sourceVerseLabel===undefined)||!verses.length||!verseOffset||verseOffset.key!==targetKey)return;
@@ -51,16 +52,16 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const deleteNote=async()=>{if(!activeVerse)return;try{await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setActiveVerse(null);setSaveStatus('Nota eliminada.');}catch{setSaveStatus('No se pudo eliminar la nota.');}};
   const chooseHighlight=async(tone:HighlightTone)=>{if(!activeVerse)return;const next=nextHighlightTone(highlightFor(activeVerse)?.tone,tone);try{if(next)await persistence.setHighlight(identity(activeVerse),next);else await persistence.removeHighlight(identity(activeVerse));setHighlights(await persistence.listHighlights());setSaveStatus(next?'Versículo destacado.':'Destacado eliminado.');}catch{setSaveStatus('No se pudo actualizar el destacado.');}};
 
-  if (reader) { const canonicalName = verses[0]?.bookName ?? reader.book; const ref = canonicalName + ' ' + reader.chapter + (reader.verse ? ':' + reader.verse : ''); const atFirstChapter = reader.chapter <= 1; const atLastChapter = chapterCount > 0 && reader.chapter >= chapterCount;
-    return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.readerStack}><View style={styles.readerHeader}><Metadata theme={theme}>RV1909 · SIN CONEXIÓN · {chapterCount ? chapterCount + ' capítulos' : 'corpus local'}</Metadata><ScreenTitle theme={theme}>{ref}</ScreenTitle><Body theme={theme} muted>Toca un versículo para mostrar las opciones, mantenlo pulsado para abrirlas o toca la bolita para leer una nota.</Body></View>
+  if (reader) { const canonicalName = verses[0]?.bookName ?? reader.book; const ref = canonicalName + ' ' + reader.chapter + (reader.verse ? ':' + reader.verse + (reader.verseEnd&&reader.verseEnd>reader.verse?'–'+reader.verseEnd:'') : ''); const atFirstChapter = reader.chapter <= 1; const atLastChapter = chapterCount > 0 && reader.chapter >= chapterCount;
+    return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Volver a Explorar" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}><Metadata theme={theme}>RV1909 · SIN CONEXIÓN · {chapterCount ? chapterCount + ' capítulos' : 'corpus local'}</Metadata><ScreenTitle theme={theme}>{ref}</ScreenTitle>{reader.sourceVerseLabels?.length?<StatusBanner theme={theme} kind="info">Rango seleccionado: {ref}. {reader.sourceVerseLabels.length} etiquetas de RV1909 enfocadas; lectura completa en su capítulo.</StatusBanner>:null}<Body theme={theme} muted>Toca un versículo para mostrar las opciones, mantenlo pulsado para abrirlas o toca la bolita para leer una nota.</Body></View>
       {saveStatus ? <StatusBanner theme={theme} kind={saveStatus.startsWith('No ') ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Cargando capítulo local…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">No hay versículos para este capítulo.</StatusBanner> : null}
       {!loading && !error && verses.length ? <View style={styles.scripture} onLayout={event=>setScriptureY(event.nativeEvent.layout.y)}>{verses.map(verse => {
-        const selected=verseMatchesTarget(verse,reader);
+        const selected=reader.sourceVerseLabels?.length?focusMatchesVerse(verse,reader):verseMatchesTarget(verse,reader);
         const isSaved=saved.some(item=>item.bookId===verse.bookId&&item.chapter===verse.chapter&&item.verse===verse.verse);
         const note=noteFor(verse);const mark=highlightFor(verse);const verseKey=[verse.bookId,verse.chapter,verse.sourceVerseLabel].join(':');
         const tone=mark?highlightColors[mark.tone]:null;
         return <View key={[verse.bookId,verse.chapter,verse.sourceVerseLabel].join('-')}
-          onLayout={selected?event=>{const y=event.nativeEvent.layout.y;setVerseOffset(prev=>prev?.key===targetKey&&prev.y===y?prev:{key:targetKey,y});}:undefined}
+          onLayout={selected&&isFirstFocusedVerse(verse,reader)?event=>{const y=event.nativeEvent.layout.y;setVerseOffset(prev=>prev?.key===targetKey&&prev.y===y?prev:{key:targetKey,y});}:undefined}
           style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
           <Pressable accessibilityRole="button" accessibilityLabel={'Opciones de versículo. '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+'. '+verse.text}
             accessibilityState={{ selected }} accessibilityHint="Mantén pulsado para abrir las opciones; toca una vez para mostrar el botón Opciones."
