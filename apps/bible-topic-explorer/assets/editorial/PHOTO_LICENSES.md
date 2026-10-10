@@ -14,3 +14,11 @@ Se reemplazaron las seis ilustraciones planas anteriores por **seis adaptaciones
 **Transformaciones locales:** `scripts/render_editorial_photo_treatments.py`, reproducible sin red a partir de los dos originales y Pillow + NumPy. Exporta `landscape-{coral,natural,marine}.png` y `book-{coral,natural,marine}.png` (seis imágenes con parámetros distintos de exposición, niebla, grano y tratamiento tonal). Se conservaron intencionalmente el amanecer, la vegetación, el volumen del libro y la taza. Fotos distintas de las de los tres mockups del Product Owner.
 
 **Alcance del permiso:** fotos y sus adaptaciones únicamente; **no hay licencia de textos bíblicos RV1960, letras ajenas ni marcas de los diseños originales** en estos assets. Las fuentes, la titularidad y la autorización editorial/distribución del producto siguen pendientes de gate del Owner. `main` y el corpus RV1909 no se modifican.
+
+## R1.3 — rework de alto contraste (2026-10-10)
+
+Las mismas dos fotografías con licencia documentada sirven de origen a la nueva gradación de mayor contraste, colores identificables Coral (rosa), Natural (oliva) y Marino (azul profundo). No se han tomado píxeles de las imágenes del Owner, ni se han incluido logotipos, audio o texto RV1960. `scripts/render_editorial_photo_treatments.py` reproduce los seis PNG fotográficos de la rama.
+
+Los tres adornos `botanical-coral.png`, `botanical-natural.png` y `botanical-marine.png` son **ilustraciones originales creadas algorítmicamente para La U**: curvas, tallos y hojas vectoriales rasterizadas mediante Pillow sin fotografías, SVG, clipart o librerías gráficas externas. Se usan sobre la imagen de Planes como ornamento temático, no como indicador de estado. Todos los recursos se distribuyen localmente y no llaman a terceros durante la lectura.
+
+Los derechos de las dos fotografías se rigen por [Unsplash License](https://unsplash.com/license), enlazada arriba; los adornos originales se producen en el proyecto. La aprobación estética y editorial de la app sigue reservada al Owner.

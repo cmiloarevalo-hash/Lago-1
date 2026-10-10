@@ -1,5 +1,5 @@
 import {useCallback,useEffect,useMemo,useState} from 'react';
-import {Alert,ImageBackground,Pressable,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
+import {Alert,Image,ImageBackground,Pressable,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
 import {useSQLiteContext} from 'expo-sqlite';
 import {readingPlans,planById} from '../../product/readingPlans';
 import {SQLitePlanRepository} from '../../db/sqlitePlanRepository';
@@ -21,7 +21,7 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
  const nextDay=plan?.days.find(d=>!rows.some(r=>r.day===d.day&&r.done))?.day??7;
  const save=async(complete?:boolean)=>{if(!plan||!entry||saving)return;setSaving(true);setError('');try{await repo.save(plan.id,entry.day,complete??Boolean(rows.find(r=>r.day===entry.day)?.done),note);refresh();}catch{setError('No se pudo guardar. Las notas anteriores permanecen intactas.');}finally{setSaving(false);}};
  const reset=()=>{if(!plan)return;Alert.alert('Reiniciar avance de este plan','Solo se quitarán las marcas de progreso; tus notas privadas se conservarán.',[{text:'Cancelar',style:'cancel'},{text:'Reiniciar progreso',style:'destructive',onPress:()=>{void repo.resetProgress(plan.id).then(refresh).catch(()=>setError('No se pudo reiniciar.'));}}]);};
- const introTitle=plan?'Un camino contigo':'Planes de lectura';
+ const introTitle='Planes de lectura';
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled">
   <Action theme={theme} variant="tertiary" label={entry?'← Volver al plan':plan?'← Todos los planes':'← Volver'} onPress={onBack}/>
   <View style={styles.header}><Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>{introTitle}</Text><Metadata theme={theme}>Un encuentro con la Palabra · RV1909</Metadata></View>
@@ -29,7 +29,7 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
   {!plan?<><View style={styles.filterRow}>{['Todos','Evangelios','Servicio','Reflexión','Oración'].map(v=><ChoiceChip key={v} theme={theme} label={v} selected={filter===v} onPress={()=>setFilter(v)}/>)}</View>
    {readingPlans.filter(p=>filter==='Todos'||p.theme===filter).map((p,index)=><View key={p.id} style={[styles.planCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
     <ImageBackground source={art.book} resizeMode="cover" style={styles.planImage} imageStyle={styles.topCorners}>
-     <View style={[styles.highlightPill,{backgroundColor:'rgba(255,255,255,0.91)'}]}><Text style={[styles.pillText,{color:theme.primaryText}]}>{index===0?'✦ DESTACADO':'✧ 7 DÍAS'}</Text></View>
+     <Image source={art.botanical} accessibilityIgnoresInvertColors style={styles.bookLeaves}/><View style={[styles.highlightPill,{backgroundColor:'rgba(255,255,255,0.91)'}]}><Text style={[styles.pillText,{color:theme.primaryText}]}>{index===0?'✦ DESTACADO':'✧ 7 DÍAS'}</Text></View>
     </ImageBackground>
     <View style={styles.planText}><Text style={[styles.planTitle,{color:theme.text}]}>{p.title}</Text><Body theme={theme} muted>{p.intro}</Body>
      <Text style={[styles.caption,{color:theme.secondary}]}>7 lecturas · texto original en revisión editorial</Text>
@@ -37,11 +37,11 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
     </View>
    </View>)}
   </>:<>
-   <ImageBackground source={art.book} resizeMode="cover" style={styles.selectedHero} imageStyle={styles.roundImage}>
-    <View style={styles.heroTint}/>
+   <ImageBackground source={art.book} resizeMode="cover" style={[styles.selectedHero,{borderColor:theme.border}]} imageStyle={styles.roundImage}>
+    <View style={styles.heroTint}/><Image source={art.botanical} accessibilityIgnoresInvertColors style={styles.selectedLeaves}/>
     <View style={styles.selectedHeroText}><Text style={[styles.heroKicker,{color:theme.primaryText}]}>PLAN DE SIETE DÍAS</Text><Text style={[styles.selectedTitle,{color:theme.text}]}>{plan.title}</Text></View>
    </ImageBackground>
-   <View style={[styles.progressPanel,{backgroundColor:theme.surface,borderColor:theme.border}]}>
+   <View style={[styles.progressPanel,{backgroundColor:theme.surface,borderColor:theme.border,shadowColor:theme.primary}]}>
     <View style={styles.progressHeading}><Text style={[styles.captionStrong,{color:theme.text}]}>Tu progreso</Text><Text style={[styles.caption,{color:theme.secondary}]}>{done} de 7 días</Text></View>
     <View accessibilityRole="progressbar" accessibilityValue={{min:0,max:7,now:done}} style={[styles.progressTrack,{backgroundColor:theme.raised}]}><View style={[styles.progressFill,{width:(done/7*100)+'%' as `${number}%`,backgroundColor:theme.primary}]}/></View>
     <View style={styles.dayDots}>{plan.days.map(d=>{const completed=rows.some(r=>r.day===d.day&&r.done);const current=day===d.day||!day&&d.day===nextDay;return <Pressable key={d.day} accessibilityRole="button" accessibilityLabel={'Día '+d.day+(completed?', completado':', pendiente')} accessibilityState={{selected:current}} onPress={()=>onSelect(plan.id,d.day)} style={styles.dotCell}>
@@ -78,23 +78,23 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({
- stack:{gap:16,paddingBottom:38},header:{gap:5},pageTitle:{fontFamily:'serif',fontSize:29,lineHeight:37,fontWeight:'700'},
- filterRow:{flexDirection:'row',flexWrap:'wrap',gap:6},planCard:{borderRadius:22,borderWidth:1,overflow:'hidden',elevation:3},
- planImage:{height:190,padding:14},topCorners:{borderTopLeftRadius:21,borderTopRightRadius:21},
+ stack:{gap:16,paddingBottom:38},header:{gap:5},pageTitle:{fontFamily:'serif',fontSize:25,lineHeight:33,fontWeight:'700'},
+ filterRow:{flexDirection:'row',flexWrap:'wrap',gap:6},planCard:{borderRadius:22,borderWidth:.7,overflow:'hidden',elevation:5,shadowColor:'#263341',shadowOffset:{width:0,height:5},shadowOpacity:.12,shadowRadius:12},
+ planImage:{height:195,padding:14,overflow:'hidden'},topCorners:{borderTopLeftRadius:21,borderTopRightRadius:21},bookLeaves:{position:'absolute',width:124,height:193,right:-25,top:-10,opacity:.82},
  highlightPill:{alignSelf:'flex-start',borderRadius:999,paddingVertical:8,paddingHorizontal:13},pillText:{fontSize:12,fontWeight:'800',letterSpacing:.5},
  planText:{padding:17,gap:12},planTitle:{fontFamily:'serif',fontSize:25,lineHeight:32,fontWeight:'700'},caption:{fontSize:13,lineHeight:19},captionStrong:{fontSize:16,fontWeight:'700'},
- selectedHero:{height:215,borderRadius:20,justifyContent:'flex-end',overflow:'hidden'},roundImage:{borderRadius:20},
- heroTint:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,240,.24)'},selectedHeroText:{padding:18,gap:8},
- heroKicker:{fontSize:12,letterSpacing:1,fontWeight:'800'},selectedTitle:{fontFamily:'serif',fontSize:28,lineHeight:35,fontWeight:'700'},
- progressPanel:{borderWidth:1,borderRadius:20,padding:14,gap:13,elevation:2},progressHeading:{flexDirection:'row',justifyContent:'space-between',alignItems:'center'},
- progressTrack:{height:8,borderRadius:8,overflow:'hidden'},progressFill:{height:8,borderRadius:8},
+ selectedHero:{height:197,borderRadius:20,borderWidth:.6,justifyContent:'flex-end',overflow:'hidden',elevation:4},roundImage:{borderRadius:20},selectedLeaves:{position:'absolute',width:150,height:197,right:-27,bottom:-8,opacity:.84},
+ heroTint:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,240,.13)'},selectedHeroText:{padding:17,gap:6,maxWidth:'85%'},
+ heroKicker:{fontSize:12,letterSpacing:1,fontWeight:'800'},selectedTitle:{fontFamily:'serif',fontSize:26,lineHeight:33,fontWeight:'700'},
+ progressPanel:{borderWidth:.7,borderRadius:20,padding:14,gap:12,elevation:4,shadowOpacity:.12,shadowRadius:10,shadowOffset:{width:0,height:4}},progressHeading:{flexDirection:'row',justifyContent:'space-between',alignItems:'center'},
+ progressTrack:{height:10,borderRadius:8,overflow:'hidden'},progressFill:{height:10,borderRadius:8},
  dayDots:{flexDirection:'row',justifyContent:'space-between'},dotCell:{minHeight:48,flex:1,alignItems:'center',gap:3},
- dot:{width:31,height:31,borderRadius:16,borderWidth:1.5,alignItems:'center',justifyContent:'center'},dayLabel:{fontSize:12},
+ dot:{width:31,height:31,borderRadius:16,borderWidth:1.7,alignItems:'center',justifyContent:'center'},dayLabel:{fontSize:12},
  entryStack:{gap:18},dayReading:{gap:11,borderWidth:1,borderRadius:20,padding:16},miniKicker:{fontSize:12,fontWeight:'800',letterSpacing:.8},
  dayTitle:{fontFamily:'serif',fontSize:21,lineHeight:27,fontWeight:'700'},notesPanel:{padding:15,borderRadius:20,gap:12},
  noteInput:{borderWidth:1,borderRadius:14,minHeight:138,fontSize:17,lineHeight:25,padding:13,textAlignVertical:'top'},
  sectionHeader:{flexDirection:'row',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:5},
- daysList:{borderWidth:1,borderRadius:20,padding:6,gap:2},dayRow:{minHeight:72,borderRadius:15,flexDirection:'row',alignItems:'center',gap:12,padding:9},
+ daysList:{borderWidth:1,borderRadius:20,padding:6,gap:2},dayRow:{minHeight:66,borderRadius:15,flexDirection:'row',alignItems:'center',gap:12,padding:8},
  dayCircle:{width:34,height:34,borderRadius:18,borderWidth:1,alignItems:'center',justifyContent:'center'},dayCopy:{flex:1,gap:4},
  dayRowTitle:{fontFamily:'serif',fontSize:16,fontWeight:'700'},arrow:{fontSize:27}
 });

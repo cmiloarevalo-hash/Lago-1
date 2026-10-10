@@ -16,6 +16,26 @@ describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
   expect(license).toContain('Jordan Moore');
   expect(license).toContain('Sixteen Miles Out');
  });
+ it('defines high-contrast 3-theme editorial accents and original botanical overlays',()=>{
+  const art=load('src/ui/editorialArt.ts');
+  for(const theme of ['coral','natural','marine']){
+   const leaf='assets/editorial/botanical-'+theme+'.png';
+   expect(statSync(leaf).size).toBeGreaterThan(10_000);
+   expect(art).toContain(leaf.slice('assets/editorial/'.length));
+  }
+  const theme=load('src/ui/theme.ts');
+  expect(theme).toContain("primary:'#C72D5F'");
+  expect(theme).toContain("primary:'#50683A'");
+  expect(theme).toContain("primary:'#103D69'");
+  const reader=load('src/ui/screens/BibleScreen.tsx');
+  expect(reader).toContain('backgroundColor:theme.selectionBg');
+  const plans=load('src/ui/screens/PlansScreen.tsx');
+  expect(plans).toContain('source={art.botanical}');
+  expect(plans).toContain("introTitle='Planes de lectura'");
+  const today=load('src/ui/screens/TodayScreen.tsx');
+  expect(today).toContain("appearance==='coral'");
+  expect(today).toContain('longVerse');
+ });
  it('keeps bibliographic sources short, linked and correctly year-identified with 48dp targets',()=>{
   const screen=load('src/ui/screens/PastoralScreen.tsx');
   expect(screen).toContain("USCCB · Renewing the Vision · 1997");

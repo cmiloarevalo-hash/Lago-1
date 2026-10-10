@@ -56,7 +56,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
     return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Volver a Explorar" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}>
   <Metadata theme={theme}>LA PALABRA · REINA-VALERA 1909</Metadata>
   <Text accessibilityRole="header" style={[styles.chapterTitle,{color:theme.text}]}>{canonicalName} {reader.chapter}</Text>
-  <View style={[styles.readerUnderline,{backgroundColor:theme.amber}]}/>
+  <View style={[styles.readerUnderline,{backgroundColor:theme.primary}]}/>
   {reader.sourceVerseLabels?.length?<Text style={[styles.rangeHint,{color:theme.secondary}]}>Pasaje enfocado: {ref} · {reader.sourceVerseLabels.length} versículos de contexto señalados</Text>:null}
  </View>
       {saveStatus ? <StatusBanner theme={theme} kind={saveStatus.startsWith('No ') ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Cargando capítulo local…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">No hay versículos para este capítulo.</StatusBanner> : null}
@@ -67,7 +67,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
         const tone=mark?highlightColors[mark.tone]:null;
         return <View key={[verse.bookId,verse.chapter,verse.sourceVerseLabel].join('-')}
           onLayout={selected&&isFirstFocusedVerse(verse,reader)?event=>{const y=event.nativeEvent.layout.y;setVerseOffset(prev=>prev?.key===targetKey&&prev.y===y?prev:{key:targetKey,y});}:undefined}
-          style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
+          style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5,backgroundColor:theme.selectionBg},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
           <Pressable accessibilityRole="button" accessibilityLabel={'Opciones de versículo. '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+'. '+verse.text+(selected?' · seleccionado':'')+(isSaved?' · guardado':'')+(mark?' · destacado':'')}
             accessibilityState={{ selected }} accessibilityHint="Mantén pulsado para abrir las opciones; toca una vez para mostrar el botón Opciones."
             onPress={()=>setQuickVerseKey(current=>current===verseKey?null:verseKey)} onLongPress={()=>openVerseMenu(verse)} delayLongPress={420}
@@ -159,16 +159,16 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
 const styles = StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxl},
  readerStack:{gap:spacing.xl,paddingBottom:spacing.xxxl},
- readerHeader:{gap:spacing.sm,alignItems:'center',paddingVertical:spacing.xxl},
+ readerHeader:{gap:spacing.sm,alignItems:'center',paddingTop:spacing.xl,paddingBottom:spacing.xxl},
  chapterTitle:{fontFamily:'serif',fontSize:33,lineHeight:42,fontWeight:'700',textAlign:'center'},
- readerUnderline:{height:3,width:52,borderRadius:999,opacity:.68},rangeHint:{fontSize:13,lineHeight:20,textAlign:'center'},
+ readerUnderline:{height:3,width:57,borderRadius:999,opacity:.94},rangeHint:{fontSize:13,lineHeight:20,textAlign:'center'},
  bookIntro:{paddingBottom:spacing.sm},
  bookAccent:{width:36,height:4,borderRadius:radius.xs},
  chapterGrid:{flexDirection:'row',flexWrap:'wrap',gap:spacing.sm},
- scripture:{gap:9,paddingHorizontal:3},
- verseFrame:{minHeight:minimumTouchTarget,borderLeftWidth:3,borderRightWidth:2,borderLeftColor:'transparent',borderRightColor:'transparent',borderRadius:radius.md,paddingVertical:5},
+ scripture:{gap:10,paddingHorizontal:3},
+ verseFrame:{minHeight:minimumTouchTarget,borderLeftWidth:3,borderRightWidth:2,borderLeftColor:'transparent',borderRightColor:'transparent',borderRadius:radius.md,paddingVertical:6},
  verse:{minHeight:minimumTouchTarget,paddingHorizontal:spacing.sm,paddingVertical:spacing.xs,flexDirection:'row',alignItems:'flex-start',gap:spacing.md},
- verseNumber:{fontSize:14,lineHeight:29,fontWeight:'700',minWidth:25,textAlign:'center'},verseText:{flex:1},
+ verseNumber:{fontSize:15,lineHeight:29,fontWeight:'700',minWidth:25,textAlign:'center'},verseText:{flex:1},
  verseTools:{flexDirection:'row',flexWrap:'wrap',alignItems:'center',paddingHorizontal:spacing.sm,gap:spacing.sm},
  noteBubbleTarget:{width:minimumTouchTarget,height:minimumTouchTarget,alignItems:'center',justifyContent:'center'},
  noteBubble:{width:14,height:14,borderRadius:7,opacity:0.52,alignItems:'center',justifyContent:'center'},

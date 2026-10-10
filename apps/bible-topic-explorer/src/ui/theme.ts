@@ -54,28 +54,28 @@ export const themes = {
     focusRing: '#F5A5CC', disabledBg: '#3B3440', disabledText: '#D3C7D1', soft: '#372938',
   },
   coral: {
-    background:'#FFF7F4',surface:'#FFFFFF',raised:'#FCE8EB',surfaceSoft:'#FFF0F1',
+    background:'#FFFAF9',surface:'#FFFFFF',raised:'#FADDE5',surfaceSoft:'#FFF0F2',
     text:'#30222D',secondary:'#61525B',muted:'#61525B',
-    primary:'#A33A60',primaryText:'#922C52',accent:'#A33A60',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
-    amber:'#865515',coral:'#A33A60',sky:'#295F7B',purple:'#744171',
-    border:'#D6BEC5',selectionBg:'#FCE6EC',selectionBorder:'#922C52',success:'#246B4A',
-    ...feedback,focusRing:'#922C52',disabledBg:'#F0E7E8',disabledText:'#635760',soft:'#FFF0F1'
+    primary:'#C72D5F',primaryText:'#A72350',accent:'#C72D5F',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    amber:'#A36A19',coral:'#C72D5F',sky:'#295F7B',purple:'#744171',
+    border:'#DFC4CC',selectionBg:'#FCE0E9',selectionBorder:'#C72D5F',success:'#246B4A',
+    ...feedback,focusRing:'#C72D5F',disabledBg:'#F0E7E8',disabledText:'#635760',soft:'#FFF0F1'
   },
   natural: {
-    background:'#F5F5EE',surface:'#FFFFFF',raised:'#E9EDE4',surfaceSoft:'#F1F3EC',
+    background:'#F9F8F2',surface:'#FFFFFF',raised:'#E8EDDE',surfaceSoft:'#F3F4EA',
     text:'#242A20',secondary:'#4E5847',muted:'#4E5847',
-    primary:'#425835',primaryText:'#36512B',accent:'#425835',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    primary:'#50683A',primaryText:'#40572A',accent:'#50683A',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
     amber:'#775316',coral:'#98534E',sky:'#375F77',purple:'#61517B',
-    border:'#C9D3C4',selectionBg:'#E3EBD9',selectionBorder:'#425835',success:'#256C42',
-    ...feedback,focusRing:'#425835',disabledBg:'#E4E8E1',disabledText:'#515A50',soft:'#F1F3EC'
+    border:'#CAD2BC',selectionBg:'#E4ECD6',selectionBorder:'#50683A',success:'#256C42',
+    ...feedback,focusRing:'#50683A',disabledBg:'#E4E8E1',disabledText:'#515A50',soft:'#F1F3EC'
   },
   marine: {
-    background:'#F8FAFC',surface:'#FFFFFF',raised:'#EDF3F8',surfaceSoft:'#F1F5F9',
+    background:'#F8FAFC',surface:'#FFFFFF',raised:'#DFEBF5',surfaceSoft:'#ECF3F9',
     text:'#172839',secondary:'#425366',muted:'#425366',
-    primary:'#123B61',primaryText:'#123B61',accent:'#123B61',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
+    primary:'#103D69',primaryText:'#103D69',accent:'#103D69',onPrimary:'#FFFFFF',accentText:'#FFFFFF',
     amber:'#83600D',coral:'#994B49',sky:'#123B61',purple:'#544B80',
-    border:'#C5D2DC',selectionBg:'#E3EDF5',selectionBorder:'#123B61',success:'#286343',
-    ...feedback,focusRing:'#123B61',disabledBg:'#E7ECF0',disabledText:'#4E5D69',soft:'#F1F5F9'
+    border:'#C6D3DF',selectionBg:'#DEEAF5',selectionBorder:'#103D69',success:'#286343',
+    ...feedback,focusRing:'#103D69',disabledBg:'#E7ECF0',disabledText:'#4E5D69',soft:'#F1F5F9'
   },
   contrast: {
     background:'#FFFFFF',surface:'#FFFFFF',raised:'#F5F5F5',surfaceSoft:'#F5F5F5',
