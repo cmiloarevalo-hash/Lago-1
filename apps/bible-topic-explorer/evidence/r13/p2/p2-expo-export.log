@@ -1,0 +1,14 @@
+﻿Starting Metro Bundler
+
+Android Bundled 8452ms index.ts (716 modules)
+
+ÔÇ║ Assets (1):
+assets\data\bible-topic-explorer.db (7MB)
+
+ÔÇ║ android bundles (1):
+_expo/static/js/android/index-5544649f02b69cd9ccd8d317b0735520.hbc (1.8MB)
+
+ÔÇ║ Files (1):
+metadata.json (212B)
+
+Exported: dist-r13-p2-local
