@@ -1,15 +1,15 @@
 import {describe,expect,it} from 'vitest';
 import {drawerDestinations} from './secondaryMenu';
 import {tabs} from './navigation';
-describe('R13-A3 truthful hamburger menu',()=>{
- it('preserves exactly the existing four main tabs with destinations',()=>{
+describe('R13 integrated drawer real route contract',()=>{
+ it('keeps the four existing tabs and no additional primary tab',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);
-  expect(drawerDestinations.filter(x=>x.kind==='tab').map(x=>x.id)).toEqual(['today','search','bible','library']);
+  expect(drawerDestinations.filter(x=>x.kind==='tab').map(x=>x.id)).toEqual(tabs);
  });
- it('exposes existing music/settings but marks unimplemented screens unavailable',()=>{
-  expect(drawerDestinations.find(x=>x.id==='spotify')?.available).toBe(true);
-  expect(drawerDestinations.find(x=>x.id==='settings')?.available).toBe(true);
-  expect(drawerDestinations.filter(x=>x.kind==='future')).toHaveLength(4);
-  expect(drawerDestinations.filter(x=>x.kind==='future').every(x=>!x.available)).toBe(true);
+ it('routes all real secondary modules, with no decorative future screens',()=>{
+  expect(drawerDestinations.map(x=>x.id)).toEqual(['today','search','bible','library','topics','games','songs','my-books','spotify','settings']);
+  expect(drawerDestinations.every(x=>x.available)).toBe(true);
+  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(10);
+  expect(drawerDestinations.map(x=>x.kind)).not.toContain('future');
  });
 });
