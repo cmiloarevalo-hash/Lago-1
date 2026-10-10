@@ -1,7 +1,7 @@
 import {describe,expect,it} from 'vitest';
 import {readFileSync,statSync} from 'node:fs';
 import {pastoralTopics} from '../product/pastoralTopics';
-import {soundcloudTrackUrl} from '../product/soundcloud';
+import {SOUNDCLOUD_HOME,soundcloudCollections} from '../product/soundcloud';
 import {tabs} from '../product/navigation';
 const load=(p:string)=>readFileSync(p,'utf8');
 describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
@@ -27,13 +27,16 @@ describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
   expect(screen).not.toContain('src.sourceUrl}</Text>');
   expect(pastoralTopics).toHaveLength(8);
  });
- it('keeps user-requested SoundCloud player honest and orange, hides video route',()=>{
+ it('keeps SoundCloud as an honest external-only link, hides the removed player',()=>{
   const screen=load('src/ui/screens/SoundCloudScreen.tsx');
-  expect(soundcloudTrackUrl('https://soundcloud.com/artist/track')).not.toBeNull();
+  expect(SOUNDCLOUD_HOME).toBe('https://soundcloud.com');
+  expect(soundcloudCollections).toHaveLength(3);
   expect(screen).toContain("backgroundColor:'#FF5500'");
-  expect(screen).toContain('mediaPlaybackRequiresUserAction');
-  expect(screen).toContain('reproductor oficial');
+  expect(screen).toContain('Linking.openURL(url)');
+  expect(screen).not.toContain('<WebView');
+  expect(screen).not.toContain('TextInput');
   expect(load('App.tsx')).not.toContain('YouTubeScreen');
   expect(tabs).toEqual(['today','search','bible','library']);
  });
+
 });

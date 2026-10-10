@@ -10,8 +10,8 @@ export const conceptPreviews:readonly ConceptPreview[] = [
   {
     "topicId": "dios",
     "family": "Dios y fe",
-    "subtopic": "identidad y relación",
-    "synopsis": "Dios: explorar identidad y relación comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "¿Quién es Dios para ti?",
+    "synopsis": "¿Cómo es Dios y por qué tantas personas hablan de él? Estos pasajes muestran cómo la Biblia lo presenta y nos invitan a hacer nuestras propias preguntas.",
     "status": "EN_REVISION",
     "pastoralCaution": "No usar Hch 17 como aprobación total de cultos locales",
     "existenceChecked": true,
@@ -27,7 +27,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "4",
           "5"
         ],
-        "rationale": "Confesión de unicidad y llamado al amor integral"
+        "rationale": "Descubre cómo se habla de amar a Dios con todo el corazón."
       },
       {
         "reference": "Hechos 17:24–28",
@@ -43,15 +43,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "27",
           "28"
         ],
-        "rationale": "Discurso de Pablo sobre Creador y cercanía, en contexto de Atenas"
+        "rationale": "Pablo conversa sobre Dios con personas que tenían otras creencias."
       }
     ]
   },
   {
     "topicId": "jesus",
     "family": "Dios y fe",
-    "subtopic": "identidad y misión",
-    "synopsis": "Jesús: explorar identidad y misión comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "¿Quién es Jesús?",
+    "synopsis": "Muchos conocen su nombre, pero ¿qué decía Jesús sobre sí mismo? Conoce lo que pensaban sus amigos y cómo empieza el Evangelio de Juan.",
     "status": "EN_REVISION",
     "pastoralCaution": "Marcos incluye malentendido de Pedro",
     "existenceChecked": true,
@@ -70,7 +70,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "30",
           "31"
         ],
-        "rationale": "Identidad de Jesús unida al anuncio de pasión"
+        "rationale": "Jesús pregunta a sus amigos quién creen que es."
       },
       {
         "reference": "Juan 1:1–14",
@@ -95,15 +95,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "13",
           "14"
         ],
-        "rationale": "Prólogo del evangelio: Verbo y encarnación"
+        "rationale": "Juan presenta a Jesús y explica qué significa su llegada."
       }
     ]
   },
   {
     "topicId": "confianza",
     "family": "Dios y fe",
-    "subtopic": "apoyo ante incertidumbre",
-    "synopsis": "Confianza: explorar apoyo ante incertidumbre comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Cuando no sabes qué hacer",
+    "synopsis": "Hay días en que todo parece incierto. Estos textos invitan a reconocer lo que sentimos y pensar en dónde encontramos apoyo.",
     "status": "EN_REVISION",
     "pastoralCaution": "No reemplaza decisiones prudentes ni ayuda profesional",
     "existenceChecked": true,
@@ -119,7 +119,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "3",
           "4"
         ],
-        "rationale": "El salmista admite temor y busca apoyo"
+        "rationale": "Una persona reconoce que siente miedo y busca apoyo en Dios."
       },
       {
         "reference": "Mateo 6:25–34",
@@ -140,15 +140,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "33",
           "34"
         ],
-        "rationale": "Jesús aborda preocupaciones materiales"
+        "rationale": "Jesús habla de las preocupaciones de cada día."
       }
     ]
   },
   {
     "topicId": "voluntad-de-dios",
     "family": "Dios y fe",
-    "subtopic": "discernimiento y justicia",
-    "synopsis": "Voluntad de dios: explorar discernimiento y justicia comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Elegir lo que hace bien",
+    "synopsis": "¿Cómo decidir cuando hay varias opciones? La Biblia invita a pensar en la justicia, la bondad y el cuidado de los demás.",
     "status": "EN_REVISION",
     "pastoralCaution": "Miqueas denuncia desigualdad real",
     "existenceChecked": true,
@@ -165,7 +165,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "7",
           "8"
         ],
-        "rationale": "Prácticas que Dios requiere frente al ritualismo"
+        "rationale": "Miqueas pone el acento en la justicia y la bondad."
       },
       {
         "reference": "Romanos 12:1–2",
@@ -178,15 +178,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "1",
           "2"
         ],
-        "rationale": "Renovar criterios de discernimiento"
+        "rationale": "Pablo invita a revisar nuestra manera de pensar y actuar."
       }
     ]
   },
   {
     "topicId": "amor",
     "family": "Amor y relaciones",
-    "subtopic": "acciones de amor",
-    "synopsis": "Amor: explorar acciones de amor comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Amar con hechos",
+    "synopsis": "El cariño se nota en cómo tratamos a las personas. Aquí puedes descubrir qué significa amar más allá de las palabras.",
     "status": "EN_REVISION",
     "pastoralCaution": "No usar 1 Co 13 para tolerar abusos",
     "existenceChecked": true,
@@ -213,7 +213,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Amor como criterio de dones y prácticas"
+        "rationale": "Pablo muestra por qué el amor importa más que aparentar."
       },
       {
         "reference": "Juan 13:34–35",
@@ -226,15 +226,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "34",
           "35"
         ],
-        "rationale": "Mandamiento de reconocerse por amor mutuo"
+        "rationale": "Jesús invita a sus seguidores a cuidarse unos a otros."
       }
     ]
   },
   {
     "topicId": "matrimonio",
     "family": "Amor y relaciones",
-    "subtopic": "alianza y respeto",
-    "synopsis": "Matrimonio: explorar alianza y respeto comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Respeto en las relaciones",
+    "synopsis": "Una relación sana necesita respeto, escucha y cuidado mutuo. Lee estos pasajes y conversa sobre cómo construir vínculos que hagan bien.",
     "status": "EN_REVISION",
     "pastoralCaution": "No forzar modelo sobre situaciones personales",
     "existenceChecked": true,
@@ -256,7 +256,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "24",
           "25"
         ],
-        "rationale": "Relato fundante de compañía y vínculo"
+        "rationale": "Un relato sobre la compañía y la unión entre personas."
       },
       {
         "reference": "1 Corintios 13:4–7",
@@ -271,15 +271,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Amor práctico, contextualizado a comunidad no solo parejas"
+        "rationale": "Pablo describe gestos de amor que sirven en toda relación."
       }
     ]
   },
   {
     "topicId": "perdon",
     "family": "Perdón y restauración",
-    "subtopic": "perdón y responsabilidad",
-    "synopsis": "Perdón: explorar perdón y responsabilidad comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "¿Qué hacemos después de un daño?",
+    "synopsis": "Perdonar puede ser difícil y no significa permitir que el daño continúe. Estos textos ayudan a pensar en la misericordia y la responsabilidad.",
     "status": "EN_REVISION",
     "pastoralCaution": "Perdón no cancela protección y justicia",
     "existenceChecked": true,
@@ -308,7 +308,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "34",
           "35"
         ],
-        "rationale": "Parábola advierte incoherencia de falta de misericordia"
+        "rationale": "Una historia de Jesús pregunta qué hacemos con el perdón recibido."
       },
       {
         "reference": "Lucas 23:32–34",
@@ -322,15 +322,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "33",
           "34"
         ],
-        "rationale": "Jesús ora por quienes le dañan"
+        "rationale": "Jesús ora incluso en un momento de profundo sufrimiento."
       }
     ]
   },
   {
     "topicId": "tentacion",
     "family": "Perdón y restauración",
-    "subtopic": "decidir bajo presión",
-    "synopsis": "Tentación: explorar decidir bajo presión comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Decidir bajo presión",
+    "synopsis": "A veces nos piden hacer cosas que no queremos. Estos pasajes ayudan a pensar antes de elegir y a buscar apoyo cuando lo necesitamos.",
     "status": "EN_REVISION",
     "pastoralCaution": "No implicar que trauma equivale a tentación",
     "existenceChecked": true,
@@ -355,7 +355,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "10",
           "11"
         ],
-        "rationale": "Narración de tentaciones de Jesús"
+        "rationale": "Jesús enfrenta decisiones difíciles y responde con firmeza."
       },
       {
         "reference": "1 Corintios 10:12–13",
@@ -368,15 +368,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Pablo aconseja discernir riesgos en comunidad"
+        "rationale": "Pablo anima a mantenerse atento y buscar una salida."
       }
     ]
   },
   {
     "topicId": "paz",
     "family": "Vida interior",
-    "subtopic": "paz interior y activa",
-    "synopsis": "Paz: explorar paz interior y activa comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Encontrar calma y construir paz",
+    "synopsis": "La paz no es solo sentirse tranquilo: también es aprender a tratar bien a los demás. ¿Qué puedes hacer hoy para llevar un poco de paz?",
     "status": "EN_REVISION",
     "pastoralCaution": "No equiparar paz con ausencia de conflicto",
     "existenceChecked": true,
@@ -393,7 +393,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "26",
           "27"
         ],
-        "rationale": "Paz prometida en situación de despedida"
+        "rationale": "Jesús habla de paz a sus amigos antes de despedirse."
       },
       {
         "reference": "Mateo 5:9–12",
@@ -408,15 +408,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "11",
           "12"
         ],
-        "rationale": "Bienaventuranza de quienes construyen paz"
+        "rationale": "Jesús llama felices a quienes trabajan por la paz."
       }
     ]
   },
   {
     "topicId": "esperanza",
     "family": "Vida interior",
-    "subtopic": "esperanza resiliente",
-    "synopsis": "Esperanza: explorar esperanza resiliente comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Seguir adelante cuando cuesta",
+    "synopsis": "Cuando algo sale mal, es normal perder el ánimo. Estos textos muestran que podemos mantener la esperanza sin negar los momentos difíciles.",
     "status": "PROPUESTO",
     "pastoralCaution": "No prometer solución instantánea",
     "existenceChecked": true,
@@ -435,7 +435,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "4",
           "5"
         ],
-        "rationale": "Esperanza vinculada a perseverancia y dificultades"
+        "rationale": "Pablo relaciona la esperanza con aprender a perseverar."
       },
       {
         "reference": "1 Pedro 1:3–9",
@@ -453,15 +453,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Horizonte de esperanza con pruebas reales"
+        "rationale": "Una carta anima a conservar la esperanza en medio de las pruebas."
       }
     ]
   },
   {
     "topicId": "gozo",
     "family": "Vida interior",
-    "subtopic": "alegría no forzada",
-    "synopsis": "Gozo: explorar alegría no forzada comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Alegría sin fingir",
+    "synopsis": "No tenemos que sonreír todo el tiempo. La Biblia habla de una alegría que convive con los días difíciles y con la alegría de reencontrarse.",
     "status": "EN_REVISION",
     "pastoralCaution": "La tristeza sigue siendo legítima",
     "existenceChecked": true,
@@ -481,7 +481,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Invitación a alegrarse junto a práctica de cuidado"
+        "rationale": "Pablo invita a la alegría y a cuidar lo que pensamos."
       },
       {
         "reference": "Lucas 15:3–7",
@@ -497,15 +497,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Fiesta por encuentro de lo perdido"
+        "rationale": "Jesús cuenta una historia sobre la alegría de encontrar lo perdido."
       }
     ]
   },
   {
     "topicId": "paciencia",
     "family": "Vida interior",
-    "subtopic": "espera activa",
-    "synopsis": "Paciencia: explorar espera activa comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Aprender a esperar",
+    "synopsis": "Esperar no siempre es fácil, sobre todo cuando queremos resultados rápidos. Estos textos muestran cómo vivir ese tiempo con paciencia y amor.",
     "status": "EN_REVISION",
     "pastoralCaution": "No normalizar abusos",
     "existenceChecked": true,
@@ -524,7 +524,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "10",
           "11"
         ],
-        "rationale": "Imagen del labrador y perseverancia"
+        "rationale": "Santiago compara la paciencia con la espera de quien siembra."
       },
       {
         "reference": "1 Corintios 13:4–7",
@@ -539,15 +539,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Paciencia en descripción del amor"
+        "rationale": "Pablo recuerda que el amor también sabe esperar."
       }
     ]
   },
   {
     "topicId": "miedo",
     "family": "Dificultades y emociones",
-    "subtopic": "temor y compañía",
-    "synopsis": "Miedo: explorar temor y compañía comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Cuando sientes miedo",
+    "synopsis": "Sentir miedo es humano. Estas historias muestran que podemos hablar de lo que nos asusta y pedir compañía.",
     "status": "EN_REVISION",
     "pastoralCaution": "No usar relato para negar peligros objetivos",
     "existenceChecked": true,
@@ -563,7 +563,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "3",
           "4"
         ],
-        "rationale": "El salmista nombra el temor"
+        "rationale": "Un salmo pone en palabras el miedo de una persona."
       },
       {
         "reference": "Marcos 4:35–41",
@@ -581,15 +581,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "40",
           "41"
         ],
-        "rationale": "Discípulos asustados durante tormenta"
+        "rationale": "Los amigos de Jesús se asustan durante una tormenta."
       }
     ]
   },
   {
     "topicId": "ansiedad",
     "family": "Dificultades y emociones",
-    "subtopic": "preocupación y apoyo",
-    "synopsis": "Ansiedad: explorar preocupación y apoyo comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Cuando las preocupaciones pesan",
+    "synopsis": "A veces la cabeza no deja de dar vueltas. Estos pasajes invitan a hablar de lo que sentimos y a buscar apoyo; no reemplazan la ayuda profesional.",
     "status": "EN_REVISION",
     "pastoralCaution": "No sustituir atención clínica",
     "existenceChecked": true,
@@ -613,7 +613,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "33",
           "34"
         ],
-        "rationale": "Enseñanza sobre afán cotidiano"
+        "rationale": "Jesús habla de las preocupaciones por el día a día."
       },
       {
         "reference": "Filipenses 4:6–9",
@@ -628,15 +628,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Oración y prácticas comunitarias en incertidumbre"
+        "rationale": "Pablo menciona la oración y pensamientos que ayudan a cuidar el corazón."
       }
     ]
   },
   {
     "topicId": "sufrimiento",
     "family": "Dificultades y emociones",
-    "subtopic": "acompañamiento en dolor",
-    "synopsis": "Sufrimiento: explorar acompañamiento en dolor comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "No pasar solo los días difíciles",
+    "synopsis": "Cuando alguien sufre, escuchar y acompañar puede marcar una diferencia. Estos textos hablan de esperanza y de consuelo compartido.",
     "status": "EN_REVISION",
     "pastoralCaution": "No moralizar enfermedad o duelo",
     "existenceChecked": true,
@@ -660,7 +660,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "26",
           "27"
         ],
-        "rationale": "Esperanza situada en gemido y fragilidad"
+        "rationale": "Pablo reconoce que toda la creación atraviesa momentos difíciles."
       },
       {
         "reference": "2 Corintios 1:3–7",
@@ -676,15 +676,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Consuelo compartido en sufrimientos"
+        "rationale": "Una carta habla de recibir y compartir consuelo."
       }
     ]
   },
   {
     "topicId": "oracion",
     "family": "Oración y práctica espiritual",
-    "subtopic": "hablar con Dios",
-    "synopsis": "Oración: explorar hablar con Dios comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Hablar con Dios con confianza",
+    "synopsis": "No hacen falta palabras perfectas para orar. Estos pasajes presentan maneras sencillas de hablar con Dios y escuchar.",
     "status": "EN_REVISION",
     "pastoralCaution": "No confundir pedir con obtener cualquier deseo",
     "existenceChecked": true,
@@ -707,7 +707,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Enseñanza sobre oración sin exhibicionismo"
+        "rationale": "Jesús enseña a orar con sencillez, sin buscar aplausos."
       },
       {
         "reference": "Lucas 11:1–13",
@@ -731,15 +731,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Discípulos piden aprender a orar"
+        "rationale": "Los discípulos le piden a Jesús que les enseñe a orar."
       }
     ]
   },
   {
     "topicId": "adoracion",
     "family": "Oración y práctica espiritual",
-    "subtopic": "adorar con sentido",
-    "synopsis": "Adoración: explorar adorar con sentido comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "¿Por qué adoramos?",
+    "synopsis": "Adorar es más que repetir canciones o gestos. Lee cómo la Biblia relaciona la adoración con la verdad, la gratitud y nuestra manera de vivir.",
     "status": "EN_REVISION",
     "pastoralCaution": "No confundir adoración con solo música",
     "existenceChecked": true,
@@ -761,7 +761,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "25",
           "26"
         ],
-        "rationale": "Diálogo samaritana vincula culto y verdad"
+        "rationale": "Jesús conversa sobre la adoración con una mujer samaritana."
       },
       {
         "reference": "Salmos 95:1–7",
@@ -779,15 +779,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Salmo llama a postrarse y reconocer cuidado"
+        "rationale": "Un salmo invita a cantar y agradecer a Dios."
       }
     ]
   },
   {
     "topicId": "ayuno",
     "family": "Oración y práctica espiritual",
-    "subtopic": "prácticas libres",
-    "synopsis": "Ayuno: explorar prácticas libres comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Una práctica con sentido",
+    "synopsis": "Ayunar aparece en la Biblia como una práctica espiritual, pero nunca debe imponerse. Estos textos preguntan qué importa más: parecer bueno o actuar con justicia.",
     "status": "EN_REVISION",
     "pastoralCaution": "No imponer ayuno alimentario a menores",
     "existenceChecked": true,
@@ -804,7 +804,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "17",
           "18"
         ],
-        "rationale": "Jesús rechaza ostentación del ayuno"
+        "rationale": "Jesús cuestiona hacer del ayuno un espectáculo."
       },
       {
         "reference": "Isaías 58:3–9",
@@ -822,15 +822,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Profeta vincula ayuno con justicia social"
+        "rationale": "Isaías relaciona las prácticas religiosas con ayudar a quien lo necesita."
       }
     ]
   },
   {
     "topicId": "generosidad",
     "family": "Carácter y conducta",
-    "subtopic": "dar sin presión",
-    "synopsis": "Generosidad: explorar dar sin presión comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Compartir sin obligación",
+    "synopsis": "Ser generoso puede ser dar tiempo, escuchar o ayudar. La Biblia invita a pensar en lo que significa compartir sin presionar a nadie.",
     "status": "EN_REVISION",
     "pastoralCaution": "No usar viuda para presionar donaciones",
     "existenceChecked": true,
@@ -848,7 +848,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "43",
           "44"
         ],
-        "rationale": "Ofrenda viuda en contexto de crítica institucional"
+        "rationale": "Jesús observa una ofrenda pequeña en un contexto difícil."
       },
       {
         "reference": "2 Corintios 9:6–11",
@@ -865,15 +865,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "10",
           "11"
         ],
-        "rationale": "Dar voluntariamente, sin tristeza ni compulsión"
+        "rationale": "Pablo habla de dar libremente y sin presión."
       }
     ]
   },
   {
     "topicId": "decisiones",
     "family": "Decisiones y vida cotidiana",
-    "subtopic": "elección prudente",
-    "synopsis": "Decisiones: explorar elección prudente comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Elegir con calma",
+    "synopsis": "Las decisiones pequeñas también importan. Estos pasajes invitan a pensar en las consecuencias y a elegir con responsabilidad.",
     "status": "EN_REVISION",
     "pastoralCaution": "No coaccionar elecciones vocacionales",
     "existenceChecked": true,
@@ -893,7 +893,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "19",
           "20"
         ],
-        "rationale": "Elegir camino de vida en alianza"
+        "rationale": "Un texto propone pensar qué camino conduce a la vida."
       },
       {
         "reference": "Lucas 14:28–33",
@@ -910,15 +910,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "32",
           "33"
         ],
-        "rationale": "Calcular antes de emprender compromiso"
+        "rationale": "Jesús usa un ejemplo cotidiano sobre planear antes de actuar."
       }
     ]
   },
   {
     "topicId": "sexualidad",
     "family": "Decisiones y vida cotidiana",
-    "subtopic": "dignidad y consentimiento",
-    "synopsis": "Sexualidad: explorar dignidad y consentimiento comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Cuidar tu cuerpo y tus decisiones",
+    "synopsis": "Tu cuerpo y tus límites merecen respeto. Estos pasajes abren preguntas sobre dignidad, responsabilidad y relaciones sin presiones.",
     "status": "EN_REVISION",
     "pastoralCaution": "Revisión pastoral experta; no usar como coerción",
     "existenceChecked": true,
@@ -941,7 +941,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "19",
           "20"
         ],
-        "rationale": "Pablo debate cuerpo y responsabilidad en comunidad"
+        "rationale": "Pablo habla de cuidar el cuerpo y actuar con responsabilidad."
       },
       {
         "reference": "Génesis 2:18–25",
@@ -960,15 +960,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "24",
           "25"
         ],
-        "rationale": "Relato de relación y compañía"
+        "rationale": "Un relato bíblico invita a pensar en la compañía y el vínculo."
       }
     ]
   },
   {
     "topicId": "mandamientos",
     "family": "Biblia y comprensión",
-    "subtopic": "normas y amor",
-    "synopsis": "Mandamientos: explorar normas y amor comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Reglas para aprender a cuidar",
+    "synopsis": "Las reglas pueden parecer muchas. Estos pasajes ayudan a descubrir qué relación tienen los mandamientos con el respeto y el amor a los demás.",
     "status": "EN_REVISION",
     "pastoralCaution": "No emplear para amenazar menores",
     "existenceChecked": true,
@@ -999,7 +999,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "16",
           "17"
         ],
-        "rationale": "Diez mandamientos en alianza"
+        "rationale": "Conoce los mandamientos dados al pueblo de Israel."
       },
       {
         "reference": "Mateo 22:34–40",
@@ -1017,15 +1017,15 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "39",
           "40"
         ],
-        "rationale": "Jesús resume ley en dos amores"
+        "rationale": "Jesús resume el camino de la ley en amar a Dios y al prójimo."
       }
     ]
   },
   {
     "topicId": "fruto-del-espiritu",
     "family": "Esperanza y vida cristiana",
-    "subtopic": "frutos y vida",
-    "synopsis": "Fruto del espíritu: explorar frutos y vida comparando dos escenas o enseñanzas en contexto, con una aplicación no coercitiva.",
+    "subtopic": "Lo bueno que crece en nosotros",
+    "synopsis": "La paciencia, la bondad y el amor se ven en nuestros actos. La Biblia usa la imagen de un fruto para hablar de ese crecimiento.",
     "status": "EN_REVISION",
     "pastoralCaution": "Frutos no permiten evaluar personas como mejores",
     "existenceChecked": true,
@@ -1044,7 +1044,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "25",
           "26"
         ],
-        "rationale": "Contraste de frutos y obras en Gálatas"
+        "rationale": "Pablo enumera actitudes que ayudan a vivir mejor con otros."
       },
       {
         "reference": "Juan 15:1–8",
@@ -1063,7 +1063,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "7",
           "8"
         ],
-        "rationale": "Permanecer y dar fruto en imagen de vid"
+        "rationale": "Jesús utiliza la imagen de una vid para hablar de crecer y dar fruto."
       }
     ]
   }

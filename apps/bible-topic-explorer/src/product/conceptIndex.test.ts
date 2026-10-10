@@ -53,7 +53,7 @@ describe('R13 P2 canonical concept hierarchy and editorial honesty',()=>{
  });
  it('Adoración is instant lookup from fixed in-memory preview (no full corpus thematic scan)',()=>{
    const p=availablePreview('adoracion')!;
-   expect(p.subtopic).toBe('adorar con sentido');
+   expect(p.subtopic).toBe('¿Por qué adoramos?');
    expect(p.passages.map(x=>x.reference)).toEqual(['Juan 4:19–26','Salmos 95:1–7']);
    expect(p.pastoralCaution).toContain('música');
  });

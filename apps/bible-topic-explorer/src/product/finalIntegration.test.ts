@@ -7,7 +7,7 @@ import {pastoralTopics} from './pastoralTopics';
 import {originalLyrics} from './originalLyrics';
 import {songGuides} from './pastoralSongs';
 import {triviaQuestions,trueFalseQuestions,sequenceGame} from './pastoralGames';
-import {soundcloudEmbedUrl,soundcloudTrackUrl} from './soundcloud';
+import {SOUNDCLOUD_HOME,soundcloudCollections} from './soundcloud';
 import {tabs,goBack,initialNavigationState,navigate} from './navigation';
 import {drawerDestinations} from './secondaryMenu';
 describe('R1.3 final integrated plan contracts',()=>{
@@ -50,19 +50,15 @@ describe('R1.3 final integrated plan contracts',()=>{
   expect(lyricsDb).toContain('app_personal_lyrics');expect(lyricsDb).not.toContain('DROP TABLE');
   expect(lyricsDb).not.toContain('fetch(');
  });
- it('allows only real SoundCloud HTTPS track/set URLs and embeds with user action',()=>{
-  const track='https://soundcloud.com/artist-name/song-name';
-  expect(soundcloudTrackUrl(track)).toBe(track);
-  expect(soundcloudTrackUrl('http://soundcloud.com/artist/song')).toBeNull();
-  expect(soundcloudTrackUrl('https://evil.example/artist/song')).toBeNull();
-  expect(soundcloudTrackUrl('https://soundcloud.com/artist/%2Fetc')).toBeNull();
-  const url=soundcloudEmbedUrl(track);
-  expect(url).toContain('w.soundcloud.com/player/');
-  expect(url).toContain('auto_play=false');
+ it('opens SoundCloud externally only, with checked outbound playlists',()=>{
+  expect(SOUNDCLOUD_HOME).toBe('https://soundcloud.com');
+  expect(soundcloudCollections).toHaveLength(3);
   const screen=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
-  expect(screen).toContain('<WebView');
-  expect(screen).toContain('mediaPlaybackRequiresUserAction');
-  expect(screen).not.toContain('injectedJavaScript');
+  expect(screen).toContain('Linking.openURL(url)');
+  expect(screen).toContain('Abrir SoundCloud ↗');
+  expect(screen).not.toContain('<WebView');
+  expect(screen).not.toContain('TextInput');
+  expect(screen).not.toContain('Cargar reproductor');
  });
  it('keeps original four tabs and nested Back for all five new modules',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);

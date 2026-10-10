@@ -1,18 +1,34 @@
 import {describe,expect,it} from 'vitest';
-import {soundcloudTrackUrl,soundcloudEmbedUrl} from './soundcloud';
-describe('Owner SoundCloud official embed only',()=>{
- it('accepts tracks and playlists on exact soundcloud.com HTTPS',()=>{
-  expect(soundcloudTrackUrl('https://soundcloud.com/artist/song?si=tracking')).toBe('https://soundcloud.com/artist/song');
-  expect(soundcloudTrackUrl('https://www.soundcloud.com/artist/sets/list-name')).toBe('https://soundcloud.com/artist/sets/list-name');
+import {readFileSync} from 'node:fs';
+import {SOUNDCLOUD_HOME,soundcloudCollections} from './soundcloud';
+
+describe('SoundCloud external-only — Owner fix',()=>{
+ it('opens official SoundCloud and three real outside playlists by https URL',()=>{
+  expect(SOUNDCLOUD_HOME).toBe('https://soundcloud.com');
+  expect(soundcloudCollections.map(x=>x.id)).toEqual(['ninos','estudio','pastoral']);
+  for(const entry of soundcloudCollections){
+   expect(new URL(entry.url).protocol).toBe('https:');
+   expect(new URL(entry.url).hostname).toBe('soundcloud.com');
+   expect(new URL(entry.url).pathname).toContain('/sets/');
+  }
+  expect(new Set(soundcloudCollections.map(x=>x.url)).size).toBe(3);
  });
- it('rejects unapproved host, insecure URL and unsupported routes',()=>{
-  for(const x of ['http://soundcloud.com/a/b','https://soundcloud.com.evil.test/a/b','https://soundcloud.com/a/%2Fsecret','javascript:alert(1)','https://soundcloud.com/discover/sets','https://soundcloud.com/a','https://evil.example/track'])expect(soundcloudTrackUrl(x)).toBeNull();
+ it('has only direct-open links, no HTTP input/WebView/embedded audio',()=>{
+  const s=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
+  expect(s).toContain('Linking.openURL(url)');
+  expect(s).toContain('label="Abrir SoundCloud ↗"');
+  expect(s).toContain('soundcloudCollections.map');
+  expect(s).not.toContain('<WebView');
+  expect(s).not.toContain('TextInput');
+  expect(s).not.toContain('soundcloudEmbedUrl');
+  expect(s).not.toContain('Cargar reproductor');
+  expect(s).not.toContain('Enlace de SoundCloud');
+  expect(s).not.toContain('HTTP');
  });
- it('uses official orange iframe URL and forbids autoplay',()=>{
-  const url=soundcloudEmbedUrl('https://soundcloud.com/artist/song');
-  expect(url).toMatch(/^https:\/\/w\.soundcloud\.com\/player\/\?/);
-  expect(url).toContain('color=%23ff5500');
-  expect(url).toContain('auto_play=false');
-  expect(url).toContain('url=https%3A%2F%2Fsoundcloud.com%2Fartist%2Fsong');
+ it('does not claim external songs are licensed or approved, requires adult review for minors',()=>{
+  const s=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
+  expect(s).toContain('persona responsable debe comprobar');
+  expect(s).toContain('La U no descarga ni redistribuye audio');
+  expect(s).toContain('no son propias ni están aprobadas');
  });
 });

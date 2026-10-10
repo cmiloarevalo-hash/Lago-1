@@ -1,0 +1,25 @@
+TAP Hoy
+ASSERT Today SoundCloud tile PASS
+TAP SoundCloud
+ASSERT External SoundCloud screen PASS
+ASSERT No URL text input PASS
+ASSERT Three external suggestions PASS
+CAPTURE qa4-soundcloud-external-list
+TAP ← Recursos
+TAP Explorar
+ASSERT Explore youth entry PASS
+TAP Explorar Vida interior
+ASSERT Youth topic row PASS
+CAPTURE qa4-youth-topic-list
+TAP Ver concepto paz
+ASSERT Youth peace heading PASS
+ASSERT Bible references RV1909 PASS
+ASSERT Readable youth copy PASS
+CAPTURE qa4-youth-peace-detail
+TAP ← Volver a los temas
+ASSERT Back to family list PASS
+TAP Ver concepto esperanza
+ASSERT Hope without jargon PASS
+ASSERT Hope references intact PASS
+CAPTURE qa4-youth-hope-detail
+ANDROID_SOUNDCLOUD_YOUTH_FOCAL_PASS

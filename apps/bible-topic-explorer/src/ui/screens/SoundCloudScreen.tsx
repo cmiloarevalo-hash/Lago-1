@@ -1,73 +1,75 @@
 import {useState} from 'react';
-import {Linking,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
-import WebView from 'react-native-webview';
-import {soundcloudEmbedUrl,soundcloudTrackUrl} from '../../product/soundcloud';
-import {Action,Body,Screen,StatusBanner} from '../primitives';
-import {spacing,type Theme} from '../theme';
+import {Linking,Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
+import {SOUNDCLOUD_HOME,soundcloudCollections} from '../../product/soundcloud';
+import {Action,Body,Screen} from '../primitives';
+import {minimumTouchTarget,spacing,type Theme} from '../theme';
 
-/** Official SoundCloud player loads only after the user selects an HTTPS track/set. */
+/** SoundCloud is opened externally, in the installed app when Android supports its links,
+ * otherwise in a browser. La U neither embeds a fake player nor plays licensed tracks.
+ */
 export function SoundCloudScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
- const [raw,setRaw]=useState('');
- const [selected,setSelected]=useState<string|null>(null);
- const [error,setError]=useState('');
- const candidate=soundcloudTrackUrl(raw);
- const openOfficial=()=>{void Linking.openURL(selected??'https://soundcloud.com').catch(()=>setError('No se pudo abrir SoundCloud; verifica tu conexión.'));};
- return <Screen theme={theme}><ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.stack}>
+ const [error,setError]=useState(false);
+ const openSoundCloud=(url:string)=>{
+  setError(false);
+  void Linking.openURL(url).catch(()=>setError(true));
+ };
+ return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>
   <Text accessibilityRole="header" style={[styles.heading,{color:theme.text}]}>Música en SoundCloud</Text>
-  <Body theme={theme} muted>Escucha desde el reproductor oficial de SoundCloud. La Biblia y tus notas siguen disponibles sin conexión.</Body>
-  <View style={[styles.card,{backgroundColor:theme.surface,borderColor:theme.border}]}>
+  <Body theme={theme} muted>La música se escucha directamente en SoundCloud, no dentro de La U. Si tienes su aplicación instalada, Android puede abrirla; de lo contrario utilizará tu navegador.</Body>
+  <View style={[styles.officialCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <View style={styles.identity}>
-    <View style={styles.logo}><Text style={styles.logoText}>☁</Text></View>
-    <Text style={[styles.name,{color:theme.text}]}>SoundCloud</Text>
-    <Text style={[styles.subtitle,{color:theme.secondary}]}>REPRODUCTOR OFICIAL</Text>
+    <View style={styles.brandMark}><Text accessibilityElementsHidden style={styles.brandIcon}>☁</Text></View>
+    <View style={styles.brandText}>
+     <Text style={[styles.brandName,{color:theme.text}]}>SoundCloud</Text>
+     <Text style={[styles.brandCaption,{color:theme.secondary}]}>Música en su plataforma oficial</Text>
+    </View>
    </View>
-   {selected?<View style={styles.player}>
-     <WebView source={{uri:soundcloudEmbedUrl(selected)}} originWhitelist={['https://*']}
-      javaScriptEnabled domStorageEnabled mediaPlaybackRequiresUserAction
-      allowsInlineMediaPlayback={false} mixedContentMode="never"
-      onError={()=>setError('El reproductor no pudo cargar. Puedes abrir esta pista directamente en SoundCloud.')}
-      onHttpError={()=>setError('Este audio puede restringir su reproducción integrada. Ábrelo en SoundCloud.')}
-      style={styles.webView}/>
-    </View>:<View accessible accessibilityLabel="SoundCloud sin pista seleccionada. El reproductor no está reproduciendo." style={styles.empty}>
-     <Text style={styles.emptyGlyph}>☁</Text>
-     <Text style={styles.emptyTitle}>Tu música, en SoundCloud</Text>
-     <Text style={styles.emptyText}>Elige una pista o lista oficial para mostrar su reproductor.</Text>
-    </View>}
-   {selected?<Action theme={theme} variant="secondary" label="Quitar reproductor" onPress={()=>setSelected(null)}/>:null}
+   <Action theme={theme} label="Abrir SoundCloud ↗" onPress={()=>openSoundCloud(SOUNDCLOUD_HOME)}/>
   </View>
-  {error?<StatusBanner theme={theme} kind="warning">{error}</StatusBanner>:null}
-  <View style={[styles.selector,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <Text style={[styles.section,{color:theme.text}]}>Escoger música</Text>
-   <Body theme={theme} muted>Pega el enlace HTTPS de una pista o lista pública de SoundCloud. Algunas grabaciones no permiten reproducción integrada.</Body>
-   <TextInput accessibilityLabel="Enlace de SoundCloud" value={raw} onChangeText={s=>{setRaw(s);setError('');}}
-    autoCapitalize="none" autoCorrect={false} keyboardType="url"
-    placeholder="https://soundcloud.com/artista/pista"
-    placeholderTextColor={theme.secondary}
-    style={[styles.input,{color:theme.text,backgroundColor:theme.background,borderColor:theme.border}]}/>
-   <Action theme={theme} disabled={!candidate} label="Cargar reproductor SoundCloud" onPress={()=>{if(candidate){setSelected(candidate);setError('');}}}/>
-   <Action theme={theme} variant="secondary" label="Abrir SoundCloud ↗" onPress={openOfficial}/>
+  <Text style={[styles.sectionTitle,{color:theme.text}]}>Listas para descubrir</Text>
+  <Body theme={theme} muted>Algunas propuestas externas para explorar. Se abren en SoundCloud y pueden cambiar con el tiempo.</Body>
+  <View style={styles.suggestions}>
+   {soundcloudCollections.map(item=><Pressable key={item.id} accessibilityRole="link"
+     accessibilityLabel={'Abrir en SoundCloud: '+item.title}
+     accessibilityHint="Abre una lista externa; puede usar la aplicación SoundCloud o el navegador."
+     onPress={()=>openSoundCloud(item.url)}
+     style={({pressed})=>[styles.suggestion,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
+     <View style={[styles.suggestionIcon,{backgroundColor:'#FFF0E7'}]}>
+      <Text accessibilityElementsHidden style={styles.suggestionGlyph}>{item.id==='ninos'?'♫':item.id==='estudio'?'♪':'✧'}</Text>
+     </View>
+     <View style={styles.suggestionBody}>
+      <Text style={[styles.suggestionTitle,{color:theme.text}]}>{item.title}</Text>
+      <Text style={[styles.suggestionOwner,{color:theme.secondary}]}>{item.by}</Text>
+      <Text style={[styles.suggestionDescription,{color:theme.secondary}]}>{item.description}</Text>
+     </View>
+     <Text accessibilityElementsHidden style={styles.arrow}>↗</Text>
+    </Pressable>)}
   </View>
-  <Text style={[styles.note,{color:theme.secondary}]}>La U no descarga ni redistribuye audio. La reproducción requiere conexión y está sujeta a permisos del creador y las reglas de SoundCloud.</Text>
+  <Text style={[styles.note,{color:theme.secondary}]}>Estas listas no son propias ni están aprobadas por La U. Antes de reproducirlas con niños, una persona responsable debe comprobar sus canciones, su contenido y las condiciones de uso. La U no descarga ni redistribuye audio.</Text>
+  {error?<Text accessibilityRole="alert" style={[styles.error,{color:theme.errorText}]}>No se pudo abrir SoundCloud. Comprueba la conexión e inténtalo otra vez.</Text>:null}
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({
- stack:{gap:spacing.md,paddingBottom:48},
- heading:{fontSize:30,fontFamily:'serif',fontWeight:'700'},
- card:{borderWidth:1,borderRadius:22,padding:14,gap:12,elevation:2},
- identity:{flexDirection:'row',alignItems:'center',gap:8},
- logo:{backgroundColor:'#FF5500',borderRadius:10,width:46,height:35,alignItems:'center',justifyContent:'center'},
- logoText:{fontSize:27,color:'#FFFFFF',fontWeight:'800'},
- name:{fontSize:20,fontWeight:'800'},
- subtitle:{fontSize:9,letterSpacing:.8,flexShrink:1,marginLeft:'auto'},
- player:{width:'100%',height:330,borderRadius:14,overflow:'hidden',backgroundColor:'#F6F6F6'},
- webView:{flex:1},
- empty:{minHeight:225,backgroundColor:'#FF6A15',borderRadius:16,justifyContent:'center',alignItems:'center',padding:20,gap:9},
- emptyGlyph:{color:'#FFFFFF',fontSize:49},
- emptyTitle:{color:'#FFFFFF',fontSize:21,fontWeight:'800',textAlign:'center'},
- emptyText:{color:'#FFFFFF',fontSize:14,lineHeight:21,textAlign:'center'},
- selector:{padding:15,borderRadius:18,borderWidth:1,gap:12},
- section:{fontSize:21,fontFamily:'serif',fontWeight:'700'},
- input:{minHeight:54,borderWidth:1,borderRadius:12,padding:12,fontSize:15},
- note:{fontSize:12,lineHeight:18}
+ stack:{gap:spacing.md,paddingBottom:50},
+ heading:{fontSize:29,fontFamily:'serif',fontWeight:'700'},
+ officialCard:{borderWidth:1,borderRadius:20,padding:16,gap:16,elevation:1},
+ identity:{flexDirection:'row',alignItems:'center',gap:12},
+ brandMark:{width:54,height:54,borderRadius:16,backgroundColor:'#FF5500',alignItems:'center',justifyContent:'center'},
+ brandIcon:{fontSize:31,color:'#FFFFFF',fontWeight:'800'},
+ brandText:{flex:1,gap:3},
+ brandName:{fontSize:21,fontWeight:'800'},
+ brandCaption:{fontSize:13,lineHeight:17},
+ sectionTitle:{fontSize:23,fontFamily:'serif',fontWeight:'700',marginTop:8},
+ suggestions:{gap:9},
+ suggestion:{flexDirection:'row',alignItems:'center',borderWidth:1,borderRadius:17,padding:13,gap:11,minHeight:minimumTouchTarget},
+ suggestionIcon:{width:44,height:44,borderRadius:13,alignItems:'center',justifyContent:'center'},
+ suggestionGlyph:{color:'#DA5E17',fontSize:24,fontWeight:'700'},
+ suggestionBody:{flex:1,gap:3},
+ suggestionTitle:{fontSize:16,fontWeight:'700'},
+ suggestionOwner:{fontSize:12},
+ suggestionDescription:{fontSize:12,lineHeight:17},
+ arrow:{fontSize:22,color:'#D4591A'},
+ note:{fontSize:12,lineHeight:18},
+ error:{fontSize:13,lineHeight:20}
 });

@@ -39,7 +39,7 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
   <Text style={[styles.h2,{color:theme.text}]}>Imágenes y créditos</Text>
   <View style={styles.sources}>{photos.map(src=><SourceLink key={src.url} theme={theme} label={src.label} detail={src.detail} url={src.url} onError={()=>setError(true)}/>)}</View>
   <Text style={[styles.h2,{color:theme.text}]}>Música y contenidos propios</Text>
-  <Body theme={theme}>SoundCloud utiliza enlaces y el reproductor de su propia plataforma; La U no aloja ni redistribuye música. Las ilustraciones geométricas de actividades son dibujos originales del proyecto. No se muestran letras de canciones de terceros sin autorización.</Body>
+  <Body theme={theme}>SoundCloud se abre en su aplicación o sitio web; La U no aloja, reproduce ni redistribuye música. Las listas sugeridas pertenecen a terceros y deben revisarse antes de usarse con menores. Las ilustraciones geométricas de actividades son dibujos originales del proyecto. No se muestran letras de canciones de terceros sin autorización.</Body>
   <Text style={[styles.legal,{color:theme.secondary}]}>Consultar siempre la licencia vigente en cada origen. Las fuentes son bibliografía de contexto, no permisos generales para copiar contenidos ni respaldo editorial o institucional.</Text>
   {error?<Text accessibilityRole="alert" style={{color:theme.errorText}}>No se pudo abrir el enlace. Puedes volver a intentarlo cuando tengas conexión.</Text>:null}
  </ScrollView></Screen>;
