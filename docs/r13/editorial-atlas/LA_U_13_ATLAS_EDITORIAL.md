@@ -10530,6 +10530,574 @@ Siguiente pregunta
 Reiniciar juego
 
 
+### HymnalScreen.tsx · interfaz/src-ui-screens-hymnalscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-hymnalscreen-tsx`
+**Ruta:** Código → HymnalScreen
+**Visibilidad:** OCULTO_SIN_RUTA
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/HymnalScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0014_001` — TEXTO EDITABLE
+No se pudieron leer tus letras locales.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0019_002` — TEXTO EDITABLE
+Completa título y letra.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0019_003` — TEXTO EDITABLE
+No se pudo guardar. Límite: título 160 caracteres y letra 15.000 caracteres.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0028_004` — TEXTO EDITABLE
+← Cancionero
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0028_005` — TEXTO EDITABLE
+← Recursos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0030_006` — TEXTO EDITABLE
+Letras para leer y cantar a tu ritmo. Tus apuntes permanecen en el dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0033_007` — TEXTO EDITABLE
+Editar mi letra
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0033_008` — TEXTO EDITABLE
+Mi nueva letra
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0034_009` — TEXTO EDITABLE
+Solo para uso personal privado. No se sincroniza ni publica.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0035_010` — TEXTO EDITABLE
+Título de letra personal
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0035_011` — TEXTO EDITABLE
+Título de la canción
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0036_012` — TEXTO EDITABLE
+Texto completo de mi letra
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0036_013` — TEXTO EDITABLE
+Escribe aquí tu letra…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0037_014` — TEXTO EDITABLE
+Guardar en este dispositivo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0038_015` — TEXTO EDITABLE
+:active?
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0040_016` — TEXTO EDITABLE
+Editar mi letra ✎
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0040_017` — TEXTO EDITABLE
+Mi letra · privada y disponible sin conexión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0041_018` — TEXTO EDITABLE
+Borrador original · distribución pendiente de autorización
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0042_019` — TEXTO EDITABLE
+Letra pendiente de derechos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0042_020` — TEXTO EDITABLE
+Este título aún no tiene permiso documentado para distribuir su letra. Aquí no se sustituye por una versión inventada ni se copia material protegido.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0042_021` — TEXTO EDITABLE
+La disponibilidad exige autorización de la obra y versión concretas.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0045_022` — TEXTO EDITABLE
+Buscar títulos del cancionero
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0045_023` — TEXTO EDITABLE
+⌕  Busca una canción…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0048_024` — TEXTO EDITABLE
+Letras disponibles
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0049_025` — TEXTO EDITABLE
+0 canciones externas autorizadas para distribuir. La revisión de derechos sigue abierta.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0051_026` — TEXTO EDITABLE
+Mis letras
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0052_027` — TEXTO EDITABLE
++ Escribir mi letra privada
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0053_028` — TEXTO EDITABLE
+Guardada solo en este dispositivo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0053_029` — TEXTO EDITABLE
+Aún no tienes letras privadas con esta búsqueda.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0054_030` — TEXTO EDITABLE
+Pendientes de derechos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0055_031` — TEXTO EDITABLE
+Borrador original · autorización en revisión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0056_032` — TEXTO EDITABLE
+Título conocido · letra no incluida
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0057_033` — TEXTO EDITABLE
+Sin títulos pendientes para esta búsqueda.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-hymnalscreen-tsx#literal_l0058_034` — TEXTO EDITABLE
+4 borradores originales requieren confirmación de titularidad y distribución; 20 letras conocidas siguen sin licencia acreditada.
+
+### SongsScreen.tsx · interfaz/src-ui-screens-songsscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-songsscreen-tsx`
+**Ruta:** Código → SongsScreen
+**Visibilidad:** OCULTO_SIN_RUTA
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/SongsScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0012_001` — TEXTO EDITABLE
+No se pudo abrir la búsqueda oficial de Spotify. Puedes seguir usando las guías sin conexión.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0015_002` — TEXTO EDITABLE
+← Volver a canciones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0015_003` — TEXTO EDITABLE
+← Volver al menú
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0016_004` — TEXTO EDITABLE
+Canciones pastorales
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0017_005` — TEXTO EDITABLE
+20 fichas de conversación originales asociadas a títulos de canciones. La música permanece en servicios externos.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0018_006` — TEXTO EDITABLE
+Cada enlace abre una búsqueda en Spotify (plataforma oficial), NO una pista comprobada. Escoge intérprete y versión; ninguna letra o grabación se aloja en La U.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0023_007` — TEXTO EDITABLE
+Propósito del encuentro
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0024_008` — TEXTO EDITABLE
+Pregunta propia para conversar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0026_009` — TEXTO EDITABLE
+Buscar «
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0026_010` — TEXTO EDITABLE
+» en Spotify ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0028_011` — TEXTO EDITABLE
+Para proyección, ejecución o difusión pública, verifica derechos y licencias. Spotify nativo permanece bloqueado externamente.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0030_012` — TEXTO EDITABLE
+Filtrar por momento
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0033_013` — TEXTO EDITABLE
+20 fichas disponibles
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-songsscreen-tsx#literal_l0038_014` — TEXTO EDITABLE
+Ver ficha: 
+
+### SoundCloudScreen.tsx · interfaz/src-ui-screens-soundcloudscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-soundcloudscreen-tsx`
+**Ruta:** Código → SoundCloudScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/SoundCloudScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0017_001` — TEXTO EDITABLE
+← Recursos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0018_002` — TEXTO EDITABLE
+Música en SoundCloud
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0019_003` — TEXTO EDITABLE
+La música se escucha directamente en SoundCloud, no dentro de La U. Si tienes su aplicación instalada, Android puede abrirla; de lo contrario utilizará tu navegador.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0025_004` — TEXTO EDITABLE
+Música en su plataforma oficial
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0028_005` — TEXTO EDITABLE
+Abrir SoundCloud ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0030_006` — TEXTO EDITABLE
+Listas para descubrir
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0031_007` — TEXTO EDITABLE
+Algunas propuestas externas para explorar. Se abren en SoundCloud y pueden cambiar con el tiempo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0034_008` — TEXTO EDITABLE
+Abrir en SoundCloud: 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0035_009` — TEXTO EDITABLE
+Abre una lista externa; puede usar la aplicación SoundCloud o el navegador.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0049_010` — TEXTO EDITABLE
+Estas listas no son propias ni están aprobadas por La U. Antes de reproducirlas con niños, una persona responsable debe comprobar sus canciones, su contenido y las condiciones de uso. La U no descarga ni redistribuye audio.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-soundcloudscreen-tsx#literal_l0050_011` — TEXTO EDITABLE
+No se pudo abrir SoundCloud. Comprueba la conexión e inténtalo otra vez.
+
+### MusicScreen.tsx · interfaz/src-ui-screens-musicscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-musicscreen-tsx`
+**Ruta:** Código → MusicScreen
+**Visibilidad:** OCULTO_SIN_RUTA
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/MusicScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0011_001` — TEXTO EDITABLE
+El enlace no es válido.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0013_002` — TEXTO EDITABLE
+No se pudo abrir Spotify ni el navegador. Comprueba tu conexión y vuelve a intentarlo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0013_003` — TEXTO EDITABLE
+Enlace no disponible
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0013_004` — TEXTO EDITABLE
+La lectura sin conexión continúa disponible.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0016_005` — TEXTO EDITABLE
+← Volver a Hoy
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0017_006` — TEXTO EDITABLE
+Música para acompañarte
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0018_007` — TEXTO EDITABLE
+Playlists cristianas públicas, para escucha personal y opcional. Spotify se abre fuera de La U; puede necesitar conexión, app o cuenta según el servicio.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0020_008` — TEXTO EDITABLE
+Explorar por ánimo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0025_009` — TEXTO EDITABLE
+Abrir en Spotify ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-musicscreen-tsx#literal_l0028_010` — TEXTO EDITABLE
+La U no reproduce ni guarda música. Los enlaces y su disponibilidad pueden cambiar; para reuniones públicas comprueba permisos musicales del lugar.
+
+### YouTubeScreen.tsx · interfaz/src-ui-screens-youtubescreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-youtubescreen-tsx`
+**Ruta:** Código → YouTubeScreen
+**Visibilidad:** OCULTO_SIN_RUTA
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/YouTubeScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0010_001` — TEXTO EDITABLE
+No se pudo abrir YouTube; comprueba la conexión o la aplicación externa.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0012_002` — TEXTO EDITABLE
+← Recursos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0013_003` — TEXTO EDITABLE
+Música en YouTube
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0014_004` — TEXTO EDITABLE
+Escucha y mira desde el reproductor oficial, cuando elijas una lista válida. La Biblia no necesita internet.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0016_005` — TEXTO EDITABLE
+VÍDEO VISIBLE
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0021_006` — TEXTO EDITABLE
+No se pudo cargar la lista. Puedes abrirla en YouTube.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0022_007` — TEXTO EDITABLE
+La lista puede no permitir su inserción. Ábrela en YouTube.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0025_008` — TEXTO EDITABLE
+Sin vídeo cargado. Playlist pendiente de aprobación. No hay reproducción.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0027_009` — TEXTO EDITABLE
+Selecciona una lista de YouTube
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0028_010` — TEXTO EDITABLE
+Aún no hay playlist aprobada ni vista previa real.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0029_011` — TEXTO EDITABLE
+Lista pendiente de aprobación
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0031_012` — TEXTO EDITABLE
+Abrir esta lista en YouTube ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0031_013` — TEXTO EDITABLE
+Quitar vídeo visible
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0035_014` — TEXTO EDITABLE
+Elegir una playlist
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0036_015` — TEXTO EDITABLE
+Pega una URL auténtica de playlist, seleccionada por ti. Algunas listas no permiten inserción por región o derechos.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0037_016` — TEXTO EDITABLE
+URL de playlist YouTube
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0037_017` — TEXTO EDITABLE
+https://www.youtube.com/playlist?list=…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0039_018` — TEXTO EDITABLE
+Cargar vídeo oficial visible
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0040_019` — TEXTO EDITABLE
+Abrir YouTube ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-youtubescreen-tsx#literal_l0042_020` — TEXTO EDITABLE
+La U no descarga ni extrae audio, no reproduce en segundo plano, no oculta los controles ni anuncia playback antes de comprobarlo.
+
+### PersonalBooksScreen.tsx · interfaz/src-ui-screens-personalbooksscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-personalbooksscreen-tsx`
+**Ruta:** Código → PersonalBooksScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/PersonalBooksScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0017_001` — TEXTO EDITABLE
+No se pudo consultar el índice privado de libros.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0022_002` — TEXTO EDITABLE
+No se pudo leer este EPUB; se conserva el documento original.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0029_003` — TEXTO EDITABLE
+Selección cancelada: no se guardó ningún archivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0030_004` — TEXTO EDITABLE
+Documento copiado al almacenamiento privado de La U, sin subirlo a internet.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0031_005` — TEXTO EDITABLE
+No se pudo importar el archivo. Comprueba formato (PDF o EPUB), tamaño y espacio disponible.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0036_006` — TEXTO EDITABLE
+Avance guardado en este dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0037_007` — TEXTO EDITABLE
+No se pudo guardar el avance local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0041_008` — TEXTO EDITABLE
+No existe un visor PDF compatible o falta permiso local. El archivo privado sigue guardado, sin enviarse a ningún servicio.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0045_009` — TEXTO EDITABLE
+← Mis libros
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0045_010` — TEXTO EDITABLE
+← Volver al menú
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0046_011` — TEXTO EDITABLE
+Mis libros PDF/EPUB
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0047_012` — TEXTO EDITABLE
+Documentos personales que eliges desde el selector del sistema Android. Copia local privada, sin cuenta, sincronización ni subida automática.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0055_013` — TEXTO EDITABLE
+Lectura PDF local
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0056_014` — TEXTO EDITABLE
+Abrir con una aplicación lectora instalada en Android. El documento se comparte temporalmente con la aplicación que tú elijas; La U no lo sube a la red.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0057_015` — TEXTO EDITABLE
+Abrir PDF en lector del dispositivo ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0058_016` — TEXTO EDITABLE
+El avance se anota manualmente aquí porque La U no recibe la página actual del visor externo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0063_017` — TEXTO EDITABLE
+Lectura EPUB sin conexión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0064_018` — TEXTO EDITABLE
+Vista de texto sin estilos, imágenes ni scripts del EPUB. La versión con formato original requiere un lector compatible.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0065_019` — TEXTO EDITABLE
+Preparando capítulos locales…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0068_020` — TEXTO EDITABLE
+← Anterior
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0069_021` — TEXTO EDITABLE
+Siguiente →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0076_022` — TEXTO EDITABLE
+El avance es privado y se puede retomar. No eliminamos tus archivos, notas ni destacados.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0078_023` — TEXTO EDITABLE
+Añadir un libro
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0079_024` — TEXTO EDITABLE
+Elegir PDF o EPUB de mi dispositivo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0080_025` — TEXTO EDITABLE
+PDF hasta 100 MB; EPUB hasta 25 MB. El EPUB se lee como texto local; PDF usa una aplicación instalada. No se importan archivos desde la nube automáticamente.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0082_026` — TEXTO EDITABLE
+Mis documentos · 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-personalbooksscreen-tsx#literal_l0086_027` — TEXTO EDITABLE
+Sin documentos aún. Tus archivos bíblicos RV1909 y notas existentes no cambian.
+
+### AboutSourcesScreen.tsx · interfaz/src-ui-screens-aboutsourcesscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-aboutsourcesscreen-tsx`
+**Ruta:** Código → AboutSourcesScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/AboutSourcesScreen.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0010_001` — TEXTO EDITABLE
+Jordan Moore · Paisaje natural
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0010_002` — TEXTO EDITABLE
+Fotografía de paisaje utilizada como base de tratamiento tonal propio.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0011_003` — TEXTO EDITABLE
+Sixteen Miles Out · Libro abierto
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0011_004` — TEXTO EDITABLE
+Fotografía de libro utilizada como base de tratamiento tonal propio.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0012_005` — TEXTO EDITABLE
+Unsplash License
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0012_006` — TEXTO EDITABLE
+Condiciones aplicables a las fotografías anteriores.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0015_007` — TEXTO EDITABLE
+Abrir fuente 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0025_008` — TEXTO EDITABLE
+← Volver
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0026_009` — TEXTO EDITABLE
+Sobre La U
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0028_010` — TEXTO EDITABLE
+Un proyecto en construcción
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0029_011` — TEXTO EDITABLE
+La U es un prototipo desarrollado con apoyo de inteligencia artificial y consulta de estudios, textos bíblicos y fuentes documentales. Sus contenidos se están revisando y no constituyen una publicación doctrinal aprobada ni cuentan con aval de las instituciones citadas.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0031_012` — TEXTO EDITABLE
+Bibliografía y linkografía
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0032_013` — TEXTO EDITABLE
+Los enlaces identifican obras e instituciones consultadas; se presentan resúmenes y propuestas originales, no reproducciones de sus textos ni avales.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0035_014` — TEXTO EDITABLE
+ · Referencia para 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0037_015` — TEXTO EDITABLE
+Biblia y recursos locales
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0038_016` — TEXTO EDITABLE
+Reina-Valera 1909 (RV1909): corpus bíblico de lectura local. Los pasajes se identifican por libro, capítulo y versículo. El contenido personal (notas, destacados y progreso) queda en el dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0039_017` — TEXTO EDITABLE
+Imágenes y créditos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0041_018` — TEXTO EDITABLE
+Música y contenidos propios
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0042_019` — TEXTO EDITABLE
+SoundCloud se abre en su aplicación o sitio web; La U no aloja, reproduce ni redistribuye música. Las listas sugeridas pertenecen a terceros y deben revisarse antes de usarse con menores. Las ilustraciones geométricas de actividades son dibujos originales del proyecto. No se muestran letras de canciones de terceros sin autorización.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0043_020` — TEXTO EDITABLE
+Consultar siempre la licencia vigente en cada origen. Las fuentes son bibliografía de contexto, no permisos generales para copiar contenidos ni respaldo editorial o institucional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-aboutsourcesscreen-tsx#literal_l0044_021` — TEXTO EDITABLE
+No se pudo abrir el enlace. Puedes volver a intentarlo cuando tengas conexión.
+
+### primitives.tsx · interfaz/src-ui-primitives-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-primitives-tsx`
+**Ruta:** Código → primitives
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/primitives.tsx`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0014_001` — TEXTO EDITABLE
+Cargando…
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0016_002` — TEXTO EDITABLE
+${tier}. ${reference}. ${text}
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0016_003` — TEXTO EDITABLE
+Abrir contexto →
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0017_004` — TEXTO EDITABLE
+${label}: ${value}
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0017_005` — TEXTO EDITABLE
+; if (!onPress) return
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0017_006` — TEXTO EDITABLE
+; return
+
+**TEXTO LITERAL** · `interfaz/src-ui-primitives-tsx#literal_l0018_007` — TEXTO EDITABLE
+: hint ?
+
+### uxCopy.ts · interfaz/src-product-uxcopy-ts
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-product-uxcopy-ts`
+**Ruta:** Código → uxCopy.ts
+**Visibilidad:** COMPARTIDO_EN_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/product/uxCopy.ts`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-product-uxcopy-ts#literal_l0002_001` — TEXTO EDITABLE
+Dos formas de explorar
+
+**TEXTO LITERAL** · `interfaz/src-product-uxcopy-ts#literal_l0003_002` — TEXTO EDITABLE
+Elige un tema curado desde A–Z o usa la búsqueda textual. Lo que escribes libremente nunca se convierte en un tema por sorpresa.
+
+**TEXTO LITERAL** · `interfaz/src-product-uxcopy-ts#literal_l0004_003` — TEXTO EDITABLE
+El sistema operativo puede retrasar una notificación. Puedes cambiar o apagar el recordatorio cuando quieras.
+
+**TEXTO LITERAL** · `interfaz/src-product-uxcopy-ts#literal_l0005_004` — TEXTO EDITABLE
+Guardado en tu biblioteca.
+
+**TEXTO LITERAL** · `interfaz/src-product-uxcopy-ts#literal_l0006_005` — TEXTO EDITABLE
+Referencia retirada de guardados.
+
+**TEXTO LITERAL** · `interfaz/src-product-uxcopy-ts#literal_l0007_006` — TEXTO EDITABLE
+Reflexión guardada en este dispositivo.
+
+### preferences.ts · interfaz/src-product-preferences-ts
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-product-preferences-ts`
+**Ruta:** Código → preferences.ts
+**Visibilidad:** COMPARTIDO_EN_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/product/preferences.ts`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+**TEXTO LITERAL** · `interfaz/src-product-preferences-ts#literal_l0018_001` — TEXTO EDITABLE
+Biblia para cada día
+
+**TEXTO LITERAL** · `interfaz/src-product-preferences-ts#literal_l0018_002` — TEXTO EDITABLE
+Lee, busca y continúa sin crear una cuenta.
+
+**TEXTO LITERAL** · `interfaz/src-product-preferences-ts#literal_l0019_003` — TEXTO EDITABLE
+Funciona sin conexión
+
+**TEXTO LITERAL** · `interfaz/src-product-preferences-ts#literal_l0019_004` — TEXTO EDITABLE
+El núcleo usa la Biblia guardada en tu dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-product-preferences-ts#literal_l0020_005` — TEXTO EDITABLE
+A tu ritmo
+
+**TEXTO LITERAL** · `interfaz/src-product-preferences-ts#literal_l0020_006` — TEXTO EDITABLE
+Puedes activar un recordatorio local cuando tú decidas.
+
+### navigation.ts · interfaz/src-product-navigation-ts
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-product-navigation-ts`
+**Ruta:** Código → navigation.ts
+**Visibilidad:** COMPARTIDO_EN_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/product/navigation.ts`
+
+Literales registrados desde fuente. Puede contener valores condicionales o cadenas de carácter técnico que no se muestran al usuario; requiere confirmación por el Supervisor.
+
+
 ## 11. Observaciones para revisión del Product Owner
 
 - 100 IDs canónicos: 23 previews y 77 SIN TEXTO EDITORIAL AÚN.
@@ -10562,5 +11130,7 @@ Reiniciar juego
 | Menú | 7 | Registrado por fuente |
 
 | Interfaz (primera tanda) | 10 | 323 literales; ver anexo de origen |
+
+| Interfaz (segunda tanda) | 11 | 156 literales; ver anexo de origen |
 
 **Fuente:** https://github.com/cmiloarevalo-hash/Lago-1/tree/e3cea7bc360c7fc97187639ca2f72b0c046d6a4a/apps/bible-topic-explorer
