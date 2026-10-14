@@ -9470,6 +9470,1066 @@ settings
 Las pantallas y mensajes se inventarían en el bloque suplementario de este mismo documento. La extracción del contenido del producto de los capítulos 1–9 es literal. La UI incluye textos combinados con datos dinámicos; estos se señalan como dinámicos o pendientes de contrastar.
 
 
+### App.tsx · interfaz/app-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/app-tsx`
+**Ruta:** Interfaz → App
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/App.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0026_001` — TEXTO EDITABLE
+(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0026_002` — TEXTO EDITABLE
+new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0029_003` — TEXTO EDITABLE
+Salir de la aplicación
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0029_004` — TEXTO EDITABLE
+¿Realmente quieres salir?
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0031_005` — TEXTO EDITABLE
+Rango no encontrado
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0031_006` — TEXTO EDITABLE
+Lectura no disponible
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0031_007` — TEXTO EDITABLE
+No fue posible abrir ese rango RV1909 en el corpus local.
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0059_008` — TEXTO EDITABLE
+Abrir menú de navegación
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0059_009` — TEXTO EDITABLE
+Abre los destinos reales de La U, incluidos temas, dinámicas, canciones y libros personales.
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0060_010` — TEXTO EDITABLE
+Abrir ajustes
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0060_011` — TEXTO EDITABLE
+La U
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0060_012` — TEXTO EDITABLE
+RV1909 · sin conexión
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0065_013` — TEXTO EDITABLE
+La U
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0066_014` — TEXTO EDITABLE
+Recursos para tu camino
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0067_015` — TEXTO EDITABLE
+Tu biblioteca bíblica y pastoral, en un solo lugar.
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0068_016` — TEXTO EDITABLE
+Lectura y reflexión
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0068_017` — TEXTO EDITABLE
+Pastoral y música
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0068_018` — TEXTO EDITABLE
+Mi espacio
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0080_019` — TEXTO EDITABLE
+Sobre La U, bibliografía, linkografía y créditos
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0081_020` — TEXTO EDITABLE
+ⓘ  Prototipo · IA y estudios
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0082_021` — TEXTO EDITABLE
+Bibliografía y fuentes ↗
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0084_022` — TEXTO EDITABLE
+Cerrar menú
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0086_023` — TEXTO EDITABLE
+Cerrar menú
+
+**TEXTO LITERAL** · `interfaz/app-tsx#literal_l0090_024` — TEXTO EDITABLE
+Cerrar menú tocando fuera
+
+### TodayScreen.tsx · interfaz/src-ui-screens-todayscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-todayscreen-tsx`
+**Ruta:** Interfaz → TodayScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/TodayScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0023_001` — TEXTO EDITABLE
+A tu ritmo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0023_002` — TEXTO EDITABLE
+100 temas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0023_003` — TEXTO EDITABLE
+Música oficial
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0023_004` — TEXTO EDITABLE
+Tus guardados
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0025_005` — TEXTO EDITABLE
+Prototipo creado con apoyo de IA y estudios. Ver bibliografía y créditos.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0026_006` — TEXTO EDITABLE
+ⓘ  Prototipo con apoyo de IA y estudios
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0027_007` — TEXTO EDITABLE
+Fuentes ↗
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0032_008` — TEXTO EDITABLE
+LA U · UN MOMENTO PARA TI
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0033_009` — TEXTO EDITABLE
+Qué bueno que estás aquí.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0034_010` — TEXTO EDITABLE
+Una pausa para que la Palabra ilumine tu día.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0038_011` — TEXTO EDITABLE
+Versículo de hoy 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0039_012` — TEXTO EDITABLE
+☀  VERSÍCULO DEL DÍA
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0041_013` — TEXTO EDITABLE
+Consultando la Biblia local…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0042_014` — TEXTO EDITABLE
+Lectura local no disponible.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0044_015` — TEXTO EDITABLE
+No se encontró este pasaje en el corpus local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0049_016` — TEXTO EDITABLE
+Continuar lectura  →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0057_017` — TEXTO EDITABLE
+Para ti hoy
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0057_018` — TEXTO EDITABLE
+Acompaña tu camino
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0058_019` — TEXTO EDITABLE
+Comenzar un plan de lectura
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0059_020` — TEXTO EDITABLE
+Un camino de siete días
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0059_021` — TEXTO EDITABLE
+Lecturas y reflexiones con progreso local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0061_022` — TEXTO EDITABLE
+Explorar pasajes y temas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0062_023` — TEXTO EDITABLE
+Encuentra tu próximo pasaje
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0062_024` — TEXTO EDITABLE
+100 temas para explorar la Palabra.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-todayscreen-tsx#literal_l0064_025` — TEXTO EDITABLE
+La lectura RV1909 y tus notas funcionan sin conexión.
+
+### SearchScreen.tsx · interfaz/src-ui-screens-searchscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-searchscreen-tsx`
+**Ruta:** Interfaz → SearchScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/SearchScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0011_001` — TEXTO EDITABLE
+Dios y fe
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0011_002` — TEXTO EDITABLE
+Amor y relaciones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0011_003` — TEXTO EDITABLE
+Perdón y restauración
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0012_004` — TEXTO EDITABLE
+Vida interior
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0012_005` — TEXTO EDITABLE
+Dificultades y emociones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0012_006` — TEXTO EDITABLE
+Oración y práctica espiritual
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0013_007` — TEXTO EDITABLE
+Carácter y conducta
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0013_008` — TEXTO EDITABLE
+Decisiones y vida cotidiana
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0013_009` — TEXTO EDITABLE
+Biblia y comprensión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0014_010` — TEXTO EDITABLE
+Esperanza y vida cristiana
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0023_011` — TEXTO EDITABLE
+Dios y fe
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0023_012` — TEXTO EDITABLE
+Preguntas sobre creer y confiar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0024_013` — TEXTO EDITABLE
+Amor y relaciones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0024_014` — TEXTO EDITABLE
+Amistades, familia y respeto
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0025_015` — TEXTO EDITABLE
+Perdón y restauración
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0025_016` — TEXTO EDITABLE
+Aprender de los errores
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0026_017` — TEXTO EDITABLE
+Vida interior
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0026_018` — TEXTO EDITABLE
+Calma, alegría y esperanza
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0027_019` — TEXTO EDITABLE
+Dificultades y emociones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0027_020` — TEXTO EDITABLE
+Lo que sentimos también importa
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0028_021` — TEXTO EDITABLE
+Oración y práctica espiritual
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0028_022` — TEXTO EDITABLE
+Espacios para conectar con Dios
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0029_023` — TEXTO EDITABLE
+Carácter y conducta
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0029_024` — TEXTO EDITABLE
+Decisiones que se notan
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0030_025` — TEXTO EDITABLE
+Decisiones y vida cotidiana
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0030_026` — TEXTO EDITABLE
+Lo que vivimos cada día
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0031_027` — TEXTO EDITABLE
+Biblia y comprensión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0031_028` — TEXTO EDITABLE
+Descubre las historias bíblicas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0032_029` — TEXTO EDITABLE
+Esperanza y vida cristiana
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0032_030` — TEXTO EDITABLE
+Caminar con fe y esperanza
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0084_031` — TEXTO EDITABLE
+Explorar temas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0085_032` — TEXTO EDITABLE
+Elige lo que te interesa o te preocupa. Encuentra una idea y léela en la Biblia.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0089_033` — TEXTO EDITABLE
+Ocultar información sobre las fichas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0089_034` — TEXTO EDITABLE
+Información sobre las fichas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0096_035` — TEXTO EDITABLE
+Las explicaciones son una propuesta y están en revisión. Los pasajes bíblicos se pueden leer en RV1909.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0098_036` — TEXTO EDITABLE
+← Volver a los temas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0098_037` — TEXTO EDITABLE
+← Volver a familias
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0099_038` — TEXTO EDITABLE
+Elige una familia
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0106_039` — TEXTO EDITABLE
+Explora este tema
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0110_040` — TEXTO EDITABLE
+Ver los 100 temas A–Z
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0112_041` — TEXTO EDITABLE
+Índice A–Z
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0112_042` — TEXTO EDITABLE
+Toca el tema que quieras descubrir.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0118_043` — TEXTO EDITABLE
+Ver concepto 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0124_044` — TEXTO EDITABLE
+Un tema para descubrir
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0129_045` — TEXTO EDITABLE
+No hay temas para esta letra.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0137_046` — TEXTO EDITABLE
+Algo nuevo por descubrir
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0139_047` — TEXTO EDITABLE
+Todavía estamos preparando una explicación sencilla para este tema. Puedes explorar los otros temas mientras tanto.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0143_048` — TEXTO EDITABLE
+Léelo en la Biblia
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0144_049` — TEXTO EDITABLE
+Dos pasajes para leer y pensar a tu ritmo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0149_050` — TEXTO EDITABLE
+ en RV1909
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0151_051` — TEXTO EDITABLE
+Leer este pasaje
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-searchscreen-tsx#literal_l0154_052` — TEXTO EDITABLE
+Los pasajes de este tema todavía se están preparando.
+
+### BibleScreen.tsx · interfaz/src-ui-screens-biblescreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-biblescreen-tsx`
+**Ruta:** Interfaz → BibleScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/BibleScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0019_001` — TEXTO EDITABLE
+([]); const [chapterCount, setChapterCount] = useState(0); const [loading, setLoading] = useState(false); const [error, setError] = useState
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0021_002` — TEXTO EDITABLE
+([]); const [highlights,setHighlights]=useState
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0027_003` — TEXTO EDITABLE
+No se pudo leer este capítulo desde el corpus local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0039_004` — TEXTO EDITABLE
+No se pudo actualizar el guardado local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0048_005` — TEXTO EDITABLE
+Eliminar nota privada
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0048_006` — TEXTO EDITABLE
+¿Eliminar esta nota de forma permanente? El destacado no se eliminará.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0049_007` — TEXTO EDITABLE
+Eliminar nota
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0051_008` — TEXTO EDITABLE
+Nota privada guardada.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0051_009` — TEXTO EDITABLE
+Nota eliminada.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0051_010` — TEXTO EDITABLE
+No se pudo guardar la nota local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0052_011` — TEXTO EDITABLE
+Nota eliminada.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0052_012` — TEXTO EDITABLE
+No se pudo eliminar la nota.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0053_013` — TEXTO EDITABLE
+Versículo destacado.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0053_014` — TEXTO EDITABLE
+Destacado eliminado.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0053_015` — TEXTO EDITABLE
+No se pudo actualizar el destacado.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0055_016` — TEXTO EDITABLE
+reader.verse?'–'+reader.verseEnd:'') : ''); const atFirstChapter = reader.chapter
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0056_017` — TEXTO EDITABLE
+← Volver a Explorar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0057_018` — TEXTO EDITABLE
+LA PALABRA · REINA-VALERA 1909
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0062_019` — TEXTO EDITABLE
+Cargando capítulo local…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0062_020` — TEXTO EDITABLE
+No hay versículos para este capítulo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0071_021` — TEXTO EDITABLE
+Opciones de versículo. 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0071_022` — TEXTO EDITABLE
+ · seleccionado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0071_023` — TEXTO EDITABLE
+ · guardado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0071_024` — TEXTO EDITABLE
+ · destacado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0072_025` — TEXTO EDITABLE
+Mantén pulsado para abrir las opciones; toca una vez para mostrar el botón Opciones.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0079_026` — TEXTO EDITABLE
+Leer nota privada de 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0080_027` — TEXTO EDITABLE
+Abre solamente la lectura de la nota. Hay un botón separado para editar.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0084_028` — TEXTO EDITABLE
+Abrir opciones de 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0086_029` — TEXTO EDITABLE
+⋯ Opciones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0098_030` — TEXTO EDITABLE
+Contenido completo de la nota privada
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0103_031` — TEXTO EDITABLE
+Editar ✎
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0105_032` — TEXTO EDITABLE
+Cerrar lectura
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0115_033` — TEXTO EDITABLE
+Tu nota privada
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0116_034` — TEXTO EDITABLE
+Nota privada del versículo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0117_035` — TEXTO EDITABLE
+Escribe tu nota personal…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0120_036` — TEXTO EDITABLE
+Guardar nota
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0121_037` — TEXTO EDITABLE
+Cancelar edición
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0124_038` — TEXTO EDITABLE
+Nota privada completa
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0128_039` — TEXTO EDITABLE
+Este versículo todavía no tiene nota privada.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0130_040` — TEXTO EDITABLE
+✎ Editar nota
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0130_041` — TEXTO EDITABLE
+✎ Agregar nota
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0131_042` — TEXTO EDITABLE
+▤ Eliminar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0138_043` — TEXTO EDITABLE
+Pulsa para quitar este color.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0138_044` — TEXTO EDITABLE
+Pulsa para aplicar este color.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0146_045` — TEXTO EDITABLE
+Quitar referencia guardada
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0146_046` — TEXTO EDITABLE
+Guardar referencia
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0149_047` — TEXTO EDITABLE
+Cerrar opciones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0154_048` — TEXTO EDITABLE
+Navegar por el capítulo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0154_049` — TEXTO EDITABLE
+Capítulo anterior
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0154_050` — TEXTO EDITABLE
+Capítulo siguiente
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0156_051` — TEXTO EDITABLE
+← Cambiar libro
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0156_052` — TEXTO EDITABLE
+LEER · RV1909
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0156_053` — TEXTO EDITABLE
+Elige un capítulo para abrir el texto.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0156_054` — TEXTO EDITABLE
+Cargando capítulos disponibles…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0156_055` — TEXTO EDITABLE
+No se pudo leer la metadata local de capítulos.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0157_056` — TEXTO EDITABLE
+Antiguo Testamento
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0157_057` — TEXTO EDITABLE
+Capítulos →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-biblescreen-tsx#literal_l0157_058` — TEXTO EDITABLE
+Nuevo Testamento
+
+### LibraryScreen.tsx · interfaz/src-ui-screens-libraryscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-libraryscreen-tsx`
+**Ruta:** Interfaz → LibraryScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/LibraryScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0017_001` — TEXTO EDITABLE
+(null);const restored=useRef(restoreY
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0019_002` — TEXTO EDITABLE
+([]);const [highlights,setHighlights]=useState
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0020_003` — TEXTO EDITABLE
+([]); const [history, setHistory] = useState
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0021_004` — TEXTO EDITABLE
+Cargando biblioteca local…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0022_005` — TEXTO EDITABLE
+No se pudo leer la biblioteca local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0025_006` — TEXTO EDITABLE
+No se pudo guardar la reflexión local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0031_007` — TEXTO EDITABLE
+Retoma lo que has leído y guardado en este dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0033_008` — TEXTO EDITABLE
+Última lectura: 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0033_009` — TEXTO EDITABLE
+Continuar leyendo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0033_010` — TEXTO EDITABLE
+ÚLTIMA LECTURA
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0033_011` — TEXTO EDITABLE
+Cuando abras un capítulo, podrás retomarlo desde aquí.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0034_012` — TEXTO EDITABLE
+Guarda o quita versículos directamente desde el lector.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0034_013` — TEXTO EDITABLE
+Abrir →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0034_014` — TEXTO EDITABLE
+Aún no guardas referencias.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0035_015` — TEXTO EDITABLE
+Notas por versículo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0035_016` — TEXTO EDITABLE
+Privadas, guardadas sólo en SQLite local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0035_017` — TEXTO EDITABLE
+Abrir →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0035_018` — TEXTO EDITABLE
+Aún no has creado notas por versículo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0036_019` — TEXTO EDITABLE
+Actividad reciente
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0037_020` — TEXTO EDITABLE
+Reflexión privada
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0037_021` — TEXTO EDITABLE
+Se guarda únicamente en este dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0037_022` — TEXTO EDITABLE
+Tu reflexión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0037_023` — TEXTO EDITABLE
+Escribe para ti…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0037_024` — TEXTO EDITABLE
+Guardar reflexión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0038_025` — TEXTO EDITABLE
+Abrir →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0038_026` — TEXTO EDITABLE
+Mostrar menos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0038_027` — TEXTO EDITABLE
+Ver historial reciente
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-libraryscreen-tsx#literal_l0038_028` — TEXTO EDITABLE
+Aún no hay lecturas registradas.
+
+### SettingsScreen.tsx · interfaz/src-ui-screens-settingsscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-settingsscreen-tsx`
+**Ruta:** Interfaz → SettingsScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/SettingsScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0014_001` — TEXTO EDITABLE
+Coral · rosa y crema
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0014_002` — TEXTO EDITABLE
+Natural · salvia y beige
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0014_003` — TEXTO EDITABLE
+Marino · azul y dorado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0017_004` — TEXTO EDITABLE
+Cargando preferencias locales…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0017_005` — TEXTO EDITABLE
+new SQLiteLocalPersistence(db),[db]);const [prefs,setPrefs]=useState(defaultPreferences);const [status,setStatus]=useState('Cargando preferencias locales…');const [statusKind,setStatusKind]=useState
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0017_006` — TEXTO EDITABLE
+('info');const [reminderState,setReminderState]=useState
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0018_007` — TEXTO EDITABLE
+No se pudieron leer las preferencias locales.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0019_008` — TEXTO EDITABLE
+Preferencias guardadas en este dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0019_009` — TEXTO EDITABLE
+No se pudieron guardar las preferencias locales.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0025_010` — TEXTO EDITABLE
+Permiso de notificaciones denegado. Puedes habilitarlo en ajustes de Android.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0025_011` — TEXTO EDITABLE
+Recordatorios no disponibles en este dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0031_012` — TEXTO EDITABLE
+Preferencias locales, sin cuenta obligatoria.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0032_013` — TEXTO EDITABLE
+Tres atmósferas editoriales con fondos claros; tu elección se conserva en este dispositivo.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0033_014` — TEXTO EDITABLE
+Tamaño de lectura
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0033_015` — TEXTO EDITABLE
+Ajusta el texto bíblico. La interfaz sigue el escalado de texto del sistema dentro de límites seguros para la navegación fija.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_016` — TEXTO EDITABLE
+Recordatorio diario
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_017` — TEXTO EDITABLE
+Una invitación local a Hoy, desactivada por defecto. Android puede retrasarla.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_018` — TEXTO EDITABLE
+Hora local
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_019` — TEXTO EDITABLE
+Estado real
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_020` — TEXTO EDITABLE
+Permiso denegado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_021` — TEXTO EDITABLE
+No disponible
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_022` — TEXTO EDITABLE
+Desactivar recordatorio
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_023` — TEXTO EDITABLE
+Activar recordatorio diario
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_024` — TEXTO EDITABLE
+Un momento para la Palabra · Tu lectura de hoy te espera. Léela a tu ritmo. Al tocar, abre Hoy.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0034_025` — TEXTO EDITABLE
+Notificación local best-effort: requiere permiso y no garantiza una hora exacta. Sin servidor ni cuenta.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0035_026` — TEXTO EDITABLE
+Volver a mostrar ayudas contextuales
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0035_027` — TEXTO EDITABLE
+Marcar introducción como vista
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_028` — TEXTO EDITABLE
+Respaldo manual y privado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_029` — TEXTO EDITABLE
+Exporta una copia JSON solo al elegir una carpeta de Android; no se sube a la nube automáticamente ni se borran datos.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_030` — TEXTO EDITABLE
+Exportar copia de notas y destacados
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_031` — TEXTO EDITABLE
+Respaldo privado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_032` — TEXTO EDITABLE
+El archivo JSON incluirá notas, destacados, historial y preferencias. Elige una carpeta que controles; quien tenga el archivo podrá leer tus notas. No se borrará nada.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_033` — TEXTO EDITABLE
+Elegir carpeta
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_034` — TEXTO EDITABLE
+Respaldo creado: 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_035` — TEXTO EDITABLE
+Respaldo no realizado: selección cancelada, destino incompatible o error al escribir. Los datos originales no cambian.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0036_036` — TEXTO EDITABLE
+No restaura automáticamente ni incluye archivos PDF/EPUB; conserva únicamente su índice de lectura. Guarda el JSON en un lugar seguro.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0037_037` — TEXTO EDITABLE
+Privacidad y fuente
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0037_038` — TEXTO EDITABLE
+No requerida
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0037_039` — TEXTO EDITABLE
+Datos de uso
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-settingsscreen-tsx#literal_l0037_040` — TEXTO EDITABLE
+Reina-Valera 1909 · BibleAquifer · dominio público/CC0 del paquete.
+
+### PlansScreen.tsx · interfaz/src-ui-screens-plansscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-plansscreen-tsx`
+**Ruta:** Interfaz → PlansScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/PlansScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0017_001` — TEXTO EDITABLE
+No fue posible leer el avance local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0022_002` — TEXTO EDITABLE
+No se pudo guardar. Las notas anteriores permanecen intactas.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0023_003` — TEXTO EDITABLE
+Reiniciar avance de este plan
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0023_004` — TEXTO EDITABLE
+Solo se quitarán las marcas de progreso; tus notas privadas se conservarán.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0023_005` — TEXTO EDITABLE
+Reiniciar progreso
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0023_006` — TEXTO EDITABLE
+No se pudo reiniciar.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0024_007` — TEXTO EDITABLE
+Planes de lectura
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0026_008` — TEXTO EDITABLE
+← Volver al plan
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0026_009` — TEXTO EDITABLE
+← Todos los planes
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0026_010` — TEXTO EDITABLE
+← Volver
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0027_011` — TEXTO EDITABLE
+Un encuentro con la Palabra · RV1909
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0032_012` — TEXTO EDITABLE
+✦ DESTACADO
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0032_013` — TEXTO EDITABLE
+✧ 7 DÍAS
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0035_014` — TEXTO EDITABLE
+7 lecturas · texto original en revisión editorial
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0036_015` — TEXTO EDITABLE
+Comenzar plan  →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0042_016` — TEXTO EDITABLE
+PLAN DE SIETE DÍAS
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0045_017` — TEXTO EDITABLE
+Tu progreso
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0047_018` — TEXTO EDITABLE
+, completado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0047_019` — TEXTO EDITABLE
+, pendiente
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0047_020` — TEXTO EDITABLE
+r.day===d.day&&r.done);const current=day===d.day||!day&&d.day===nextDay;return
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0050_021` — TEXTO EDITABLE
+Continuar · día 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0057_022` — TEXTO EDITABLE
+Leer pasaje en contexto →
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0060_023` — TEXTO EDITABLE
+Oración libre
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0061_024` — TEXTO EDITABLE
+Un paso para hoy
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0063_025` — TEXTO EDITABLE
+Mis notas privadas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0064_026` — TEXTO EDITABLE
+Escribe lo que quieras conservar…
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0064_027` — TEXTO EDITABLE
+Nota privada del día 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0065_028` — TEXTO EDITABLE
+Guardar mi nota
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0066_029` — TEXTO EDITABLE
+Marcar como pendiente
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0066_030` — TEXTO EDITABLE
+Marcar día completado ✓
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0068_031` — TEXTO EDITABLE
+Tus siete lecturas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0068_032` — TEXTO EDITABLE
+Elige un día
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0069_033` — TEXTO EDITABLE
+Abrir día 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0069_034` — TEXTO EDITABLE
+r.day===d.day&&r.done);const current=d.day===nextDay;return
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0074_035` — TEXTO EDITABLE
+Reiniciar progreso (sin borrar notas)
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-plansscreen-tsx#literal_l0076_036` — TEXTO EDITABLE
+Los pasajes RV1909 son locales. Las reflexiones están pendientes de revisión pastoral.
+
+### PastoralScreen.tsx · interfaz/src-ui-screens-pastoralscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-pastoralscreen-tsx`
+**Ruta:** Interfaz → PastoralScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/PastoralScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0009_001` — TEXTO EDITABLE
+UNICEF · Formación Kit Adolescente · 2018
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0010_002` — TEXTO EDITABLE
+USCCB · Renewing the Vision · 1997
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0011_003` — TEXTO EDITABLE
+santa sede
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0011_004` — TEXTO EDITABLE
+Santa Sede · Protección de menores · 2019
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0021_005` — TEXTO EDITABLE
+← Recursos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0022_006` — TEXTO EDITABLE
+Guía pastoral
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0023_007` — TEXTO EDITABLE
+Ocho temas para acompañar encuentros juveniles, con propuestas originales y referencias al final de cada tema.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0024_008` — TEXTO EDITABLE
+En revisión editorial · Aplicar siempre los protocolos locales de protección.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0030_009` — TEXTO EDITABLE
+Contraer tema
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0030_010` — TEXTO EDITABLE
+Desplegar tema
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0036_011` — TEXTO EDITABLE
+Para preparar el encuentro
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0037_012` — TEXTO EDITABLE
+Responsables y jóvenes
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0038_013` — TEXTO EDITABLE
+Paso a paso
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0039_014` — TEXTO EDITABLE
+Adaptaciones y cuidado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0039_015` — TEXTO EDITABLE
+Protección y consentimiento
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0040_016` — TEXTO EDITABLE
+Fe y reflexión
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0042_017` — TEXTO EDITABLE
+Fuentes y referencias
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0043_018` — TEXTO EDITABLE
+No fue posible abrir la fuente externa. Puedes seguir leyendo sin conexión.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0047_019` — TEXTO EDITABLE
+Leer pasaje RV1909 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralscreen-tsx#literal_l0055_020` — TEXTO EDITABLE
+Las fuentes documentan contexto; no implican aval institucional ni permiso de reproducción.
+
+### ActivitiesScreen.tsx · interfaz/src-ui-screens-activitiesscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-activitiesscreen-tsx`
+**Ruta:** Interfaz → ActivitiesScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/ActivitiesScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0027_001` — TEXTO EDITABLE
+← Volver a dinámicas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0027_002` — TEXTO EDITABLE
+← Volver al menú
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0034_003` — TEXTO EDITABLE
+edad sugerida
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0038_004` — TEXTO EDITABLE
+Cómo hacerlo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0049_005` — TEXTO EDITABLE
+Para conversar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0052_006` — TEXTO EDITABLE
+Ocultar recomendaciones de cuidado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0052_007` — TEXTO EDITABLE
+Ver recomendaciones de cuidado
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0054_008` — TEXTO EDITABLE
+Ocultar indicaciones
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0054_009` — TEXTO EDITABLE
+Cuidado y accesibilidad
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0060_010` — TEXTO EDITABLE
+Dinámicas pastorales
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0061_011` — TEXTO EDITABLE
+Encuentros sencillos para reunir, compartir y aprender.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0065_012` — TEXTO EDITABLE
+minutos aprox.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0066_013` — TEXTO EDITABLE
+edad sugerida
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0068_014` — TEXTO EDITABLE
+Jugar trivia, verdadero/falso y ordenar versículos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0069_015` — TEXTO EDITABLE
+Juegos bíblicos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0069_016` — TEXTO EDITABLE
+Trivia · Verdadero/Falso · Ordenar versículos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0071_017` — TEXTO EDITABLE
+Elige una dinámica
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0073_018` — TEXTO EDITABLE
+Abrir guía 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0080_019` — TEXTO EDITABLE
+Ocultar información de prototipo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0080_020` — TEXTO EDITABLE
+Información de prototipo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0080_021` — TEXTO EDITABLE
+Ocultar información
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0080_022` — TEXTO EDITABLE
+Guías en revisión editorial
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-activitiesscreen-tsx#literal_l0081_023` — TEXTO EDITABLE
+Estas propuestas originales son un prototipo para orientar facilitadores, no sustituyen formación ni protocolos de protección y todavía requieren revisión humana.
+
+### PastoralGamesScreen.tsx · interfaz/src-ui-screens-pastoralgamesscreen-tsx
+
+**ID ESTRUCTURAL — NO EDITAR:** `interfaz/src-ui-screens-pastoralgamesscreen-tsx`
+**Ruta:** Interfaz → PastoralGamesScreen
+**Visibilidad:** VISIBLE_CODIGO
+**Origen técnico:** `apps/bible-topic-explorer/src/ui/screens/PastoralGamesScreen.tsx`
+
+Se registran literales de origen (incluidos textos condicionales o técnicos que requieren revisión manual de visibilidad). No se interpreta cada literal como una pantalla adicional.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0016_001` — TEXTO EDITABLE
+Rango incompleto para esta actividad.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0019_002` — TEXTO EDITABLE
+No se pudo leer RV1909 local.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0030_003` — TEXTO EDITABLE
+← Volver a las dinámicas
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0031_004` — TEXTO EDITABLE
+Juegos bíblicos · RV1909
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0032_005` — TEXTO EDITABLE
+Tres actividades interactivas originales en revisión editorial. Las explicaciones no sustituyen un estudio contextual humano.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0036_006` — TEXTO EDITABLE
+Ordenar versículos
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0040_007` — TEXTO EDITABLE
+Toca una fila y usa «Subir» o «Bajar». Se ordenan etiquetas reales de la Biblia local; no es necesario arrastrar.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0043_008` — TEXTO EDITABLE
+Subir versículo 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0044_009` — TEXTO EDITABLE
+Bajar versículo 
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0046_010` — TEXTO EDITABLE
+Orden correcto de los versículos en Salmos 23.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0046_011` — TEXTO EDITABLE
+Ordena las etiquetas 1, 2 y 3 para completar.
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0047_012` — TEXTO EDITABLE
+Mezclar de nuevo
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0053_013` — TEXTO EDITABLE
+Respuesta correcta
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0053_014` — TEXTO EDITABLE
+Respuesta para revisar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0056_015` — TEXTO EDITABLE
+Volver a jugar
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0056_016` — TEXTO EDITABLE
+Siguiente pregunta
+
+**TEXTO LITERAL** · `interfaz/src-ui-screens-pastoralgamesscreen-tsx#literal_l0059_017` — TEXTO EDITABLE
+Reiniciar juego
+
+
 ## 11. Observaciones para revisión del Product Owner
 
 - 100 IDs canónicos: 23 previews y 77 SIN TEXTO EDITORIAL AÚN.
@@ -9500,5 +10560,7 @@ Las pantallas y mensajes se inventarían en el bloque suplementario de este mism
 | SoundCloud | 3 | Registrado por fuente |
 | Spotify histórico | 6 | Registrado por fuente |
 | Menú | 7 | Registrado por fuente |
+
+| Interfaz (primera tanda) | 10 | 323 literales; ver anexo de origen |
 
 **Fuente:** https://github.com/cmiloarevalo-hash/Lago-1/tree/e3cea7bc360c7fc97187639ca2f72b0c046d6a4a/apps/bible-topic-explorer
