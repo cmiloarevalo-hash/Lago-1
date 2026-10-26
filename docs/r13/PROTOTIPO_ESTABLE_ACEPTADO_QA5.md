@@ -1,4 +1,6 @@
-# La U 1.3 QA5 — Prototipo estable aceptado por el Product Owner
+# Biblia - Guía pastoral — Prototipo estable aceptado (La U 1.3 QA5)
+
+**Nombre oficial del producto confirmado por el Product Owner el 2026-10-26:** **Biblia - Guía pastoral**. «La U 1.3 QA5» es la identificación histórica y técnica del binario probado en el teléfono del Product Owner, **no el nombre oficial del producto**. La corrección se registra solo en documentación, sin modificar APK, metadatos Android, código ni congelación de tareas.
 
 **Fecha de aceptación declarada:** 2026-10-26.  
 **Decisión:** el Product Owner informa que tiene instalada en su propio teléfono la versión **La U 1.3 QA5**, la considera estable para su uso como prototipo y solicita expresamente situar esa versión en la rama **`main`** como **prototipo estable aceptado**.
