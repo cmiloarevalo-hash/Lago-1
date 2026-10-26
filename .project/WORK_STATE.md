@@ -1,3 +1,44 @@
+# ESTADO VIGENTE — PROTOTIPO ESTABLE ACEPTADO · ACTIVIDADES CONGELADAS
+
+**Fecha de decisión del Product Owner: 2026-10-26.**
+
+## Decisión vinculante actual
+
+El Product Owner declaró **La U 1.3 QA5** instalada en su teléfono como **prototipo estable aceptado**, ordenó incorporarla a `main` y posteriormente ordenó: «quiero cerrar todas las otras actividades quedan congeladas, ya se armo el prototipo».
+
+**Estado de trabajo: CONGELADO / SIN ACTIVIDADES AUTORIZADAS.** No hay implementación, investigación, revisión editorial, builds, APKs, integración de ramas ni ejecución de colas pendientes en curso. Cerrar tareas abiertas en GitHub es administrativo y **no significa** que todo el contenido histórico esté completado.
+
+## Baseline conservada
+
+- Repositorio: `cmiloarevalo-hash/Lago-1`, rama `main`.
+- Código del prototipo aceptado: commit `e3cea7bc360c7fc97187639ca2f72b0c046d6a4a`, integrado por avance directo (fast-forward) a `main` desde `feat/r13-p2-topic-ui`; commits documentales posteriores no modifican el código del prototipo.
+- Versión APK de referencia en el teléfono: **La U 1.3 QA5** (`com.lago.bibletopicexplorer.qa`, Android DEBUG), **no** un release comercial.
+- Acta de aceptación: `docs/r13/PROTOTIPO_ESTABLE_ACEPTADO_QA5.md`.
+- Sin modificación ni desinstalación de las aplicaciones del teléfono. Preservar RV1909, datos personales, 100 temas, diseño Coral/Natural/Marino y demás componentes existentes.
+
+## Congelación de actividades
+
+**Todas las issues actualmente abiertas de este repositorio deben quedar CERRADAS con motivo `not_planned` para el trabajo pendiente, conservando íntegro su historial, y con comentario de congelación.**
+
+Inventario identificado antes del cierre (20 issues):
+`#1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #12, #13, #15, #17, #18, #19, #58, #61, #64, #65`.
+
+Congeladas expresamente, entre otras:
+- Guía pastoral «El camino de Jesús», módulos F01–F16: Word y propuestas preservados; **NO implementados ni aprobados como contenidos finales**.
+- Sustitución de SoundCloud por oraciones, 15 textos propuestos y demás cambios editoriales.
+- Nuevas APK, mejoras de funcionalidad, accesibilidad, TalkBack, importaciones, copias de seguridad, imágenes, juegos y ajustes visuales.
+- Investigación de Biblia española propia y cualquier proyecto experimental/cola antigua de romance o memoria persistente aún abierto.
+
+Los documentos, ramas históricas, capturas, binarios y notas previas **se conservan**, no se borran ni se mezclan retroactivamente con `main`. La congelación es **indefinida** hasta nueva autorización **explícita del Product Owner** con alcance y rama definidos; no reabrir ni crear tareas por suposiciones, automatismos o antiguas instrucciones.
+
+**NO autoriza** eliminación de archivos, reseteo de datos, reinstalación, nueva release, borrado de ramas o modificación de la APK aceptada.
+
+## Historial sustituido (sin vigencia operativa)
+
+El texto posterior se conserva exclusivamente para trazabilidad. Las antiguas declaraciones «AUTHORIZED / ACTIVE» y las colas W1–W4 quedan **REVOCADAS POR ESTA DECISIÓN**.
+
+---
+
 # Estado de trabajo — La U
 
 ## Última decisión formal
