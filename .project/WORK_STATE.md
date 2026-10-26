@@ -2,6 +2,13 @@
 
 **Fecha de decisión del Product Owner: 2026-10-26.**
 
+## Nombre oficial del producto (corrección posterior del Product Owner)
+
+**Nombre oficial del producto:** **Biblia - Guía pastoral**.
+
+El nombre «La U» es una denominación histórica/interna del proyecto y de sus artefactos de prototipo, incluido **La U 1.3 QA5**. **No** designa otro producto. Los identificadores técnicos, la APK instalada, la referencia del código y el historial de GitHub conservan sus nombres preexistentes para trazabilidad. Esta corrección de nomenclatura **es documental** y no autoriza renombrar, recompilar o modificar el binario, abrir actividades ni descongelar el proyecto.
+
+
 ## Decisión vinculante actual
 
 El Product Owner declaró **La U 1.3 QA5** instalada en su teléfono como **prototipo estable aceptado**, ordenó incorporarla a `main` y posteriormente ordenó: «quiero cerrar todas las otras actividades quedan congeladas, ya se armo el prototipo».
