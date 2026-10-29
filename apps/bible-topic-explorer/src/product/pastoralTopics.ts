@@ -444,7 +444,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "Jesús anuncia buenas noticias y esperanza",
     "themeId": 3,
     "themeTitle": "Seguir el ejemplo de Jesús en el mundo",
-    "themeObjective": "Estudiar cómo Jesús manifestó su amor en acciones de esperanza, justicia, servicio, humildad y paz.",
+    "themeObjective": "Estudiar acciones concretas de Jesús ante la necesidad, la injusticia, la autoridad y los conflictos.",
     "readingsOld": [
       {
         "label": "Isaías 61:1–2",
@@ -476,7 +476,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "Justicia y servicio a quienes lo necesitan",
     "themeId": 3,
     "themeTitle": "Seguir el ejemplo de Jesús en el mundo",
-    "themeObjective": "Estudiar cómo Jesús manifestó su amor en acciones de esperanza, justicia, servicio, humildad y paz.",
+    "themeObjective": "Estudiar acciones concretas de Jesús ante la necesidad, la injusticia, la autoridad y los conflictos.",
     "readingsOld": [
       {
         "label": "Isaías 58:6–10",
@@ -516,7 +516,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "La humildad y el liderazgo que sirve",
     "themeId": 3,
     "themeTitle": "Seguir el ejemplo de Jesús en el mundo",
-    "themeObjective": "Estudiar cómo Jesús manifestó su amor en acciones de esperanza, justicia, servicio, humildad y paz.",
+    "themeObjective": "Estudiar acciones concretas de Jesús ante la necesidad, la injusticia, la autoridad y los conflictos.",
     "readingsOld": [
       {
         "label": "Miqueas 6:8",
@@ -563,7 +563,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "La paz y la reconciliación",
     "themeId": 3,
     "themeTitle": "Seguir el ejemplo de Jesús en el mundo",
-    "themeObjective": "Estudiar cómo Jesús manifestó su amor en acciones de esperanza, justicia, servicio, humildad y paz.",
+    "themeObjective": "Estudiar acciones concretas de Jesús ante la necesidad, la injusticia, la autoridad y los conflictos.",
     "readingsOld": [
       {
         "label": "Salmo 34:14",
@@ -617,7 +617,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "Jesús, nuestro Salvador",
     "themeId": 4,
     "themeTitle": "Comprender el legado de Jesús y vivirlo",
-    "themeObjective": "Comprender su entrega, la esperanza cristiana y cómo seguir aprendiendo a amar con hechos.",
+    "themeObjective": "Comprender la entrega, la esperanza de la resurrección y la continuidad de las enseñanzas de Jesús.",
     "readingsOld": [
       {
         "label": "Isaías 53:4–6",
@@ -671,7 +671,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "La resurrección y la esperanza cristiana",
     "themeId": 4,
     "themeTitle": "Comprender el legado de Jesús y vivirlo",
-    "themeObjective": "Comprender su entrega, la esperanza cristiana y cómo seguir aprendiendo a amar con hechos.",
+    "themeObjective": "Comprender la entrega, la esperanza de la resurrección y la continuidad de las enseñanzas de Jesús.",
     "readingsOld": [
       {
         "label": "Salmo 16:8–11",
@@ -711,7 +711,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "Permanecer en Jesús y dar fruto",
     "themeId": 4,
     "themeTitle": "Comprender el legado de Jesús y vivirlo",
-    "themeObjective": "Comprender su entrega, la esperanza cristiana y cómo seguir aprendiendo a amar con hechos.",
+    "themeObjective": "Comprender la entrega, la esperanza de la resurrección y la continuidad de las enseñanzas de Jesús.",
     "readingsOld": [
       {
         "label": "Jeremías 17:7–8",
@@ -751,7 +751,7 @@ export const pastoralTopics:readonly PastoralTopic[]=[
     "title": "Vivir lo aprendido: amar con hechos",
     "themeId": 4,
     "themeTitle": "Comprender el legado de Jesús y vivirlo",
-    "themeObjective": "Comprender su entrega, la esperanza cristiana y cómo seguir aprendiendo a amar con hechos.",
+    "themeObjective": "Comprender la entrega, la esperanza de la resurrección y la continuidad de las enseñanzas de Jesús.",
     "readingsOld": [
       {
         "label": "Levítico 19:34",

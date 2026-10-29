@@ -21,11 +21,19 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
  const [error,setError]=useState(false);
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Volver" onPress={onBack}/>
-  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Sobre Biblia - Guía pastoral</Text>
+  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Acerca de Guía pastoral - Biblia</Text>
   <View style={[styles.intro,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <Text style={[styles.h2,{color:theme.text}]}>Un proyecto en construcción</Text>
-   <Body theme={theme}>Biblia - Guía pastoral es un prototipo desarrollado con apoyo de inteligencia artificial y consulta de estudios, textos bíblicos y fuentes documentales. Sus contenidos se están revisando y no constituyen una publicación doctrinal aprobada ni cuentan con aval de las instituciones citadas.</Body>
+   <Body theme={theme}>Guía pastoral - Biblia es un prototipo desarrollado con apoyo de inteligencia artificial y consulta de estudios, textos bíblicos y fuentes documentales. Sus contenidos se están revisando y no constituyen una publicación doctrinal aprobada ni cuentan con aval de las instituciones citadas.</Body>
   </View>
+  <Text style={[styles.h2,{color:theme.text}]}>Desarrollador</Text>
+  <Body theme={theme}>Camilo Arévalo · Desarrollador de Guía pastoral - Biblia.</Body>
+  <Pressable accessibilityRole="link" accessibilityLabel="Enviar correo al desarrollador" onPress={()=>{void Linking.openURL('mailto:cmiloarevalo@gmail.com').catch(()=>setError(true));}} style={styles.contactLink}>
+   <Text style={styles.contactLinkText}>cmiloarevalo@gmail.com ↗</Text>
+  </Pressable>
+  <Pressable accessibilityRole="link" accessibilityLabel="Llamar al desarrollador" onPress={()=>{void Linking.openURL('tel:+56993935016').catch(()=>setError(true));}} style={styles.contactLink}>
+   <Text style={styles.contactLinkText}>+56 9 9393 5016 ↗</Text>
+  </Pressable>
   <Text style={[styles.h2,{color:theme.text}]}>Contenido de la Guía pastoral</Text>
   <Body theme={theme}>Jesús, el Maestro del Amor — El camino de Jesús. Texto educativo del proyecto, versión editorial 1.0.1 (28 de octubre de 2026), 16 capítulos. Las referencias al Antiguo y Nuevo Testamento aparecen al inicio de cada capítulo; los pasajes se abren en la Biblia local RV1909.</Body>
   <Text style={[styles.h2,{color:theme.text}]}>Biblia y recursos locales</Text>
@@ -46,6 +54,8 @@ const styles=StyleSheet.create({
  sources:{gap:5},
  link:{minHeight:minimumTouchTarget,borderBottomWidth:.6,paddingVertical:9,gap:4},
  linkTitle:{fontSize:13.5,color:'#155E99',fontWeight:'600'},
+ contactLink:{minHeight:minimumTouchTarget,justifyContent:'center',paddingVertical:5},
+ contactLinkText:{color:'#155E99',fontSize:14,fontWeight:'600',textDecorationLine:'underline'},
  linkDetail:{fontSize:12,lineHeight:17},
  legal:{fontSize:12,lineHeight:18}
 });
