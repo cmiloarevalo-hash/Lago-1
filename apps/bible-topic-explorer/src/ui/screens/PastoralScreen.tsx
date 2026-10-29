@@ -9,8 +9,9 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
  const [expanded,setExpanded]=useState<string|null>(null);
  const scrollRef=useRef<ScrollView>(null);
  const headings=useRef<Record<string,number>>({});
+ const groupOffsets=useRef<Record<number,number>>({});
  const focusNext=useRef<string|null>(null);
- const scrollToOpen=()=>{const id=focusNext.current;if(!id)return;const y=headings.current[id];if(y===undefined)return;scrollRef.current?.scrollTo({y:Math.max(0,y-14),animated:true});focusNext.current=null;};
+ const scrollToOpen=()=>{const id=focusNext.current;if(!id)return;const y=headings.current[id];if(y===undefined)return;const groupId=pastoralTopics.find(x=>x.id===id)?.themeId??1;const groupY=groupOffsets.current[groupId]??0;scrollRef.current?.scrollTo({y:Math.max(0,groupY+y-14),animated:true});focusNext.current=null;};
  const readingLink=(ref:PastoralReference)=><Pressable key={ref.label} accessibilityRole="link" accessibilityLabel={'Leer RV1909 '+ref.label} onPress={()=>onRead(ref.book,ref.chapter,ref.start,ref.end)} style={styles.scriptureLink}>
   <Text style={styles.blueLink}>{ref.label} ↗</Text>
  </Pressable>;
@@ -21,15 +22,16 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
   <Body theme={theme} muted>Las enseñanzas y acciones de Jesús, a la luz de las Escrituras, para descubrir el amor en nuestra vida diaria.</Body>
   {[1,2,3,4].map(themeId=>{
    const group=pastoralTopics.filter(item=>item.themeId===themeId);
-   return <View key={themeId} style={styles.theme}>
+   return <View key={themeId} style={styles.theme} onLayout={e=>{groupOffsets.current[themeId]=e.nativeEvent.layout.y;}}>
     <Text accessibilityRole="header" style={[styles.themeTitle,{color:theme.text}]}>TEMA {themeId} · {group[0].themeTitle}</Text>
     <Text style={[styles.themeObjective,{color:theme.secondary}]}>{group[0].themeObjective}</Text>
     {group.map(item=>{
      const open=expanded===item.id;
+     const preview=item.paragraphs[0].length>105?item.paragraphs[0].slice(0,102).trimEnd()+'…':item.paragraphs[0];
      return <View key={item.id} onLayout={e=>{headings.current[item.id]=e.nativeEvent.layout.y;}} style={[styles.accordion,{backgroundColor:theme.surface,borderColor:theme.border}]}>
       <Pressable accessibilityRole="button" accessibilityLabel={'Capítulo '+item.number+' '+item.title} accessibilityHint={open?'Contraer capítulo':'Abrir capítulo'} accessibilityState={{expanded:open}} onPress={()=>{focusNext.current=open?null:item.id;setExpanded(open?null:item.id);if(!open)setTimeout(scrollToOpen,180);}} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
        <Text style={[styles.number,{color:theme.primaryText}]}>{String(item.number).padStart(2,'0')}</Text>
-       <View style={styles.headingText}><Text style={[styles.title,{color:theme.text}]}>{item.title}</Text>{!open?<Text style={[styles.preview,{color:theme.secondary}]} numberOfLines={2}>{item.paragraphs[0]}</Text>:null}</View>
+       <View style={styles.headingText}><Text style={[styles.title,{color:theme.text}]}>{item.title}</Text>{!open?<Text style={[styles.preview,{color:theme.secondary}]} >{preview}</Text>:null}</View>
        <Text accessibilityElementsHidden style={[styles.chevron,{color:theme.primaryText}]}>{open?'−':'⌄'}</Text>
       </Pressable>
       {open?<View style={styles.detail}>
