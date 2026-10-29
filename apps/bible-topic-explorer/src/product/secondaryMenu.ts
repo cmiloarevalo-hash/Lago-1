@@ -4,8 +4,7 @@ export const drawerDestinations:readonly DrawerDestination[]=[
  {id:'plans',label:'Planes de lectura',symbol:'▤',group:'Lectura y reflexión',kind:'plans',available:true},
  {id:'topics',label:'Temas bíblicos',symbol:'⌕',group:'Lectura y reflexión',kind:'topics',available:true},
  {id:'pastoral',label:'Guía pastoral',symbol:'✦',group:'Pastoral y música',kind:'pastoral',available:true},
- {id:'games',label:'Dinámicas y juegos',symbol:'◇',group:'Pastoral y música',kind:'guides',available:true},
- {id:'soundcloud',label:'SoundCloud · música',symbol:'♫',group:'Pastoral y música',kind:'soundcloud',available:true},
+ {id:'guides',label:'Dinámicas pastorales',symbol:'◇',group:'Pastoral y música',kind:'guides',available:true},
  {id:'my-books',label:'Mis libros PDF/EPUB',symbol:'▥',group:'Mi espacio',kind:'my-books',available:true},
  {id:'settings',label:'Ajustes',symbol:'⚙',group:'Mi espacio',kind:'settings',available:true}
 ];

@@ -9,8 +9,8 @@ import {scaledScriptureMetrics} from '../readingScale';
 import {editorialArt} from '../editorialArt';
 import {Action,Body,Card,Metadata,Screen,StatusBanner} from '../primitives';
 import {radius,spacing,type as typography,type Theme} from '../theme';
-type Props={theme:Theme;appearance:VisibleTheme;readingScale?:number;onOpenSoundCloud:()=>void;onOpenAbout:()=>void;onOpenPlans:()=>void;onOpenReader:(book:string,chapter:number,verse?:number)=>void;onOpenExplore:()=>void;onOpenLibrary:()=>void};
-export function TodayScreen({theme,appearance,readingScale=1,onOpenSoundCloud,onOpenAbout,onOpenPlans,onOpenReader,onOpenExplore,onOpenLibrary}:Props){
+type Props={theme:Theme;appearance:VisibleTheme;readingScale?:number;onOpenAbout:()=>void;onOpenPlans:()=>void;onOpenReader:(book:string,chapter:number,verse?:number)=>void;onOpenExplore:()=>void;onOpenLibrary:()=>void};
+export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenPlans,onOpenReader,onOpenExplore,onOpenLibrary}:Props){
  const db=useSQLiteContext(),repo=useMemo(()=>new SQLiteBibleRepository(db),[db]);
  const [dayKey,setDayKey]=useState(()=>localDayKey(new Date()));
  const reading=useMemo(()=>readingForDate(new Date(Number(dayKey.slice(0,4)),Number(dayKey.slice(5,7))-1,Number(dayKey.slice(8,10)))),[dayKey]);
@@ -20,7 +20,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenSoundCloud,on
  const ref=(verse?.bookName??reading.book)+' '+reading.chapter+':'+reading.verse;
  const art=editorialArt(appearance);
  const tiles=appearance==='coral'?['#FCE3EB','#E5EEF9','#E6F0E8','#FCEDD5']:appearance==='natural'?['#EFE8D9','#E6EFF7','#DCECDD','#F4E6CA']:['#DEEAF6','#E6F0F9','#E7F1EC','#F7E9D3'];
- const quick=[{key:'planes',icon:'▣',title:'Planes',description:'A tu ritmo',tint:tiles[0],onPress:onOpenPlans},{key:'buscar',icon:'⌕',title:'Explorar',description:'100 temas',tint:tiles[1],onPress:onOpenExplore},{key:'musica',icon:'♫',title:'SoundCloud',description:'Música oficial',tint:tiles[2],onPress:onOpenSoundCloud},{key:'favoritos',icon:'♥',title:'Biblioteca',description:'Tus guardados',tint:tiles[3],onPress:onOpenLibrary}];
+ const quick=[{key:'planes',icon:'▣',title:'Planes',description:'A tu ritmo',tint:tiles[0],onPress:onOpenPlans},{key:'buscar',icon:'⌕',title:'Explorar',description:'100 temas',tint:tiles[1],onPress:onOpenExplore},{key:'favoritos',icon:'♥',title:'Biblioteca',description:'Tus guardados',tint:tiles[3],onPress:onOpenLibrary}];
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Pressable accessibilityRole="link" accessibilityLabel="Prototipo creado con apoyo de IA y estudios. Ver bibliografía y créditos." onPress={onOpenAbout} style={styles.prototypeNote}>
    <Text style={[styles.prototypeText,{color:theme.secondary}]}>ⓘ  Prototipo con apoyo de IA y estudios</Text>
@@ -51,7 +51,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenSoundCloud,on
    </Card>
   </View>
   <View style={styles.quickRow}>{quick.map(item=><Pressable key={item.key} accessibilityRole="button" accessibilityLabel={item.title+' · '+item.description} onPress={item.onPress} style={({pressed})=>[styles.quickTile,{backgroundColor:item.tint,borderColor:appearance==='marine'?'#D2DDE8':appearance==='natural'?'#D1D8C3':'#EBD3DB',opacity:pressed?.8:1}]}>
-   <Text style={[styles.quickIcon,{color:item.key==='musica'?'#E35B12':item.key==='buscar'?'#235C88':item.key==='favoritos'?'#9B721C':theme.primaryText}]}>{item.icon}</Text>
+   <Text style={[styles.quickIcon,{color:item.key==='buscar'?'#235C88':item.key==='favoritos'?'#9B721C':theme.primaryText}]}>{item.icon}</Text>
    <Text style={styles.quickLabel}>{item.title}</Text>
   </Pressable>)}</View>
   <View style={styles.sectionTitle}><Text style={[styles.sectionHeading,{color:theme.text}]}>Para ti hoy</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Acompaña tu camino</Text></View>
