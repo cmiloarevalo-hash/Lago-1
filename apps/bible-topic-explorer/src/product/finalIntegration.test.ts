@@ -27,10 +27,16 @@ describe('R1.3 final integrated plan contracts',()=>{
    for(const d of p.days){expect(d.end).toBeGreaterThanOrEqual(d.start);expect(d.reflection.length).toBeGreaterThan(45);expect(d.prayer.length).toBeGreaterThan(18);expect(d.action.length).toBeGreaterThan(12);expect(d.editorial).toBe('EN_REVISION');}
   }
  });
- it('has eight full pastoral expansions with relevant source metadata at end, not endorsed',()=>{
-  expect(pastoralTopics).toHaveLength(8);
-  for(const p of pastoralTopics){expect(p.steps).toHaveLength(3);expect(p.adults.length).toBeGreaterThan(20);expect(p.roles.length).toBeGreaterThan(35);expect(p.safeguarding.length).toBeGreaterThan(35);expect(p.prayer.length).toBeGreaterThan(15);expect(p.sources.length).toBeGreaterThan(0);
-   for(const s of p.sources){expect(s.sourceUrl).toMatch(/^https:\/\//);expect(s.applicableSection.length).toBeGreaterThan(4);expect(s.reuseBasis).toBe('ORIGINAL_SINTESIS');expect(s.checkedAt).toBe('2026-10-10');}
+ it('embeds the sixteen approved Jesus chapters with Old and New Testament readings',()=>{
+  expect(pastoralTopics).toHaveLength(16);
+  expect(pastoralTopics.map(p=>p.number)).toEqual(Array.from({length:16},(_,i)=>i+1));
+  for(const [index,p] of pastoralTopics.entries()){
+   expect(p.themeId).toBe(Math.floor(index/4)+1);
+   expect(p.readingsOld.length).toBeGreaterThanOrEqual(1);
+   expect(p.readingsNew.length).toBeGreaterThanOrEqual(1);
+   expect(p.paragraphs.join(' ').length).toBeGreaterThan(450);
+   expect(p.question.startsWith('¿')).toBe(true);
+   expect(p.questionKind).toBe(index%4<2?'introspection':'debate');
   }
  });
  it('makes three playable mechanisms distinct and references explicit',()=>{
@@ -70,7 +76,7 @@ describe('R1.3 final integrated plan contracts',()=>{
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor'});
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor',day:3});
   expect(goBack(state)?.current).toMatchObject({kind:'plans',planId:'amor'});
-  expect(drawerDestinations).toHaveLength(7);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
+  expect(drawerDestinations).toHaveLength(6);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
   expect(drawerDestinations.some(x=>x.kind==='pastoral')).toBe(true);
  });
  it('protects reset and persistence in additive tables without destructive note migration',()=>{

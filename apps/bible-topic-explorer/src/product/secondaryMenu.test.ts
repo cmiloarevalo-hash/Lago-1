@@ -6,12 +6,14 @@ describe('R13 editorial drawer, Spotify removed',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);
   expect(drawerDestinations.some(x=>['today','search','bible','library'].includes(x.id))).toBe(false);
  });
- it('groups seven working destinations, with no Spotify or duplicate tabs',()=>{
-  expect(drawerDestinations.map(x=>x.id)).toEqual(['plans','topics','pastoral','games','soundcloud','my-books','settings']);
+ it('groups six visible destinations, hiding games and SoundCloud',()=>{
+  expect(drawerDestinations.map(x=>x.id)).toEqual(['plans','topics','pastoral','guides','my-books','settings']);
   expect(drawerDestinations.every(x=>x.available)).toBe(true);
-  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(7);
+  expect(new Set(drawerDestinations.map(x=>x.id)).size).toBe(6);
   expect(drawerDestinations.every(x=>x.symbol.length>0&&x.group.length>0)).toBe(true);
   expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
+  expect(drawerDestinations.map(x=>x.id)).not.toContain('games');
+  expect(drawerDestinations.map(x=>x.id)).not.toContain('soundcloud');
   expect(drawerDestinations.map(x=>x.id)).not.toContain('songs');
   expect(drawerDestinations.map(x=>x.id)).not.toContain('youtube');
  });

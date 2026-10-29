@@ -36,16 +36,13 @@ describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
   expect(today).toContain("appearance==='coral'");
   expect(today).toContain('longVerse');
  });
- it('keeps bibliographic sources short, linked and correctly year-identified with 48dp targets',()=>{
+ it('presents the 16-chapter editorial guide with linked local readings',()=>{
   const screen=load('src/ui/screens/PastoralScreen.tsx');
-  expect(screen).toContain("USCCB · Renewing the Vision · 1997");
-  expect(screen).toContain("UNICEF · Formación Kit Adolescente · 2018");
-  expect(screen).toContain("Santa Sede · Protección de menores · 2019");
-  expect(screen).toContain('sourceUrl');
+  expect(screen).toContain('PASTORAL_GUIDE_TITLE');
+  expect(screen).toContain('readingsOld');
+  expect(screen).toContain('readingsNew');
   expect(screen).toContain('minHeight:minimumTouchTarget');
-  expect(screen).toContain('fontSize:13.5');
-  expect(screen).not.toContain('src.sourceUrl}</Text>');
-  expect(pastoralTopics).toHaveLength(8);
+  expect(pastoralTopics).toHaveLength(16);
  });
  it('keeps SoundCloud as an honest external-only link, hides the removed player',()=>{
   const screen=load('src/ui/screens/SoundCloudScreen.tsx');
