@@ -1,10 +1,13 @@
 import {useState} from 'react';
 import {Linking,Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
-import {pastoralTopics} from '../../product/pastoralTopics';
 import {Action,Body,Screen} from '../primitives';
 import {minimumTouchTarget,spacing,type Theme} from '../theme';
 
-const sources=Array.from(new Map(pastoralTopics.flatMap(topic=>topic.sources).map(src=>[src.sourceUrl,src])).values());
+const sources=[
+ {sourceTitle:'Renewing the Vision: A Framework for Catholic Youth Ministry',sourceAuthorOrOrg:'United States Conference of Catholic Bishops (USCCB)',sourceUrl:'https://www.usccb.org/topics/youth-and-young-adult-ministries/renewing-vision',sourceDateOrVersion:'1997',applicableSection:'liderazgo juvenil'},
+ {sourceTitle:'Adolescent Kit training package for programme leaders',sourceAuthorOrOrg:'UNICEF',sourceUrl:'https://www.unicef.org/adolescentkit/reports/adolescent-kit-training-package-programme-leaders',sourceDateOrVersion:'2018',applicableSection:'participación e inclusión'},
+ {sourceTitle:'Guidelines for the Protection of Children and Vulnerable Persons',sourceAuthorOrOrg:'Santa Sede',sourceUrl:'https://www.vatican.va/resources/resources_protezioneminori-lineeguida_20190326_en.html',sourceDateOrVersion:'2019',applicableSection:'cuidado de menores y personas vulnerables'}
+] as const;
 type CreditedLink={label:string;detail:string;url:string};
 const photos:CreditedLink[]=[
  {label:'Jordan Moore · Paisaje natural',detail:'Fotografía de paisaje utilizada como base de tratamiento tonal propio.',url:'https://unsplash.com/photos/sunrise-behind-jagged-mountains-over-a-serene-lake-zkxUih6aJg0'},
