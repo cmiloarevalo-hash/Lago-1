@@ -35,6 +35,14 @@
 - **Control de lanzamiento detallado:** [CONTROL_QA_APK_UPTODOWN.md](CONTROL_QA_APK_UPTODOWN.md). Casillas sin marcar hasta pruebas y autorización.
 - **Web Wix:** se confirmó publicada por el servicio Wix. No se ha verificado que ofrezca un botón real de descarga Uptodown; aún no existe URL oficial de Uptodown.
 
+
+### Textos adicionales para el sitio Wix — 09-11-2026
+
+- Se prepararon [instrucciones seguras de instalación y borrador de política de privacidad](TEXTOS_WEB_INSTALACION_Y_PRIVACIDAD.md), para aplicar **después de la revisión y autorización del autor**. El documento no modifica el sitio vivo.
+- La sección privacidad usa datos visibles de la **candidata #69** (SQLite local, notificaciones opcionales), pero **no equivale a una auditoría definitiva**; falta verificar la APK final y los terceros.
+- **Advertencia sobre derechos:** el archivo `apps/bible-topic-explorer/LICENSE` contiene copyright MIT de **650 Industries/Expo** y no determina la licencia de distribución de todos los contenidos de la obra. Deben verificarse los derechos/licencia propios antes de elegir «Propietaria» u otra opción en Uptodown.
+- Se definió texto de estado **«Descarga para Android: próximamente en Uptodown»**. Solo habilitar el botón después de obtener una ficha oficial real.
+
 ## 2. Datos de la ficha (borrador operativo)
 
 | Campo | Contenido | Estado |
@@ -116,6 +124,7 @@ La descripción principal termina en los 3 párrafos anteriores. Esta sección e
 | 2026-11-09 | El autor escogió **Uptodown como primera y única tienda inicial** y solicitó una ficha de **3 párrafos** con **3–6 imágenes**. | Decisión comunicada en conversación; imágenes a cargo del autor |
 | 2026-11-09 | Se seleccionó el alias de difusión `https://tinyurl.com/GuiaPastoralBiblia`; **aún no activado ni verificado**. | Pendiente de alta en TinyURL y prueba de redirección |
 | 2026-11-09 | Se identificó PR #69 (v1.10.1) y se abrió lista de QA de distribución; nombre/correo no coinciden con borrador anterior. | [Control QA y aprobación](CONTROL_QA_APK_UPTODOWN.md) |
+| 2026-11-09 | Se redactaron instrucciones seguras de instalación y política de privacidad provisional; no están publicadas en Wix. | [Textos web](TEXTOS_WEB_INSTALACION_Y_PRIVACIDAD.md) |
 | 2026-11-09 | Se documentó el correo profesional, el borrador de ficha y el plan de 10 pasos. | Este archivo y [actividad #67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67) |
 | 2026-11-09 | La APK está siendo terminada/compilada por otra IA; **no se ha publicado ni aprobado aún**. | Pendiente de entrega y pruebas |
 
