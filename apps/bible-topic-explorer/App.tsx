@@ -85,7 +85,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
    <View style={styles.drawerOverlay}>
     <SafeAreaView edges={['top','bottom']} style={[styles.drawerPanel,{backgroundColor:theme.surface}]}>
       <ScrollView contentContainerStyle={styles.drawerContents} keyboardShouldPersistTaps="handled">
-        <Text style={[styles.drawerBrand,{color:theme.text}]}>Biblia Reina-Valera 1909</Text>
+        <Text style={[styles.drawerBrand,{color:theme.text}]}>Biblia RV1909</Text>
         <Text accessibilityRole="header" style={[styles.drawerHeading,{color:theme.text}]}>Recursos para tu camino</Text>
         <Text style={[typography.metadata,{color:theme.secondary}]}>Tu biblioteca bíblica y pastoral, en un solo lugar.</Text>
         {(['Lectura y reflexión','Pastoral y actividades','Mi espacio'] as const).map(group=><View key={group} style={styles.drawerGroup}>
@@ -101,7 +101,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
       </ScrollView>
       <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
         <Pressable accessibilityRole="link" accessibilityLabel="Acerca de la guía pastoral, contacto y fuentes" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
-         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11</Text>
+         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11.1</Text>
          <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Fuentes y contacto ↗</Text>
         </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}
@@ -117,7 +117,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
 }
 export default function App(){return <SafeAreaProvider><SQLiteProvider databaseName={DATABASE_NAME} assetSource={bundledBible}><AppContent/></SQLiteProvider></SafeAreaProvider>;}
 const styles=StyleSheet.create({root:{flex:1},top:{minHeight:65,paddingHorizontal:16,paddingVertical:spacing.xs,borderBottomWidth:1,flexDirection:'row',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:spacing.xs},brand:{gap:1,flexShrink:1},brandRow:{flexDirection:'row',flexShrink:1,alignItems:'center',gap:spacing.xs},menuButton:{minHeight:minimumTouchTarget,minWidth:minimumTouchTarget,borderRadius:radius.sm,alignItems:'center',justifyContent:'center'},menuGlyph:{fontSize:24,lineHeight:28},settings:{minHeight:minimumTouchTarget,minWidth:minimumTouchTarget,borderRadius:radius.sm,paddingHorizontal:spacing.sm,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:spacing.xs},settingsIcon:{fontSize:18,lineHeight:22},content:{flex:1},tabs:{minHeight:60,borderTopWidth:1,flexDirection:'row',paddingHorizontal:spacing.xs,paddingVertical:spacing.xs,gap:spacing.xs},tab:{flex:1,minHeight:minimumTouchTarget,borderRadius:radius.lg,alignItems:'center',justifyContent:'center',gap:1,position:'relative'},tabIndicator:{position:'absolute',top:2,width:28,height:3,borderRadius:2},tabIcon:{fontSize:17,lineHeight:19},drawerOverlay:{flex:1,flexDirection:'row',backgroundColor:'rgba(18,27,35,0.40)'},drawerPanel:{width:'88%',maxWidth:420,height:'100%'},drawerContents:{paddingHorizontal:20,paddingTop:32,paddingBottom:32,gap:10},
-drawerBrand:{fontFamily:'serif',fontSize:37,fontWeight:'700'},drawerHeading:{fontFamily:'serif',fontSize:23,fontWeight:'700'},
+drawerBrand:{fontFamily:'serif',fontSize:27,fontWeight:'700'},drawerHeading:{fontFamily:'serif',fontSize:23,fontWeight:'700'},
 drawerGroup:{marginTop:17,gap:4},drawerGroupLabel:{fontSize:11,fontWeight:'800',letterSpacing:1.3,marginBottom:6},
 drawerItem:{minHeight:56,borderBottomWidth:.55,paddingHorizontal:2,paddingVertical:5,flexDirection:'row',alignItems:'center',justifyContent:'space-between',gap:12},
 drawerSymbol:{width:42,height:42,borderRadius:14,justifyContent:'center',alignItems:'center'},

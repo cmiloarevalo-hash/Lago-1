@@ -1,5 +1,5 @@
 import {useCallback,useEffect,useMemo,useState} from 'react';
-import {Alert,KeyboardAvoidingView,Platform,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
+import {Alert,BackHandler,KeyboardAvoidingView,Platform,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
 import {useSQLiteContext} from 'expo-sqlite';
 import {SQLiteLocalPersistence} from '../../db/sqliteLocalPersistence';
 import type {Reflection} from '../../product/adapters';
@@ -32,18 +32,40 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
   {text:'Cancelar',style:'cancel'},{text:'Eliminar',style:'destructive',
    onPress:()=>{void persistence.deleteReflection(item.id).then(()=>{if(editing===item.id)setEditing(null);refresh();}).catch(()=>setMessage('No se pudo eliminar.'));}}
  ]);
+ const cancelEditing=()=>{
+  if(!editing)return;
+  const original=entries.find(x=>x.id===editing);
+  const wasTitle=original?reflectionTitle(original):'';
+  const wasBody=original?.body??'';
+  const changed=title.trim()!==wasTitle||body.trim()!==wasBody;
+  if(changed)Alert.alert('Descartar reflexión','Hay cambios sin guardar. ¿Descartarlos?',[
+    {text:'Seguir escribiendo',style:'cancel'},
+    {text:'Descartar',style:'destructive',onPress:()=>setEditing(null)}
+  ]);
+  else setEditing(null);
+ };
+ useEffect(()=>{
+  if(!editing)return;
+  const sub=BackHandler.addEventListener('hardwareBackPress',()=>{cancelEditing();return true;});
+  return()=>sub.remove();
+ },[editing,title,body,entries]);
  const grouped=useMemo(()=>{
   const map=new Map<string,Reflection[]>();
   for(const r of entries){const d=new Date(r.updatedAt),year=Number.isNaN(d.getTime())?'Sin fecha':String(d.getFullYear());
    if(!map.has(year))map.set(year,[]);map.get(year)!.push(r);}
   return Array.from(map.entries());
  },[entries]);
- return <Screen theme={theme}><KeyboardAvoidingView style={styles.flex} behavior={Platform.OS==='ios'?'padding':'height'}>
+ return <Screen theme={theme}><KeyboardAvoidingView style={styles.flex} behavior={Platform.OS==='ios'?'padding':undefined}>
   <ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" contentContainerStyle={styles.stack}>
-   <Action theme={theme} variant="tertiary" label="← Volver al menú" onPress={onBack}/>
-   <ScreenTitle theme={theme}>Mi diario</ScreenTitle>
-   <Body theme={theme} muted>Un espacio personal para recordar lo que aprendiste, oraste o viviste. Las reflexiones se ordenan por año y fecha.</Body>
-   <Action theme={theme} label="+ Escribir reflexión" onPress={newEntry}/>
+   <Action theme={theme} variant="tertiary" label={editing?'← Cancelar edición':'← Volver'} onPress={editing?cancelEditing:onBack}/>
+   <ScreenTitle theme={theme}>{editing?'Mi diario · edición':'Mi diario'}</ScreenTitle>
+   {editing?<View style={styles.editorActions}>
+     <Action theme={theme} label="Guardar reflexión" onPress={()=>{void save();}}/>
+     <Action theme={theme} variant="tertiary" label="Cancelar edición" onPress={cancelEditing}/>
+   </View>:<>
+     <Body theme={theme} muted>Un espacio personal para recordar lo que aprendiste, oraste o viviste. Las reflexiones se ordenan por año y fecha.</Body>
+     <Action theme={theme} label="+ Escribir reflexión" onPress={newEntry}/>
+   </>}
    {message?<Body theme={theme}>{message}</Body>:null}
    {editing?<View style={[styles.editor,{borderColor:theme.border,backgroundColor:theme.surface}]}>
     <Text style={[styles.subtitle,{color:theme.text}]}>{entries.some(x=>x.id===editing)?'Editar reflexión':'Nueva reflexión'}</Text>
@@ -54,9 +76,8 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
       value={body} onChangeText={setBody} placeholder="Escribe aquí lo que quieres recordar…"
       placeholderTextColor={theme.secondary} maxLength={20000}
       style={[styles.bodyInput,{color:theme.text,borderColor:theme.border,backgroundColor:theme.background}]}/>
-    <Action theme={theme} label="Guardar reflexión" onPress={()=>{void save();}}/>
-    <Action theme={theme} variant="tertiary" label="Cancelar edición" onPress={()=>setEditing(null)}/>
    </View>:null}
+   {!editing?<>
    {grouped.length===0?<Body theme={theme} muted>Tu diario está vacío. Puedes empezar con una reflexión de hoy.</Body>:null}
    {grouped.map(([year,items])=><Section theme={theme} key={year} title={'Año '+year}>
     {items.map(item=><View key={item.id} style={[styles.entry,{backgroundColor:theme.surface,borderColor:theme.border}]}>
@@ -69,10 +90,11 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
      </View>
     </View>)}
    </Section>)}
+   </>:null}
   </ScrollView>
  </KeyboardAvoidingView></Screen>;
 }
-const styles=StyleSheet.create({flex:{flex:1},stack:{gap:spacing.md,paddingBottom:80},
+const styles=StyleSheet.create({flex:{flex:1},stack:{gap:spacing.md,paddingBottom:80},editorActions:{flexDirection:'row',flexWrap:'wrap',gap:spacing.sm},
  editor:{borderWidth:1,borderRadius:16,padding:14,gap:12},
  subtitle:{fontSize:21,fontFamily:'serif',fontWeight:'700'},
  fieldLabel:{fontSize:15,fontWeight:'700'},

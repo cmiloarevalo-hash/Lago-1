@@ -42,6 +42,17 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const noteFor=(verse:BibleVerse)=>verseNotes.find(n=>n.bookId===verse.bookId&&n.chapter===verse.chapter&&n.sourceVerseLabel===verse.sourceVerseLabel);
   const highlightFor=(verse:BibleVerse)=>highlights.find(n=>n.bookId===verse.bookId&&n.chapter===verse.chapter&&n.sourceVerseLabel===verse.sourceVerseLabel);
   const openVerseMenu=(verse:BibleVerse)=>{setReadingNote(null);setActiveVerse(verse);setVerseAction(null);setNoteDraft(noteFor(verse)?.body??'');setEditingNote(false);};
+  const closeVerseMenu=()=>{
+    const previous=activeVerse?noteFor(activeVerse)?.body??'':'';
+    if(editingNote&&activeVerse&&noteDraft!==previous){
+      Alert.alert('Descartar cambios','Tu nota tiene cambios sin guardar. ¿Quieres descartarlos?',[
+        {text:'Seguir escribiendo',style:'cancel'},
+        {text:'Descartar',style:'destructive',onPress:()=>{setActiveVerse(null);setEditingNote(false);}}
+      ]);
+      return;
+    }
+    setActiveVerse(null);setEditingNote(false);
+  };
   const openNoteReader=(verse:BibleVerse)=>{if(!noteFor(verse))return;setActiveVerse(null);setReadingNote(verse);setExpandedNote(false);};
   const closeNoteReader=()=>{setReadingNote(null);setExpandedNote(false);};
   const editFromNoteReader=()=>{if(!readingNote)return;const verse=readingNote;closeNoteReader();openVerseMenu(verse);setVerseAction('note');setEditingNote(true);};
@@ -112,14 +123,18 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
           </View>
         </View>
       </Modal>
-      <Modal visible={activeVerse!==null} transparent animationType="slide" onRequestClose={()=>{setActiveVerse(null);setEditingNote(false);}}>
-        <KeyboardAvoidingView behavior={Platform.OS==='ios'?'padding':'height'} style={styles.modalBackdrop}>
-          <Pressable accessibilityRole="button" accessibilityLabel="Cerrar opciones tocando fuera" style={styles.sheetDismiss} onPress={()=>{setActiveVerse(null);setEditingNote(false);}}/>
+      <Modal visible={activeVerse!==null} transparent animationType="slide" onRequestClose={closeVerseMenu}>
+        <KeyboardAvoidingView behavior={Platform.OS==='ios'?'padding':undefined} style={styles.modalBackdrop}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Cerrar opciones tocando fuera" style={styles.sheetDismiss} onPress={closeVerseMenu}/>
           <View style={[styles.modalPanel,editingNote&&styles.editingPanel,{backgroundColor:theme.surface,borderColor:theme.border}]} accessibilityViewIsModal>
             <Text accessibilityRole="header" style={[typography.subhead,{color:theme.text}]}>
               {activeVerse?activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel:''} · RV1909
             </Text>
-            <Text style={[typography.metadata,{color:theme.secondary}]}>Para copiar una palabra o frase, mantén pulsado el texto bíblico y usa los marcadores de Android.</Text>
+            {editingNote?<View style={styles.editingHeaderActions}>
+              <Action label="Guardar nota" theme={theme} onPress={()=>{void saveNote();}}/>
+              <Action label="Cancelar edición" variant="tertiary" theme={theme} onPress={()=>{if(activeVerse)setNoteDraft(noteFor(activeVerse)?.body??'');setEditingNote(false);}}/>
+            </View>:<>
+              <Text style={[typography.metadata,{color:theme.secondary}]}>Para copiar una palabra o frase, mantén pulsado el texto bíblico y usa los marcadores de Android.</Text>
             <View style={styles.verseActionBar}>
               <Pressable accessibilityRole="button" accessibilityLabel="Agregar o editar nota" accessibilityState={{selected:verseAction==='note'}}
                 onPress={()=>{setVerseAction('note');setEditingNote(false);}}
@@ -136,6 +151,9 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
                 <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Compartir</Text>
               </Pressable>
             </View>
+            <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Quitar referencia guardada':'Guardar referencia'}
+              theme={theme} variant="secondary" onPress={()=>{if(activeVerse)void toggleSaved(activeVerse);setActiveVerse(null);}}/>
+            </>}
             {verseAction?<ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" contentContainerStyle={styles.optionsContent}>
               {verseAction==='note'?<>
                 {editingNote?<View style={styles.editorSection}>
@@ -144,8 +162,6 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
                     placeholder="Escribe tu nota personal…" placeholderTextColor={theme.secondary}
                     value={noteDraft} onChangeText={setNoteDraft}
                     style={[styles.noteInput,{color:theme.text,borderColor:theme.border,backgroundColor:theme.background}]}/>
-                  <Action label="Guardar nota" theme={theme} onPress={()=>{void saveNote();}}/>
-                  <Action label="Cancelar edición" variant="tertiary" theme={theme} onPress={()=>{if(activeVerse)setNoteDraft(noteFor(activeVerse)?.body??'');setEditingNote(false);}}/>
                 </View>:<>
                   {activeVerse&&noteFor(activeVerse)?<View style={[styles.savedNote,{borderColor:theme.border,backgroundColor:theme.surfaceSoft}]} accessibilityLabel="Nota privada completa">
                     <ScrollView style={styles.savedNoteScroll} nestedScrollEnabled>
@@ -173,10 +189,8 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
                   </Pressable>;
                 })}</View>
               </>:null}
-              <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Quitar referencia guardada':'Guardar referencia'}
-                theme={theme} variant="tertiary" onPress={()=>{if(activeVerse)void toggleSaved(activeVerse);setActiveVerse(null);}}/>
             </ScrollView>:null}
-            <Action label="Cerrar opciones" variant="tertiary" theme={theme} onPress={()=>{setActiveVerse(null);setEditingNote(false);}}/>
+            {!editingNote?<Action label="Cerrar opciones" variant="tertiary" theme={theme} onPress={closeVerseMenu}/>:null}
           </View>
         </KeyboardAvoidingView>
       </Modal>
@@ -209,7 +223,8 @@ const styles = StyleSheet.create({
  modalBackdrop:{flex:1,justifyContent:'flex-end',backgroundColor:'rgba(0,0,0,0.18)',padding:0},
  sheetDismiss:{flex:1},
  modalPanel:{maxHeight:'70%',borderWidth:1,borderTopLeftRadius:radius.lg,borderTopRightRadius:radius.lg,padding:spacing.md,gap:spacing.sm},
- editingPanel:{maxHeight:'87%',minHeight:300},
+ editingPanel:{maxHeight:'87%',minHeight:260},
+ editingHeaderActions:{flexDirection:'row',flexWrap:'wrap',gap:spacing.xs,alignItems:'center'},
  verseActionBar:{flexDirection:'row',flexWrap:'wrap',gap:4,justifyContent:'space-between'},
  sheetAction:{minHeight:minimumTouchTarget,flexGrow:1,flexBasis:'22%',alignItems:'center',justifyContent:'center',borderRadius:radius.sm,borderWidth:.7,paddingHorizontal:3},
  sheetActionText:{fontSize:12,fontWeight:'700'},

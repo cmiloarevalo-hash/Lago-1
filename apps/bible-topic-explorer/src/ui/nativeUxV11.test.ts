@@ -28,8 +28,8 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   const config=read('app.json');
   expect(config).toContain('Biblia Reina-Valera 1909 - Guía Pastoral');
   expect(config).toContain('"softwareKeyboardLayoutMode": "resize"');
-  expect(config).toContain('"version": "1.11.0"');
-  expect(config).toContain('"versionCode": 12');
+  expect(config).toContain('"version": "1.11.1"');
+  expect(config).toContain('"versionCode": 13');
  });
  it('adds SQLite metadata without destructive changes to corpus or earlier user notes',async()=>{
   const db={
@@ -53,5 +53,38 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   expect(read('src/product/reminders.ts')).toContain('requestPermission');
   expect(read('src/ui/screens/SettingsScreen.tsx')).toContain('DateTimePickerAndroid.open');
   expect(read('src/ui/screens/SettingsScreen.tsx')).not.toContain('<StatusBanner theme={theme} kind="warning">Notificación local best-effort');
+ });
+ it('keeps Guardar nota permanently above the editor and protects unsaved text',()=>{
+  const bible=read('src/ui/screens/BibleScreen.tsx');
+  const save=bible.indexOf('<Action label="Guardar nota"');
+  const editor=bible.indexOf('{verseAction?<ScrollView');
+  expect(save).toBeGreaterThan(0);
+  expect(save).toBeLessThan(editor);
+  expect(bible).toContain('Alert.alert(\'Descartar cambios\'');
+  expect(bible).toContain('onRequestClose={closeVerseMenu}');
+  expect(bible).toContain('editingNote?<View style={styles.editingHeaderActions}');
+ });
+ it('exposes saved verse action directly, before tab-specific note/highlight content',()=>{
+  const bible=read('src/ui/screens/BibleScreen.tsx');
+  const guard=bible.indexOf('theme={theme} variant="secondary" onPress={()=>{if(activeVerse)void toggleSaved');
+  const scroll=bible.indexOf('{verseAction?<ScrollView');
+  expect(guard).toBeGreaterThan(0);
+  expect(guard).toBeLessThan(scroll);
+ });
+ it('intercepts Android Back on a nested Biblioteca page before global navigation',()=>{
+  const library=read('src/ui/screens/LibraryScreen.tsx');
+  expect(library).toContain('BackHandler.addEventListener');
+  expect(library).toContain("if(page==='home')return");
+  expect(library).toContain("go('home');return true");
+ });
+ it('keeps diary form and Save visible above unrelated content while editing',()=>{
+  const journal=read('src/ui/screens/JournalScreen.tsx');
+  expect(journal).toContain('BackHandler.addEventListener');
+  expect(journal).toContain('{editing?<View style={styles.editorActions}>');
+  expect(journal).toContain('{!editing?<>');
+  expect(journal).toContain('Descartar reflexión');
+  const app=read('App.tsx');
+  expect(app).toContain('>Biblia RV1909</Text>');
+  expect(app).toContain("drawerBrand:{fontFamily:'serif',fontSize:27");
  });
 });

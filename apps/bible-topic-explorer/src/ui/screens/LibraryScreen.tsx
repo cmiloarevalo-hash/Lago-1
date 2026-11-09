@@ -1,5 +1,5 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
-import {Alert,KeyboardAvoidingView,Platform,ScrollView,StyleSheet,Text,View} from 'react-native';
+import {Alert,BackHandler,KeyboardAvoidingView,Platform,ScrollView,StyleSheet,Text,View} from 'react-native';
 import {useSQLiteContext} from 'expo-sqlite';
 import {SQLiteLocalPersistence} from '../../db/sqliteLocalPersistence';
 import type {HighlightTone,ReadingHistoryEntry,SavedReference,VerseNote} from '../../product/adapters';
@@ -40,6 +40,11 @@ export function LibraryScreen({theme,onOpenReader,restoreY=0,onScrollY=()=>{}}:{
   .catch(()=>setError('No se pudieron cargar tus datos de lectura.'));},[persistence]);
  useEffect(()=>{refresh();},[refresh]);
  const go=(target:Page)=>{setPage(target);setEditing(null);setNotice('');scroll.current?.scrollTo({y:0,animated:false});};
+ useEffect(()=>{
+   if(page==='home')return;
+   const subscription=BackHandler.addEventListener('hardwareBackPress',()=>{go('home');return true;});
+   return()=>subscription.remove();
+ },[page]);
  const edit=(ref:SavedReference)=>{setEditing(ref);setTitle(ref.title??'');setTopic(ref.topic??'');setTone(ref.tone??'rose');setNotice('');};
  const saveDetails=async()=>{
   if(!editing)return;
