@@ -50,3 +50,13 @@ describe('R13 SoundCloud as secondary destination',()=>{
     expect(goBack(video)?.current).toEqual({kind:'tab',tab:'today'});
   });
 });
+
+describe('v1.10.1 personal spaces',()=>{
+ it('opens journal, saved verses and local activity in standalone routes',()=>{
+  for(const kind of ['journal','saved','activity'] as const){
+   const state=navigate(initialNavigationState(),{kind,origin:'library'});
+   expect(state.current).toEqual({kind,origin:'library'});
+   expect(goBack(state)?.current).toEqual({kind:'tab',tab:'today'});
+  }
+ });
+});

@@ -16,6 +16,6 @@ export function visibleTheme(value:unknown):VisibleTheme {
 }
 export const onboardingSteps=[
  {title:'Biblia para cada día',body:'Lee, busca y continúa sin crear una cuenta.'},
- {title:'Funciona sin conexión',body:'El núcleo usa la Biblia guardada en tu dispositivo.'},
+ {title:'Una Biblia siempre a mano',body:'El texto bíblico se conserva en tu dispositivo.'},
  {title:'A tu ritmo',body:'Puedes activar un recordatorio local cuando tú decidas.'},
 ] as const;

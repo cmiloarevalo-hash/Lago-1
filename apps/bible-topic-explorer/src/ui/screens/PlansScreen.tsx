@@ -3,6 +3,9 @@ import {Alert,Image,ImageBackground,Pressable,ScrollView,StyleSheet,Text,TextInp
 import {useSQLiteContext} from 'expo-sqlite';
 import {readingPlans,planById} from '../../product/readingPlans';
 import {SQLitePlanRepository} from '../../db/sqlitePlanRepository';
+import {SQLiteLocalPersistence} from '../../db/sqliteLocalPersistence';
+import {nextPendingReadingDay} from '../../product/reminderSchedule';
+import {configureReminder} from '../../product/reminders';
 import type {VisibleTheme} from '../../product/preferences';
 import {editorialArt} from '../editorialArt';
 import {Action,Body,Card,ChoiceChip,Metadata,Screen,Section,StatusBanner,Subhead} from '../primitives';
@@ -19,7 +22,16 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
  useEffect(()=>{setNote(rows.find(r=>r.day===day)?.note??'');},[day,rows]);
  const done=rows.filter(r=>r.done).length;
  const nextDay=plan?.days.find(d=>!rows.some(r=>r.day===d.day&&r.done))?.day??7;
- const save=async(complete?:boolean)=>{if(!plan||!entry||saving)return;setSaving(true);setError('');try{await repo.save(plan.id,entry.day,complete??Boolean(rows.find(r=>r.day===entry.day)?.done),note);refresh();}catch{setError('No se pudo guardar. Las notas anteriores permanecen intactas.');}finally{setSaving(false);}};
+ const save=async(complete?:boolean)=>{if(!plan||!entry||saving)return;setSaving(true);setError('');try{await repo.save(plan.id,entry.day,complete??Boolean(rows.find(r=>r.day===entry.day)?.done),note);
+   refresh();
+   void (async()=>{const persistence=new SQLiteLocalPersistence(db);
+    const [prefs,reminder]=await Promise.all([persistence.getPreferences(),persistence.getReminderDetails()]);
+    if(prefs.reminderEnabled&&reminder.planId===plan.id){
+     const progress=await repo.list(plan.id);
+     await configureReminder(true,prefs.reminderTime,false,{planId:plan.id,planTitle:plan.title,
+      day:nextPendingReadingDay(progress),title:reminder.title});
+    }
+   })().catch(()=>{});}catch{setError('No se pudo guardar. Las notas anteriores permanecen intactas.');}finally{setSaving(false);}};
  const reset=()=>{if(!plan)return;Alert.alert('Reiniciar avance de este plan','Solo se quitarán las marcas de progreso; tus notas privadas se conservarán.',[{text:'Cancelar',style:'cancel'},{text:'Reiniciar progreso',style:'destructive',onPress:()=>{void repo.resetProgress(plan.id).then(refresh).catch(()=>setError('No se pudo reiniciar.'));}}]);};
  const introTitle='Planes de lectura';
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled">
@@ -56,9 +68,9 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
      <Text style={[styles.caption,{color:theme.secondary}]}>{entry.book} {entry.chapter}:{entry.start}–{entry.end} · RV1909</Text>
      <Action theme={theme} label="Leer pasaje en contexto →" onPress={()=>onRead(entry.book,entry.chapter,entry.start,entry.end)}/>
     </View>
-    <Section theme={theme} title="Reflexión"><Body theme={theme}>{entry.reflection}</Body></Section>
-    <Section theme={theme} title="Oración libre"><Body theme={theme}>{entry.prayer}</Body></Section>
-    <Section theme={theme} title="Un paso para hoy"><Body theme={theme}>{entry.action}</Body></Section>
+    <Section theme={theme} title="Reflexión"><Text selectable style={{color:theme.text,fontSize:16,lineHeight:25}}>{entry.reflection}</Text></Section>
+    <Section theme={theme} title="Oración libre"><Text selectable style={{color:theme.text,fontSize:16,lineHeight:25}}>{entry.prayer}</Text></Section>
+    <Section theme={theme} title="Un paso para hoy"><Text selectable style={{color:theme.text,fontSize:16,lineHeight:25}}>{entry.action}</Text></Section>
     <View style={[styles.notesPanel,{backgroundColor:theme.surfaceSoft}]}>
      <Text style={[styles.dayTitle,{color:theme.text}]}>Mis notas privadas</Text>
      <TextInput multiline value={note} onChangeText={setNote} maxLength={5000} placeholder="Escribe lo que quieras conservar…" placeholderTextColor={theme.secondary} accessibilityLabel={'Nota privada del día '+entry.day} style={[styles.noteInput,{color:theme.text,backgroundColor:theme.surface,borderColor:theme.border}]}/>

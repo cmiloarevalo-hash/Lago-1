@@ -127,7 +127,7 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
      <Text style={[styles.familyTag,{color:theme.primaryText}]}>{selectedTopic.family}</Text>
     </View>
     <Text style={[styles.detailHeading,{color:theme.text}]}>{preview?.subtopic??''}</Text>
-    {preview?<Text style={[styles.detailSynopsis,{color:theme.text}]}>{preview.synopsis}</Text>:null}
+    {preview?<Text selectable style={[styles.detailSynopsis,{color:theme.text}]}>{preview.synopsis}</Text>:null}
    </View>
    {preview?<Section theme={theme} title="Léelo en la Biblia">
     <Text style={[styles.passagesIntro,{color:theme.secondary}]}>Dos pasajes para leer y pensar a tu ritmo.</Text>

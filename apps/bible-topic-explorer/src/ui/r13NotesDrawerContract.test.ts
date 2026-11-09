@@ -11,7 +11,7 @@ describe('R13 I13-A1 discrete note-only reader',()=>{
   expect(reader).toContain('const openNoteReader=(verse:BibleVerse)');
   expect(reader).toContain('width:minimumTouchTarget,height:minimumTouchTarget');
   expect(reader).toContain('visible={readingNote!==null}');
-  const modal=reader.split('visible={readingNote!==null}')[1].split('visible={activeVerse!==null}')[0];
+  const modal=reader.split('visible={readingNote!==null}')[1].split('visible={activeVerse!==null && verseAction!==null}')[0];
   expect(modal).toContain("noteFor(readingNote)?.body");
   expect(modal).toContain("label={expandedNote?'Contraer':'Expandir'}");
   expect(modal).toContain('label="Cerrar lectura"');
@@ -21,9 +21,11 @@ describe('R13 I13-A1 discrete note-only reader',()=>{
 });
 describe('R13 I13-A2 separate options, long notes and compact highlights',()=>{
  it('uses long press for options and separate accessible short-press fallback',()=>{
-  expect(reader).toContain('onLongPress={()=>openVerseMenu(verse)}');
+  expect(reader).toContain('onSelectionChange=');
+  expect(reader).toContain('selection.end>selection.start');
+  expect(reader).toContain('showSoftInputOnFocus={false}');
   expect(reader).toContain("accessibilityLabel={'Abrir opciones de '");
-  expect(reader).toContain("onPress={()=>setQuickVerseKey(");
+  expect(reader).toContain('onPress={()=>openVerseMenu(verse)}');
  });
  it('protects deletion and cancel, uses actual text editor and existing persistence',()=>{
   expect(reader).toContain("Alert.alert('Eliminar nota privada'");

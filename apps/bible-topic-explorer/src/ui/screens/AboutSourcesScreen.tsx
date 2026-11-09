@@ -26,12 +26,19 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
  const [error,setError]=useState(false);
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Volver" onPress={onBack}/>
-  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Guía pastoral - Biblia</Text>
+  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Biblia Reina-Valera 1909 - Guía Pastoral</Text>
   <View style={[styles.intro,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <Text style={[styles.h2,{color:theme.text}]}>Un recurso para caminar en comunidad</Text>
    <Body theme={theme}>Proyecto sin fines de lucro creado como ayuda práctica para jóvenes y líderes de comunidades creyentes en Jesucristo. Facilita la lectura de la Biblia, la reflexión, el aprendizaje y el acompañamiento comunitario para conocer las enseñanzas de Jesús y seguir sus pasos en la vida cotidiana.</Body>
   </View>
-  <Body theme={theme} muted>Versión 1.10 · Desarrollador: Camilo Arévalo · Contacto: apkcristianas@gmail.com</Body>
+  <Body theme={theme} muted>Versión 1.10.1 · Desarrollador: Camilo Arévalo</Body>
+  <Pressable accessibilityRole="link" accessibilityLabel="Enviar correo a apkcristianas@gmail.com"
+    onPress={()=>{void Linking.openURL('mailto:apkcristianas@gmail.com?subject=Consulta%20Biblia%20Reina-Valera%201909').catch(()=>setError(true));}}
+    style={[styles.link,{borderBottomColor:theme.border}]}>
+    <Text style={[styles.linkTitle,{fontWeight:'800'}]}>apkcristianas@gmail.com ↗</Text>
+    <Text style={[styles.linkDetail,{color:theme.secondary}]}>Pulsa para escribirnos desde tu aplicación de correo electrónico.</Text>
+  </Pressable>
+  <Body theme={theme}>Estamos desarrollando más aplicaciones de lectura bíblica, formación cristiana y acompañamiento pastoral para jóvenes, familias y comunidades. Conoce las próximas novedades de esta línea editorial.</Body>
   <Text style={[styles.h2,{color:theme.text}]}>Bibliografía y fuentes</Text>
   <Body theme={theme} muted>Las fuentes se identifican por transparencia y atribución. Su inclusión no implica aval institucional.</Body>
   <View style={styles.sources}>{sources.map(src=><SourceLink key={src.sourceUrl} theme={theme}

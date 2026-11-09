@@ -20,6 +20,9 @@ export type Route =
   | { kind: 'reader'; book: string; chapter: number; verse?: number; sourceVerseLabel?: string; verseEnd?: number; sourceVerseLabels?: readonly string[]; origin: TabId }
   | { kind: 'settings'; origin: TabId }
   | { kind: 'about'; origin: TabId }
+  | { kind: 'journal'; origin: TabId }
+  | { kind: 'saved'; origin: TabId }
+  | { kind: 'activity'; origin: TabId }
   | { kind: 'guides'; origin: TabId; guideId?:string }
   | { kind: 'songs'; origin: TabId; songId?:string }
   | { kind: 'my-books'; origin: TabId; bookId?:string }
@@ -48,6 +51,9 @@ export function routeEquals(a: Route, b: Route): boolean {
   if (a.kind === 'tab' && b.kind === 'tab') return a.tab === b.tab && a.bibleBook === b.bibleBook;
   if (a.kind === 'settings' && b.kind === 'settings') return a.origin === b.origin;
   if (a.kind === 'about' && b.kind === 'about') return a.origin === b.origin;
+  if (a.kind === 'journal' && b.kind === 'journal') return a.origin === b.origin;
+  if (a.kind === 'saved' && b.kind === 'saved') return a.origin === b.origin;
+  if (a.kind === 'activity' && b.kind === 'activity') return a.origin === b.origin;
   if (a.kind === 'guides' && b.kind === 'guides') return a.origin === b.origin && a.guideId === b.guideId;
   if (a.kind === 'songs' && b.kind === 'songs') return a.origin === b.origin && a.songId === b.songId;
   if (a.kind === 'my-books' && b.kind === 'my-books') return a.origin === b.origin && a.bookId === b.bookId;

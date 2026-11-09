@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "Guía pastoral - Biblia",
+    "name": "Biblia Reina-Valera 1909 - Guía Pastoral",
     "slug": "bible-topic-explorer",
     "scheme": "guiapastoralbiblia",
-    "version": "1.10.0",
+    "version": "1.10.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -12,14 +12,15 @@
     },
     "android": {
       "package": "com.lago.bibletopicexplorer",
-      "versionCode": 10,
+      "versionCode": 11,
       "adaptiveIcon": {
         "backgroundColor": "#FFF9F7",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "softwareKeyboardLayoutMode": "resize"
     },
     "web": {
       "favicon": "./assets/favicon.png"
