@@ -41,4 +41,4 @@ En código y compilación se incluyen: selección táctil de fragmentos bíblico
 - **Enlace corto elegido:** `https://tinyurl.com/GuiaPastoralBiblia`, **pendiente de creación/activación y verificación**; no usarlo todavía como descarga.
 - **Contacto visible en la candidata:** **apkcristianas@gmail.com** (abre la aplicación de correo).
 
-[Plan y ficha de Uptodown](docs/guia-pastoral/PUBLICACION_UPTODOWN.md) · [Historial de aceptación QA5](docs/r13/PROTOTIPO_ESTABLE_ACEPTADO_QA5.md) · [Actividad de lanzamiento #67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67).
+[Estado consolidado previo: guía y web Wix](docs/guia-pastoral/ESTADO_GUIA_Y_WEB_2026-11-09.md) · [Plan y ficha de Uptodown](docs/guia-pastoral/PUBLICACION_UPTODOWN.md) · [Historial de aceptación QA5](docs/r13/PROTOTIPO_ESTABLE_ACEPTADO_QA5.md) · [Actividad de lanzamiento #67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67).
