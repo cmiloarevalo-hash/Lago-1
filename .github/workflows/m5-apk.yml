@@ -53,7 +53,10 @@ jobs:
       - name: Generate native Android project
         run: npx expo prebuild --platform android --no-install --non-interactive
       - name: Build release APK
-        run: cd android && ./gradlew assembleRelease --no-daemon
+        run: |
+          # Hosted runners may need more than 10 seconds to download the Gradle distribution.
+          sed -i 's/networkTimeout=10000/networkTimeout=120000/' android/gradle/wrapper/gradle-wrapper.properties
+          cd android && ./gradlew assembleRelease --no-daemon
       - name: Stage APK
         run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-RV1909-Guia-Pastoral-v1.11.0-UX-candidata.apk
       - name: SHA-256 candidate APK
