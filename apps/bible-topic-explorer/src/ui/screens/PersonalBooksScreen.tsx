@@ -60,7 +60,7 @@ export function PersonalBooksScreen({theme,bookId,onSelect,onBack,readingScale=1
        <Action theme={theme} variant="secondary" label="− 10 %" disabled={selected.progress===0} onPress={()=>{void updateProgress(Math.max(0,selected.progress-10),0);}}/>
        <Action theme={theme} variant="secondary" label="+ 10 %" disabled={selected.progress===100} onPress={()=>{void updateProgress(Math.min(100,selected.progress+10),0);}}/>
       </View>
-    </Section>:<Section theme={theme} title="Lectura EPUB sin conexión">
+    </Section>:<Section theme={theme} title="Lectura EPUB">
       <Body theme={theme} muted>Vista de texto sin estilos, imágenes ni scripts del EPUB. La versión con formato original requiere un lector compatible.</Body>
       {loadingChapters?<StatusBanner theme={theme} kind="info">Preparando capítulos locales…</StatusBanner>:null}
       {chapters.length?<><Metadata theme={theme}>Sección {chapterIndex+1} de {chapters.length} · {chapters[chapterIndex].title}</Metadata>

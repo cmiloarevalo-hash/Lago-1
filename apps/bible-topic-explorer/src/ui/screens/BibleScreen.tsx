@@ -84,8 +84,6 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
                 if(selection.end>selection.start){
                   setActiveVerse(verse);setVerseAction(null);
                   setSelectedText(verse.text.slice(selection.start,selection.end));
-                }else if(activeVerse?.bookId===verse.bookId&&activeVerse.chapter===verse.chapter&&activeVerse.sourceVerseLabel===verse.sourceVerseLabel){
-                  setSelectedText('');
                 }
               }}
               style={[typography.scripture,scriptureMetrics,styles.verseText,{color:tone?tone.ink:theme.text,fontFamily:'serif',padding:0,textAlignVertical:'top'}]}/>
@@ -96,7 +94,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
               onPress={()=>openNoteReader(verse)} style={styles.noteBubbleTarget}>
               <View accessibilityElementsHidden style={[styles.noteBubble,{backgroundColor:theme.selectionBorder}]}><Text style={styles.noteBubbleGlyph}>•</Text></View>
             </Pressable>:null}
-            {<Pressable accessibilityRole="button" accessibilityLabel={'Abrir opciones de '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
+            {<Pressable accessibilityRole="button" accessibilityState={{ selected }} accessibilityHint={selected?'Pasaje seleccionado para leer':'Abrir las opciones del versículo'} accessibilityLabel={'Abrir opciones de '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
               onPress={()=>openVerseMenu(verse)} style={[styles.inlineOptions,{borderColor:theme.border,backgroundColor:theme.surface}]}>
               <Text style={[typography.label,{color:theme.primaryText}]}>⋯ Opciones</Text>
             </Pressable>}
@@ -194,8 +192,8 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
       </Modal>
       <Section theme={theme} title="Navegar por el capítulo"><View style={styles.readerActions}><Action label="Capítulo anterior" variant="secondary" disabled={atFirstChapter} theme={theme} onPress={() => onOpenReader(reader.book, Math.max(1, reader.chapter - 1), undefined, false)} /><Action label="Capítulo siguiente" variant="secondary" disabled={atLastChapter} theme={theme} onPress={() => onOpenReader(reader.book, reader.chapter + 1, undefined, false)} /></View></Section><Metadata theme={theme}>{runtimeCoverage.translation} · 66 libros · lectura bíblica</Metadata></ScrollView>
       {activeVerse&&verseAction===null?<View style={[styles.selectionToolbar,{backgroundColor:theme.surface,borderTopColor:theme.border}]}>
-        <Text style={[typography.metadata,{color:theme.secondary}]} numberOfLines={2}>
-          {selectedText?'Seleccionado: “'+selectedText+'”':'Mantén pulsada una palabra y ajusta los marcadores para copiar.'}
+        <Text style={[typography.metadata,{color:theme.secondary}]}>
+          {selectedText?'Seleccionado: “'+(selectedText.length>100?selectedText.slice(0,100)+'…':selectedText)+'”':'Mantén pulsada una palabra y ajusta los marcadores para copiar.'}
         </Text>
         <View style={styles.verseActionBar}>
           <Pressable accessibilityRole="button" accessibilityLabel="Copiar el texto seleccionado" onPress={()=>{void copySelectedVerse();}}

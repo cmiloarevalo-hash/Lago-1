@@ -13,7 +13,7 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
  const focusNext=useRef<string|null>(null);
  const scrollToOpen=()=>{const id=focusNext.current;if(!id)return;const y=headings.current[id];if(y===undefined)return;const groupId=pastoralTopics.find(x=>x.id===id)?.themeId??1;const groupY=groupOffsets.current[groupId]??0;scrollRef.current?.scrollTo({y:Math.max(0,groupY+y-14),animated:true});focusNext.current=null;};
  const readingLink=(ref:PastoralReference)=><Pressable key={ref.label} accessibilityRole="link" accessibilityLabel={'Leer RV1909 '+ref.label} onPress={()=>onRead(ref.book,ref.chapter,ref.start,ref.end)} style={styles.scriptureLink}>
-  <Text style={styles.blueLink}>{ref.label} ↗</Text>
+  <Text selectable style={styles.blueLink}>{ref.label} ↗</Text>
  </Pressable>;
  return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>

@@ -65,7 +65,7 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
     <View style={[styles.dayReading,{backgroundColor:theme.surface,borderColor:theme.border}]}>
      <Text style={[styles.miniKicker,{color:theme.primaryText}]}>DÍA {entry.day} DE 7 · LECTURA</Text>
      <Text style={[styles.dayTitle,{color:theme.text}]}>{entry.title}</Text>
-     <Text style={[styles.caption,{color:theme.secondary}]}>{entry.book} {entry.chapter}:{entry.start}–{entry.end} · RV1909</Text>
+     <Text selectable style={[styles.caption,{color:theme.secondary}]}>{entry.book} {entry.chapter}:{entry.start}–{entry.end} · RV1909</Text>
      <Action theme={theme} label="Leer pasaje en contexto →" onPress={()=>onRead(entry.book,entry.chapter,entry.start,entry.end)}/>
     </View>
     <Section theme={theme} title="Reflexión"><Text selectable style={{color:theme.text,fontSize:16,lineHeight:25}}>{entry.reflection}</Text></Section>

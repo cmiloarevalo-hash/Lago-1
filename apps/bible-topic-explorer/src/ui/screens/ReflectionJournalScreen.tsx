@@ -50,7 +50,7 @@ export function ReflectionJournalScreen({theme,onBack}:{theme:Theme;onBack:()=>v
     {group.map(item=><View key={item.id} style={[styles.entry,{backgroundColor:theme.surface,borderColor:theme.border}]}>
      <Text selectable style={[styles.title,{color:theme.text}]}>{item.title|| (item.id===LEGACY_ID?'Reflexión anterior':'Mi reflexión')}</Text>
      <Metadata theme={theme}>{dateLabel(item.updatedAt)}</Metadata>
-     <Text selectable numberOfLines={5} style={[styles.preview,{color:theme.text}]}>{item.body}</Text>
+     <Text selectable style={[styles.preview,{color:theme.text}]}>{item.body}</Text>
      <View style={styles.actions}>
       <Action theme={theme} variant="secondary" label="Leer y editar" onPress={()=>edit(item)}/>
       <Action theme={theme} variant="tertiary" label="Eliminar" onPress={()=>remove(item)}/>
