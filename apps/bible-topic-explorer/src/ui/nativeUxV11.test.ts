@@ -28,8 +28,8 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   const config=read('app.json');
   expect(config).toContain('Biblia Reina-Valera 1909 - Guía Pastoral');
   expect(config).toContain('"softwareKeyboardLayoutMode": "resize"');
-  expect(config).toContain('"version": "1.11.1"');
-  expect(config).toContain('"versionCode": 13');
+  expect(config).toContain('"version": "1.11.2"');
+  expect(config).toContain('"versionCode": 14');
  });
  it('adds SQLite metadata without destructive changes to corpus or earlier user notes',async()=>{
   const db={
@@ -53,6 +53,11 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   expect(read('src/product/reminders.ts')).toContain('requestPermission');
   expect(read('src/ui/screens/SettingsScreen.tsx')).toContain('DateTimePickerAndroid.open');
   expect(read('src/ui/screens/SettingsScreen.tsx')).not.toContain('<StatusBanner theme={theme} kind="warning">Notificación local best-effort');
+ });
+ it('raises the Android modal editor above the system keyboard',()=>{
+  const bible=read('src/ui/screens/BibleScreen.tsx');
+  expect(bible).toContain('<KeyboardAvoidingView behavior="padding" style={styles.modalBackdrop}>');
+  expect(read('app.json')).toContain('"softwareKeyboardLayoutMode": "resize"');
  });
  it('keeps Guardar nota permanently above the editor and protects unsaved text',()=>{
   const bible=read('src/ui/screens/BibleScreen.tsx');

@@ -71,15 +71,15 @@ jobs:
             sleep $((attempt * 15))
           done
       - name: Stage APK
-        run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-RV1909-Guia-Pastoral-v1.11.1-UX-candidata.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-RV1909-Guia-Pastoral-v1.11.2-UX-candidata.apk
       - name: SHA-256 candidate APK
-        run: sha256sum Biblia-RV1909-Guia-Pastoral-v1.11.1-UX-candidata.apk | tee Biblia-RV1909-Guia-Pastoral-v1.11.1-UX-candidata.apk.sha256
+        run: sha256sum Biblia-RV1909-Guia-Pastoral-v1.11.2-UX-candidata.apk | tee Biblia-RV1909-Guia-Pastoral-v1.11.2-UX-candidata.apk.sha256
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Biblia-RV1909-v1.11.1-UX-APK
+          name: Biblia-RV1909-v1.11.2-UX-APK
           path: |
-            apps/bible-topic-explorer/Biblia-RV1909-Guia-Pastoral-v1.11.1-UX-candidata.apk
-            apps/bible-topic-explorer/Biblia-RV1909-Guia-Pastoral-v1.11.1-UX-candidata.apk.sha256
+            apps/bible-topic-explorer/Biblia-RV1909-Guia-Pastoral-v1.11.2-UX-candidata.apk
+            apps/bible-topic-explorer/Biblia-RV1909-Guia-Pastoral-v1.11.2-UX-candidata.apk.sha256
           if-no-files-found: error
           retention-days: 90

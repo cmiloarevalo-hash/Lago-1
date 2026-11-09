@@ -124,7 +124,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
         </View>
       </Modal>
       <Modal visible={activeVerse!==null} transparent animationType="slide" onRequestClose={closeVerseMenu}>
-        <KeyboardAvoidingView behavior={Platform.OS==='ios'?'padding':undefined} style={styles.modalBackdrop}>
+        <KeyboardAvoidingView behavior="padding" style={styles.modalBackdrop}>
           <Pressable accessibilityRole="button" accessibilityLabel="Cerrar opciones tocando fuera" style={styles.sheetDismiss} onPress={closeVerseMenu}/>
           <View style={[styles.modalPanel,editingNote&&styles.editingPanel,{backgroundColor:theme.surface,borderColor:theme.border}]} accessibilityViewIsModal>
             <Text accessibilityRole="header" style={[typography.subhead,{color:theme.text}]}>
