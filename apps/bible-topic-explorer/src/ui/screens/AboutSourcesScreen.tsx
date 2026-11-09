@@ -23,13 +23,14 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
  const [error,setError]=useState(false);
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Volver" onPress={onBack}/>
-  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Sobre La U</Text>
+  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Guía pastoral - Biblia</Text>
   <View style={[styles.intro,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <Text style={[styles.h2,{color:theme.text}]}>Un proyecto en construcción</Text>
-   <Body theme={theme}>La U es un prototipo desarrollado con apoyo de inteligencia artificial y consulta de estudios, textos bíblicos y fuentes documentales. Sus contenidos se están revisando y no constituyen una publicación doctrinal aprobada ni cuentan con aval de las instituciones citadas.</Body>
+   <Text style={[styles.h2,{color:theme.text}]}>Un recurso para caminar en comunidad</Text>
+   <Body theme={theme}>Proyecto sin fines de lucro creado como ayuda práctica para jóvenes y líderes de comunidades creyentes en Jesucristo. Facilita la lectura de la Biblia, la reflexión, el aprendizaje y el acompañamiento comunitario para conocer las enseñanzas de Jesús y seguir sus pasos en la vida cotidiana.</Body>
   </View>
-  <Text style={[styles.h2,{color:theme.text}]}>Bibliografía y linkografía</Text>
-  <Body theme={theme} muted>Los enlaces identifican obras e instituciones consultadas; se presentan resúmenes y propuestas originales, no reproducciones de sus textos ni avales.</Body>
+  <Body theme={theme} muted>Versión 1.10 · Contacto: apkcristianas@gmail.com</Body>
+  <Text style={[styles.h2,{color:theme.text}]}>Bibliografía y fuentes</Text>
+  <Body theme={theme} muted>Las fuentes se identifican por transparencia y atribución. Su inclusión no implica aval institucional.</Body>
   <View style={styles.sources}>{sources.map(src=><SourceLink key={src.sourceUrl} theme={theme}
    label={src.sourceAuthorOrOrg+' · '+src.sourceTitle}
    detail={src.sourceDateOrVersion+' · Referencia para '+src.applicableSection}
@@ -38,9 +39,7 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
   <Body theme={theme}>Reina-Valera 1909 (RV1909): corpus bíblico de lectura local. Los pasajes se identifican por libro, capítulo y versículo. El contenido personal (notas, destacados y progreso) queda en el dispositivo.</Body>
   <Text style={[styles.h2,{color:theme.text}]}>Imágenes y créditos</Text>
   <View style={styles.sources}>{photos.map(src=><SourceLink key={src.url} theme={theme} label={src.label} detail={src.detail} url={src.url} onError={()=>setError(true)}/>)}</View>
-  <Text style={[styles.h2,{color:theme.text}]}>Música y contenidos propios</Text>
-  <Body theme={theme}>SoundCloud se abre en su aplicación o sitio web; La U no aloja, reproduce ni redistribuye música. Las listas sugeridas pertenecen a terceros y deben revisarse antes de usarse con menores. Las ilustraciones geométricas de actividades son dibujos originales del proyecto. No se muestran letras de canciones de terceros sin autorización.</Body>
-  <Text style={[styles.legal,{color:theme.secondary}]}>Consultar siempre la licencia vigente en cada origen. Las fuentes son bibliografía de contexto, no permisos generales para copiar contenidos ni respaldo editorial o institucional.</Text>
+  <Text style={[styles.legal,{color:theme.secondary}]}>Las fuentes mantienen sus propias licencias y derechos. Este proyecto no declara el respaldo oficial de las instituciones citadas.</Text>
   {error?<Text accessibilityRole="alert" style={{color:theme.errorText}}>No se pudo abrir el enlace. Puedes volver a intentarlo cuando tengas conexión.</Text>:null}
  </ScrollView></Screen>;
 }
