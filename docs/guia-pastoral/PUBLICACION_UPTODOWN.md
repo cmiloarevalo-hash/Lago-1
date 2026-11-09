@@ -1,9 +1,25 @@
-# Guía pastoral - Biblia — ficha de Uptodown y procedimiento de publicación
+# Biblia Reina-Valera 1909 - Guía Pastoral — ficha de Uptodown y procedimiento de publicación
 
 > **Documento canónico de publicación.** Fecha del registro: **2026-11-09** (Chile, America/Santiago).  
 > **Estado: BORRADOR PREPARADO, SIN ENVÍO A UPTODOWN, PENDIENTE DE APROBACIÓN FINAL DEL AUTOR.**  
 > Actividad madre: [#67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67).  
 > Alcance: distribución inicial **solo en Uptodown**, con la web de Wix como puerta de entrada. **No usar GitHub como destino para lectores.**
+
+## ACTUALIZACIÓN VIGENTE — versión más reciente 1.10.1 (2026-11-09)
+
+**Esta sección prevalece sobre las referencias anteriores a «Guía pastoral - Biblia» o sobre la nota «APK aún siendo compilada» que figuran en el registro histórico de este mismo documento.**
+
+- **Nombre definitivo indicado por el autor para la candidata:** **Biblia Reina-Valera 1909 - Guía Pastoral**.
+- **Última candidata disponible:** Android `versionName=1.10.1`, `versionCode=11`, `applicationId=com.lago.bibletopicexplorer`. Fuente exacta [PR #69](https://github.com/cmiloarevalo-hash/Lago-1/pull/69) @ `54f687b8d7f547c6f839869410dcefc52de58e0c`. **No fusionada ni aprobada como APK final.**
+- **Pruebas:** [M2 correcto (162 tests)](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/42562061977); [M5 compilación APK correcta](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/42562062000); SHA-256 `fea39101ff04f531d121c78eb5b4df0fe53be9622e4134e92a87210839e9b06c`. Descarga pública para **QA exclusivamente**: [APK](https://raw.githubusercontent.com/cmiloarevalo-hash/Lago-1/downloads/v1101-qa/Biblia-Reina-Valera-1909-Guia-Pastoral-v1.10.1-PRUEBA.apk) / [ZIP](https://raw.githubusercontent.com/cmiloarevalo-hash/Lago-1/downloads/v1101-qa/Biblia-Reina-Valera-1909-Guia-Pastoral-v1.10.1-PRUEBA.zip).
+- **Correo visible de contacto de esta candidata:** **apkcristianas@gmail.com**, con acción `mailto:`. La referencia histórica a `cmiloarevalo@gmail.com` es anterior y **no coincide con la candidata actual**; verificar con el autor qué correo publicar en la ficha final.
+- **Contenido:** guía editorial v1.30, 16 capítulos; lectura RV1909, copiado de fragmentos, diario independiente, guardados con tema/color, historial y recordatorios por plan. Las nuevas interacciones requieren QA real en Android antes de describirlas como comprobadas en la tienda.
+- **No incorporar afirmaciones de funciones inexistentes:** Google OAuth, backend para correos/noticias, push comercial, URL de Uptodown o alias TinyURL activos **no están implementados/verificados**.
+- **Se mantiene el plan de ficha:** 3 párrafos más galería de capturas reales (pendientes), publicación inicial solo en Uptodown y web Wix como acceso cuando exista URL oficial. **No enviar APK, crear ficha publicada ni redireccionar la web sin aprobación.**
+
+[Estado técnico y diferencias entre 1.10.1, 1.10 y QA5](ESTADO_VERSION_ACTUAL.md).
+
+---
 
 ## 1. Decisiones registradas hoy
 
@@ -12,7 +28,7 @@
 - Primera tienda seleccionada: **Uptodown** (https://www.uptodown.com/). Sin publicación inicial en Google Play ni otras tiendas.
 - El autor se encargará de **3 a 6 capturas reales** de la APK final; **recomendación de Uptodown: 4 o más**, preferencia operativa **4–6**. Imágenes **pendientes**, sin generarlas ni subir otras no aprobadas.
 - La ficha tendrá **exactamente 3 párrafos de descripción principal** más una **sección de imágenes**; el título, texto corto, datos técnicos y contacto son metadatos aparte.
-- Correo de contacto que figura en la aplicación candidata: **cmiloarevalo@gmail.com**. Es un dato ya presente en el código, pero verificar antes de publicar que el autor desea mostrarlo como soporte público.
+- Correo de contacto que figura en la **candidata más reciente**: **apkcristianas@gmail.com**. Verificar que el autor desea exhibirlo como soporte en la ficha pública.
 - No añadir rediseños, videos, funcionalidades o material promocional que no se haya solicitado.
 - No crear ficha, enviar archivos, pulsar Submit for review, ni modificar el APK/web sin autorización del autor y verificación final.
 
@@ -29,12 +45,12 @@
 
 | Campo | Contenido | Estado |
 | --- | --- | --- |
-| Nombre | Guía pastoral - Biblia | Propuesto; cotejar APK final |
+| Nombre | Biblia Reina-Valera 1909 - Guía Pastoral | Coincide con la candidata 1.10.1; aprobación final pendiente |
 | Plataforma | Android | Confirmado como objetivo |
 | Idioma inicial de ficha | Español | Propuesto |
 | Costo para lector | Gratuito | **Confirmar con el autor y en la APK** |
 | Desarrollador / autor | Camilo Arévalo | Consta en pantalla de créditos candidata |
-| Correo de soporte | cmiloarevalo@gmail.com | Consta en código; **confirmación pública pendiente** |
+| Correo de soporte | apkcristianas@gmail.com | Consta en la candidata 1.10.1; **confirmación pública pendiente** |
 | Sitio oficial | https://headless-vffpmunurhz-apkcristianas-140d.wix-site-host.com/ | Publicado |
 | Formato de instalación | APK | Uptodown lo admite; **archivo final pendiente** |
 | Categoría | Educación o equivalente disponible en el formulario | Pendiente de elegir |
@@ -56,7 +72,7 @@ Biblia RV1909 y 16 capítulos para conocer y seguir a Jesús
 
 ### Descripción larga para Uptodown — 3 párrafos; propuesta para revisión
 
-**Guía pastoral - Biblia** es una aplicación cristiana para Android que reúne la lectura de la Biblia Reina-Valera 1909 y una guía pastoral de 16 capítulos dedicada a conocer a Jesús y sus enseñanzas. Está pensada para jóvenes, familias y comunidades que desean acercarse a los Evangelios con un lenguaje claro, incluso si todavía no conocen bien las historias bíblicas. Cada capítulo propone referencias del Antiguo y Nuevo Testamento y una pregunta para seguir aprendiendo.
+**Biblia Reina-Valera 1909 - Guía Pastoral** es una aplicación cristiana para Android que reúne la lectura de la Biblia Reina-Valera 1909 y una guía pastoral de 16 capítulos dedicada a conocer a Jesús y sus enseñanzas. Está pensada para jóvenes, familias y comunidades que desean acercarse a los Evangelios con un lenguaje claro, incluso si todavía no conocen bien las historias bíblicas. Cada capítulo propone referencias del Antiguo y Nuevo Testamento y una pregunta para seguir aprendiendo.
 
 En la guía se explican encuentros, parábolas y enseñanzas de Jesús, con atención al contexto y a su aplicación en la vida diaria. El lector puede reflexionar sobre la oración, el amor a Dios Padre y al prójimo, el perdón sincero, la misericordia, la justicia, el servicio y la esperanza. La aplicación incorpora lectura bíblica local y herramientas personales para guardar notas y seguir el progreso de lectura.
 

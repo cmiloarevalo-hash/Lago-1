@@ -1,3 +1,20 @@
+# ESTADO OPERATIVO ACTUAL — CANDIDATA 1.10.1 (NO PUBLICADA)
+
+**Actualización posterior por órdenes directas del Humano: 2026-11-09.** Esta sección sustituye **solo para los trabajos expresamente solicitados** la congelación general del 26-10-2026 registrada abajo. El historial de octubre se preserva para trazabilidad.
+
+- **Producto:** **Biblia Reina-Valera 1909 - Guía Pastoral**.
+- **APK más reciente:** **1.10.1 / versionCode 11**, `com.lago.bibletopicexplorer`, [PR #69](https://github.com/cmiloarevalo-hash/Lago-1/pull/69), HEAD `54f687b8d7f547c6f839869410dcefc52de58e0c`, **borrador/no fusionado/no publicado**. Depende de [PR #68](https://github.com/cmiloarevalo-hash/Lago-1/pull/68).
+- **Evidencia:** [M2 aprobado, 162 pruebas](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/42562061977); [M5 APK compilada](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/42562062000); SHA-256 `fea39101ff04f531d121c78eb5b4df0fe53be9622e4134e92a87210839e9b06c`.
+- **Guía editorial vigente:** v1.30, 16 capítulos; documento `docs/guia-pastoral/Guia_Pastoral_El_camino_de_Jesus_y_sus_ensenanzas_v1.30.docx`.
+- **Baseline estable y aceptada:** **La U 1.3 QA5** en `main`; referencia histórica intacta, sin declaración de publicación comercial.
+- **Bloqueos de lanzamiento:** QA táctil/física en Android, captura de pantallas reales actualizadas, validación y firma de producción, aprobación explícita y datos de ficha; no fusionar/publicar por el solo resultado de CI.
+- **Por hacer en servicio remoto:** Google Auth/registro de correos y boletín todavía NO implementados ni autorizados con credenciales; recordar consentimiento separado para noticias.
+- **Documento de lectura obligatoria para estado y enlaces:** [Estado de la versión actual](../docs/guia-pastoral/ESTADO_VERSION_ACTUAL.md). **Documento de distribución:** [Plan Uptodown](../docs/guia-pastoral/PUBLICACION_UPTODOWN.md).
+
+---
+
+## HISTÓRICO DEL CONGELAMIENTO DEL 26-10-2026 (VIGENCIA LIMITADA POR ÓRDENES POSTERIORES)
+
 # ESTADO VIGENTE — PROTOTIPO ESTABLE ACEPTADO · ACTIVIDADES CONGELADAS
 
 **Fecha de decisión del Product Owner: 2026-10-26.**
