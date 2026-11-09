@@ -49,11 +49,11 @@ Biblia RV1909 y 16 capítulos para conocer y seguir a Jesús
 
 **Guía pastoral - Biblia** es una aplicación cristiana para Android que reúne la lectura de la Biblia Reina-Valera 1909 y una guía pastoral de 16 capítulos dedicada a conocer a Jesús y sus enseñanzas. Está pensada para jóvenes, familias y comunidades que desean acercarse a los Evangelios con un lenguaje claro, incluso si todavía no conocen bien las historias bíblicas. Cada capítulo propone referencias del Antiguo y Nuevo Testamento y una pregunta para seguir aprendiendo.
 
-En la guía se explican encuentros, parábolas y enseñanzas de Jesús, con atención al contexto y a su aplicación en la vida diaria. El lector puede reflexionar sobre la oración, el amor a Dios Padre y al prójimo, el perdón sincero, la misericordia, la justicia, el servicio y la esperanza. La aplicación incorpora lectura bíblica local y herramientas personales de lectura, como notas y seguimiento del progreso, cuyo funcionamiento deberá confirmarse en la APK definitiva antes de publicar esta descripción.
+En la guía se explican encuentros, parábolas y enseñanzas de Jesús, con atención al contexto y a su aplicación en la vida diaria. El lector puede reflexionar sobre la oración, el amor a Dios Padre y al prójimo, el perdón sincero, la misericordia, la justicia, el servicio y la esperanza. La aplicación incorpora lectura bíblica local y herramientas personales para guardar notas y seguir el progreso de lectura.
 
 El recorrido invita a descubrir por qué la fe cristiana reconoce a Jesús como Salvador, el significado de su entrega y resurrección y la importancia de vivir el amor con hechos. Los ejemplos buscan ayudar a llevar estas enseñanzas a la familia, las amistades y la comunidad, sin dar por supuesto que todos conocen la Biblia. Es un recurso educativo cristiano independiente, desarrollado por Camilo Arévalo, para leer, conversar y seguir profundizando en las Escrituras.
 
-**Control editorial:** texto de 230 palabras, distribuidas en **3 párrafos**. La segunda parte menciona notas y seguimiento; confirmar esas funciones en la APK final o corregir únicamente las afirmaciones que no correspondan. La ficha se mantiene en **borrador**, no en estado de aprobación final. No prometer un respaldo eclesiástico o institucional inexistente.
+**Control editorial:** texto de 218 palabras, distribuidas en **3 párrafos**. La segunda parte menciona notas y seguimiento; confirmar esas funciones en la APK final o corregir únicamente las afirmaciones que no correspondan. La ficha se mantiene en **borrador**, no en estado de aprobación final. No prometer un respaldo eclesiástico o institucional inexistente.
 
 ## 3. Sección de imágenes — PENDIENTE DEL AUTOR
 
