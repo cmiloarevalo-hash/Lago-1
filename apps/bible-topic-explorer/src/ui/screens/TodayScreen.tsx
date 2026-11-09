@@ -25,7 +25,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
   <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,{borderColor:theme.border}]}>
    <View style={[styles.heroScrim,{backgroundColor:appearance==='coral'?'rgba(255,248,247,.13)':appearance==='natural'?'rgba(245,242,224,.09)':'rgba(235,242,249,.08)'}]}/>
    <View style={styles.heroCopy}>
-    <Text style={[styles.kicker,{color:theme.primaryText}]}>LA U · UN MOMENTO PARA TI</Text>
+    <Text style={[styles.kicker,{color:theme.primaryText}]}>BIBLIA REINA-VALERA 1909</Text>
     <Text accessibilityRole="header" style={[styles.heroTitle,{color:theme.text}]}>Qué bueno que estás aquí.</Text>
     <Text style={[styles.heroSubtitle,{color:theme.text}]}>Una pausa para que la Palabra ilumine tu día.</Text>
    </View>
@@ -36,7 +36,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
     <View style={styles.verseReading}>
      {loading?<Body theme={theme} muted>Consultando la Biblia local…</Body>:null}
      {error?<StatusBanner theme={theme} kind="error">Lectura local no disponible.</StatusBanner>:null}
-     {!loading&&!error&&verse?<Text style={[styles.verse,{color:theme.text},scaledScriptureMetrics(readingScale),verse.text.length>140&&readingScale<=1.05?styles.longVerse:null]}>“{verse.text}”</Text>:null}
+     {!loading&&!error&&verse?<Text selectable style={[styles.verse,{color:theme.text},scaledScriptureMetrics(readingScale),verse.text.length>140&&readingScale<=1.05?styles.longVerse:null]}>“{verse.text}”</Text>:null}
      {!loading&&!error&&!verse?<Body theme={theme} muted>No se encontró este pasaje en el corpus local.</Body>:null}
      <Text style={[styles.verseIcon,{color:theme.primaryText}]} accessibilityElementsHidden>♡</Text>
     </View>
@@ -48,23 +48,15 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
   </View>
   <View style={styles.quickRow}>{quick.map(item=><Pressable key={item.key} accessibilityRole="button" accessibilityLabel={item.title+' · '+item.description} onPress={item.onPress} style={({pressed})=>[styles.quickTile,{backgroundColor:item.tint,borderColor:appearance==='marine'?'#D2DDE8':appearance==='natural'?'#D1D8C3':'#EBD3DB',opacity:pressed?.8:1}]}>
    <Text style={[styles.quickIcon,{color:item.key==='musica'?'#E35B12':item.key==='buscar'?'#235C88':item.key==='favoritos'?'#9B721C':theme.primaryText}]}>{item.icon}</Text>
-   <Text style={styles.quickLabel}>{item.title}</Text>
+   <Text style={styles.quickLabel}>{item.title}</Text><Text style={styles.quickDescription}>{item.description}</Text>
   </Pressable>)}</View>
-  <View style={styles.sectionTitle}><Text style={[styles.sectionHeading,{color:theme.text}]}>Para ti hoy</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Acompaña tu camino</Text></View>
-  <Pressable accessibilityRole="button" accessibilityLabel="Comenzar un plan de lectura" onPress={onOpenPlans} style={[styles.recommendation,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <View style={[styles.recoSymbol,{backgroundColor:theme.selectionBg}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>❧</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Un camino de siete días</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Lecturas y reflexiones con progreso local.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
-  </Pressable>
-  <Pressable accessibilityRole="button" accessibilityLabel="Explorar pasajes y temas" onPress={onOpenExplore} style={[styles.recommendation,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <View style={[styles.recoSymbol,{backgroundColor:theme.surfaceSoft}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>☼</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Encuentra tu próximo pasaje</Text><Text style={[typography.metadata,{color:theme.secondary}]}>100 temas para explorar la Palabra.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
-  </Pressable>
-  <Metadata theme={theme}>La lectura RV1909 y tus notas funcionan sin conexión.</Metadata>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxxl+12},
  prototypeNote:{minHeight:48,paddingHorizontal:2,flexDirection:'row',alignItems:'center',flexWrap:'wrap',justifyContent:'space-between',gap:6},
  prototypeText:{fontSize:12,lineHeight:18},prototypeLink:{fontSize:12,fontWeight:'700'},
- hero:{height:214,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
+ hero:{height:175,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
  heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.21)'},
  heroCopy:{paddingHorizontal:19,paddingTop:18,maxWidth:290,gap:7},
  kicker:{fontSize:11,fontWeight:'800',letterSpacing:1.35},
@@ -80,6 +72,7 @@ const styles=StyleSheet.create({
  inlineArt:{borderRadius:radius.lg},sceneOverlay:{...StyleSheet.absoluteFill,backgroundColor:'rgba(34,35,35,0.15)'},
  quickRow:{flexDirection:'row',gap:8,justifyContent:'space-between'},
  quickTile:{flex:1,minHeight:80,borderWidth:.7,borderRadius:18,alignItems:'center',justifyContent:'center',padding:4,gap:4},
+ quickDescription:{fontSize:12,lineHeight:17,color:"#4D5662",textAlign:"center"},
  quickIcon:{fontSize:26,lineHeight:31},quickLabel:{fontSize:12,fontWeight:'700',color:'#26323A',textAlign:'center'},
  sectionTitle:{flexDirection:'row',flexWrap:'wrap',alignItems:'baseline',justifyContent:'space-between',gap:6,marginTop:10},
  sectionHeading:{fontFamily:'serif',fontSize:24,fontWeight:'700'},

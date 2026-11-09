@@ -50,3 +50,12 @@ describe('R13 SoundCloud as secondary destination',()=>{
     expect(goBack(video)?.current).toEqual({kind:'tab',tab:'today'});
   });
 });
+
+describe('v1.11 independent reflection diary navigation',()=>{
+ it('provides a single secondary destination with Android back history',()=>{
+  const from=initialNavigationState();
+  const state=navigate(from,{kind:'journal',origin:'today'});
+  expect(state.current).toEqual({kind:'journal',origin:'today'});
+  expect(goBack(state)?.current).toEqual({kind:'tab',tab:'today'});
+ });
+});

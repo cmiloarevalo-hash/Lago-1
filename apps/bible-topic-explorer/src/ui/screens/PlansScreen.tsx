@@ -1,8 +1,11 @@
 import {useCallback,useEffect,useMemo,useState} from 'react';
-import {Alert,Image,ImageBackground,Pressable,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
+import {Alert,Image,ImageBackground,KeyboardAvoidingView,Platform,Pressable,ScrollView,StyleSheet,Text,TextInput,View} from 'react-native';
 import {useSQLiteContext} from 'expo-sqlite';
 import {readingPlans,planById} from '../../product/readingPlans';
 import {SQLitePlanRepository} from '../../db/sqlitePlanRepository';
+import {SQLiteLocalPersistence} from '../../db/sqliteLocalPersistence';
+import {nextPendingReadingDay} from '../../product/reminderSchedule';
+import {configureReminder} from '../../product/reminders';
 import type {VisibleTheme} from '../../product/preferences';
 import {editorialArt} from '../editorialArt';
 import {Action,Body,Card,ChoiceChip,Metadata,Screen,Section,StatusBanner,Subhead} from '../primitives';
@@ -19,10 +22,19 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
  useEffect(()=>{setNote(rows.find(r=>r.day===day)?.note??'');},[day,rows]);
  const done=rows.filter(r=>r.done).length;
  const nextDay=plan?.days.find(d=>!rows.some(r=>r.day===d.day&&r.done))?.day??7;
- const save=async(complete?:boolean)=>{if(!plan||!entry||saving)return;setSaving(true);setError('');try{await repo.save(plan.id,entry.day,complete??Boolean(rows.find(r=>r.day===entry.day)?.done),note);refresh();}catch{setError('No se pudo guardar. Las notas anteriores permanecen intactas.');}finally{setSaving(false);}};
+ const save=async(complete?:boolean)=>{if(!plan||!entry||saving)return;setSaving(true);setError('');try{await repo.save(plan.id,entry.day,complete??Boolean(rows.find(r=>r.day===entry.day)?.done),note);refresh();
+   void (async()=>{
+    const persistence=new SQLiteLocalPersistence(db);
+    const [prefs,details]=await Promise.all([persistence.getPreferences(),persistence.getReminderPlan()]);
+    if(prefs.reminderEnabled&&details.planId===plan.id){
+     const rows=await repo.list(plan.id);
+     await configureReminder(true,prefs.reminderTime,false,{planId:plan.id,planTitle:plan.title,
+      day:nextPendingReadingDay(rows),title:details.title});
+    }
+   })().catch(()=>{});}catch{setError('No se pudo guardar. Las notas anteriores permanecen intactas.');}finally{setSaving(false);}};
  const reset=()=>{if(!plan)return;Alert.alert('Reiniciar avance de este plan','Solo se quitarán las marcas de progreso; tus notas privadas se conservarán.',[{text:'Cancelar',style:'cancel'},{text:'Reiniciar progreso',style:'destructive',onPress:()=>{void repo.resetProgress(plan.id).then(refresh).catch(()=>setError('No se pudo reiniciar.'));}}]);};
  const introTitle='Planes de lectura';
- return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled">
+ return <Screen theme={theme}><KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS==='ios'?'padding':'height'}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag">
   <Action theme={theme} variant="tertiary" label={entry?'← Volver al plan':plan?'← Todos los planes':'← Volver'} onPress={onBack}/>
   <View style={styles.header}><Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>{introTitle}</Text><Metadata theme={theme}>Un encuentro con la Palabra · RV1909</Metadata></View>
   {error?<StatusBanner theme={theme} kind="error">{error}</StatusBanner>:null}
@@ -56,9 +68,9 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
      <Text style={[styles.caption,{color:theme.secondary}]}>{entry.book} {entry.chapter}:{entry.start}–{entry.end} · RV1909</Text>
      <Action theme={theme} label="Leer pasaje en contexto →" onPress={()=>onRead(entry.book,entry.chapter,entry.start,entry.end)}/>
     </View>
-    <Section theme={theme} title="Reflexión"><Body theme={theme}>{entry.reflection}</Body></Section>
-    <Section theme={theme} title="Oración libre"><Body theme={theme}>{entry.prayer}</Body></Section>
-    <Section theme={theme} title="Un paso para hoy"><Body theme={theme}>{entry.action}</Body></Section>
+    <Section theme={theme} title="Reflexión"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.reflection}</Text></Section>
+    <Section theme={theme} title="Oración libre"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.prayer}</Text></Section>
+    <Section theme={theme} title="Un paso para hoy"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.action}</Text></Section>
     <View style={[styles.notesPanel,{backgroundColor:theme.surfaceSoft}]}>
      <Text style={[styles.dayTitle,{color:theme.text}]}>Mis notas privadas</Text>
      <TextInput multiline value={note} onChangeText={setNote} maxLength={5000} placeholder="Escribe lo que quieras conservar…" placeholderTextColor={theme.secondary} accessibilityLabel={'Nota privada del día '+entry.day} style={[styles.noteInput,{color:theme.text,backgroundColor:theme.surface,borderColor:theme.border}]}/>
@@ -75,10 +87,10 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
    </>}
    <Metadata theme={theme}>Los pasajes RV1909 son locales. Las reflexiones están pendientes de revisión pastoral.</Metadata>
   </>}
- </ScrollView></Screen>;
+ </ScrollView></KeyboardAvoidingView></Screen>;
 }
 const styles=StyleSheet.create({
- stack:{gap:16,paddingBottom:38},header:{gap:5},pageTitle:{fontFamily:'serif',fontSize:25,lineHeight:33,fontWeight:'700'},
+ stack:{gap:16,paddingBottom:38},scriptureProse:{fontSize:16,lineHeight:25},header:{gap:5},pageTitle:{fontFamily:'serif',fontSize:25,lineHeight:33,fontWeight:'700'},
  filterRow:{flexDirection:'row',flexWrap:'wrap',gap:6},planCard:{borderRadius:22,borderWidth:.7,overflow:'hidden',elevation:5,shadowColor:'#263341',shadowOffset:{width:0,height:5},shadowOpacity:.12,shadowRadius:12},
  planImage:{height:195,padding:14,overflow:'hidden'},topCorners:{borderTopLeftRadius:21,borderTopRightRadius:21},bookLeaves:{position:'absolute',width:124,height:193,right:-25,top:-10,opacity:.82},
  highlightPill:{alignSelf:'flex-start',borderRadius:999,paddingVertical:8,paddingHorizontal:13},pillText:{fontSize:12,fontWeight:'800',letterSpacing:.5},

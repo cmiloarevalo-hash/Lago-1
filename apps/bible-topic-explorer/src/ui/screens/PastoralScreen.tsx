@@ -39,10 +39,10 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
        <View style={styles.readings}>{item.readingsOld.map(readingLink)}</View>
        <Text style={[styles.readingTitle,{color:theme.text}]}>Nuevo Testamento</Text>
        <View style={styles.readings}>{item.readingsNew.map(readingLink)}</View>
-       <View style={[styles.prose,{borderTopColor:theme.border}]}>{item.paragraphs.map((paragraph,index)=><Text key={index} style={[styles.paragraph,{color:theme.text}]}>{paragraph}</Text>)}</View>
+       <View style={[styles.prose,{borderTopColor:theme.border}]}>{item.paragraphs.map((paragraph,index)=><Text key={index} selectable style={[styles.paragraph,{color:theme.text}]}>{paragraph}</Text>)}</View>
        <View style={[styles.question,{backgroundColor:theme.surfaceSoft}]}>
         <Text style={[styles.questionLabel,{color:theme.secondary}]}>{item.questionKind==='introspection'?'PARA REFLEXIONAR':'PARA CONVERSAR'}</Text>
-        <Text style={[styles.questionText,{color:theme.text}]}>{item.question}</Text>
+        <Text selectable style={[styles.questionText,{color:theme.text}]}>{item.question}</Text>
        </View>
       </View>:null}
      </View>;

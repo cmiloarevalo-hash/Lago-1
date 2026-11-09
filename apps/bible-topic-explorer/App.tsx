@@ -1,5 +1,5 @@
 import * as Notifications from 'expo-notifications';
-import {isDailyReminderResponse} from './src/product/reminders';
+import {isDailyReminderResponse,reminderPlanTarget} from './src/product/reminders';
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -22,11 +22,21 @@ import {PastoralGamesScreen} from './src/ui/screens/PastoralGamesScreen';
 import {HymnalScreen} from './src/ui/screens/HymnalScreen';
 import {SoundCloudScreen} from './src/ui/screens/SoundCloudScreen';
 import {AboutSourcesScreen} from './src/ui/screens/AboutSourcesScreen';
+import {JournalScreen} from './src/ui/screens/JournalScreen';
 import {SQLiteBibleRepository} from './src/db/sqliteBibleRepository';
 const bundledBible={assetId:require('./assets/data/bible-topic-explorer.db')};
 function AppContent(){const [navigation,setNavigation]=useState<NavigationState>(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState<TopicUiState>(initialTopicUiState);const libraryScrollY=useRef(0);const activitiesScrollY=useRef(0);const route=navigation.current;const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState<LocalPreferences>(defaultPreferences);
  useEffect(()=>{let active=true;void persistence.getPreferences().then(value=>{if(active)setPreferences(value);}).catch(()=>{});return()=>{active=false;};},[persistence]); const navigate=useCallback((next:Route,recordHistory=true)=>{setNavigation(state=>nextNavigation(state,next,recordHistory));},[]);
- useEffect(()=>{if(Platform.OS!=='android')return;const subscription=Notifications.addNotificationResponseReceivedListener(response=>{if(isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});});void Notifications.getLastNotificationResponseAsync().then(response=>{if(response&&isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});}).catch(()=>{});return()=>subscription.remove();},[navigate]);
+ useEffect(()=>{if(Platform.OS!=='android')return;
+  const follow=(response:Notifications.NotificationResponse)=>{
+   const plan=reminderPlanTarget(response);
+   if(plan)navigate({kind:'plans',origin:'today',planId:plan.planId,day:plan.day});
+   else if(isDailyReminderResponse(response))navigate({kind:'tab',tab:'today'});
+  };
+  const subscription=Notifications.addNotificationResponseReceivedListener(follow);
+  void Notifications.getLastNotificationResponseAsync().then(response=>{if(response)follow(response);}).catch(()=>{});
+  return()=>subscription.remove();
+ },[navigate]);
  useEffect(()=>{if(Platform.OS!=='android')return;const subscription=BackHandler.addEventListener('hardwareBackPress',()=>{if(drawerOpen){setDrawerOpen(false);return true;}if(navigation.history.length){setNavigation(state=>previousNavigation(state)??state);return true;}Alert.alert('Salir de la aplicación','¿Realmente quieres salir?',[{text:'Cancelar',style:'cancel'},{text:'Salir',onPress:()=>BackHandler.exitApp()}]);return true;});return()=>subscription.remove();},[navigation.history.length,drawerOpen]);
  const mode=visibleTheme(preferences.theme);const theme=themes[mode];const activeTab:TabId=route.kind==='tab'?route.tab:route.origin; const openReader=(book:string,chapter:number,verse?:number,recordHistory=true,sourceVerseLabel?:string,verseEnd?:number,sourceVerseLabels?:readonly string[])=>{void persistence.recordReading({bookId:book,chapter,...(verse==null?{}:{verse}),openedAt:new Date().toISOString()});navigate({kind:'reader',book,chapter,verse,...(sourceVerseLabel?{sourceVerseLabel}:{}),...(verseEnd===undefined?{}:{verseEnd}),...(sourceVerseLabels?{sourceVerseLabels}:{}),origin:activeTab},recordHistory);};
  const openRange=async(book:string,chapter:number,start:number,end:number)=>{try{const rows=await new SQLiteBibleRepository(db).getChapter(book,chapter);const inRange=rows.filter(row=>row.verse>=start&&row.verse<=end);if(!inRange.length)throw Error('Rango no encontrado');openReader(book,chapter,start,true,inRange[0].sourceVerseLabel,end,inRange.map(row=>row.sourceVerseLabel));}catch{Alert.alert('Lectura no disponible','No fue posible abrir ese rango RV1909 en el corpus local.');}};
@@ -38,6 +48,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  else if(item.kind==='my-books')navigate({kind:'my-books',origin:activeTab});
  else if(item.kind==='plans')navigate({kind:'plans',origin:activeTab});
  else if(item.kind==='pastoral')navigate({kind:'pastoral',origin:activeTab});
+ else if(item.kind==='journal')navigate({kind:'journal',origin:activeTab});
  else if(item.kind==='soundcloud')navigate({kind:'soundcloud',origin:activeTab});
  };
  useEffect(()=>{
@@ -53,6 +64,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  const back=()=>setNavigation(state=>previousNavigation(state)??state);
  const content=
 
+ route.kind==='journal'?<JournalScreen theme={theme} onBack={back}/>:
  route.kind==='plans'?<PlansScreen theme={theme} appearance={mode} planId={route.planId} day={route.day} onBack={back} onSelect={(planId,day)=>navigate({...route,planId,day})} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
  route.kind==='pastoral'?<PastoralScreen theme={theme} onBack={back} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
  route.kind==='games'?<PastoralGamesScreen theme={theme} onBack={back}/>:
@@ -60,7 +72,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  route.kind==='settings'?<SettingsScreen theme={theme} onPreferencesChange={setPreferences}/>:
  route.kind==='about'?<AboutSourcesScreen theme={theme} onBack={back}/>:
  route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} restoreY={activitiesScrollY.current} onScrollY={v=>{activitiesScrollY.current=v;}} onSelect={guideId=>navigate({...route,guideId})} onBack={back}/>:
- route.kind==='songs'?<HymnalScreen theme={theme} readingScale={preferences.fontScale} onBack={back}/>: 
+ route.kind==='songs'?<HymnalScreen theme={theme} readingScale={preferences.fontScale} onBack={back}/>:
  route.kind==='my-books'?<PersonalBooksScreen theme={theme} bookId={route.bookId} readingScale={preferences.fontScale} onSelect={bookId=>navigate({...route,bookId})} onBack={back}/>:
  route.kind==='reader'?<BibleScreen theme={theme} readingScale={preferences.fontScale} reader={{book:route.book,chapter:route.chapter,verse:route.verse,sourceVerseLabel:route.sourceVerseLabel,verseEnd:route.verseEnd,sourceVerseLabels:route.sourceVerseLabels}} onBack={route.origin==='search'?back:undefined} onOpenReader={openReader}/>:
  route.tab==='today'?<TodayScreen theme={theme} appearance={mode} readingScale={preferences.fontScale} onOpenAbout={()=>navigate({kind:'about',origin:'today'})} onOpenPlans={()=>navigate({kind:'plans',origin:'today'})} onOpenReader={openReader} onOpenExplore={()=>navigate({kind:'tab',tab:'search'})} onOpenLibrary={()=>navigate({kind:'tab',tab:'library'})}/>:
@@ -68,12 +80,12 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  route.tab==='bible'?<BibleScreen theme={theme} readingScale={preferences.fontScale} initialBook={route.bibleBook} onBookContextChange={book=>navigate({kind:'tab',tab:'bible',...(book?{bibleBook:book}:{})})} onOpenReader={openReader}/>:
  <LibraryScreen theme={theme} restoreY={libraryScrollY.current} onScrollY={y=>{libraryScrollY.current=y;}} onOpenReader={(book,chapter,verse,sourceVerseLabel)=>openReader(book,chapter,verse,true,sourceVerseLabel)}/>;
  return <SafeAreaView edges={['top','bottom']} style={[styles.root,{backgroundColor:theme.background}]}><View style={[styles.top,{borderBottomColor:theme.border,backgroundColor:theme.surface}]}><View style={styles.brandRow}><Pressable accessibilityRole="button" accessibilityLabel="Abrir menú de navegación" accessibilityHint="Abre la guía pastoral, planes, temas y biblioteca personal." onPress={()=>setDrawerOpen(true)}
- style={({pressed})=>[styles.menuButton,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text style={[styles.menuGlyph,{color:theme.primaryText}]}>☰</Text></Pressable><View style={styles.brand}><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.text,fontFamily:'serif',fontSize:23,fontWeight:'700'}]}>Guía pastoral</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.micro,{color:theme.secondary}]}>RV1909 · sin conexión</Text></View></View><Pressable accessibilityRole="button" accessibilityLabel="Abrir ajustes" hitSlop={4} onPress={()=>navigate({kind:'settings',origin:activeTab})} style={({pressed})=>[styles.settings,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.settingsIcon,{color:theme.primaryText}]}>⚙</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.primaryText}]}>Ajustes</Text></Pressable></View><View style={styles.content}>{content}</View><View accessibilityRole="tablist" style={[styles.tabs,{borderTopColor:theme.border,backgroundColor:theme.surface}]}>{tabs.map(tab=>{const selected=activeTab===tab;return <Pressable key={tab} accessibilityRole="tab" accessibilityLabel={tabLabels[tab]} accessibilityState={{selected}} onPress={()=>navigate({kind:'tab',tab})} style={({pressed})=>[styles.tab,selected&&{backgroundColor:theme.selectionBg},pressed&&{opacity:0.78}]}>{selected?<View accessibilityElementsHidden style={[styles.tabIndicator,{backgroundColor:theme.primaryText}]}/>:null}<Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.tabIcon,{color:selected?theme.primaryText:theme.secondary}]}>{tabIcons[tab]}</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.metadata,{color:selected?theme.primaryText:theme.secondary,fontWeight:selected?'700':'500'}]}>{tabLabels[tab]}</Text></Pressable>;})}</View><StatusBar style='dark'/>
+ style={({pressed})=>[styles.menuButton,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text style={[styles.menuGlyph,{color:theme.primaryText}]}>☰</Text></Pressable><View style={styles.brand}><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.text,fontFamily:'serif',fontSize:23,fontWeight:'700'}]}>Biblia RV1909</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.micro,{color:theme.secondary}]}>Guía pastoral</Text></View></View><Pressable accessibilityRole="button" accessibilityLabel="Abrir ajustes" hitSlop={4} onPress={()=>navigate({kind:'settings',origin:activeTab})} style={({pressed})=>[styles.settings,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.settingsIcon,{color:theme.primaryText}]}>⚙</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.primaryText}]}>Ajustes</Text></Pressable></View><View style={styles.content}>{content}</View><View accessibilityRole="tablist" style={[styles.tabs,{borderTopColor:theme.border,backgroundColor:theme.surface}]}>{tabs.map(tab=>{const selected=activeTab===tab;return <Pressable key={tab} accessibilityRole="tab" accessibilityLabel={tabLabels[tab]} accessibilityState={{selected}} onPress={()=>navigate({kind:'tab',tab})} style={({pressed})=>[styles.tab,selected&&{backgroundColor:theme.selectionBg},pressed&&{opacity:0.78}]}>{selected?<View accessibilityElementsHidden style={[styles.tabIndicator,{backgroundColor:theme.primaryText}]}/>:null}<Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.tabIcon,{color:selected?theme.primaryText:theme.secondary}]}>{tabIcons[tab]}</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.metadata,{color:selected?theme.primaryText:theme.secondary,fontWeight:selected?'700':'500'}]}>{tabLabels[tab]}</Text></Pressable>;})}</View><StatusBar style='dark'/>
   <Modal visible={drawerOpen} transparent animationType="fade" onRequestClose={()=>setDrawerOpen(false)}>
    <View style={styles.drawerOverlay}>
     <SafeAreaView edges={['top','bottom']} style={[styles.drawerPanel,{backgroundColor:theme.surface}]}>
       <ScrollView contentContainerStyle={styles.drawerContents} keyboardShouldPersistTaps="handled">
-        <Text style={[styles.drawerBrand,{color:theme.text}]}>Guía pastoral</Text>
+        <Text style={[styles.drawerBrand,{color:theme.text}]}>Biblia Reina-Valera 1909</Text>
         <Text accessibilityRole="header" style={[styles.drawerHeading,{color:theme.text}]}>Recursos para tu camino</Text>
         <Text style={[typography.metadata,{color:theme.secondary}]}>Tu biblioteca bíblica y pastoral, en un solo lugar.</Text>
         {(['Lectura y reflexión','Pastoral y actividades','Mi espacio'] as const).map(group=><View key={group} style={styles.drawerGroup}>
@@ -89,7 +101,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
       </ScrollView>
       <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
         <Pressable accessibilityRole="link" accessibilityLabel="Acerca de la guía pastoral, contacto y fuentes" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
-         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.10</Text>
+         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11</Text>
          <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Fuentes y contacto ↗</Text>
         </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}
