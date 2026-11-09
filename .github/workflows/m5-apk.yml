@@ -56,7 +56,20 @@ jobs:
         run: |
           # Hosted runners may need more than 10 seconds to download the Gradle distribution.
           sed -i 's/networkTimeout=10000/networkTimeout=120000/' android/gradle/wrapper/gradle-wrapper.properties
-          cd android && ./gradlew assembleRelease --no-daemon
+          # Retry transient Maven/JetBrains/GitHub 5xx and network download failures.
+          cd android
+          for attempt in 1 2 3 4; do
+            if ./gradlew assembleRelease --no-daemon --max-workers=2; then
+              echo "Gradle release APK assembled on attempt $attempt"
+              exit 0
+            fi
+            if [ "$attempt" -eq 4 ]; then
+              echo "Gradle failed after 4 attempts"
+              exit 1
+            fi
+            echo "Gradle transient failure on attempt $attempt; retrying"
+            sleep $((attempt * 15))
+          done
       - name: Stage APK
         run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-RV1909-Guia-Pastoral-v1.11.0-UX-candidata.apk
       - name: SHA-256 candidate APK
