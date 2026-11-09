@@ -16,6 +16,15 @@
 - No añadir rediseños, videos, funcionalidades o material promocional que no se haya solicitado.
 - No crear ficha, enviar archivos, pulsar Submit for review, ni modificar el APK/web sin autorización del autor y verificación final.
 
+
+### Enlace corto escogido para difusión (PENDIENTE DE ACTIVACIÓN)
+
+- **Alias seleccionado por el autor:** `https://tinyurl.com/GuiaPastoralBiblia`.
+- **Uso previsto:** enlace público fácil de recordar para encontrar **Guía pastoral - Biblia** y llegar a la descarga de la APK una vez aprobada y publicada en Uptodown.
+- **Estado real al 2026-11-09:** nombre/URL **propuesto, no creado ni reservado en TinyURL, y sin redirección verificada**. **NO anunciarlo aún como enlace funcional de descarga de APK.**
+- **Destino recomendado inicialmente:** página Wix pública `https://headless-vffpmunurhz-apkcristianas-140d.wix-site-host.com/`, desde la que se accederá a Uptodown cuando haya ficha oficial. No inventar URL de tienda ni enlazar al repositorio público para lectores.
+- **Activación pendiente:** crear el alias en TinyURL si está disponible, registrar la URL efectiva y el destino, verificar desde navegador/móvil y solo después etiquetarlo como enlace oficial y agregarlo a materiales de difusión.
+
 ## 2. Datos de la ficha (borrador operativo)
 
 | Campo | Contenido | Estado |
@@ -95,6 +104,7 @@ La descripción principal termina en los 3 párrafos anteriores. Esta sección e
 | --- | --- | --- |
 | 2026-11-09 | Se comprobó que existe la web de Wix **Guía pastoral - Biblia** y figura como publicada. | https://headless-vffpmunurhz-apkcristianas-140d.wix-site-host.com/ |
 | 2026-11-09 | El autor escogió **Uptodown como primera y única tienda inicial** y solicitó una ficha de **3 párrafos** con **3–6 imágenes**. | Decisión comunicada en conversación; imágenes a cargo del autor |
+| 2026-11-09 | Se seleccionó el alias de difusión `https://tinyurl.com/GuiaPastoralBiblia`; **aún no activado ni verificado**. | Pendiente de alta en TinyURL y prueba de redirección |
 | 2026-11-09 | Se documentó el correo profesional, el borrador de ficha y el plan de 10 pasos. | Este archivo y [actividad #67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67) |
 | 2026-11-09 | La APK está siendo terminada/compilada por otra IA; **no se ha publicado ni aprobado aún**. | Pendiente de entrega y pruebas |
 
