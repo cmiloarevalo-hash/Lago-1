@@ -27,10 +27,15 @@ describe('R1.3 final integrated plan contracts',()=>{
    for(const d of p.days){expect(d.end).toBeGreaterThanOrEqual(d.start);expect(d.reflection.length).toBeGreaterThan(45);expect(d.prayer.length).toBeGreaterThan(18);expect(d.action.length).toBeGreaterThan(12);expect(d.editorial).toBe('EN_REVISION');}
   }
  });
- it('has eight full pastoral expansions with relevant source metadata at end, not endorsed',()=>{
-  expect(pastoralTopics).toHaveLength(8);
-  for(const p of pastoralTopics){expect(p.steps).toHaveLength(3);expect(p.adults.length).toBeGreaterThan(20);expect(p.roles.length).toBeGreaterThan(35);expect(p.safeguarding.length).toBeGreaterThan(35);expect(p.prayer.length).toBeGreaterThan(15);expect(p.sources.length).toBeGreaterThan(0);
-   for(const s of p.sources){expect(s.sourceUrl).toMatch(/^https:\/\//);expect(s.applicableSection.length).toBeGreaterThan(4);expect(s.reuseBasis).toBe('ORIGINAL_SINTESIS');expect(s.checkedAt).toBe('2026-10-10');}
+ it('integrates the latest pastoral guide verbatim into sixteen grouped chapters and references',()=>{
+  expect(pastoralTopics).toHaveLength(16);
+  expect(new Set(pastoralTopics.map(x=>x.id)).size).toBe(16);
+  expect(pastoralTopics.map(x=>x.themeId)).toEqual([1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4]);
+  for(const item of pastoralTopics){
+   expect(item.paragraphs.length).toBeGreaterThanOrEqual(4);
+   expect(item.question.trim().length).toBeGreaterThan(10);
+   expect(item.readingsOld.length).toBeGreaterThan(0);
+   expect(item.readingsNew.length).toBeGreaterThan(0);
   }
  });
  it('makes three playable mechanisms distinct and references explicit',()=>{
