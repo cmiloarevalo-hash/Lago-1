@@ -17,15 +17,16 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   expect(screen).toContain('showCare');
   expect(text('src/ui/illustrations/GroupIllustration.tsx')).toContain('Original geometric illustration');
  });
- it('declares prototype and AI-supported work at landing, offers linked bibliography in menu footer',()=>{
+ it('shows nonprofit mission, real contact and linked sources without internal prototype copy',()=>{
   const today=text('src/ui/screens/TodayScreen.tsx');
   const app=text('App.tsx');
   const sources=text('src/ui/screens/AboutSourcesScreen.tsx');
-  expect(today).toContain('Prototipo con apoyo de IA y estudios');
-  expect(app).toContain('Bibliografía y fuentes ↗');
+  expect(today).not.toContain('Prototipo con apoyo de IA y estudios');
+  expect(app).toContain('Fuentes y contacto ↗');
   expect(sources).toContain('Linking.openURL');
   expect(sources).toContain('Unsplash License');
-  expect(sources).toContain('no constituyen una publicación doctrinal aprobada');
+  expect(sources).toContain('Proyecto sin fines de lucro');
+  expect(sources).toContain('apkcristianas@gmail.com');
   expect(pastoralTopics).toHaveLength(8);
   expect(sources).not.toContain('copyrighted full text');
  });
@@ -40,6 +41,7 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   expect(activity).not.toContain('StatusBanner');
   expect(explore).not.toContain('StatusBanner');
   expect(activity).toContain('selected.safety');
-  expect(explore).toContain('infoOpen&&preview?.pastoralCaution');
+  expect(explore).toContain('developedTopics');
+  expect(explore).not.toContain('infoOpen&&preview?.pastoralCaution');
  });
 });
