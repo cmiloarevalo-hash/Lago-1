@@ -87,7 +87,9 @@ describe('R13 P2 reader exact range and Back',()=>{
   expect(src).not.toContain('Palabras · búsqueda literal');
   expect(src).not.toContain('Buscar texto literal');
   expect(src).not.toContain('searchLiteral(');
-  expect(src).toContain('ⓘ');
+  expect(src).toContain('temas con contenido');
+  expect(src).toContain('developedTopics');
+  expect(src).toContain('familyTopicsWithContent');
   expect(src).toContain('listScrollY');
   expect(src).toContain('scrollTo');
   expect(src).toContain('sourceVerseLabels');
