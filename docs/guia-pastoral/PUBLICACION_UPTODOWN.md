@@ -12,7 +12,7 @@
 - Primera tienda seleccionada: **Uptodown** (https://www.uptodown.com/). Sin publicación inicial en Google Play ni otras tiendas.
 - El autor se encargará de **3 a 6 capturas reales** de la APK final; **recomendación de Uptodown: 4 o más**, preferencia operativa **4–6**. Imágenes **pendientes**, sin generarlas ni subir otras no aprobadas.
 - La ficha tendrá **exactamente 3 párrafos de descripción principal** más una **sección de imágenes**; el título, texto corto, datos técnicos y contacto son metadatos aparte.
-- Correo de contacto que figura en la aplicación candidata: **cmiloarevalo@gmail.com**. Es un dato ya presente en el código, pero verificar antes de publicar que el autor desea mostrarlo como soporte público.
+- **Correos observados en candidatas distintas:** `cmiloarevalo@gmail.com` (anterior) y `apkcristianas@gmail.com` (PR #69). Deben conciliarse antes de publicar.
 - No añadir rediseños, videos, funcionalidades o material promocional que no se haya solicitado.
 - No crear ficha, enviar archivos, pulsar Submit for review, ni modificar el APK/web sin autorización del autor y verificación final.
 
@@ -25,23 +25,33 @@
 - **Destino recomendado inicialmente:** página Wix pública `https://headless-vffpmunurhz-apkcristianas-140d.wix-site-host.com/`, desde la que se accederá a Uptodown cuando haya ficha oficial. No inventar URL de tienda ni enlazar al repositorio público para lectores.
 - **Activación pendiente:** crear el alias en TinyURL si está disponible, registrar la URL efectiva y el destino, verificar desde navegador/móvil y solo después etiquetarlo como enlace oficial y agregarlo a materiales de difusión.
 
+
+### Verificación de última candidata y control QA — 09-11-2026
+
+- **Nueva candidata identificada:** [PR #69, v1.10.1](https://github.com/cmiloarevalo-hash/Lago-1/pull/69), acumulativa sobre [PR #68](https://github.com/cmiloarevalo-hash/Lago-1/pull/68). Ambos permanecen abiertos y en **borrador**; sus CI M2/M5 reportan resultados satisfactorios pero **no hay QA manual ni firma de producción confirmada**. No distribuir sus artefactos como release final.
+- **Desajuste de nombre:** la ficha y web proponen **Guía pastoral - Biblia**; el `app.json` de la candidata #69 declara **Biblia Reina-Valera 1909 - Guía Pastoral**. El autor debe elegir una identidad final antes de publicar.
+- **Desajuste de correo:** este borrador venía de `cmiloarevalo@gmail.com`; la candidata #69 presenta **`apkcristianas@gmail.com`** en Créditos. **Ambas direcciones constan en fuentes del proyecto, pero ninguna debe anunciarse como contacto público definitivo sin decisión del autor.**
+- **Guía:** PR #68 declara 16 capítulos de edición autoral v1.30, heredados por PR #69; confirmar contenido final aprobado en la APK entregada. No sobrescribir con la edición v1.0.1 de PR #66.
+- **Control de lanzamiento detallado:** [CONTROL_QA_APK_UPTODOWN.md](CONTROL_QA_APK_UPTODOWN.md). Casillas sin marcar hasta pruebas y autorización.
+- **Web Wix:** se confirmó publicada por el servicio Wix. No se ha verificado que ofrezca un botón real de descarga Uptodown; aún no existe URL oficial de Uptodown.
+
 ## 2. Datos de la ficha (borrador operativo)
 
 | Campo | Contenido | Estado |
 | --- | --- | --- |
-| Nombre | Guía pastoral - Biblia | Propuesto; cotejar APK final |
+| Nombre | **POR DEFINIR:** Guía pastoral - Biblia (web/ficha) / Biblia Reina-Valera 1909 - Guía Pastoral (candidata #69) | Conciliar con el autor antes de enviar |
 | Plataforma | Android | Confirmado como objetivo |
 | Idioma inicial de ficha | Español | Propuesto |
 | Costo para lector | Gratuito | **Confirmar con el autor y en la APK** |
 | Desarrollador / autor | Camilo Arévalo | Consta en pantalla de créditos candidata |
-| Correo de soporte | cmiloarevalo@gmail.com | Consta en código; **confirmación pública pendiente** |
+| Correo de soporte | **POR DEFINIR:** cmiloarevalo@gmail.com (candidata anterior) / apkcristianas@gmail.com (candidata #69) | **El autor decide qué dirección se hará pública** |
 | Sitio oficial | https://headless-vffpmunurhz-apkcristianas-140d.wix-site-host.com/ | Publicado |
 | Formato de instalación | APK | Uptodown lo admite; **archivo final pendiente** |
 | Categoría | Educación o equivalente disponible en el formulario | Pendiente de elegir |
 | Edad recomendada / PEGI | Según contenido real | Pendiente de definir |
 | Ícono | PNG cuadrado; recomendable 512 × 512 px | Pendiente de comprobar / adjuntar |
 | Capturas | 3–6 capturas verticales reales del APK final (ideal 4–6) | **Pendiente: autor** |
-| Versión, versionCode, package ID | Extraer de APK final | **Pendiente; no copiar valores de QA** |
+| Versión, versionCode, package ID | Candidata #69: 1.10.1 / 11 / com.lago.bibletopicexplorer | **Pendiente de comprobar en el APK aprobado; no son valores de release** |
 | Firma / certificado, SHA-256 del archivo | Verificar paquete final y conservar evidencia fuera de secretos | **Pendiente: QA** |
 | Etapa | Final Release **solo cuando esté aprobada** | Pendiente |
 | Novedades / changelog | Redactar tras revisar la versión final | Pendiente |
@@ -105,6 +115,7 @@ La descripción principal termina en los 3 párrafos anteriores. Esta sección e
 | 2026-11-09 | Se comprobó que existe la web de Wix **Guía pastoral - Biblia** y figura como publicada. | https://headless-vffpmunurhz-apkcristianas-140d.wix-site-host.com/ |
 | 2026-11-09 | El autor escogió **Uptodown como primera y única tienda inicial** y solicitó una ficha de **3 párrafos** con **3–6 imágenes**. | Decisión comunicada en conversación; imágenes a cargo del autor |
 | 2026-11-09 | Se seleccionó el alias de difusión `https://tinyurl.com/GuiaPastoralBiblia`; **aún no activado ni verificado**. | Pendiente de alta en TinyURL y prueba de redirección |
+| 2026-11-09 | Se identificó PR #69 (v1.10.1) y se abrió lista de QA de distribución; nombre/correo no coinciden con borrador anterior. | [Control QA y aprobación](CONTROL_QA_APK_UPTODOWN.md) |
 | 2026-11-09 | Se documentó el correo profesional, el borrador de ficha y el plan de 10 pasos. | Este archivo y [actividad #67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67) |
 | 2026-11-09 | La APK está siendo terminada/compilada por otra IA; **no se ha publicado ni aprobado aún**. | Pendiente de entrega y pruebas |
 
