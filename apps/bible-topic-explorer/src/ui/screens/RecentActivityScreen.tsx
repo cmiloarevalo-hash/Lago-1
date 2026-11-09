@@ -13,7 +13,7 @@ export function RecentActivityScreen({theme,onBack,onOpenReader}:{theme:Theme;on
  const [items,setItems]=useState<readonly ReadingHistoryEntry[]>([]),[error,setError]=useState('');
  useEffect(()=>{let live=true;void persistence.listReadingHistory().then(v=>{if(live)setItems(v);}).catch(()=>{if(live)setError('No se pudo obtener el historial.');});return()=>{live=false;};},[persistence]);
  const groups=useMemo(()=>{
-  const dates=new Map<string,{label:string;chapters:Map<string;ReadingHistoryEntry[]>}>();
+  const dates=new Map<string,{label:string;chapters:Map<string,ReadingHistoryEntry[]>}>();
   for(const r of items){
    const key=localDate(r.openedAt);
    if(!dates.has(key))dates.set(key,{label:key,chapters:new Map()});

@@ -99,7 +99,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
             {<Pressable accessibilityRole="button" accessibilityLabel={'Abrir opciones de '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
               onPress={()=>openVerseMenu(verse)} style={[styles.inlineOptions,{borderColor:theme.border,backgroundColor:theme.surface}]}>
               <Text style={[typography.label,{color:theme.primaryText}]}>⋯ Opciones</Text>
-            </Pressable>:null}
+            </Pressable>}
           </View>
         </View>;
       })}</View> : null}
