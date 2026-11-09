@@ -27,7 +27,7 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   expect(sources).toContain('Unsplash License');
   expect(sources).toContain('Proyecto sin fines de lucro');
   expect(sources).toContain('apkcristianas@gmail.com');
-  expect(pastoralTopics).toHaveLength(8);
+  expect(pastoralTopics).toHaveLength(16);
   expect(sources).not.toContain('copyrighted full text');
  });
  it('returns from sources exactly to invoking tab and keeps four tabs',()=>{
