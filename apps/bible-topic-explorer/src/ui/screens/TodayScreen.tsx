@@ -1,5 +1,5 @@
 import {useEffect,useMemo,useState} from 'react';
-import {AppState,ImageBackground,Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
+import {AppState,ImageBackground,Pressable,ScrollView,StyleSheet,Text,View,useWindowDimensions} from 'react-native';
 import {useSQLiteContext} from 'expo-sqlite';
 import {SQLiteBibleRepository} from '../../db/sqliteBibleRepository';
 import type {BibleVerse} from '../../product/adapters';
@@ -12,6 +12,7 @@ import {radius,spacing,type as typography,type Theme} from '../theme';
 type Props={theme:Theme;appearance:VisibleTheme;readingScale?:number;onOpenAbout:()=>void;onOpenPlans:()=>void;onOpenReader:(book:string,chapter:number,verse?:number)=>void;onOpenExplore:()=>void;onOpenLibrary:()=>void};
 export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenPlans,onOpenReader,onOpenExplore,onOpenLibrary}:Props){
  const db=useSQLiteContext(),repo=useMemo(()=>new SQLiteBibleRepository(db),[db]);
+ const largeSystemText=useWindowDimensions().fontScale>=1.3;
  const [dayKey,setDayKey]=useState(()=>localDayKey(new Date()));
  const reading=useMemo(()=>readingForDate(new Date(Number(dayKey.slice(0,4)),Number(dayKey.slice(5,7))-1,Number(dayKey.slice(8,10)))),[dayKey]);
  const [verse,setVerse]=useState<BibleVerse|null>(null),[loading,setLoading]=useState(true),[error,setError]=useState(false);
@@ -22,7 +23,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
  const tiles=appearance==='coral'?['#FCE3EB','#E5EEF9','#E6F0E8','#FCEDD5']:appearance==='natural'?['#EFE8D9','#E6EFF7','#DCECDD','#F4E6CA']:['#DEEAF6','#E6F0F9','#E7F1EC','#F7E9D3'];
  const quick=[{key:'planes',icon:'▣',title:'Planes',description:'A tu ritmo',tint:tiles[0],onPress:onOpenPlans},{key:'buscar',icon:'⌕',title:'Explorar',description:'Temas con pasajes',tint:tiles[1],onPress:onOpenExplore},{key:'favoritos',icon:'♥',title:'Biblioteca',description:'Tus guardados',tint:tiles[3],onPress:onOpenLibrary}];
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
-  <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,{borderColor:theme.border}]}>
+  <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,largeSystemText&&styles.heroLargeText,{borderColor:theme.border}]}>
    <View style={[styles.heroScrim,{backgroundColor:appearance==='coral'?'rgba(255,248,247,.13)':appearance==='natural'?'rgba(245,242,224,.09)':'rgba(235,242,249,.08)'}]}/>
    <View style={styles.heroCopy}>
     <Text style={[styles.kicker,{color:theme.primaryText}]}>BIBLIA REINA-VALERA 1909</Text>
@@ -30,7 +31,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
     <Text style={[styles.heroSubtitle,{color:theme.text}]}>Una pausa para que la Palabra ilumine tu día.</Text>
    </View>
   </ImageBackground>
-  <View style={[styles.overlap,{shadowColor:theme.primary}]}>
+  <View style={[styles.overlap,largeSystemText&&styles.overlapLargeText,{shadowColor:theme.primary}]}>
    <Card theme={theme} featured label={'Versículo de hoy '+ref}>
     <View style={styles.verseTop}><Text style={[styles.tinyKicker,{color:theme.primaryText}]}>☀  VERSÍCULO DEL DÍA</Text><Metadata theme={theme}>{ref} · RV1909</Metadata></View>
     <View style={styles.verseReading}>
@@ -57,12 +58,14 @@ const styles=StyleSheet.create({
  prototypeNote:{minHeight:48,paddingHorizontal:2,flexDirection:'row',alignItems:'center',flexWrap:'wrap',justifyContent:'space-between',gap:6},
  prototypeText:{fontSize:12,lineHeight:18},prototypeLink:{fontSize:12,fontWeight:'700'},
  hero:{height:175,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
+ heroLargeText:{height:'auto',minHeight:175,paddingBottom:spacing.md},
  heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.21)'},
  heroCopy:{paddingHorizontal:19,paddingTop:18,maxWidth:290,gap:7},
  kicker:{fontSize:11,fontWeight:'800',letterSpacing:1.35},
  heroTitle:{fontSize:30,lineHeight:35,fontFamily:'serif',fontWeight:'700',maxWidth:255},
  heroSubtitle:{fontSize:14,lineHeight:20,maxWidth:238,fontWeight:'500',alignSelf:'flex-start',backgroundColor:'rgba(255,251,247,.68)',borderRadius:10,paddingHorizontal:5,paddingVertical:2},
  overlap:{marginTop:-54,marginHorizontal:5,elevation:5,shadowOffset:{width:0,height:5},shadowOpacity:.12,shadowRadius:12},
+ overlapLargeText:{marginTop:0},
  verseTop:{flexDirection:'row',flexWrap:'wrap',justifyContent:'space-between',gap:6,alignItems:'center'},
  tinyKicker:{fontSize:12,fontWeight:'700',letterSpacing:.4},
  verseReading:{flexDirection:'row',alignItems:'flex-start',gap:5,paddingTop:6,paddingBottom:0},

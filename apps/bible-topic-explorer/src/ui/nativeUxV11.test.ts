@@ -59,6 +59,14 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   expect(bible).toContain('<KeyboardAvoidingView behavior="padding" style={styles.modalBackdrop}>');
   expect(read('app.json')).toContain('"softwareKeyboardLayoutMode": "resize"');
  });
+ it('lets the Hoy hero expand for Android font scale 160% and 200%',()=>{
+  const today=read('src/ui/screens/TodayScreen.tsx');
+  expect(today).toContain('useWindowDimensions().fontScale>=1.3');
+  expect(today).toContain('largeSystemText&&styles.heroLargeText');
+  expect(today).toContain("heroLargeText:{height:'auto',minHeight:175");
+  expect(today).toContain('largeSystemText&&styles.overlapLargeText');
+  expect(today).toContain('overlapLargeText:{marginTop:0}');
+ });
  it('keeps Guardar nota permanently above the editor and protects unsaved text',()=>{
   const bible=read('src/ui/screens/BibleScreen.tsx');
   const save=bible.indexOf('<Action label="Guardar nota"');
