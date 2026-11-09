@@ -31,7 +31,7 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
    <Text style={[styles.h2,{color:theme.text}]}>Un recurso para caminar en comunidad</Text>
    <Body theme={theme}>Proyecto sin fines de lucro creado como ayuda práctica para jóvenes y líderes de comunidades creyentes en Jesucristo. Facilita la lectura de la Biblia, la reflexión, el aprendizaje y el acompañamiento comunitario para conocer las enseñanzas de Jesús y seguir sus pasos en la vida cotidiana.</Body>
   </View>
-  <Body theme={theme} muted>Versión 1.10 · Contacto: apkcristianas@gmail.com</Body>
+  <Body theme={theme} muted>Versión 1.10 · Desarrollador: Camilo Arévalo · Contacto: apkcristianas@gmail.com</Body>
   <Text style={[styles.h2,{color:theme.text}]}>Bibliografía y fuentes</Text>
   <Body theme={theme} muted>Las fuentes se identifican por transparencia y atribución. Su inclusión no implica aval institucional.</Body>
   <View style={styles.sources}>{sources.map(src=><SourceLink key={src.sourceUrl} theme={theme}

@@ -27,6 +27,7 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   expect(sources).toContain('Unsplash License');
   expect(sources).toContain('Proyecto sin fines de lucro');
   expect(sources).toContain('apkcristianas@gmail.com');
+  expect(sources).toContain('Camilo Arévalo');
   expect(pastoralTopics).toHaveLength(16);
   expect(sources).not.toContain('copyrighted full text');
  });
