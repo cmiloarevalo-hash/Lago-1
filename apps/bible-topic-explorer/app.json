@@ -2,6 +2,7 @@
   "expo": {
     "name": "Guía pastoral - Biblia",
     "slug": "bible-topic-explorer",
+    "scheme": "guiapastoralbiblia",
     "version": "1.10.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
