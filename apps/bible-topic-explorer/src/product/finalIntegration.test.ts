@@ -70,7 +70,9 @@ describe('R1.3 final integrated plan contracts',()=>{
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor'});
   state=navigate(state,{kind:'plans',origin:'today',planId:'amor',day:3});
   expect(goBack(state)?.current).toMatchObject({kind:'plans',planId:'amor'});
-  expect(drawerDestinations).toHaveLength(7);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
+  expect(drawerDestinations).toHaveLength(5);expect(drawerDestinations.map(x=>x.id)).not.toContain('spotify');
+  expect(drawerDestinations.map(x=>x.id)).not.toContain('games');
+  expect(drawerDestinations.map(x=>x.id)).not.toContain('soundcloud');
   expect(drawerDestinations.some(x=>x.kind==='pastoral')).toBe(true);
  });
  it('protects reset and persistence in additive tables without destructive note migration',()=>{
