@@ -15,6 +15,9 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   expect(screen).toContain('Cómo hacerlo');
   expect(screen).not.toContain('kind="info"');
   expect(screen).toContain('showCare');
+  expect(screen).not.toContain('Información de prototipo');
+  expect(screen).not.toContain('son un prototipo');
+  expect(screen).toContain('Uso responsable de las dinámicas');
   expect(text('src/ui/illustrations/GroupIllustration.tsx')).toContain('Original geometric illustration');
  });
  it('shows nonprofit mission, real contact and linked sources without internal prototype copy',()=>{

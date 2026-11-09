@@ -77,8 +77,8 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
       <Text style={[styles.rowNumbers,{color:theme.primaryText}]}>👥 {item.groupSize} personas    ◷ {item.minutes} min</Text>
      </View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
     </Pressable>)}</View>
-   <Pressable accessibilityRole="button" accessibilityLabel={showCare?'Ocultar información de prototipo':'Información de prototipo'} onPress={()=>setShowCare(x=>!x)} style={styles.careButton}><Text style={[styles.careLink,{color:theme.secondary}]}>ⓘ  {showCare?'Ocultar información':'Guías en revisión editorial'}</Text></Pressable>
-   {showCare?<Body theme={theme} muted>Estas propuestas originales son un prototipo para orientar facilitadores, no sustituyen formación ni protocolos de protección y todavía requieren revisión humana.</Body>:null}
+   <Pressable accessibilityRole="button" accessibilityLabel={showCare?'Ocultar recomendaciones para facilitadores':'Recomendaciones para facilitadores'} onPress={()=>setShowCare(x=>!x)} style={styles.careButton}><Text style={[styles.careLink,{color:theme.secondary}]}>ⓘ  {showCare?'Ocultar información':'Uso responsable de las dinámicas'}</Text></Pressable>
+   {showCare?<Body theme={theme} muted>Estas actividades son orientaciones para facilitadores. Adáptalas a la edad y al contexto del grupo; no sustituyen la formación de responsables ni los protocolos de protección vigentes.</Body>:null}
   </>}
  </ScrollView></Screen>;
 }
