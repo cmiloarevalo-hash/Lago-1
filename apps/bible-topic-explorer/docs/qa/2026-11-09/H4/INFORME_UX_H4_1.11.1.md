@@ -58,6 +58,27 @@ La opción no se encuentra en las cuatro pestañas; está en el menú lateral y 
 - Migración sobre datos existentes, Android físico y validación visual consolidada por el autor.
 - Evitar confundir ANR del sistema Android del emulador en primer arranque con defectos atribuibles a la app.
 
+## Ampliación verificable de UX en H4: letra ampliada y cambios sin guardar
+
+Se repitió la evaluación táctil en la APK **1.11.1**, sin cambiar el contenido bíblico ni la guía pastoral. La evaluación continúa siendo una **simulación supervisada por ADB**, no una prueba de satisfacción con lectores reales.
+
+| Escenario adicional | Resultado | Evidencia |
+| --- | --- | --- |
+| H4-16 Reabrir reflexión guardada | **APROBADO**: «Diario de prueba H4» conserva título, dos párrafos y fecha tras salir y regresar a Mi diario | [Reflexión conservada](diary_reopened.png) |
+| H4-17 Editar Diario con teclado | **APROBADO parcial**: al editar título, Gboard aparece y el botón «Guardar reflexión» permanece accesible arriba; la parte inferior del editor requiere desplazar | [Edición con teclado](diary_edit_keyboard.png) |
+| H4-18 Atrás con cambios pendientes en Diario | **APROBADO**: Android muestra confirmación «Descartar reflexión» con alternativas «Seguir escribiendo» y «Descartar»; al descartar, la entrada anterior conserva su contenido | [Confirmación nativa](diary_edited_back.png) |
+| H4-19 Fuente Android al 160 % en Hoy | **NO CONFORME — P1**: título editorial de la cabecera queda recortado/superpuesto detrás de tarjeta de versículo; texto del versículo ocupa muchas pantallas | [Captura 160 %](ux_font160_home.png) |
+
+### P1 adicional — recorte de encabezado Hoy con escalado Android
+
+**Reproducción:** en el emulador de 360×740 px establecer `settings put system font_scale 1.6`, forzar parada y abrir de nuevo la aplicación; observar Hoy. **Resultado:** tamaño de texto ampliado sin ajuste suficiente del espacio vertical del encabezado; se ve un fragmento del título y queda oculto el resto bajo la tarjeta siguiente. **Esperado:** mostrar el texto editorial completo con altura flexible y sin superposiciones. El desplazamiento adicional del versículo es aceptable como consecuencia del escalado; **el recorte de contenido no lo es**.
+
+**Criterio de aceptación:** verificar Hoy con escala del sistema 100 %, 160 % y 200 % en pantallas 360×740 y 320×640; ninguna línea del título debe quedar oculta bajo otra tarjeta. Se restauró `font_scale=1.0` al terminar. El 200 % y el modo oscuro continúan **sin prueba**, no deben marcarse como aprobados.
+
+### Actualización del criterio de salida
+
+Además de la incidencia existente de teclado/nota (P1), la adaptación de Hoy a fuentes grandes (P1) debe corregirse **antes de aceptación visual**. No se modificó código ni versión de la APK con esta ampliación: estas capturas son de la misma **1.11.1**. El informe anterior sobre recorridos de Explorar que quedaron inconclusos se conserva; el escenario nuevo de escala al 160 % es **independiente y reproducible**.
+
 ## Decisión de supervisión
 
 **NO APROBAR ni fusionar PR #72 todavía.** La APK 1.11.1 logra lectura, selección, guardados, Atrás, diario y horario de recordatorios, pero **NO SUPERA UX-H4-07**. El contenido RV1909 y guía pastoral no se modifica. Repetir evidencia en un APK corregido (versión y `versionCode` nuevos) y elevar al Humano la revisión visual consolidada.
