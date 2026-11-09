@@ -76,7 +76,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
         <Text style={[styles.drawerBrand,{color:theme.text}]}>Guía pastoral</Text>
         <Text accessibilityRole="header" style={[styles.drawerHeading,{color:theme.text}]}>Recursos para tu camino</Text>
         <Text style={[typography.metadata,{color:theme.secondary}]}>Tu biblioteca bíblica y pastoral, en un solo lugar.</Text>
-        {(['Lectura y reflexión','Pastoral y música','Mi espacio'] as const).map(group=><View key={group} style={styles.drawerGroup}>
+        {(['Lectura y reflexión','Pastoral y actividades','Mi espacio'] as const).map(group=><View key={group} style={styles.drawerGroup}>
           <Text accessibilityRole="header" style={[styles.drawerGroupLabel,{color:theme.secondary}]}>{group.toUpperCase()}</Text>
           {drawerDestinations.filter(item=>item.group===group).map(item=><Pressable key={item.id} accessibilityRole="button"
             accessibilityLabel={item.label} onPress={()=>openDrawerItem(item)}

@@ -33,7 +33,7 @@ describe('Guía pastoral — edición autoral definitiva v1.30',()=>{
   }finally{db.close();}
  });
  it('mantiene fuera de navegación visible juegos y SoundCloud, conservando módulos internos',()=>{
-  expect(drawerDestinations.map(x=>x.id)).toEqual(['plans','topics','pastoral','my-books','settings']);
+  expect(drawerDestinations.map(x=>x.id)).toEqual(['plans','topics','pastoral','guides','my-books','settings']);
   const app=readFileSync('App.tsx','utf8');
   const today=readFileSync('src/ui/screens/TodayScreen.tsx','utf8');
   expect(app).not.toContain('onPlay={()=>navigate(');
