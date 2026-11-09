@@ -3,11 +3,12 @@ import {isDailyReminderResponse} from './src/product/reminders';
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, BackHandler, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, BackHandler, Linking, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {Modal, ScrollView} from 'react-native';
 import {drawerDestinations, type DrawerDestination} from './src/product/secondaryMenu';
 import {initialTopicUiState, type TopicUiState} from './src/product/conceptIndex';
+import {parseVerseLink} from './src/product/verseSharing';
 import { DATABASE_NAME } from './src/db/model'; import { SQLiteLocalPersistence } from './src/db/sqliteLocalPersistence';
 import { goBack as previousNavigation, initialNavigationState, navigate as nextNavigation, tabIcons, tabLabels, tabs, type NavigationState, type Route, type TabId } from './src/product/navigation';
 import { defaultPreferences, visibleTheme, type LocalPreferences } from './src/product/preferences'; import { minimumTouchTarget, radius, shellMaxFontSizeMultiplier, spacing, themes, type as typography } from './src/ui/theme';
@@ -39,6 +40,16 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  else if(item.kind==='pastoral')navigate({kind:'pastoral',origin:activeTab});
  else if(item.kind==='soundcloud')navigate({kind:'soundcloud',origin:activeTab});
  };
+ useEffect(()=>{
+   const follow=(url:string)=>{
+     const target=parseVerseLink(url);if(!target)return;
+     void persistence.recordReading({bookId:target.book,chapter:target.chapter,openedAt:new Date().toISOString()}).catch(()=>{});
+     navigate({kind:'reader',book:target.book,chapter:target.chapter,sourceVerseLabel:target.sourceVerseLabel,origin:'bible'});
+   };
+   const listener=Linking.addEventListener('url',event=>follow(event.url));
+   void Linking.getInitialURL().then(url=>{if(url)follow(url);}).catch(()=>{});
+   return()=>listener.remove();
+ },[navigate,persistence]);
  const back=()=>setNavigation(state=>previousNavigation(state)??state);
  const content=
 
