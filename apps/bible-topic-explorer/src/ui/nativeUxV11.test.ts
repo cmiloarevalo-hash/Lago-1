@@ -86,5 +86,7 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   const app=read('App.tsx');
   expect(app).toContain('>Biblia RV1909</Text>');
   expect(app).toContain("drawerBrand:{fontFamily:'serif',fontSize:27");
+  expect(app).toContain('accessibilityLabel="Abrir ajustes"');
+  expect(app).not.toContain('>Ajustes</Text></Pressable>');
  });
 });

@@ -28,6 +28,8 @@ APK compilada en [M5](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/4
 | Teclado en editor de nota | **FALLÓ UX**: al mostrarse teclado nativo, el botón **Guardar nota** quedó parcialmente tapado | [note_typing.png](note_typing.png) |
 | Botón Atrás desde Notas bíblicas | **FALLÓ UX**: regresó al lector Génesis 1 en vez de la portada de Biblioteca | [biblioteca_notes_back.png](biblioteca_notes_back.png) |
 | Menú secundario | **FALLÓ UX MENOR**: título completo con fuente de 37 px ocupa 3 líneas en pantalla pequeña | [menu_drawer.png](menu_drawer.png) |
+| Cabecera principal | **FALLÓ UX MENOR**: Ajustes ocupó una segunda fila, restando espacio vertical a toda la aplicación | [settings_actual.png](settings_actual.png) |
+| Selector horario nativo | **APROBADO**: abre el reloj de Android con acciones Cancel/OK | [native_timepicker.png](native_timepicker.png) |
 | Diario independiente | **APROBADO con incidencia**: acceso desde menú; al aparecer teclado, editor quedó desplazado fuera del área visible | [journal_title_typed.png](journal_title_typed.png) |
 | Guardar referencia desde menú inicial | **FALLÓ UX**: acción aparece solo después de pulsar Nota o Resaltar; no es visible al abrir directamente las opciones del versículo | Reproducido en la sesión ADB |
 
@@ -38,6 +40,7 @@ APK compilada en [M5](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/4
 - Mostrar **Guardar/Quitar referencia** al abrir las opciones de un versículo, sin exigir otra pestaña.
 - Interceptar **Atrás** en pantallas internas de Biblioteca para volver a su portada.
 - Compactar la marca del menú lateral a `Biblia RV1909` con tamaño de 27 px.
+- Simplificar la barra superior a icono de Ajustes con etiqueta accesible, sin segunda fila en 320 px.
 - Mientras se escribe en Mi diario, ocultar bloques introductorios y listados ajenos; mantener Guardar/Cancelar arriba, proteger cambios y controlar Atrás.
 - Conservar RV1909 y los 16 capítulos pastorales v1.30 sin alteraciones.
 
