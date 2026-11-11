@@ -1,0 +1,206 @@
+{
+  "source": "src/ui/theme.ts",
+  "method": "WCAG 2.2 contrast for declared solid hex colors; excludes overlays, image textures and text anti-aliasing",
+  "data": [
+    {
+      "theme": "coral",
+      "pairs": [
+        {
+          "pair": "body",
+          "foreground": "#30222D",
+          "background": "#FFFAF9",
+          "ratio": 14.58,
+          "AA_normal": true
+        },
+        {
+          "pair": "body_surface",
+          "foreground": "#30222D",
+          "background": "#FFFFFF",
+          "ratio": 15.08,
+          "AA_normal": true
+        },
+        {
+          "pair": "secondary",
+          "foreground": "#61525B",
+          "background": "#FFFFFF",
+          "ratio": 7.33,
+          "AA_normal": true
+        },
+        {
+          "pair": "button",
+          "foreground": "#FFFFFF",
+          "background": "#C72D5F",
+          "ratio": 5.29,
+          "AA_normal": true
+        },
+        {
+          "pair": "selected",
+          "foreground": "#A72350",
+          "background": "#FADDE5",
+          "ratio": 5.51,
+          "AA_normal": true
+        }
+      ]
+    },
+    {
+      "theme": "natural",
+      "pairs": [
+        {
+          "pair": "body",
+          "foreground": "#242A20",
+          "background": "#F9F8F2",
+          "ratio": 13.83,
+          "AA_normal": true
+        },
+        {
+          "pair": "body_surface",
+          "foreground": "#242A20",
+          "background": "#FFFFFF",
+          "ratio": 14.72,
+          "AA_normal": true
+        },
+        {
+          "pair": "secondary",
+          "foreground": "#4E5847",
+          "background": "#FFFFFF",
+          "ratio": 7.47,
+          "AA_normal": true
+        },
+        {
+          "pair": "button",
+          "foreground": "#FFFFFF",
+          "background": "#50683A",
+          "ratio": 6.21,
+          "AA_normal": true
+        },
+        {
+          "pair": "selected",
+          "foreground": "#40572A",
+          "background": "#E8EDDE",
+          "ratio": 6.73,
+          "AA_normal": true
+        }
+      ]
+    },
+    {
+      "theme": "marine",
+      "pairs": [
+        {
+          "pair": "body",
+          "foreground": "#172839",
+          "background": "#F8FAFC",
+          "ratio": 14.35,
+          "AA_normal": true
+        },
+        {
+          "pair": "body_surface",
+          "foreground": "#172839",
+          "background": "#FFFFFF",
+          "ratio": 15.01,
+          "AA_normal": true
+        },
+        {
+          "pair": "secondary",
+          "foreground": "#425366",
+          "background": "#FFFFFF",
+          "ratio": 7.89,
+          "AA_normal": true
+        },
+        {
+          "pair": "button",
+          "foreground": "#FFFFFF",
+          "background": "#103D69",
+          "ratio": 11.09,
+          "AA_normal": true
+        },
+        {
+          "pair": "selected",
+          "foreground": "#103D69",
+          "background": "#DFEBF5",
+          "ratio": 9.16,
+          "AA_normal": true
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "pairs": [
+        {
+          "pair": "body",
+          "foreground": "#F9F3F7",
+          "background": "#17151E",
+          "ratio": 16.51,
+          "AA_normal": true
+        },
+        {
+          "pair": "body_surface",
+          "foreground": "#F9F3F7",
+          "background": "#241F2B",
+          "ratio": 14.7,
+          "AA_normal": true
+        },
+        {
+          "pair": "secondary",
+          "foreground": "#D3C7D1",
+          "background": "#241F2B",
+          "ratio": 9.85,
+          "AA_normal": true
+        },
+        {
+          "pair": "button",
+          "foreground": "#281626",
+          "background": "#F5A5CC",
+          "ratio": 9.03,
+          "AA_normal": true
+        },
+        {
+          "pair": "selected",
+          "foreground": "#F5A5CC",
+          "background": "#352737",
+          "ratio": 7.44,
+          "AA_normal": true
+        }
+      ]
+    },
+    {
+      "theme": "contrast",
+      "pairs": [
+        {
+          "pair": "body",
+          "foreground": "#000000",
+          "background": "#FFFFFF",
+          "ratio": 21,
+          "AA_normal": true
+        },
+        {
+          "pair": "body_surface",
+          "foreground": "#000000",
+          "background": "#FFFFFF",
+          "ratio": 21,
+          "AA_normal": true
+        },
+        {
+          "pair": "secondary",
+          "foreground": "#292929",
+          "background": "#FFFFFF",
+          "ratio": 14.55,
+          "AA_normal": true
+        },
+        {
+          "pair": "button",
+          "foreground": "#FFFFFF",
+          "background": "#111111",
+          "ratio": 18.88,
+          "AA_normal": true
+        },
+        {
+          "pair": "selected",
+          "foreground": "#000000",
+          "background": "#F5F5F5",
+          "ratio": 19.26,
+          "AA_normal": true
+        }
+      ]
+    }
+  ]
+}
