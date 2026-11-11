@@ -1,0 +1,35 @@
+{
+  "chapters": 16,
+  "themeCounts": [
+    4,
+    4,
+    4,
+    4
+  ],
+  "allChapterNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "refsTotal": 84,
+  "old": 32,
+  "new": 52,
+  "invalidRefs": [],
+  "missingTitle": 0,
+  "missingParagraphs": 0,
+  "missingQuestions": 0,
+  "uniqueIds": 16
+}

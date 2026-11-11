@@ -1,0 +1,235 @@
+{
+  "out": {
+    "count": 16,
+    "opened": 16,
+    "notOpened": [],
+    "visibleReferenceCounts": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        16,
+        6
+      ]
+    ]
+  },
+  "rows": [
+    {
+      "n": 1,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 458,
+      "button": "¿Qué es la Biblia y de dónde viene?",
+      "expanded": true,
+      "visibleRefButtons": 4,
+      "shotBytes": 58921
+    },
+    {
+      "n": 2,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 391,
+      "button": "¿Cómo se relacionan el Antiguo y el Nuevo Testamento?",
+      "expanded": true,
+      "visibleRefButtons": 4,
+      "shotBytes": 54969
+    },
+    {
+      "n": 3,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 429,
+      "button": "Jesús conoce y explica las Escrituras",
+      "expanded": true,
+      "visibleRefButtons": 5,
+      "shotBytes": 51241
+    },
+    {
+      "n": 4,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 400,
+      "button": "Dios nos ama: conocer al Padre",
+      "expanded": true,
+      "visibleRefButtons": 5,
+      "shotBytes": 51632
+    },
+    {
+      "n": 5,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 510,
+      "button": "El amor a Dios y al prójimo",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 39559
+    },
+    {
+      "n": 6,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 397,
+      "button": "Jesús enseña misericordia y perdón",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 44179
+    },
+    {
+      "n": 7,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 404,
+      "button": "Confiar en Dios sin negar las dificultades",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 44064
+    },
+    {
+      "n": 8,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 391,
+      "button": "Orar como Jesús nos enseñó",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 46232
+    },
+    {
+      "n": 9,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 510,
+      "button": "Jesús anuncia buenas noticias y esperanza",
+      "expanded": true,
+      "visibleRefButtons": 4,
+      "shotBytes": 47597
+    },
+    {
+      "n": 10,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 403,
+      "button": "Justicia y servicio a quienes lo necesitan",
+      "expanded": true,
+      "visibleRefButtons": 4,
+      "shotBytes": 49112
+    },
+    {
+      "n": 11,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 392,
+      "button": "La humildad y el liderazgo que sirve",
+      "expanded": true,
+      "visibleRefButtons": 4,
+      "shotBytes": 58765
+    },
+    {
+      "n": 12,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 366,
+      "button": "La paz y la reconciliación",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 51576
+    },
+    {
+      "n": 13,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 505,
+      "button": "Jesús, nuestro Salvador",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 54000
+    },
+    {
+      "n": 14,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 378,
+      "button": "La resurrección y la esperanza cristiana",
+      "expanded": true,
+      "visibleRefButtons": 3,
+      "shotBytes": 54045
+    },
+    {
+      "n": 15,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 392,
+      "button": "Permanecer en Jesús y dar fruto",
+      "expanded": true,
+      "visibleRefButtons": 5,
+      "shotBytes": 52014
+    },
+    {
+      "n": 16,
+      "status": "OPENED",
+      "seek": 0,
+      "tapY": 375,
+      "button": "Vivir lo aprendido: amar con hechos",
+      "expanded": true,
+      "visibleRefButtons": 6,
+      "shotBytes": 44731
+    }
+  ]
+}
