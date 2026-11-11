@@ -1,5 +1,7 @@
 # Etapa 4 — Auditoría de accesibilidad y visualización (E4-R6)
 
+> **Conciliación documental de 11-11-2026.** Se preservan pruebas, capturas e IDs originales. La [matriz unificada](../MATRIZ_UNIFICADA_OBSERVACIONES_Y_PLAN_2026-11-11.md) fija observaciones, prioridades, estado y plan. Esto corrige documentación, **no implementa código**.
+
 **Fecha:** 11-11-2026 · **Supervisor QA:** ASUS / Android · **Work Item:** #67 · **PR:** #72 (**draft**)
 **Dictamen:** **EJECUCIÓN TÉCNICA PARCIAL / BLOQUEADA PARA ACEPTACIÓN**. Esta acta registra lo verificado y lo que no pudo terminarse. **No declara etapa 4 cerrada ni aplicación aprobada**.
 
@@ -7,14 +9,14 @@
 
 - AVD de QA `Lago1_QA_ASUS_API36` / serial `emulator-5580`, Android 16 API36; configuración normal: 320×640, densidad 160 dpi, fuente Android `font_scale=1.0`.
 - APK que sí se pudo ejecutar: `com.lago.bibletopicexplorer` **1.11.2 / versionCode 14**, SHA-256 `2f35e13a7d40b8c8f74a998bba60ae41d94c1090c0ad9aac173ac62f43644d7e`, desde revisión de prueba `994d171`. **No contiene** la modificación posterior del título de Hoy `4d8b6e5`.
-- Controles distintos: (1) tamaño real/resolución AVD, (2) `font_scale` de Android, (3) preferencia «Tamaño de lectura» propia de la app, (4) zoom de visor de capturas/GitHub. **Las capturas no se redimensionaron ni se aplicó zoom externo**. `200%` es una condición extrema de accesibilidad, **no** el tamaño normal ni una razón por sí sola para calificar la app como defectuosa.
+- Controles distintos: (1) tamaño real/resolución AVD, (2) `font_scale` de Android, (3) preferencia «Tamaño de lectura» propia de la app, (4) zoom de visor de capturas/GitHub. **Las capturas no se redimensionaron ni se aplicó zoom externo**. `200%` es una escala de accesibilidad exigente, **no** un defecto por sí sola: solo la ocultación demostrada del texto o los controles justifica FAIL.
 - Restaurado `font_scale=1.0` y resolución física `320x640`. La preferencia de tema fue cambiada a Marino **solo en AVD de QA** para esta revisión.
 
 ## Matriz y registro de eventos
 
 | Evento / caso | Qué se hizo y evidencia | Observado | Estado / corrección futura |
 | --- | --- | --- | --- |
-| **EV-H4-041 / UX-E4-01** | Hoy a 360×740 y fuente Android 100/160/200%, capturas **estables anteriores** de la misma APK [160%](../ASUS_E4_hoy_360_font_1_6.png), [200%](../ASUS_E4_hoy_360_font_2_0.png). | A fuente normal la cabecera es legible; a **160% el saludo queda parcialmente cubierto por la tarjeta**, a 200% el recorte es mayor. No es zoom de imagen. | **FAIL P1 de esta APK antigua**, no de `4d8b6e5`. 200% es prueba de estrés; priorizar corrección/validación a 160%. |
+| **EV-H4-041 / UX-E4-01** | Hoy a 360×740 y fuente Android 100/160/200%, capturas **estables anteriores** de la misma APK [160%](../ASUS_E4_hoy_360_font_1_6.png), [200%](../ASUS_E4_hoy_360_font_2_0.png). | A fuente normal la cabecera es legible; a **160% el saludo queda parcialmente cubierto por la tarjeta**, a 200% el recorte es mayor. No es zoom de imagen. | **FAIL P1 de esta APK antigua**, no de `4d8b6e5`. 200% es una condición de accesibilidad, no fallo por ser texto grande; el fallo comprobado es la ocultación del saludo. Priorizar la regresión de 160% sin omitir 200%. |
 | **EV-H4-042 / UX-E4-02** | Inspección de revisión más reciente: `TodayScreen.tsx` cambió de blob `8a2bb4ae93cfc3bf8ada08f0ac84daa278fde634` a `997008dfe0fa8230aae5234806d3fd38d3380933`. Introduce `fontScale>=1.3`, altura flexible del hero y `overlapLargeText.marginTop=0`. Se intentó preparar toolchain local, pero `npm ci --offline` carecía de `xcode-4.0.0.tgz`, y la instalación con acceso al registro se interrumpió al degradarse la RAM/AVD. No había APK generada desde ese HEAD. | **El parche está en código, NO probado en Android.** El AVD tenía solo el APK 1.11.2 anterior. | **BLOQUEADO / PENDIENTE**: obtener APK firmada/debug identificada con commit SHA y retestar 320/360 × 100/160/200%. No afirmar éxito ni fracaso del parche. |
 | **EV-H4-043 / UX-E4-03** | Android 16, 320×640, sistema al 100%, tema Marino: [nota y Gboard](E4_note_keyboard_marine_320_100.png). | «Guardar nota» y «Cancelar edición» quedan visibles sobre el teclado; campo muestra 2 párrafos. | **PASS de visibilidad a 100%.** El **fallo funcional ya existente** de primer toque de Guardar se mantiene en `UX-E3-01 / EV-H4-033` (no duplicar). **160% y 200% con Gboard** no validados por interrupción de entorno. |
 | **EV-H4-044 / UX-E4-04** | [Ajustes Natural](E4_settings_default.png), [Marino seleccionado](E4_marine_settings.png), [Hoy Marino](E4_marine_home.png), [Génesis Marino](E4_genesis1_marine.png). Auditoría estática de `src/ui/theme.ts` [ratios por combinación](E4_contrast_declared_colors.json). | Tres apariencias públicas de fondos claros: Coral, Natural, Marino. Colores principales texto/fondo y controles en esos tres temas: **mínimo 5.29:1** de contraste en los pares auditados, arriba de umbral WCAG AA 4.5:1 para texto normal. La fuente define `minimumTouchTarget=48` y se usa en varios componentes (p. ej. enlaces, versículos, opciones). | **PASS parcial** visual a 100% y estático para pares de colores seleccionados. **No prueba** todos los fondos fotográficos, tamaños táctiles renderizados, lectores de pantalla ni modo oscuro del SO. La app no expone un cuarto tema oscuro en Ajustes: **OBS P2 de alcance/producto**, no defecto sin requisito. |
@@ -37,6 +39,13 @@ La inspección de `theme.ts` no reemplaza medición de contraste sobre fotograf�
 1. Obtener APK inequívoca desde `4d8b6e5` o commit posterior, ejecutar regresión E4-01/E4-02 con imágenes limpias 320×640 y 360×740 a fuente 100/160/200, especialmente 160%.
 2. Completar E4-03 a escala 160/200 con teclado en emulador no compartido, y evaluar controles táctiles/contraste real incluyendo modo oscuro del dispositivo si es requisito.
 3. Completar Android físico y revisión con usuario (E4-05), después aprobación visual autor (E4-06).
-4. Mantener sin correcciones hasta consolidar y priorizar hallazgos, sin cambiar RV1909 ni guía editorial v1.30. **QA5 intacta, PR #72 draft, sin merge ni publicación**.
+4. La conciliación y prioridades constan en la [matriz unificada](../MATRIZ_UNIFICADA_OBSERVACIONES_Y_PLAN_2026-11-11.md); aplicar correcciones mínimas autorizadas y retests sin cambiar RV1909 ni guía editorial v1.30. **QA5 intacta, PR #72 draft, sin merge ni publicación**.
 
 **Trazabilidad:** eventos `EV-H4-041…046`, incidentes `ENV-E4-001…003`; no se renumeran ni duplican `EV-H4-033` del teclado ni `EV-H4-009` de fuentes antiguas. Retests futuros conservan ID del caso, agregan `R7` o mayor y el commit exacto de la APK.
+
+## Conciliación de observaciones — E4
+
+- **CORR-02 / EV-H4-041 — P1 en APK anterior a `4d8b6e5`:** recorte a 160/200% en dos resoluciones es **un mismo defecto de layout**; probar APK con commit correctivo antes de otro cambio. No aprobar el parche solo por su código.
+- **CORR-01 / UX-E4-03:** control Guardar visible a 100% no invalida el FAIL de comportamiento de E3-01. Gboard 160/200% sigue pendiente por interrupción del emulador.
+- **DEC-01:** tema oscuro no es defecto confirmado sin requisito aprobado; es decisión de producto. **GATE-01:** Android físico, lector humano y autorización visual final siguen pendientes.
+- **ENV-01:** el ANR System UI y la interferencia de otra app son de infraestructura; aislar AVD antes de los retests, sin atribución a la APK.

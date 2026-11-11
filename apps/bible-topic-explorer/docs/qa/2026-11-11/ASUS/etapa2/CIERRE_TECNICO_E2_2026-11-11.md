@@ -1,6 +1,8 @@
 # Cierre técnico — Etapa 2: Lectura, comprensión y exploración
 
-**Fecha:** 11-11-2026 · **Sesión:** ASUS-UX-E2-R4 · **Work Item:** #67 · **PR:** #72 (draft) · **Estado:** CERRADA EN ALCANCE TÉCNICO DE QA, con observaciones P2 y límites de cobertura explícitos. No equivale a aprobación humana ni a aceptación comercial.
+> **Conciliación documental de 11-11-2026.** Se preservan capturas, pruebas e IDs originales. La [matriz unificada](../MATRIZ_UNIFICADA_OBSERVACIONES_Y_PLAN_2026-11-11.md) fija observaciones, prioridad, estado y plan. Esto corrige documentación, **no implementa código**.
+
+**Fecha:** 11-11-2026 · **Sesión:** ASUS-UX-E2-R4 · **Work Item:** #67 · **PR:** #72 (draft) · **Estado:** EJECUCIÓN TÉCNICA DE LOS SEIS CASOS COMPLETADA; experiencia humana no aprobada y observación P2 documentada. No equivale a aprobación humana ni a aceptación comercial.
 
 ## Identidad exacta y método
 - Equipo ASUS Windows 11, AVD exclusivo `Lago1_QA_ASUS_API36`, Android 16 / API36, `emulator-5580`, 320×640, densidad 160, `font_scale=1.0`. No se modificó zoom de navegador ni captura. Al terminar pruebas, mantener valor 1.0.
@@ -33,4 +35,10 @@
 - **P2 UX navegación:** al salir de una referencia bíblica vinculada desde la Guía pastoral, Atrás devuelve al inicio, no a la sección/capítulo anterior. Es una mejora futura; no se corrige ahora.
 - **Límite técnico explícito:** cada capítulo fue **abierto realmente** y los datos de 84 referencias fueron inspeccionados; no se certifica la semántica editorial de los párrafos ni el comportamiento de cada enlace individual. Esto queda disponible para auditoría puntual posterior si el autor lo solicita.
 - **Etapa 2: CERRADA EN ALCANCE TÉCNICO REMOTO**, sin P0/P1 observados en su navegación, con el pendiente de experiencia de lector real concentrado en la revisión humana de Etapa 4.
-- Handoff: congelar estos resultados y **avanzar exclusivamente a Etapa 3**, realizar sus seis casos y producir documento distinto; aplazar correcciones hasta consolidar la QA. PR #72 draft, no merge ni publicación.
+- Handoff vigente: E3 y E4 ya tienen actas. Seguir el **plan secuencial de correcciones mínimas y retests** de la matriz unificada. PR #72 draft, no merge ni publicación.
+
+## Conciliación de observaciones y anexo posterior — E2
+
+- **CORR-03 / EV-H4-029 — OBS P2 confirmada:** Atrás desde un pasaje devuelve a portada de Guía y pierde capítulo/scroll. Es **un problema** de conservación de contexto; volver a probar enlaces AT/NT de capítulos 1 y 16.
+- **E2-R5 integrado en el conjunto documental:** [comprobación estructural de 84 referencias RV1909](ANEXO_R5_VERIFICACION_84_REFERENCIAS_2026-11-11.md): **84/84 referencias y 387 posiciones de versículos válidas** en SQLite del checkout. Se abrieron 16/16 capítulos en Android, pero **no** se pulsaron 84 enlaces individualmente ni se efectuó lectura humana íntegra.
+- **ENV-E2-R5-001:** el bloqueo `System UI` es un incidente de infraestructura (ENV-01), **sin atribución causal** demostrada a la APK. El cierre técnico de lectura no es aceptación humana.

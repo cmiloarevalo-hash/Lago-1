@@ -1,5 +1,7 @@
 # Etapa 3 — Cierre de ejecución técnica: interacciones, datos y persistencia
 
+> **Conciliación documental de 11-11-2026.** Se preservan pruebas, capturas e IDs originales. La [matriz unificada](../MATRIZ_UNIFICADA_OBSERVACIONES_Y_PLAN_2026-11-11.md) fija observaciones, prioridades, estado y plan. Esto corrige documentación, **no implementa código**.
+
 **Fecha:** 11-11-2026 · **Sesión:** ASUS-UX-E3-R5 · **Work Item:** [#67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67) · **PR:** [#72](https://github.com/cmiloarevalo-hash/Lago-1/pull/72) (draft).
 
 **DICTAMEN:** `E3 EJECUCIÓN COMPLETADA / REWORK P1`. **Los seis casos están ejecutados con evidencia**, incluido el aviso entregado y la migración real, pero **la etapa NO obtiene aceptación técnica** hasta corregir y repetir la prueba fallida de guardado en un toque con Gboard abierto. No confundir fin de auditoría con aceptación de UX. No se hicieron correcciones, merge ni publicación.
@@ -14,7 +16,7 @@
 
 | Caso / evento | Procedimiento y esperado | Observado | Dictamen |
 |---|---|---|---|
-| `UX-E3-01` / `EV-H4-033` | Génesis 1:1, escribir dos párrafos con Gboard visible, pulsar **una sola vez** «Guardar nota», recuperar tras reiniciar | **Primer toque oculta Gboard, editor queda abierto; segundo toque confirma guardado.** La nota persiste y se ve desde Biblioteca, [antes](../ASUS_E3_note_two_lines.png), [primer toque](../ASUS_E3_note_first_save.png), [segundo toque](../ASUS_E3_note_second_save.png), [recuperada](../ASUS_E3_note_persisted.png). Reproducción independiente previa Android13/H4 también registrada. | **FAIL P1**, sin corregir; exige retest con APK construida desde parche posterior. Persistencia tras segundo toque **PASS**. |
+| `UX-E3-01` / `EV-H4-033` | Génesis 1:1, escribir dos párrafos con Gboard visible, pulsar **una sola vez** «Guardar nota», recuperar tras reiniciar | **Primer toque oculta Gboard, editor queda abierto; segundo toque confirma guardado.** La nota persiste y se ve desde Biblioteca, [antes](../ASUS_E3_note_two_lines.png), [primer toque](../ASUS_E3_note_first_save.png), [segundo toque](../ASUS_E3_note_second_save.png), [recuperada](../ASUS_E3_note_persisted.png). Reproducción independiente previa Android13/H4 también registrada. | **FAIL P1**, sin corregir; requiere **corrección específica del primer toque de Guardar nota** y retest con APK de SHA/commit conocido. El parche `4d8b6e5` corrige la cabecera Hoy, **no acredita** resolver notas. Persistencia tras segundo toque **PASS**. |
 | `UX-E3-02` / `EV-H4-034` | Diario: escribir y guardar reflexión, reiniciar, abrir para editar, introducir cambios, usar Atrás, verificar protección de borrador | «Diario ASUS QA» recuperado después de múltiples relanzamientos, dos párrafos intactos [listado](E3_02_diario_persistido_tras_reinicio.png), [editor](E3_02_diario_edicion_recuperada.png). Al modificar y pulsar Atrás aparece **«Descartar reflexión / Hay cambios sin guardar»** [confirmación](E3_02_diario_descartar_cambios.png); tras «DESCARTAR», el texto original permanece y el borrador no se guarda [listado](E3_02_diario_despues_de_descartar.png). | **PASS** de edición, persistencia y descarte protegido. |
 | `UX-E3-03` / `EV-H4-035` | Claridad de acciones Guardar / Cancelar en editor de Diario | En la pantalla de edición existen dos controles con el mismo texto **«Cancelar edición»**, uno como regreso y otro junto al botón Guardar. [Evidencia anterior](../../../2026-11-09/H4/ux_4_etapas/E03_diario_editor.png) y [registro anterior](../CHECKPOINT_UX_4_ETAPAS_2026-11-11.md). No se realizó estudio humano de confusión. | **OBS P2** de posible redundancia; sin fallo funcional confirmado. |
 | `UX-E3-04` / `EV-H4-036` | Iniciar plan «Encuentro con Jesús», marcar día 1, reiniciar app, recuperar progreso y siguiente lectura | Día 1 pasó a «Marcar como pendiente» al completar; tras reinicios, **«Tu progreso: 1 de 7 días» y «Continuar · día 2»**, con día 2 seleccionado [captura](E3_04_plan_progreso_tras_reinicio.png). Tarjeta de catálogo contiene texto «original en revisión editorial». | **PASS** de inicio, marcado y persistencia. **OBS editorial P2**, decidir después si el rótulo corresponde a usuario final, sin cambiar texto aprobado ahora. |
@@ -23,7 +25,7 @@
 
 ## Priorización para corrección posterior
 
-1. **P1 — Guardar nota con Gboard**: el primer toque no ejecuta guardado. Es fallo reproducible también en Android13. Mantener `REWORK` sin dar por aprobado E3; construir una APK nueva inequívoca desde HEAD correcto y repetir con teclado abierto y texto largo; observar confirmación desde el primer toque.
+1. **P1 — Guardar nota con Gboard**: el primer toque no ejecuta guardado. Es fallo reproducible también en Android13. Mantener `REWORK` sin dar por aprobado E3; tras corregir el flujo de Guardar, compilar APK de commit identificado y repetir con teclado abierto y texto largo; observar confirmación desde el primer toque.
 2. **P2 — Redundancia «Cancelar edición» en Diario**: revisar en consolidación UX; no cambiar por preferencia del supervisor sin evaluación humana.
 3. **P2 — Leyenda «texto original en revisión editorial» en plan**: consultar intención editorial y compatibilidad con publicación. No modificar contenido de los autores.
 4. **Recordatorios**: entrega verificada pero hora no necesariamente exacta por política de Android. No atribuir al código el retraso observado sin análisis de `AlarmManager` y condiciones de batería.
@@ -31,4 +33,10 @@
 
 ## Handoff ordenado
 
-La **Etapa 2 fue registrada y cerrada técnicamente** antes de comenzar la Etapa 3. Se completaron las ejecuciones de **todos los casos E3-01 a E3-06** antes de abrir informe, con P1 no resuelto, y se congelan sus pruebas y evidencias. **Próxima etapa secuencial:** E4 accesibilidad y revisión humana; cualquier corrección se hará después de la auditoría consolidada, no en paralelo. **PR #72 sigue draft** y no existe autorización de merge/publicación. Este cierre no es aceptación de la aplicación.
+La **Etapa 2 fue registrada y cerrada técnicamente** antes de comenzar la Etapa 3. Se completaron las ejecuciones de **todos los casos E3-01 a E3-06** antes de abrir informe, con P1 no resuelto, y se congelan sus pruebas y evidencias. **Continuidad vigente:** E4 cuenta con auditoría parcial; seguir CORR-01, validar CORR-02 del parche Hoy, y luego CORR-03, con la secuencia de la matriz unificada. **PR #72 sigue draft** y no existe autorización de merge/publicación. Este cierre no es aceptación de la aplicación.
+
+## Conciliación de observaciones — E3
+
+- **CORR-01 / EV-H4-033 — P1 reproducido:** primer toque de Guardar nota con Gboard abierto, observado en Android 13 y 16. La **visibilidad** del botón comprobada en E4-03 no valida su **funcionalidad**: **un único defecto**, no dos.
+- **CORR-05 / EV-H4-035 — OBS P2:** dos «Cancelar edición»; consultar comprensión humana antes de alterar. **CORR-06 / EV-H4-036 — DECISIÓN EDITORIAL P2:** rótulo «original en revisión editorial», sujeto a criterio del autor.
+- Recordatorio entregado y migración 1.11.0→1.11.2 siguen PASS **solo en lo ejecutado**. **La E3 no obtiene ACCEPT mientras CORR-01 permanezca abierto**.

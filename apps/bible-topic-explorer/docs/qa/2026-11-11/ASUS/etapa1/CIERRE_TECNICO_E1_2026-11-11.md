@@ -1,8 +1,10 @@
 # Etapa 1 — CIERRE TÉCNICO de descubrimiento y navegación
 
+> **Conciliación documental de 11-11-2026.** Se preservan capturas, pruebas e IDs originales. La [matriz unificada](../MATRIZ_UNIFICADA_OBSERVACIONES_Y_PLAN_2026-11-11.md) fija observaciones, prioridad, estado y plan. Esto corrige documentación, **no implementa código**.
+
 **Fecha:** 11-11-2026 · **Sesión:** `ASUS-UX-E1-R3` · **Work Item:** [#67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67) · **PR:** [#72](https://github.com/cmiloarevalo-hash/Lago-1/pull/72) (draft)
 
-**Decisión:** `ETAPA 1: CERRADA EN ALCANCE TÉCNICO REMOTO`. Ningún P0/P1 de navegación observado. **No equivale a aceptación UX por un usuario humano**: el caso original `UX-E1-05` exige una persona sin instrucciones y queda **PENDIENTE / trasladado a la única revisión humana consolidada `UX-E4-05`**, sin afirmarlo como aprobado. No iniciar correcciones ni reabrir E1 por asuntos visuales de la E4. Esta delimitación explícita atiende la instrucción humana de terminar y registrar una etapa antes de comenzar otra.
+**Decisión:** `E1: EJECUCIÓN TÉCNICA CERRADA (4/5 casos con PASS; E1-05 pendiente humano)`. Ningún P0/P1 de navegación observado. **No equivale a aceptación UX por un usuario humano**: el caso original `UX-E1-05` exige una persona sin instrucciones y queda **PENDIENTE / trasladado a la única revisión humana consolidada `UX-E4-05`**, sin afirmarlo como aprobado. La cabecera de Hoy se gestiona como CORR-02/E4; no duplicar el hallazgo en E1. Las futuras correcciones se prueban en su caso original. Esta delimitación explícita atiende la instrucción humana de terminar y registrar una etapa antes de comenzar otra.
 
 ## Baseline inequívoca
 
@@ -33,4 +35,10 @@ Se **descartó** una ejecución asistida de E1-05 en esta sesión porque el coma
 
 ## Handoff de continuidad
 
-**Etapa 1: cierre técnico archivado y congelado** en esta evidencia de GitHub. **Siguiente bloque único: Etapa 2 (UX-E2-01 a UX-E2-06)**, hasta terminar su propio informe; no iniciar E3/E4 ni modificaciones en paralelo. Ningún cierre técnico autoriza fusión, distribución ni aceptación del autor.
+**Etapa 1: cierre técnico archivado y congelado** en esta evidencia de GitHub. **Continuidad vigente:** E2 terminó su ejecución técnica, E3 tiene un P1 abierto y E4 continúa pendiente de aceptación; seguir el plan y los retests mínimos de la matriz unificada. Ningún cierre técnico autoriza fusión, distribución ni aceptación del autor.
+
+## Conciliación de observaciones — E1
+
+- **CORR-04 / EV-H4-024 — OBS P2:** el Diario necesita desplazamiento del menú en 320×640. Acceso funcional; confirmar impacto con usuario antes de rediseñar.
+- **GATE-01 / UX-E1-05 — PENDIENTE:** tres tareas con usuario sin instrucciones, vinculadas a E4-05; no se cuentan entre los 4 PASS técnicos.
+- No se observaron P0/P1 de navegación en estos recorridos. Las incidencias de cabecera y teclado pertenecen a E4/E3, respectivamente.
