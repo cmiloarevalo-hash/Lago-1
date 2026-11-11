@@ -25,7 +25,7 @@ import {AboutSourcesScreen} from './src/ui/screens/AboutSourcesScreen';
 import {JournalScreen} from './src/ui/screens/JournalScreen';
 import {SQLiteBibleRepository} from './src/db/sqliteBibleRepository';
 const bundledBible={assetId:require('./assets/data/bible-topic-explorer.db')};
-function AppContent(){const [navigation,setNavigation]=useState<NavigationState>(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState<TopicUiState>(initialTopicUiState);const libraryScrollY=useRef(0);const activitiesScrollY=useRef(0);const route=navigation.current;const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState<LocalPreferences>(defaultPreferences);
+function AppContent(){const [navigation,setNavigation]=useState<NavigationState>(initialNavigationState());const [drawerOpen,setDrawerOpen]=useState(false);const [topicUi,setTopicUi]=useState<TopicUiState>(initialTopicUiState);const libraryScrollY=useRef(0);const activitiesScrollY=useRef(0);const pastoralScrollY=useRef(0);const [pastoralExpanded,setPastoralExpanded]=useState<string|null>(null);const route=navigation.current;const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [preferences,setPreferences]=useState<LocalPreferences>(defaultPreferences);
  useEffect(()=>{let active=true;void persistence.getPreferences().then(value=>{if(active)setPreferences(value);}).catch(()=>{});return()=>{active=false;};},[persistence]); const navigate=useCallback((next:Route,recordHistory=true)=>{setNavigation(state=>nextNavigation(state,next,recordHistory));},[]);
  useEffect(()=>{if(Platform.OS!=='android')return;
   const follow=(response:Notifications.NotificationResponse)=>{
@@ -66,7 +66,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
 
  route.kind==='journal'?<JournalScreen theme={theme} onBack={back}/>:
  route.kind==='plans'?<PlansScreen theme={theme} appearance={mode} planId={route.planId} day={route.day} onBack={back} onSelect={(planId,day)=>navigate({...route,planId,day})} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
- route.kind==='pastoral'?<PastoralScreen theme={theme} onBack={back} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
+ route.kind==='pastoral'?<PastoralScreen theme={theme} onBack={back} initialExpanded={pastoralExpanded} restoreY={pastoralScrollY.current} onExpandedChange={setPastoralExpanded} onScrollY={y=>{pastoralScrollY.current=y;}} onRead={(b,c,s,e)=>{void openRange(b,c,s,e);}}/>:
  route.kind==='games'?<PastoralGamesScreen theme={theme} onBack={back}/>:
  route.kind==='soundcloud'?<SoundCloudScreen theme={theme} onBack={back}/>:
  route.kind==='settings'?<SettingsScreen theme={theme} onPreferencesChange={setPreferences}/>:
@@ -101,7 +101,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
       </ScrollView>
       <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
         <Pressable accessibilityRole="link" accessibilityLabel="Acerca de la guía pastoral, contacto y fuentes" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
-         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11.2</Text>
+         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11.3</Text>
          <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Fuentes y contacto ↗</Text>
         </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}

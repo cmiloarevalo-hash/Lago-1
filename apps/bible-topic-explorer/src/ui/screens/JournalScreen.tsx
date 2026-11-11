@@ -56,12 +56,11 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
   return Array.from(map.entries());
  },[entries]);
  return <Screen theme={theme}><KeyboardAvoidingView style={styles.flex} behavior={Platform.OS==='ios'?'padding':undefined}>
-  <ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" contentContainerStyle={styles.stack}>
+  <ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" contentContainerStyle={styles.stack}>
    <Action theme={theme} variant="tertiary" label={editing?'← Cancelar edición':'← Volver'} onPress={editing?cancelEditing:onBack}/>
    <ScreenTitle theme={theme}>{editing?'Mi diario · edición':'Mi diario'}</ScreenTitle>
    {editing?<View style={styles.editorActions}>
      <Action theme={theme} label="Guardar reflexión" onPress={()=>{void save();}}/>
-     <Action theme={theme} variant="tertiary" label="Cancelar edición" onPress={cancelEditing}/>
    </View>:<>
      <Body theme={theme} muted>Un espacio personal para recordar lo que aprendiste, oraste o viviste. Las reflexiones se ordenan por año y fecha.</Body>
      <Action theme={theme} label="+ Escribir reflexión" onPress={newEntry}/>

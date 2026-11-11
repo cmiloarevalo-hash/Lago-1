@@ -3,7 +3,7 @@
     "name": "Biblia Reina-Valera 1909 - Guía Pastoral",
     "slug": "bible-topic-explorer",
     "scheme": "guiapastoralbiblia",
-    "version": "1.11.2",
+    "version": "1.11.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -12,7 +12,7 @@
     },
     "android": {
       "package": "com.lago.bibletopicexplorer",
-      "versionCode": 14,
+      "versionCode": 15,
       "adaptiveIcon": {
         "backgroundColor": "#FFF9F7",
         "foregroundImage": "./assets/android-icon-foreground.png",

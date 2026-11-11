@@ -44,7 +44,7 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
      <Image source={art.botanical} accessibilityIgnoresInvertColors style={styles.bookLeaves}/><View style={[styles.highlightPill,{backgroundColor:'rgba(255,255,255,0.91)'}]}><Text style={[styles.pillText,{color:theme.primaryText}]}>{index===0?'✦ DESTACADO':'✧ 7 DÍAS'}</Text></View>
     </ImageBackground>
     <View style={styles.planText}><Text style={[styles.planTitle,{color:theme.text}]}>{p.title}</Text><Body theme={theme} muted>{p.intro}</Body>
-     <Text style={[styles.caption,{color:theme.secondary}]}>7 lecturas · texto original en revisión editorial</Text>
+     <Text style={[styles.caption,{color:theme.secondary}]}>7 lecturas · Biblia Reina-Valera 1909</Text>
      <Action theme={theme} label={'Comenzar plan  →'} onPress={()=>onSelect(p.id)}/>
     </View>
    </View>)}

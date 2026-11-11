@@ -66,7 +66,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const shareSelectedVerse=async()=>{if(!activeVerse)return;try{await Share.share({title:activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel,message:verseShareText(activeVerse)});setActiveVerse(null);}catch{setSaveStatus('No fue posible abrir las opciones para compartir.');}};
 
   if (reader) { const canonicalName = verses[0]?.bookName ?? reader.book; const ref = canonicalName + ' ' + reader.chapter + (reader.sourceVerseLabel||reader.verse ? ':' + (reader.sourceVerseLabel??reader.verse) + (reader.verseEnd&&reader.verse&&reader.verseEnd>reader.verse?'–'+reader.verseEnd:'') : ''); const atFirstChapter = reader.chapter <= 1; const atLastChapter = chapterCount > 0 && reader.chapter >= chapterCount;
-    return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Volver a Explorar" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}>
+    return <Screen theme={theme}><ScrollView ref={scrollRef} keyboardShouldPersistTaps="always" contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Volver a Explorar" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}>
   <Metadata theme={theme}>LA PALABRA · REINA-VALERA 1909</Metadata>
   <Text accessibilityRole="header" style={[styles.chapterTitle,{color:theme.text}]}>{canonicalName} {reader.chapter}</Text>
   <View style={[styles.readerUnderline,{backgroundColor:theme.primary}]}/>
@@ -154,7 +154,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
             <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Quitar referencia guardada':'Guardar referencia'}
               theme={theme} variant="secondary" onPress={()=>{if(activeVerse)void toggleSaved(activeVerse);setActiveVerse(null);}}/>
             </>}
-            {verseAction?<ScrollView keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" contentContainerStyle={styles.optionsContent}>
+            {verseAction?<ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" contentContainerStyle={styles.optionsContent}>
               {verseAction==='note'?<>
                 {editingNote?<View style={styles.editorSection}>
                   <Text style={[typography.label,{color:theme.primaryText}]}>Tu nota privada</Text>
