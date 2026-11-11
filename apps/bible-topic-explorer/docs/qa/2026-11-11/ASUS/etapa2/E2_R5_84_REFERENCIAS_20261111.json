@@ -1,0 +1,1274 @@
+{
+  "date": "2026-11-11",
+  "source": "pastoralTopics.ts and local bible-topic-explorer.db",
+  "scope": "full 84 reference interval existence, not 84 physical UI taps",
+  "chapterCount": 16,
+  "refCount": 84,
+  "at": 32,
+  "nt": 52,
+  "requestedVerseSlots": 387,
+  "passed": 84,
+  "failed": [],
+  "entries": [
+    {
+      "chapter": 1,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Salmo 119:105",
+      "book": "Salmos",
+      "bookChapter": 119,
+      "requested": [
+        105,
+        105
+      ],
+      "available": 176,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 1,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Nehemías 8:8",
+      "book": "Nehemías",
+      "bookChapter": 8,
+      "requested": [
+        8,
+        8
+      ],
+      "available": 18,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 1,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Lucas 24:44–45",
+      "book": "Lucas",
+      "bookChapter": 24,
+      "requested": [
+        44,
+        45
+      ],
+      "available": 53,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 1,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Mateo 22:29",
+      "book": "Mateo",
+      "bookChapter": 22,
+      "requested": [
+        29,
+        29
+      ],
+      "available": 46,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 2,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Jeremías 31:31–34",
+      "book": "Jeremías",
+      "bookChapter": 31,
+      "requested": [
+        31,
+        34
+      ],
+      "available": 40,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 2,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Éxodo 24:8",
+      "book": "Éxodo",
+      "bookChapter": 24,
+      "requested": [
+        8,
+        8
+      ],
+      "available": 18,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 2,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Mateo 5:17",
+      "book": "Mateo",
+      "bookChapter": 5,
+      "requested": [
+        17,
+        17
+      ],
+      "available": 48,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 2,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Lucas 22:20",
+      "book": "Lucas",
+      "bookChapter": 22,
+      "requested": [
+        20,
+        20
+      ],
+      "available": 71,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 3,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Deuteronomio 8:3",
+      "book": "Deuteronomio",
+      "bookChapter": 8,
+      "requested": [
+        3,
+        3
+      ],
+      "available": 20,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 3,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Éxodo 20:13",
+      "book": "Éxodo",
+      "bookChapter": 20,
+      "requested": [
+        13,
+        13
+      ],
+      "available": 26,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 3,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Lucas 4:1–13",
+      "book": "Lucas",
+      "bookChapter": 4,
+      "requested": [
+        1,
+        13
+      ],
+      "available": 44,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 3,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Mateo 5:17",
+      "book": "Mateo",
+      "bookChapter": 5,
+      "requested": [
+        17,
+        17
+      ],
+      "available": 48,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 3,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Mateo 5:21–22",
+      "book": "Mateo",
+      "bookChapter": 5,
+      "requested": [
+        21,
+        22
+      ],
+      "available": 48,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 4,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Salmo 103:8–13",
+      "book": "Salmos",
+      "bookChapter": 103,
+      "requested": [
+        8,
+        13
+      ],
+      "available": 22,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 4,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Oseas 11:1–4",
+      "book": "Oseas",
+      "bookChapter": 11,
+      "requested": [
+        1,
+        4
+      ],
+      "available": 11,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 4,
+      "theme": 1,
+      "testament": "AT",
+      "label": "Génesis 1:27",
+      "book": "Génesis",
+      "bookChapter": 1,
+      "requested": [
+        27,
+        27
+      ],
+      "available": 31,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 4,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Lucas 15:1–3",
+      "book": "Lucas",
+      "bookChapter": 15,
+      "requested": [
+        1,
+        3
+      ],
+      "available": 32,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 4,
+      "theme": 1,
+      "testament": "NT",
+      "label": "Lucas 15:11–32",
+      "book": "Lucas",
+      "bookChapter": 15,
+      "requested": [
+        11,
+        32
+      ],
+      "available": 32,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 5,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Deuteronomio 6:4–5",
+      "book": "Deuteronomio",
+      "bookChapter": 6,
+      "requested": [
+        4,
+        5
+      ],
+      "available": 25,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 5,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Levítico 19:18",
+      "book": "Levítico",
+      "bookChapter": 19,
+      "requested": [
+        18,
+        18
+      ],
+      "available": 37,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 5,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Marcos 12:28–34",
+      "book": "Marcos",
+      "bookChapter": 12,
+      "requested": [
+        28,
+        34
+      ],
+      "available": 44,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 5,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 10:25–37",
+      "book": "Lucas",
+      "bookChapter": 10,
+      "requested": [
+        25,
+        37
+      ],
+      "available": 42,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 5,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Mateo 14:14",
+      "book": "Mateo",
+      "bookChapter": 14,
+      "requested": [
+        14,
+        14
+      ],
+      "available": 36,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 5,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Juan 13:34–35",
+      "book": "Juan",
+      "bookChapter": 13,
+      "requested": [
+        34,
+        35
+      ],
+      "available": 38,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 6,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Miqueas 7:18–19",
+      "book": "Miqueas",
+      "bookChapter": 7,
+      "requested": [
+        18,
+        19
+      ],
+      "available": 20,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 6,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Salmo 103:8–12",
+      "book": "Salmos",
+      "bookChapter": 103,
+      "requested": [
+        8,
+        12
+      ],
+      "available": 22,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 6,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Mateo 18:21–35",
+      "book": "Mateo",
+      "bookChapter": 18,
+      "requested": [
+        21,
+        35
+      ],
+      "available": 35,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 6,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 15:11–32",
+      "book": "Lucas",
+      "bookChapter": 15,
+      "requested": [
+        11,
+        32
+      ],
+      "available": 32,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 6,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 23:34",
+      "book": "Lucas",
+      "bookChapter": 23,
+      "requested": [
+        34,
+        34
+      ],
+      "available": 56,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 6,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 17:3–4",
+      "book": "Lucas",
+      "bookChapter": 17,
+      "requested": [
+        3,
+        4
+      ],
+      "available": 37,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Salmo 23:4",
+      "book": "Salmos",
+      "bookChapter": 23,
+      "requested": [
+        4,
+        4
+      ],
+      "available": 6,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Salmo 42:5–6",
+      "book": "Salmos",
+      "bookChapter": 42,
+      "requested": [
+        5,
+        6
+      ],
+      "available": 11,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Marcos 8:31",
+      "book": "Marcos",
+      "bookChapter": 8,
+      "requested": [
+        31,
+        31
+      ],
+      "available": 38,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Marcos 10:33–45",
+      "book": "Marcos",
+      "bookChapter": 10,
+      "requested": [
+        33,
+        45
+      ],
+      "available": 52,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Marcos 14:32–42",
+      "book": "Marcos",
+      "bookChapter": 14,
+      "requested": [
+        32,
+        42
+      ],
+      "available": 72,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 1:26–33",
+      "book": "Lucas",
+      "bookChapter": 1,
+      "requested": [
+        26,
+        33
+      ],
+      "available": 80,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 7,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 2:34–35",
+      "book": "Lucas",
+      "bookChapter": 2,
+      "requested": [
+        34,
+        35
+      ],
+      "available": 52,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 8,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Salmo 103:1–5",
+      "book": "Salmos",
+      "bookChapter": 103,
+      "requested": [
+        1,
+        5
+      ],
+      "available": 22,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 8,
+      "theme": 2,
+      "testament": "AT",
+      "label": "Proverbios 30:8–9",
+      "book": "Proverbios",
+      "bookChapter": 30,
+      "requested": [
+        8,
+        9
+      ],
+      "available": 33,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 8,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Lucas 11:1–4",
+      "book": "Lucas",
+      "bookChapter": 11,
+      "requested": [
+        1,
+        4
+      ],
+      "available": 54,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 8,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Mateo 6:9–13",
+      "book": "Mateo",
+      "bookChapter": 6,
+      "requested": [
+        9,
+        13
+      ],
+      "available": 34,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 8,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Marcos 1:35",
+      "book": "Marcos",
+      "bookChapter": 1,
+      "requested": [
+        35,
+        35
+      ],
+      "available": 45,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 8,
+      "theme": 2,
+      "testament": "NT",
+      "label": "Marcos 11:25",
+      "book": "Marcos",
+      "bookChapter": 11,
+      "requested": [
+        25,
+        25
+      ],
+      "available": 33,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 9,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Isaías 61:1–2",
+      "book": "Isaías",
+      "bookChapter": 61,
+      "requested": [
+        1,
+        2
+      ],
+      "available": 11,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 9,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Lucas 4:16–21",
+      "book": "Lucas",
+      "bookChapter": 4,
+      "requested": [
+        16,
+        21
+      ],
+      "available": 44,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 9,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Marcos 1:14–15",
+      "book": "Marcos",
+      "bookChapter": 1,
+      "requested": [
+        14,
+        15
+      ],
+      "available": 45,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 9,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Mateo 11:28",
+      "book": "Mateo",
+      "bookChapter": 11,
+      "requested": [
+        28,
+        28
+      ],
+      "available": 30,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 10,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Isaías 58:6–10",
+      "book": "Isaías",
+      "bookChapter": 58,
+      "requested": [
+        6,
+        10
+      ],
+      "available": 14,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 10,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Deuteronomio 15:7–11",
+      "book": "Deuteronomio",
+      "bookChapter": 15,
+      "requested": [
+        7,
+        11
+      ],
+      "available": 23,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 10,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Marcos 6:30–44",
+      "book": "Marcos",
+      "bookChapter": 6,
+      "requested": [
+        30,
+        44
+      ],
+      "available": 56,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 10,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Mateo 14:14",
+      "book": "Mateo",
+      "bookChapter": 14,
+      "requested": [
+        14,
+        14
+      ],
+      "available": 36,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 11,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Miqueas 6:8",
+      "book": "Miqueas",
+      "bookChapter": 6,
+      "requested": [
+        8,
+        8
+      ],
+      "available": 16,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 11,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Isaías 42:1–4",
+      "book": "Isaías",
+      "bookChapter": 42,
+      "requested": [
+        1,
+        4
+      ],
+      "available": 25,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 11,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Juan 13:1–17",
+      "book": "Juan",
+      "bookChapter": 13,
+      "requested": [
+        1,
+        17
+      ],
+      "available": 38,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 11,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Marcos 10:42–45",
+      "book": "Marcos",
+      "bookChapter": 10,
+      "requested": [
+        42,
+        45
+      ],
+      "available": 52,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 12,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Salmo 34:14",
+      "book": "Salmos",
+      "bookChapter": 34,
+      "requested": [
+        14,
+        14
+      ],
+      "available": 22,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 12,
+      "theme": 3,
+      "testament": "AT",
+      "label": "Proverbios 15:1",
+      "book": "Proverbios",
+      "bookChapter": 15,
+      "requested": [
+        1,
+        1
+      ],
+      "available": 33,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 12,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Mateo 5:9",
+      "book": "Mateo",
+      "bookChapter": 5,
+      "requested": [
+        9,
+        9
+      ],
+      "available": 48,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 12,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Mateo 5:23–24",
+      "book": "Mateo",
+      "bookChapter": 5,
+      "requested": [
+        23,
+        24
+      ],
+      "available": 48,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 12,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Lucas 22:47–51",
+      "book": "Lucas",
+      "bookChapter": 22,
+      "requested": [
+        47,
+        51
+      ],
+      "available": 71,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 12,
+      "theme": 3,
+      "testament": "NT",
+      "label": "Juan 18:10",
+      "book": "Juan",
+      "bookChapter": 18,
+      "requested": [
+        10,
+        10
+      ],
+      "available": 40,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 13,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Isaías 53:4–6",
+      "book": "Isaías",
+      "bookChapter": 53,
+      "requested": [
+        4,
+        6
+      ],
+      "available": 12,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 13,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Salmo 22:1",
+      "book": "Salmos",
+      "bookChapter": 22,
+      "requested": [
+        1,
+        1
+      ],
+      "available": 31,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 13,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Lucas 19:1–10",
+      "book": "Lucas",
+      "bookChapter": 19,
+      "requested": [
+        1,
+        10
+      ],
+      "available": 48,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 13,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Marcos 10:45",
+      "book": "Marcos",
+      "bookChapter": 10,
+      "requested": [
+        45,
+        45
+      ],
+      "available": 52,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 13,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Marcos 15:21–39",
+      "book": "Marcos",
+      "bookChapter": 15,
+      "requested": [
+        21,
+        39
+      ],
+      "available": 47,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 13,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Hebreos 7:25",
+      "book": "Hebreos",
+      "bookChapter": 7,
+      "requested": [
+        25,
+        25
+      ],
+      "available": 28,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 14,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Salmo 16:8–11",
+      "book": "Salmos",
+      "bookChapter": 16,
+      "requested": [
+        8,
+        11
+      ],
+      "available": 11,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 14,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Lucas 24:1–35",
+      "book": "Lucas",
+      "bookChapter": 24,
+      "requested": [
+        1,
+        35
+      ],
+      "available": 53,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 14,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Hechos 2:25–32",
+      "book": "Hechos",
+      "bookChapter": 2,
+      "requested": [
+        25,
+        32
+      ],
+      "available": 47,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 15,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Jeremías 17:7–8",
+      "book": "Jeremías",
+      "bookChapter": 17,
+      "requested": [
+        7,
+        8
+      ],
+      "available": 27,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 15,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Salmo 1:1–3",
+      "book": "Salmos",
+      "bookChapter": 1,
+      "requested": [
+        1,
+        3
+      ],
+      "available": 6,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 15,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Juan 15:1–12",
+      "book": "Juan",
+      "bookChapter": 15,
+      "requested": [
+        1,
+        12
+      ],
+      "available": 27,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 15,
+      "theme": 4,
+      "testament": "NT",
+      "label": "1 Juan 1:9",
+      "book": "1 Juan",
+      "bookChapter": 1,
+      "requested": [
+        9,
+        9
+      ],
+      "available": 10,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 15,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Hebreos 7:25",
+      "book": "Hebreos",
+      "bookChapter": 7,
+      "requested": [
+        25,
+        25
+      ],
+      "available": 28,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Levítico 19:34",
+      "book": "Levítico",
+      "bookChapter": 19,
+      "requested": [
+        34,
+        34
+      ],
+      "available": 37,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Proverbios 3:27–28",
+      "book": "Proverbios",
+      "bookChapter": 3,
+      "requested": [
+        27,
+        28
+      ],
+      "available": 35,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "AT",
+      "label": "Génesis 1:27",
+      "book": "Génesis",
+      "bookChapter": 1,
+      "requested": [
+        27,
+        27
+      ],
+      "available": 31,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Juan 13:34–35",
+      "book": "Juan",
+      "bookChapter": 13,
+      "requested": [
+        34,
+        35
+      ],
+      "available": 38,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Juan 14:6",
+      "book": "Juan",
+      "bookChapter": 14,
+      "requested": [
+        6,
+        6
+      ],
+      "available": 31,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Mateo 7:24–27",
+      "book": "Mateo",
+      "bookChapter": 7,
+      "requested": [
+        24,
+        27
+      ],
+      "available": 29,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Santiago 2:14–17",
+      "book": "Santiago",
+      "bookChapter": 2,
+      "requested": [
+        14,
+        17
+      ],
+      "available": 26,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Mateo 12:50",
+      "book": "Mateo",
+      "bookChapter": 12,
+      "requested": [
+        50,
+        50
+      ],
+      "available": 50,
+      "missing": [],
+      "passed": true
+    },
+    {
+      "chapter": 16,
+      "theme": 4,
+      "testament": "NT",
+      "label": "Juan 20:17",
+      "book": "Juan",
+      "bookChapter": 20,
+      "requested": [
+        17,
+        17
+      ],
+      "available": 31,
+      "missing": [],
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "chapters": 16,
+  "themeSizes": [
+    4,
+    4,
+    4,
+    4
+  ],
+  "paragraphs": 80,
+  "allQuestions": 16,
+  "allParagraphs": 16,
+  "questionKinds": {
+    "introspection": 8,
+    "debate": 8
+  },
+  "missing": []
+}
