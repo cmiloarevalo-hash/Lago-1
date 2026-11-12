@@ -100,7 +100,7 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   expect(app).toContain('>Biblia - Guía pastoral</Text>');
   expect(app).toContain('>Reina Valera 1909</Text>');
   expect(app).toContain('accessibilityLabel="Biblia - Guía pastoral Reina Valera 1909"');
-  expect(app).toContain("drawerBrand:{fontFamily:'serif',fontSize:27");
+  expect(app).toContain("drawerBrand:{fontFamily:'serif',fontSize:24");
   expect(app).toContain('accessibilityLabel="Abrir ajustes"');
   expect(app).not.toContain('>Ajustes</Text></Pressable>');
  });
