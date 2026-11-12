@@ -71,15 +71,15 @@ jobs:
             sleep $((attempt * 15))
           done
       - name: Stage APK
-        run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.4-REVISION.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.5-REVISION.apk
       - name: SHA-256 candidate APK
-        run: sha256sum Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.4-REVISION.apk | tee Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.4-REVISION.apk.sha256
+        run: sha256sum Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.5-REVISION.apk | tee Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.5-REVISION.apk.sha256
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Biblia-Guia-Pastoral-RV1909-v1.11.4-APK
+          name: Biblia-Guia-Pastoral-RV1909-v1.11.5-APK
           path: |
-            apps/bible-topic-explorer/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.4-REVISION.apk
-            apps/bible-topic-explorer/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.4-REVISION.apk.sha256
+            apps/bible-topic-explorer/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.5-REVISION.apk
+            apps/bible-topic-explorer/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.5-REVISION.apk.sha256
           if-no-files-found: error
           retention-days: 90

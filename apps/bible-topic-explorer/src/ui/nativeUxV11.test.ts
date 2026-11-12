@@ -28,8 +28,8 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   const config=read('app.json');
   expect(config).toContain('Biblia - Guía pastoral Reina Valera 1909');
   expect(config).toContain('"softwareKeyboardLayoutMode": "resize"');
-  expect(config).toContain('"version": "1.11.4"');
-  expect(config).toContain('"versionCode": 16');
+  expect(config).toContain('"version": "1.11.5"');
+  expect(config).toContain('"versionCode": 17');
  });
  it('adds SQLite metadata without destructive changes to corpus or earlier user notes',async()=>{
   const db={
@@ -63,9 +63,17 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   const today=read('src/ui/screens/TodayScreen.tsx');
   expect(today).toContain('useWindowDimensions().fontScale>=1.3');
   expect(today).toContain('largeSystemText&&styles.heroLargeText');
-  expect(today).toContain("heroLargeText:{height:'auto',minHeight:175");
+  expect(today).toContain("heroLargeText:{height:'auto',minHeight:195");
   expect(today).toContain('largeSystemText&&styles.overlapLargeText');
   expect(today).toContain('overlapLargeText:{marginTop:0}');
+ });
+ it('keeps the Hoy greeting legible without colliding subtitle on the landscape',()=>{
+  const today=read('src/ui/screens/TodayScreen.tsx');
+  expect(today).not.toContain('Una pausa para que la Palabra ilumine tu día.');
+  expect(today).toContain("backgroundColor:'rgba(12,27,40,.84)'");
+  expect(today).toContain("styles.heroTitle,{color:'#FFFFFF'}");
+  expect(today).toContain('hero:{height:195,');
+  expect(today).toContain('largeSystemText&&styles.overlapLargeText');
  });
  it('keeps Guardar nota permanently above the editor and protects unsaved text',()=>{
   const bible=read('src/ui/screens/BibleScreen.tsx');

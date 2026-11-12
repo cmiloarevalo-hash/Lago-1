@@ -26,9 +26,8 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
   <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,largeSystemText&&styles.heroLargeText,{borderColor:theme.border}]}>
    <View style={[styles.heroScrim,{backgroundColor:appearance==='coral'?'rgba(255,248,247,.13)':appearance==='natural'?'rgba(245,242,224,.09)':'rgba(235,242,249,.08)'}]}/>
    <View style={styles.heroCopy}>
-    <Text style={[styles.kicker,{color:theme.primaryText}]}>REINA VALERA 1909</Text>
-    <Text accessibilityRole="header" style={[styles.heroTitle,{color:theme.text}]}>Qué bueno que estás aquí.</Text>
-    <Text style={[styles.heroSubtitle,{color:theme.text}]}>Una pausa para que la Palabra ilumine tu día.</Text>
+    <Text style={[styles.kicker,{color:'#F3F8FF'}]}>REINA VALERA 1909</Text>
+    <Text accessibilityRole="header" style={[styles.heroTitle,{color:'#FFFFFF'}]}>Qué bueno que estás aquí.</Text>
    </View>
   </ImageBackground>
   <View style={[styles.overlap,largeSystemText&&styles.overlapLargeText,{shadowColor:theme.primary}]}>
@@ -57,13 +56,12 @@ const styles=StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxxl+12},
  prototypeNote:{minHeight:48,paddingHorizontal:2,flexDirection:'row',alignItems:'center',flexWrap:'wrap',justifyContent:'space-between',gap:6},
  prototypeText:{fontSize:12,lineHeight:18},prototypeLink:{fontSize:12,fontWeight:'700'},
- hero:{height:175,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
- heroLargeText:{height:'auto',minHeight:175,paddingBottom:spacing.md},
+ hero:{height:195,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
+ heroLargeText:{height:'auto',minHeight:195,paddingBottom:spacing.md},
  heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.21)'},
- heroCopy:{paddingHorizontal:19,paddingTop:18,maxWidth:290,gap:7},
+ heroCopy:{marginTop:12,marginLeft:12,paddingHorizontal:12,paddingVertical:10,maxWidth:280,alignSelf:'flex-start',gap:5,borderRadius:14,backgroundColor:'rgba(12,27,40,.84)'},
  kicker:{fontSize:11,fontWeight:'800',letterSpacing:1.35},
  heroTitle:{fontSize:30,lineHeight:35,fontFamily:'serif',fontWeight:'700',maxWidth:255},
- heroSubtitle:{fontSize:14,lineHeight:20,maxWidth:238,fontWeight:'500',alignSelf:'flex-start',backgroundColor:'rgba(255,251,247,.68)',borderRadius:10,paddingHorizontal:5,paddingVertical:2},
  overlap:{marginTop:-54,marginHorizontal:5,elevation:5,shadowOffset:{width:0,height:5},shadowOpacity:.12,shadowRadius:12},
  overlapLargeText:{marginTop:0},
  verseTop:{flexDirection:'row',flexWrap:'wrap',justifyContent:'space-between',gap:6,alignItems:'center'},

@@ -101,7 +101,7 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
       </ScrollView>
       <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
         <Pressable accessibilityRole="link" accessibilityLabel="Acerca de la guía pastoral, contacto y fuentes" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
-         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11.4</Text>
+         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.11.5</Text>
          <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Fuentes y contacto ↗</Text>
         </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}
