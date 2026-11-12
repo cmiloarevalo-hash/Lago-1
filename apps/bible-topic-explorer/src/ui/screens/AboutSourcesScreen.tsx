@@ -31,7 +31,7 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
    <Text style={[styles.h2,{color:theme.text}]}>Un recurso para caminar en comunidad</Text>
    <Body theme={theme}>Proyecto sin fines de lucro creado como ayuda práctica para jóvenes y líderes de comunidades creyentes en Jesucristo. Facilita la lectura de la Biblia, la reflexión, el aprendizaje y el acompañamiento comunitario para conocer las enseñanzas de Jesús y seguir sus pasos en la vida cotidiana.</Body>
   </View>
-  <Body theme={theme} muted>Versión 1.11.4 · Desarrollador: Camilo Arévalo</Body>
+  <Body theme={theme} muted>Versión 1.11.6 · Desarrollador: Camilo Arévalo</Body>
   <Pressable accessibilityRole="link" accessibilityLabel="Enviar correo a apkcristianas@gmail.com"
     onPress={()=>{void Linking.openURL('mailto:apkcristianas@gmail.com?subject=Biblia%20Reina-Valera%201909').catch(()=>setError(true));}}
     style={[styles.link,{borderBottomColor:theme.border}]}>
