@@ -26,7 +26,7 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
   <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,largeSystemText&&styles.heroLargeText,{borderColor:theme.border}]}>
    <View style={[styles.heroScrim,{backgroundColor:appearance==='coral'?'rgba(255,248,247,.13)':appearance==='natural'?'rgba(245,242,224,.09)':'rgba(235,242,249,.08)'}]}/>
    <View style={styles.heroCopy}>
-    <Text style={[styles.kicker,{color:theme.primaryText}]}>BIBLIA REINA-VALERA 1909</Text>
+    <Text style={[styles.kicker,{color:theme.primaryText}]}>REINA VALERA 1909</Text>
     <Text accessibilityRole="header" style={[styles.heroTitle,{color:theme.text}]}>Qué bueno que estás aquí.</Text>
     <Text style={[styles.heroSubtitle,{color:theme.text}]}>Una pausa para que la Palabra ilumine tu día.</Text>
    </View>

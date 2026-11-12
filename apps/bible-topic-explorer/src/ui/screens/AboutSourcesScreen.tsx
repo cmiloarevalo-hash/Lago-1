@@ -26,12 +26,12 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
  const [error,setError]=useState(false);
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Volver" onPress={onBack}/>
-  <Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Biblia Reina-Valera 1909 - Guía Pastoral</Text>
+  <View accessibilityLabel="Biblia - Guía pastoral Reina Valera 1909"><Text style={[styles.h1,{color:theme.text}]} accessibilityRole="header">Biblia - Guía pastoral</Text><Text style={[styles.h1Bible,{color:theme.text}]}>Reina Valera 1909</Text></View>
   <View style={[styles.intro,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <Text style={[styles.h2,{color:theme.text}]}>Un recurso para caminar en comunidad</Text>
    <Body theme={theme}>Proyecto sin fines de lucro creado como ayuda práctica para jóvenes y líderes de comunidades creyentes en Jesucristo. Facilita la lectura de la Biblia, la reflexión, el aprendizaje y el acompañamiento comunitario para conocer las enseñanzas de Jesús y seguir sus pasos en la vida cotidiana.</Body>
   </View>
-  <Body theme={theme} muted>Versión 1.11.2 · Desarrollador: Camilo Arévalo</Body>
+  <Body theme={theme} muted>Versión 1.11.4 · Desarrollador: Camilo Arévalo</Body>
   <Pressable accessibilityRole="link" accessibilityLabel="Enviar correo a apkcristianas@gmail.com"
     onPress={()=>{void Linking.openURL('mailto:apkcristianas@gmail.com?subject=Biblia%20Reina-Valera%201909').catch(()=>setError(true));}}
     style={[styles.link,{borderBottomColor:theme.border}]}>
@@ -55,7 +55,7 @@ export function AboutSourcesScreen({theme,onBack}:{theme:Theme;onBack:()=>void})
 }
 const styles=StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:60},
- h1:{fontFamily:'serif',fontSize:31,fontWeight:'700'},
+ h1:{fontSize:23,lineHeight:29,fontWeight:'700'},h1Bible:{fontFamily:'serif',fontSize:26,lineHeight:33,fontWeight:'700'},
  h2:{fontFamily:'serif',fontSize:21,fontWeight:'700',marginTop:10},
  intro:{padding:16,borderRadius:18,borderWidth:.7,gap:9},
  sources:{gap:5},

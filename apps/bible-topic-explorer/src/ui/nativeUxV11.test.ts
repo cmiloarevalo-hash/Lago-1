@@ -26,10 +26,10 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
  it('keeps the same pastoral material by branching from v1.10 rather than rejected v1.10.1',()=>{
   expect(read('src/product/pastoralTopics.ts')).toContain('El camino de Jesús');
   const config=read('app.json');
-  expect(config).toContain('Biblia Reina-Valera 1909 - Guía Pastoral');
+  expect(config).toContain('Biblia - Guía pastoral Reina Valera 1909');
   expect(config).toContain('"softwareKeyboardLayoutMode": "resize"');
-  expect(config).toContain('"version": "1.11.3"');
-  expect(config).toContain('"versionCode": 15');
+  expect(config).toContain('"version": "1.11.4"');
+  expect(config).toContain('"versionCode": 16');
  });
  it('adds SQLite metadata without destructive changes to corpus or earlier user notes',async()=>{
   const db={
@@ -97,7 +97,9 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   expect(journal).toContain('{!editing?<>');
   expect(journal).toContain('Descartar reflexión');
   const app=read('App.tsx');
-  expect(app).toContain('>Biblia RV1909</Text>');
+  expect(app).toContain('>Biblia - Guía pastoral</Text>');
+  expect(app).toContain('>Reina Valera 1909</Text>');
+  expect(app).toContain('accessibilityLabel="Biblia - Guía pastoral Reina Valera 1909"');
   expect(app).toContain("drawerBrand:{fontFamily:'serif',fontSize:27");
   expect(app).toContain('accessibilityLabel="Abrir ajustes"');
   expect(app).not.toContain('>Ajustes</Text></Pressable>');
