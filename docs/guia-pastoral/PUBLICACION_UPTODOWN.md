@@ -1,5 +1,12 @@
 # Guía pastoral - Biblia — ficha de Uptodown y procedimiento de publicación
 
+> **ACTUALIZACIÓN VIGENTE — 13-11-2026 (sobre el historial del 09-11-2026).**
+> **DESARROLLO DE LA APLICACIÓN COMPLETADO Y APROBADO EXPRESAMENTE POR EL AUTOR:** Android **1.11.6 / versionCode 18**, paquete `com.lago.bibletopicexplorer`. La base **PR #68** y versión final **PR #73** fueron fusionadas a `main`, commit `090c054b9b83a7d47c5a8d4779ebae67726af9e8`. El PR #66 (guía v1.0.1) fue cerrado por obsoleto, sin merge, y el PR #72 / 1.11.5 permanece descartado.
+> **EVIDENCIA DEL APK APROBADO:** `Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk`, 82.988.420 bytes, SHA-256 `fd384c32a5d82bc199390ff265c4d6cc66d8aad2da70a6996fe9ca5bf7754d27`; M2 [SUCCESS](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/43278323903) y M5 [SUCCESS](https://github.com/cmiloarevalo-hash/Lago-1/actions/runs/43278324089) en HEAD de PR #73. Imagen de montaña, mensaje secundario completo y contraste suave integrados, aprobación visual expresa del autor.
+> **DISTRIBUCIÓN NO REALIZADA:** esta APK existente está firmada con **Android Debug** (`CN=Android Debug`), no con certificado de producción. No se ha creado/enviado ficha ni aprobado publicación en **Uptodown**; captura de pantallas para tienda, titular de correo, firma definitiva, licencias/privacidad y validación de descarga desde Uptodown siguen pendientes. La aprobación de desarrollo y autorización de merge **NO son autorización de envío a tienda**. La web Wix existe y la descarga QA se alojó en su Media Manager; no afirmar distribución por Uptodown.
+> **CIERRE ADMINISTRATIVO:** por orden del Humano, cerrar las actividades de **desarrollo** y el Issue #67 como expediente concluido/archivado, con la parte Uptodown explícitamente **no ejecutada**. Este documento conserva el procedimiento para una futura orden de publicación, sin inventar tareas terminadas. El texto histórico más abajo describe el estado del 09-11-2026, no el actual.
+
+
 > **Documento canónico de publicación.** Fecha del registro: **2026-11-09** (Chile, America/Santiago).  
 > **Estado: BORRADOR PREPARADO, SIN ENVÍO A UPTODOWN, PENDIENTE DE APROBACIÓN FINAL DEL AUTOR.**  
 > Actividad madre: [#67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67).  

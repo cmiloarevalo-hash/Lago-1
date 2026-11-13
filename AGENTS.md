@@ -1,5 +1,8 @@
 # Indicaciones de coordinación — Guía pastoral - Biblia
 
+> **ESTADO ACTUAL 13-11-2026 — Desarrollo finalizado.** El autor aprobó **APK v1.11.6/code18**, PR #68 y #73 fueron fusionados a `main` (commit `090c054b9b83a7d47c5a8d4779ebae67726af9e8`). El PR #66 v1.0.1 está cerrado por obsoleto y v1.11.5/PR #72 descartado. La actividad #67 se archiva por orden humana; **la publicación en Uptodown NO ha ocurrido**. Firma de producción, capturas, ficha, privacidad/licencias y control de tienda siguen como requisitos futuros. **No confundir el cierre de desarrollo con distribución en tienda ni usar GitHub Releases como descarga para lectores**. Para el plan histórico, consultar el documento canónico enlazado abajo.
+
+
 Para cualquier IA, colaborador o agente que trabaje con el lanzamiento de la app Android **Guía pastoral - Biblia**:
 
 - **Leer primero [docs/guia-pastoral/PUBLICACION_UPTODOWN.md](docs/guia-pastoral/PUBLICACION_UPTODOWN.md)**. Contiene la ficha pública de tres párrafos, el inventario de imágenes pendientes, contacto, decisiones, fechas, requisitos y el procedimiento de publicación.
