@@ -1,5 +1,8 @@
 # Control de calidad previo a la publicación — Guía pastoral - Biblia
 
+> **ACTUALIZACIÓN 13-11-2026:** el autor aprobó expresamente el producto visual/funcional **Android v1.11.6 (versionCode 18)** y ordenó merge/cierre del desarrollo. PR #68 y #73 **fusionados a main** (`090c054b9b83a7d47c5a8d4779ebae67726af9e8`). APK concreta: 82.988.420 bytes; SHA-256 `fd384c32a5d82bc199390ff265c4d6cc66d8aad2da70a6996fe9ca5bf7754d27`; CI M2/M5 PASS en HEAD de #73. **Esta aprobación de desarrollo no verifica ni cierra automáticamente los puntos de distribución en Uptodown**: firma actual `CN=Android Debug`, falta firma de producción persistente, perfil/correo públicos, requisitos legales/privacidad, capturas de tienda, envío y prueba de descarga de Uptodown. Los checkboxes sin comprobación efectiva **permanecen pendientes**, aunque el Issue #67 se archive a petición del Humano. Los apartados que siguen reflejan el protocolo registrado 09-11-2026.
+
+
 **Fecha del plan:** 2026-11-09 (Chile). **Estado:** protocolo preparado; **NO EJECUTADO** sobre una APK final aprobada.  
 **Actividad:** [#67](https://github.com/cmiloarevalo-hash/Lago-1/issues/67) · [Ficha de Uptodown](PUBLICACION_UPTODOWN.md) · [Estado de guía y web](ESTADO_GUIA_Y_WEB_2026-11-09.md).
 
