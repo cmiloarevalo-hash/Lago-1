@@ -29,17 +29,23 @@ export interface SavedReference {
   chapter: number;
   verse: number;
   savedAt: string;
+  bookName?: string;
+  title?: string;
+  topic?: string;
+  tone?: HighlightTone;
 }
 
 export interface ReadingHistoryEntry {
   bookId: string;
   chapter: number;
   verse?: number;
+  bookName?: string;
   openedAt: string;
 }
 
 export interface Reflection {
   id: string;
+  title?: string;
   body: string;
   updatedAt: string;
   reference?: Pick<SavedReference, 'bookId' | 'chapter' | 'verse'>;

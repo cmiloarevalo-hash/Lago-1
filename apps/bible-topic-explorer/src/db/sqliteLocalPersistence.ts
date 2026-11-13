@@ -12,6 +12,12 @@ export class SQLiteLocalPersistence implements LocalPersistence {
         book_id TEXT NOT NULL, chapter INTEGER NOT NULL, verse INTEGER NOT NULL, saved_at TEXT NOT NULL,
         PRIMARY KEY (book_id, chapter, verse)
       );
+      CREATE TABLE IF NOT EXISTS app_saved_reference_details (
+        book_id TEXT NOT NULL, chapter INTEGER NOT NULL, verse INTEGER NOT NULL,
+        title TEXT NOT NULL DEFAULT '', topic TEXT NOT NULL DEFAULT '',
+        tone TEXT NOT NULL DEFAULT 'rose' CHECK(tone IN ('rose','lavender','peach')),
+        updated_at TEXT NOT NULL, PRIMARY KEY (book_id,chapter,verse)
+      );
       CREATE TABLE IF NOT EXISTS app_reading_history (
         id INTEGER PRIMARY KEY AUTOINCREMENT, book_id TEXT NOT NULL, chapter INTEGER NOT NULL,
         verse INTEGER, opened_at TEXT NOT NULL
@@ -20,6 +26,9 @@ export class SQLiteLocalPersistence implements LocalPersistence {
       CREATE TABLE IF NOT EXISTS app_reflections (
         id TEXT PRIMARY KEY, body TEXT NOT NULL, updated_at TEXT NOT NULL,
         book_id TEXT, chapter INTEGER, verse INTEGER
+      );
+      CREATE TABLE IF NOT EXISTS app_reflection_titles (
+        id TEXT PRIMARY KEY, title TEXT NOT NULL DEFAULT ''
       );
       CREATE TABLE IF NOT EXISTS app_verse_notes (
         translation_id TEXT NOT NULL DEFAULT 'rv1909', book_id TEXT NOT NULL,
@@ -31,6 +40,10 @@ export class SQLiteLocalPersistence implements LocalPersistence {
         chapter INTEGER NOT NULL, source_verse_label TEXT NOT NULL,
         tone TEXT NOT NULL CHECK (tone IN ('rose','lavender','peach')),
         updated_at TEXT NOT NULL, PRIMARY KEY (translation_id, book_id, chapter, source_verse_label)
+      );
+      CREATE TABLE IF NOT EXISTS app_reminder_plan (
+        id INTEGER PRIMARY KEY CHECK(id = 1), plan_id TEXT NOT NULL,
+        title TEXT NOT NULL, updated_at TEXT NOT NULL
       );
       CREATE TABLE IF NOT EXISTS app_preferences (
         id INTEGER PRIMARY KEY CHECK (id = 1), theme TEXT NOT NULL, font_scale REAL NOT NULL,
@@ -68,10 +81,13 @@ export class SQLiteLocalPersistence implements LocalPersistence {
 
   async listSavedReferences(): Promise<readonly SavedReference[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{book_id:string;chapter:number;verse:number;saved_at:string}>(
-      'SELECT book_id, chapter, verse, saved_at FROM app_saved_references ORDER BY saved_at DESC'
+    const rows = await this.db.getAllAsync<{book_id:string;book_name?:string|null;chapter:number;verse:number;saved_at:string;title?:string|null;topic?:string|null;tone?:string|null}>(
+      'SELECT s.book_id,b.default_name_es AS book_name,s.chapter,s.verse,s.saved_at,d.title,d.topic,d.tone FROM app_saved_references s LEFT JOIN books b ON b.id=s.book_id LEFT JOIN app_saved_reference_details d ON d.book_id=s.book_id AND d.chapter=s.chapter AND d.verse=s.verse ORDER BY s.saved_at DESC'
     );
-    return rows.map(row => ({ bookId: row.book_id, chapter: row.chapter, verse: row.verse, savedAt: row.saved_at }));
+    return rows.map(row => ({ bookId: row.book_id, chapter: row.chapter, verse: row.verse, savedAt: row.saved_at,
+      ...(row.book_name?{bookName:row.book_name}:{}),
+      ...(row.title?{title:row.title}:{}),...(row.topic?{topic:row.topic}:{}),
+      ...(row.tone==='rose'||row.tone==='lavender'||row.tone==='peach'?{tone:row.tone}:{}) }));
   }
 
   async saveReference(value: SavedReference): Promise<void> {
@@ -82,12 +98,21 @@ export class SQLiteLocalPersistence implements LocalPersistence {
   async removeSavedReference(value: Pick<SavedReference, 'bookId'|'chapter'|'verse'>): Promise<void> {
     await this.ensureReady();
     await this.db.runAsync('DELETE FROM app_saved_references WHERE book_id = ? AND chapter = ? AND verse = ?', value.bookId, value.chapter, value.verse);
+    await this.db.runAsync('DELETE FROM app_saved_reference_details WHERE book_id = ? AND chapter = ? AND verse = ?',value.bookId,value.chapter,value.verse);
+  }
+
+  async setSavedReferenceDetails(ref:Pick<SavedReference,'bookId'|'chapter'|'verse'>,title:string,topic:string,tone:HighlightTone):Promise<void>{
+    await this.ensureReady();
+    if(title.length>120||topic.length>80)throw new Error('Título o tema demasiado largo');
+    await this.db.runAsync('INSERT INTO app_saved_reference_details(book_id,chapter,verse,title,topic,tone,updated_at) VALUES(?,?,?,?,?,?,?) ON CONFLICT(book_id,chapter,verse) DO UPDATE SET title=excluded.title,topic=excluded.topic,tone=excluded.tone,updated_at=excluded.updated_at',
+      ref.bookId,ref.chapter,ref.verse,title.trim(),topic.trim(),tone,new Date().toISOString());
   }
 
   async listReadingHistory(): Promise<readonly ReadingHistoryEntry[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{book_id:string;chapter:number;verse:number|null;opened_at:string}>('SELECT book_id, chapter, verse, opened_at FROM app_reading_history ORDER BY opened_at DESC, id DESC LIMIT 50');
-    return rows.map(row => ({ bookId: row.book_id, chapter: row.chapter, ...(row.verse == null ? {} : {verse: row.verse}), openedAt: row.opened_at }));
+    const rows = await this.db.getAllAsync<{book_id:string;book_name?:string|null;chapter:number;verse:number|null;opened_at:string}>(
+      'SELECT h.book_id,b.default_name_es AS book_name,h.chapter,h.verse,h.opened_at FROM app_reading_history h LEFT JOIN books b ON b.id=h.book_id ORDER BY h.opened_at DESC, h.id DESC LIMIT 500');
+    return rows.map(row => ({ bookId: row.book_id, ...(row.book_name?{bookName:row.book_name}:{}), chapter: row.chapter, ...(row.verse == null ? {} : {verse: row.verse}), openedAt: row.opened_at }));
   }
 
   async recordReading(value: ReadingHistoryEntry): Promise<void> {
@@ -97,8 +122,9 @@ export class SQLiteLocalPersistence implements LocalPersistence {
 
   async listReflections(): Promise<readonly Reflection[]> {
     await this.ensureReady();
-    const rows = await this.db.getAllAsync<{id:string;body:string;updated_at:string;book_id:string|null;chapter:number|null;verse:number|null}>('SELECT id, body, updated_at, book_id, chapter, verse FROM app_reflections ORDER BY updated_at DESC');
-    return rows.map(row => ({ id: row.id, body: row.body, updatedAt: row.updated_at, ...(row.book_id != null && row.chapter != null && row.verse != null ? {reference:{bookId:row.book_id,chapter:row.chapter,verse:row.verse}} : {}) }));
+    const rows = await this.db.getAllAsync<{id:string;body:string;updated_at:string;book_id:string|null;chapter:number|null;verse:number|null;title?:string|null}>(
+      'SELECT r.id,r.body,r.updated_at,r.book_id,r.chapter,r.verse,t.title FROM app_reflections r LEFT JOIN app_reflection_titles t ON t.id=r.id ORDER BY r.updated_at DESC');
+    return rows.map(row => ({ id: row.id, body: row.body, updatedAt: row.updated_at, ...(row.title?{title:row.title}:{}), ...(row.book_id != null && row.chapter != null && row.verse != null ? {reference:{bookId:row.book_id,chapter:row.chapter,verse:row.verse}} : {}) }));
   }
 
   async upsertReflection(value: Reflection): Promise<void> {
@@ -108,6 +134,23 @@ export class SQLiteLocalPersistence implements LocalPersistence {
        ON CONFLICT(id) DO UPDATE SET body=excluded.body, updated_at=excluded.updated_at, book_id=excluded.book_id, chapter=excluded.chapter, verse=excluded.verse`,
       value.id, value.body, value.updatedAt, value.reference?.bookId ?? null, value.reference?.chapter ?? null, value.reference?.verse ?? null
     );
+    if(value.title!==undefined) await this.db.runAsync('INSERT INTO app_reflection_titles(id,title) VALUES(?,?) ON CONFLICT(id) DO UPDATE SET title=excluded.title',value.id,value.title.trim());
+  }
+  async deleteReflection(id:string):Promise<void>{
+    await this.ensureReady();
+    await this.db.runAsync('DELETE FROM app_reflection_titles WHERE id=?',id);
+    await this.db.runAsync('DELETE FROM app_reflections WHERE id=?',id);
+  }
+  async getReminderPlan():Promise<{planId:string;title:string}>{
+    await this.ensureReady();
+    const row=await this.db.getFirstAsync<{plan_id:string;title:string}>('SELECT plan_id,title FROM app_reminder_plan WHERE id=1');
+    return {planId:row?.plan_id??'encuentro',title:row?.title??'Mi lectura bíblica'};
+  }
+  async setReminderPlan(planId:string,title:string):Promise<void>{
+    await this.ensureReady();
+    if(!/^[a-z0-9_-]{1,80}$/.test(planId)||title.length>90)throw new Error('Recordatorio inválido');
+    await this.db.runAsync('INSERT INTO app_reminder_plan(id,plan_id,title,updated_at) VALUES(1,?,?,?) ON CONFLICT(id) DO UPDATE SET plan_id=excluded.plan_id,title=excluded.title,updated_at=excluded.updated_at',
+      planId,title.trim()||'Mi lectura bíblica',new Date().toISOString());
   }
   /** Additive SQLite tables preserve all existing bookmarks, history, reflections and preferences. */
   async listVerseNotes(): Promise<readonly VerseNote[]> {

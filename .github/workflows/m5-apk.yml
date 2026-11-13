@@ -53,17 +53,33 @@ jobs:
       - name: Generate native Android project
         run: npx expo prebuild --platform android --no-install --non-interactive
       - name: Build release APK
-        run: cd android && ./gradlew assembleRelease --no-daemon
+        run: |
+          # Hosted runners may need more than 10 seconds to download the Gradle distribution.
+          sed -i 's/networkTimeout=10000/networkTimeout=120000/' android/gradle/wrapper/gradle-wrapper.properties
+          # Retry transient Maven/JetBrains/GitHub 5xx and network download failures.
+          cd android
+          for attempt in 1 2 3 4; do
+            if ./gradlew assembleRelease --no-daemon --max-workers=2; then
+              echo "Gradle release APK assembled on attempt $attempt"
+              exit 0
+            fi
+            if [ "$attempt" -eq 4 ]; then
+              echo "Gradle failed after 4 attempts"
+              exit 1
+            fi
+            echo "Gradle transient failure on attempt $attempt; retrying"
+            sleep $((attempt * 15))
+          done
       - name: Stage APK
-        run: cp android/app/build/outputs/apk/release/app-release.apk Guia-Pastoral-v1.10-candidata.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk
       - name: SHA-256 candidate APK
-        run: sha256sum Guia-Pastoral-v1.10-candidata.apk | tee Guia-Pastoral-v1.10-candidata.apk.sha256
+        run: sha256sum Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk | tee Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk.sha256
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Guia-Pastoral-v1.10-candidata-apk
+          name: Biblia-Guia-Pastoral-RV1909-v1.11.6-APK
           path: |
-            apps/bible-topic-explorer/Guia-Pastoral-v1.10-candidata.apk
-            apps/bible-topic-explorer/Guia-Pastoral-v1.10-candidata.apk.sha256
+            apps/bible-topic-explorer/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk
+            apps/bible-topic-explorer/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk.sha256
           if-no-files-found: error
           retention-days: 90

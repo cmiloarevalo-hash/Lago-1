@@ -1,5 +1,5 @@
 import {useEffect,useMemo,useState} from 'react';
-import {AppState,ImageBackground,Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
+import {AppState,ImageBackground,Pressable,ScrollView,StyleSheet,Text,View,useWindowDimensions} from 'react-native';
 import {useSQLiteContext} from 'expo-sqlite';
 import {SQLiteBibleRepository} from '../../db/sqliteBibleRepository';
 import type {BibleVerse} from '../../product/adapters';
@@ -12,6 +12,7 @@ import {radius,spacing,type as typography,type Theme} from '../theme';
 type Props={theme:Theme;appearance:VisibleTheme;readingScale?:number;onOpenAbout:()=>void;onOpenPlans:()=>void;onOpenReader:(book:string,chapter:number,verse?:number)=>void;onOpenExplore:()=>void;onOpenLibrary:()=>void};
 export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenPlans,onOpenReader,onOpenExplore,onOpenLibrary}:Props){
  const db=useSQLiteContext(),repo=useMemo(()=>new SQLiteBibleRepository(db),[db]);
+ const largeSystemText=useWindowDimensions().fontScale>=1.3;
  const [dayKey,setDayKey]=useState(()=>localDayKey(new Date()));
  const reading=useMemo(()=>readingForDate(new Date(Number(dayKey.slice(0,4)),Number(dayKey.slice(5,7))-1,Number(dayKey.slice(8,10)))),[dayKey]);
  const [verse,setVerse]=useState<BibleVerse|null>(null),[loading,setLoading]=useState(true),[error,setError]=useState(false);
@@ -22,21 +23,21 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
  const tiles=appearance==='coral'?['#FCE3EB','#E5EEF9','#E6F0E8','#FCEDD5']:appearance==='natural'?['#EFE8D9','#E6EFF7','#DCECDD','#F4E6CA']:['#DEEAF6','#E6F0F9','#E7F1EC','#F7E9D3'];
  const quick=[{key:'planes',icon:'▣',title:'Planes',description:'A tu ritmo',tint:tiles[0],onPress:onOpenPlans},{key:'buscar',icon:'⌕',title:'Explorar',description:'Temas con pasajes',tint:tiles[1],onPress:onOpenExplore},{key:'favoritos',icon:'♥',title:'Biblioteca',description:'Tus guardados',tint:tiles[3],onPress:onOpenLibrary}];
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
-  <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,{borderColor:theme.border}]}>
+  <ImageBackground accessibilityIgnoresInvertColors source={art.landscape} resizeMode="cover" imageStyle={styles.heroImage} style={[styles.hero,largeSystemText&&styles.heroLargeText,{borderColor:theme.border}]}>
    <View style={[styles.heroScrim,{backgroundColor:appearance==='coral'?'rgba(255,248,247,.13)':appearance==='natural'?'rgba(245,242,224,.09)':'rgba(235,242,249,.08)'}]}/>
    <View style={styles.heroCopy}>
-    <Text style={[styles.kicker,{color:theme.primaryText}]}>LA U · UN MOMENTO PARA TI</Text>
+    <Text style={[styles.kicker,{color:theme.primaryText}]}>REINA VALERA 1909</Text>
     <Text accessibilityRole="header" style={[styles.heroTitle,{color:theme.text}]}>Qué bueno que estás aquí.</Text>
     <Text style={[styles.heroSubtitle,{color:theme.text}]}>Una pausa para que la Palabra ilumine tu día.</Text>
    </View>
   </ImageBackground>
-  <View style={[styles.overlap,{shadowColor:theme.primary}]}>
+  <View style={[styles.overlap,largeSystemText&&styles.overlapLargeText,{shadowColor:theme.primary}]}>
    <Card theme={theme} featured label={'Versículo de hoy '+ref}>
     <View style={styles.verseTop}><Text style={[styles.tinyKicker,{color:theme.primaryText}]}>☀  VERSÍCULO DEL DÍA</Text><Metadata theme={theme}>{ref} · RV1909</Metadata></View>
     <View style={styles.verseReading}>
      {loading?<Body theme={theme} muted>Consultando la Biblia local…</Body>:null}
      {error?<StatusBanner theme={theme} kind="error">Lectura local no disponible.</StatusBanner>:null}
-     {!loading&&!error&&verse?<Text style={[styles.verse,{color:theme.text},scaledScriptureMetrics(readingScale),verse.text.length>140&&readingScale<=1.05?styles.longVerse:null]}>“{verse.text}”</Text>:null}
+     {!loading&&!error&&verse?<Text selectable style={[styles.verse,{color:theme.text},scaledScriptureMetrics(readingScale),verse.text.length>140&&readingScale<=1.05?styles.longVerse:null]}>“{verse.text}”</Text>:null}
      {!loading&&!error&&!verse?<Body theme={theme} muted>No se encontró este pasaje en el corpus local.</Body>:null}
      <Text style={[styles.verseIcon,{color:theme.primaryText}]} accessibilityElementsHidden>♡</Text>
     </View>
@@ -48,29 +49,23 @@ export function TodayScreen({theme,appearance,readingScale=1,onOpenAbout,onOpenP
   </View>
   <View style={styles.quickRow}>{quick.map(item=><Pressable key={item.key} accessibilityRole="button" accessibilityLabel={item.title+' · '+item.description} onPress={item.onPress} style={({pressed})=>[styles.quickTile,{backgroundColor:item.tint,borderColor:appearance==='marine'?'#D2DDE8':appearance==='natural'?'#D1D8C3':'#EBD3DB',opacity:pressed?.8:1}]}>
    <Text style={[styles.quickIcon,{color:item.key==='musica'?'#E35B12':item.key==='buscar'?'#235C88':item.key==='favoritos'?'#9B721C':theme.primaryText}]}>{item.icon}</Text>
-   <Text style={styles.quickLabel}>{item.title}</Text>
+   <Text style={styles.quickLabel}>{item.title}</Text><Text style={styles.quickDescription}>{item.description}</Text>
   </Pressable>)}</View>
-  <View style={styles.sectionTitle}><Text style={[styles.sectionHeading,{color:theme.text}]}>Para ti hoy</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Acompaña tu camino</Text></View>
-  <Pressable accessibilityRole="button" accessibilityLabel="Comenzar un plan de lectura" onPress={onOpenPlans} style={[styles.recommendation,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <View style={[styles.recoSymbol,{backgroundColor:theme.selectionBg}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>❧</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Un camino de siete días</Text><Text style={[typography.metadata,{color:theme.secondary}]}>Lecturas y reflexiones con progreso local.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
-  </Pressable>
-  <Pressable accessibilityRole="button" accessibilityLabel="Explorar pasajes y temas" onPress={onOpenExplore} style={[styles.recommendation,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <View style={[styles.recoSymbol,{backgroundColor:theme.surfaceSoft}]}><Text style={[styles.recoIcon,{color:theme.primaryText}]}>☼</Text></View><View style={styles.recoCopy}><Text style={[styles.recoTitle,{color:theme.text}]}>Encuentra tu próximo pasaje</Text><Text style={[typography.metadata,{color:theme.secondary}]}>100 temas para explorar la Palabra.</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
-  </Pressable>
-  <Metadata theme={theme}>La lectura RV1909 y tus notas funcionan sin conexión.</Metadata>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxxl+12},
  prototypeNote:{minHeight:48,paddingHorizontal:2,flexDirection:'row',alignItems:'center',flexWrap:'wrap',justifyContent:'space-between',gap:6},
  prototypeText:{fontSize:12,lineHeight:18},prototypeLink:{fontSize:12,fontWeight:'700'},
- hero:{height:214,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
+ hero:{height:260,borderRadius:radius.lg,borderWidth:.6,overflow:'hidden',justifyContent:'flex-start'},
+ heroLargeText:{height:'auto',minHeight:260,paddingBottom:spacing.lg},
  heroImage:{borderRadius:radius.lg},heroScrim:{...StyleSheet.absoluteFill,backgroundColor:'rgba(255,249,241,0.21)'},
- heroCopy:{paddingHorizontal:19,paddingTop:18,maxWidth:290,gap:7},
- kicker:{fontSize:11,fontWeight:'800',letterSpacing:1.35},
- heroTitle:{fontSize:30,lineHeight:35,fontFamily:'serif',fontWeight:'700',maxWidth:255},
- heroSubtitle:{fontSize:14,lineHeight:20,maxWidth:238,fontWeight:'500',alignSelf:'flex-start',backgroundColor:'rgba(255,251,247,.68)',borderRadius:10,paddingHorizontal:5,paddingVertical:2},
- overlap:{marginTop:-54,marginHorizontal:5,elevation:5,shadowOffset:{width:0,height:5},shadowOpacity:.12,shadowRadius:12},
+ heroCopy:{paddingHorizontal:19,paddingTop:18,paddingBottom:18,maxWidth:290,gap:7},
+ kicker:{fontSize:11,fontWeight:'800',letterSpacing:1.35,textShadowColor:'rgba(255,255,255,.92)',textShadowOffset:{width:0,height:1},textShadowRadius:4},
+ heroTitle:{fontSize:30,lineHeight:35,fontFamily:'serif',fontWeight:'700',maxWidth:255,textShadowColor:'rgba(255,255,255,.94)',textShadowOffset:{width:0,height:1},textShadowRadius:7},
+ heroSubtitle:{fontSize:14,lineHeight:20,maxWidth:238,fontWeight:'600',alignSelf:'flex-start',backgroundColor:'rgba(255,251,247,.82)',borderRadius:10,paddingHorizontal:5,paddingVertical:2},
+ overlap:{marginTop:-12,marginHorizontal:5,elevation:5,shadowOffset:{width:0,height:5},shadowOpacity:.12,shadowRadius:12},
+ overlapLargeText:{marginTop:0},
  verseTop:{flexDirection:'row',flexWrap:'wrap',justifyContent:'space-between',gap:6,alignItems:'center'},
  tinyKicker:{fontSize:12,fontWeight:'700',letterSpacing:.4},
  verseReading:{flexDirection:'row',alignItems:'flex-start',gap:5,paddingTop:6,paddingBottom:0},
@@ -80,6 +75,7 @@ const styles=StyleSheet.create({
  inlineArt:{borderRadius:radius.lg},sceneOverlay:{...StyleSheet.absoluteFill,backgroundColor:'rgba(34,35,35,0.15)'},
  quickRow:{flexDirection:'row',gap:8,justifyContent:'space-between'},
  quickTile:{flex:1,minHeight:80,borderWidth:.7,borderRadius:18,alignItems:'center',justifyContent:'center',padding:4,gap:4},
+ quickDescription:{fontSize:12,lineHeight:17,color:"#4D5662",textAlign:"center"},
  quickIcon:{fontSize:26,lineHeight:31},quickLabel:{fontSize:12,fontWeight:'700',color:'#26323A',textAlign:'center'},
  sectionTitle:{flexDirection:'row',flexWrap:'wrap',alignItems:'baseline',justifyContent:'space-between',gap:6,marginTop:10},
  sectionHeading:{fontFamily:'serif',fontSize:24,fontWeight:'700'},

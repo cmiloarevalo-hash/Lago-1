@@ -20,10 +20,11 @@ describe('R13 I13-A1 discrete note-only reader',()=>{
  });
 });
 describe('R13 I13-A2 separate options, long notes and compact highlights',()=>{
- it('uses long press for options and separate accessible short-press fallback',()=>{
-  expect(reader).toContain('onLongPress={()=>openVerseMenu(verse)}');
-  expect(reader).toContain("accessibilityLabel={'Abrir opciones de '");
-  expect(reader).toContain("onPress={()=>setQuickVerseKey(");
+ it('uses native long press for exact text selection and separate accessible verse actions',()=>{
+  expect(reader).toContain('<Text selectable selectionColor=');
+  expect(reader).toContain('onPress={()=>openVerseMenu(verse)}');
+  expect(reader).not.toContain('onLongPress={()=>openVerseMenu(verse)}');
+  expect(reader).toContain("accessibilityLabel={'Acciones para '");
  });
  it('protects deletion and cancel, uses actual text editor and existing persistence',()=>{
   expect(reader).toContain("Alert.alert('Eliminar nota privada'");

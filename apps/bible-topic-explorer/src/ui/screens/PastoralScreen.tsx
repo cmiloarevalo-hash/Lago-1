@@ -1,13 +1,15 @@
-import {useRef,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
 import {pastoralTopics,PASTORAL_GUIDE_TITLE,PASTORAL_GUIDE_SUBTITLE,PASTORAL_GUIDE_VERSION,PASTORAL_GUIDE_INTRO,type PastoralReference} from '../../product/pastoralTopics';
 import {Action,Body,Screen} from '../primitives';
 import {minimumTouchTarget,spacing,type Theme} from '../theme';
 
 const linkBlue='#155E99';
-export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>void;onRead:(book:string,chapter:number,start:number,end:number)=>void}){
- const [expanded,setExpanded]=useState<string|null>(null);
+export function PastoralScreen({theme,onBack,onRead,initialExpanded=null,restoreY=0,onExpandedChange,onScrollY}:{theme:Theme;onBack:()=>void;onRead:(book:string,chapter:number,start:number,end:number)=>void;initialExpanded?:string|null;restoreY?:number;onExpandedChange?:(id:string|null)=>void;onScrollY?:(y:number)=>void}){
+ const [expanded,setExpanded]=useState<string|null>(initialExpanded);
  const scrollRef=useRef<ScrollView>(null);
+ const needsRestore=useRef(restoreY>0);
+ useEffect(()=>{if(!needsRestore.current)return;const timer=setTimeout(()=>{scrollRef.current?.scrollTo({y:restoreY,animated:false});needsRestore.current=false;},350);return()=>clearTimeout(timer);},[restoreY]);
  const headings=useRef<Record<string,number>>({});
  const groupOffsets=useRef<Record<number,number>>({});
  const focusNext=useRef<string|null>(null);
@@ -15,7 +17,7 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
  const readingLink=(ref:PastoralReference)=><Pressable key={ref.label} accessibilityRole="link" accessibilityLabel={'Leer RV1909 '+ref.label} onPress={()=>onRead(ref.book,ref.chapter,ref.start,ref.end)} style={styles.scriptureLink}>
   <Text style={styles.blueLink}>{ref.label} ↗</Text>
  </Pressable>;
- return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.stack}>
+ return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.stack} scrollEventThrottle={100} onScroll={e=>onScrollY?.(e.nativeEvent.contentOffset.y)} onContentSizeChange={()=>{if(needsRestore.current){scrollRef.current?.scrollTo({y:restoreY,animated:false});needsRestore.current=false;}}}>
   <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>
   <Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>{PASTORAL_GUIDE_TITLE}</Text>
   <Text style={[styles.subtitle,{color:theme.secondary}]}>{PASTORAL_GUIDE_SUBTITLE} · 16 capítulos · guía 1.30</Text>
@@ -29,7 +31,7 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
      const open=expanded===item.id;
      const preview=item.paragraphs[0].length>105?item.paragraphs[0].slice(0,102).trimEnd()+'…':item.paragraphs[0];
      return <View key={item.id} onLayout={e=>{headings.current[item.id]=e.nativeEvent.layout.y;}} style={[styles.accordion,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-      <Pressable accessibilityRole="button" accessibilityLabel={'Capítulo '+item.number+' '+item.title} accessibilityHint={open?'Contraer capítulo':'Abrir capítulo'} accessibilityState={{expanded:open}} onPress={()=>{focusNext.current=open?null:item.id;setExpanded(open?null:item.id);if(!open)setTimeout(scrollToOpen,180);}} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
+      <Pressable accessibilityRole="button" accessibilityLabel={'Capítulo '+item.number+' '+item.title} accessibilityHint={open?'Contraer capítulo':'Abrir capítulo'} accessibilityState={{expanded:open}} onPress={()=>{const next=open?null:item.id;focusNext.current=open?null:item.id;setExpanded(next);onExpandedChange?.(next);if(!open)setTimeout(scrollToOpen,180);}} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
        <Text style={[styles.number,{color:theme.primaryText}]}>{String(item.number).padStart(2,'0')}</Text>
        <View style={styles.headingText}><Text style={[styles.title,{color:theme.text}]}>{item.title}</Text>{!open?<Text style={[styles.preview,{color:theme.secondary}]} >{preview}</Text>:null}</View>
        <Text accessibilityElementsHidden style={[styles.chevron,{color:theme.primaryText}]}>{open?'−':'⌄'}</Text>
@@ -39,10 +41,10 @@ export function PastoralScreen({theme,onBack,onRead}:{theme:Theme;onBack:()=>voi
        <View style={styles.readings}>{item.readingsOld.map(readingLink)}</View>
        <Text style={[styles.readingTitle,{color:theme.text}]}>Nuevo Testamento</Text>
        <View style={styles.readings}>{item.readingsNew.map(readingLink)}</View>
-       <View style={[styles.prose,{borderTopColor:theme.border}]}>{item.paragraphs.map((paragraph,index)=><Text key={index} style={[styles.paragraph,{color:theme.text}]}>{paragraph}</Text>)}</View>
+       <View style={[styles.prose,{borderTopColor:theme.border}]}>{item.paragraphs.map((paragraph,index)=><Text key={index} selectable style={[styles.paragraph,{color:theme.text}]}>{paragraph}</Text>)}</View>
        <View style={[styles.question,{backgroundColor:theme.surfaceSoft}]}>
         <Text style={[styles.questionLabel,{color:theme.secondary}]}>{item.questionKind==='introspection'?'PARA REFLEXIONAR':'PARA CONVERSAR'}</Text>
-        <Text style={[styles.questionText,{color:theme.text}]}>{item.question}</Text>
+        <Text selectable style={[styles.questionText,{color:theme.text}]}>{item.question}</Text>
        </View>
       </View>:null}
      </View>;
