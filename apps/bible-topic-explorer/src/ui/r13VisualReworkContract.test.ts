@@ -36,16 +36,18 @@ describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
   expect(today).toContain("appearance==='coral'");
   expect(today).toContain('longVerse');
  });
- it('keeps bibliographic sources short, linked and correctly year-identified with 48dp targets',()=>{
+ it('preserves a compact source-credited presentation and 16-chapter biblical reading',()=>{
   const screen=load('src/ui/screens/PastoralScreen.tsx');
-  expect(screen).toContain("USCCB · Renewing the Vision · 1997");
-  expect(screen).toContain("UNICEF · Formación Kit Adolescente · 2018");
-  expect(screen).toContain("Santa Sede · Protección de menores · 2019");
-  expect(screen).toContain('sourceUrl');
-  expect(screen).toContain('minHeight:minimumTouchTarget');
-  expect(screen).toContain('fontSize:13.5');
-  expect(screen).not.toContain('src.sourceUrl}</Text>');
-  expect(pastoralTopics).toHaveLength(8);
+  const credits=load('src/ui/screens/AboutSourcesScreen.tsx');
+  expect(pastoralTopics).toHaveLength(16);
+  expect(screen).toContain("PASTORAL_GUIDE_VERSION");
+  expect(screen).toContain("PASTORAL_GUIDE_INTRO");
+  expect(screen).toContain("item.readingsOld.map(readingLink)");
+  expect(screen).toContain("item.readingsNew.map(readingLink)");
+  expect(credits).toContain("USCCB");
+  expect(credits).toContain("UNICEF");
+  expect(credits).toContain("Santa Sede");
+  expect(credits).toContain("minHeight:minimumTouchTarget");
  });
  it('keeps SoundCloud as an honest external-only link, hides the removed player',()=>{
   const screen=load('src/ui/screens/SoundCloudScreen.tsx');

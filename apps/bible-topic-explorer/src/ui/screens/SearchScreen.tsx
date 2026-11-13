@@ -1,7 +1,7 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {BackHandler,Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
 import {normalizeTopicText,topicCatalog} from '../../product/topics';
-import {availablePreview,conceptFamilies,conceptPreviewStats,familyTopics,initialTopicUiState,reviewMessage,topicReviewStatus,type TopicUiState} from '../../product/conceptIndex';
+import {availablePreview,conceptFamilies,initialTopicUiState,type TopicUiState} from '../../product/conceptIndex';
 import type {Theme} from '../theme';
 import {minimumTouchTarget,spacing} from '../theme';
 import {Action,Body,ChoiceChip,Metadata,Screen,ScreenTitle,Section} from '../primitives';
@@ -31,19 +31,21 @@ const familyLead:Record<string,string>={
  'Biblia y comprensión':'Descubre las historias bíblicas',
  'Esperanza y vida cristiana':'Caminar con fe y esperanza'
 };
+const developedTopics=topicCatalog.filter(topic=>(availablePreview(topic.id)?.passages.length??0)>0);
+const familyTopicsWithContent=(family:string)=>developedTopics.filter(topic=>topic.family===family);
+const visibleFamilies=conceptFamilies.filter(family=>familyTopicsWithContent(family).length>0);
 type OpenReader=(book:string,chapter:number,verse?:number,recordHistory?:boolean,sourceVerseLabel?:string,verseEnd?:number,sourceVerseLabels?:readonly string[])=>void;
 
 export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onTopicUiChange=()=>{}}:{theme:Theme;onOpenReader:OpenReader;topicUi?:TopicUiState;onTopicUiChange?:(state:TopicUiState)=>void}){
- const [infoOpen,setInfoOpen]=useState(false);
  const scrollRef=useRef<ScrollView>(null);
  const y=useRef(topicUi.scrollY);
  const restore=useRef(topicUi.scrollY>0);
  const restoring=useRef(false);
  const selectedLetter=topicUi.selectedLetter??'A';
- const selectedTopic=useMemo(()=>topicCatalog.find(t=>t.id===topicUi.topicId),[topicUi.topicId]);
+ const selectedTopic=useMemo(()=>developedTopics.find(t=>t.id===topicUi.topicId),[topicUi.topicId]);
  const preview=selectedTopic?availablePreview(selectedTopic.id):undefined;
- const letterTopics=useMemo(()=>topicCatalog.filter(t=>normalizeTopicText(t.label).charAt(0).toUpperCase()===selectedLetter).sort((a,b)=>a.label.localeCompare(b.label,'es')),[selectedLetter]);
- const familyList=useMemo(()=>topicUi.family==='__all__'?letterTopics:topicUi.family?familyTopics(topicUi.family):[],[topicUi.family,letterTopics]);
+ const letterTopics=useMemo(()=>developedTopics.filter(t=>normalizeTopicText(t.label).charAt(0).toUpperCase()===selectedLetter).sort((a,b)=>a.label.localeCompare(b.label,'es')),[selectedLetter]);
+ const familyList=useMemo(()=>topicUi.family==='__all__'?letterTopics:topicUi.family?familyTopicsWithContent(topicUi.family):[],[topicUi.family,letterTopics]);
  const scrollTo=(target:number)=>{
   restoring.current=true;
   scrollRef.current?.scrollTo({y:Math.max(0,target),animated:false});
@@ -84,30 +86,20 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
    <ScreenTitle theme={theme}>Explorar temas</ScreenTitle>
    <Body theme={theme} muted>Elige lo que te interesa o te preocupa. Encuentra una idea y léela en la Biblia.</Body>
   </View>
-  <View style={[styles.infoRow,{borderColor:theme.border}]}>
-   <Text style={[styles.count,{color:theme.secondary}]}>{conceptPreviewStats.canonicalTopics} temas · Biblia RV1909</Text>
-   <Pressable accessibilityRole="button" accessibilityLabel={infoOpen?'Ocultar información sobre las fichas':'Información sobre las fichas'}
-    accessibilityState={{expanded:infoOpen}} onPress={()=>setInfoOpen(v=>!v)}
-    style={[styles.infoButton,{borderColor:theme.border,backgroundColor:theme.surfaceSoft}]}>
-    <Text style={[styles.infoSymbol,{color:theme.primaryText}]}>ⓘ</Text>
-   </Pressable>
-  </View>
-  {infoOpen?<View style={[styles.infoPanel,{backgroundColor:theme.surfaceSoft}]}>
-   <Text style={[styles.infoCopy,{color:theme.text}]}>Las explicaciones son una propuesta y están en revisión. Los pasajes bíblicos se pueden leer en RV1909.</Text>
-  </View>:null}
+  <Text style={[styles.count,{color:theme.secondary}]}>{developedTopics.length} temas con contenido · Biblia RV1909</Text>
   {topicUi.family?<Action theme={theme} variant="tertiary" label={selectedTopic?'← Volver a los temas':'← Volver a familias'} onPress={backTopics}/>:null}
   {!topicUi.family?<Section theme={theme} title="Elige una familia">
-   <View style={styles.familyRows}>{conceptFamilies.map(family=><Pressable key={family}
+   <View style={styles.familyRows}>{visibleFamilies.map(family=><Pressable key={family}
     accessibilityRole="button" accessibilityLabel={'Explorar '+family} onPress={()=>changeState({...topicUi,mode:'topics',family,topicId:undefined,scrollY:0,listScrollY:0})}
     style={({pressed})=>[styles.row,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
     <View style={[styles.iconCircle,{backgroundColor:theme.selectionBg}]}><Text accessibilityElementsHidden style={[styles.icon,{color:theme.primaryText}]}>{iconFor(family)}</Text></View>
     <View style={styles.rowCopy}>
      <Text style={[styles.rowTitle,{color:theme.text}]}>{family}</Text>
      <Text style={[styles.rowDesc,{color:theme.secondary}]}>{familyLead[family]??'Explora este tema'}</Text>
-     <Text style={[styles.rowCount,{color:theme.primaryText}]}>{familyTopics(family).length} temas</Text>
+     <Text style={[styles.rowCount,{color:theme.primaryText}]}>{familyTopicsWithContent(family).length} temas</Text>
     </View><Text accessibilityElementsHidden style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
    </Pressable>)}</View>
-   <Action theme={theme} variant="tertiary" label="Ver los 100 temas A–Z" onPress={()=>changeState({...topicUi,mode:'topics',family:'__all__',topicId:undefined,scrollY:0,listScrollY:0})}/>
+   <Action theme={theme} variant="tertiary" label="Ver temas A–Z" onPress={()=>changeState({...topicUi,mode:'topics',family:'__all__',topicId:undefined,scrollY:0,listScrollY:0})}/>
   </Section>:null}
   {topicUi.family&&!selectedTopic?<Section theme={theme} title={topicUi.family==='__all__'?'Índice A–Z':topicUi.family} description="Toca el tema que quieras descubrir.">
    {topicUi.family==='__all__'?<ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.letters}>
@@ -126,7 +118,7 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
      <Text accessibilityElementsHidden style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
     </Pressable>;
    })}</View>
-   {!familyList.length?<Body theme={theme} muted>No hay temas para esta letra.</Body>:null}
+   {!familyList.length?<Body theme={theme} muted>No hay temas disponibles para esta letra.</Body>:null}
   </Section>:null}
   {selectedTopic?<Section theme={theme} title={selectedTopic.label.charAt(0).toLocaleUpperCase('es')+selectedTopic.label.slice(1)}>
    <View style={[styles.featured,{backgroundColor:theme.surface,borderColor:theme.border}]}>
@@ -134,11 +126,8 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
      <View style={[styles.detailIcon,{backgroundColor:theme.selectionBg}]}><Text accessibilityElementsHidden style={[styles.detailIconText,{color:theme.primaryText}]}>{iconFor(selectedTopic.family,selectedTopic.id)}</Text></View>
      <Text style={[styles.familyTag,{color:theme.primaryText}]}>{selectedTopic.family}</Text>
     </View>
-    <Text style={[styles.detailHeading,{color:theme.text}]}>{preview?.subtopic??'Algo nuevo por descubrir'}</Text>
-    {preview?<Text style={[styles.detailSynopsis,{color:theme.text}]}>{preview.synopsis}</Text>:
-     <Text style={[styles.detailSynopsis,{color:theme.secondary}]}>Todavía estamos preparando una explicación sencilla para este tema. Puedes explorar los otros temas mientras tanto.</Text>}
-    {infoOpen?<><Metadata theme={theme}>ESTADO EDITORIAL · {topicReviewStatus(selectedTopic.id)}</Metadata><Body theme={theme} muted>{reviewMessage(selectedTopic.id)}</Body></>:null}
-    {infoOpen&&preview?.pastoralCaution?<Text style={[styles.editorialFootnote,{color:theme.secondary}]}>ⓘ  Cuidado contextual: {preview.pastoralCaution}</Text>:null}
+    <Text style={[styles.detailHeading,{color:theme.text}]}>{preview?.subtopic??''}</Text>
+    {preview?<Text style={[styles.detailSynopsis,{color:theme.text}]}>{preview.synopsis}</Text>:null}
    </View>
    {preview?<Section theme={theme} title="Léelo en la Biblia">
     <Text style={[styles.passagesIntro,{color:theme.secondary}]}>Dos pasajes para leer y pensar a tu ritmo.</Text>
@@ -151,7 +140,7 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
       <Text style={[styles.readText,{color:theme.primaryText}]}>Leer este pasaje</Text><Text style={[styles.readArrow,{color:theme.primaryText}]}>›</Text>
      </Pressable>
     </View>)}
-   </Section>:<Body theme={theme} muted>Los pasajes de este tema todavía se están preparando.</Body>}
+   </Section>:null}
   </Section>:null}
  </ScrollView></Screen>;
 }

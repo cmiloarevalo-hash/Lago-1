@@ -3,11 +3,12 @@ import {isDailyReminderResponse} from './src/product/reminders';
 import { StatusBar } from 'expo-status-bar';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, BackHandler, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, BackHandler, Linking, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import {Modal, ScrollView} from 'react-native';
 import {drawerDestinations, type DrawerDestination} from './src/product/secondaryMenu';
 import {initialTopicUiState, type TopicUiState} from './src/product/conceptIndex';
+import {parseVerseLink} from './src/product/verseSharing';
 import { DATABASE_NAME } from './src/db/model'; import { SQLiteLocalPersistence } from './src/db/sqliteLocalPersistence';
 import { goBack as previousNavigation, initialNavigationState, navigate as nextNavigation, tabIcons, tabLabels, tabs, type NavigationState, type Route, type TabId } from './src/product/navigation';
 import { defaultPreferences, visibleTheme, type LocalPreferences } from './src/product/preferences'; import { minimumTouchTarget, radius, shellMaxFontSizeMultiplier, spacing, themes, type as typography } from './src/ui/theme';
@@ -39,6 +40,16 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  else if(item.kind==='pastoral')navigate({kind:'pastoral',origin:activeTab});
  else if(item.kind==='soundcloud')navigate({kind:'soundcloud',origin:activeTab});
  };
+ useEffect(()=>{
+   const follow=(url:string)=>{
+     const target=parseVerseLink(url);if(!target)return;
+     void persistence.recordReading({bookId:target.book,chapter:target.chapter,openedAt:new Date().toISOString()}).catch(()=>{});
+     navigate({kind:'reader',book:target.book,chapter:target.chapter,sourceVerseLabel:target.sourceVerseLabel,origin:'bible'});
+   };
+   const listener=Linking.addEventListener('url',event=>follow(event.url));
+   void Linking.getInitialURL().then(url=>{if(url)follow(url);}).catch(()=>{});
+   return()=>listener.remove();
+ },[navigate,persistence]);
  const back=()=>setNavigation(state=>previousNavigation(state)??state);
  const content=
 
@@ -48,24 +59,24 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
  route.kind==='soundcloud'?<SoundCloudScreen theme={theme} onBack={back}/>:
  route.kind==='settings'?<SettingsScreen theme={theme} onPreferencesChange={setPreferences}/>:
  route.kind==='about'?<AboutSourcesScreen theme={theme} onBack={back}/>:
- route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} restoreY={activitiesScrollY.current} onScrollY={v=>{activitiesScrollY.current=v;}} onSelect={guideId=>navigate({...route,guideId})} onBack={back} onPlay={()=>navigate({kind:'games',origin:activeTab})}/>:
+ route.kind==='guides'?<ActivitiesScreen theme={theme} guideId={route.guideId} restoreY={activitiesScrollY.current} onScrollY={v=>{activitiesScrollY.current=v;}} onSelect={guideId=>navigate({...route,guideId})} onBack={back}/>:
  route.kind==='songs'?<HymnalScreen theme={theme} readingScale={preferences.fontScale} onBack={back}/>: 
  route.kind==='my-books'?<PersonalBooksScreen theme={theme} bookId={route.bookId} readingScale={preferences.fontScale} onSelect={bookId=>navigate({...route,bookId})} onBack={back}/>:
  route.kind==='reader'?<BibleScreen theme={theme} readingScale={preferences.fontScale} reader={{book:route.book,chapter:route.chapter,verse:route.verse,sourceVerseLabel:route.sourceVerseLabel,verseEnd:route.verseEnd,sourceVerseLabels:route.sourceVerseLabels}} onBack={route.origin==='search'?back:undefined} onOpenReader={openReader}/>:
- route.tab==='today'?<TodayScreen theme={theme} appearance={mode} readingScale={preferences.fontScale} onOpenSoundCloud={()=>navigate({kind:'soundcloud',origin:'today'})} onOpenAbout={()=>navigate({kind:'about',origin:'today'})} onOpenPlans={()=>navigate({kind:'plans',origin:'today'})} onOpenReader={openReader} onOpenExplore={()=>navigate({kind:'tab',tab:'search'})} onOpenLibrary={()=>navigate({kind:'tab',tab:'library'})}/>:
+ route.tab==='today'?<TodayScreen theme={theme} appearance={mode} readingScale={preferences.fontScale} onOpenAbout={()=>navigate({kind:'about',origin:'today'})} onOpenPlans={()=>navigate({kind:'plans',origin:'today'})} onOpenReader={openReader} onOpenExplore={()=>navigate({kind:'tab',tab:'search'})} onOpenLibrary={()=>navigate({kind:'tab',tab:'library'})}/>:
  route.tab==='search'?<SearchScreen theme={theme} onOpenReader={openReader} topicUi={topicUi} onTopicUiChange={setTopicUi}/>:
  route.tab==='bible'?<BibleScreen theme={theme} readingScale={preferences.fontScale} initialBook={route.bibleBook} onBookContextChange={book=>navigate({kind:'tab',tab:'bible',...(book?{bibleBook:book}:{})})} onOpenReader={openReader}/>:
  <LibraryScreen theme={theme} restoreY={libraryScrollY.current} onScrollY={y=>{libraryScrollY.current=y;}} onOpenReader={(book,chapter,verse,sourceVerseLabel)=>openReader(book,chapter,verse,true,sourceVerseLabel)}/>;
- return <SafeAreaView edges={['top','bottom']} style={[styles.root,{backgroundColor:theme.background}]}><View style={[styles.top,{borderBottomColor:theme.border,backgroundColor:theme.surface}]}><View style={styles.brandRow}><Pressable accessibilityRole="button" accessibilityLabel="Abrir menú de navegación" accessibilityHint="Abre los destinos reales de La U, incluidos temas, dinámicas, canciones y libros personales." onPress={()=>setDrawerOpen(true)}
- style={({pressed})=>[styles.menuButton,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text style={[styles.menuGlyph,{color:theme.primaryText}]}>☰</Text></Pressable><View style={styles.brand}><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.text,fontFamily:'serif',fontSize:23,fontWeight:'700'}]}>La U</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.micro,{color:theme.secondary}]}>RV1909 · sin conexión</Text></View></View><Pressable accessibilityRole="button" accessibilityLabel="Abrir ajustes" hitSlop={4} onPress={()=>navigate({kind:'settings',origin:activeTab})} style={({pressed})=>[styles.settings,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.settingsIcon,{color:theme.primaryText}]}>⚙</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.primaryText}]}>Ajustes</Text></Pressable></View><View style={styles.content}>{content}</View><View accessibilityRole="tablist" style={[styles.tabs,{borderTopColor:theme.border,backgroundColor:theme.surface}]}>{tabs.map(tab=>{const selected=activeTab===tab;return <Pressable key={tab} accessibilityRole="tab" accessibilityLabel={tabLabels[tab]} accessibilityState={{selected}} onPress={()=>navigate({kind:'tab',tab})} style={({pressed})=>[styles.tab,selected&&{backgroundColor:theme.selectionBg},pressed&&{opacity:0.78}]}>{selected?<View accessibilityElementsHidden style={[styles.tabIndicator,{backgroundColor:theme.primaryText}]}/>:null}<Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.tabIcon,{color:selected?theme.primaryText:theme.secondary}]}>{tabIcons[tab]}</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.metadata,{color:selected?theme.primaryText:theme.secondary,fontWeight:selected?'700':'500'}]}>{tabLabels[tab]}</Text></Pressable>;})}</View><StatusBar style='dark'/>
+ return <SafeAreaView edges={['top','bottom']} style={[styles.root,{backgroundColor:theme.background}]}><View style={[styles.top,{borderBottomColor:theme.border,backgroundColor:theme.surface}]}><View style={styles.brandRow}><Pressable accessibilityRole="button" accessibilityLabel="Abrir menú de navegación" accessibilityHint="Abre la guía pastoral, planes, temas y biblioteca personal." onPress={()=>setDrawerOpen(true)}
+ style={({pressed})=>[styles.menuButton,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text style={[styles.menuGlyph,{color:theme.primaryText}]}>☰</Text></Pressable><View style={styles.brand}><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.text,fontFamily:'serif',fontSize:23,fontWeight:'700'}]}>Guía pastoral</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.micro,{color:theme.secondary}]}>RV1909 · sin conexión</Text></View></View><Pressable accessibilityRole="button" accessibilityLabel="Abrir ajustes" hitSlop={4} onPress={()=>navigate({kind:'settings',origin:activeTab})} style={({pressed})=>[styles.settings,{backgroundColor:pressed?theme.surfaceSoft:'transparent'}]}><Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.settingsIcon,{color:theme.primaryText}]}>⚙</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.label,{color:theme.primaryText}]}>Ajustes</Text></Pressable></View><View style={styles.content}>{content}</View><View accessibilityRole="tablist" style={[styles.tabs,{borderTopColor:theme.border,backgroundColor:theme.surface}]}>{tabs.map(tab=>{const selected=activeTab===tab;return <Pressable key={tab} accessibilityRole="tab" accessibilityLabel={tabLabels[tab]} accessibilityState={{selected}} onPress={()=>navigate({kind:'tab',tab})} style={({pressed})=>[styles.tab,selected&&{backgroundColor:theme.selectionBg},pressed&&{opacity:0.78}]}>{selected?<View accessibilityElementsHidden style={[styles.tabIndicator,{backgroundColor:theme.primaryText}]}/>:null}<Text accessibilityElementsHidden maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[styles.tabIcon,{color:selected?theme.primaryText:theme.secondary}]}>{tabIcons[tab]}</Text><Text maxFontSizeMultiplier={shellMaxFontSizeMultiplier} style={[typography.metadata,{color:selected?theme.primaryText:theme.secondary,fontWeight:selected?'700':'500'}]}>{tabLabels[tab]}</Text></Pressable>;})}</View><StatusBar style='dark'/>
   <Modal visible={drawerOpen} transparent animationType="fade" onRequestClose={()=>setDrawerOpen(false)}>
    <View style={styles.drawerOverlay}>
     <SafeAreaView edges={['top','bottom']} style={[styles.drawerPanel,{backgroundColor:theme.surface}]}>
       <ScrollView contentContainerStyle={styles.drawerContents} keyboardShouldPersistTaps="handled">
-        <Text style={[styles.drawerBrand,{color:theme.text}]}>La U</Text>
+        <Text style={[styles.drawerBrand,{color:theme.text}]}>Guía pastoral</Text>
         <Text accessibilityRole="header" style={[styles.drawerHeading,{color:theme.text}]}>Recursos para tu camino</Text>
         <Text style={[typography.metadata,{color:theme.secondary}]}>Tu biblioteca bíblica y pastoral, en un solo lugar.</Text>
-        {(['Lectura y reflexión','Pastoral y música','Mi espacio'] as const).map(group=><View key={group} style={styles.drawerGroup}>
+        {(['Lectura y reflexión','Pastoral y actividades','Mi espacio'] as const).map(group=><View key={group} style={styles.drawerGroup}>
           <Text accessibilityRole="header" style={[styles.drawerGroupLabel,{color:theme.secondary}]}>{group.toUpperCase()}</Text>
           {drawerDestinations.filter(item=>item.group===group).map(item=><Pressable key={item.id} accessibilityRole="button"
             accessibilityLabel={item.label} onPress={()=>openDrawerItem(item)}
@@ -77,9 +88,9 @@ function AppContent(){const [navigation,setNavigation]=useState<NavigationState>
         </View>)}
       </ScrollView>
       <View style={[styles.drawerFooter,{borderTopColor:theme.border}]}>
-        <Pressable accessibilityRole="link" accessibilityLabel="Sobre La U, bibliografía, linkografía y créditos" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
-         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Prototipo · IA y estudios</Text>
-         <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Bibliografía y fuentes ↗</Text>
+        <Pressable accessibilityRole="link" accessibilityLabel="Acerca de la guía pastoral, contacto y fuentes" onPress={()=>{setDrawerOpen(false);navigate({kind:'about',origin:activeTab});}} style={styles.drawerCredits}>
+         <Text style={[styles.drawerCreditsText,{color:theme.secondary}]}>ⓘ  Guía pastoral · versión 1.10</Text>
+         <Text style={[styles.drawerCreditsLink,{color:theme.primaryText}]}>Fuentes y contacto ↗</Text>
         </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Cerrar menú" onPress={()=>setDrawerOpen(false)}
           style={[styles.drawerClose,{borderColor:theme.border}]}>
