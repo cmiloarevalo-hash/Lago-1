@@ -21,13 +21,13 @@
 - [ ] Sin precios, suscripción, Google Login ni lector en voz alta en esta publicación.
 
 ## Prioridad 3 — Capturas fieles, de calidad
-- [ ] Capturas auténticas de v1.11.6, sin UI alterada: Hoy/Inicio, lectura Biblia, Exploración temática, Planes, Biblioteca y Ajustes.
-- [ ] Ideal: 4–8 fotos de teléfono en 1080x1920 píxeles (9:16) PNG/JPEG, sin capturar pantallas de launcher ni crash.
+- [x] Capturas auténticas de v1.11.6, sin UI alterada: Hoy/Inicio, lectura Biblia, Exploración temática, Planes, Biblioteca y Ajustes. 8 PNGs reales en `capturas/`, 1080×1920.
+- [x] 8 fotos de pantalla auténticas en 1080x1920 píxeles (9:16) PNG, sin launcher/crash ni reescalados.
 - [ ] No añadir textos, elementos u opciones que la versión no tiene; limpieza de barra de estado posible solo en emulador.
-- [ ] Imagen promocional (feature graphic) 1024x500 PNG/JPG, no es captura; icono de Play 512x512 PNG <1MiB, generado desde recurso autorizado.
+- [x] Banner 1024x500 PNG (sin alfa) y icono Play 512x512 PNG <1MiB, ambos en `assets/`; fuente gráfica y licencia verificadas.
 - [ ] Revisar legibilidad y contraste a tamaño móvil.
 
-**Evidencia ASUS:** Emulador `Lago1_QA_ASUS_API36` (Android API36/x86_64) y la APK aprobada 1.11.6 instalada. **Bloqueo observado al abrir:** el APK tiene `libexpo-sqlite.so` para `arm64-v8a`, pero no para `x86_64`; Android produce `UnsatisfiedLinkError: libexpo-sqlite.so not found`. No presentar pantallas de este AVD fallido como capturas válidas. Intentar un build de QA específico x86_64 o un dispositivo arm64; conservar fuente v1.11.6.
+**Evidencia ASUS:** Emulador `Lago1_QA_ASUS_API36` (API36/x86_64) y APK 1.11.6/code18 original instalaron correctamente pero la precompilación SQLite carecía de librería x86_64, causando `UnsatisfiedLinkError`. **Resuelto solo para QA del emulador:** se usó el mismo source aprobado `896b729`, compilando módulo `expo-sqlite` nativo para x86_64 vía `-Pexpo.sqlite.enableFTS=true` y evitando en ASUS un segundo NDK no instalado mediante ajuste en `node_modules` de la copia local de QA. Gradle `assembleRelease` PASS; emulador lanzó `MainActivity`, mostró la app real y no registró crash. Se capturaron 8 PNG originales mediante `adb shell screencap -p` a framebuffer 1080×1920; no reescalado. El AAB Play necesita compilar SQLite de código fuente para todas las ABIs anunciadas; workflow actualizado y nueva verificación CI pendiente.
 
 ## Especificaciones oficiales
 - Ficha: https://support.google.com/googleplay/android-developer/answer/9859152
@@ -40,3 +40,11 @@
 - Firma de AAB y Play: https://developer.android.com/studio/publish/app-signing
 
 **Estado de publicación:** NO PUBLICADA EN GOOGLE PLAY. No confundir este issue/PR con aceptación de tienda.
+
+## Capturas reales verificadas — ASUS, 16-11-2026
+
+Archivo: `docs/play-store-1.11.6/capturas/` (archivo PNG original, 1080×1920 cada uno): `01_Hoy.png`, `02_Explorar.png`, `03_Leer.png`, `04_Genesis_1.png`, `05_Biblioteca.png`, `06_Planes.png`, `07_Ajustes.png`, `08_Guia_Pastoral.png`.
+
+**Identidad de la app que se capturó:** `com.lago.bibletopicexplorer`, `versionName=1.11.6`, `versionCode=18`, `targetSdk=36`. La única diferencia con la compilación CI aprobada es la reconstrucción nativa de SQLite x86_64 requerida para usar el emulador. Ni el texto bíblico, ni el diseño, ni las funciones se modificaron; no se utilizaron imágenes generadas ni pantallas de 1.20.0.
+
+**Licencias:** `assets/editorial/PHOTO_LICENSES.md` en `main` documenta la fotografía de Jordan Moore de Unsplash para el banner editado; icono obtenido de `assets/icon.png` de la aplicación.
