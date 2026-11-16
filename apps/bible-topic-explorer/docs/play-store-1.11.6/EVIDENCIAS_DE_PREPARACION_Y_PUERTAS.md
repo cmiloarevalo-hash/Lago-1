@@ -56,3 +56,12 @@ Gráficos en `assets/`: `icon_512.png` (512×512 PNG, 193.794 bytes, basado en i
 4. **Publicación** no ejecutada ni autorizada como acción en esta preparación. No se afirma `SUBMITTED` ni `PUBLISHED`.
 
 **RESULTADO SUPERVISOR:** Documentación/artefactos de publicación preparados y auditados; **release uploading BLOQUEADA por firma de producción y formularios/QA de consola**, no por compilación del AAB.
+
+## Actualización — nuevo icono aprobado (16-11-2026)
+
+- Orden directa del Humano: sustituir el icono estándar por la composición pastoral con corona, luz, personas y estrella, en la aplicación instalada y en Play Store.
+- Arte original íntegro guardado en assets/logo_aprobado_original_1254.png; variantes 1024, 512, adaptativa y monocromática documentadas en ICONO_APROBADO.md.
+- Respetados package com.lago.bibletopicexplorer, versionName 1.11.6, versionCode 18, sin features 1.20.0.
+- QA nativa ASUS (AVD API36 x86_64): Expo prebuild creó recursos mipmap; Gradle assembleRelease con SQLite compilado de fuente completó sin errores; adb install -r devolvió Success; MainActivity arrancó correctamente; no hubo registros de crash.
+- En pantalla real del lanzador Pixel AVD, el icono muestra la nueva corona, luz y Biblia; evidencia PNG original en evidencias/Icono_instalado_ASUS_API36_1080x1920.png. El original es de 1080×1920, sin montaje.
+- La APK local de QA tiene firma Debug y no se puede entregar como actualización de producción ni instalar sobre una versión firmada con una clave diferente. La firma de distribución sigue pendiente de validación en Lenovo y Play App Signing.
