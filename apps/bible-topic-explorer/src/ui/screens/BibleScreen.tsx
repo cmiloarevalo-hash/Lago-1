@@ -10,6 +10,7 @@ import {focusMatchesVerse,isFirstFocusedVerse} from '../../product/conceptIndex'
 import { uxCopy } from '../../product/uxCopy';
 import {verseShareText} from '../../product/verseSharing';
 import { scaledScriptureMetrics } from '../readingScale';
+import { BibleAudioReader } from '../components/BibleAudioReader';
 import type { Theme } from '../theme';
 import { minimumTouchTarget, radius, spacing, type as typography } from '../theme';
 import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, SettingRow, StatusBanner } from '../primitives';
@@ -17,6 +18,7 @@ import { Action, Body, ChoiceChip, Metadata, Screen, ScreenTitle, Section, Setti
 const oldTestament = books.slice(0, 39); const newTestament = books.slice(39);
 export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBookContextChange, onOpenReader, onBack }: { theme: Theme; reader?: { book: string; chapter: number; verse?: number; sourceVerseLabel?: string; verseEnd?: number; sourceVerseLabels?: readonly string[] }; readingScale?: number; initialBook?: string; onBookContextChange?: (book?: string) => void; onOpenReader: (book: string, chapter: number, verse?: number, recordHistory?: boolean) => void; onBack?:()=>void }) {
   const db = useSQLiteContext(); const repository = useMemo(() => new SQLiteBibleRepository(db), [db]); const persistence = useMemo(() => new SQLiteLocalPersistence(db), [db]);
+  const [audioVerseIndex, setAudioVerseIndex] = useState<number | null>(null);
   const [verses, setVerses] = useState<readonly BibleVerse[]>([]); const [chapterCount, setChapterCount] = useState(0); const [loading, setLoading] = useState(false); const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState<readonly SavedReference[]>([]); const [saveStatus, setSaveStatus] = useState('');
   const [verseNotes,setVerseNotes]=useState<readonly VerseNote[]>([]); const [highlights,setHighlights]=useState<readonly VerseHighlight[]>([]);
@@ -72,15 +74,16 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   <View style={[styles.readerUnderline,{backgroundColor:theme.primary}]}/>
   {reader.sourceVerseLabels?.length?<Text style={[styles.rangeHint,{color:theme.secondary}]}>Pasaje enfocado: {ref} · {reader.sourceVerseLabels.length} versículos de contexto señalados</Text>:null}
  </View>
+      {!loading && !error && verses.length ? <BibleAudioReader key={reader.book + ':' + reader.chapter} theme={theme} verses={verses} onActiveVerseChange={setAudioVerseIndex} /> : null}
       {saveStatus ? <StatusBanner theme={theme} kind={saveStatus.startsWith('No ') ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Cargando capítulo local…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">No hay versículos para este capítulo.</StatusBanner> : null}
-      {!loading && !error && verses.length ? <View style={styles.scripture} onLayout={event=>setScriptureY(event.nativeEvent.layout.y)}>{verses.map(verse => {
+      {!loading && !error && verses.length ? <View style={styles.scripture} onLayout={event=>setScriptureY(event.nativeEvent.layout.y)}>{verses.map((verse, verseIndex) => {
         const selected=reader.sourceVerseLabels?.length?focusMatchesVerse(verse,reader):verseMatchesTarget(verse,reader);
         const isSaved=saved.some(item=>item.bookId===verse.bookId&&item.chapter===verse.chapter&&item.verse===verse.verse);
         const note=noteFor(verse);const mark=highlightFor(verse);
         const tone=mark?highlightColors[mark.tone]:null;
         return <View key={[verse.bookId,verse.chapter,verse.sourceVerseLabel].join('-')}
           onLayout={selected&&isFirstFocusedVerse(verse,reader)?event=>{const y=event.nativeEvent.layout.y;setVerseOffset(prev=>prev?.key===targetKey&&prev.y===y?prev:{key:targetKey,y});}:undefined}
-          style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5,backgroundColor:theme.selectionBg},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
+          style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5,backgroundColor:theme.selectionBg},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border},audioVerseIndex===verseIndex&&{borderLeftColor:theme.primary,borderLeftWidth:5}]}>
           <View style={styles.verse}>
             <Pressable accessibilityRole="button"
               accessibilityLabel={'Acciones para '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+(selected?' · seleccionado':'')+(isSaved?' · guardado':'')+(mark?' · destacado':'')}
