@@ -14,7 +14,7 @@
       "package": "com.lago.bibletopicexplorer",
       "versionCode": 18,
       "adaptiveIcon": {
-        "backgroundColor": "#FFF9F7",
+        "backgroundColor": "#061D4A",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"

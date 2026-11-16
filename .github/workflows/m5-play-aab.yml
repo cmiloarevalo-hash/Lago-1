@@ -1,0 +1,111 @@
+name: Play 1.11.6 — Android App Bundle (preparacion)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/m5-play-aab.yml'
+      - 'apps/bible-topic-explorer/app.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/bible-topic-explorer
+    steps:
+      - name: Checkout approved 1.11.6 source
+        uses: actions/checkout@v4
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/bible-topic-explorer/package-lock.json
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Verify frozen Play version
+        run: |
+          node -e "const e=require('./app.json').expo; if(e.version!=='1.11.6' || e.android.versionCode!==18 || e.android.package!=='com.lago.bibletopicexplorer') process.exit(1);"
+          test ! -d modules/bible-speech
+          test -z "$(git diff --name-only origin/main -- apps/bible-topic-explorer/src/product)" || (echo "Product code changed" && exit 1)
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck and tests
+        run: |
+          npm run typecheck
+          npm test
+          npx expo install --check
+      - name: Expo prebuild for Android
+        run: npx expo prebuild --platform android --no-install --non-interactive
+      - name: Create Android App Bundle
+        run: |
+          sed -i 's/networkTimeout=10000/networkTimeout=120000/' android/gradle/wrapper/gradle-wrapper.properties
+          cd android
+          for attempt in 1 2 3; do
+            if ./gradlew bundleRelease -Pexpo.sqlite.enableFTS=true --no-daemon --max-workers=2; then exit 0; fi
+            if [ "$attempt" -eq 3 ]; then exit 1; fi
+            sleep $((attempt * 15))
+          done
+      - name: Validate SQLite for every packaged ABI and 16 KiB ELF alignment
+        run: |
+          python3 - <<'PY'
+          from zipfile import ZipFile
+          from struct import unpack_from
+
+          aab = "android/app/build/outputs/bundle/release/app-release.aab"
+          with ZipFile(aab) as archive:
+              names = set(archive.namelist())
+              for abi in ("arm64-v8a", "armeabi-v7a", "x86", "x86_64"):
+                  libs = sorted(name for name in names if name.startswith(f"base/lib/{abi}/") and name.endswith(".so"))
+                  if not libs or f"base/lib/{abi}/libexpo-sqlite.so" not in libs:
+                      raise SystemExit(f"BLOCKER: missing SQLite native library for {abi}")
+                  if abi not in ("arm64-v8a", "x86_64"):
+                      continue
+                  for name in libs:
+                      data = archive.read(name)
+                      if data[:4] != bytes((127, 69, 76, 70)) or data[4] != 2 or data[5] != 1:
+                          raise SystemExit(f"BLOCKER: invalid ELF64 file: {name}")
+                      phoff = unpack_from("<Q", data, 32)[0]
+                      phentsize = unpack_from("<H", data, 54)[0]
+                      phnum = unpack_from("<H", data, 56)[0]
+                      for i in range(phnum):
+                          offset = phoff + i * phentsize
+                          if unpack_from("<I", data, offset)[0] == 1:
+                              alignment = unpack_from("<Q", data, offset + 48)[0]
+                              if alignment < 16384:
+                                  raise SystemExit(f"BLOCKER: {name} has PT_LOAD alignment {alignment}, expected >= 16384")
+                  print(f"PASS: {abi} SQLite present and ELF64 PT_LOAD supports 16 KiB pages")
+              print("PASS: all advertised ABIs contain native SQLite")
+          PY
+      - name: Stage AAB and verify metadata
+        run: |
+          set -eu
+          test -s android/app/build/outputs/bundle/release/app-release.aab
+          AAB="Biblia-Guia-Pastoral-RV1909-v1.11.6-AAB-SIN_FIRMA_DE_CARGA_VERIFICADA.aab"
+          cp android/app/build/outputs/bundle/release/app-release.aab "$AAB"
+          sha256sum "$AAB" | tee "$AAB.sha256"
+          {
+            echo "Producto: Biblia - Guía pastoral Reina Valera 1909"
+            echo "Version: 1.11.6"
+            echo "VersionCode: 18"
+            echo "ApplicationId: com.lago.bibletopicexplorer"
+            echo "Estado: artefacto CI de preparación; NO SUBIR sin verificar firma de upload y Play App Signing"
+            echo "Consulta de firma (no demuestra por sí sola clave de upload):"
+            jarsigner -verify -verbose -certs "$AAB" 2>&1 || true
+          } > "PLAY-1.11.6-AAB-REVISION.txt"
+      - name: Upload bundle artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Play-RV1909-v1.11.6-AAB-PREPARACION-NO_SUBIR_SIN_VERIFICAR_FIRMA
+          path: |
+            apps/bible-topic-explorer/Biblia-Guia-Pastoral-RV1909-v1.11.6-AAB-SIN_FIRMA_DE_CARGA_VERIFICADA.aab
+            apps/bible-topic-explorer/Biblia-Guia-Pastoral-RV1909-v1.11.6-AAB-SIN_FIRMA_DE_CARGA_VERIFICADA.aab.sha256
+            apps/bible-topic-explorer/PLAY-1.11.6-AAB-REVISION.txt
+          if-no-files-found: error
+          retention-days: 90
