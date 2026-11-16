@@ -28,8 +28,8 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   const config=read('app.json');
   expect(config).toContain('Biblia - Guía pastoral Reina Valera 1909');
   expect(config).toContain('"softwareKeyboardLayoutMode": "resize"');
-  expect(config).toContain('"version": "1.11.6"');
-  expect(config).toContain('"versionCode": 18');
+  expect(config).toContain('"version": "1.20.0"');
+  expect(config).toContain('"versionCode": 19');
  });
  it('adds SQLite metadata without destructive changes to corpus or earlier user notes',async()=>{
   const db={

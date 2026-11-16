@@ -116,7 +116,7 @@ export function BibleAudioReader({ theme, verses, onActiveVerseChange }: {
         ? <Text style={{ color: theme.secondary, fontSize: 12 }}>Para escuchar sin conexión, descarga una voz española en los ajustes de voz de Android.</Text>
         : null}
       {status.ready && voices.length > 0
-        ? <Text numberOfLines={1} style={{ color: theme.secondary, fontSize: 12 }}>
+        ? <Text style={{ color: theme.secondary, fontSize: 12, flexShrink: 1 }}>
           Voz local: {voices[Math.min(voiceIndex, voices.length - 1)].label}
         </Text>
         : null}
