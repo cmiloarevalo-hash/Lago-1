@@ -47,3 +47,22 @@ La definición de "recopilar" en Data safety incluye transmisiones efectuadas po
 3. Comparar resultado con política de privacidad final.
 4. Completar IARC y Público objetivo en la cuenta real; las respuestas deben corresponder a sus circunstancias y al contenido bíblico.
 5. No llamar "ACEPTADO" a ningún formulario sin confirmación de Play Console.
+
+## Auditoría adicional: permisos del APK 1.11.6 original (ASUS, AAPT 36)
+
+Inspección ejecutada sobre el APK de revisión aprobado recuperado de CI run 43474356666, SHA-256 `382e78ac027a54584770b36f845858965a6920d9f91141daa2fdc1cbdfd20128`, mediante `aapt dump permissions` y `aapt dump badging` en ASUS.
+
+**Identidad verificada:** paquete `com.lago.bibletopicexplorer`, versión `1.11.6`, código `18`, `minSdk=24`, `targetSdk=36`.
+
+**Permisos expresamente presentes en el manifiesto:**
+- `android.permission.INTERNET`, `android.permission.ACCESS_NETWORK_STATE`: conectividad, aunque el texto bíblico se use offline.
+- `android.permission.POST_NOTIFICATIONS`, `android.permission.VIBRATE`, `android.permission.RECEIVE_BOOT_COMPLETED`, `android.permission.WAKE_LOCK`: relación potencial con notificaciones recordatorio (módulo SDK incluido).
+- `android.permission.READ_EXTERNAL_STORAGE` y `WRITE_EXTERNAL_STORAGE` con `maxSdkVersion=32`: permisos heredados; evaluar uso real por document picker y dispositivos antiguos.
+- `android.permission.SYSTEM_ALERT_WINDOW`: permiso transitorio presente en el manifiesto. **Requiere revisión concreta antes de Play** porque la app aprobada no muestra una función propia de superposición; no afirmar que no se solicita ni que su presencia es necesaria. Podría retirarse por ajuste exclusivo de empaquetado si se confirma no usado.
+- `com.google.android.c2dm.permission.RECEIVE`: declaración de compatibilidad con mensajería/navegación de notificaciones de las dependencias; **no demuestra por sí misma** que la app transmita tokens o datos de usuario.
+- `com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE`: presente; **no prueba** analítica publicitaria, pero requiere verificar SDK y transmisión de eventos para Data safety.
+- Permisos de contador/íconos de notificación de fabricantes (Samsung, HTC, Sony, Huawei, OPPO, etc.) y permiso interno de receptor no exportado; auditar las manifest merges.
+
+**No observados en este APK:** `android.permission.CAMERA`, `RECORD_AUDIO`, permisos de geolocalización precisa/aproximada, `com.android.vending.BILLING` ni `com.google.android.gms.permission.AD_ID`. Esta ausencia se refiere al APK inspeccionado, no garantiza automáticamente privacidad de todos los SDK.
+
+**Conclusión de auditoría:** mantener la casilla Data safety como **pendiente de verificación final** hasta inspeccionar el AAB Play firmado/instalado y conocer los SDK de plataforma. La biblioteca de notificaciones introduce permisos aunque la función de la app sea local; no ocultarlos ni convertir su presencia en prueba automática de recolección.
