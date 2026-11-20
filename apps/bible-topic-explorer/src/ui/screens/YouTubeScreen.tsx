@@ -18,7 +18,7 @@ export function YouTubeScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
     <View style={styles.video}>
      <WebView key={selected} source={{uri:youtubeEmbedUrl(selected)}} originWhitelist={['https://*']} javaScriptEnabled domStorageEnabled mediaPlaybackRequiresUserAction
       allowsFullscreenVideo allowsInlineMediaPlayback={false} mixedContentMode="never"
-      onError={()=>setError('No se pudo cargar la lista. Puedes abrirla en YouTube.')}
+      onError={()=>setError('Could not load the list. You can open it on YouTube.')}
       onHttpError={()=>setError("The list may not allow insertion. Open it on YouTube.")}
       style={styles.webView}/>
     </View>:

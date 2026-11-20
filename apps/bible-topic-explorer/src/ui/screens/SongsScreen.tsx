@@ -19,7 +19,7 @@ export function SongsScreen({theme,songId,onSelect,onBack}:{theme:Theme;songId?:
   {error?<StatusBanner theme={theme} kind="warning">{error}</StatusBanner>:null}
   {selected?<Section theme={theme} title={selected.title}>
     <Card theme={theme} featured>
-      <Metadata theme={theme}>MOMENTO SUGERIDO · {selected.moment.toUpperCase()}</Metadata>
+      <Metadata theme={theme}>SUGGESTED MOMENT · {selected.moment.toUpperCase()}</Metadata>
       <Subhead theme={theme}>Purpose of the meeting</Subhead><Body theme={theme}>{selected.objective}</Body>
       <Subhead theme={theme}>Own question to talk</Subhead><Body theme={theme}>{selected.groupPrompt}</Body>
       <Metadata theme={theme}>{selected.contextCaution}</Metadata>

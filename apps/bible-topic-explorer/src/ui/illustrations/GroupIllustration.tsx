@@ -9,7 +9,7 @@ const people:Figure[]=[
  {skin:'#D69B78',shirt:'#93B3A3',hair:'#3F3942',angle:13,left:240,top:85,scale:.84}
 ];
 export function GroupIllustration(){
- return <View accessible accessibilityLabel="Dibujo original de cuatro personas conversando en grupo" style={styles.frame}>
+ return <View accessible accessibilityLabel="Original illustration of four people talking together" style={styles.frame}>
   <View style={styles.light}/>
   <View style={[styles.orbit,{left:64,top:27,width:193,height:116}]}/>
   <View style={styles.bubble}><Text style={styles.dots}>···</Text></View>

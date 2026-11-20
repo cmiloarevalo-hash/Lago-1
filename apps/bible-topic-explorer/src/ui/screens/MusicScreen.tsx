@@ -21,7 +21,7 @@ export function MusicScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
     {musicCategories.map(entry=><Card key={entry.id} theme={theme} label={entry.category}>
       <Metadata theme={theme}>{entry.category.toUpperCase()}</Metadata>
       <Body theme={theme}>{entry.title}</Body>
-      <Metadata theme={theme}>Fuente/curador: {entry.curator}</Metadata>
+      <Metadata theme={theme}>Source / curator: {entry.curator}</Metadata>
       <View style={styles.cta}><Action label="Open in Spotify ↗" theme={theme} variant="secondary" onPress={()=>{void open(entry.url);}}/></View>
     </Card>)}
    </Section>

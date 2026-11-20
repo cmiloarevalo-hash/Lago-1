@@ -22,9 +22,9 @@
 
 ## Pastoral guide and localization
 
-- The Spanish original in src/product/pastoralTopics.ts is unchanged.
+- The Spanish original in src/product/pastoralTopics.ts is unchanged. Automated structure parity: 16 chapters, 4 themes, 80 paragraphs, 84 identical chapter/verse ranges, stable chapter IDs and question kind. English chapter 10 title was corrected and the theological term `new covenant` replaces mistranslated `new alliance` in chapter 2. Six targeted editorial improvements were applied only to the English text.
 - The English version src/product/pastoralTopics.en.ts preserves the 16 chapters, 80 paragraphs, 84 biblical references, four theme groups and original ordering. Content generated with machine-assisted translation is not represented as pastorally approved.
-- PastoralScreen imports English text. Menus, reader, search, notes, preferences, plans and accessibility text have English localization changes.
+- PastoralScreen imports English text. Menus, reader, search, notes, preferences, plans and accessibility text have English localization changes. A subsequent AST-based audit corrected 61 residual Spanish strings across 19 runtime files (e.g. misleading RV1909 branding, Settings, backup, error banners, highlight colors and search rationale). Original musical work titles remain in their source language as proper names so Spotify lookups remain valid.
 - 100 canonical topic IDs remain unchanged. English labels, families, synonyms and scripture references target the English WEBP database.
 - **Editorial caveat:** Translations were machine-assisted and have not had complete human linguistic or theological approval.
 
@@ -33,10 +33,10 @@
 - npm ci succeeded.
 - npm run typecheck succeeded.
 - English-specific tests passed for DB, edition identity and pastoral references. Expanded tests also cover preview and plan references.
-- Legacy Spanish-edition tests were migrated to check the equivalent English strings, World English Bible fixtures and independent Android configuration without removing structural/security assertions. Final **`npm test`: 174 passed / 0 failed across 36 files** (2026-11-20, Lenovo environment). Prior interim run: 132 passed / 41 failed; all failures were addressed in the English branch.
+- English regression suite: **`npm test`: 176 passed / 0 failed across 37 test files**, `npm run typecheck`: PASS (2026-11-20, Lenovo). Two new tests guard visible runtime copy against Spanish-label regressions. The 132/173 interim tests included obsolete Spanish assertions and were corrected rather than disabled.
 - Local Windows Gradle failed during installation of NDK 27.1: java.io.IOException: Espacio en disco insuficiente; drive C: had ~1.37 GiB available. GitHub-hosted Actions successfully compiled a **real QA APK** on commit 3378428 (the final localized HEAD must be rebuilt before release).
-- The separate GitHub Actions workflow android-en-qa.yml builds a self-contained release-variant QA APK, signed only with the generated Android DEBUG key. This is **not a production signature**. First verified QA APK on commit 3378428: 82,875,084 bytes, SHA-256 `804e0ca237140641de4f0840a093ff827803e49465697b14eeb292f8c4d2b99d`, v2 signature, `CN=Android Debug`, manifest package/version/code verified by `aapt` and `apksigner`.
-- Android emulator run uses `scripts/verify_en_apk_emulator.sh` (Android 13 API 33, actual install, launch and airplane-mode cold restart). The result is independent from unit tests. Individual chapter taps, 16 pastoral chapter taps, note/favorite persistence and independent coexistence with the Spanish APK **must be tested separately**, and remain release gates until evidenced.
+- GitHub Actions built and verified a QA APK from commit `740b25e2d8042ab518ba56272aa9b0f529435e95` (before final copy fixes): **82,875,884 bytes**, SHA-256 `483ff5dc7f6a0c8b323b1da7dd4f3cb478b1ce09a8abea31066822215ddea0bb`. `aapt` confirms package `com.lago.bibletopicexplorer.en`, versionName `1.20.01`, versionCode `20`, minSdk `24`. `apksigner` confirms **Android Debug v2** (not commercial signing), `zipalign -c` and ZIP CRC verification pass. The packaged `res/DT.db` is 6,922,240 bytes and matches the official prepared WEBP SHA-256. **After copy fixes, rebuild from the new exact HEAD before handing off**.
+- Android emulator runs are independent from unit tests and have NOT passed so far. Linux GitHub-hosted runner lacked Android x86 virtualization (`Software CPU emulation...not supported`). An initial macOS-15 run attempted an x86_64 image on an aarch64 host (`FATAL ... architecture mismatch`). The workflow was corrected to `arm64-v8a` on macOS; result pending. Until ADB installation/launch is recorded, offline restart, UI flows, notes/favorites, persistence and simultaneous Spanish 1.11.6 installation remain **NOT EXECUTED / BLOCKED**. No emulator pass is inferred from an APK build.
 - No store publication, no modification to main or Uptodown, and no access to private signing keys.
 
 ## Repeatable build

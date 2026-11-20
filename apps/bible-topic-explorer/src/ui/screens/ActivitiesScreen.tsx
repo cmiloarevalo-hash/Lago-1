@@ -74,7 +74,7 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
     style={({pressed})=>[styles.listRow,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
      <View style={[styles.listIndex,{backgroundColor:theme.selectionBg}]}><Text style={[styles.listIndexText,{color:theme.primaryText}]}>{i+1}</Text></View>
      <View style={styles.listCopy}><Text style={[styles.rowTitle,{color:theme.text}]}>{item.title}</Text><Text style={[styles.rowSubtitle,{color:theme.secondary}]}>{item.goal}</Text>
-      <Text style={[styles.rowNumbers,{color:theme.primaryText}]}>👥 {item.groupSize} personas    ◷ {item.minutes} min</Text>
+      <Text style={[styles.rowNumbers,{color:theme.primaryText}]}>👥 {item.groupSize} people    ◷ {item.minutes} min</Text>
      </View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
     </Pressable>)}</View>
    <Pressable accessibilityRole="button" accessibilityLabel={showCare?"Hide recommendations for facilitators":"Recommendations for facilitators"} onPress={()=>setShowCare(x=>!x)} style={styles.careButton}><Text style={[styles.careLink,{color:theme.secondary}]}>ⓘ  {showCare?"Hide information":"Responsible use of dynamics"}</Text></Pressable>

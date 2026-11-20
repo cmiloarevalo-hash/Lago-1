@@ -39,8 +39,8 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
   const wasBody=original?.body??'';
   const changed=title.trim()!==wasTitle||body.trim()!==wasBody;
   if(changed)Alert.alert("Discard reflection","There are unsaved changes. Discard them?",[
-    {text:'Seguir escribiendo',style:'cancel'},
-    {text:'Descartar',style:'destructive',onPress:()=>setEditing(null)}
+    {text:'Keep writing',style:'cancel'},
+    {text:'Discard',style:'destructive',onPress:()=>setEditing(null)}
   ]);
   else setEditing(null);
  };

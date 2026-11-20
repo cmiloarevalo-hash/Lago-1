@@ -56,7 +56,7 @@ export function PastoralGamesScreen({theme,onBack}:{theme:Theme;onBack:()=>void}
        <Action theme={theme} label={index+1===questions.length?"Replay":"Next question"} onPress={next}/>
       </Card>:null}
      <Metadata theme={theme}>Provisional score: {scored} de {answers.length}· only in this session, without public ranking.</Metadata>
-     <Action theme={theme} variant="tertiary" label="Reiniciar juego" onPress={restart}/>
+     <Action theme={theme} variant="tertiary" label="Restart game" onPress={restart}/>
    </Section>}
  </ScrollView></Screen>;
 }

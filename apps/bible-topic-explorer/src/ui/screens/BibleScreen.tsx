@@ -36,7 +36,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
    return()=>cancelAnimationFrame(frame);
   },[reader?.book,reader?.chapter,reader?.verse,reader?.sourceVerseLabel,verses,verseOffset,scriptureY,targetKey]);
   const chooseBook = async (book: string, publishContext = true) => { setSelectedBook(book); if (publishContext) onBookContextChange?.(book); setPickerLoading(true); setPickerError(false); try { setPickerChapterCount(await repository.getBookChapterCount(book)); } catch { setPickerChapterCount(0); setPickerError(true); } finally { setPickerLoading(false); } };
-  const toggleSaved = async (verse: BibleVerse) => { const ref = { bookId: verse.bookId, chapter: verse.chapter, verse: verse.verse }; const exists = saved.some(item => item.bookId === ref.bookId && item.chapter === ref.chapter && item.verse === ref.verse); try { if (exists) await persistence.removeSavedReference(ref); else await persistence.saveReference({ ...ref, savedAt: new Date().toISOString() }); setSaved(await persistence.listSavedReferences()); setSaveStatus(exists ? uxCopy.removedReference : uxCopy.savedReference); } catch { setSaveStatus('No se pudo actualizar el guardado local.'); } };
+  const toggleSaved = async (verse: BibleVerse) => { const ref = { bookId: verse.bookId, chapter: verse.chapter, verse: verse.verse }; const exists = saved.some(item => item.bookId === ref.bookId && item.chapter === ref.chapter && item.verse === ref.verse); try { if (exists) await persistence.removeSavedReference(ref); else await persistence.saveReference({ ...ref, savedAt: new Date().toISOString() }); setSaved(await persistence.listSavedReferences()); setSaveStatus(exists ? uxCopy.removedReference : uxCopy.savedReference); } catch { setSaveStatus('Could not update the locally saved verse.'); } };
 
   const identity=(verse:BibleVerse)=>({translationId:'webp' as const,bookId:verse.bookId,chapter:verse.chapter,sourceVerseLabel:verse.sourceVerseLabel});
   const noteFor=(verse:BibleVerse)=>verseNotes.find(n=>n.bookId===verse.bookId&&n.chapter===verse.chapter&&n.sourceVerseLabel===verse.sourceVerseLabel);
@@ -46,8 +46,8 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
     const previous=activeVerse?noteFor(activeVerse)?.body??'':'';
     if(editingNote&&activeVerse&&noteDraft!==previous){
       Alert.alert('Discard changes',"Your note has unsaved changes. Do you want to discard them?",[
-        {text:'Seguir escribiendo',style:'cancel'},
-        {text:'Descartar',style:'destructive',onPress:()=>{setActiveVerse(null);setEditingNote(false);}}
+        {text:'Keep writing',style:'cancel'},
+        {text:'Discard',style:'destructive',onPress:()=>{setActiveVerse(null);setEditingNote(false);}}
       ]);
       return;
     }
@@ -61,18 +61,18 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   ]);};
   const saveNote=async()=>{if(!activeVerse)return;try{const body=noteDraft.trim();if(body)await persistence.upsertVerseNote({...identity(activeVerse),body,updatedAt:new Date().toISOString()});else await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setSaveStatus(body?"Private note saved.":"Note deleted.");setActiveVerse(null);setEditingNote(false);}catch{setSaveStatus("Could not save local note.");}};
   const deleteNote=async()=>{if(!activeVerse)return;try{await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setActiveVerse(null);setSaveStatus("Note deleted.");}catch{setSaveStatus("Could not delete note.");}};
-  const chooseHighlight=async(tone:HighlightTone)=>{if(!activeVerse)return;const next=nextHighlightTone(highlightFor(activeVerse)?.tone,tone);try{if(next)await persistence.setHighlight(identity(activeVerse),next);else await persistence.removeHighlight(identity(activeVerse));setHighlights(await persistence.listHighlights());setSaveStatus(next?"Featured verse.":'Destacado eliminado.');}catch{setSaveStatus('No se pudo actualizar el destacado.');}};
+  const chooseHighlight=async(tone:HighlightTone)=>{if(!activeVerse)return;const next=nextHighlightTone(highlightFor(activeVerse)?.tone,tone);try{if(next)await persistence.setHighlight(identity(activeVerse),next);else await persistence.removeHighlight(identity(activeVerse));setHighlights(await persistence.listHighlights());setSaveStatus(next?"Verse highlighted.":'Highlight removed.');}catch{setSaveStatus('Could not update the highlight.');}};
 
   const shareSelectedVerse=async()=>{if(!activeVerse)return;try{await Share.share({title:activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel,message:verseShareText(activeVerse)});setActiveVerse(null);}catch{setSaveStatus("Unable to open sharing options.");}};
 
   if (reader) { const canonicalName = verses[0]?.bookName ?? reader.book; const ref = canonicalName + ' ' + reader.chapter + (reader.sourceVerseLabel||reader.verse ? ':' + (reader.sourceVerseLabel??reader.verse) + (reader.verseEnd&&reader.verse&&reader.verseEnd>reader.verse?'–'+reader.verseEnd:'') : ''); const atFirstChapter = reader.chapter <= 1; const atLastChapter = chapterCount > 0 && reader.chapter >= chapterCount;
     return <Screen theme={theme}><ScrollView ref={scrollRef} keyboardShouldPersistTaps="always" contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Return to Explore" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}>
-  <Metadata theme={theme}>THE WORD · REINA-VALERA 1909</Metadata>
+  <Metadata theme={theme}>THE WORD · WORLD ENGLISH BIBLE</Metadata>
   <Text accessibilityRole="header" style={[styles.chapterTitle,{color:theme.text}]}>{canonicalName} {reader.chapter}</Text>
   <View style={[styles.readerUnderline,{backgroundColor:theme.primary}]}/>
   {reader.sourceVerseLabels?.length?<Text style={[styles.rangeHint,{color:theme.secondary}]}>Focused passage: {ref} · {reader.sourceVerseLabels.length}noted context verses</Text>:null}
  </View>
-      {saveStatus ? <StatusBanner theme={theme} kind={saveStatus.startsWith('No ') ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Loading local chapter…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">There are no verses for this chapter.</StatusBanner> : null}
+      {saveStatus ? <StatusBanner theme={theme} kind={/^(?:Could not|Unable|Failed|Error)/i.test(saveStatus) ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Loading local chapter…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">There are no verses for this chapter.</StatusBanner> : null}
       {!loading && !error && verses.length ? <View style={styles.scripture} onLayout={event=>setScriptureY(event.nativeEvent.layout.y)}>{verses.map(verse => {
         const selected=reader.sourceVerseLabels?.length?focusMatchesVerse(verse,reader):verseMatchesTarget(verse,reader);
         const isSaved=saved.some(item=>item.bookId===verse.bookId&&item.chapter===verse.chapter&&item.verse===verse.verse);
@@ -176,7 +176,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
               {verseAction==='highlight'?<>
                 <Text style={[typography.label,{color:theme.primaryText}]}>Elige un color</Text>
                 <View style={styles.colorActions}>{(['rose','lavender','peach'] as const).map(tone=>{
-                  const colors=highlightColors[tone];const label=tone==='rose'?'rosa':tone==='lavender'?'lavanda':'durazno';
+                  const colors=highlightColors[tone];const label=tone==='rose'?'pink':tone==='lavender'?'lavender':'peach';
                   const selected=activeVerse?highlightFor(activeVerse)?.tone===tone:false;
                   return <Pressable key={tone} accessibilityRole="button" accessibilityLabel={'Destacar '+label}
                     accessibilityState={{selected}} accessibilityHint={selected?"Click to remove this color.":"Press to apply this color."}

@@ -150,7 +150,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
     "subtopic": "Choose what you do well",
     "synopsis": "How to decide when there are several options? The Bible invites us to think about justice, kindness, and caring for others.",
     "status": "EN_REVISION",
-    "pastoralCaution": "Miqueas denuncia desigualdad real",
+    "pastoralCaution": "Micah denounces real inequality",
     "existenceChecked": true,
     "passages": [
       {
@@ -165,7 +165,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "7",
           "8"
         ],
-        "rationale": "Miqueas pone el acento en la justicia y la bondad."
+        "rationale": "Micah emphasizes justice and kindness."
       },
       {
         "reference": "Romans 12:1–2",
@@ -178,7 +178,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "1",
           "2"
         ],
-        "rationale": "Pablo invita a revisar nuestra manera de pensar y actuar."
+        "rationale": "Paul invites us to reflect on how we think and act."
       }
     ]
   },
@@ -368,7 +368,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Pablo encourages us to stay alert and look for a way out."
+        "rationale": "Paul encourages us to stay alert and look for a way out."
       }
     ]
   },
@@ -539,7 +539,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Pablo remembers that love also knows how to wait."
+        "rationale": "Paul reminds us that love also knows how to wait."
       }
     ]
   },

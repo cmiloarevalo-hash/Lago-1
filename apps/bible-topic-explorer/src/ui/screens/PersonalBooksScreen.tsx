@@ -33,7 +33,7 @@ export function PersonalBooksScreen({theme,bookId,onSelect,onBack,readingScale=1
  };
  const updateProgress=async(p:number,ch:number)=>{
   if(!selected)return;
-  try{await repo.updateProgress(selected.id,p,ch);setBooks(prev=>prev.map(b=>b.id===selected.id?{...b,progress:p,chapterIndex:ch}:b));setMessage('Avance guardado en este dispositivo.');setError('');}
+  try{await repo.updateProgress(selected.id,p,ch);setBooks(prev=>prev.map(b=>b.id===selected.id?{...b,progress:p,chapterIndex:ch}:b));setMessage('Reading progress saved on this device.');setError('');}
   catch{setError("Local progress could not be saved.");}
  };
  const openPdf=async()=>{

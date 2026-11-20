@@ -17,7 +17,7 @@ export async function exportPrivateBackup(db:SQLiteDatabase):Promise<string>{
   personalBookIndex:personal.map(({uri,...book})=>book)
  };
  const folder=await Directory.pickDirectoryAsync();
- const filename='la-u-respaldo-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
+ const filename='bible-pastoral-guide-backup-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
  const target=folder.createFile(filename,'application/json');
  target.write(JSON.stringify(payload,null,2));
  if(!target.exists||target.size<=0)throw Error("The backup could not be saved to the chosen folder.");
