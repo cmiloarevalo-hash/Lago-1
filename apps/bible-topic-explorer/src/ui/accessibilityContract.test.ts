@@ -65,7 +65,7 @@ describe('D08 accessibility and frozen functional contracts', () => {
     expect(appSource).toMatch(/accessibilityState=\{\{\s*selected\s*\}\}/);
     expect(appSource).toContain('tabIndicator');
     expect(readerSource).toContain('accessibilityState={{ selected }}');
-    expect(readerSource).toContain('seleccionado');
+    expect(readerSource).toContain('selected');
   });
 
   it.each([
@@ -98,6 +98,6 @@ describe('D08 accessibility and frozen functional contracts', () => {
     expect(runtime).not.toMatch(/\baxios\b/);
     expect(visualMotionPolicy.essentialStateDependsOnMotion).toBe(false);
     expect(visualMotionPolicy.animationsIntroduced).toBe(false);
-    expect(appSource).toContain("require('./assets/data/bible-topic-explorer.db')");
+    expect(appSource).toContain("require('./assets/data/bible-webp-en.db')");
   });
 });

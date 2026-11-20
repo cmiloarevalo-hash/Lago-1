@@ -1,4 +1,4 @@
-/** Externally hosted SoundCloud links. La U neither embeds nor plays audio. */
+/** Externally hosted SoundCloud links. Bible – Pastoral Guide neither embeds nor plays audio. */
 export const SOUNDCLOUD_HOME='https://soundcloud.com';
 
 export type ExternalSoundCloudCollection={
@@ -10,23 +10,23 @@ export type ExternalSoundCloudCollection={
 };
 
 /** These third-party playlists were checked as existing SoundCloud pages on 2026-10-10.
- * They are not vetted track-by-track, licensed by La U or endorsed by any institution.
+ * They are not vetted track-by-track, licensed by Bible – Pastoral Guide or endorsed by any institution.
  * A responsible adult must review changing content before playing it for minors.
  */
 export const soundcloudCollections:readonly ExternalSoundCloudCollection[]=[
  {
-  id:'ninos',title:'Canciones cristianas para niños',by:'Syntax Creative · Christian Kids',
-  description:'Una selección externa de alabanza infantil; repertorio principalmente en inglés.',
+  id:'ninos',title:"Christian songs for children",by:'Syntax Creative · Christian Kids',
+  description:"An external selection of children's praise; repertoire mainly in English.",
   url:'https://soundcloud.com/syntaxcreative/sets/christian-childrens-music'
  },
  {
-  id:'estudio',title:'Instrumentales para acompañar el estudio',by:'Bassage · Christian Instrumental',
-  description:'Música instrumental de fondo para una tarea o un momento de lectura.',
+  id:'estudio',title:"Instrumentals to accompany the study",by:'Bassage · Christian Instrumental',
+  description:"Instrumental background music for a homework or reading moment.",
   url:'https://soundcloud.com/bassaaaa/sets/christian-instrumental'
  },
  {
-  id:'pastoral',title:'Música para encuentros juveniles',by:'Worship Music Recordings · Christian Youth Club EDM',
-  description:'Selección cristiana electrónica; comprobar antes de utilizarla en el grupo.',
+  id:'pastoral',title:"Music for youth gatherings",by:'Worship Music Recordings · Christian Youth Club EDM',
+  description:"Electronic Christian selection; check before using it in the group.",
   url:'https://soundcloud.com/worship_records/sets/christian-youth-club-edm'
  }
 ];

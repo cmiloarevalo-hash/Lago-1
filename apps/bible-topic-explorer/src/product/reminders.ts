@@ -22,17 +22,17 @@ export async function configureReminder(enabled:boolean,time:string,requestPermi
  try{
   if(!enabled){await cancelPrevious();return'off';}
   const when=parseReminderTime(time);if(!when)return'unavailable';
-  await Notifications.setNotificationChannelAsync(CHANNEL,{name:'Lectura bíblica',importance:Notifications.AndroidImportance.DEFAULT});
+  await Notifications.setNotificationChannelAsync(CHANNEL,{name:"Bible reading",importance:Notifications.AndroidImportance.DEFAULT});
   let permission=await Notifications.getPermissionsAsync();
   if(!permission.granted&&requestPermission)permission=await Notifications.requestPermissionsAsync();
   if(!permission.granted)return'denied';
   await cancelPrevious();
-  const plan=details?.planTitle??'Plan de lectura';
+  const plan=details?.planTitle??"Reading plan";
   const day=details?.day??1;
   await Notifications.scheduleNotificationAsync({
    content:{
-    title:details?.title.trim()||'Mi lectura bíblica',
-    body:plan+' · Día '+day+'. Tu lectura te espera.',
+    title:details?.title.trim()||"My Bible reading",
+    body:plan+"· Day"+day+". Your reading awaits you.",
     data:{kind:KIND,planId:details?.planId??'encuentro',day},
    },
    trigger:{type:Notifications.SchedulableTriggerInputTypes.DAILY,hour:when.hour,minute:when.minute,channelId:CHANNEL},

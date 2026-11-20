@@ -9,22 +9,22 @@ export type TodayReading = {
   category: string;
 };
 
-/** References only: the actual text is always loaded unmodified from bundled RV1909. */
+/** References only: the actual text is always loaded unmodified from bundled WEBP. */
 export const dailyReadings = [
-  { book:'Salmos',chapter:23,verse:1,category:'Paz',prompt:'Lee el salmo completo y considera qué significa el cuidado.' },
-  { book:'Mateo',chapter:6,verse:34,category:'Paz',prompt:'Lee el contexto antes de pensar en tu día.' },
-  { book:'Filipenses',chapter:4,verse:6,category:'Consuelo',prompt:'Observa cómo se propone afrontar la inquietud.' },
-  { book:'Proverbios',chapter:3,verse:5,category:'Propósito',prompt:'Lee los versos cercanos y piensa en la confianza.' },
-  { book:'Juan',chapter:15,verse:12,category:'Amor',prompt:'Lee el capítulo y observa la invitación al amor.' },
-  { book:'Romanos',chapter:12,verse:12,category:'Fortaleza',prompt:'Considera el contexto de la perseverancia.' },
-  { book:'Isaías',chapter:41,verse:10,category:'Esperanza',prompt:'Lee el contexto histórico antes de aplicarlo a hoy.' },
-  { book:'Salmos',chapter:46,verse:1,category:'Fortaleza',prompt:'Lee el salmo completo para apreciar el lenguaje de refugio.' },
-  { book:'1 Tesalonicenses',chapter:5,verse:18,category:'Gratitud',prompt:'Lee también los versos cercanos para comprender la exhortación.' },
-  { book:'Eclesiastés',chapter:4,verse:9,category:'Amistad',prompt:'Lee el contexto sobre el acompañamiento y el trabajo compartido.' },
-  { book:'Efesios',chapter:4,verse:32,category:'Perdón',prompt:'Considera la compasión junto al contexto de la carta.' },
-  { book:'2 Corintios',chapter:1,verse:4,category:'Consuelo',prompt:'Lee el capítulo para comprender de dónde nace el consuelo.' },
-  { book:'Salmos',chapter:121,verse:2,category:'Esperanza',prompt:'Recorre el salmo completo sin aislar una promesa.' },
-  { book:'Colosenses',chapter:3,verse:14,category:'Amor',prompt:'Relaciona el verso con la convivencia que describe el pasaje.' },
+  { book:"Psalms",chapter:23,verse:1,category:"Peace",prompt:"Read the entire psalm and consider what care means." },
+  { book:"Matthew",chapter:6,verse:34,category:"Peace",prompt:"Read the context before thinking about your day." },
+  { book:"Philippians",chapter:4,verse:6,category:'Comfort',prompt:"Observe how he intends to deal with the concern." },
+  { book:"Proverbs",chapter:3,verse:5,category:"Purpose",prompt:"Read the nearby verses and think about trust." },
+  { book:"John",chapter:15,verse:12,category:"Love",prompt:"Read the chapter and observe the invitation to love." },
+  { book:"Romans",chapter:12,verse:12,category:'Strength',prompt:'Consider the context of perseverance.' },
+  { book:"Isaiah",chapter:41,verse:10,category:"Hope",prompt:"Read the historical context before applying it to today." },
+  { book:"Psalms",chapter:46,verse:1,category:'Strength',prompt:"Read the entire psalm to appreciate the language of refuge." },
+  { book:"1 Thessalonians",chapter:5,verse:18,category:'Gratitude',prompt:"Also read the nearby verses to understand the exhortation." },
+  { book:"Ecclesiastes",chapter:4,verse:9,category:'Friendship',prompt:"Read the context about accompaniment and shared work." },
+  { book:"Ephesians",chapter:4,verse:32,category:"Forgiveness",prompt:"Consider compassion in conjunction with the context of the letter." },
+  { book:"2 Corinthians",chapter:1,verse:4,category:'Comfort',prompt:"Read the chapter to understand where comfort comes from." },
+  { book:"Psalms",chapter:121,verse:2,category:"Hope",prompt:"Go through the entire psalm without isolating a promise." },
+  { book:"Colossians",chapter:3,verse:14,category:"Love",prompt:"Relate the verse to the coexistence that the passage describes." },
 ] as const;
 
 export function localDayKey(date:Date):string {

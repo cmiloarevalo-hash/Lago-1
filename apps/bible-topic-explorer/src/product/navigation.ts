@@ -2,10 +2,10 @@ export const tabs = ['today', 'search', 'bible', 'library'] as const;
 export type TabId = (typeof tabs)[number];
 
 export const tabLabels: Record<TabId, string> = {
-  today: 'Hoy',
-  search: 'Explorar',
-  bible: 'Leer',
-  library: 'Biblioteca',
+  today: "Today",
+  search: "Explore",
+  bible: "Read",
+  library: "Library",
 };
 
 export const tabIcons: Record<TabId, string> = {

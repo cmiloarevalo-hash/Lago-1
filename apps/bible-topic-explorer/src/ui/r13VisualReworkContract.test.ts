@@ -31,7 +31,7 @@ describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
   expect(reader).toContain('backgroundColor:theme.selectionBg');
   const plans=load('src/ui/screens/PlansScreen.tsx');
   expect(plans).toContain('source={art.botanical}');
-  expect(plans).toContain("introTitle='Planes de lectura'");
+  expect(plans).toContain('const introTitle="Reading plans"');
   const today=load('src/ui/screens/TodayScreen.tsx');
   expect(today).toContain("appearance==='coral'");
   expect(today).toContain('longVerse');
@@ -46,7 +46,7 @@ describe('R13 focal editorial visual rework: contracts, not Android QA',()=>{
   expect(screen).toContain("item.readingsNew.map(readingLink)");
   expect(credits).toContain("USCCB");
   expect(credits).toContain("UNICEF");
-  expect(credits).toContain("Santa Sede");
+  expect(credits).toContain("Holy See");
   expect(credits).toContain("minHeight:minimumTouchTarget");
  });
  it('keeps SoundCloud as an honest external-only link, hides the removed player',()=>{

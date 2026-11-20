@@ -1,7 +1,7 @@
 import type {HighlightTone,VerseHighlight,VerseNote} from './adapters';
 /** UI labels only; SQLite persists stable canonical book IDs and English tone values. */
 export const highlightToneNames:Record<HighlightTone,string>={
- rose:'rosa',lavender:'lavanda',peach:'durazno',
+ rose:'pink',lavender:'lavender',peach:'peach',
 };
 export function verseDisplayName(item:Pick<VerseHighlight|VerseNote,'bookId'|'bookName'|'chapter'|'sourceVerseLabel'>):string{
  return `${item.bookName?.trim()||item.bookId} ${item.chapter}:${item.sourceVerseLabel}`;

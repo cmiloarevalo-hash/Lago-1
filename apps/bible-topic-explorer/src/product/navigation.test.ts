@@ -4,7 +4,7 @@ import { goBack, initialNavigationState, navigate, tabIcons, tabLabels, tabs, ty
 describe('navigation chrome contract', () => {
   it('keeps four functional route ids while exposing the accepted labels', () => {
     expect(tabs).toEqual(['today', 'search', 'bible', 'library']);
-    expect(tabs.map(tab => tabLabels[tab])).toEqual(['Hoy', 'Explorar', 'Leer', 'Biblioteca']);
+    expect(tabs.map(tab => tabLabels[tab])).toEqual(['Today', 'Explore', 'Read', 'Library']);
   });
 
   it('provides an icon token for every top-level destination', () => {
@@ -26,14 +26,14 @@ describe('R01 deterministic history', () => {
     const settings = navigate(explore, { kind: 'settings', origin: 'search' });
     expect(goBack(settings)?.current).toEqual({ kind: 'tab', tab: 'search' });
 
-    const reader = navigate(explore, { kind: 'reader', book: 'Juan', chapter: 3, verse: 16, origin: 'search' });
+    const reader = navigate(explore, { kind: 'reader', book: 'John', chapter: 3, verse: 16, origin: 'search' });
     expect(goBack(reader)?.current).toEqual({ kind: 'tab', tab: 'search' });
   });
 
   it('can preserve Bible chapter-picker context before opening a reader', () => {
-    const bible = navigate(initialNavigationState(), { kind: 'tab', tab: 'bible', bibleBook: 'Génesis' });
-    const reader = navigate(bible, { kind: 'reader', book: 'Génesis', chapter: 50, origin: 'bible' });
-    expect(goBack(reader)?.current).toEqual({ kind: 'tab', tab: 'bible', bibleBook: 'Génesis' });
+    const bible = navigate(initialNavigationState(), { kind: 'tab', tab: 'bible', bibleBook: 'Genesis' });
+    const reader = navigate(bible, { kind: 'reader', book: 'Genesis', chapter: 50, origin: 'bible' });
+    expect(goBack(reader)?.current).toEqual({ kind: 'tab', tab: 'bible', bibleBook: 'Genesis' });
   });
 
   it('returns null at root so Android can ask for exit confirmation', () => {

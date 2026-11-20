@@ -1,0 +1,117 @@
+name: English Pastoral Guide 1.20.01 QA APK
+
+on:
+  push:
+    branches:
+      - feat/guia-pastoral-en-1.20.01
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build-english-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    defaults:
+      run:
+        working-directory: apps/bible-topic-explorer
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/bible-topic-explorer/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Verify TypeScript
+        run: npm run typecheck
+      - name: Verify English edition DB and pastoral references
+        run: npm test -- src/product/englishEdition.test.ts
+      - name: Run pre-existing regression suite (including Spanish baseline contracts)
+        continue-on-error: true
+        run: npm test -- --reporter=json --outputFile=english-regressions.json
+      - name: Generate standalone Android source
+        run: npx expo prebuild --platform android --no-install --non-interactive
+      - name: Build self-contained QA APK (release variant, DEBUG key)
+        run: |
+          sed -i 's/networkTimeout=10000/networkTimeout=120000/' android/gradle/wrapper/gradle-wrapper.properties
+          cd android
+          ./gradlew :app:assembleRelease --no-daemon --max-workers=2 --console=plain
+      - name: Validate signed APK and record SHA256
+        run: |
+          mkdir -p qa-output
+          cp android/app/build/outputs/apk/release/app-release.apk qa-output/Bible-Pastoral-Guide-v1.20.01-QA-debug-signed.apk
+          cd qa-output
+          sha256sum Bible-Pastoral-Guide-v1.20.01-QA-debug-signed.apk | tee SHA256SUMS.txt
+          wc -c Bible-Pastoral-Guide-v1.20.01-QA-debug-signed.apk | tee SIZE.txt
+          AAPT="$ANDROID_HOME/build-tools/36.0.0/aapt"
+          APKSIGNER="$ANDROID_HOME/build-tools/36.0.0/apksigner"
+          ZIPALIGN="$ANDROID_HOME/build-tools/36.0.0/zipalign"
+          "$AAPT" dump badging Bible-Pastoral-Guide-v1.20.01-QA-debug-signed.apk | head -n 12 | tee MANIFEST.txt
+          "$APKSIGNER" verify --verbose --print-certs Bible-Pastoral-Guide-v1.20.01-QA-debug-signed.apk | tee SIGNATURE.txt
+          "$ZIPALIGN" -c -v 4 Bible-Pastoral-Guide-v1.20.01-QA-debug-signed.apk | tail -n 5 | tee ZIPALIGN.txt
+          grep -q "name='com.lago.bibletopicexplorer.en'" MANIFEST.txt
+          grep -q "versionName='1.20.01'" MANIFEST.txt
+      - name: Upload QA APK and verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bible-Pastoral-Guide-EN-1.20.01-QA
+          path: apps/bible-topic-explorer/qa-output/
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload Android build logs and regressions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bible-Pastoral-Guide-EN-1.20.01-build-evidence
+          path: apps/bible-topic-explorer/english-regressions.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+  emulator-smoke:
+    needs: build-english-apk
+    # GitHub-hosted Linux VM lacks nested virtualization: Android emulator refuses -accel off.
+    # macOS hosted runners support native Android emulator acceleration.
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: Bible-Pastoral-Guide-EN-1.20.01-QA
+          path: apps/bible-topic-explorer/qa-output/
+      - name: Download untouched Spanish v1.11.6 for package coexistence QA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p apps/bible-topic-explorer/qa-spanish-baseline
+          gh run download 43474356666 --repo "$GITHUB_REPOSITORY" --name 'Biblia-Guia-Pastoral-RV1909-v1.11.6-APK' --dir apps/bible-topic-explorer/qa-spanish-baseline
+          test -f apps/bible-topic-explorer/qa-spanish-baseline/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk
+      - name: Install both editions, open English, restart offline (Android 13 macOS emulator)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: google_apis
+          arch: arm64-v8a
+          profile: pixel_3a
+          ram-size: 2048M
+          disk-size: 4096M
+          disable-animations: true
+          emulator-boot-timeout: 600
+          emulator-options: -no-snapshot -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          script: bash apps/bible-topic-explorer/scripts/verify_en_apk_emulator.sh
+      - name: Upload real emulator evidence, even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bible-Pastoral-Guide-EN-1.20.01-emulator-evidence
+          path: apps/bible-topic-explorer/qa-android-evidence/
+          if-no-files-found: ignore
+          retention-days: 30

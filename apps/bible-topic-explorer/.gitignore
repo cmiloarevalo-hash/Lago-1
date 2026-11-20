@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Locally cached source archives and machine-translation cache (do not commit)
+/data/english-source/

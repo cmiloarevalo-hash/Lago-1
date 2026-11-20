@@ -1,84 +1,12 @@
-/** Four wholly ORIGINAL Spanish lyrics prepared for La U R1.3; no adaptations
+/** Four English translations of ORIGINAL project lyrics prepared for Bible – Pastoral Guide R1.3; no adaptations
  * of the existing 20 popular titles. Owner must confirm distribution metadata
  * before shipping any public APK. No third-party lyrics are copied.
  */
-export type LicensedLyric={id:string;title:string;author:string;version:string;language:'es';lyrics:string;rights:'ORIGINAL_PROYECTO';licenceNote:string;source:string;editorial:'EN_REVISION'};
+export type LicensedLyric={id:string;title:string;author:string;version:string;language:'en';lyrics:string;rights:'ORIGINAL_PROYECTO';licenceNote:string;source:string;editorial:'EN_REVISION'};
 export const originalLyrics:readonly LicensedLyric[]=[
- {id:'luz-en-el-camino',title:'Luz en el camino de hoy',author:'Texto original preparado para el proyecto La U',version:'Versión española original 1.0 (2026)',language:'es',rights:'ORIGINAL_PROYECTO',licenceNote:'Letra escrita originalmente para La U; uso interno del proyecto. Titularidad, atribución final y distribución pública pendientes de confirmación del Owner.',source:'Creación original para R1.3; no procede de canciones existentes.',editorial:'EN_REVISION',lyrics:`Cuando el día parece largo,
-una mano puede ayudar;
-con palabras y con silencio
-otro paso vamos a dar.
-
-Camina a nuestro lado,
-enséñanos a escuchar;
-que el cuidado sea concreto
-y la paz tenga un lugar.
-
-No buscamos ser los primeros
-ni aplausos para seguir;
-si una voz queda a la sombra,
-hagamos espacio para oír.
-
-Camina a nuestro lado,
-enséñanos a escuchar;
-que el cuidado sea concreto
-y la paz tenga un lugar.`},
- {id:'mesa-abierta',title:'Mesa abierta para todos',author:'Texto original preparado para el proyecto La U',version:'Versión española original 1.0 (2026)',language:'es',rights:'ORIGINAL_PROYECTO',licenceNote:'Creación original; aprobación del Owner para publicación externa pendiente.',source:'Creación original para R1.3.',editorial:'EN_REVISION',lyrics:`Hay un sitio junto a la mesa,
-hay un nombre por aprender;
-nadie llega como un extraño
-cuando hay tiempo para entender.
-
-Haz de nuestras manos refugio,
-haz de nuestra voz una invitación;
-sin preguntas que lastimen,
-con respeto y con atención.
-
-Si el camino trae cansancio,
-nadie tiene que explicar;
-una silla, un vaso de agua,
-un silencio pueden cuidar.
-
-Haz de nuestras manos refugio,
-haz de nuestra voz una invitación;
-sin preguntas que lastimen,
-con respeto y con atención.`},
- {id:'sembrar-esperanza',title:'Sembrar esperanza',author:'Texto original preparado para el proyecto La U',version:'Versión española original 1.0 (2026)',language:'es',rights:'ORIGINAL_PROYECTO',licenceNote:'Creación original; aprobación del Owner para publicación externa pendiente.',source:'Creación original para R1.3.',editorial:'EN_REVISION',lyrics:`Una semilla no hace ruido
-cuando empieza a germinar;
-un pequeño gesto sencillo
-puede a otros acompañar.
-
-Hoy sembramos esperanza
-en el suelo que hay aquí;
-con paciencia y con ternura,
-aprendemos a servir.
-
-Si la tarde viene oscura,
-no fingimos claridad;
-nos unimos paso a paso
-sin negar la dificultad.
-
-Hoy sembramos esperanza
-en el suelo que hay aquí;
-con paciencia y con ternura,
-aprendemos a servir.`},
- {id:'manos-disponibles',title:'Manos disponibles',author:'Texto original preparado para el proyecto La U',version:'Versión española original 1.0 (2026)',language:'es',rights:'ORIGINAL_PROYECTO',licenceNote:'Creación original; aprobación del Owner para publicación externa pendiente.',source:'Creación original para R1.3.',editorial:'EN_REVISION',lyrics:`No prometo mil respuestas
-ni conocer todo el dolor;
-puedo ofrecerte mi escucha,
-puedo pedir ayuda hoy.
-
-Manos disponibles,
-corazones con verdad;
-cada paso es compartido,
-nadie debe caminar en soledad.
-
-Si nos faltan las palabras,
-respetamos el callar;
-si alguien pide su espacio,
-lo sabemos acompañar.
-
-Manos disponibles,
-corazones con verdad;
-cada paso es compartido,
-nadie debe caminar en soledad.`}
+ {id:'luz-en-el-camino',title:"Light on today's path",author:"Original text prepared for the Bible – Pastoral Guide project",version:'English translation of original 1.0 (2026)',language:'en',rights:'ORIGINAL_PROYECTO',licenceNote:"Lyrics originally written for Bible – Pastoral Guide; internal use of the project. Ownership, final attribution and public distribution pending confirmation from the Owner.",source:'Original project creation for R1.3; not based on existing songs.',editorial:'EN_REVISION',lyrics:"When the day seems long,\na hand can help;\nwith words and with silence\nWe are going to take another step.\n\nWalk by our side,\nteach us to listen;\nthat care is concrete\nand peace have a place.\n\nWe do not seek to be the first\nno applause to continue;\nIf a voice is left in the shadows,\nLet's make space to hear.\n\nWalk by our side,\nteach us to listen;\nthat care is concrete\nand peace have a place."},
+ {id:'mesa-abierta',title:"Open table for all",author:"Original text prepared for the Bible – Pastoral Guide project",version:'English translation of original 1.0 (2026)',language:'en',rights:'ORIGINAL_PROYECTO',licenceNote:"Original creation; Owner approval for external publication pending.",source:'Original project creation for R1.3.',editorial:'EN_REVISION',lyrics:"There is a place by the table,\nThere is a name to learn;\nno one comes as a stranger\nwhen there is time to understand.\n\nMake our hands a refuge,\nmake our voice an invitation;\nwithout questions that hurt,\nwith respect and attention.\n\nIf the road brings fatigue,\nno one has to explain;\na chair, a glass of water,\na silence they can take care of.\n\nMake our hands a refuge,\nmake our voice an invitation;\nwithout questions that hurt,\nwith respect and attention."},
+ {id:'sembrar-esperanza',title:'Sowing Hope',author:"Original text prepared for the Bible – Pastoral Guide project",version:'English translation of original 1.0 (2026)',language:'en',rights:'ORIGINAL_PROYECTO',licenceNote:"Original creation; Owner approval for external publication pending.",source:'Original project creation for R1.3.',editorial:'EN_REVISION',lyrics:"A seed does not make noise\nwhen it starts to germinate;\na small simple gesture\ncan accompany others.\n\nToday we sow hope\non the ground here;\nwith patience and tenderness,\nWe learn to serve.\n\nIf the afternoon comes dark,\nwe do not feign clarity;\nwe join step by step\nwithout denying the difficulty.\n\nToday we sow hope\non the ground here;\nwith patience and tenderness,\nWe learn to serve."},
+ {id:'manos-disponibles',title:"Available hands",author:"Original text prepared for the Bible – Pastoral Guide project",version:'English translation of original 1.0 (2026)',language:'en',rights:'ORIGINAL_PROYECTO',licenceNote:"Original creation; Owner approval for external publication pending.",source:'Original project creation for R1.3.',editorial:'EN_REVISION',lyrics:"I don't promise a thousand answers\nnor know all the pain;\nI can offer you my listening,\nI can ask for help today.\n\nAvailable hands,\nhearts with truth;\nevery step is shared,\nNo one should walk alone.\n\nIf we lack words,\nWe respect silence;\nIf someone asks for your space,\nwe know how to accompany it.\n\nAvailable hands,\nhearts with truth;\nevery step is shared,\nNo one should walk alone."}
 ];
 export const externalSongTitleStatus='LICENCIA_PENDIENTE' as const;

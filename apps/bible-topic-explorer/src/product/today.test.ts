@@ -7,7 +7,7 @@ describe('readingForDate', () => {
     const a = readingForDate(date);
     const b = readingForDate(date);
     expect(a).toEqual(b);
-    expect(a.translationId).toBe('rv1909');
+    expect(a.translationId).toBe('webp');
     expect(a.book.length).toBeGreaterThan(0);
     expect(a.chapter).toBeGreaterThan(0);
     expect(a.verse).toBeGreaterThan(0);
@@ -22,7 +22,7 @@ describe('readingForDate', () => {
 describe('RC02 daily-positive catalog',()=>{
   it('has nine uplifting categories and all references to sole RV1909',()=>{
     const categories = new Set<string>(dailyReadings.map(x=>x.category));
-    for(const name of ['Esperanza','Paz','Amor','Fortaleza','Gratitud','Propósito','Amistad','Perdón','Consuelo'])expect(categories.has(name)).toBe(true);
+    for(const name of ['Hope','Peace','Love','Strength','Gratitude','Purpose','Friendship','Forgiveness','Comfort'])expect(categories.has(name)).toBe(true);
     expect(dailyReadings.every(x=>x.chapter>0&&x.verse>0&&x.book.length>0)).toBe(true);
   });
   it('uses local calendar components, not UTC date',()=>{

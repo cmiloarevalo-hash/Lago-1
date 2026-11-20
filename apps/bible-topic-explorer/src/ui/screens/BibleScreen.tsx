@@ -24,7 +24,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const [readingNote,setReadingNote]=useState<BibleVerse|null>(null); const [expandedNote,setExpandedNote]=useState(false);
   const [selectedBook, setSelectedBook] = useState<string | undefined>(initialBook); const [pickerChapterCount, setPickerChapterCount] = useState(0); const [pickerLoading, setPickerLoading] = useState(false); const [pickerError, setPickerError] = useState(false); const scriptureMetrics = scaledScriptureMetrics(readingScale);
   useEffect(() => { if (!reader && initialBook && initialBook !== selectedBook) void chooseBook(initialBook, false); }, [initialBook, reader]);
-  useEffect(() => { let active = true; if (!reader) { setVerses([]); setChapterCount(0); setError(null); return () => { active = false; }; } setLoading(true); setError(null); void Promise.all([repository.getChapter(reader.book, reader.chapter), repository.getBookChapterCount(reader.book), persistence.listSavedReferences(),persistence.listVerseNotes(),persistence.listHighlights()]).then(([rows, count, refs, notes, marks]) => { if (active) { setVerses(rows); setChapterCount(count); setSaved(refs); setVerseNotes(notes); setHighlights(marks); } }).catch(() => { if (active) { setVerses([]); setChapterCount(0); setError('No se pudo leer este capítulo desde el corpus local.'); } }).finally(() => { if (active) setLoading(false); }); return () => { active = false; }; }, [reader?.book, reader?.chapter, repository, persistence]);
+  useEffect(() => { let active = true; if (!reader) { setVerses([]); setChapterCount(0); setError(null); return () => { active = false; }; } setLoading(true); setError(null); void Promise.all([repository.getChapter(reader.book, reader.chapter), repository.getBookChapterCount(reader.book), persistence.listSavedReferences(),persistence.listVerseNotes(),persistence.listHighlights()]).then(([rows, count, refs, notes, marks]) => { if (active) { setVerses(rows); setChapterCount(count); setSaved(refs); setVerseNotes(notes); setHighlights(marks); } }).catch(() => { if (active) { setVerses([]); setChapterCount(0); setError("This chapter could not be read from the local corpus."); } }).finally(() => { if (active) setLoading(false); }); return () => { active = false; }; }, [reader?.book, reader?.chapter, repository, persistence]);
   const scrollRef=useRef<ScrollView>(null);
   const [scriptureY,setScriptureY]=useState(0);
   const [verseOffset,setVerseOffset]=useState<{key:string;y:number}|null>(null);
@@ -36,18 +36,18 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
    return()=>cancelAnimationFrame(frame);
   },[reader?.book,reader?.chapter,reader?.verse,reader?.sourceVerseLabel,verses,verseOffset,scriptureY,targetKey]);
   const chooseBook = async (book: string, publishContext = true) => { setSelectedBook(book); if (publishContext) onBookContextChange?.(book); setPickerLoading(true); setPickerError(false); try { setPickerChapterCount(await repository.getBookChapterCount(book)); } catch { setPickerChapterCount(0); setPickerError(true); } finally { setPickerLoading(false); } };
-  const toggleSaved = async (verse: BibleVerse) => { const ref = { bookId: verse.bookId, chapter: verse.chapter, verse: verse.verse }; const exists = saved.some(item => item.bookId === ref.bookId && item.chapter === ref.chapter && item.verse === ref.verse); try { if (exists) await persistence.removeSavedReference(ref); else await persistence.saveReference({ ...ref, savedAt: new Date().toISOString() }); setSaved(await persistence.listSavedReferences()); setSaveStatus(exists ? uxCopy.removedReference : uxCopy.savedReference); } catch { setSaveStatus('No se pudo actualizar el guardado local.'); } };
+  const toggleSaved = async (verse: BibleVerse) => { const ref = { bookId: verse.bookId, chapter: verse.chapter, verse: verse.verse }; const exists = saved.some(item => item.bookId === ref.bookId && item.chapter === ref.chapter && item.verse === ref.verse); try { if (exists) await persistence.removeSavedReference(ref); else await persistence.saveReference({ ...ref, savedAt: new Date().toISOString() }); setSaved(await persistence.listSavedReferences()); setSaveStatus(exists ? uxCopy.removedReference : uxCopy.savedReference); } catch { setSaveStatus('Could not update the locally saved verse.'); } };
 
-  const identity=(verse:BibleVerse)=>({translationId:'rv1909' as const,bookId:verse.bookId,chapter:verse.chapter,sourceVerseLabel:verse.sourceVerseLabel});
+  const identity=(verse:BibleVerse)=>({translationId:'webp' as const,bookId:verse.bookId,chapter:verse.chapter,sourceVerseLabel:verse.sourceVerseLabel});
   const noteFor=(verse:BibleVerse)=>verseNotes.find(n=>n.bookId===verse.bookId&&n.chapter===verse.chapter&&n.sourceVerseLabel===verse.sourceVerseLabel);
   const highlightFor=(verse:BibleVerse)=>highlights.find(n=>n.bookId===verse.bookId&&n.chapter===verse.chapter&&n.sourceVerseLabel===verse.sourceVerseLabel);
   const openVerseMenu=(verse:BibleVerse)=>{setReadingNote(null);setActiveVerse(verse);setVerseAction(null);setNoteDraft(noteFor(verse)?.body??'');setEditingNote(false);};
   const closeVerseMenu=()=>{
     const previous=activeVerse?noteFor(activeVerse)?.body??'':'';
     if(editingNote&&activeVerse&&noteDraft!==previous){
-      Alert.alert('Descartar cambios','Tu nota tiene cambios sin guardar. ¿Quieres descartarlos?',[
-        {text:'Seguir escribiendo',style:'cancel'},
-        {text:'Descartar',style:'destructive',onPress:()=>{setActiveVerse(null);setEditingNote(false);}}
+      Alert.alert('Discard changes',"Your note has unsaved changes. Do you want to discard them?",[
+        {text:'Keep writing',style:'cancel'},
+        {text:'Discard',style:'destructive',onPress:()=>{setActiveVerse(null);setEditingNote(false);}}
       ]);
       return;
     }
@@ -56,23 +56,23 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const openNoteReader=(verse:BibleVerse)=>{if(!noteFor(verse))return;setActiveVerse(null);setReadingNote(verse);setExpandedNote(false);};
   const closeNoteReader=()=>{setReadingNote(null);setExpandedNote(false);};
   const editFromNoteReader=()=>{if(!readingNote)return;const verse=readingNote;closeNoteReader();openVerseMenu(verse);setVerseAction('note');setEditingNote(true);};
-  const confirmDeleteNote=()=>{if(!activeVerse)return;Alert.alert('Eliminar nota privada','¿Eliminar esta nota de forma permanente? El destacado no se eliminará.',[
-    {text:'Cancelar',style:'cancel'},{text:'Eliminar nota',style:'destructive',onPress:()=>{void deleteNote();}}
+  const confirmDeleteNote=()=>{if(!activeVerse)return;Alert.alert("Delete private note","Delete this note permanently? The highlight will not be removed.",[
+    {text:"Cancel",style:'cancel'},{text:"Delete note",style:'destructive',onPress:()=>{void deleteNote();}}
   ]);};
-  const saveNote=async()=>{if(!activeVerse)return;try{const body=noteDraft.trim();if(body)await persistence.upsertVerseNote({...identity(activeVerse),body,updatedAt:new Date().toISOString()});else await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setSaveStatus(body?'Nota privada guardada.':'Nota eliminada.');setActiveVerse(null);setEditingNote(false);}catch{setSaveStatus('No se pudo guardar la nota local.');}};
-  const deleteNote=async()=>{if(!activeVerse)return;try{await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setActiveVerse(null);setSaveStatus('Nota eliminada.');}catch{setSaveStatus('No se pudo eliminar la nota.');}};
-  const chooseHighlight=async(tone:HighlightTone)=>{if(!activeVerse)return;const next=nextHighlightTone(highlightFor(activeVerse)?.tone,tone);try{if(next)await persistence.setHighlight(identity(activeVerse),next);else await persistence.removeHighlight(identity(activeVerse));setHighlights(await persistence.listHighlights());setSaveStatus(next?'Versículo destacado.':'Destacado eliminado.');}catch{setSaveStatus('No se pudo actualizar el destacado.');}};
+  const saveNote=async()=>{if(!activeVerse)return;try{const body=noteDraft.trim();if(body)await persistence.upsertVerseNote({...identity(activeVerse),body,updatedAt:new Date().toISOString()});else await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setSaveStatus(body?"Private note saved.":"Note deleted.");setActiveVerse(null);setEditingNote(false);}catch{setSaveStatus("Could not save local note.");}};
+  const deleteNote=async()=>{if(!activeVerse)return;try{await persistence.deleteVerseNote(identity(activeVerse));setVerseNotes(await persistence.listVerseNotes());setActiveVerse(null);setSaveStatus("Note deleted.");}catch{setSaveStatus("Could not delete note.");}};
+  const chooseHighlight=async(tone:HighlightTone)=>{if(!activeVerse)return;const next=nextHighlightTone(highlightFor(activeVerse)?.tone,tone);try{if(next)await persistence.setHighlight(identity(activeVerse),next);else await persistence.removeHighlight(identity(activeVerse));setHighlights(await persistence.listHighlights());setSaveStatus(next?"Verse highlighted.":'Highlight removed.');}catch{setSaveStatus('Could not update the highlight.');}};
 
-  const shareSelectedVerse=async()=>{if(!activeVerse)return;try{await Share.share({title:activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel,message:verseShareText(activeVerse)});setActiveVerse(null);}catch{setSaveStatus('No fue posible abrir las opciones para compartir.');}};
+  const shareSelectedVerse=async()=>{if(!activeVerse)return;try{await Share.share({title:activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel,message:verseShareText(activeVerse)});setActiveVerse(null);}catch{setSaveStatus("Unable to open sharing options.");}};
 
   if (reader) { const canonicalName = verses[0]?.bookName ?? reader.book; const ref = canonicalName + ' ' + reader.chapter + (reader.sourceVerseLabel||reader.verse ? ':' + (reader.sourceVerseLabel??reader.verse) + (reader.verseEnd&&reader.verse&&reader.verseEnd>reader.verse?'–'+reader.verseEnd:'') : ''); const atFirstChapter = reader.chapter <= 1; const atLastChapter = chapterCount > 0 && reader.chapter >= chapterCount;
-    return <Screen theme={theme}><ScrollView ref={scrollRef} keyboardShouldPersistTaps="always" contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Volver a Explorar" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}>
-  <Metadata theme={theme}>LA PALABRA · REINA-VALERA 1909</Metadata>
+    return <Screen theme={theme}><ScrollView ref={scrollRef} keyboardShouldPersistTaps="always" contentContainerStyle={styles.readerStack}>{onBack?<Action label="← Return to Explore" variant="secondary" theme={theme} onPress={onBack}/>:null}<View style={styles.readerHeader}>
+  <Metadata theme={theme}>THE WORD · WORLD ENGLISH BIBLE</Metadata>
   <Text accessibilityRole="header" style={[styles.chapterTitle,{color:theme.text}]}>{canonicalName} {reader.chapter}</Text>
   <View style={[styles.readerUnderline,{backgroundColor:theme.primary}]}/>
-  {reader.sourceVerseLabels?.length?<Text style={[styles.rangeHint,{color:theme.secondary}]}>Pasaje enfocado: {ref} · {reader.sourceVerseLabels.length} versículos de contexto señalados</Text>:null}
+  {reader.sourceVerseLabels?.length?<Text style={[styles.rangeHint,{color:theme.secondary}]}>Focused passage: {ref} · {reader.sourceVerseLabels.length}noted context verses</Text>:null}
  </View>
-      {saveStatus ? <StatusBanner theme={theme} kind={saveStatus.startsWith('No ') ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Cargando capítulo local…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">No hay versículos para este capítulo.</StatusBanner> : null}
+      {saveStatus ? <StatusBanner theme={theme} kind={/^(?:Could not|Unable|Failed|Error)/i.test(saveStatus) ? 'error' : 'success'}>{saveStatus}</StatusBanner> : null}{loading ? <StatusBanner theme={theme} kind="info">Loading local chapter…</StatusBanner> : null}{error ? <StatusBanner theme={theme} kind="error">{error}</StatusBanner> : null}{!loading && !error && verses.length === 0 ? <StatusBanner theme={theme} kind="info">There are no verses for this chapter.</StatusBanner> : null}
       {!loading && !error && verses.length ? <View style={styles.scripture} onLayout={event=>setScriptureY(event.nativeEvent.layout.y)}>{verses.map(verse => {
         const selected=reader.sourceVerseLabels?.length?focusMatchesVerse(verse,reader):verseMatchesTarget(verse,reader);
         const isSaved=saved.some(item=>item.bookId===verse.bookId&&item.chapter===verse.chapter&&item.verse===verse.verse);
@@ -83,8 +83,8 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
           style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5,backgroundColor:theme.selectionBg},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
           <View style={styles.verse}>
             <Pressable accessibilityRole="button"
-              accessibilityLabel={'Acciones para '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+(selected?' · seleccionado':'')+(isSaved?' · guardado':'')+(mark?' · destacado':'')}
-              accessibilityHint="Abre notas, resaltado, compartir o guardar. Mantén pulsado el texto a la derecha para seleccionar palabras con Android."
+              accessibilityLabel={"Actions for "+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+(selected?' · selected':'')+(isSaved?' · saved':'')+(mark?' · highlighted':'')}
+              accessibilityHint="Open notes, highlight, share or save. Long press the text on the right to select words with Android."
               accessibilityState={{ selected }}
               onPress={()=>openVerseMenu(verse)} style={[styles.verseNumberAction,{backgroundColor:theme.surfaceSoft,borderColor:theme.border}]}>
               <Text style={[styles.verseNumber,{color:tone?tone.ink:theme.primaryText}]}>{verse.sourceVerseLabel}</Text>
@@ -97,8 +97,8 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
             </Text>
           </View>
           <View style={styles.verseTools}>
-            {note?<Pressable accessibilityRole="button" accessibilityLabel={'Leer nota privada de '+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
-              accessibilityHint="Abre solamente la lectura de la nota. Hay un botón separado para editar."
+            {note?<Pressable accessibilityRole="button" accessibilityLabel={"Read private note from "+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
+              accessibilityHint="Open only the reading of the note. There is a separate button for editing."
               onPress={()=>openNoteReader(verse)} style={styles.noteBubbleTarget}>
               <View accessibilityElementsHidden style={[styles.noteBubble,{backgroundColor:theme.selectionBorder}]}><Text style={styles.noteBubbleGlyph}>•</Text></View>
             </Pressable>:null}
@@ -109,78 +109,77 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
       <Modal visible={readingNote!==null} transparent animationType="fade" onRequestClose={closeNoteReader}>
         <View style={styles.modalBackdrop}>
           <View style={[styles.noteReadingPanel,expandedNote&&styles.noteReadingExpanded,{backgroundColor:theme.surface,borderColor:theme.border}]} accessibilityViewIsModal>
-            <Text accessibilityRole="header" style={[typography.subhead,{color:theme.text}]}>
-              Nota privada · {readingNote?readingNote.bookName+' '+readingNote.chapter+':'+readingNote.sourceVerseLabel:''}
+            <Text accessibilityRole="header" style={[typography.subhead,{color:theme.text}]}>Private note · {readingNote?readingNote.bookName+' '+readingNote.chapter+':'+readingNote.sourceVerseLabel:''}
             </Text>
-            <ScrollView style={styles.noteReadingScroll} contentContainerStyle={styles.noteReadingContent} accessibilityLabel="Contenido completo de la nota privada">
+            <ScrollView style={styles.noteReadingScroll} contentContainerStyle={styles.noteReadingContent} accessibilityLabel="Complete content of the private note">
               <Text style={[typography.body,{color:theme.text}]}>{readingNote?noteFor(readingNote)?.body??'':''}</Text>
             </ScrollView>
             <View style={styles.noteReadingActions}>
-              <Action label={expandedNote?'Contraer':'Expandir'} variant="secondary" theme={theme} onPress={()=>setExpandedNote(x=>!x)}/>
-              <Action label="Editar ✎" theme={theme} onPress={editFromNoteReader}/>
+              <Action label={expandedNote?'Collapse':'Expand'} variant="secondary" theme={theme} onPress={()=>setExpandedNote(x=>!x)}/>
+              <Action label="Edit ✎" theme={theme} onPress={editFromNoteReader}/>
             </View>
-            <Action label="Cerrar lectura" variant="tertiary" theme={theme} onPress={closeNoteReader}/>
+            <Action label="Close reading" variant="tertiary" theme={theme} onPress={closeNoteReader}/>
           </View>
         </View>
       </Modal>
       <Modal visible={activeVerse!==null} transparent animationType="slide" onRequestClose={closeVerseMenu}>
         <KeyboardAvoidingView behavior="padding" style={styles.modalBackdrop}>
-          <Pressable accessibilityRole="button" accessibilityLabel="Cerrar opciones tocando fuera" style={styles.sheetDismiss} onPress={closeVerseMenu}/>
+          <Pressable accessibilityRole="button" accessibilityLabel="Close options by tapping outside" style={styles.sheetDismiss} onPress={closeVerseMenu}/>
           <View style={[styles.modalPanel,editingNote&&styles.editingPanel,{backgroundColor:theme.surface,borderColor:theme.border}]} accessibilityViewIsModal>
             <Text accessibilityRole="header" style={[typography.subhead,{color:theme.text}]}>
-              {activeVerse?activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel:''} · RV1909
+              {activeVerse?activeVerse.bookName+' '+activeVerse.chapter+':'+activeVerse.sourceVerseLabel:''} · WEBP
             </Text>
             {editingNote?<View style={styles.editingHeaderActions}>
-              <Action label="Guardar nota" theme={theme} onPress={()=>{void saveNote();}}/>
-              <Action label="Cancelar edición" variant="tertiary" theme={theme} onPress={()=>{if(activeVerse)setNoteDraft(noteFor(activeVerse)?.body??'');setEditingNote(false);}}/>
+              <Action label="Save note" theme={theme} onPress={()=>{void saveNote();}}/>
+              <Action label="Cancel edit" variant="tertiary" theme={theme} onPress={()=>{if(activeVerse)setNoteDraft(noteFor(activeVerse)?.body??'');setEditingNote(false);}}/>
             </View>:<>
-              <Text style={[typography.metadata,{color:theme.secondary}]}>Para copiar una palabra o frase, mantén pulsado el texto bíblico y usa los marcadores de Android.</Text>
+              <Text style={[typography.metadata,{color:theme.secondary}]}>To copy a word or phrase, touch and hold the Bible text and use Android bookmarks.</Text>
             <View style={styles.verseActionBar}>
-              <Pressable accessibilityRole="button" accessibilityLabel="Agregar o editar nota" accessibilityState={{selected:verseAction==='note'}}
+              <Pressable accessibilityRole="button" accessibilityLabel="Add or edit note" accessibilityState={{selected:verseAction==='note'}}
                 onPress={()=>{setVerseAction('note');setEditingNote(false);}}
                 style={[styles.sheetAction,{backgroundColor:verseAction==='note'?theme.selectionBg:theme.surfaceSoft,borderColor:theme.border}]}>
-                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Nota</Text>
+                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Note</Text>
               </Pressable>
-              <Pressable accessibilityRole="button" accessibilityLabel="Resaltar con color" accessibilityState={{selected:verseAction==='highlight'}}
+              <Pressable accessibilityRole="button" accessibilityLabel="Highlight with color" accessibilityState={{selected:verseAction==='highlight'}}
                 onPress={()=>{setVerseAction('highlight');setEditingNote(false);}}
                 style={[styles.sheetAction,{backgroundColor:verseAction==='highlight'?theme.selectionBg:theme.surfaceSoft,borderColor:theme.border}]}>
-                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Resaltar</Text>
+                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Highlight</Text>
               </Pressable>
-              <Pressable accessibilityRole="button" accessibilityLabel="Compartir versículo" onPress={()=>{void shareSelectedVerse();}}
+              <Pressable accessibilityRole="button" accessibilityLabel="Share verse" onPress={()=>{void shareSelectedVerse();}}
                 style={[styles.sheetAction,{backgroundColor:theme.surfaceSoft,borderColor:theme.border}]}>
-                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Compartir</Text>
+                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Share</Text>
               </Pressable>
             </View>
-            <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Quitar referencia guardada':'Guardar referencia'}
+            <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Remove saved reference':"Save reference"}
               theme={theme} variant="secondary" onPress={()=>{if(activeVerse)void toggleSaved(activeVerse);setActiveVerse(null);}}/>
             </>}
             {verseAction?<ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" contentContainerStyle={styles.optionsContent}>
               {verseAction==='note'?<>
                 {editingNote?<View style={styles.editorSection}>
-                  <Text style={[typography.label,{color:theme.primaryText}]}>Tu nota privada</Text>
-                  <TextInput accessibilityLabel="Nota privada del versículo" multiline autoFocus
-                    placeholder="Escribe tu nota personal…" placeholderTextColor={theme.secondary}
+                  <Text style={[typography.label,{color:theme.primaryText}]}>Your private note</Text>
+                  <TextInput accessibilityLabel="Private Verse Note" multiline autoFocus
+                    placeholder="Write your personal note…" placeholderTextColor={theme.secondary}
                     value={noteDraft} onChangeText={setNoteDraft}
                     style={[styles.noteInput,{color:theme.text,borderColor:theme.border,backgroundColor:theme.background}]}/>
                 </View>:<>
-                  {activeVerse&&noteFor(activeVerse)?<View style={[styles.savedNote,{borderColor:theme.border,backgroundColor:theme.surfaceSoft}]} accessibilityLabel="Nota privada completa">
+                  {activeVerse&&noteFor(activeVerse)?<View style={[styles.savedNote,{borderColor:theme.border,backgroundColor:theme.surfaceSoft}]} accessibilityLabel="Complete private note">
                     <ScrollView style={styles.savedNoteScroll} nestedScrollEnabled>
                       <Text style={[typography.body,{color:theme.text}]}>{noteFor(activeVerse)?.body}</Text>
                     </ScrollView>
-                  </View>:<Body theme={theme} muted>Este versículo todavía no tiene nota privada.</Body>}
+                  </View>:<Body theme={theme} muted>This verse does not yet have a private note.</Body>}
                   <View style={styles.compactActions}>
-                    <Action label={activeVerse&&noteFor(activeVerse)?'✎ Editar nota':'✎ Agregar nota'} theme={theme} onPress={()=>setEditingNote(true)}/>
-                    {activeVerse&&noteFor(activeVerse)?<Action label="▤ Eliminar" variant="tertiary" theme={theme} onPress={confirmDeleteNote}/>:null}
+                    <Action label={activeVerse&&noteFor(activeVerse)?"✎ Edit note":"✎ Add note"} theme={theme} onPress={()=>setEditingNote(true)}/>
+                    {activeVerse&&noteFor(activeVerse)?<Action label="▤ Delete" variant="tertiary" theme={theme} onPress={confirmDeleteNote}/>:null}
                   </View>
                 </>}
               </>:null}
               {verseAction==='highlight'?<>
-                <Text style={[typography.label,{color:theme.primaryText}]}>Elige un color</Text>
+                <Text style={[typography.label,{color:theme.primaryText}]}>Choose a color</Text>
                 <View style={styles.colorActions}>{(['rose','lavender','peach'] as const).map(tone=>{
-                  const colors=highlightColors[tone];const label=tone==='rose'?'rosa':tone==='lavender'?'lavanda':'durazno';
+                  const colors=highlightColors[tone];const label=tone==='rose'?'pink':tone==='lavender'?'lavender':'peach';
                   const selected=activeVerse?highlightFor(activeVerse)?.tone===tone:false;
-                  return <Pressable key={tone} accessibilityRole="button" accessibilityLabel={'Destacar '+label}
-                    accessibilityState={{selected}} accessibilityHint={selected?'Pulsa para quitar este color.':'Pulsa para aplicar este color.'}
+                  return <Pressable key={tone} accessibilityRole="button" accessibilityLabel={'Highlight '+label}
+                    accessibilityState={{selected}} accessibilityHint={selected?"Click to remove this color.":"Press to apply this color."}
                     onPress={()=>{void chooseHighlight(tone);}}
                     style={({pressed})=>[styles.colorTouch,pressed&&{opacity:0.8}]}>
                     <View accessibilityElementsHidden style={[styles.colorDot,{backgroundColor:colors.fill,borderColor:selected?colors.border:theme.border,borderWidth:selected?3:1}]}>
@@ -190,14 +189,14 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
                 })}</View>
               </>:null}
             </ScrollView>:null}
-            {!editingNote?<Action label="Cerrar opciones" variant="tertiary" theme={theme} onPress={closeVerseMenu}/>:null}
+            {!editingNote?<Action label="Close options" variant="tertiary" theme={theme} onPress={closeVerseMenu}/>:null}
           </View>
         </KeyboardAvoidingView>
       </Modal>
-      <Section theme={theme} title="Navegar por el capítulo"><View style={styles.readerActions}><Action label="Capítulo anterior" variant="secondary" disabled={atFirstChapter} theme={theme} onPress={() => onOpenReader(reader.book, Math.max(1, reader.chapter - 1), undefined, false)} /><Action label="Capítulo siguiente" variant="secondary" disabled={atLastChapter} theme={theme} onPress={() => onOpenReader(reader.book, reader.chapter + 1, undefined, false)} /></View></Section><Metadata theme={theme}>{runtimeCoverage.translation} · 66 libros · lectura bíblica</Metadata></ScrollView></Screen>;
+      <Section theme={theme} title="Browse the chapter"><View style={styles.readerActions}><Action label="Previous chapter" variant="secondary" disabled={atFirstChapter} theme={theme} onPress={() => onOpenReader(reader.book, Math.max(1, reader.chapter - 1), undefined, false)} /><Action label="Next chapter" variant="secondary" disabled={atLastChapter} theme={theme} onPress={() => onOpenReader(reader.book, reader.chapter + 1, undefined, false)} /></View></Section><Metadata theme={theme}>{runtimeCoverage.translation}· 66 books · biblical reading</Metadata></ScrollView></Screen>;
   }
-  if (selectedBook) return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><Action label="← Cambiar libro" variant="tertiary" theme={theme} onPress={() => { setSelectedBook(undefined); onBookContextChange?.(undefined); setPickerChapterCount(0); setPickerError(false); }} /><View style={styles.readerHeader}><Metadata theme={theme}>LEER · RV1909</Metadata><ScreenTitle theme={theme}>{selectedBook}</ScreenTitle><Body theme={theme} muted>Elige un capítulo para abrir el texto.</Body></View>{pickerLoading ? <StatusBanner theme={theme} kind="info">Cargando capítulos disponibles…</StatusBanner> : null}{pickerError ? <StatusBanner theme={theme} kind="error">No se pudo leer la metadata local de capítulos.</StatusBanner> : null}{!pickerLoading && !pickerError && pickerChapterCount > 0 ? <View style={styles.chapterGrid}>{Array.from({ length: pickerChapterCount }, (_, index) => index + 1).map(chapter => <ChoiceChip key={chapter} label={String(chapter)} theme={theme} selected={false} onPress={() => onOpenReader(selectedBook, chapter)} />)}</View> : null}</ScrollView></Screen>;
-  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><View style={[styles.readerHeader, styles.bookIntro]}><View style={[styles.bookAccent, { backgroundColor: theme.sky }]}/><ScreenTitle theme={theme}>Leer</ScreenTitle><Body theme={theme} muted>{runtimeCoverage.translation} · {runtimeCoverage.books} libros · orden canónico AT/NT.</Body></View><Section theme={theme} title="Antiguo Testamento">{oldTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Capítulos →" onPress={() => { void chooseBook(book); }} />)}</Section><Section theme={theme} title="Nuevo Testamento">{newTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Capítulos →" onPress={() => { void chooseBook(book); }} />)}</Section></ScrollView></Screen>;
+  if (selectedBook) return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><Action label="← Change book" variant="tertiary" theme={theme} onPress={() => { setSelectedBook(undefined); onBookContextChange?.(undefined); setPickerChapterCount(0); setPickerError(false); }} /><View style={styles.readerHeader}><Metadata theme={theme}>READ WEBP</Metadata><ScreenTitle theme={theme}>{selectedBook}</ScreenTitle><Body theme={theme} muted>Choose a chapter to open the text.</Body></View>{pickerLoading ? <StatusBanner theme={theme} kind="info">Loading available chapters…</StatusBanner> : null}{pickerError ? <StatusBanner theme={theme} kind="error">Could not read local chapter metadata.</StatusBanner> : null}{!pickerLoading && !pickerError && pickerChapterCount > 0 ? <View style={styles.chapterGrid}>{Array.from({ length: pickerChapterCount }, (_, index) => index + 1).map(chapter => <ChoiceChip key={chapter} label={String(chapter)} theme={theme} selected={false} onPress={() => onOpenReader(selectedBook, chapter)} />)}</View> : null}</ScrollView></Screen>;
+  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><View style={[styles.readerHeader, styles.bookIntro]}><View style={[styles.bookAccent, { backgroundColor: theme.sky }]}/><ScreenTitle theme={theme}>Read</ScreenTitle><Body theme={theme} muted>{runtimeCoverage.translation} · {runtimeCoverage.books}books · AT/NT canonical order.</Body></View><Section theme={theme} title="Old Testament">{oldTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Chapters →" onPress={() => { void chooseBook(book); }} />)}</Section><Section theme={theme} title="New Testament">{newTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Chapters →" onPress={() => { void chooseBook(book); }} />)}</Section></ScrollView></Screen>;
 }
 const styles = StyleSheet.create({
  stack:{gap:spacing.md,paddingBottom:spacing.xxl},

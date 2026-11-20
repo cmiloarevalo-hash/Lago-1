@@ -36,7 +36,7 @@ describe('R1.3 private documents safety and real nested Back state',()=>{
   expect(()=>validatePersonalBook('doc.pdf',0)).toThrow();
   expect(validReadingProgress(0)).toBe(true);expect(validReadingProgress(100)).toBe(true);
   expect(validReadingProgress(-1)).toBe(false);expect(validReadingProgress(99.5)).toBe(false);
-  expect(bookProgressLabel({format:'pdf',progress:30,chapterIndex:0})).toContain('manualmente');
+  expect(bookProgressLabel({format:'pdf',progress:30,chapterIndex:0})).toContain('manually');
  });
  it('navigates every drawer leaf and preserves original four-tab navigation with Back',()=>{
   expect(tabs).toEqual(['today','search','bible','library']);
@@ -75,6 +75,6 @@ describe('R1.3 personal EPUB text-only, safe local parser',()=>{
  });
  it('rejects invalid EPUB before exposing an empty reader',async()=>{
   const z=new JSZip();z.file('missing.txt','oops');
-  await expect(parsePrivateEpubBase64(await z.generateAsync({type:'base64'}))).rejects.toThrow('EPUB inválido');
+  await expect(parsePrivateEpubBase64(await z.generateAsync({type:'base64'}))).rejects.toThrow('Invalid EPUB');
  });
 });

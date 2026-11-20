@@ -15,7 +15,7 @@ export function visibleTheme(value:unknown):VisibleTheme {
  }
 }
 export const onboardingSteps=[
- {title:'Biblia para cada día',body:'Lee, busca y continúa sin crear una cuenta.'},
- {title:'Funciona sin conexión',body:'El núcleo usa la Biblia guardada en tu dispositivo.'},
- {title:'A tu ritmo',body:'Puedes activar un recordatorio local cuando tú decidas.'},
+ {title:"Bible for every day",body:"Read, search and continue without creating an account."},
+ {title:"Works offline",body:"The core uses the Bible saved on your device."},
+ {title:"At your pace",body:"You can activate a local reminder whenever you decide."},
 ] as const;

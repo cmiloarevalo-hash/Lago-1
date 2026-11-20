@@ -16,7 +16,7 @@ describe('SoundCloud external-only — Owner fix',()=>{
  it('has only direct-open links, no HTTP input/WebView/embedded audio',()=>{
   const s=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
   expect(s).toContain('Linking.openURL(url)');
-  expect(s).toContain('label="Abrir SoundCloud ↗"');
+  expect(s).toContain('label="Open SoundCloud ↗"');
   expect(s).toContain('soundcloudCollections.map');
   expect(s).not.toContain('<WebView');
   expect(s).not.toContain('TextInput');
@@ -27,8 +27,8 @@ describe('SoundCloud external-only — Owner fix',()=>{
  });
  it('does not claim external songs are licensed or approved, requires adult review for minors',()=>{
   const s=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
-  expect(s).toContain('persona responsable debe comprobar');
-  expect(s).toContain('La U no descarga ni redistribuye audio');
-  expect(s).toContain('no son propias ni están aprobadas');
+  expect(s).toContain('a responsible person must check');
+  expect(s).toContain('Bible – Pastoral Guide does not download or redistribute audio');
+  expect(s).toContain('neither owned nor approved');
  });
 });

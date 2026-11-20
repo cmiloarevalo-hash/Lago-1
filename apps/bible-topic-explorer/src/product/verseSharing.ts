@@ -1,5 +1,5 @@
-/** Scripture sharing: the original RV1909 text is never rewritten for sharing. */
-export const verseLinkScheme = 'guiapastoralbiblia';
+/** Scripture sharing: the original WEBP text is never rewritten for sharing. */
+export const verseLinkScheme = 'pastoralbibleen';
 export interface SharedVerse {
   bookName: string;
   chapter: number;
@@ -10,12 +10,12 @@ export interface VerseLinkTarget {book: string;chapter: number;sourceVerseLabel:
 export function buildVerseLink(verse: Pick<SharedVerse,'bookName'|'chapter'|'sourceVerseLabel'>): string {
   const params = 'book='+encodeURIComponent(verse.bookName)+'&chapter='+verse.chapter+
     '&verse='+encodeURIComponent(verse.sourceVerseLabel);
-  return verseLinkScheme+'://leer?'+params;
+  return verseLinkScheme+'://read?'+params;
 }
 export function parseVerseLink(url: string): VerseLinkTarget | null {
   try {
     const link = new URL(url);
-    if(link.protocol!==verseLinkScheme+':' || link.hostname!=='leer')return null;
+    if(link.protocol!==verseLinkScheme+':' || link.hostname!=='read')return null;
     const book=link.searchParams.get('book')?.trim()??'';
     const chapter=Number(link.searchParams.get('chapter'));
     const sourceVerseLabel=link.searchParams.get('verse')?.trim()??'';
@@ -24,9 +24,9 @@ export function parseVerseLink(url: string): VerseLinkTarget | null {
   }catch{return null;}
 }
 export function verseCopyText(verse:SharedVerse):string {
-  return verse.text+'\n'+verse.bookName+' '+verse.chapter+':'+verse.sourceVerseLabel+' · Reina-Valera 1909';
+  return verse.text+'\n'+verse.bookName+' '+verse.chapter+':'+verse.sourceVerseLabel+' · World English Bible';
 }
 /** An automatic install fallback requires a verified public HTTPS landing page, not a custom scheme alone. */
 export function verseShareText(verse:SharedVerse):string {
-  return verseCopyText(verse)+'\n\nAbrir en Guía pastoral - Biblia: '+buildVerseLink(verse);
+  return verseCopyText(verse)+"\nOpen in Bible – Pastoral Guide: "+buildVerseLink(verse);
 }

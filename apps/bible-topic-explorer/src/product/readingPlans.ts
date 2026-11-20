@@ -1,45 +1,45 @@
 /** R1.3: 4 independent seven-day journeys; 28 ORIGINAL editorial drafts.
- * Text is not a quotation or a pastoral endorsement. RV1909 passages are linked, not copied.
+ * Text is not a quotation or a pastoral endorsement. WEBP passages are linked, not copied.
  * Existence and exact source-label sequences must be audited against frozen SQLite before release.
  */
 export type ReadingDay={day:number;title:string;book:string;chapter:number;start:number;end:number;reflection:string;prayer:string;action:string;editorial:'EN_REVISION'};
 export type ReadingPlan={id:string;title:string;theme:string;intro:string;days:readonly ReadingDay[]};
 const content=[
- {id:'encuentro',title:'Encuentro con Jesús',theme:'Evangelios',intro:'Siete encuentros para descubrir gestos de Jesús en su contexto.',days:[
- ['Llamados a escuchar','Marcos',1,14,20,'Los primeros discípulos responden en una situación concreta. Escucha qué ocurre antes de aplicar la lectura a tu historia.','Jesús, acompaña mis decisiones de hoy.','Escucha cinco minutos sin interrumpir.'],
- ['En busca de descanso','Mateo',11,25,30,'El descanso ofrecido debe leerse en relación con el llamado de Jesús, sin negar necesidades de salud.','Señor, enséñanos a acompañar con respeto.','Ofrece ayuda sin imponerla.'],
- ['Compartir lo que hay','Juan',6,1,15,'El alimento compartido abre preguntas sobre responsabilidad colectiva. No reduzcas el relato a una promesa de riqueza.','Jesús, danos generosidad prudente.','Comparte un recurso disponible.'],
- ['Escuchar en el camino','Lucas',10,38,42,'Dos formas de acoger aparecen en tensión; no conviertas la comparación en reproche contra el trabajo doméstico.','Señor, danos escucha atenta.','Dedica un momento sin pantallas a alguien.'],
- ['Acercarse con respeto','Marcos',10,46,52,'Jesús pregunta qué necesita la otra persona en lugar de presuponerlo.','Ayúdanos a escuchar antes de decidir.','Pregunta primero cómo puedes ayudar.'],
- ['Caminar con preguntas','Lucas',24,13,35,'Los viajeros explican su experiencia; el contexto del relato da forma al reconocimiento.','Acompaña nuestras dudas con paciencia.','Formula una pregunta honesta sobre tu lectura.'],
- ['Permanecer en el amor','Juan',15,1,12,'La imagen de la vid presenta relaciones y responsabilidad; lee todo el discurso antes de sacar conclusiones.','Señor, que nuestro amor se vea en obras.','Reconoce un aporte de tu comunidad.']
+ {id:'encuentro',title:"Encounter with Jesus",theme:'Gospels',intro:"Seven encounters to discover gestures of Jesus in their context.",days:[
+ ['Called to Listen',"Mark",1,14,20,"The first disciples respond in a specific situation. Listen to what happens before applying the reading to your story.","Jesus, accompany my decisions today.","Listen for five minutes without interrupting."],
+ ['Seeking Rest',"Matthew",11,25,30,"The rest offered must be read in relation to the call of Jesus, without denying health needs.","Lord, teach us to accompany with respect.","Offer help without imposing it."],
+ ["Share what's there","John",6,1,15,"Shared food opens up questions about collective responsibility. Don't reduce the story to a promise of wealth.","Jesus, give us prudent generosity.","Share an available resource."],
+ ['Listening Along the Way',"Luke",10,38,42,"Two ways of welcoming appear in tension; do not turn the comparison into a reproach against domestic work.","Lord, give us attentive listening.","Take a screen-free moment for someone."],
+ ["Approach with respect","Mark",10,46,52,"Jesus asks what the other person needs instead of presupposing it.","Help us listen before we decide.","Ask first how you can help."],
+ ["walk with questions","Luke",24,13,35,"Travelers explain their experience; The context of the story shapes recognition.","Accompany our doubts with patience.","Ask an honest question about your reading."],
+ ["stay in love","John",15,1,12,"The vine image presents relationships and responsibility; Read the entire speech before drawing conclusions.","Lord, may our love be seen in works.","Recognize a contribution from your community."]
  ]},
- {id:'amor',title:'Amor en acción',theme:'Servicio',intro:'Practicar cuidado, límites y solidaridad sin exponer a otros.',days:[
- ['Amar de palabra y hecho','1 Juan',3,16,20,'El cuidado se expresa mediante acciones concretas, no solo discursos.','Enséñanos a actuar con ternura.','Haz una acción pequeña y respetuosa.'],
- ['El prójimo inesperado','Lucas',10,25,37,'Preguntar quién es prójimo cambia al leer la historia completa y su diálogo.','Danos ojos para escuchar al otro.','Conoce un recurso comunitario real.'],
- ['Servir sin protagonismo','Marcos',10,35,45,'El servicio de Jesús confronta posiciones de prestigio; no justifica abusos ni sumisión forzada.','Libéranos del deseo de dominar.','Cede la palabra a otra voz.'],
- ['Amor que cuida límites','1 Corintios',13,1,13,'La poesía sobre el amor no sustituye la protección ante daño o violencia.','Enséñanos paciencia con dignidad.','Anota un límite respetuoso.'],
- ['Compartir responsablemente','Hechos',2,42,47,'La comunidad comparte recursos en contexto; no impongas donaciones ni publiques datos.','Ayúdanos a sostenernos juntos.','Consulta qué ayuda es realmente útil.'],
- ['Cuidar en comunidad','Gálatas',6,1,10,'La exhortación combina ayudar y asumir responsabilidades.','Que cuidemos sin controlar.','Acompaña sin pedir información privada.'],
- ['Una práctica nueva','Romanos',12,9,18,'El amor sincero se expresa en vínculos y convivencia prudente.','Que el bien crezca entre nosotros.','Agradece una tarea invisible.']
+ {id:'amor',title:"Love in action",theme:'Service',intro:"Practice care, limits and solidarity without exposing others.",days:[
+ ["Love in word and deed","1 John",3,16,20,'Care is expressed through concrete actions, not just words.',"Teach us to act with tenderness.","Do a small, respectful action."],
+ ["The unexpected neighbor","Luke",10,25,37,"Asking who is a neighbor changes when reading the entire story and its dialogue.","Give us eyes to listen to the other.","Learn about a real community resource."],
+ ["Serve without prominence","Mark",10,35,45,"The service of Jesus confronts positions of prestige; It does not justify abuse or forced submission.","Free us from the desire to dominate.","Give the floor to another voice."],
+ ["Love that takes care of limits","1 Corinthians",13,1,13,"Poetry about love is not a substitute for protection from harm or violence.","Teach us patience with dignity.","Write down a respectful boundary."],
+ ["Share responsibly","Acts",2,42,47,"The community shares resources in context; Do not impose donations or publish data.","Help us hold together.","See what help is really useful."],
+ ['Caring in Community',"Galatians",6,1,10,"Exhortation combines helping and taking responsibility.","May we care without controlling.","Accompany without asking for private information."],
+ ["A new practice","Romans",12,9,18,"Sincere love is expressed in bonds and prudent coexistence.","May good grow among us.","Be grateful for an invisible task."]
  ]},
- {id:'esperanza',title:'Esperanza y confianza',theme:'Reflexión',intro:'Leer promesas bíblicas con contexto y sin trivializar el sufrimiento.',days:[
- ['Una confianza expresada','Salmos',23,1,6,'El salmo emplea imágenes de cuidado y peligro; no promete ausencia de dolor.','Acompaña nuestros caminos difíciles.','Escribe algo que te sostiene.'],
- ['Fuerza en comunidad','Isaías',40,27,31,'La consolación habla a un pueblo cansado; evita usarla para exigir rendimiento.','Ayúdanos a descansar sin culpa.','Respeta una pausa propia o ajena.'],
- ['Descanso compartido','Mateo',6,25,34,'La enseñanza pregunta por ansiedad y prioridades; no invalida dificultades materiales.','Danos sabiduría para pedir apoyo.','Identifica una ayuda concreta.'],
- ['Caminar en la duda','Salmos',42,1,11,'La oración describe desaliento con franqueza; permite expresar preguntas.','Recibe nuestras palabras sinceras.','Escucha sin intentar arreglar todo.'],
- ['Esperar con paciencia','Romanos',8,18,27,'El texto nombra sufrimiento y esperanza juntos.','Danos paciencia sin resignación al daño.','Identifica una acción posible hoy.'],
- ['Recordar la compañía','Lamentaciones',3,19,26,'El lamento se sitúa antes de la declaración de confianza.','Sostén a quienes lamentan pérdidas.','Ofrece compañía sin pedir explicaciones.'],
- ['Esperanza activa','1 Pedro',1,3,9,'La esperanza se vincula a una comunidad bajo presión; no garantiza resultados inmediatos.','Que nuestra esperanza produzca cuidado.','Anota un gesto concreto de solidaridad.']
+ {id:'esperanza',title:'Hope and Trust',theme:'Reflection',intro:"Read biblical promises with context and without trivializing suffering.",days:[
+ ["An expressed trust","Psalms",23,1,6,"The psalm employs images of care and danger; It does not promise absence of pain.","Accompany our difficult paths.","Write something that sustains you."],
+ ['Strength in Community',"Isaiah",40,27,31,"Consolation speaks to a tired people; avoid using it to demand performance.","Help us rest without guilt.","Respect your own or someone else's pause."],
+ ['Shared Rest',"Matthew",6,25,34,"Teaching asks about anxiety and priorities; does not invalidate material difficulties.","Give us wisdom to ask for support.","Identify specific help."],
+ ['Walking Through Doubt',"Psalms",42,1,11,"The sentence describes discouragement with candor; allows you to express questions.","Receive our sincere words.","Listen without trying to fix everything."],
+ ["Wait patiently","Romans",8,18,27,'The passage speaks of suffering and hope together.',"Give us patience without resignation to harm.","Identify a possible action today."],
+ ["Remember the company","Lamentations",3,19,26,"The lament is placed before the declaration of trust.","Support those who mourn losses.","Offer company without asking for explanations."],
+ ['Active Hope',"1 Peter",1,3,9,"Hope is linked to a community under pressure; does not guarantee immediate results.","May our hope produce care.",'Write down a concrete act of solidarity.']
  ]},
- {id:'oracion',title:'Oración y comunidad',theme:'Oración',intro:'Siete lecturas sobre oración voluntaria, escucha y convivencia.',days:[
- ['La oración enseñada','Mateo',6,5,15,'Jesús presenta una oración dentro de una enseñanza sobre motivaciones.','Enséñanos a orar con sencillez.','Busca un momento de silencio voluntario.'],
- ['Orar en medio de dudas','Salmos',13,1,6,'El salmo incluye preguntas difíciles antes de una expresión de confianza.','Escucha nuestras preguntas.','Permite una conversación sincera.'],
- ['Reunirse con propósito','Hechos',4,23,31,'La comunidad responde en oración a un conflicto; leer el contexto evita generalizaciones.','Cuida nuestra comunidad.','Piensa a quién debemos escuchar.'],
- ['Alegría sin presión','Filipenses',4,4,9,'La invitación a orar aparece en una carta comunitaria; no niega ansiedad clínica.','Que acompañemos con consideración.','Comparte gratitud sin exigir felicidad.'],
- ['Orar y discernir','Santiago',1,2,8,'El pedido de sabiduría ocurre en un marco de dificultades; no promete una decisión infalible.','Danos humildad para consultar.','Consulta una decisión con alguien de confianza.'],
- ['Decir la verdad','Salmos',139,1,18,'La poesía reflexiona sobre conocimiento y presencia; no justifica vigilancia humana.','Ayúdanos a ser transparentes con respeto.','Revisa un límite de privacidad.'],
- ['Compartir con cuidado','Colosenses',3,12,17,'Las actitudes mencionadas se ubican en una convivencia concreta.','Que la gratitud se exprese en acciones.','Da reconocimiento a una persona discreta.']
+ {id:'oracion',title:"Prayer and community",theme:'Prayer',intro:"Seven readings on voluntary prayer, listening and coexistence.",days:[
+ ["The taught prayer","Matthew",6,5,15,"Jesus presents a prayer within a teaching on motivations.","Teach us to pray with simplicity.",'Choose a moment of silence.'],
+ ['Praying Amid Doubts',"Psalms",13,1,6,"The psalm includes difficult questions before an expression of confidence.","Listen to our questions.","Allows for honest conversation."],
+ ["Gather with purpose","Acts",4,23,31,"The community responds in prayer to a conflict; reading the context avoids generalizations.",'Care for our community.',"Think about who we should listen to."],
+ ["Joy without pressure","Philippians",4,4,9,"The invitation to pray appears in a community letter; does not deny clinical anxiety.","May we accompany with consideration.","Share gratitude without demanding happiness."],
+ ['Praying and Discerning',"James",1,2,8,"The request for wisdom occurs in a context of difficulties; does not promise an infallible decision.","Give us humility to consult.","Consult a decision with someone you trust."],
+ ["tell the truth","Psalms",139,1,18,"Poetry reflects on knowledge and presence; does not justify human surveillance.","Help us to be transparent with respect.","Review a privacy boundary."],
+ ["Share carefully","Colossians",3,12,17,"The aforementioned attitudes are located in a specific coexistence.","May gratitude be expressed in actions.","Give recognition to a discreet person."]
  ]}
 ] as const;
 export const readingPlans:readonly ReadingPlan[]=content.map(p=>({...p,days:p.days.map((d,index)=>({

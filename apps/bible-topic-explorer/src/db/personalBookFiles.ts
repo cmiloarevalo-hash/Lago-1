@@ -16,17 +16,17 @@ export async function pickPrivatePersonalBook():Promise<PersonalBook|null>{
  directory.create({idempotent:true,intermediates:true});
  const id='book-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12);
  const dest=new File(directory,id+'.'+checked.format);
- if(dest.exists)throw Error('Conflicto local de nombre; vuelve a intentar.');
+ if(dest.exists)throw Error('A file with this local name already exists. Try again.');
  await source.copy(dest);
- if(!dest.exists||dest.size<=0)throw Error('No se pudo copiar el documento al almacenamiento privado.');
+ if(!dest.exists||dest.size<=0)throw Error("The document could not be copied to private storage.");
  const now=new Date().toISOString();
  return {id,name:checked.safeName,format:checked.format,size:dest.size,uri:dest.uri,importedAt:now,updatedAt:now,progress:0,chapterIndex:0};
 }
 export async function previewPrivatePdf(book:Pick<PersonalBook,'uri'|'format'>):Promise<void>{
- if(book.format!=='pdf')throw Error('Vista PDF incompatible.');
+ if(book.format!=='pdf')throw Error('Cannot preview this PDF format.');
  const file=new File(book.uri);
- if(!file.exists)throw Error('Archivo no disponible en este dispositivo.');
- if(!file.contentUri?.startsWith('content://'))throw Error('El proveedor Android no ofreció un URI privado de lectura.');
+ if(!file.exists)throw Error("File not available on this device.");
+ if(!file.contentUri?.startsWith('content://'))throw Error("The Android vendor did not offer a private read URI.");
  await IntentLauncher.startActivityAsync('android.intent.action.VIEW',{
   data:file.contentUri,type:'application/pdf',flags:1 // FLAG_GRANT_READ_URI_PERMISSION
  });
@@ -34,7 +34,7 @@ export async function previewPrivatePdf(book:Pick<PersonalBook,'uri'|'format'>):
 export type {EpubChapter};
 export async function readPrivateEpub(uri:string):Promise<readonly EpubChapter[]>{
  const file=new File(uri);
- if(!file.exists)throw Error('El EPUB ya no está disponible.');
- if(file.size>25*1024*1024)throw Error('El EPUB excede el límite de tamaño.');
+ if(!file.exists)throw Error("The EPUB is no longer available.");
+ if(file.size>25*1024*1024)throw Error("The EPUB exceeds the size limit.");
  return parsePrivateEpubBase64(await file.base64());
 }

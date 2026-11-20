@@ -12,7 +12,7 @@ function normalizeZipPath(base:string,relative:string):string{
  const parts=(base?base.split('/'):[]).filter(Boolean);
  for(const segment of relative.split('/')){
   if(!segment||segment==='.')continue;
-  if(segment==='..'){if(!parts.length)throw Error('Ruta EPUB fuera del contenedor.');parts.pop();}
+  if(segment==='..'){if(!parts.length)throw Error("EPUB path outside the container.");parts.pop();}
   else parts.push(segment);
  }
  return parts.join('/');
@@ -26,12 +26,12 @@ function plaintextHtml(html:string):string{
 export async function parsePrivateEpubBase64(base64:string):Promise<readonly EpubChapter[]>{
  const archive=await JSZip.loadAsync(base64,{base64:true});
  const container=await archive.file('META-INF/container.xml')?.async('string');
- if(!container)throw Error('EPUB inválido: sin índice de contenedor.');
+ if(!container)throw Error("Invalid EPUB: no container index.");
  const rootTag=container.match(/<rootfile\b[^>]*>/i)?.[0]??'';
  const opfPath=xmlAttribute(rootTag,'full-path');
- if(!opfPath)throw Error('EPUB inválido: sin manifiesto.');
+ if(!opfPath)throw Error("Invalid EPUB: no manifest.");
  const opf=await archive.file(opfPath)?.async('string');
- if(!opf)throw Error('EPUB inválido: manifiesto inexistente.');
+ if(!opf)throw Error("Invalid EPUB: non-existent manifest.");
  const folder=opfPath.split('/').slice(0,-1).join('/');
  const items=new Map<string,{href:string;media:string}>();
  for(const tag of opf.match(/<item\b[^>]*\/?>/gi)??[]){
@@ -39,7 +39,7 @@ export async function parsePrivateEpubBase64(base64:string):Promise<readonly Epu
   if(id&&href)items.set(id,{href,media});
  }
  const refs=(opf.match(/<itemref\b[^>]*\/?>/gi)??[]).map(tag=>xmlAttribute(tag,'idref'));
- if(refs.length===0||refs.length>300)throw Error('EPUB sin capítulos o demasiado extenso.');
+ if(refs.length===0||refs.length>300)throw Error("EPUB without chapters or too long.");
  const chapters:EpubChapter[]=[];let total=0;
  for(const ref of refs){
   const entry=items.get(ref);
@@ -48,14 +48,14 @@ export async function parsePrivateEpubBase64(base64:string):Promise<readonly Epu
   const zipfile=archive.file(path);
   if(!zipfile)continue;
   const html=await zipfile.async('string');
-  if(html.length>2_000_000)throw Error('Capítulo demasiado grande.');
+  if(html.length>2_000_000)throw Error("Chapter too big.");
   const text=plaintextHtml(html);
   if(!text)continue;
   total+=text.length;
-  if(total>9_000_000)throw Error('EPUB demasiado extenso para lectura segura.');
-  const title=plaintextHtml(html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]??'')||'Sección '+(chapters.length+1);
+  if(total>9_000_000)throw Error("EPUB too long for safe reading.");
+  const title=plaintextHtml(html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]??'')||"Section"+(chapters.length+1);
   chapters.push({title:title.slice(0,110),text});
  }
- if(!chapters.length)throw Error('El EPUB no contiene capítulos de texto compatibles.');
+ if(!chapters.length)throw Error("The EPUB does not contain supported text chapters.");
  return chapters;
 }

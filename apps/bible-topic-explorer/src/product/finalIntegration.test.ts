@@ -43,7 +43,7 @@ describe('R1.3 final integrated plan contracts',()=>{
   expect(trueFalseQuestions.length).toBeGreaterThanOrEqual(5);
   expect(triviaQuestions.every(q=>q.correct>=0&&q.correct<3)).toBe(true);
   expect(trueFalseQuestions.every(q=>typeof q.correct==='boolean')).toBe(true);
-  expect(sequenceGame).toMatchObject({book:'Salmos',chapter:23,start:1,end:3});
+  expect(sequenceGame).toMatchObject({book:'Psalms',chapter:23,start:1,end:3});
  });
  it('distinguishes original draft lyrics, personal offline editor, and 20 pending copyrighted titles',()=>{
   expect(originalLyrics).toHaveLength(4);
@@ -60,7 +60,7 @@ describe('R1.3 final integrated plan contracts',()=>{
   expect(soundcloudCollections).toHaveLength(3);
   const screen=readFileSync('src/ui/screens/SoundCloudScreen.tsx','utf8');
   expect(screen).toContain('Linking.openURL(url)');
-  expect(screen).toContain('Abrir SoundCloud ↗');
+  expect(screen).toContain('Open SoundCloud ↗');
   expect(screen).not.toContain('<WebView');
   expect(screen).not.toContain('TextInput');
   expect(screen).not.toContain('Cargar reproductor');

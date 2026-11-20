@@ -89,4 +89,4 @@ export const themes = {
 export type Theme = (typeof themes)[ThemeMode];
 export const minimumTouchTarget = 48;
 export const shellMaxFontSizeMultiplier = 1.25;
-export const stateLabels = { success: 'Correcto', warning: 'Atención', error: 'Error', info: 'Información' } as const;
+export const stateLabels = { success: 'Correcto', warning: "Attention", error: "Mistake", info: "Information" } as const;

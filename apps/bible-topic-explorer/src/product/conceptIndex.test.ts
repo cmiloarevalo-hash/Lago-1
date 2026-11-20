@@ -26,9 +26,9 @@ describe('R13 P2 canonical concept hierarchy and editorial honesty',()=>{
    expect(topicReviewStatus('perdon')).toBe('EN_REVISION');
    expect(topicReviewStatus('amor')).toBe('EN_REVISION');
    expect(topicReviewStatus('esperanza')).toBe('PROPUESTO');
-   expect(reviewMessage('esperanza')).toContain('pendientes');
+   expect(reviewMessage('esperanza')).toContain('pending');
    expect(availablePreview('espiritu-santo')).toBeUndefined();
-   expect(reviewMessage('espiritu-santo')).toContain('no se muestran pasajes');
+   expect(reviewMessage('espiritu-santo')).toContain('no passages are shown');
  });
  it('has exactly two context-labeled precise REAL candidate ranges per pilot, with canonical source labels and pastoral warnings',()=>{
    const ids=new Set<string>();
@@ -53,9 +53,9 @@ describe('R13 P2 canonical concept hierarchy and editorial honesty',()=>{
  });
  it('Adoración is instant lookup from fixed in-memory preview (no full corpus thematic scan)',()=>{
    const p=availablePreview('adoracion')!;
-   expect(p.subtopic).toBe('¿Por qué adoramos?');
-   expect(p.passages.map(x=>x.reference)).toEqual(['Juan 4:19–26','Salmos 95:1–7']);
-   expect(p.pastoralCaution).toContain('música');
+   expect(p.subtopic).toBe('Why do we worship?');
+   expect(p.passages.map(x=>x.reference)).toEqual(['John 4:19–26','Psalms 95:1–7']);
+   expect(p.pastoralCaution).toContain('music');
  });
 });
 describe('R13 P2 reader exact range and Back',()=>{
@@ -87,7 +87,7 @@ describe('R13 P2 reader exact range and Back',()=>{
   expect(src).not.toContain('Palabras · búsqueda literal');
   expect(src).not.toContain('Buscar texto literal');
   expect(src).not.toContain('searchLiteral(');
-  expect(src).toContain('temas con contenido');
+  expect(src).toContain('topics with content');
   expect(src).toContain('developedTopics');
   expect(src).toContain('familyTopicsWithContent');
   expect(src).toContain('listScrollY');
@@ -95,6 +95,6 @@ describe('R13 P2 reader exact range and Back',()=>{
   expect(src).toContain('sourceVerseLabels');
   expect(app).toContain('onTopicUiChange={setTopicUi}');
   expect(bible).toContain('focusMatchesVerse(verse,reader)');
-  expect(bible).toContain('Volver a Explorar');
+  expect(bible).toContain('Return to Explore');
  });
 });

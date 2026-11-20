@@ -7,39 +7,39 @@ import {spacing,type Theme} from '../theme';
 export function YouTubeScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
  const [raw,setRaw]=useState(''),[selected,setSelected]=useState<string|null>(null),[error,setError]=useState('');
  const candidate=youtubePlaylistId(raw);
- const openExternal=(uri:string)=>{void Linking.openURL(uri).catch(()=>setError('No se pudo abrir YouTube; comprueba la conexión o la aplicación externa.'));};
+ const openExternal=(uri:string)=>{void Linking.openURL(uri).catch(()=>setError("Could not open YouTube; Check the connection or external application."));};
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled">
-  <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>
-  <Text accessibilityRole="header" style={[styles.heading,{color:theme.text}]}>Música en YouTube</Text>
-  <Body theme={theme} muted>Escucha y mira desde el reproductor oficial, cuando elijas una lista válida. La Biblia no necesita internet.</Body>
+  <Action theme={theme} variant="tertiary" label="← Resources" onPress={onBack}/>
+  <Text accessibilityRole="header" style={[styles.heading,{color:theme.text}]}>Music on YouTube</Text>
+  <Body theme={theme} muted>Listen and watch from the official player, when you choose a valid list. The Bible does not need the internet.</Body>
   <View style={[styles.playerCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <View style={styles.identity}><View style={styles.identitySymbol}><Text style={styles.identityMark}>▶</Text></View><Text style={[styles.identityTitle,{color:theme.text}]}>YouTube</Text><Text style={[styles.identityHint,{color:theme.secondary}]}>VÍDEO VISIBLE</Text></View>
+   <View style={styles.identity}><View style={styles.identitySymbol}><Text style={styles.identityMark}>▶</Text></View><Text style={[styles.identityTitle,{color:theme.text}]}>YouTube</Text><Text style={[styles.identityHint,{color:theme.secondary}]}>VISIBLE VIDEO</Text></View>
    {selected?
     <View style={styles.video}>
      <WebView key={selected} source={{uri:youtubeEmbedUrl(selected)}} originWhitelist={['https://*']} javaScriptEnabled domStorageEnabled mediaPlaybackRequiresUserAction
       allowsFullscreenVideo allowsInlineMediaPlayback={false} mixedContentMode="never"
-      onError={()=>setError('No se pudo cargar la lista. Puedes abrirla en YouTube.')}
-      onHttpError={()=>setError('La lista puede no permitir su inserción. Ábrela en YouTube.')}
+      onError={()=>setError('Could not load the list. You can open it on YouTube.')}
+      onHttpError={()=>setError("The list may not allow insertion. Open it on YouTube.")}
       style={styles.webView}/>
     </View>:
-    <View accessible accessibilityLabel="Sin vídeo cargado. Playlist pendiente de aprobación. No hay reproducción." style={styles.emptyVideo}>
+    <View accessible accessibilityLabel="No video loaded. Playlist pending approval. There is no playback." style={styles.emptyVideo}>
      <View style={styles.emptyAccent}><Text style={styles.emptyGlyph}>▣</Text></View>
-     <Text style={styles.emptyTitle}>Selecciona una lista de YouTube</Text>
-     <Text style={styles.emptyMessage}>Aún no hay playlist aprobada ni vista previa real.</Text>
-     <Text style={styles.state}>Lista pendiente de aprobación</Text>
+     <Text style={styles.emptyTitle}>Select a YouTube playlist</Text>
+     <Text style={styles.emptyMessage}>There is no approved playlist or real preview yet.</Text>
+     <Text style={styles.state}>List pending approval</Text>
     </View>}
-   {selected?<View style={styles.playerActions}><Action theme={theme} variant="secondary" label="Abrir esta lista en YouTube ↗" onPress={()=>openExternal(youtubeExternalUrl(selected))}/><Action theme={theme} variant="tertiary" label="Quitar vídeo visible" onPress={()=>setSelected(null)}/></View>:null}
+   {selected?<View style={styles.playerActions}><Action theme={theme} variant="secondary" label="Open this list on YouTube ↗" onPress={()=>openExternal(youtubeExternalUrl(selected))}/><Action theme={theme} variant="tertiary" label="Remove visible video" onPress={()=>setSelected(null)}/></View>:null}
   </View>
   {error?<StatusBanner theme={theme} kind="error">{error}</StatusBanner>:null}
   <View style={[styles.selector,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-   <Text style={[styles.sectionTitle,{color:theme.text}]}>Elegir una playlist</Text>
-   <Text style={[styles.helper,{color:theme.secondary}]}>Pega una URL auténtica de playlist, seleccionada por ti. Algunas listas no permiten inserción por región o derechos.</Text>
-   <TextInput accessibilityLabel="URL de playlist YouTube" value={raw} onChangeText={v=>{setRaw(v);setError('');}} autoCapitalize="none" autoCorrect={false} placeholder="https://www.youtube.com/playlist?list=…" placeholderTextColor={theme.secondary}
+   <Text style={[styles.sectionTitle,{color:theme.text}]}>Choose a playlist</Text>
+   <Text style={[styles.helper,{color:theme.secondary}]}>Paste an authentic playlist URL, selected by you. Some lists do not allow insertion by region or rights.</Text>
+   <TextInput accessibilityLabel="YouTube playlist URL" value={raw} onChangeText={v=>{setRaw(v);setError('');}} autoCapitalize="none" autoCorrect={false} placeholder="https://www.youtube.com/playlist?list=…" placeholderTextColor={theme.secondary}
     style={[styles.input,{color:theme.text,borderColor:theme.border,backgroundColor:theme.background}]}/>
-   <Action theme={theme} label="Cargar vídeo oficial visible" disabled={!candidate} onPress={()=>{setSelected(candidate);setError('');}}/>
-   <Action theme={theme} variant="secondary" label="Abrir YouTube ↗" onPress={()=>openExternal('https://www.youtube.com/')}/>
+   <Action theme={theme} label="Upload official visible video" disabled={!candidate} onPress={()=>{setSelected(candidate);setError('');}}/>
+   <Action theme={theme} variant="secondary" label="Open YouTube ↗" onPress={()=>openExternal('https://www.youtube.com/')}/>
   </View>
-  <Metadata theme={theme}>La U no descarga ni extrae audio, no reproduce en segundo plano, no oculta los controles ni anuncia playback antes de comprobarlo.</Metadata>
+  <Metadata theme={theme}>Bible – Pastoral Guide does not download or extract audio, does not play in the background, does not hide controls or announce playback before checking it.</Metadata>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({

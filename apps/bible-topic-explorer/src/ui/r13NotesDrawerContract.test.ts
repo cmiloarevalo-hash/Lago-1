@@ -13,8 +13,8 @@ describe('R13 I13-A1 discrete note-only reader',()=>{
   expect(reader).toContain('visible={readingNote!==null}');
   const modal=reader.split('visible={readingNote!==null}')[1].split('visible={activeVerse!==null}')[0];
   expect(modal).toContain("noteFor(readingNote)?.body");
-  expect(modal).toContain("label={expandedNote?'Contraer':'Expandir'}");
-  expect(modal).toContain('label="Cerrar lectura"');
+  expect(modal).toContain("label={expandedNote?'Collapse':'Expand'}");
+  expect(modal).toContain('label="Close reading"');
   expect(modal).not.toContain('chooseHighlight(');
   expect(modal).not.toContain('deleteNote(');
  });
@@ -24,10 +24,10 @@ describe('R13 I13-A2 separate options, long notes and compact highlights',()=>{
   expect(reader).toContain('<Text selectable selectionColor=');
   expect(reader).toContain('onPress={()=>openVerseMenu(verse)}');
   expect(reader).not.toContain('onLongPress={()=>openVerseMenu(verse)}');
-  expect(reader).toContain("accessibilityLabel={'Acciones para '");
+  expect(reader).toContain('accessibilityLabel={"Actions for "');
  });
  it('protects deletion and cancel, uses actual text editor and existing persistence',()=>{
-  expect(reader).toContain("Alert.alert('Eliminar nota privada'");
+  expect(reader).toContain('Alert.alert("Delete private note"');
   expect(reader).toContain("void deleteNote();");
   expect(reader).toContain("setNoteDraft(noteFor(activeVerse)?.body??'')");
   expect(reader).toContain('minHeight:220');
@@ -43,7 +43,7 @@ describe('R13 I13-A2 separate options, long notes and compact highlights',()=>{
 });
 describe('R13 I13-A3 truthful drawer stays secondary',()=>{
  it('has a close/Back path, disabled future routes and does not add a tab',()=>{
-  expect(app).toContain('accessibilityLabel="Abrir menú de navegación"');
+  expect(app).toContain('accessibilityLabel="Open navigation menu"');
   expect(app).toContain('onRequestClose={()=>setDrawerOpen(false)}');
   expect(app).toContain("item.group===group");
   expect(app).toContain('onPress={()=>openDrawerItem(item)}');

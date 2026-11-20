@@ -1,108 +1,1159 @@
 export interface TopicDefinition { id:string; label:string; family:string; aliases:readonly string[]; relatedTerms:readonly string[]; version:'m1-v1'; }
 const rows: readonly [string,string,string,readonly string[],readonly string[]][] = [
-  ["dios","Dios","Dios y fe",["Señor", "Jehová"],[]],
-  ["jesus","Jesús","Dios y fe",["Cristo", "Jesucristo"],[]],
-  ["espiritu-santo","Espíritu Santo","Dios y fe",["Espíritu de Dios"],[]],
-  ["fe","fe","Dios y fe",["creer", "creyó", "creyeron"],["confianza", "creer"]],
-  ["confianza","confianza","Dios y fe",["confiar", "confió"],[]],
-  ["gracia","gracia","Dios y fe",["favor"],["misericordia", "salvación"]],
-  ["salvacion","salvación","Dios y fe",["salvar", "salvó", "salvos"],["redención", "vida eterna"]],
-  ["evangelio","evangelio","Dios y fe",["buenas nuevas"],["Cristo", "salvación"]],
-  ["reino-de-dios","reino de Dios","Dios y fe",["reino de los cielos"],["reino", "justicia"]],
-  ["voluntad-de-dios","voluntad de Dios","Dios y fe",["voluntad del Señor"],["obediencia", "mandamientos"]],
-  ["amor","amor","Amor y relaciones",["amar", "amó", "amados"],["caridad", "prójimo"]],
-  ["amistad","amistad","Amor y relaciones",["amigo", "amigos"],[]],
-  ["familia","familia","Amor y relaciones",["casa", "hogar"],[]],
-  ["matrimonio","matrimonio","Amor y relaciones",["marido", "mujer", "esposo", "esposa"],[]],
-  ["hijos","hijos","Amor y relaciones",["hijo", "hija", "hijas"],[]],
-  ["projimo","prójimo","Amor y relaciones",["prójimos"],[]],
-  ["comunidad","comunidad","Amor y relaciones",["hermanos", "congregación"],[]],
-  ["unidad","unidad","Amor y relaciones",["unánimes", "uno"],[]],
-  ["reconciliacion","reconciliación","Amor y relaciones",["reconciliar", "reconciliados"],["paz", "perdón"]],
-  ["servicio","servicio","Amor y relaciones",["servir", "siervo"],["siervo", "prójimo"]],
-  ["perdon","perdón","Perdón y restauración",["perdonar", "perdonó", "perdonados"],["misericordia", "reconciliación"]],
-  ["misericordia","misericordia","Perdón y restauración",["misericordioso", "compadecer"],["compasión", "perdón"]],
-  ["arrepentimiento","arrepentimiento","Perdón y restauración",["arrepentíos", "arrepentirse"],["confesión", "perdón"]],
-  ["pecado","pecado","Perdón y restauración",["pecados", "pecar"],["iniquidad", "transgresión"]],
-  ["tentacion","tentación","Perdón y restauración",["tentado", "tentar"],[]],
-  ["culpa","culpa","Perdón y restauración",["culpable", "iniquidad"],[]],
-  ["restauracion","restauración","Perdón y restauración",["restaurar", "restituir"],[]],
-  ["confesion","confesión","Perdón y restauración",["confesar", "confesamos"],[]],
-  ["obediencia","obediencia","Perdón y restauración",["obedecer", "obedeció"],[]],
-  ["santidad","santidad","Perdón y restauración",["santo", "santos"],["obediencia", "santo"]],
-  ["paz","paz","Vida interior",["pacificar"],["reconciliación", "reposo"]],
-  ["esperanza","esperanza","Vida interior",["esperar"],["promesa", "esperar"]],
-  ["gozo","gozo","Vida interior",["gozar", "alegría"],["alegría", "regocijo"]],
-  ["gratitud","gratitud","Vida interior",["agradecer"],["acción de gracias", "alabanza"]],
-  ["paciencia","paciencia","Vida interior",["paciente", "esperar"],[]],
-  ["humildad","humildad","Vida interior",["humilde"],["mansedumbre", "servicio"]],
-  ["sabiduria","sabiduría","Vida interior",["sabio", "sabios"],["entendimiento", "prudencia"]],
-  ["valentia","valentía","Vida interior",["valiente", "esfuerzo"],[]],
-  ["contentamiento","contentamiento","Vida interior",["contento"],[]],
-  ["dominio-propio","dominio propio","Vida interior",["templanza"],["templanza", "disciplina"]],
-  ["miedo","miedo","Dificultades y emociones",["temor", "temer"],["temor", "confianza"]],
-  ["ansiedad","ansiedad","Dificultades y emociones",["afán", "afanes"],["afán", "preocupación"]],
-  ["tristeza","tristeza","Dificultades y emociones",["triste", "llorar"],[]],
-  ["soledad","soledad","Dificultades y emociones",["solo", "desamparado"],[]],
-  ["enojo","enojo","Dificultades y emociones",["ira", "airarse"],[]],
-  ["sufrimiento","sufrimiento","Dificultades y emociones",["padecer", "aflicción"],["aflicción", "paciencia"]],
-  ["duelo","duelo","Dificultades y emociones",["luto", "lloro"],["consuelo", "lloro"]],
-  ["desanimo","desánimo","Dificultades y emociones",["desmayar", "desfallecer"],[]],
-  ["preocupacion","preocupación","Dificultades y emociones",["afán", "cuidado"],[]],
-  ["cansancio","cansancio","Dificultades y emociones",["cansado", "fatiga"],[]],
-  ["oracion","oración","Oración y práctica espiritual",["orar", "orad"],["petición", "intercesión"]],
-  ["alabanza","alabanza","Oración y práctica espiritual",["alabar", "alabad"],["adoración", "acción de gracias"]],
-  ["adoracion","adoración","Oración y práctica espiritual",["adorar", "adorad"],["alabanza", "Dios"]],
-  ["ayuno","ayuno","Oración y práctica espiritual",["ayunar", "ayunó"],[]],
-  ["meditacion","meditación","Oración y práctica espiritual",["meditar"],["palabra", "ley"]],
-  ["lectura-biblica","lectura bíblica","Oración y práctica espiritual",["Escritura", "Escrituras"],["Escrituras", "palabra"]],
-  ["escucha","escucha","Oración y práctica espiritual",["oír", "oye"],[]],
-  ["peticion","petición","Oración y práctica espiritual",["pedir", "pedid"],[]],
-  ["intercesion","intercesión","Oración y práctica espiritual",["interceder", "ruego"],[]],
-  ["accion-de-gracias","acción de gracias","Oración y práctica espiritual",["gracias", "agradecimiento"],[]],
-  ["honestidad","honestidad","Carácter y conducta",["verdad", "íntegro"],[]],
-  ["generosidad","generosidad","Carácter y conducta",["generoso", "dar"],[]],
-  ["justicia","justicia","Carácter y conducta",["justo", "justos"],["juicio", "justo"]],
-  ["compasion","compasión","Carácter y conducta",["compasivo", "compadecer"],["misericordia", "prójimo"]],
-  ["bondad","bondad","Carácter y conducta",["bueno", "benignidad"],["amor", "misericordia"]],
-  ["fidelidad","fidelidad","Carácter y conducta",["fiel", "fieles"],["fe", "fiel"]],
-  ["responsabilidad","responsabilidad","Carácter y conducta",["mayordomo", "encargo"],[]],
-  ["trabajo","trabajo","Carácter y conducta",["trabajar", "obra"],[]],
-  ["descanso","descanso","Carácter y conducta",["reposo", "descansar"],[]],
-  ["disciplina","disciplina","Carácter y conducta",["corrección", "disciplinar"],[]],
-  ["decisiones","decisiones","Decisiones y vida cotidiana",["escoger", "elegir"],[]],
-  ["proposito","propósito","Decisiones y vida cotidiana",["propósitos", "designio"],[]],
-  ["direccion","dirección","Decisiones y vida cotidiana",["guiar", "camino"],["sabiduría", "camino"]],
-  ["dinero","dinero","Decisiones y vida cotidiana",["riquezas", "tesoro"],["riquezas", "generosidad"]],
-  ["trabajo-y-vocacion","trabajo y vocación","Decisiones y vida cotidiana",["obra", "oficio"],[]],
-  ["estudios","estudios","Decisiones y vida cotidiana",["aprender", "enseñar"],[]],
-  ["tiempo","tiempo","Decisiones y vida cotidiana",["días", "hora"],[]],
-  ["salud","salud","Decisiones y vida cotidiana",["sanar", "sanidad"],["sanar", "enfermedad"]],
-  ["sexualidad","sexualidad","Decisiones y vida cotidiana",["fornicación", "adulterio"],[]],
-  ["conflictos","conflictos","Decisiones y vida cotidiana",["contienda", "pleito"],["paz", "reconciliación"]],
-  ["creacion","creación","Biblia y comprensión",["crear", "creó"],["Dios", "crear"]],
-  ["pacto","pacto","Biblia y comprensión",["alianza", "pactó"],["promesa", "ley"]],
-  ["ley","ley","Biblia y comprensión",["mandato", "estatutos"],[]],
-  ["profecia","profecía","Biblia y comprensión",["profeta", "profetizar"],["profeta", "promesa"]],
-  ["parabolas","parábolas","Biblia y comprensión",["parábola"],[]],
-  ["milagros","milagros","Biblia y comprensión",["señales", "maravillas"],[]],
-  ["resurreccion","resurrección","Biblia y comprensión",["resucitar", "resucitó"],["vida", "Jesús"]],
-  ["cruz","cruz","Biblia y comprensión",["crucificar", "crucificado"],["Cristo", "salvación"]],
-  ["mandamientos","mandamientos","Biblia y comprensión",["mandamiento", "mandó"],[]],
-  ["promesas","promesas","Biblia y comprensión",["promesa", "prometió"],["pacto", "esperanza"]],
-  ["vida-eterna","vida eterna","Esperanza y vida cristiana",["vida perpetua"],["salvación", "resurrección"]],
-  ["muerte","muerte","Esperanza y vida cristiana",["morir", "muerto"],["resurrección", "vida"]],
-  ["juicio","juicio","Esperanza y vida cristiana",["juzgar", "juez"],["justicia", "juez"]],
-  ["cielo","cielo","Esperanza y vida cristiana",["cielos"],[]],
-  ["mision","misión","Esperanza y vida cristiana",["enviar", "enviados"],["evangelio", "enviar"]],
-  ["discipulado","discipulado","Esperanza y vida cristiana",["discípulo", "discípulos"],["discípulo", "seguir"]],
-  ["testimonio","testimonio","Esperanza y vida cristiana",["testigo", "testigos"],["testigo", "evangelio"]],
-  ["iglesia","iglesia","Esperanza y vida cristiana",["iglesias", "congregación"],["comunidad", "hermanos"]],
-  ["dones","dones","Esperanza y vida cristiana",["don", "ministerios"],["servicio", "Espíritu"]],
-  ["fruto-del-espiritu","fruto del Espíritu","Esperanza y vida cristiana",["fruto", "Espíritu"],["amor", "gozo", "paz"]],
+  [
+    "dios",
+    "God",
+    "God and Faith",
+    [
+      "Mister",
+      "Jehovah"
+    ],
+    []
+  ],
+  [
+    "jesus",
+    "Jesus",
+    "God and Faith",
+    [
+      "Christ",
+      "Christ"
+    ],
+    []
+  ],
+  [
+    "espiritu-santo",
+    "Holy Spirit",
+    "God and Faith",
+    [
+      "Spirit of God"
+    ],
+    []
+  ],
+  [
+    "fe",
+    "Faith",
+    "God and Faith",
+    [
+      "believe",
+      "believed",
+      "they believed"
+    ],
+    [
+      "trust",
+      "believe"
+    ]
+  ],
+  [
+    "confianza",
+    "Trust",
+    "God and Faith",
+    [
+      "rely",
+      "trusted"
+    ],
+    []
+  ],
+  [
+    "gracia",
+    "Grace",
+    "God and Faith",
+    [
+      "favor"
+    ],
+    [
+      "mercy",
+      "salvation"
+    ]
+  ],
+  [
+    "salvacion",
+    "Salvation",
+    "God and Faith",
+    [
+      "save",
+      "except",
+      "saved"
+    ],
+    [
+      "redemption",
+      "eternal life"
+    ]
+  ],
+  [
+    "evangelio",
+    "Gospel",
+    "God and Faith",
+    [
+      "good news"
+    ],
+    [
+      "Christ",
+      "salvation"
+    ]
+  ],
+  [
+    "reino-de-dios",
+    "Kingdom of God",
+    "God and Faith",
+    [
+      "kingdom of heaven"
+    ],
+    [
+      "kingdom",
+      "justice"
+    ]
+  ],
+  [
+    "voluntad-de-dios",
+    "God’s Will",
+    "God and Faith",
+    [
+      "will of the Lord"
+    ],
+    [
+      "obedience",
+      "commandments"
+    ]
+  ],
+  [
+    "amor",
+    "Love",
+    "Love and Relationships",
+    [
+      "love",
+      "loved",
+      "loved ones"
+    ],
+    [
+      "charity",
+      "neighbor"
+    ]
+  ],
+  [
+    "amistad",
+    "Friendship",
+    "Love and Relationships",
+    [
+      "friend",
+      "friends"
+    ],
+    []
+  ],
+  [
+    "familia",
+    "Family",
+    "Love and Relationships",
+    [
+      "home",
+      "home"
+    ],
+    []
+  ],
+  [
+    "matrimonio",
+    "Marriage",
+    "Love and Relationships",
+    [
+      "husband",
+      "women",
+      "husband",
+      "wife"
+    ],
+    []
+  ],
+  [
+    "hijos",
+    "Children",
+    "Love and Relationships",
+    [
+      "son",
+      "daughter",
+      "daughters"
+    ],
+    []
+  ],
+  [
+    "projimo",
+    "Neighbor",
+    "Love and Relationships",
+    [
+      "neighbors"
+    ],
+    []
+  ],
+  [
+    "comunidad",
+    "Community",
+    "Love and Relationships",
+    [
+      "siblings",
+      "congregation"
+    ],
+    []
+  ],
+  [
+    "unidad",
+    "Unity",
+    "Love and Relationships",
+    [
+      "unanimous",
+      "one"
+    ],
+    []
+  ],
+  [
+    "reconciliacion",
+    "Reconciliation",
+    "Love and Relationships",
+    [
+      "reconcile",
+      "reconciled"
+    ],
+    [
+      "peace",
+      "sorry"
+    ]
+  ],
+  [
+    "servicio",
+    "Service",
+    "Love and Relationships",
+    [
+      "serve",
+      "servant"
+    ],
+    [
+      "servant",
+      "neighbor"
+    ]
+  ],
+  [
+    "perdon",
+    "Forgiveness",
+    "Forgiveness and Restoration",
+    [
+      "forgive",
+      "forgave",
+      "forgiven"
+    ],
+    [
+      "mercy",
+      "reconciliation"
+    ]
+  ],
+  [
+    "misericordia",
+    "Mercy",
+    "Forgiveness and Restoration",
+    [
+      "merciful",
+      "sympathize"
+    ],
+    [
+      "compassion",
+      "sorry"
+    ]
+  ],
+  [
+    "arrepentimiento",
+    "Repentance",
+    "Forgiveness and Restoration",
+    [
+      "repent",
+      "regret"
+    ],
+    [
+      "confession",
+      "sorry"
+    ]
+  ],
+  [
+    "pecado",
+    "Sin",
+    "Forgiveness and Restoration",
+    [
+      "sins",
+      "sin"
+    ],
+    [
+      "iniquity",
+      "transgression"
+    ]
+  ],
+  [
+    "tentacion",
+    "Temptation",
+    "Forgiveness and Restoration",
+    [
+      "tempted",
+      "tempt"
+    ],
+    []
+  ],
+  [
+    "culpa",
+    "Guilt",
+    "Forgiveness and Restoration",
+    [
+      "guilty",
+      "iniquity"
+    ],
+    []
+  ],
+  [
+    "restauracion",
+    "Restoration",
+    "Forgiveness and Restoration",
+    [
+      "restore",
+      "return"
+    ],
+    []
+  ],
+  [
+    "confesion",
+    "Confession",
+    "Forgiveness and Restoration",
+    [
+      "confess",
+      "we confess"
+    ],
+    []
+  ],
+  [
+    "obediencia",
+    "Obedience",
+    "Forgiveness and Restoration",
+    [
+      "obey",
+      "obeyed"
+    ],
+    []
+  ],
+  [
+    "santidad",
+    "Holiness",
+    "Forgiveness and Restoration",
+    [
+      "holy",
+      "saints"
+    ],
+    [
+      "obedience",
+      "holy"
+    ]
+  ],
+  [
+    "paz",
+    "Peace",
+    "Inner Life",
+    [
+      "pacify"
+    ],
+    [
+      "reconciliation",
+      "repose"
+    ]
+  ],
+  [
+    "esperanza",
+    "Hope",
+    "Inner Life",
+    [
+      "wait"
+    ],
+    [
+      "promise",
+      "wait"
+    ]
+  ],
+  [
+    "gozo",
+    "Joy",
+    "Inner Life",
+    [
+      "enjoy",
+      "happiness"
+    ],
+    [
+      "happiness",
+      "joy"
+    ]
+  ],
+  [
+    "gratitud",
+    "Gratitude",
+    "Inner Life",
+    [
+      "thank"
+    ],
+    [
+      "thanksgiving",
+      "praise"
+    ]
+  ],
+  [
+    "paciencia",
+    "Patience",
+    "Inner Life",
+    [
+      "patient",
+      "wait"
+    ],
+    []
+  ],
+  [
+    "humildad",
+    "Humility",
+    "Inner Life",
+    [
+      "humble"
+    ],
+    [
+      "meekness",
+      "service"
+    ]
+  ],
+  [
+    "sabiduria",
+    "Wisdom",
+    "Inner Life",
+    [
+      "sage",
+      "wise"
+    ],
+    [
+      "understanding",
+      "prudence"
+    ]
+  ],
+  [
+    "valentia",
+    "Courage",
+    "Inner Life",
+    [
+      "brave",
+      "effort"
+    ],
+    []
+  ],
+  [
+    "contentamiento",
+    "Contentment",
+    "Inner Life",
+    [
+      "glad"
+    ],
+    []
+  ],
+  [
+    "dominio-propio",
+    "Self-control",
+    "Inner Life",
+    [
+      "temperance"
+    ],
+    [
+      "temperance",
+      "discipline"
+    ]
+  ],
+  [
+    "miedo",
+    "Fear",
+    "Difficulties and Emotions",
+    [
+      "fear",
+      "fear"
+    ],
+    [
+      "fear",
+      "trust"
+    ]
+  ],
+  [
+    "ansiedad",
+    "Anxiety",
+    "Difficulties and Emotions",
+    [
+      "eagerness",
+      "desires"
+    ],
+    [
+      "eagerness",
+      "worry"
+    ]
+  ],
+  [
+    "tristeza",
+    "Sadness",
+    "Difficulties and Emotions",
+    [
+      "sad",
+      "cry"
+    ],
+    []
+  ],
+  [
+    "soledad",
+    "Loneliness",
+    "Difficulties and Emotions",
+    [
+      "only",
+      "helpless"
+    ],
+    []
+  ],
+  [
+    "enojo",
+    "Anger",
+    "Difficulties and Emotions",
+    [
+      "gonna",
+      "get angry"
+    ],
+    []
+  ],
+  [
+    "sufrimiento",
+    "Suffering",
+    "Difficulties and Emotions",
+    [
+      "suffer",
+      "affliction"
+    ],
+    [
+      "affliction",
+      "patience"
+    ]
+  ],
+  [
+    "duelo",
+    "Grief",
+    "Difficulties and Emotions",
+    [
+      "mourning",
+      "cry"
+    ],
+    [
+      "comfort",
+      "cry"
+    ]
+  ],
+  [
+    "desanimo",
+    "Discouragement",
+    "Difficulties and Emotions",
+    [
+      "faint",
+      "falter"
+    ],
+    []
+  ],
+  [
+    "preocupacion",
+    "Worry",
+    "Difficulties and Emotions",
+    [
+      "eagerness",
+      "careful"
+    ],
+    []
+  ],
+  [
+    "cansancio",
+    "Fatigue",
+    "Difficulties and Emotions",
+    [
+      "tired",
+      "fatigue"
+    ],
+    []
+  ],
+  [
+    "oracion",
+    "Prayer",
+    "Prayer and Spiritual Practice",
+    [
+      "pray",
+      "pray"
+    ],
+    [
+      "request",
+      "intercession"
+    ]
+  ],
+  [
+    "alabanza",
+    "Praise",
+    "Prayer and Spiritual Practice",
+    [
+      "praise",
+      "praise"
+    ],
+    [
+      "worship",
+      "thanksgiving"
+    ]
+  ],
+  [
+    "adoracion",
+    "Worship",
+    "Prayer and Spiritual Practice",
+    [
+      "worship",
+      "adore"
+    ],
+    [
+      "praise",
+      "God"
+    ]
+  ],
+  [
+    "ayuno",
+    "Fasting",
+    "Prayer and Spiritual Practice",
+    [
+      "fast",
+      "fast"
+    ],
+    []
+  ],
+  [
+    "meditacion",
+    "Meditation",
+    "Prayer and Spiritual Practice",
+    [
+      "meditate"
+    ],
+    [
+      "word",
+      "law"
+    ]
+  ],
+  [
+    "lectura-biblica",
+    "Bible Reading",
+    "Prayer and Spiritual Practice",
+    [
+      "Writing",
+      "Scriptures"
+    ],
+    [
+      "Scriptures",
+      "words"
+    ]
+  ],
+  [
+    "escucha",
+    "Listening",
+    "Prayer and Spiritual Practice",
+    [
+      "hear",
+      "hey"
+    ],
+    []
+  ],
+  [
+    "peticion",
+    "Petition",
+    "Prayer and Spiritual Practice",
+    [
+      "ask",
+      "ask"
+    ],
+    []
+  ],
+  [
+    "intercesion",
+    "Intercession",
+    "Prayer and Spiritual Practice",
+    [
+      "intercede",
+      "request"
+    ],
+    []
+  ],
+  [
+    "accion-de-gracias",
+    "Thanksgiving",
+    "Prayer and Spiritual Practice",
+    [
+      "thank you",
+      "gratitude"
+    ],
+    []
+  ],
+  [
+    "honestidad",
+    "Honesty",
+    "Character and Conduct",
+    [
+      "TRUE",
+      "full"
+    ],
+    []
+  ],
+  [
+    "generosidad",
+    "Generosity",
+    "Character and Conduct",
+    [
+      "generous",
+      "give"
+    ],
+    []
+  ],
+  [
+    "justicia",
+    "Justice",
+    "Character and Conduct",
+    [
+      "fair",
+      "fair"
+    ],
+    [
+      "judgment",
+      "fair"
+    ]
+  ],
+  [
+    "compasion",
+    "Compassion",
+    "Character and Conduct",
+    [
+      "compassionate",
+      "sympathize"
+    ],
+    [
+      "mercy",
+      "neighbor"
+    ]
+  ],
+  [
+    "bondad",
+    "Kindness",
+    "Character and Conduct",
+    [
+      "Well",
+      "benignity"
+    ],
+    [
+      "love",
+      "mercy"
+    ]
+  ],
+  [
+    "fidelidad",
+    "Faithfulness",
+    "Character and Conduct",
+    [
+      "faithful",
+      "faithful"
+    ],
+    [
+      "faith",
+      "faithful"
+    ]
+  ],
+  [
+    "responsabilidad",
+    "Responsibility",
+    "Character and Conduct",
+    [
+      "butler",
+      "charge"
+    ],
+    []
+  ],
+  [
+    "trabajo",
+    "Work",
+    "Character and Conduct",
+    [
+      "work",
+      "construction site"
+    ],
+    []
+  ],
+  [
+    "descanso",
+    "Rest",
+    "Character and Conduct",
+    [
+      "repose",
+      "rest"
+    ],
+    []
+  ],
+  [
+    "disciplina",
+    "Discipline",
+    "Character and Conduct",
+    [
+      "correction",
+      "discipline"
+    ],
+    []
+  ],
+  [
+    "decisiones",
+    "Decisions",
+    "Decisions and Daily Life",
+    [
+      "choose",
+      "choose"
+    ],
+    []
+  ],
+  [
+    "proposito",
+    "Purpose",
+    "Decisions and Daily Life",
+    [
+      "purposes",
+      "plan"
+    ],
+    []
+  ],
+  [
+    "direccion",
+    "Guidance",
+    "Decisions and Daily Life",
+    [
+      "guide",
+      "path"
+    ],
+    [
+      "wisdom",
+      "path"
+    ]
+  ],
+  [
+    "dinero",
+    "Money",
+    "Decisions and Daily Life",
+    [
+      "riches",
+      "treasure"
+    ],
+    [
+      "riches",
+      "generosity"
+    ]
+  ],
+  [
+    "trabajo-y-vocacion",
+    "Work and Vocation",
+    "Decisions and Daily Life",
+    [
+      "construction site",
+      "job"
+    ],
+    []
+  ],
+  [
+    "estudios",
+    "Studies",
+    "Decisions and Daily Life",
+    [
+      "learn",
+      "teach"
+    ],
+    []
+  ],
+  [
+    "tiempo",
+    "Time",
+    "Decisions and Daily Life",
+    [
+      "days",
+      "hour"
+    ],
+    []
+  ],
+  [
+    "salud",
+    "Health",
+    "Decisions and Daily Life",
+    [
+      "heal",
+      "health"
+    ],
+    [
+      "heal",
+      "disease"
+    ]
+  ],
+  [
+    "sexualidad",
+    "Sexuality",
+    "Decisions and Daily Life",
+    [
+      "fornication",
+      "adultery"
+    ],
+    []
+  ],
+  [
+    "conflictos",
+    "Conflicts",
+    "Decisions and Daily Life",
+    [
+      "contest",
+      "lawsuit"
+    ],
+    [
+      "peace",
+      "reconciliation"
+    ]
+  ],
+  [
+    "creacion",
+    "Creation",
+    "Bible and Understanding",
+    [
+      "create",
+      "believe"
+    ],
+    [
+      "God",
+      "create"
+    ]
+  ],
+  [
+    "pacto",
+    "Covenant",
+    "Bible and Understanding",
+    [
+      "alliance",
+      "covenant"
+    ],
+    [
+      "promise",
+      "law"
+    ]
+  ],
+  [
+    "ley",
+    "Law",
+    "Bible and Understanding",
+    [
+      "mandate",
+      "statutes"
+    ],
+    []
+  ],
+  [
+    "profecia",
+    "Prophecy",
+    "Bible and Understanding",
+    [
+      "prophet",
+      "prophesy"
+    ],
+    [
+      "prophet",
+      "promise"
+    ]
+  ],
+  [
+    "parabolas",
+    "Parables",
+    "Bible and Understanding",
+    [
+      "parable"
+    ],
+    []
+  ],
+  [
+    "milagros",
+    "Miracles",
+    "Bible and Understanding",
+    [
+      "signs",
+      "wonders"
+    ],
+    []
+  ],
+  [
+    "resurreccion",
+    "Resurrection",
+    "Bible and Understanding",
+    [
+      "resurrect",
+      "resurrected"
+    ],
+    [
+      "life",
+      "Jesus"
+    ]
+  ],
+  [
+    "cruz",
+    "Cross",
+    "Bible and Understanding",
+    [
+      "crucify",
+      "crucified"
+    ],
+    [
+      "Christ",
+      "salvation"
+    ]
+  ],
+  [
+    "mandamientos",
+    "Commandments",
+    "Bible and Understanding",
+    [
+      "commandment",
+      "command"
+    ],
+    []
+  ],
+  [
+    "promesas",
+    "Promises",
+    "Bible and Understanding",
+    [
+      "promise",
+      "promised"
+    ],
+    [
+      "covenant",
+      "hope"
+    ]
+  ],
+  [
+    "vida-eterna",
+    "Eternal Life",
+    "Hope and Christian Life",
+    [
+      "perpetual life"
+    ],
+    [
+      "salvation",
+      "Resurrection"
+    ]
+  ],
+  [
+    "muerte",
+    "Death",
+    "Hope and Christian Life",
+    [
+      "die",
+      "dead"
+    ],
+    [
+      "Resurrection",
+      "life"
+    ]
+  ],
+  [
+    "juicio",
+    "Judgment",
+    "Hope and Christian Life",
+    [
+      "judge",
+      "judge"
+    ],
+    [
+      "justice",
+      "judge"
+    ]
+  ],
+  [
+    "cielo",
+    "Heaven",
+    "Hope and Christian Life",
+    [
+      "Heavens"
+    ],
+    []
+  ],
+  [
+    "mision",
+    "Mission",
+    "Hope and Christian Life",
+    [
+      "send",
+      "sent"
+    ],
+    [
+      "gospel",
+      "send"
+    ]
+  ],
+  [
+    "discipulado",
+    "Discipleship",
+    "Hope and Christian Life",
+    [
+      "disciple",
+      "disciples"
+    ],
+    [
+      "disciple",
+      "continue"
+    ]
+  ],
+  [
+    "testimonio",
+    "Testimony",
+    "Hope and Christian Life",
+    [
+      "witness",
+      "witnesses"
+    ],
+    [
+      "witness",
+      "gospel"
+    ]
+  ],
+  [
+    "iglesia",
+    "Church",
+    "Hope and Christian Life",
+    [
+      "churches",
+      "congregation"
+    ],
+    [
+      "community",
+      "siblings"
+    ]
+  ],
+  [
+    "dones",
+    "Gifts",
+    "Hope and Christian Life",
+    [
+      "gift",
+      "ministries"
+    ],
+    [
+      "service",
+      "Spirit"
+    ]
+  ],
+  [
+    "fruto-del-espiritu",
+    "Fruit of the Spirit",
+    "Hope and Christian Life",
+    [
+      "fruit",
+      "Spirit"
+    ],
+    [
+      "love",
+      "joy",
+      "peace"
+    ]
+  ]
 ];
 export const topicCatalog: readonly TopicDefinition[] = rows.map(([id,label,family,aliases,relatedTerms])=>({id,label,family,aliases,relatedTerms,version:'m1-v1'}));
-export function normalizeTopicText(value:string){return value.trim().toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+export function normalizeTopicText(value:string){return value.trim().toLocaleLowerCase('en').normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
 const topicIndex=new Map<string,TopicDefinition>();
 for(const topic of topicCatalog){for(const key of [topic.id,topic.label,...topic.aliases]) topicIndex.set(normalizeTopicText(key),topic);}
 export function resolveTopic(value:string):TopicDefinition|undefined{return topicIndex.get(normalizeTopicText(value));}
