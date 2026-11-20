@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   build-english-apk:
@@ -76,7 +77,9 @@ jobs:
 
   emulator-smoke:
     needs: build-english-apk
-    runs-on: ubuntu-latest
+    # GitHub-hosted Linux VM lacks nested virtualization: Android emulator refuses -accel off.
+    # macOS hosted runners support native Android emulator acceleration.
+    runs-on: macos-15
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
@@ -84,7 +87,14 @@ jobs:
         with:
           name: Bible-Pastoral-Guide-EN-1.20.01-QA
           path: apps/bible-topic-explorer/qa-output/
-      - name: Install, open, close, and reopen the English APK on an Android 13 emulator, with connectivity disabled
+      - name: Download untouched Spanish v1.11.6 for package coexistence QA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p apps/bible-topic-explorer/qa-spanish-baseline
+          gh run download 43474356666 --repo "$GITHUB_REPOSITORY" --name 'Biblia-Guia-Pastoral-RV1909-v1.11.6-APK' --dir apps/bible-topic-explorer/qa-spanish-baseline
+          test -f apps/bible-topic-explorer/qa-spanish-baseline/Biblia-Guia-Pastoral-Reina-Valera-1909-v1.11.6-REVISION.apk
+      - name: Install both editions, open English, restart offline (Android 13 macOS emulator)
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 33
