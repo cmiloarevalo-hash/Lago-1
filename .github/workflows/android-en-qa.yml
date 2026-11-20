@@ -5,11 +5,6 @@ on:
     branches:
       - feat/guia-pastoral-en-1.20.01
   workflow_dispatch:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'apps/bible-topic-explorer/**'
-      - '.github/workflows/android-en-qa.yml'
 
 permissions:
   contents: read
@@ -76,5 +71,37 @@ jobs:
         with:
           name: Bible-Pastoral-Guide-EN-1.20.01-build-evidence
           path: apps/bible-topic-explorer/english-regressions.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+  emulator-smoke:
+    needs: build-english-apk
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: Bible-Pastoral-Guide-EN-1.20.01-QA
+          path: apps/bible-topic-explorer/qa-output/
+      - name: Install, open, close, and reopen the English APK on an Android 13 emulator, with connectivity disabled
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: google_apis
+          arch: x86_64
+          profile: pixel_3a
+          ram-size: 2048M
+          disk-size: 4096M
+          disable-animations: true
+          emulator-boot-timeout: 600
+          emulator-options: -no-snapshot -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          script: bash apps/bible-topic-explorer/scripts/verify_en_apk_emulator.sh
+      - name: Upload real emulator evidence, even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bible-Pastoral-Guide-EN-1.20.01-emulator-evidence
+          path: apps/bible-topic-explorer/qa-android-evidence/
           if-no-files-found: ignore
           retention-days: 30
