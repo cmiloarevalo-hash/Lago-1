@@ -15,21 +15,21 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
  it('keeps personal collections on separate local views, diary out of Biblioteca',()=>{
   const library=read('src/ui/screens/LibraryScreen.tsx');
   expect(library).toContain("type Page='home'|'saved'|'notes'|'activity'");
-  expect(library).toContain('Versículos guardados');
-  expect(library).toContain('Actividad reciente');
-  expect(library).toContain('Historial rápido');
+  expect(library).toContain('Saved verses');
+  expect(library).toContain('Recent activity');
+  expect(library).toContain('Quick history');
   expect(library).not.toContain('LIBRARY_REFLECTION_ID');
   const journal=read('src/ui/screens/JournalScreen.tsx');
   expect(journal).toContain("const PREVIOUS='library-private-reflection'");
-  expect(journal).toContain("'Año '+year");
+  expect(journal).toContain('"Year "+year');
  });
  it('keeps the same pastoral material by branching from v1.10 rather than rejected v1.10.1',()=>{
   expect(read('src/product/pastoralTopics.ts')).toContain('El camino de Jesús');
   const config=read('app.json');
-  expect(config).toContain('Biblia - Guía pastoral Reina Valera 1909');
+  expect(config).toContain('Bible – Pastoral Guide');
   expect(config).toContain('"softwareKeyboardLayoutMode": "resize"');
-  expect(config).toContain('"version": "1.11.6"');
-  expect(config).toContain('"versionCode": 18');
+  expect(config).toContain('"version": "1.20.01"');
+  expect(config).toContain('"versionCode": 20');
  });
  it('adds SQLite metadata without destructive changes to corpus or earlier user notes',async()=>{
   const db={
@@ -69,7 +69,7 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
  });
  it('preserves complete welcome text and mountain without black panel in Option B',()=>{
   const today=read('src/ui/screens/TodayScreen.tsx');
-  expect(today).toContain('Una pausa para que la Palabra ilumine tu día.');
+  expect(today).toContain('A pause for the Word to illuminate your day.');
   expect(today).toContain('source={art.landscape}');
   expect(today).toContain('hero:{height:260,');
   expect(today).toContain('overlap:{marginTop:-12,');
@@ -78,11 +78,11 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
  });
  it('keeps Guardar nota permanently above the editor and protects unsaved text',()=>{
   const bible=read('src/ui/screens/BibleScreen.tsx');
-  const save=bible.indexOf('<Action label="Guardar nota"');
+  const save=bible.indexOf('<Action label="Save note"');
   const editor=bible.indexOf('{verseAction?<ScrollView');
   expect(save).toBeGreaterThan(0);
   expect(save).toBeLessThan(editor);
-  expect(bible).toContain('Alert.alert(\'Descartar cambios\'');
+  expect(bible).toContain('Alert.alert(\'Discard changes\'');
   expect(bible).toContain('onRequestClose={closeVerseMenu}');
   expect(bible).toContain('editingNote?<View style={styles.editingHeaderActions}');
  });
@@ -104,13 +104,13 @@ describe('v1.11 Android-native UX from approved v1.10 content',()=>{
   expect(journal).toContain('BackHandler.addEventListener');
   expect(journal).toContain('{editing?<View style={styles.editorActions}>');
   expect(journal).toContain('{!editing?<>');
-  expect(journal).toContain('Descartar reflexión');
+  expect(journal).toContain('Discard reflection');
   const app=read('App.tsx');
-  expect(app).toContain('>Biblia - Guía pastoral</Text>');
-  expect(app).toContain('>Reina Valera 1909</Text>');
-  expect(app).toContain('accessibilityLabel="Biblia - Guía pastoral Reina Valera 1909"');
+  expect(app).toContain('>Bible – Pastoral Guide</Text>');
+  expect(app).toContain('>World English Bible</Text>');
+  expect(app).toContain('accessibilityLabel="Bible - Pastoral Guide World English Bible"');
   expect(app).toContain("drawerBrand:{fontFamily:'serif',fontSize:24");
-  expect(app).toContain('accessibilityLabel="Abrir ajustes"');
-  expect(app).not.toContain('>Ajustes</Text></Pressable>');
+  expect(app).toContain('accessibilityLabel="Open settings"');
+  expect(app).not.toContain('>Settings</Text></Pressable>');
  });
 });

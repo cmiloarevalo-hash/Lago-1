@@ -6,12 +6,12 @@ describe('SQLiteLocalPersistence', () => {
     const execAsync=vi.fn().mockResolvedValue(undefined); const runAsync=vi.fn().mockResolvedValue({});
     const db={execAsync,runAsync,getAllAsync:vi.fn().mockResolvedValue([]),getFirstAsync:vi.fn()};
     const persistence=new SQLiteLocalPersistence(db as never);
-    await persistence.saveReference({bookId:'Salmos',chapter:23,verse:1,savedAt:'2026-10-06T00:00:00.000Z'});
+    await persistence.saveReference({bookId:'Psalms',chapter:23,verse:1,savedAt:'2026-10-06T00:00:00.000Z'});
     expect(execAsync.mock.calls[0][0]).toContain('app_saved_references');
     expect(execAsync.mock.calls[0][0]).toContain('app_reading_history');
     expect(execAsync.mock.calls[0][0]).toContain('app_reflections');
     expect(execAsync.mock.calls[0][0]).toContain('app_preferences');
-    expect(runAsync).toHaveBeenCalledWith(expect.stringContaining('app_saved_references'),'Salmos',23,1,'2026-10-06T00:00:00.000Z');
+    expect(runAsync).toHaveBeenCalledWith(expect.stringContaining('app_saved_references'),'Psalms',23,1,'2026-10-06T00:00:00.000Z');
   });
 
   it('maps saved references, history and reflections from local rows', async () => {
@@ -26,7 +26,7 @@ describe('SQLiteLocalPersistence', () => {
   it('records reading continuity and upserts private reflections locally', async () => {
     const runAsync=vi.fn().mockResolvedValue({}); const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync,getAllAsync:vi.fn(),getFirstAsync:vi.fn()};
     const persistence=new SQLiteLocalPersistence(db as never);
-    await persistence.recordReading({bookId:'Salmos',chapter:23,verse:1,openedAt:'o'});
+    await persistence.recordReading({bookId:'Psalms',chapter:23,verse:1,openedAt:'o'});
     await persistence.upsertReflection({id:'r',body:'privada',updatedAt:'u'});
     expect(runAsync.mock.calls[0][0]).toContain('app_reading_history');
     expect(runAsync.mock.calls[1][0]).toContain('app_reflections');
@@ -47,18 +47,18 @@ describe('RC02 verse annotations',()=>{
   it('adds non-destructive per-verse RV1909 notes and highlights tables',async()=>{
     const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync:vi.fn().mockResolvedValue({}),getAllAsync:vi.fn().mockResolvedValue([]),getFirstAsync:vi.fn()};
     const p=new SQLiteLocalPersistence(db as never);
-    await p.upsertVerseNote({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1',body:'Privada',updatedAt:'u'});
-    await p.setHighlight({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1'},'rose');
+    await p.upsertVerseNote({translationId:'webp',bookId:'Psalms',chapter:23,sourceVerseLabel:'1',body:'Privada',updatedAt:'u'});
+    await p.setHighlight({translationId:'webp',bookId:'Psalms',chapter:23,sourceVerseLabel:'1'},'rose');
     const schema=db.execAsync.mock.calls[0][0] as string;
     expect(schema).toContain('app_verse_notes');expect(schema).toContain('app_verse_highlights');
     expect(schema).toContain('app_saved_references');expect(schema).toContain('app_reading_history');
-    expect(db.runAsync).toHaveBeenCalledWith(expect.stringContaining('app_verse_notes'),'rv1909','Salmos',23,'1','Privada','u');
+    expect(db.runAsync).toHaveBeenCalledWith(expect.stringContaining('app_verse_notes'),'webp','Psalms',23,'1','Privada','u');
   });
   it('keeps deletion scoped to edition and exact source verse label',async()=>{
     const db={execAsync:vi.fn().mockResolvedValue(undefined),runAsync:vi.fn().mockResolvedValue({}),getAllAsync:vi.fn().mockResolvedValue([]),getFirstAsync:vi.fn()};
     const p=new SQLiteLocalPersistence(db as never);
-    await p.deleteVerseNote({translationId:'rv1909',bookId:'Salmos',chapter:23,sourceVerseLabel:'1'});
-    expect(db.runAsync.mock.calls[0][0]).toContain("translation_id='rv1909'");
+    await p.deleteVerseNote({translationId:'webp',bookId:'Psalms',chapter:23,sourceVerseLabel:'1'});
+    expect(db.runAsync.mock.calls[0][0]).toContain("translation_id='webp'");
   });
 });
 

@@ -415,7 +415,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
   {
     "topicId": "esperanza",
     "family": "Inner Life",
-    "subtopic": "Keep going when it costs",
+    "subtopic": "Keep going when it gets hard",
     "synopsis": "When something goes wrong, it is normal to lose heart. These texts show that we can maintain hope without denying difficult times.",
     "status": "PROPUESTO",
     "pastoralCaution": "Don't promise instant solution",

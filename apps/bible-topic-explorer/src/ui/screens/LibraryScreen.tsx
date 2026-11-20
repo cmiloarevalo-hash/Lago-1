@@ -18,7 +18,7 @@ function labelOf(r:{bookId:string;bookName?:string;chapter:number;verse?:number}
 }
 function localDate(iso:string){
  const d=new Date(iso);
- return Number.isNaN(d.getTime())?'Fecha desconocida':d.toLocaleDateString('en-US',{day:'numeric',month:'long',year:'numeric'});
+ return Number.isNaN(d.getTime())?'Unknown date':d.toLocaleDateString('en-US',{day:'numeric',month:'long',year:'numeric'});
 }
 function localTime(iso:string){
  const d=new Date(iso);
@@ -56,7 +56,7 @@ export function LibraryScreen({theme,onOpenReader,restoreY=0,onScrollY=()=>{}}:{
   {text:'Quitar',style:'destructive',onPress:()=>{void persistence.removeSavedReference(ref).then(refresh).catch(()=>setNotice("The verse could not be removed."));}}
  ]);
  const quick=history.slice(0,4);
- const pageTitle:Record<Page,string>={home:"Library",saved:"Saved verses",notes:"Bible notes",activity:'Actividad reciente'};
+ const pageTitle:Record<Page,string>={home:"Library",saved:"Saved verses",notes:"Bible notes",activity:'Recent activity'};
  return <Screen theme={theme}><KeyboardAvoidingView style={styles.flex} behavior={Platform.OS==='ios'?'padding':'height'}>
   <ScrollView ref={scroll} keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag"
    contentContainerStyle={styles.stack} scrollEventThrottle={120}
@@ -79,7 +79,7 @@ export function LibraryScreen({theme,onOpenReader,restoreY=0,onScrollY=()=>{}}:{
     <Section theme={theme} title="my library">
      <SettingRow theme={theme} label="Saved verses" value={saved.length+' →'} hint="Your favorites by name, theme and color" onPress={()=>go('saved')}/>
      <SettingRow theme={theme} label="Bible notes" value={notes.length+' →'} hint="Annotations linked to a verse" onPress={()=>go('notes')}/>
-     <SettingRow theme={theme} label="Actividad reciente" value={history.length+' →'} hint="Days, chapters and reading hours" onPress={()=>go('activity')}/>
+     <SettingRow theme={theme} label="Recent activity" value={history.length+' →'} hint="Days, chapters and reading hours" onPress={()=>go('activity')}/>
     </Section>
     <Section theme={theme} title="Quick history">
      {quick.length?quick.map((item,index)=><SettingRow key={item.openedAt+':'+index}
@@ -96,11 +96,11 @@ export function LibraryScreen({theme,onOpenReader,restoreY=0,onScrollY=()=>{}}:{
      <Field theme={theme} label="Verse name" value={title} onChangeText={setTitle}
        maxLength={120} placeholder="Ex: My promise of hope"/>
      <Field theme={theme} label="personal topic" value={topic} onChangeText={setTopic}
-       maxLength={80} placeholder="Ej.: Esperanza"/>
+       maxLength={80} placeholder="E.g. Hope"/>
      <Metadata theme={theme}>Color to find it quickly</Metadata>
      <View style={styles.tones}>{tones.map(t=><ChoiceChip key={t.id} theme={theme} label={t.name}
        selected={tone===t.id} onPress={()=>setTone(t.id)}/>)}</View>
-     <Action theme={theme} label="Save file" onPress={()=>{void saveDetails();}}/>
+     <Action theme={theme} label="Save details" onPress={()=>{void saveDetails();}}/>
      <Action theme={theme} variant="tertiary" label="Cancel" onPress={()=>setEditing(null)}/>
     </View>:null}
     {saved.map(ref=><View key={ref.bookId+':'+ref.chapter+':'+ref.verse} style={[styles.entry,
@@ -109,8 +109,8 @@ export function LibraryScreen({theme,onOpenReader,restoreY=0,onScrollY=()=>{}}:{
       <Metadata theme={theme}>{labelOf(ref)}{ref.topic?' · '+ref.topic:''}</Metadata>
       <View style={styles.inlineActions}>
        <Action theme={theme} variant="secondary" label="Read" onPress={()=>onOpenReader(ref.bookId,ref.chapter,ref.verse)}/>
-       <Action theme={theme} variant="tertiary" label="Organizar" onPress={()=>edit(ref)}/>
-       <Action theme={theme} variant="tertiary" label="Quitar" onPress={()=>remove(ref)}/>
+       <Action theme={theme} variant="tertiary" label="Organize" onPress={()=>edit(ref)}/>
+       <Action theme={theme} variant="tertiary" label="Remove" onPress={()=>remove(ref)}/>
       </View>
     </View>)}
    </Section>:null}

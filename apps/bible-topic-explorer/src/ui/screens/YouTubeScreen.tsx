@@ -39,7 +39,7 @@ export function YouTubeScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
    <Action theme={theme} label="Upload official visible video" disabled={!candidate} onPress={()=>{setSelected(candidate);setError('');}}/>
    <Action theme={theme} variant="secondary" label="Open YouTube ↗" onPress={()=>openExternal('https://www.youtube.com/')}/>
   </View>
-  <Metadata theme={theme}>The U does not download or extract audio, does not play in the background, does not hide controls or announce playback before checking it.</Metadata>
+  <Metadata theme={theme}>Bible – Pastoral Guide does not download or extract audio, does not play in the background, does not hide controls or announce playback before checking it.</Metadata>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({

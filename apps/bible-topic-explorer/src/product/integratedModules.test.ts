@@ -75,6 +75,6 @@ describe('R1.3 personal EPUB text-only, safe local parser',()=>{
  });
  it('rejects invalid EPUB before exposing an empty reader',async()=>{
   const z=new JSZip();z.file('missing.txt','oops');
-  await expect(parsePrivateEpubBase64(await z.generateAsync({type:'base64'}))).rejects.toThrow('EPUB inválido');
+  await expect(parsePrivateEpubBase64(await z.generateAsync({type:'base64'}))).rejects.toThrow('Invalid EPUB');
  });
 });

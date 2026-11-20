@@ -12,12 +12,12 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   expect(screen).toContain('GroupIllustration');
   expect(screen).toContain('selected.groupSize');
   expect(screen).toContain('selected.minutes');
-  expect(screen).toContain('Cómo hacerlo');
+  expect(screen).toContain('How to do it');
   expect(screen).not.toContain('kind="info"');
   expect(screen).toContain('showCare');
   expect(screen).not.toContain('Información de prototipo');
   expect(screen).not.toContain('son un prototipo');
-  expect(screen).toContain('Uso responsable de las dinámicas');
+  expect(screen).toContain('Care and accessibility');
   expect(text('src/ui/illustrations/GroupIllustration.tsx')).toContain('Original geometric illustration');
  });
  it('shows nonprofit mission, real contact and linked sources without internal prototype copy',()=>{
@@ -25,10 +25,10 @@ describe('Owner UX — clear pastoral guides and lawful source attribution',()=>
   const app=text('App.tsx');
   const sources=text('src/ui/screens/AboutSourcesScreen.tsx');
   expect(today).not.toContain('Prototipo con apoyo de IA y estudios');
-  expect(app).toContain('Fuentes y contacto ↗');
+  expect(app).toContain('Sources and contact ↗');
   expect(sources).toContain('Linking.openURL');
   expect(sources).toContain('Unsplash License');
-  expect(sources).toContain('Proyecto sin fines de lucro');
+  expect(sources).toContain('Non-profit project');
   expect(sources).toContain('apkcristianas@gmail.com');
   expect(sources).toContain('Camilo Arévalo');
   expect(pastoralTopics).toHaveLength(16);

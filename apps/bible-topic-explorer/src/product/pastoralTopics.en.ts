@@ -1,4 +1,4 @@
-/** Guía pastoral - Biblia — versión editorial 1.30, 16 capítulos, 4 temas.
+/** Bible – Pastoral Guide — original editorial revision 1.30, 16 chapters, 4 themes.
  * SOURCE OF TRUTH: docs/guia-pastoral/Guia_Pastoral_El_camino_de_Jesus_y_sus_ensenanzas_v1.30.docx
  * Original SHA-256: B44ECF5AA4FCF78CE852C8A0FB0A6335452DA5779207657E4E3142F0B935FB59
  * English translation of the author-supplied Spanish DOCX; pastoral editorial review pending.

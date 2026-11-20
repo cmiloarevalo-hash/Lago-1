@@ -25,7 +25,7 @@ export function MusicScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
       <View style={styles.cta}><Action label="Open in Spotify ↗" theme={theme} variant="secondary" onPress={()=>{void open(entry.url);}}/></View>
     </Card>)}
    </Section>
-   <Body theme={theme} muted>The U does not play or save music. Links and their availability may change; For public gatherings check the venue's music permits.</Body>
+   <Body theme={theme} muted>Bible – Pastoral Guide does not play or save music. Links and their availability may change; For public gatherings check the venue's music permits.</Body>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({stack:{gap:spacing.md,paddingBottom:spacing.xxl},cta:{width:'100%',alignSelf:'stretch',minWidth:0}});

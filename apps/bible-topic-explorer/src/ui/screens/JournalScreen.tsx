@@ -78,7 +78,7 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
    </View>:null}
    {!editing?<>
    {grouped.length===0?<Body theme={theme} muted>Your diary is empty. You can start with a reflection from today.</Body>:null}
-   {grouped.map(([year,items])=><Section theme={theme} key={year} title={"Year"+year}>
+   {grouped.map(([year,items])=><Section theme={theme} key={year} title={"Year "+year}>
     {items.map(item=><View key={item.id} style={[styles.entry,{backgroundColor:theme.surface,borderColor:theme.border}]}>
      <Text style={[styles.itemTitle,{color:theme.text}]}>{reflectionTitle(item)}</Text>
      <Metadata theme={theme}>{labelDate(item.updatedAt)}</Metadata>

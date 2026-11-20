@@ -33,7 +33,7 @@ describe('I02 SQLite model', () => {
   });
 
   it('keeps the frozen runtime database identity', () => {
-    expect(DATABASE_NAME).toBe('bible-topic-explorer.db');
-    expect(RUNTIME_TRANSLATION_ID).toBe('rv1909');
+    expect(DATABASE_NAME).toBe('bible-webp-en.db');
+    expect(RUNTIME_TRANSLATION_ID).toBe('webp');
   });
 });

@@ -53,9 +53,9 @@ export function PersonalBooksScreen({theme,bookId,onSelect,onBack,readingScale=1
      <Metadata theme={theme}>{selected.format.toUpperCase()} · {Math.round(selected.size/1024)} KB · {bookProgressLabel(selected)}</Metadata>
     </Card>
     {selected.format==='pdf'?<Section theme={theme} title="Local PDF reading">
-      <Body theme={theme}>Open with a reader application installed on Android. The document is temporarily shared with the application of your choice; The U does not upload it to the network.</Body>
+      <Body theme={theme}>Open with a reader application installed on Android. The document is temporarily shared with the application of your choice; Bible – Pastoral Guide does not upload it to the network.</Body>
       <Action theme={theme} label="Open PDF in device reader ↗" onPress={()=>{void openPdf();}}/>
-      <Body theme={theme} muted>The progress is manually noted here because The U does not receive the current page from the external viewer.</Body>
+      <Body theme={theme} muted>The progress is manually noted here because Bible – Pastoral Guide does not receive the current page from the external viewer.</Body>
       <View style={styles.inline}>
        <Action theme={theme} variant="secondary" label="− 10 %" disabled={selected.progress===0} onPress={()=>{void updateProgress(Math.max(0,selected.progress-10),0);}}/>
        <Action theme={theme} variant="secondary" label="+ 10 %" disabled={selected.progress===100} onPress={()=>{void updateProgress(Math.min(100,selected.progress+10),0);}}/>

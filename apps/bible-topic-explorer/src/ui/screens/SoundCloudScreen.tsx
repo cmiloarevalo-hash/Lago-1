@@ -16,7 +16,7 @@ export function SoundCloudScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
   <Action theme={theme} variant="tertiary" label="← Resources" onPress={onBack}/>
   <Text accessibilityRole="header" style={[styles.heading,{color:theme.text}]}>Music on SoundCloud</Text>
-  <Body theme={theme} muted>The music is listened to directly on SoundCloud, not within The U. If you have its application installed, Android can open it; otherwise it will use your browser.</Body>
+  <Body theme={theme} muted>The music is listened to directly on SoundCloud, not within Bible – Pastoral Guide. If you have its application installed, Android can open it; otherwise it will use your browser.</Body>
   <View style={[styles.officialCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <View style={styles.identity}>
     <View style={styles.brandMark}><Text accessibilityElementsHidden style={styles.brandIcon}>☁</Text></View>
@@ -46,7 +46,7 @@ export function SoundCloudScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
      <Text accessibilityElementsHidden style={styles.arrow}>↗</Text>
     </Pressable>)}
   </View>
-  <Text style={[styles.note,{color:theme.secondary}]}>These lists are neither owned nor approved by The U. Before playing them with children, a responsible person must check their songs, their content and the conditions of use. The U does not download or redistribute audio.</Text>
+  <Text style={[styles.note,{color:theme.secondary}]}>These lists are neither owned nor approved by Bible – Pastoral Guide. Before playing them with children, a responsible person must check their songs, their content and the conditions of use. Bible – Pastoral Guide does not download or redistribute audio.</Text>
   {error?<Text accessibilityRole="alert" style={[styles.error,{color:theme.errorText}]}>Could not open SoundCloud. Please check the connection and try again.</Text>:null}
  </ScrollView></Screen>;
 }

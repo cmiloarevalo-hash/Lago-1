@@ -15,7 +15,7 @@ export function SongsScreen({theme,songId,onSelect,onBack}:{theme:Theme;songId?:
   <Action label={selected?"← Return to songs":"← Return to menu"} variant="tertiary" theme={theme} onPress={onBack}/>
   <ScreenTitle theme={theme}>pastoral songs</ScreenTitle>
   <Body theme={theme} muted>20 original conversation tokens associated with song titles. Music remains on external services.</Body>
-  <StatusBanner theme={theme} kind="info">Each link opens a search on Spotify (official platform), NOT a proven track. Choose artist and version; no lyrics or recordings are housed in The U.</StatusBanner>
+  <StatusBanner theme={theme} kind="info">Each link opens a search on Spotify (official platform), NOT a proven track. Choose artist and version; no lyrics or recordings are housed in Bible – Pastoral Guide.</StatusBanner>
   {error?<StatusBanner theme={theme} kind="warning">{error}</StatusBanner>:null}
   {selected?<Section theme={theme} title={selected.title}>
     <Card theme={theme} featured>

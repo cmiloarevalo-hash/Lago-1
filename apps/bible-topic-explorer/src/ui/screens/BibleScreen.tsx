@@ -45,7 +45,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
   const closeVerseMenu=()=>{
     const previous=activeVerse?noteFor(activeVerse)?.body??'':'';
     if(editingNote&&activeVerse&&noteDraft!==previous){
-      Alert.alert('Descartar cambios',"Your note has unsaved changes. Do you want to discard them?",[
+      Alert.alert('Discard changes',"Your note has unsaved changes. Do you want to discard them?",[
         {text:'Seguir escribiendo',style:'cancel'},
         {text:'Descartar',style:'destructive',onPress:()=>{setActiveVerse(null);setEditingNote(false);}}
       ]);
@@ -83,7 +83,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
           style={[styles.verseFrame,selected&&{borderLeftColor:theme.selectionBorder,borderLeftWidth:5,backgroundColor:theme.selectionBg},isSaved&&{borderRightColor:theme.amber},tone&&{backgroundColor:tone.fill,borderLeftColor:tone.border}]}>
           <View style={styles.verse}>
             <Pressable accessibilityRole="button"
-              accessibilityLabel={"Actions for"+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+(selected?' · seleccionado':'')+(isSaved?' · guardado':'')+(mark?' · destacado':'')}
+              accessibilityLabel={"Actions for "+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel+(selected?' · selected':'')+(isSaved?' · saved':'')+(mark?' · highlighted':'')}
               accessibilityHint="Open notes, highlight, share or save. Long press the text on the right to select words with Android."
               accessibilityState={{ selected }}
               onPress={()=>openVerseMenu(verse)} style={[styles.verseNumberAction,{backgroundColor:theme.surfaceSoft,borderColor:theme.border}]}>
@@ -97,7 +97,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
             </Text>
           </View>
           <View style={styles.verseTools}>
-            {note?<Pressable accessibilityRole="button" accessibilityLabel={"Read private note from"+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
+            {note?<Pressable accessibilityRole="button" accessibilityLabel={"Read private note from "+canonicalName+' '+verse.chapter+':'+verse.sourceVerseLabel}
               accessibilityHint="Open only the reading of the note. There is a separate button for editing."
               onPress={()=>openNoteReader(verse)} style={styles.noteBubbleTarget}>
               <View accessibilityElementsHidden style={[styles.noteBubble,{backgroundColor:theme.selectionBorder}]}><Text style={styles.noteBubbleGlyph}>•</Text></View>
@@ -115,7 +115,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
               <Text style={[typography.body,{color:theme.text}]}>{readingNote?noteFor(readingNote)?.body??'':''}</Text>
             </ScrollView>
             <View style={styles.noteReadingActions}>
-              <Action label={expandedNote?'Contraer':'Expandir'} variant="secondary" theme={theme} onPress={()=>setExpandedNote(x=>!x)}/>
+              <Action label={expandedNote?'Collapse':'Expand'} variant="secondary" theme={theme} onPress={()=>setExpandedNote(x=>!x)}/>
               <Action label="Editar ✎" theme={theme} onPress={editFromNoteReader}/>
             </View>
             <Action label="Close reading" variant="tertiary" theme={theme} onPress={closeNoteReader}/>
@@ -195,7 +195,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
       </Modal>
       <Section theme={theme} title="Browse the chapter"><View style={styles.readerActions}><Action label="Previous chapter" variant="secondary" disabled={atFirstChapter} theme={theme} onPress={() => onOpenReader(reader.book, Math.max(1, reader.chapter - 1), undefined, false)} /><Action label="Next chapter" variant="secondary" disabled={atLastChapter} theme={theme} onPress={() => onOpenReader(reader.book, reader.chapter + 1, undefined, false)} /></View></Section><Metadata theme={theme}>{runtimeCoverage.translation}· 66 books · biblical reading</Metadata></ScrollView></Screen>;
   }
-  if (selectedBook) return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><Action label="← Cambiar libro" variant="tertiary" theme={theme} onPress={() => { setSelectedBook(undefined); onBookContextChange?.(undefined); setPickerChapterCount(0); setPickerError(false); }} /><View style={styles.readerHeader}><Metadata theme={theme}>READ WEBP</Metadata><ScreenTitle theme={theme}>{selectedBook}</ScreenTitle><Body theme={theme} muted>Choose a chapter to open the text.</Body></View>{pickerLoading ? <StatusBanner theme={theme} kind="info">Loading available chapters…</StatusBanner> : null}{pickerError ? <StatusBanner theme={theme} kind="error">Could not read local chapter metadata.</StatusBanner> : null}{!pickerLoading && !pickerError && pickerChapterCount > 0 ? <View style={styles.chapterGrid}>{Array.from({ length: pickerChapterCount }, (_, index) => index + 1).map(chapter => <ChoiceChip key={chapter} label={String(chapter)} theme={theme} selected={false} onPress={() => onOpenReader(selectedBook, chapter)} />)}</View> : null}</ScrollView></Screen>;
+  if (selectedBook) return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><Action label="← Change book" variant="tertiary" theme={theme} onPress={() => { setSelectedBook(undefined); onBookContextChange?.(undefined); setPickerChapterCount(0); setPickerError(false); }} /><View style={styles.readerHeader}><Metadata theme={theme}>READ WEBP</Metadata><ScreenTitle theme={theme}>{selectedBook}</ScreenTitle><Body theme={theme} muted>Choose a chapter to open the text.</Body></View>{pickerLoading ? <StatusBanner theme={theme} kind="info">Loading available chapters…</StatusBanner> : null}{pickerError ? <StatusBanner theme={theme} kind="error">Could not read local chapter metadata.</StatusBanner> : null}{!pickerLoading && !pickerError && pickerChapterCount > 0 ? <View style={styles.chapterGrid}>{Array.from({ length: pickerChapterCount }, (_, index) => index + 1).map(chapter => <ChoiceChip key={chapter} label={String(chapter)} theme={theme} selected={false} onPress={() => onOpenReader(selectedBook, chapter)} />)}</View> : null}</ScrollView></Screen>;
   return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><View style={[styles.readerHeader, styles.bookIntro]}><View style={[styles.bookAccent, { backgroundColor: theme.sky }]}/><ScreenTitle theme={theme}>Read</ScreenTitle><Body theme={theme} muted>{runtimeCoverage.translation} · {runtimeCoverage.books}books · AT/NT canonical order.</Body></View><Section theme={theme} title="Old Testament">{oldTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Chapters →" onPress={() => { void chooseBook(book); }} />)}</Section><Section theme={theme} title="New Testament">{newTestament.map(book => <SettingRow key={book} theme={theme} label={book} value="Chapters →" onPress={() => { void chooseBook(book); }} />)}</Section></ScrollView></Screen>;
 }
 const styles = StyleSheet.create({

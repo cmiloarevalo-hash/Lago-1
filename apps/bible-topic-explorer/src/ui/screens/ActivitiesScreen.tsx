@@ -29,9 +29,9 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
    <Text style={[styles.title,{color:theme.text}]} accessibilityRole="header">{selected.title}</Text>
    <Text style={[styles.intro,{color:theme.secondary}]}>{selected.goal}</Text>
    <View style={styles.metrics}>
-    <ActivityMetric icon="👥" value={selected.groupSize} label="personas" theme={theme}/>
-    <ActivityMetric icon="◷" value={String(selected.minutes)} label="minutos" theme={theme}/>
-    <ActivityMetric icon="✦" value="12+" label="edad sugerida" theme={theme}/>
+    <ActivityMetric icon="👥" value={selected.groupSize} label="people" theme={theme}/>
+    <ActivityMetric icon="◷" value={String(selected.minutes)} label="minutes" theme={theme}/>
+    <ActivityMetric icon="✦" value="12+" label="suggested age" theme={theme}/>
    </View>
    <GroupIllustration/>
    <View style={styles.chapter}>
@@ -42,35 +42,35 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
      </View>)}
    </View>
    <View style={[styles.tinySection,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-    <View style={styles.noteLine}><Text style={styles.noteIcon}>▣</Text><Text style={[styles.noteTitle,{color:theme.text}]}>Materiales</Text></View>
+    <View style={styles.noteLine}><Text style={styles.noteIcon}>▣</Text><Text style={[styles.noteTitle,{color:theme.text}]}>Materials</Text></View>
     <Body theme={theme}>{selected.materials}</Body>
    </View>
    <View style={[styles.tinySection,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-    <View style={styles.noteLine}><Text style={styles.noteIcon}>☼</Text><Text style={[styles.noteTitle,{color:theme.text}]}>to talk</Text></View>
+    <View style={styles.noteLine}><Text style={styles.noteIcon}>☼</Text><Text style={[styles.noteTitle,{color:theme.text}]}>Discussion</Text></View>
     <Body theme={theme}>{selected.debrief}</Body>
    </View>
-   <Pressable accessibilityRole="button" accessibilityLabel={showCare?'Ocultar recomendaciones de cuidado':'Ver recomendaciones de cuidado'} accessibilityState={{expanded:showCare}}
+   <Pressable accessibilityRole="button" accessibilityLabel={showCare?'Hide accessibility guidance':'Show accessibility guidance'} accessibilityState={{expanded:showCare}}
     onPress={()=>setShowCare(v=>!v)} style={styles.careButton}>
-     <Text style={[styles.careLink,{color:theme.primaryText}]}>ⓘ  {showCare?'Ocultar indicaciones':'Cuidado y accesibilidad'}  {showCare?'⌃':'⌄'}</Text>
+     <Text style={[styles.careLink,{color:theme.primaryText}]}>ⓘ  {showCare?'Hide guidance':'Care and accessibility'}  {showCare?'⌃':'⌄'}</Text>
    </Pressable>
    {showCare?<View style={[styles.carePanel,{backgroundColor:theme.surfaceSoft}]}>
-    <Body theme={theme}>{selected.safety}Participating is voluntary: it allows written, seated or voice response. With minors, two responsible adults and local protection protocols.</Body>
+    <Body theme={theme}>{selected.safety} Participating is voluntary: it allows written, seated or voice response. With minors, two responsible adults and local protection protocols.</Body>
    </View>:null}
   </View>:<>
    <ScreenTitle theme={theme}>Pastoral dynamics</ScreenTitle>
    <Body theme={theme} muted>Simple meetings to gather, share and learn.</Body>
    <View style={styles.introArt}><GroupIllustration/></View>
    <View style={styles.summary}>
-    <ActivityMetric icon="👥" value="20" label="dynamic" theme={theme}/>
-    <ActivityMetric icon="◷" value="10–25" label="minutos aprox." theme={theme}/>
-    <ActivityMetric icon="✦" value="12+" label="edad sugerida" theme={theme}/>
+    <ActivityMetric icon="👥" value="20" label="activities" theme={theme}/>
+    <ActivityMetric icon="◷" value="10–25" label="approx. minutes" theme={theme}/>
+    <ActivityMetric icon="✦" value="12+" label="suggested age" theme={theme}/>
    </View>
    {onPlay?<Pressable accessibilityRole="button" accessibilityLabel="Play trivia, true/false and order verses" onPress={onPlay} style={[styles.gameRow,{backgroundColor:theme.surface,borderColor:theme.border}]}>
     <Text style={[styles.gameIcon,{color:theme.primaryText}]}>◇</Text><View style={{flex:1}}><Text style={[styles.rowTitle,{color:theme.text}]}>Bible games</Text><Text style={[styles.rowSubtitle,{color:theme.secondary}]}>Trivia · True/False · Sort verses</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
    </Pressable>:null}
    <Text style={[styles.subhead,{color:theme.text}]}>Choose a dynamic</Text>
    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>{(["All",...activityCategories] as const).map(c=><ChoiceChip key={c} theme={theme} label={c} selected={category===c} onPress={()=>setCategory(c)}/>)}</ScrollView>
-   <View style={styles.list}>{filtered.map((item,i)=><Pressable key={item.id} accessibilityRole="button" accessibilityLabel={"Open guide"+item.title+', '+item.groupSize+' personas, '+item.minutes+' minutos'} onPress={()=>goTo(item.id)}
+   <View style={styles.list}>{filtered.map((item,i)=><Pressable key={item.id} accessibilityRole="button" accessibilityLabel={"Open guide "+item.title+', '+item.groupSize+' people, '+item.minutes+' minutes'} onPress={()=>goTo(item.id)}
     style={({pressed})=>[styles.listRow,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
      <View style={[styles.listIndex,{backgroundColor:theme.selectionBg}]}><Text style={[styles.listIndexText,{color:theme.primaryText}]}>{i+1}</Text></View>
      <View style={styles.listCopy}><Text style={[styles.rowTitle,{color:theme.text}]}>{item.title}</Text><Text style={[styles.rowSubtitle,{color:theme.secondary}]}>{item.goal}</Text>

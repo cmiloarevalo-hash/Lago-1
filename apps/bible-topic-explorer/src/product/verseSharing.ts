@@ -28,5 +28,5 @@ export function verseCopyText(verse:SharedVerse):string {
 }
 /** An automatic install fallback requires a verified public HTTPS landing page, not a custom scheme alone. */
 export function verseShareText(verse:SharedVerse):string {
-  return verseCopyText(verse)+"Open in Pastoral Guide - Bible:"+buildVerseLink(verse);
+  return verseCopyText(verse)+"\nOpen in Bible – Pastoral Guide: "+buildVerseLink(verse);
 }
