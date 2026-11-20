@@ -25,8 +25,8 @@ export function HymnalScreen({theme,onBack,readingScale=1}:Props){
   <View style={styles.songCopy}><Text style={[styles.songTitle,{color:theme.text}]}>{name}</Text><Text style={[styles.songHint,{color:theme.secondary}]}>{sub}</Text></View><Text style={[styles.chevron,{color:theme.primaryText}]}>›</Text>
  </Pressable>;
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled">
-  <Action theme={theme} variant="tertiary" label={editing||active?'← Cancionero':"← Resources"} onPress={()=>{if(editing||active){setEditing(false);setActive(null);}else onBack();}}/>
-  <Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>Cancionero</Text>
+  <Action theme={theme} variant="tertiary" label={editing||active?'← Hymnal':"← Resources"} onPress={()=>{if(editing||active){setEditing(false);setActive(null);}else onBack();}}/>
+  <Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>Hymnal</Text>
   <Text style={[styles.subtitle,{color:theme.secondary}]}>Lyrics to read and sing at your own pace. Your notes remain on the device.</Text>
   {error?<StatusBanner theme={theme} kind="error">{error}</StatusBanner>:null}
   {editing?<View style={[styles.paper,{backgroundColor:theme.surface,borderColor:theme.border}]}>
@@ -51,7 +51,7 @@ export function HymnalScreen({theme,onBack,readingScale=1}:Props){
     <View style={styles.sectionHead}><Text style={[styles.sectionHeading,{color:theme.text}]}>my letters</Text><Text style={[styles.count,{color:theme.secondary}]}>{filteredPersonal.length}</Text></View>
     <Action theme={theme} label="+ Write my private letter" onPress={()=>begin()}/>
     {filteredPersonal.length?<View style={[styles.songList,{backgroundColor:theme.surface,borderColor:theme.border}]}>{filteredPersonal.map(x=>row(x.id,x.title,'Saved on this device only','♫'))}</View>:<Text style={[styles.helper,{color:theme.secondary}]}>You don't have private letters yet with this search.</Text>}
-    <View style={styles.sectionHead}><Text style={[styles.sectionHeading,{color:theme.text}]}>Pendientes de derechos</Text><Text style={[styles.count,{color:theme.secondary}]}>{filteredOriginal.length+filteredPending.length}</Text></View>
+    <View style={styles.sectionHead}><Text style={[styles.sectionHeading,{color:theme.text}]}>Pending rights clearance</Text><Text style={[styles.count,{color:theme.secondary}]}>{filteredOriginal.length+filteredPending.length}</Text></View>
     {filteredOriginal.length?<View style={[styles.songList,{backgroundColor:theme.surface,borderColor:theme.border}]}>{filteredOriginal.map(x=>row(x.id,x.title,"Original draft authorization under review",'✧'))}</View>:null}
     {filteredPending.length?<View style={[styles.songList,{backgroundColor:theme.surface,borderColor:theme.border}]}>{filteredPending.map(x=>row(x.id,x.title,"Known title · lyrics not included",'♪'))}</View>:null}
     {!filteredOriginal.length&&!filteredPending.length?<Text style={[styles.helper,{color:theme.secondary}]}>No pending titles for this search.</Text>:null}

@@ -32,7 +32,7 @@ export function PastoralGamesScreen({theme,onBack}:{theme:Theme;onBack:()=>void}
   <StatusBanner theme={theme} kind="info">Three original interactive activities under editorial review. Explanations are not a substitute for a human contextual study.</StatusBanner>
   <View style={styles.inline}>
    <ChoiceChip theme={theme} label="Trivia" selected={mode==='trivia'} onPress={()=>selectMode('trivia')}/>
-   <ChoiceChip theme={theme} label="Verdadero/falso" selected={mode==='truefalse'} onPress={()=>selectMode('truefalse')}/>
+   <ChoiceChip theme={theme} label="True / False" selected={mode==='truefalse'} onPress={()=>selectMode('truefalse')}/>
    <ChoiceChip theme={theme} label="Sort verses" selected={mode==='sequence'} onPress={()=>selectMode('sequence')}/>
   </View>
   {error?<StatusBanner theme={theme} kind="error">{error}</StatusBanner>:null}
@@ -47,10 +47,10 @@ export function PastoralGamesScreen({theme,onBack}:{theme:Theme;onBack:()=>void}
     <Action theme={theme} variant="secondary" label="Mix again" onPress={()=>setSequence(prev=>[...prev].reverse())}/>
    </Section>:<Section theme={theme} title={"Ask"+(index+1)+' de '+questions.length}>
      <Card theme={theme} featured><Subhead theme={theme}>{mode==='trivia'?triviaQuestions[index].prompt:trueFalseQuestions[index].statement}</Subhead>
-      {(mode==='trivia'?triviaQuestions[index].options:['Verdadero','Falso']).map((option,i)=><Action theme={theme} key={i} variant="secondary" label={option} disabled={choice!==undefined} onPress={()=>select(mode==='trivia'?i:Number(i===0))}/>)}
+      {(mode==='trivia'?triviaQuestions[index].options:['True','False']).map((option,i)=><Action theme={theme} key={i} variant="secondary" label={option} disabled={choice!==undefined} onPress={()=>select(mode==='trivia'?i:Number(i===0))}/>)}
      </Card>
      {choice!==undefined?<Card theme={theme}>
-       <Subhead theme={theme}>{choice===(mode==='trivia'?triviaQuestions[index].correct:Number(trueFalseQuestions[index].correct))?'Respuesta correcta':"Response to review"}</Subhead>
+       <Subhead theme={theme}>{choice===(mode==='trivia'?triviaQuestions[index].correct:Number(trueFalseQuestions[index].correct))?'Correct answer':"Response to review"}</Subhead>
        <Body theme={theme}>{mode==='trivia'?triviaQuestions[index].reason:trueFalseQuestions[index].reason}</Body>
        <Metadata theme={theme}>Reference to study: {q.reference}</Metadata>
        <Action theme={theme} label={index+1===questions.length?"Replay":"Next question"} onPress={next}/>

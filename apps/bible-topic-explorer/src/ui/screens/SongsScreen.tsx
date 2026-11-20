@@ -23,7 +23,7 @@ export function SongsScreen({theme,songId,onSelect,onBack}:{theme:Theme;songId?:
       <Subhead theme={theme}>Purpose of the meeting</Subhead><Body theme={theme}>{selected.objective}</Body>
       <Subhead theme={theme}>Own question to talk</Subhead><Body theme={theme}>{selected.groupPrompt}</Body>
       <Metadata theme={theme}>{selected.contextCaution}</Metadata>
-      <Action theme={theme} label={"Look for \""+selected.title+'» en Spotify ↗'} onPress={()=>{void open(selected.title);}}/>
+      <Action theme={theme} label={"Look for \""+selected.title+'" on Spotify ↗'} onPress={()=>{void open(selected.title);}}/>
     </Card>
     <StatusBanner theme={theme} kind="warning">For projection, performance or public broadcast, verify rights and licenses. Native Spotify remains blocked externally.</StatusBanner>
   </Section>:<>
@@ -35,7 +35,7 @@ export function SongsScreen({theme,songId,onSelect,onBack}:{theme:Theme;songId?:
        <Card theme={theme} key={song.id}><Subhead theme={theme}>{song.title}</Subhead>
          <Metadata theme={theme}>{song.moment}· pending external selection</Metadata>
          <Body theme={theme} muted>{song.objective}</Body>
-         <Action theme={theme} variant="secondary" label={'Ver ficha: '+song.title} onPress={()=>onSelect(song.id)}/>
+         <Action theme={theme} variant="secondary" label={'View guide: '+song.title} onPress={()=>onSelect(song.id)}/>
        </Card>)}
     </Section>
   </>}

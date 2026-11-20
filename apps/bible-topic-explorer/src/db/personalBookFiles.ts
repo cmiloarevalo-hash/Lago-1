@@ -16,14 +16,14 @@ export async function pickPrivatePersonalBook():Promise<PersonalBook|null>{
  directory.create({idempotent:true,intermediates:true});
  const id='book-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,12);
  const dest=new File(directory,id+'.'+checked.format);
- if(dest.exists)throw Error('Conflicto local de nombre; vuelve a intentar.');
+ if(dest.exists)throw Error('A file with this local name already exists. Try again.');
  await source.copy(dest);
  if(!dest.exists||dest.size<=0)throw Error("The document could not be copied to private storage.");
  const now=new Date().toISOString();
  return {id,name:checked.safeName,format:checked.format,size:dest.size,uri:dest.uri,importedAt:now,updatedAt:now,progress:0,chapterIndex:0};
 }
 export async function previewPrivatePdf(book:Pick<PersonalBook,'uri'|'format'>):Promise<void>{
- if(book.format!=='pdf')throw Error('Vista PDF incompatible.');
+ if(book.format!=='pdf')throw Error('Cannot preview this PDF format.');
  const file=new File(book.uri);
  if(!file.exists)throw Error("File not available on this device.");
  if(!file.contentUri?.startsWith('content://'))throw Error("The Android vendor did not offer a private read URI.");

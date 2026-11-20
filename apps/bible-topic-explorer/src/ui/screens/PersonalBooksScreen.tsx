@@ -82,7 +82,7 @@ export function PersonalBooksScreen({theme,bookId,onSelect,onBack,readingScale=1
     <Section theme={theme} title={"My documents ·"+books.length}>
       {books.length?books.map(book=><Card key={book.id} theme={theme}>
        <Subhead theme={theme}>{book.name}</Subhead><Metadata theme={theme}>{book.format.toUpperCase()} · {bookProgressLabel(book)}</Metadata>
-       <Action theme={theme} variant="secondary" label={'Retomar '+book.name} onPress={()=>onSelect(book.id)}/>
+       <Action theme={theme} variant="secondary" label={'Resume '+book.name} onPress={()=>onSelect(book.id)}/>
       </Card>):<Body theme={theme} muted>No documents yet. Your existing WEBP Bible files and notes do not change.</Body>}
     </Section>
   </>}

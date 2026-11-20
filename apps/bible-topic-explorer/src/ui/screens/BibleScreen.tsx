@@ -116,7 +116,7 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
             </ScrollView>
             <View style={styles.noteReadingActions}>
               <Action label={expandedNote?'Collapse':'Expand'} variant="secondary" theme={theme} onPress={()=>setExpandedNote(x=>!x)}/>
-              <Action label="Editar ✎" theme={theme} onPress={editFromNoteReader}/>
+              <Action label="Edit ✎" theme={theme} onPress={editFromNoteReader}/>
             </View>
             <Action label="Close reading" variant="tertiary" theme={theme} onPress={closeNoteReader}/>
           </View>
@@ -143,14 +143,14 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
               <Pressable accessibilityRole="button" accessibilityLabel="Highlight with color" accessibilityState={{selected:verseAction==='highlight'}}
                 onPress={()=>{setVerseAction('highlight');setEditingNote(false);}}
                 style={[styles.sheetAction,{backgroundColor:verseAction==='highlight'?theme.selectionBg:theme.surfaceSoft,borderColor:theme.border}]}>
-                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Resaltar</Text>
+                <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Highlight</Text>
               </Pressable>
               <Pressable accessibilityRole="button" accessibilityLabel="Share verse" onPress={()=>{void shareSelectedVerse();}}
                 style={[styles.sheetAction,{backgroundColor:theme.surfaceSoft,borderColor:theme.border}]}>
                 <Text style={[styles.sheetActionText,{color:theme.primaryText}]}>Share</Text>
               </Pressable>
             </View>
-            <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Quitar referencia guardada':"Save reference"}
+            <Action label={activeVerse&&saved.some(r=>r.bookId===activeVerse.bookId&&r.chapter===activeVerse.chapter&&r.verse===activeVerse.verse)?'Remove saved reference':"Save reference"}
               theme={theme} variant="secondary" onPress={()=>{if(activeVerse)void toggleSaved(activeVerse);setActiveVerse(null);}}/>
             </>}
             {verseAction?<ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" contentContainerStyle={styles.optionsContent}>
@@ -174,11 +174,11 @@ export function BibleScreen({ theme, reader, readingScale = 1, initialBook, onBo
                 </>}
               </>:null}
               {verseAction==='highlight'?<>
-                <Text style={[typography.label,{color:theme.primaryText}]}>Elige un color</Text>
+                <Text style={[typography.label,{color:theme.primaryText}]}>Choose a color</Text>
                 <View style={styles.colorActions}>{(['rose','lavender','peach'] as const).map(tone=>{
                   const colors=highlightColors[tone];const label=tone==='rose'?'pink':tone==='lavender'?'lavender':'peach';
                   const selected=activeVerse?highlightFor(activeVerse)?.tone===tone:false;
-                  return <Pressable key={tone} accessibilityRole="button" accessibilityLabel={'Destacar '+label}
+                  return <Pressable key={tone} accessibilityRole="button" accessibilityLabel={'Highlight '+label}
                     accessibilityState={{selected}} accessibilityHint={selected?"Click to remove this color.":"Press to apply this color."}
                     onPress={()=>{void chooseHighlight(tone);}}
                     style={({pressed})=>[styles.colorTouch,pressed&&{opacity:0.8}]}>

@@ -21,10 +21,14 @@ const scope=[
  'src/product/pastoralTopics.en.ts',
  'src/product/libraryPresentation.ts',
  'src/product/personalBooks.ts',
+ 'src/product/music.ts',
+ 'src/product/search.ts',
+ 'src/product/uxCopy.ts',
+ 'src/db/personalBookFiles.ts',
  'src/db/localBackup.ts',
  'src/db/sqlitePersonalBooksRepository.ts'
 ];
-const suspicious=/\b(?:Reina[- ]Valera|Progreso fuera|Dibujo original|personas\s+◷|Destacado eliminado|No se pudo|Fuente\/curador|Privacidad y fuente|Respaldo|Cargando preferencias|Preferencias guardadas|Apariencia|Elegir carpeta|Elegir hora|Permiso denegado|Activada|Desactivada|Completada|Pendiente|Respaldo privado|Respaldo creado|Cuenta|No requerida|Datos de uso|Locales|Miqueas|Pablo|Justicia y servicio|Seguir escribiendo|Descartar|Guardada solo|Letra pendiente|Reiniciar juego|MOMENTO SUGERIDO|Solo se admiten|Avance guardado)\b/i;
+const suspicious=/\b(?:Reina[- ]Valera|Progreso fuera|Dibujo original|personas\s+◷|Destacado eliminado|No se pudo|Fuente\/curador|Privacidad y fuente|Respaldo|Cargando preferencias|Preferencias guardadas|Apariencia|Elegir carpeta|Elegir hora|Permiso denegado|Activada|Desactivada|Completada|Pendiente|Respaldo privado|Respaldo creado|Cuenta|No requerida|Datos de uso|Locales|Miqueas|Pablo|Justicia y servicio|Seguir escribiendo|Descartar|Guardada solo|Letra pendiente|Reiniciar juego|MOMENTO SUGERIDO|Solo se admiten|Avance guardado|No normalizar|No moralizar|No imponer|No coaccionar|Playlist recomendada|category:'Alabanza'|Referencia retirada|Frase exacta|Texto literal|Resaltar|Elige un color|Destacar |Quitar referencia guardada|Cancionero|Verdadero|Falso|Respuesta correcta|Retomar |Ver ficha|URL de playlist|Conflicto local de nombre|Vista PDF incompatible|Editar|% estimado)\b/i;
 
 describe('English 1.20.01 static runtime copy (#81)',()=>{
  it('does not regress to Spanish interface labels or Spanish Bible branding',()=>{

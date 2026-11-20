@@ -507,7 +507,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
     "subtopic": "Learn to wait",
     "synopsis": "Waiting is not always easy, especially when we want quick results. These texts show how to live that time with patience and love.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No normalizar abusos",
+    "pastoralCaution": "Do not normalize abuse",
     "existenceChecked": true,
     "passages": [
       {
@@ -638,7 +638,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
     "subtopic": "Don't go through difficult days alone",
     "synopsis": "When someone suffers, listening and accompanying can make a difference. These texts speak of hope and shared comfort.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No moralizar enfermedad o duelo",
+    "pastoralCaution": "Do not blame people for illness or grief",
     "existenceChecked": true,
     "passages": [
       {
@@ -789,7 +789,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
     "subtopic": "A meaningful practice",
     "synopsis": "Fasting appears in the Bible as a spiritual practice, but it should never be imposed. These texts ask what matters more: appearing good or acting justly.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No imponer ayuno alimentario a menores",
+    "pastoralCaution": "Do not impose food fasting on minors",
     "existenceChecked": true,
     "passages": [
       {
@@ -875,7 +875,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
     "subtopic": "Choose calmly",
     "synopsis": "Small decisions matter too. These passages invite us to think about the consequences and to choose responsibly.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No coaccionar elecciones vocacionales",
+    "pastoralCaution": "Do not pressure people into vocational decisions",
     "existenceChecked": true,
     "passages": [
       {

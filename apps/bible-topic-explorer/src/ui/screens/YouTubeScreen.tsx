@@ -34,7 +34,7 @@ export function YouTubeScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
   <View style={[styles.selector,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <Text style={[styles.sectionTitle,{color:theme.text}]}>Choose a playlist</Text>
    <Text style={[styles.helper,{color:theme.secondary}]}>Paste an authentic playlist URL, selected by you. Some lists do not allow insertion by region or rights.</Text>
-   <TextInput accessibilityLabel="URL de playlist YouTube" value={raw} onChangeText={v=>{setRaw(v);setError('');}} autoCapitalize="none" autoCorrect={false} placeholder="https://www.youtube.com/playlist?list=…" placeholderTextColor={theme.secondary}
+   <TextInput accessibilityLabel="YouTube playlist URL" value={raw} onChangeText={v=>{setRaw(v);setError('');}} autoCapitalize="none" autoCorrect={false} placeholder="https://www.youtube.com/playlist?list=…" placeholderTextColor={theme.secondary}
     style={[styles.input,{color:theme.text,borderColor:theme.border,backgroundColor:theme.background}]}/>
    <Action theme={theme} label="Upload official visible video" disabled={!candidate} onPress={()=>{setSelected(candidate);setError('');}}/>
    <Action theme={theme} variant="secondary" label="Open YouTube ↗" onPress={()=>openExternal('https://www.youtube.com/')}/>

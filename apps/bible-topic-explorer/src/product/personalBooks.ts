@@ -17,5 +17,5 @@ export function validatePersonalBook(name:string,size:number|undefined):{format:
 }
 export function validReadingProgress(value:number):boolean{return Number.isInteger(value)&&value>=0&&value<=100;}
 export function bookProgressLabel(book:Pick<PersonalBook,'progress'|'chapterIndex'|'format'>):string {
- return book.format==='epub'? "Chapter"+(book.chapterIndex+1)+' · '+book.progress+'% estimado' : 'Progress entered manually: '+book.progress+'%';
+ return book.format==='epub'? "Chapter "+(book.chapterIndex+1)+' · '+book.progress+'% estimated' : 'Progress entered manually: '+book.progress+'%';
 }
