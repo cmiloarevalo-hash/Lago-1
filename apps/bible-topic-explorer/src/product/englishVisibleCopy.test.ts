@@ -44,4 +44,12 @@ describe('English 1.20.01 static runtime copy (#81)',()=>{
   expect(settings).toContain('https://ebible.org/engwebp/copyright.htm');
   expect(settings).not.toContain('Reina Valera 1909');
  });
+ it('uses clear English pastoral theme headings and accessible reading links',()=>{
+  const screen=readFileSync('src/ui/screens/PastoralScreen.tsx','utf8');
+  expect(screen).toContain('>THEME {themeId}');
+  expect(screen).not.toContain('>ISSUE {themeId}');
+  expect(screen).toContain('"Chapter "+item.number');
+  expect(screen).toContain('"Read WEBP "+ref.label');
+  expect(screen).toContain('"TO DISCUSS"');
+ });
 });
