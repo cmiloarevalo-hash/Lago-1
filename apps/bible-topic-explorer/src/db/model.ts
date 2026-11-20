@@ -1,5 +1,5 @@
-export const DATABASE_NAME = 'bible-topic-explorer.db';
-export const RUNTIME_TRANSLATION_ID = 'rv1909';
+export const DATABASE_NAME = 'bible-webp-en.db';
+export const RUNTIME_TRANSLATION_ID = 'webp';
 
 export type MappingStatus = 'native' | 'mapped' | 'unknown';
 export type MatchType =

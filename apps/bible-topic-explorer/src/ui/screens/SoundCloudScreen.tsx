@@ -5,7 +5,7 @@ import {Action,Body,Screen} from '../primitives';
 import {minimumTouchTarget,spacing,type Theme} from '../theme';
 
 /** SoundCloud is opened externally, in the installed app when Android supports its links,
- * otherwise in a browser. La U neither embeds a fake player nor plays licensed tracks.
+ * otherwise in a browser. Bible – Pastoral Guide neither embeds a fake player nor plays licensed tracks.
  */
 export function SoundCloudScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
  const [error,setError]=useState(false);
@@ -14,25 +14,25 @@ export function SoundCloudScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
   void Linking.openURL(url).catch(()=>setError(true));
  };
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
-  <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>
-  <Text accessibilityRole="header" style={[styles.heading,{color:theme.text}]}>Música en SoundCloud</Text>
-  <Body theme={theme} muted>La música se escucha directamente en SoundCloud, no dentro de La U. Si tienes su aplicación instalada, Android puede abrirla; de lo contrario utilizará tu navegador.</Body>
+  <Action theme={theme} variant="tertiary" label="← Resources" onPress={onBack}/>
+  <Text accessibilityRole="header" style={[styles.heading,{color:theme.text}]}>Music on SoundCloud</Text>
+  <Body theme={theme} muted>The music is listened to directly on SoundCloud, not within The U. If you have its application installed, Android can open it; otherwise it will use your browser.</Body>
   <View style={[styles.officialCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
    <View style={styles.identity}>
     <View style={styles.brandMark}><Text accessibilityElementsHidden style={styles.brandIcon}>☁</Text></View>
     <View style={styles.brandText}>
      <Text style={[styles.brandName,{color:theme.text}]}>SoundCloud</Text>
-     <Text style={[styles.brandCaption,{color:theme.secondary}]}>Música en su plataforma oficial</Text>
+     <Text style={[styles.brandCaption,{color:theme.secondary}]}>Music on its official platform</Text>
     </View>
    </View>
-   <Action theme={theme} label="Abrir SoundCloud ↗" onPress={()=>openSoundCloud(SOUNDCLOUD_HOME)}/>
+   <Action theme={theme} label="Open SoundCloud ↗" onPress={()=>openSoundCloud(SOUNDCLOUD_HOME)}/>
   </View>
-  <Text style={[styles.sectionTitle,{color:theme.text}]}>Listas para descubrir</Text>
-  <Body theme={theme} muted>Algunas propuestas externas para explorar. Se abren en SoundCloud y pueden cambiar con el tiempo.</Body>
+  <Text style={[styles.sectionTitle,{color:theme.text}]}>Lists to discover</Text>
+  <Body theme={theme} muted>Some external proposals to explore. They open on SoundCloud and may change over time.</Body>
   <View style={styles.suggestions}>
    {soundcloudCollections.map(item=><Pressable key={item.id} accessibilityRole="link"
-     accessibilityLabel={'Abrir en SoundCloud: '+item.title}
-     accessibilityHint="Abre una lista externa; puede usar la aplicación SoundCloud o el navegador."
+     accessibilityLabel={"Open in SoundCloud:"+item.title}
+     accessibilityHint="Open an external list; you can use SoundCloud app or browser."
      onPress={()=>openSoundCloud(item.url)}
      style={({pressed})=>[styles.suggestion,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
      <View style={[styles.suggestionIcon,{backgroundColor:'#FFF0E7'}]}>
@@ -46,8 +46,8 @@ export function SoundCloudScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
      <Text accessibilityElementsHidden style={styles.arrow}>↗</Text>
     </Pressable>)}
   </View>
-  <Text style={[styles.note,{color:theme.secondary}]}>Estas listas no son propias ni están aprobadas por La U. Antes de reproducirlas con niños, una persona responsable debe comprobar sus canciones, su contenido y las condiciones de uso. La U no descarga ni redistribuye audio.</Text>
-  {error?<Text accessibilityRole="alert" style={[styles.error,{color:theme.errorText}]}>No se pudo abrir SoundCloud. Comprueba la conexión e inténtalo otra vez.</Text>:null}
+  <Text style={[styles.note,{color:theme.secondary}]}>These lists are neither owned nor approved by The U. Before playing them with children, a responsible person must check their songs, their content and the conditions of use. The U does not download or redistribute audio.</Text>
+  {error?<Text accessibilityRole="alert" style={[styles.error,{color:theme.errorText}]}>Could not open SoundCloud. Please check the connection and try again.</Text>:null}
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({

@@ -8,24 +8,24 @@ import type {Theme} from '../theme';
 export function MusicScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
  const [error,setError]=useState('');
  const open=async(url:string)=>{
-  if(!isSpotifyPlaylistUrl(url)){setError('El enlace no es válido.');return;}
+  if(!isSpotifyPlaylistUrl(url)){setError("The link is invalid.");return;}
   try{await Linking.openURL(url);setError('');}
-  catch{setError('No se pudo abrir Spotify ni el navegador. Comprueba tu conexión y vuelve a intentarlo.');Alert.alert('Enlace no disponible','La lectura sin conexión continúa disponible.');}
+  catch{setError("Could not open Spotify or the browser. Please check your connection and try again.");Alert.alert("Link not available","Offline reading remains available.");}
  };
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
-   <Action label="← Volver a Hoy" theme={theme} variant="tertiary" onPress={onBack}/>
-   <ScreenTitle theme={theme}>Música para acompañarte</ScreenTitle>
-   <Body theme={theme} muted>Playlists cristianas públicas, para escucha personal y opcional. Spotify se abre fuera de La U; puede necesitar conexión, app o cuenta según el servicio.</Body>
+   <Action label="← Back to Today" theme={theme} variant="tertiary" onPress={onBack}/>
+   <ScreenTitle theme={theme}>Music to accompany you</ScreenTitle>
+   <Body theme={theme} muted>Public Christian playlists, for personal and optional listening. Spotify opens outside Bible – Pastoral Guide; You may need a connection, app or account depending on the service.</Body>
    {error?<StatusBanner theme={theme} kind="warning">{error}</StatusBanner>:null}
-   <Section theme={theme} title="Explorar por ánimo">
+   <Section theme={theme} title="Explore by mood">
     {musicCategories.map(entry=><Card key={entry.id} theme={theme} label={entry.category}>
       <Metadata theme={theme}>{entry.category.toUpperCase()}</Metadata>
       <Body theme={theme}>{entry.title}</Body>
       <Metadata theme={theme}>Fuente/curador: {entry.curator}</Metadata>
-      <View style={styles.cta}><Action label="Abrir en Spotify ↗" theme={theme} variant="secondary" onPress={()=>{void open(entry.url);}}/></View>
+      <View style={styles.cta}><Action label="Open in Spotify ↗" theme={theme} variant="secondary" onPress={()=>{void open(entry.url);}}/></View>
     </Card>)}
    </Section>
-   <Body theme={theme} muted>La U no reproduce ni guarda música. Los enlaces y su disponibilidad pueden cambiar; para reuniones públicas comprueba permisos musicales del lugar.</Body>
+   <Body theme={theme} muted>The U does not play or save music. Links and their availability may change; For public gatherings check the venue's music permits.</Body>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({stack:{gap:spacing.md,paddingBottom:spacing.xxl},cta:{width:'100%',alignSelf:'stretch',minWidth:0}});

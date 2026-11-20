@@ -9,28 +9,28 @@ import {spacing,type Theme} from '../theme';
 const PREVIOUS='library-private-reflection';
 function labelDate(value:string){
  const d=new Date(value);
- return Number.isNaN(d.getTime())?'Sin fecha':d.toLocaleString('es-CL',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+ return Number.isNaN(d.getTime())?"Undated":d.toLocaleString('en-US',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
 }
 function reflectionTitle(ref:Reflection){
- return ref.title|| (ref.id===PREVIOUS?'Mi reflexión anterior':'Reflexión personal');
+ return ref.title|| (ref.id===PREVIOUS?"My previous reflection":"personal reflection");
 }
 export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
  const db=useSQLiteContext(),persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);
  const [entries,setEntries]=useState<readonly Reflection[]>([]),[editing,setEditing]=useState<string|null>(null);
  const [title,setTitle]=useState(''),[body,setBody]=useState(''),[message,setMessage]=useState('');
- const refresh=useCallback(()=>{void persistence.listReflections().then(setEntries).catch(()=>setMessage('No se pudo leer el diario.'));},[persistence]);
+ const refresh=useCallback(()=>{void persistence.listReflections().then(setEntries).catch(()=>setMessage("The diary could not be read."));},[persistence]);
  useEffect(()=>refresh(),[refresh]);
  const newEntry=()=>{setEditing('diario-'+Date.now()+'-'+Math.floor(Math.random()*10000));setTitle('');setBody('');setMessage('');};
  const open=(item:Reflection)=>{setEditing(item.id);setTitle(reflectionTitle(item));setBody(item.body);setMessage('');};
  const save=async()=>{
-  if(!editing||!body.trim()){setMessage('Escribe tu reflexión para guardarla.');return;}
-  try{await persistence.upsertReflection({id:editing,title:title.trim()||'Mi reflexión',body:body.trim(),updatedAt:new Date().toISOString()});
-   setEditing(null);setMessage('Reflexión guardada.');refresh();}
-  catch{setMessage('No se pudo guardar. El texto sigue visible para volver a intentarlo.');}
+  if(!editing||!body.trim()){setMessage("Write your reflection to save it.");return;}
+  try{await persistence.upsertReflection({id:editing,title:title.trim()||"my reflection",body:body.trim(),updatedAt:new Date().toISOString()});
+   setEditing(null);setMessage("Saved reflection.");refresh();}
+  catch{setMessage("Could not save. The text is still visible to try again.");}
  };
- const remove=(item:Reflection)=>Alert.alert('Eliminar reflexión','La reflexión se borrará solo de este dispositivo.',[
-  {text:'Cancelar',style:'cancel'},{text:'Eliminar',style:'destructive',
-   onPress:()=>{void persistence.deleteReflection(item.id).then(()=>{if(editing===item.id)setEditing(null);refresh();}).catch(()=>setMessage('No se pudo eliminar.'));}}
+ const remove=(item:Reflection)=>Alert.alert("Remove reflection","The reflection will be cleared from this device only.",[
+  {text:"Cancel",style:'cancel'},{text:"Eliminate",style:'destructive',
+   onPress:()=>{void persistence.deleteReflection(item.id).then(()=>{if(editing===item.id)setEditing(null);refresh();}).catch(()=>setMessage("Could not delete."));}}
  ]);
  const cancelEditing=()=>{
   if(!editing)return;
@@ -38,7 +38,7 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
   const wasTitle=original?reflectionTitle(original):'';
   const wasBody=original?.body??'';
   const changed=title.trim()!==wasTitle||body.trim()!==wasBody;
-  if(changed)Alert.alert('Descartar reflexión','Hay cambios sin guardar. ¿Descartarlos?',[
+  if(changed)Alert.alert("Discard reflection","There are unsaved changes. Discard them?",[
     {text:'Seguir escribiendo',style:'cancel'},
     {text:'Descartar',style:'destructive',onPress:()=>setEditing(null)}
   ]);
@@ -51,41 +51,41 @@ export function JournalScreen({theme,onBack}:{theme:Theme;onBack:()=>void}){
  },[editing,title,body,entries]);
  const grouped=useMemo(()=>{
   const map=new Map<string,Reflection[]>();
-  for(const r of entries){const d=new Date(r.updatedAt),year=Number.isNaN(d.getTime())?'Sin fecha':String(d.getFullYear());
+  for(const r of entries){const d=new Date(r.updatedAt),year=Number.isNaN(d.getTime())?"Undated":String(d.getFullYear());
    if(!map.has(year))map.set(year,[]);map.get(year)!.push(r);}
   return Array.from(map.entries());
  },[entries]);
  return <Screen theme={theme}><KeyboardAvoidingView style={styles.flex} behavior={Platform.OS==='ios'?'padding':undefined}>
   <ScrollView keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" contentContainerStyle={styles.stack}>
-   <Action theme={theme} variant="tertiary" label={editing?'← Cancelar edición':'← Volver'} onPress={editing?cancelEditing:onBack}/>
-   <ScreenTitle theme={theme}>{editing?'Mi diario · edición':'Mi diario'}</ScreenTitle>
+   <Action theme={theme} variant="tertiary" label={editing?"← Cancel edit":"← Back"} onPress={editing?cancelEditing:onBack}/>
+   <ScreenTitle theme={theme}>{editing?"My diary · edition":"my diary"}</ScreenTitle>
    {editing?<View style={styles.editorActions}>
-     <Action theme={theme} label="Guardar reflexión" onPress={()=>{void save();}}/>
+     <Action theme={theme} label="Save reflection" onPress={()=>{void save();}}/>
    </View>:<>
-     <Body theme={theme} muted>Un espacio personal para recordar lo que aprendiste, oraste o viviste. Las reflexiones se ordenan por año y fecha.</Body>
-     <Action theme={theme} label="+ Escribir reflexión" onPress={newEntry}/>
+     <Body theme={theme} muted>A personal space to remember what you learned, prayed or experienced. The reflections are ordered by year and date.</Body>
+     <Action theme={theme} label="+ Write reflection" onPress={newEntry}/>
    </>}
    {message?<Body theme={theme}>{message}</Body>:null}
    {editing?<View style={[styles.editor,{borderColor:theme.border,backgroundColor:theme.surface}]}>
-    <Text style={[styles.subtitle,{color:theme.text}]}>{entries.some(x=>x.id===editing)?'Editar reflexión':'Nueva reflexión'}</Text>
-    <Field theme={theme} label="Nombre de la reflexión" value={title} onChangeText={setTitle}
-     maxLength={120} placeholder="Ej.: Una enseñanza para hoy"/>
-    <Text style={[styles.fieldLabel,{color:theme.text}]}>Mi reflexión</Text>
-    <TextInput accessibilityLabel="Escribir mi reflexión personal" multiline
-      value={body} onChangeText={setBody} placeholder="Escribe aquí lo que quieres recordar…"
+    <Text style={[styles.subtitle,{color:theme.text}]}>{entries.some(x=>x.id===editing)?"Edit reflection":"New reflection"}</Text>
+    <Field theme={theme} label="Reflection name" value={title} onChangeText={setTitle}
+     maxLength={120} placeholder="Ex: A teaching for today"/>
+    <Text style={[styles.fieldLabel,{color:theme.text}]}>my reflection</Text>
+    <TextInput accessibilityLabel="Write my personal reflection" multiline
+      value={body} onChangeText={setBody} placeholder="Write here what you want to remember..."
       placeholderTextColor={theme.secondary} maxLength={20000}
       style={[styles.bodyInput,{color:theme.text,borderColor:theme.border,backgroundColor:theme.background}]}/>
    </View>:null}
    {!editing?<>
-   {grouped.length===0?<Body theme={theme} muted>Tu diario está vacío. Puedes empezar con una reflexión de hoy.</Body>:null}
-   {grouped.map(([year,items])=><Section theme={theme} key={year} title={'Año '+year}>
+   {grouped.length===0?<Body theme={theme} muted>Your diary is empty. You can start with a reflection from today.</Body>:null}
+   {grouped.map(([year,items])=><Section theme={theme} key={year} title={"Year"+year}>
     {items.map(item=><View key={item.id} style={[styles.entry,{backgroundColor:theme.surface,borderColor:theme.border}]}>
      <Text style={[styles.itemTitle,{color:theme.text}]}>{reflectionTitle(item)}</Text>
      <Metadata theme={theme}>{labelDate(item.updatedAt)}</Metadata>
      <Text selectable style={[styles.itemText,{color:theme.text}]}>{item.body}</Text>
      <View style={styles.actions}>
-      <Action theme={theme} variant="secondary" label="Leer y editar" onPress={()=>open(item)}/>
-      <Action theme={theme} variant="tertiary" label="Eliminar" onPress={()=>remove(item)}/>
+      <Action theme={theme} variant="secondary" label="Read and edit" onPress={()=>open(item)}/>
+      <Action theme={theme} variant="tertiary" label="Eliminate" onPress={()=>remove(item)}/>
      </View>
     </View>)}
    </Section>)}

@@ -31,12 +31,12 @@ export class SQLiteLocalPersistence implements LocalPersistence {
         id TEXT PRIMARY KEY, title TEXT NOT NULL DEFAULT ''
       );
       CREATE TABLE IF NOT EXISTS app_verse_notes (
-        translation_id TEXT NOT NULL DEFAULT 'rv1909', book_id TEXT NOT NULL,
+        translation_id TEXT NOT NULL DEFAULT 'webp', book_id TEXT NOT NULL,
         chapter INTEGER NOT NULL, source_verse_label TEXT NOT NULL, body TEXT NOT NULL,
         updated_at TEXT NOT NULL, PRIMARY KEY (translation_id, book_id, chapter, source_verse_label)
       );
       CREATE TABLE IF NOT EXISTS app_verse_highlights (
-        translation_id TEXT NOT NULL DEFAULT 'rv1909', book_id TEXT NOT NULL,
+        translation_id TEXT NOT NULL DEFAULT 'webp', book_id TEXT NOT NULL,
         chapter INTEGER NOT NULL, source_verse_label TEXT NOT NULL,
         tone TEXT NOT NULL CHECK (tone IN ('rose','lavender','peach')),
         updated_at TEXT NOT NULL, PRIMARY KEY (translation_id, book_id, chapter, source_verse_label)
@@ -103,7 +103,7 @@ export class SQLiteLocalPersistence implements LocalPersistence {
 
   async setSavedReferenceDetails(ref:Pick<SavedReference,'bookId'|'chapter'|'verse'>,title:string,topic:string,tone:HighlightTone):Promise<void>{
     await this.ensureReady();
-    if(title.length>120||topic.length>80)throw new Error('Título o tema demasiado largo');
+    if(title.length>120||topic.length>80)throw new Error("Title or topic too long");
     await this.db.runAsync('INSERT INTO app_saved_reference_details(book_id,chapter,verse,title,topic,tone,updated_at) VALUES(?,?,?,?,?,?,?) ON CONFLICT(book_id,chapter,verse) DO UPDATE SET title=excluded.title,topic=excluded.topic,tone=excluded.tone,updated_at=excluded.updated_at',
       ref.bookId,ref.chapter,ref.verse,title.trim(),topic.trim(),tone,new Date().toISOString());
   }
@@ -144,21 +144,21 @@ export class SQLiteLocalPersistence implements LocalPersistence {
   async getReminderPlan():Promise<{planId:string;title:string}>{
     await this.ensureReady();
     const row=await this.db.getFirstAsync<{plan_id:string;title:string}>('SELECT plan_id,title FROM app_reminder_plan WHERE id=1');
-    return {planId:row?.plan_id??'encuentro',title:row?.title??'Mi lectura bíblica'};
+    return {planId:row?.plan_id??'encuentro',title:row?.title??"My Bible reading"};
   }
   async setReminderPlan(planId:string,title:string):Promise<void>{
     await this.ensureReady();
-    if(!/^[a-z0-9_-]{1,80}$/.test(planId)||title.length>90)throw new Error('Recordatorio inválido');
+    if(!/^[a-z0-9_-]{1,80}$/.test(planId)||title.length>90)throw new Error("Invalid reminder");
     await this.db.runAsync('INSERT INTO app_reminder_plan(id,plan_id,title,updated_at) VALUES(1,?,?,?) ON CONFLICT(id) DO UPDATE SET plan_id=excluded.plan_id,title=excluded.title,updated_at=excluded.updated_at',
-      planId,title.trim()||'Mi lectura bíblica',new Date().toISOString());
+      planId,title.trim()||"My Bible reading",new Date().toISOString());
   }
   /** Additive SQLite tables preserve all existing bookmarks, history, reflections and preferences. */
   async listVerseNotes(): Promise<readonly VerseNote[]> {
     await this.ensureReady();
     const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;body:string;updated_at:string;book_name:string|null;book_order:number|null}>(
-      "SELECT n.translation_id,n.book_id,n.chapter,n.source_verse_label,n.body,n.updated_at, b.default_name_es AS book_name, tb.order_index AS book_order FROM app_verse_notes n LEFT JOIN books b ON b.id=n.book_id LEFT JOIN translation_books tb ON tb.translation_id=n.translation_id AND tb.book_id=n.book_id WHERE n.translation_id='rv1909' ORDER BY tb.order_index, n.chapter, CAST(n.source_verse_label AS INTEGER), n.source_verse_label"
+      "SELECT n.translation_id,n.book_id,n.chapter,n.source_verse_label,n.body,n.updated_at, b.default_name_es AS book_name, tb.order_index AS book_order FROM app_verse_notes n LEFT JOIN books b ON b.id=n.book_id LEFT JOIN translation_books tb ON tb.translation_id=n.translation_id AND tb.book_id=n.book_id WHERE n.translation_id='webp' ORDER BY tb.order_index, n.chapter, CAST(n.source_verse_label AS INTEGER), n.source_verse_label"
     );
-    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,bookName:r.book_name??r.book_id,bookOrder:r.book_order??999,body:r.body,updatedAt:r.updated_at}));
+    return rows.map(r => ({translationId:'webp',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,bookName:r.book_name??r.book_id,bookOrder:r.book_order??999,body:r.body,updatedAt:r.updated_at}));
   }
 
   async upsertVerseNote(note: VerseNote): Promise<void> {
@@ -166,20 +166,20 @@ export class SQLiteLocalPersistence implements LocalPersistence {
     await this.db.runAsync(`INSERT INTO app_verse_notes (translation_id,book_id,chapter,source_verse_label,body,updated_at)
       VALUES (?,?,?,?,?,?) ON CONFLICT(translation_id,book_id,chapter,source_verse_label)
       DO UPDATE SET body=excluded.body,updated_at=excluded.updated_at`,
-      'rv1909',note.bookId,note.chapter,note.sourceVerseLabel,note.body,note.updatedAt);
+      'webp',note.bookId,note.chapter,note.sourceVerseLabel,note.body,note.updatedAt);
   }
 
   async deleteVerseNote(ref: VerseIdentity): Promise<void> {
     await this.ensureReady();
-    await this.db.runAsync("DELETE FROM app_verse_notes WHERE translation_id='rv1909' AND book_id=? AND chapter=? AND source_verse_label=?",ref.bookId,ref.chapter,ref.sourceVerseLabel);
+    await this.db.runAsync("DELETE FROM app_verse_notes WHERE translation_id='webp' AND book_id=? AND chapter=? AND source_verse_label=?",ref.bookId,ref.chapter,ref.sourceVerseLabel);
   }
 
   async listHighlights(): Promise<readonly VerseHighlight[]> {
     await this.ensureReady();
     const rows = await this.db.getAllAsync<{translation_id:string;book_id:string;chapter:number;source_verse_label:string;tone:string;updated_at:string;book_name:string|null;book_order:number|null}>(
-      "SELECT n.translation_id,n.book_id,n.chapter,n.source_verse_label,n.tone,n.updated_at, b.default_name_es AS book_name, tb.order_index AS book_order FROM app_verse_highlights n LEFT JOIN books b ON b.id=n.book_id LEFT JOIN translation_books tb ON tb.translation_id=n.translation_id AND tb.book_id=n.book_id WHERE n.translation_id='rv1909' ORDER BY tb.order_index, n.chapter, CAST(n.source_verse_label AS INTEGER), n.source_verse_label"
+      "SELECT n.translation_id,n.book_id,n.chapter,n.source_verse_label,n.tone,n.updated_at, b.default_name_es AS book_name, tb.order_index AS book_order FROM app_verse_highlights n LEFT JOIN books b ON b.id=n.book_id LEFT JOIN translation_books tb ON tb.translation_id=n.translation_id AND tb.book_id=n.book_id WHERE n.translation_id='webp' ORDER BY tb.order_index, n.chapter, CAST(n.source_verse_label AS INTEGER), n.source_verse_label"
     );
-    return rows.map(r => ({translationId:'rv1909',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,bookName:r.book_name??r.book_id,bookOrder:r.book_order??999,tone:(r.tone==='lavender'||r.tone==='peach'?r.tone:'rose') as HighlightTone,updatedAt:r.updated_at}));
+    return rows.map(r => ({translationId:'webp',bookId:r.book_id,chapter:r.chapter,sourceVerseLabel:r.source_verse_label,bookName:r.book_name??r.book_id,bookOrder:r.book_order??999,tone:(r.tone==='lavender'||r.tone==='peach'?r.tone:'rose') as HighlightTone,updatedAt:r.updated_at}));
   }
 
   async setHighlight(ref: VerseIdentity, tone: HighlightTone): Promise<void> {
@@ -187,12 +187,12 @@ export class SQLiteLocalPersistence implements LocalPersistence {
     await this.db.runAsync(`INSERT INTO app_verse_highlights (translation_id,book_id,chapter,source_verse_label,tone,updated_at)
       VALUES (?,?,?,?,?,?) ON CONFLICT(translation_id,book_id,chapter,source_verse_label)
       DO UPDATE SET tone=excluded.tone,updated_at=excluded.updated_at`,
-      'rv1909',ref.bookId,ref.chapter,ref.sourceVerseLabel,tone,new Date().toISOString());
+      'webp',ref.bookId,ref.chapter,ref.sourceVerseLabel,tone,new Date().toISOString());
   }
 
   async removeHighlight(ref: VerseIdentity): Promise<void> {
     await this.ensureReady();
-    await this.db.runAsync("DELETE FROM app_verse_highlights WHERE translation_id='rv1909' AND book_id=? AND chapter=? AND source_verse_label=?",ref.bookId,ref.chapter,ref.sourceVerseLabel);
+    await this.db.runAsync("DELETE FROM app_verse_highlights WHERE translation_id='webp' AND book_id=? AND chapter=? AND source_verse_label=?",ref.bookId,ref.chapter,ref.sourceVerseLabel);
   }
 
 }

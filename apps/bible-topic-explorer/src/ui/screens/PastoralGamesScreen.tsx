@@ -13,10 +13,10 @@ export function PastoralGamesScreen({theme,onBack}:{theme:Theme;onBack:()=>void}
  useEffect(()=>{let active=true;setError('');void repo.getChapter(sequenceGame.book,sequenceGame.chapter).then(rows=>{
   const chosen=rows.filter(v=>v.verse>=sequenceGame.start&&v.verse<=sequenceGame.end);
   if(!active)return;
-  if(chosen.length<3){setError('Rango incompleto para esta actividad.');return;}
+  if(chosen.length<3){setError("Incomplete range for this activity.");return;}
   const labels=chosen.slice(0,3).map(v=>v.sourceVerseLabel);
   setCorrectLabels(labels);setSequence(shuffle(labels));
- }).catch(()=>{if(active)setError('No se pudo leer RV1909 local.');});return()=>{active=false;};},[repo]);
+ }).catch(()=>{if(active)setError("Could not read local WEBP.");});return()=>{active=false;};},[repo]);
  const questions=mode==='trivia'?triviaQuestions:trueFalseQuestions;
  const q=questions[index];
  const choice=answers[index];
@@ -27,35 +27,35 @@ export function PastoralGamesScreen({theme,onBack}:{theme:Theme;onBack:()=>void}
  const selectMode=(m:GameMode)=>{setMode(m);restart();};
  const sequenceSolved=sequence.length===3&&sequence.every((v,i)=>v===correctLabels[i]);
  return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}>
-  <Action theme={theme} variant="tertiary" label="← Volver a las dinámicas" onPress={onBack}/>
-  <ScreenTitle theme={theme}>Juegos bíblicos · RV1909</ScreenTitle>
-  <StatusBanner theme={theme} kind="info">Tres actividades interactivas originales en revisión editorial. Las explicaciones no sustituyen un estudio contextual humano.</StatusBanner>
+  <Action theme={theme} variant="tertiary" label="← Return to the dynamics" onPress={onBack}/>
+  <ScreenTitle theme={theme}>Bible games WEBP</ScreenTitle>
+  <StatusBanner theme={theme} kind="info">Three original interactive activities under editorial review. Explanations are not a substitute for a human contextual study.</StatusBanner>
   <View style={styles.inline}>
    <ChoiceChip theme={theme} label="Trivia" selected={mode==='trivia'} onPress={()=>selectMode('trivia')}/>
    <ChoiceChip theme={theme} label="Verdadero/falso" selected={mode==='truefalse'} onPress={()=>selectMode('truefalse')}/>
-   <ChoiceChip theme={theme} label="Ordenar versículos" selected={mode==='sequence'} onPress={()=>selectMode('sequence')}/>
+   <ChoiceChip theme={theme} label="Sort verses" selected={mode==='sequence'} onPress={()=>selectMode('sequence')}/>
   </View>
   {error?<StatusBanner theme={theme} kind="error">{error}</StatusBanner>:null}
   {mode==='sequence'?<Section theme={theme} title={sequenceGame.label}>
-    <Body theme={theme}>Toca una fila y usa «Subir» o «Bajar». Se ordenan etiquetas reales de la Biblia local; no es necesario arrastrar.</Body>
+    <Body theme={theme}>Tap a row and use “Up” or “Down.” Real labels from the local Bible are ordered; no need to drag.</Body>
     {sequence.map((label,i)=><Card theme={theme} key={label}>
-     <Subhead theme={theme}>RV1909 · {sequenceGame.book} {sequenceGame.chapter}:{label}</Subhead>
-     <View style={styles.inline}><Action theme={theme} variant="secondary" label={'Subir versículo '+label} disabled={i===0} onPress={()=>setSequence(prev=>{const a=[...prev];[a[i-1],a[i]]=[a[i],a[i-1]];return a;})}/>
-     <Action theme={theme} variant="secondary" label={'Bajar versículo '+label} disabled={i===sequence.length-1} onPress={()=>setSequence(prev=>{const a=[...prev];[a[i+1],a[i]]=[a[i],a[i+1]];return a;})}/></View>
+     <Subhead theme={theme}>WEBP · {sequenceGame.book} {sequenceGame.chapter}:{label}</Subhead>
+     <View style={styles.inline}><Action theme={theme} variant="secondary" label={"Upload verse"+label} disabled={i===0} onPress={()=>setSequence(prev=>{const a=[...prev];[a[i-1],a[i]]=[a[i],a[i-1]];return a;})}/>
+     <Action theme={theme} variant="secondary" label={"Download verse"+label} disabled={i===sequence.length-1} onPress={()=>setSequence(prev=>{const a=[...prev];[a[i+1],a[i]]=[a[i],a[i+1]];return a;})}/></View>
     </Card>)}
-    <StatusBanner theme={theme} kind={sequenceSolved?'success':'info'}>{sequenceSolved?'Orden correcto de los versículos en Salmos 23.':'Ordena las etiquetas 1, 2 y 3 para completar.'}</StatusBanner>
-    <Action theme={theme} variant="secondary" label="Mezclar de nuevo" onPress={()=>setSequence(prev=>[...prev].reverse())}/>
-   </Section>:<Section theme={theme} title={'Pregunta '+(index+1)+' de '+questions.length}>
+    <StatusBanner theme={theme} kind={sequenceSolved?'success':'info'}>{sequenceSolved?"Correct order of verses in Psalms 23.":"Order labels 1, 2 and 3 to complete."}</StatusBanner>
+    <Action theme={theme} variant="secondary" label="Mix again" onPress={()=>setSequence(prev=>[...prev].reverse())}/>
+   </Section>:<Section theme={theme} title={"Ask"+(index+1)+' de '+questions.length}>
      <Card theme={theme} featured><Subhead theme={theme}>{mode==='trivia'?triviaQuestions[index].prompt:trueFalseQuestions[index].statement}</Subhead>
       {(mode==='trivia'?triviaQuestions[index].options:['Verdadero','Falso']).map((option,i)=><Action theme={theme} key={i} variant="secondary" label={option} disabled={choice!==undefined} onPress={()=>select(mode==='trivia'?i:Number(i===0))}/>)}
      </Card>
      {choice!==undefined?<Card theme={theme}>
-       <Subhead theme={theme}>{choice===(mode==='trivia'?triviaQuestions[index].correct:Number(trueFalseQuestions[index].correct))?'Respuesta correcta':'Respuesta para revisar'}</Subhead>
+       <Subhead theme={theme}>{choice===(mode==='trivia'?triviaQuestions[index].correct:Number(trueFalseQuestions[index].correct))?'Respuesta correcta':"Response to review"}</Subhead>
        <Body theme={theme}>{mode==='trivia'?triviaQuestions[index].reason:trueFalseQuestions[index].reason}</Body>
-       <Metadata theme={theme}>Referencia para estudiar: {q.reference}</Metadata>
-       <Action theme={theme} label={index+1===questions.length?'Volver a jugar':'Siguiente pregunta'} onPress={next}/>
+       <Metadata theme={theme}>Reference to study: {q.reference}</Metadata>
+       <Action theme={theme} label={index+1===questions.length?"Replay":"Next question"} onPress={next}/>
       </Card>:null}
-     <Metadata theme={theme}>Puntuación provisional: {scored} de {answers.length} · solo en esta sesión, sin ranking público.</Metadata>
+     <Metadata theme={theme}>Provisional score: {scored} de {answers.length}· only in this session, without public ranking.</Metadata>
      <Action theme={theme} variant="tertiary" label="Reiniciar juego" onPress={restart}/>
    </Section>}
  </ScrollView></Screen>;

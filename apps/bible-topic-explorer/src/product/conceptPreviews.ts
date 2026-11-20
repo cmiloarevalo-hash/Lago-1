@@ -9,16 +9,16 @@ export const researchCorpusGitBlob = 'def02a2ca0684d6b4d8491c7f12d06e910d76519';
 export const conceptPreviews:readonly ConceptPreview[] = [
   {
     "topicId": "dios",
-    "family": "Dios y fe",
-    "subtopic": "¿Quién es Dios para ti?",
-    "synopsis": "¿Cómo es Dios y por qué tantas personas hablan de él? Estos pasajes muestran cómo la Biblia lo presenta y nos invitan a hacer nuestras propias preguntas.",
+    "family": "God and Faith",
+    "subtopic": "Who is God for you?",
+    "synopsis": "What is God like and why do so many people talk about him? These passages show how the Bible presents it and invite us to ask our own questions.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No usar Hch 17 como aprobación total de cultos locales",
+    "pastoralCaution": "Do not use Acts 17 as full approval of local cults",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Deuteronomio 6:4–5",
-        "book": "Deuteronomio",
+        "reference": "Deuteronomy 6:4–5",
+        "book": "Deuteronomy",
         "chapter": 6,
         "start": 4,
         "end": 5,
@@ -27,11 +27,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "4",
           "5"
         ],
-        "rationale": "Descubre cómo se habla de amar a Dios con todo el corazón."
+        "rationale": "Discover how to talk about loving God with all your heart."
       },
       {
-        "reference": "Hechos 17:24–28",
-        "book": "Hechos",
+        "reference": "Acts 17:24–28",
+        "book": "Acts",
         "chapter": 17,
         "start": 24,
         "end": 28,
@@ -43,22 +43,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "27",
           "28"
         ],
-        "rationale": "Pablo conversa sobre Dios con personas que tenían otras creencias."
+        "rationale": "Paul talks about God with people who had other beliefs."
       }
     ]
   },
   {
     "topicId": "jesus",
-    "family": "Dios y fe",
-    "subtopic": "¿Quién es Jesús?",
-    "synopsis": "Muchos conocen su nombre, pero ¿qué decía Jesús sobre sí mismo? Conoce lo que pensaban sus amigos y cómo empieza el Evangelio de Juan.",
+    "family": "God and Faith",
+    "subtopic": "Who is Jesus?",
+    "synopsis": "Many know his name, but what did Jesus say about himself? Learn what his friends thought and how the Gospel of John begins.",
     "status": "EN_REVISION",
-    "pastoralCaution": "Marcos incluye malentendido de Pedro",
+    "pastoralCaution": "Mark includes Peter's misunderstanding",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Marcos 8:27–31",
-        "book": "Marcos",
+        "reference": "Mark 8:27–31",
+        "book": "Mark",
         "chapter": 8,
         "start": 27,
         "end": 31,
@@ -70,11 +70,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "30",
           "31"
         ],
-        "rationale": "Jesús pregunta a sus amigos quién creen que es."
+        "rationale": "Jesus asks his friends who they think he is."
       },
       {
-        "reference": "Juan 1:1–14",
-        "book": "Juan",
+        "reference": "John 1:1–14",
+        "book": "John",
         "chapter": 1,
         "start": 1,
         "end": 14,
@@ -95,22 +95,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "13",
           "14"
         ],
-        "rationale": "Juan presenta a Jesús y explica qué significa su llegada."
+        "rationale": "John introduces Jesus and explains what his arrival means."
       }
     ]
   },
   {
     "topicId": "confianza",
-    "family": "Dios y fe",
-    "subtopic": "Cuando no sabes qué hacer",
-    "synopsis": "Hay días en que todo parece incierto. Estos textos invitan a reconocer lo que sentimos y pensar en dónde encontramos apoyo.",
+    "family": "God and Faith",
+    "subtopic": "When you don't know what to do",
+    "synopsis": "There are days when everything seems uncertain. These texts invite us to recognize what we feel and think about where we find support.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No reemplaza decisiones prudentes ni ayuda profesional",
+    "pastoralCaution": "It is not a substitute for prudent decisions or professional help",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Salmos 56:3–4",
-        "book": "Salmos",
+        "reference": "Psalms 56:3–4",
+        "book": "Psalms",
         "chapter": 56,
         "start": 3,
         "end": 4,
@@ -119,11 +119,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "3",
           "4"
         ],
-        "rationale": "Una persona reconoce que siente miedo y busca apoyo en Dios."
+        "rationale": "A person recognizes that they feel afraid and looks to God for support."
       },
       {
-        "reference": "Mateo 6:25–34",
-        "book": "Mateo",
+        "reference": "Matthew 6:25–34",
+        "book": "Matthew",
         "chapter": 6,
         "start": 25,
         "end": 34,
@@ -140,22 +140,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "33",
           "34"
         ],
-        "rationale": "Jesús habla de las preocupaciones de cada día."
+        "rationale": "Jesus speaks about the concerns of every day."
       }
     ]
   },
   {
     "topicId": "voluntad-de-dios",
-    "family": "Dios y fe",
-    "subtopic": "Elegir lo que hace bien",
-    "synopsis": "¿Cómo decidir cuando hay varias opciones? La Biblia invita a pensar en la justicia, la bondad y el cuidado de los demás.",
+    "family": "God and Faith",
+    "subtopic": "Choose what you do well",
+    "synopsis": "How to decide when there are several options? The Bible invites us to think about justice, kindness, and caring for others.",
     "status": "EN_REVISION",
     "pastoralCaution": "Miqueas denuncia desigualdad real",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Miqueas 6:6–8",
-        "book": "Miqueas",
+        "reference": "Micah 6:6–8",
+        "book": "Micah",
         "chapter": 6,
         "start": 6,
         "end": 8,
@@ -168,8 +168,8 @@ export const conceptPreviews:readonly ConceptPreview[] = [
         "rationale": "Miqueas pone el acento en la justicia y la bondad."
       },
       {
-        "reference": "Romanos 12:1–2",
-        "book": "Romanos",
+        "reference": "Romans 12:1–2",
+        "book": "Romans",
         "chapter": 12,
         "start": 1,
         "end": 2,
@@ -184,16 +184,16 @@ export const conceptPreviews:readonly ConceptPreview[] = [
   },
   {
     "topicId": "amor",
-    "family": "Amor y relaciones",
-    "subtopic": "Amar con hechos",
-    "synopsis": "El cariño se nota en cómo tratamos a las personas. Aquí puedes descubrir qué significa amar más allá de las palabras.",
+    "family": "Love and Relationships",
+    "subtopic": "Love with facts",
+    "synopsis": "Affection is evident in how we treat people. Here you can discover what it means to love beyond words.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No usar 1 Co 13 para tolerar abusos",
+    "pastoralCaution": "Do not use 1 Cor 13 to tolerate abuse",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "1 Corintios 13:1–13",
-        "book": "1 Corintios",
+        "reference": "1 Corinthians 13:1–13",
+        "book": "1 Corinthians",
         "chapter": 13,
         "start": 1,
         "end": 13,
@@ -213,11 +213,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Pablo muestra por qué el amor importa más que aparentar."
+        "rationale": "Paul shows why love matters more than appearances."
       },
       {
-        "reference": "Juan 13:34–35",
-        "book": "Juan",
+        "reference": "John 13:34–35",
+        "book": "John",
         "chapter": 13,
         "start": 34,
         "end": 35,
@@ -226,22 +226,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "34",
           "35"
         ],
-        "rationale": "Jesús invita a sus seguidores a cuidarse unos a otros."
+        "rationale": "Jesus invites his followers to care for each other."
       }
     ]
   },
   {
     "topicId": "matrimonio",
-    "family": "Amor y relaciones",
-    "subtopic": "Respeto en las relaciones",
-    "synopsis": "Una relación sana necesita respeto, escucha y cuidado mutuo. Lee estos pasajes y conversa sobre cómo construir vínculos que hagan bien.",
+    "family": "Love and Relationships",
+    "subtopic": "Respect in relationships",
+    "synopsis": "A healthy relationship needs respect, listening and mutual care. Read these passages and talk about how to build relationships that do good.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No forzar modelo sobre situaciones personales",
+    "pastoralCaution": "Do not force a model on personal situations",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Génesis 2:18–25",
-        "book": "Génesis",
+        "reference": "Genesis 2:18–25",
+        "book": "Genesis",
         "chapter": 2,
         "start": 18,
         "end": 25,
@@ -256,11 +256,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "24",
           "25"
         ],
-        "rationale": "Un relato sobre la compañía y la unión entre personas."
+        "rationale": "A story about company and the union between people."
       },
       {
-        "reference": "1 Corintios 13:4–7",
-        "book": "1 Corintios",
+        "reference": "1 Corinthians 13:4–7",
+        "book": "1 Corinthians",
         "chapter": 13,
         "start": 4,
         "end": 7,
@@ -271,22 +271,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Pablo describe gestos de amor que sirven en toda relación."
+        "rationale": "Paul describes gestures of love that serve every relationship."
       }
     ]
   },
   {
     "topicId": "perdon",
-    "family": "Perdón y restauración",
-    "subtopic": "¿Qué hacemos después de un daño?",
-    "synopsis": "Perdonar puede ser difícil y no significa permitir que el daño continúe. Estos textos ayudan a pensar en la misericordia y la responsabilidad.",
+    "family": "Forgiveness and Restoration",
+    "subtopic": "What do we do after damage?",
+    "synopsis": "Forgiveness can be difficult and does not mean allowing the harm to continue. These texts help us think about mercy and responsibility.",
     "status": "EN_REVISION",
-    "pastoralCaution": "Perdón no cancela protección y justicia",
+    "pastoralCaution": "Forgiveness does not cancel protection and justice",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Mateo 18:21–35",
-        "book": "Mateo",
+        "reference": "Matthew 18:21–35",
+        "book": "Matthew",
         "chapter": 18,
         "start": 21,
         "end": 35,
@@ -308,11 +308,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "34",
           "35"
         ],
-        "rationale": "Una historia de Jesús pregunta qué hacemos con el perdón recibido."
+        "rationale": "A story about Jesus asks what we do with the forgiveness we receive."
       },
       {
-        "reference": "Lucas 23:32–34",
-        "book": "Lucas",
+        "reference": "Luke 23:32–34",
+        "book": "Luke",
         "chapter": 23,
         "start": 32,
         "end": 34,
@@ -322,22 +322,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "33",
           "34"
         ],
-        "rationale": "Jesús ora incluso en un momento de profundo sufrimiento."
+        "rationale": "Jesus prays even in a moment of deep suffering."
       }
     ]
   },
   {
     "topicId": "tentacion",
-    "family": "Perdón y restauración",
-    "subtopic": "Decidir bajo presión",
-    "synopsis": "A veces nos piden hacer cosas que no queremos. Estos pasajes ayudan a pensar antes de elegir y a buscar apoyo cuando lo necesitamos.",
+    "family": "Forgiveness and Restoration",
+    "subtopic": "Decide under pressure",
+    "synopsis": "Sometimes they ask us to do things we don't want to do. These passages help us think before choosing and seek support when we need it.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No implicar que trauma equivale a tentación",
+    "pastoralCaution": "Do not imply that trauma equals temptation",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Mateo 4:1–11",
-        "book": "Mateo",
+        "reference": "Matthew 4:1–11",
+        "book": "Matthew",
         "chapter": 4,
         "start": 1,
         "end": 11,
@@ -355,11 +355,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "10",
           "11"
         ],
-        "rationale": "Jesús enfrenta decisiones difíciles y responde con firmeza."
+        "rationale": "Jesus faces difficult decisions and responds firmly."
       },
       {
-        "reference": "1 Corintios 10:12–13",
-        "book": "1 Corintios",
+        "reference": "1 Corinthians 10:12–13",
+        "book": "1 Corinthians",
         "chapter": 10,
         "start": 12,
         "end": 13,
@@ -368,22 +368,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Pablo anima a mantenerse atento y buscar una salida."
+        "rationale": "Pablo encourages us to stay alert and look for a way out."
       }
     ]
   },
   {
     "topicId": "paz",
-    "family": "Vida interior",
-    "subtopic": "Encontrar calma y construir paz",
-    "synopsis": "La paz no es solo sentirse tranquilo: también es aprender a tratar bien a los demás. ¿Qué puedes hacer hoy para llevar un poco de paz?",
+    "family": "Inner Life",
+    "subtopic": "Find calm and build peace",
+    "synopsis": "Peace is not just feeling calm: it is also learning to treat others well. What can you do today to bring a little peace?",
     "status": "EN_REVISION",
-    "pastoralCaution": "No equiparar paz con ausencia de conflicto",
+    "pastoralCaution": "Do not equate peace with the absence of conflict",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Juan 14:25–27",
-        "book": "Juan",
+        "reference": "John 14:25–27",
+        "book": "John",
         "chapter": 14,
         "start": 25,
         "end": 27,
@@ -393,11 +393,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "26",
           "27"
         ],
-        "rationale": "Jesús habla de paz a sus amigos antes de despedirse."
+        "rationale": "Jesus speaks of peace to his friends before saying goodbye."
       },
       {
-        "reference": "Mateo 5:9–12",
-        "book": "Mateo",
+        "reference": "Matthew 5:9–12",
+        "book": "Matthew",
         "chapter": 5,
         "start": 9,
         "end": 12,
@@ -408,22 +408,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "11",
           "12"
         ],
-        "rationale": "Jesús llama felices a quienes trabajan por la paz."
+        "rationale": "Jesus calls happy those who work for peace."
       }
     ]
   },
   {
     "topicId": "esperanza",
-    "family": "Vida interior",
-    "subtopic": "Seguir adelante cuando cuesta",
-    "synopsis": "Cuando algo sale mal, es normal perder el ánimo. Estos textos muestran que podemos mantener la esperanza sin negar los momentos difíciles.",
+    "family": "Inner Life",
+    "subtopic": "Keep going when it costs",
+    "synopsis": "When something goes wrong, it is normal to lose heart. These texts show that we can maintain hope without denying difficult times.",
     "status": "PROPUESTO",
-    "pastoralCaution": "No prometer solución instantánea",
+    "pastoralCaution": "Don't promise instant solution",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Romanos 5:1–5",
-        "book": "Romanos",
+        "reference": "Romans 5:1–5",
+        "book": "Romans",
         "chapter": 5,
         "start": 1,
         "end": 5,
@@ -435,11 +435,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "4",
           "5"
         ],
-        "rationale": "Pablo relaciona la esperanza con aprender a perseverar."
+        "rationale": "Paul relates hope to learning to persevere."
       },
       {
-        "reference": "1 Pedro 1:3–9",
-        "book": "1 Pedro",
+        "reference": "1 Peter 1:3–9",
+        "book": "1 Peter",
         "chapter": 1,
         "start": 3,
         "end": 9,
@@ -453,22 +453,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Una carta anima a conservar la esperanza en medio de las pruebas."
+        "rationale": "A letter encourages maintaining hope in the midst of trials."
       }
     ]
   },
   {
     "topicId": "gozo",
-    "family": "Vida interior",
-    "subtopic": "Alegría sin fingir",
-    "synopsis": "No tenemos que sonreír todo el tiempo. La Biblia habla de una alegría que convive con los días difíciles y con la alegría de reencontrarse.",
+    "family": "Inner Life",
+    "subtopic": "Unfeigned joy",
+    "synopsis": "We don't have to smile all the time. The Bible speaks of a joy that coexists with difficult days and with the joy of being reunited.",
     "status": "EN_REVISION",
-    "pastoralCaution": "La tristeza sigue siendo legítima",
+    "pastoralCaution": "Sadness is still legitimate",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Filipenses 4:4–9",
-        "book": "Filipenses",
+        "reference": "Philippians 4:4–9",
+        "book": "Philippians",
         "chapter": 4,
         "start": 4,
         "end": 9,
@@ -481,11 +481,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Pablo invita a la alegría y a cuidar lo que pensamos."
+        "rationale": "Paul invites us to joy and to take care of what we think."
       },
       {
-        "reference": "Lucas 15:3–7",
-        "book": "Lucas",
+        "reference": "Luke 15:3–7",
+        "book": "Luke",
         "chapter": 15,
         "start": 3,
         "end": 7,
@@ -497,22 +497,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Jesús cuenta una historia sobre la alegría de encontrar lo perdido."
+        "rationale": "Jesus tells a story about the joy of finding what is lost."
       }
     ]
   },
   {
     "topicId": "paciencia",
-    "family": "Vida interior",
-    "subtopic": "Aprender a esperar",
-    "synopsis": "Esperar no siempre es fácil, sobre todo cuando queremos resultados rápidos. Estos textos muestran cómo vivir ese tiempo con paciencia y amor.",
+    "family": "Inner Life",
+    "subtopic": "Learn to wait",
+    "synopsis": "Waiting is not always easy, especially when we want quick results. These texts show how to live that time with patience and love.",
     "status": "EN_REVISION",
     "pastoralCaution": "No normalizar abusos",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Santiago 5:7–11",
-        "book": "Santiago",
+        "reference": "James 5:7–11",
+        "book": "James",
         "chapter": 5,
         "start": 7,
         "end": 11,
@@ -524,11 +524,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "10",
           "11"
         ],
-        "rationale": "Santiago compara la paciencia con la espera de quien siembra."
+        "rationale": "Santiago compares patience with the waiting of someone who sows."
       },
       {
-        "reference": "1 Corintios 13:4–7",
-        "book": "1 Corintios",
+        "reference": "1 Corinthians 13:4–7",
+        "book": "1 Corinthians",
         "chapter": 13,
         "start": 4,
         "end": 7,
@@ -539,22 +539,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Pablo recuerda que el amor también sabe esperar."
+        "rationale": "Pablo remembers that love also knows how to wait."
       }
     ]
   },
   {
     "topicId": "miedo",
-    "family": "Dificultades y emociones",
-    "subtopic": "Cuando sientes miedo",
-    "synopsis": "Sentir miedo es humano. Estas historias muestran que podemos hablar de lo que nos asusta y pedir compañía.",
+    "family": "Difficulties and Emotions",
+    "subtopic": "When you feel afraid",
+    "synopsis": "Feeling fear is human. These stories show that we can talk about what scares us and ask for company.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No usar relato para negar peligros objetivos",
+    "pastoralCaution": "Do not use story to deny objective dangers",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Salmos 56:3–4",
-        "book": "Salmos",
+        "reference": "Psalms 56:3–4",
+        "book": "Psalms",
         "chapter": 56,
         "start": 3,
         "end": 4,
@@ -563,11 +563,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "3",
           "4"
         ],
-        "rationale": "Un salmo pone en palabras el miedo de una persona."
+        "rationale": "A psalm puts a person's fear into words."
       },
       {
-        "reference": "Marcos 4:35–41",
-        "book": "Marcos",
+        "reference": "Mark 4:35–41",
+        "book": "Mark",
         "chapter": 4,
         "start": 35,
         "end": 41,
@@ -581,22 +581,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "40",
           "41"
         ],
-        "rationale": "Los amigos de Jesús se asustan durante una tormenta."
+        "rationale": "Jesus' friends are scared during a storm."
       }
     ]
   },
   {
     "topicId": "ansiedad",
-    "family": "Dificultades y emociones",
-    "subtopic": "Cuando las preocupaciones pesan",
-    "synopsis": "A veces la cabeza no deja de dar vueltas. Estos pasajes invitan a hablar de lo que sentimos y a buscar apoyo; no reemplazan la ayuda profesional.",
+    "family": "Difficulties and Emotions",
+    "subtopic": "When worries weigh heavy",
+    "synopsis": "Sometimes your head won't stop spinning. These passages invite us to talk about what we feel and seek support; They do not replace professional help.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No sustituir atención clínica",
+    "pastoralCaution": "Do not substitute clinical care",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Mateo 6:25–34",
-        "book": "Mateo",
+        "reference": "Matthew 6:25–34",
+        "book": "Matthew",
         "chapter": 6,
         "start": 25,
         "end": 34,
@@ -613,11 +613,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "33",
           "34"
         ],
-        "rationale": "Jesús habla de las preocupaciones por el día a día."
+        "rationale": "Jesus talks about everyday worries."
       },
       {
-        "reference": "Filipenses 4:6–9",
-        "book": "Filipenses",
+        "reference": "Philippians 4:6–9",
+        "book": "Philippians",
         "chapter": 4,
         "start": 6,
         "end": 9,
@@ -628,22 +628,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Pablo menciona la oración y pensamientos que ayudan a cuidar el corazón."
+        "rationale": "Paul mentions prayer and thoughts that help take care of the heart."
       }
     ]
   },
   {
     "topicId": "sufrimiento",
-    "family": "Dificultades y emociones",
-    "subtopic": "No pasar solo los días difíciles",
-    "synopsis": "Cuando alguien sufre, escuchar y acompañar puede marcar una diferencia. Estos textos hablan de esperanza y de consuelo compartido.",
+    "family": "Difficulties and Emotions",
+    "subtopic": "Don't go through difficult days alone",
+    "synopsis": "When someone suffers, listening and accompanying can make a difference. These texts speak of hope and shared comfort.",
     "status": "EN_REVISION",
     "pastoralCaution": "No moralizar enfermedad o duelo",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Romanos 8:18–27",
-        "book": "Romanos",
+        "reference": "Romans 8:18–27",
+        "book": "Romans",
         "chapter": 8,
         "start": 18,
         "end": 27,
@@ -660,11 +660,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "26",
           "27"
         ],
-        "rationale": "Pablo reconoce que toda la creación atraviesa momentos difíciles."
+        "rationale": "Paul recognizes that all creation goes through difficult times."
       },
       {
-        "reference": "2 Corintios 1:3–7",
-        "book": "2 Corintios",
+        "reference": "2 Corinthians 1:3–7",
+        "book": "2 Corinthians",
         "chapter": 1,
         "start": 3,
         "end": 7,
@@ -676,22 +676,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Una carta habla de recibir y compartir consuelo."
+        "rationale": "A letter talks about receiving and sharing comfort."
       }
     ]
   },
   {
     "topicId": "oracion",
-    "family": "Oración y práctica espiritual",
-    "subtopic": "Hablar con Dios con confianza",
-    "synopsis": "No hacen falta palabras perfectas para orar. Estos pasajes presentan maneras sencillas de hablar con Dios y escuchar.",
+    "family": "Prayer and Spiritual Practice",
+    "subtopic": "Talk to God with confidence",
+    "synopsis": "You don't need perfect words to pray. These passages present simple ways to talk to God and listen.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No confundir pedir con obtener cualquier deseo",
+    "pastoralCaution": "Do not confuse asking with obtaining any desire",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Mateo 6:5–13",
-        "book": "Mateo",
+        "reference": "Matthew 6:5–13",
+        "book": "Matthew",
         "chapter": 6,
         "start": 5,
         "end": 13,
@@ -707,11 +707,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Jesús enseña a orar con sencillez, sin buscar aplausos."
+        "rationale": "Jesus teaches to pray with simplicity, without seeking applause."
       },
       {
-        "reference": "Lucas 11:1–13",
-        "book": "Lucas",
+        "reference": "Luke 11:1–13",
+        "book": "Luke",
         "chapter": 11,
         "start": 1,
         "end": 13,
@@ -731,22 +731,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "12",
           "13"
         ],
-        "rationale": "Los discípulos le piden a Jesús que les enseñe a orar."
+        "rationale": "The disciples ask Jesus to teach them how to pray."
       }
     ]
   },
   {
     "topicId": "adoracion",
-    "family": "Oración y práctica espiritual",
-    "subtopic": "¿Por qué adoramos?",
-    "synopsis": "Adorar es más que repetir canciones o gestos. Lee cómo la Biblia relaciona la adoración con la verdad, la gratitud y nuestra manera de vivir.",
+    "family": "Prayer and Spiritual Practice",
+    "subtopic": "Why do we worship?",
+    "synopsis": "Worship is more than repeating songs or gestures. Read how the Bible connects worship with truth, gratitude, and our way of life.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No confundir adoración con solo música",
+    "pastoralCaution": "Don't confuse worship with just music",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Juan 4:19–26",
-        "book": "Juan",
+        "reference": "John 4:19–26",
+        "book": "John",
         "chapter": 4,
         "start": 19,
         "end": 26,
@@ -761,11 +761,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "25",
           "26"
         ],
-        "rationale": "Jesús conversa sobre la adoración con una mujer samaritana."
+        "rationale": "Jesus talks about worship with a Samaritan woman."
       },
       {
-        "reference": "Salmos 95:1–7",
-        "book": "Salmos",
+        "reference": "Psalms 95:1–7",
+        "book": "Psalms",
         "chapter": 95,
         "start": 1,
         "end": 7,
@@ -779,22 +779,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "6",
           "7"
         ],
-        "rationale": "Un salmo invita a cantar y agradecer a Dios."
+        "rationale": "A psalm invites us to sing and thank God."
       }
     ]
   },
   {
     "topicId": "ayuno",
-    "family": "Oración y práctica espiritual",
-    "subtopic": "Una práctica con sentido",
-    "synopsis": "Ayunar aparece en la Biblia como una práctica espiritual, pero nunca debe imponerse. Estos textos preguntan qué importa más: parecer bueno o actuar con justicia.",
+    "family": "Prayer and Spiritual Practice",
+    "subtopic": "A meaningful practice",
+    "synopsis": "Fasting appears in the Bible as a spiritual practice, but it should never be imposed. These texts ask what matters more: appearing good or acting justly.",
     "status": "EN_REVISION",
     "pastoralCaution": "No imponer ayuno alimentario a menores",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Mateo 6:16–18",
-        "book": "Mateo",
+        "reference": "Matthew 6:16–18",
+        "book": "Matthew",
         "chapter": 6,
         "start": 16,
         "end": 18,
@@ -804,11 +804,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "17",
           "18"
         ],
-        "rationale": "Jesús cuestiona hacer del ayuno un espectáculo."
+        "rationale": "Jesus questions making a spectacle of fasting."
       },
       {
-        "reference": "Isaías 58:3–9",
-        "book": "Isaías",
+        "reference": "Isaiah 58:3–9",
+        "book": "Isaiah",
         "chapter": 58,
         "start": 3,
         "end": 9,
@@ -822,22 +822,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "8",
           "9"
         ],
-        "rationale": "Isaías relaciona las prácticas religiosas con ayudar a quien lo necesita."
+        "rationale": "Isaiah relates religious practices to helping those in need."
       }
     ]
   },
   {
     "topicId": "generosidad",
-    "family": "Carácter y conducta",
-    "subtopic": "Compartir sin obligación",
-    "synopsis": "Ser generoso puede ser dar tiempo, escuchar o ayudar. La Biblia invita a pensar en lo que significa compartir sin presionar a nadie.",
+    "family": "Character and Conduct",
+    "subtopic": "Share without obligation",
+    "synopsis": "Being generous can be giving time, listening or helping. The Bible invites us to think about what it means to share without pressuring anyone.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No usar viuda para presionar donaciones",
+    "pastoralCaution": "Do not use widow to pressure donations",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Marcos 12:41–44",
-        "book": "Marcos",
+        "reference": "Mark 12:41–44",
+        "book": "Mark",
         "chapter": 12,
         "start": 41,
         "end": 44,
@@ -848,11 +848,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "43",
           "44"
         ],
-        "rationale": "Jesús observa una ofrenda pequeña en un contexto difícil."
+        "rationale": "Jesus observes a small offering in a difficult context."
       },
       {
-        "reference": "2 Corintios 9:6–11",
-        "book": "2 Corintios",
+        "reference": "2 Corinthians 9:6–11",
+        "book": "2 Corinthians",
         "chapter": 9,
         "start": 6,
         "end": 11,
@@ -865,22 +865,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "10",
           "11"
         ],
-        "rationale": "Pablo habla de dar libremente y sin presión."
+        "rationale": "Paul talks about giving freely and without pressure."
       }
     ]
   },
   {
     "topicId": "decisiones",
-    "family": "Decisiones y vida cotidiana",
-    "subtopic": "Elegir con calma",
-    "synopsis": "Las decisiones pequeñas también importan. Estos pasajes invitan a pensar en las consecuencias y a elegir con responsabilidad.",
+    "family": "Decisions and Daily Life",
+    "subtopic": "Choose calmly",
+    "synopsis": "Small decisions matter too. These passages invite us to think about the consequences and to choose responsibly.",
     "status": "EN_REVISION",
     "pastoralCaution": "No coaccionar elecciones vocacionales",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Deuteronomio 30:15–20",
-        "book": "Deuteronomio",
+        "reference": "Deuteronomy 30:15–20",
+        "book": "Deuteronomy",
         "chapter": 30,
         "start": 15,
         "end": 20,
@@ -893,11 +893,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "19",
           "20"
         ],
-        "rationale": "Un texto propone pensar qué camino conduce a la vida."
+        "rationale": "A text proposes to think about what path leads to life."
       },
       {
-        "reference": "Lucas 14:28–33",
-        "book": "Lucas",
+        "reference": "Luke 14:28–33",
+        "book": "Luke",
         "chapter": 14,
         "start": 28,
         "end": 33,
@@ -910,22 +910,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "32",
           "33"
         ],
-        "rationale": "Jesús usa un ejemplo cotidiano sobre planear antes de actuar."
+        "rationale": "Jesus uses an everyday example about planning before acting."
       }
     ]
   },
   {
     "topicId": "sexualidad",
-    "family": "Decisiones y vida cotidiana",
-    "subtopic": "Cuidar tu cuerpo y tus decisiones",
-    "synopsis": "Tu cuerpo y tus límites merecen respeto. Estos pasajes abren preguntas sobre dignidad, responsabilidad y relaciones sin presiones.",
+    "family": "Decisions and Daily Life",
+    "subtopic": "Take care of your body and your decisions",
+    "synopsis": "Your body and your limits deserve respect. These passages open up questions about dignity, responsibility, and relationships without pressure.",
     "status": "EN_REVISION",
-    "pastoralCaution": "Revisión pastoral experta; no usar como coerción",
+    "pastoralCaution": "Expert Pastoral Review; do not use as coercion",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "1 Corintios 6:12–20",
-        "book": "1 Corintios",
+        "reference": "1 Corinthians 6:12–20",
+        "book": "1 Corinthians",
         "chapter": 6,
         "start": 12,
         "end": 20,
@@ -941,11 +941,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "19",
           "20"
         ],
-        "rationale": "Pablo habla de cuidar el cuerpo y actuar con responsabilidad."
+        "rationale": "Paul talks about taking care of the body and acting responsibly."
       },
       {
-        "reference": "Génesis 2:18–25",
-        "book": "Génesis",
+        "reference": "Genesis 2:18–25",
+        "book": "Genesis",
         "chapter": 2,
         "start": 18,
         "end": 25,
@@ -960,22 +960,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "24",
           "25"
         ],
-        "rationale": "Un relato bíblico invita a pensar en la compañía y el vínculo."
+        "rationale": "A biblical story invites us to think about company and bonding."
       }
     ]
   },
   {
     "topicId": "mandamientos",
-    "family": "Biblia y comprensión",
-    "subtopic": "Reglas para aprender a cuidar",
-    "synopsis": "Las reglas pueden parecer muchas. Estos pasajes ayudan a descubrir qué relación tienen los mandamientos con el respeto y el amor a los demás.",
+    "family": "Bible and Understanding",
+    "subtopic": "Rules to learn to care",
+    "synopsis": "The rules may seem like many. These passages help us discover how the commandments relate to respect and love for others.",
     "status": "EN_REVISION",
-    "pastoralCaution": "No emplear para amenazar menores",
+    "pastoralCaution": "Do not use to threaten minors",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Éxodo 20:1–17",
-        "book": "Éxodo",
+        "reference": "Exodus 20:1–17",
+        "book": "Exodus",
         "chapter": 20,
         "start": 1,
         "end": 17,
@@ -999,11 +999,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "16",
           "17"
         ],
-        "rationale": "Conoce los mandamientos dados al pueblo de Israel."
+        "rationale": "Know the commandments given to the people of Israel."
       },
       {
-        "reference": "Mateo 22:34–40",
-        "book": "Mateo",
+        "reference": "Matthew 22:34–40",
+        "book": "Matthew",
         "chapter": 22,
         "start": 34,
         "end": 40,
@@ -1017,22 +1017,22 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "39",
           "40"
         ],
-        "rationale": "Jesús resume el camino de la ley en amar a Dios y al prójimo."
+        "rationale": "Jesus summarizes the way of the law in loving God and neighbor."
       }
     ]
   },
   {
     "topicId": "fruto-del-espiritu",
-    "family": "Esperanza y vida cristiana",
-    "subtopic": "Lo bueno que crece en nosotros",
-    "synopsis": "La paciencia, la bondad y el amor se ven en nuestros actos. La Biblia usa la imagen de un fruto para hablar de ese crecimiento.",
+    "family": "Hope and Christian Life",
+    "subtopic": "The good that grows in us",
+    "synopsis": "Patience, kindness and love are seen in our actions. The Bible uses the image of a fruit to talk about that growth.",
     "status": "EN_REVISION",
-    "pastoralCaution": "Frutos no permiten evaluar personas como mejores",
+    "pastoralCaution": "Fruits do not allow people to be evaluated as better",
     "existenceChecked": true,
     "passages": [
       {
-        "reference": "Gálatas 5:22–26",
-        "book": "Gálatas",
+        "reference": "Galatians 5:22–26",
+        "book": "Galatians",
         "chapter": 5,
         "start": 22,
         "end": 26,
@@ -1044,11 +1044,11 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "25",
           "26"
         ],
-        "rationale": "Pablo enumera actitudes que ayudan a vivir mejor con otros."
+        "rationale": "Paul lists attitudes that help to live better with others."
       },
       {
-        "reference": "Juan 15:1–8",
-        "book": "Juan",
+        "reference": "John 15:1–8",
+        "book": "John",
         "chapter": 15,
         "start": 1,
         "end": 8,
@@ -1063,7 +1063,7 @@ export const conceptPreviews:readonly ConceptPreview[] = [
           "7",
           "8"
         ],
-        "rationale": "Jesús utiliza la imagen de una vid para hablar de crecer y dar fruto."
+        "rationale": "Jesus uses the image of a vine to talk about growing and bearing fruit."
       }
     ]
   }

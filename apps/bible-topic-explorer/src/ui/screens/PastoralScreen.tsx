@@ -1,6 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import {Pressable,ScrollView,StyleSheet,Text,View} from 'react-native';
-import {pastoralTopics,PASTORAL_GUIDE_TITLE,PASTORAL_GUIDE_SUBTITLE,PASTORAL_GUIDE_VERSION,PASTORAL_GUIDE_INTRO,type PastoralReference} from '../../product/pastoralTopics';
+import {pastoralTopics,PASTORAL_GUIDE_TITLE,PASTORAL_GUIDE_SUBTITLE,PASTORAL_GUIDE_VERSION,PASTORAL_GUIDE_INTRO,type PastoralReference} from '../../product/pastoralTopics.en';
 import {Action,Body,Screen} from '../primitives';
 import {minimumTouchTarget,spacing,type Theme} from '../theme';
 
@@ -14,36 +14,36 @@ export function PastoralScreen({theme,onBack,onRead,initialExpanded=null,restore
  const groupOffsets=useRef<Record<number,number>>({});
  const focusNext=useRef<string|null>(null);
  const scrollToOpen=()=>{const id=focusNext.current;if(!id)return;const y=headings.current[id];if(y===undefined)return;const groupId=pastoralTopics.find(x=>x.id===id)?.themeId??1;const groupY=groupOffsets.current[groupId]??0;scrollRef.current?.scrollTo({y:Math.max(0,groupY+y-14),animated:true});focusNext.current=null;};
- const readingLink=(ref:PastoralReference)=><Pressable key={ref.label} accessibilityRole="link" accessibilityLabel={'Leer RV1909 '+ref.label} onPress={()=>onRead(ref.book,ref.chapter,ref.start,ref.end)} style={styles.scriptureLink}>
+ const readingLink=(ref:PastoralReference)=><Pressable key={ref.label} accessibilityRole="link" accessibilityLabel={"Read WEBP"+ref.label} onPress={()=>onRead(ref.book,ref.chapter,ref.start,ref.end)} style={styles.scriptureLink}>
   <Text style={styles.blueLink}>{ref.label} ↗</Text>
  </Pressable>;
  return <Screen theme={theme}><ScrollView ref={scrollRef} contentContainerStyle={styles.stack} scrollEventThrottle={100} onScroll={e=>onScrollY?.(e.nativeEvent.contentOffset.y)} onContentSizeChange={()=>{if(needsRestore.current){scrollRef.current?.scrollTo({y:restoreY,animated:false});needsRestore.current=false;}}}>
-  <Action theme={theme} variant="tertiary" label="← Recursos" onPress={onBack}/>
+  <Action theme={theme} variant="tertiary" label="← Resources" onPress={onBack}/>
   <Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>{PASTORAL_GUIDE_TITLE}</Text>
-  <Text style={[styles.subtitle,{color:theme.secondary}]}>{PASTORAL_GUIDE_SUBTITLE} · 16 capítulos · guía 1.30</Text>
+  <Text style={[styles.subtitle,{color:theme.secondary}]}>{PASTORAL_GUIDE_SUBTITLE}· 16 chapters · guide 1.30</Text>
   <Body theme={theme} muted>{PASTORAL_GUIDE_INTRO}</Body>
   {[1,2,3,4].map(themeId=>{
    const group=pastoralTopics.filter(item=>item.themeId===themeId);
    return <View key={themeId} style={styles.theme} onLayout={e=>{groupOffsets.current[themeId]=e.nativeEvent.layout.y;}}>
-    <Text accessibilityRole="header" style={[styles.themeTitle,{color:theme.text}]}>TEMA {themeId} · {group[0].themeTitle}</Text>
+    <Text accessibilityRole="header" style={[styles.themeTitle,{color:theme.text}]}>ISSUE {themeId} · {group[0].themeTitle}</Text>
     <Text style={[styles.themeObjective,{color:theme.secondary}]}>{group[0].themeObjective}</Text>
     {group.map(item=>{
      const open=expanded===item.id;
      const preview=item.paragraphs[0].length>105?item.paragraphs[0].slice(0,102).trimEnd()+'…':item.paragraphs[0];
      return <View key={item.id} onLayout={e=>{headings.current[item.id]=e.nativeEvent.layout.y;}} style={[styles.accordion,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-      <Pressable accessibilityRole="button" accessibilityLabel={'Capítulo '+item.number+' '+item.title} accessibilityHint={open?'Contraer capítulo':'Abrir capítulo'} accessibilityState={{expanded:open}} onPress={()=>{const next=open?null:item.id;focusNext.current=open?null:item.id;setExpanded(next);onExpandedChange?.(next);if(!open)setTimeout(scrollToOpen,180);}} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
+      <Pressable accessibilityRole="button" accessibilityLabel={"Chapter"+item.number+' '+item.title} accessibilityHint={open?"Collapse chapter":"Open chapter"} accessibilityState={{expanded:open}} onPress={()=>{const next=open?null:item.id;focusNext.current=open?null:item.id;setExpanded(next);onExpandedChange?.(next);if(!open)setTimeout(scrollToOpen,180);}} style={[styles.heading,{backgroundColor:open?theme.surfaceSoft:'transparent'}]}>
        <Text style={[styles.number,{color:theme.primaryText}]}>{String(item.number).padStart(2,'0')}</Text>
        <View style={styles.headingText}><Text style={[styles.title,{color:theme.text}]}>{item.title}</Text>{!open?<Text style={[styles.preview,{color:theme.secondary}]} >{preview}</Text>:null}</View>
        <Text accessibilityElementsHidden style={[styles.chevron,{color:theme.primaryText}]}>{open?'−':'⌄'}</Text>
       </Pressable>
       {open?<View style={styles.detail}>
-       <Text style={[styles.readingTitle,{color:theme.text}]}>Antiguo Testamento</Text>
+       <Text style={[styles.readingTitle,{color:theme.text}]}>Old Testament</Text>
        <View style={styles.readings}>{item.readingsOld.map(readingLink)}</View>
-       <Text style={[styles.readingTitle,{color:theme.text}]}>Nuevo Testamento</Text>
+       <Text style={[styles.readingTitle,{color:theme.text}]}>New Testament</Text>
        <View style={styles.readings}>{item.readingsNew.map(readingLink)}</View>
        <View style={[styles.prose,{borderTopColor:theme.border}]}>{item.paragraphs.map((paragraph,index)=><Text key={index} selectable style={[styles.paragraph,{color:theme.text}]}>{paragraph}</Text>)}</View>
        <View style={[styles.question,{backgroundColor:theme.surfaceSoft}]}>
-        <Text style={[styles.questionLabel,{color:theme.secondary}]}>{item.questionKind==='introspection'?'PARA REFLEXIONAR':'PARA CONVERSAR'}</Text>
+        <Text style={[styles.questionLabel,{color:theme.secondary}]}>{item.questionKind==='introspection'?"TO REFLECT":"TO CONVERSATE"}</Text>
         <Text selectable style={[styles.questionText,{color:theme.text}]}>{item.question}</Text>
        </View>
       </View>:null}
@@ -51,7 +51,7 @@ export function PastoralScreen({theme,onBack,onRead,initialExpanded=null,restore
     })}
    </View>;
   })}
-  <Text style={[styles.footnote,{color:theme.secondary}]}>Contenido editorial · Versión {PASTORAL_GUIDE_VERSION}. Las preguntas pueden reflexionarse en privado; conversar es voluntario.</Text>
+  <Text style={[styles.footnote,{color:theme.secondary}]}>Editorial content · Version {PASTORAL_GUIDE_VERSION}. Questions can be reflected on privately; talking is voluntary.</Text>
  </ScrollView></Screen>;
 }
 const styles=StyleSheet.create({

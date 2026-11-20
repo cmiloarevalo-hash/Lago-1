@@ -2,7 +2,7 @@ import type { LocalPreferences } from './preferences';
 import type { MatchType } from '../db/model';
 
 export interface BibleVerse {
-  translationId: 'rv1909';
+  translationId: 'rv1909' | 'webp';
   bookId: string;
   bookName: string;
   chapter: number;
@@ -16,7 +16,7 @@ export interface BibleSearchHit extends BibleVerse {
   explanation: string;
 }
 
-/** Read-only boundary over the authoritative bundled RV1909 SQLite corpus. */
+/** Read-only boundary over the authoritative bundled WEBP SQLite corpus. */
 export interface BibleRepository {
   getChapter(bookId: string, chapter: number): Promise<readonly BibleVerse[]>;
   getBookChapterCount(bookId: string): Promise<number>;
@@ -64,8 +64,8 @@ export interface LocalPersistence {
   upsertReflection(value: Reflection): Promise<void>;
 }
 
-/** Verse-level private annotations belong to the sole bundled RV1909 edition. */
+/** Verse-level private annotations belong to the sole bundled WEBP edition. */
 export type HighlightTone = 'rose' | 'lavender' | 'peach';
-export interface VerseIdentity { translationId: 'rv1909'; bookId: string; chapter: number; sourceVerseLabel: string; }
+export interface VerseIdentity { translationId: 'rv1909' | 'webp'; bookId: string; chapter: number; sourceVerseLabel: string; }
 export interface VerseNote extends VerseIdentity { bookName?: string; bookOrder?: number; body: string; updatedAt: string; }
 export interface VerseHighlight extends VerseIdentity { bookName?: string; bookOrder?: number; tone: HighlightTone; updatedAt: string; }

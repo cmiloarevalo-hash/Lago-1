@@ -12,7 +12,7 @@ export async function exportPrivateBackup(db:SQLiteDatabase):Promise<string>{
  ]);
  // No external file bytes: just book metadata and reading progress.
  const payload={
-  format:'la-u-private-backup',schema:1,generatedAt:new Date().toISOString(),source:'rv1909',
+  format:'la-u-private-backup',schema:1,generatedAt:new Date().toISOString(),source:'webp',
   preferences:prefs,savedReferences:saved,readingHistory:history,reflections,verseNotes:notes,highlights,
   personalBookIndex:personal.map(({uri,...book})=>book)
  };
@@ -20,6 +20,6 @@ export async function exportPrivateBackup(db:SQLiteDatabase):Promise<string>{
  const filename='la-u-respaldo-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
  const target=folder.createFile(filename,'application/json');
  target.write(JSON.stringify(payload,null,2));
- if(!target.exists||target.size<=0)throw Error('No se pudo guardar el respaldo en la carpeta elegida.');
+ if(!target.exists||target.size<=0)throw Error("The backup could not be saved to the chosen folder.");
  return filename;
 }

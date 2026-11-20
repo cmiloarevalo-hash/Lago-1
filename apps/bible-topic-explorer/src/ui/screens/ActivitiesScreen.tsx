@@ -13,18 +13,18 @@ function ActivityMetric({icon,value,label,theme}:{icon:string;value:string;label
  </View>;
 }
 export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=0,onScrollY=()=>{}}:{theme:Theme;guideId?:string;onSelect:(id:string)=>void;onBack:()=>void;onPlay?:()=>void;restoreY?:number;onScrollY?:(y:number)=>void}){
- const [category,setCategory]=useState<ActivityCategory|'Todas'>('Todas');
+ const [category,setCategory]=useState<ActivityCategory|"All">("All");
  const [showCare,setShowCare]=useState(false);
  const selected=activityGuides.find(x=>x.id===guideId);
  const scrollRef=useRef<ScrollView>(null);
  const restored=useRef(!!selected||restoreY===0);
  const y=useRef(restoreY);
- const filtered=activityGuides.filter(x=>category==='Todas'||x.category===category);
+ const filtered=activityGuides.filter(x=>category==="All"||x.category===category);
  const goTo=(id:string)=>{onScrollY(y.current);onSelect(id);};
  return <Screen theme={theme}><ScrollView ref={scrollRef} keyboardShouldPersistTaps="handled" contentContainerStyle={styles.stack}
   scrollEventThrottle={64} onScroll={e=>{if(!selected&&restored.current){y.current=e.nativeEvent.contentOffset.y;onScrollY(y.current);}}}
   onContentSizeChange={()=>{if(!restored.current&&!selected){scrollRef.current?.scrollTo({y:restoreY,animated:false});restored.current=true;}}}>
-  <Action theme={theme} variant="tertiary" label={selected?'← Volver a dinámicas':'← Volver al menú'} onPress={onBack}/>
+  <Action theme={theme} variant="tertiary" label={selected?"← Return to dynamics":"← Return to menu"} onPress={onBack}/>
   {selected?<View style={styles.detail}>
    <Text style={[styles.title,{color:theme.text}]} accessibilityRole="header">{selected.title}</Text>
    <Text style={[styles.intro,{color:theme.secondary}]}>{selected.goal}</Text>
@@ -35,7 +35,7 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
    </View>
    <GroupIllustration/>
    <View style={styles.chapter}>
-    <Text style={[styles.subhead,{color:theme.text}]}>Cómo hacerlo</Text>
+    <Text style={[styles.subhead,{color:theme.text}]}>How to do it</Text>
     {selected.steps.map((step,i)=><View key={i} style={styles.step}>
       <View style={styles.index}><Text style={styles.indexText}>{i+1}</Text></View>
       <View style={{flex:1}}><Text style={[styles.stepCopy,{color:theme.text}]}>{step}</Text></View>
@@ -46,7 +46,7 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
     <Body theme={theme}>{selected.materials}</Body>
    </View>
    <View style={[styles.tinySection,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-    <View style={styles.noteLine}><Text style={styles.noteIcon}>☼</Text><Text style={[styles.noteTitle,{color:theme.text}]}>Para conversar</Text></View>
+    <View style={styles.noteLine}><Text style={styles.noteIcon}>☼</Text><Text style={[styles.noteTitle,{color:theme.text}]}>to talk</Text></View>
     <Body theme={theme}>{selected.debrief}</Body>
    </View>
    <Pressable accessibilityRole="button" accessibilityLabel={showCare?'Ocultar recomendaciones de cuidado':'Ver recomendaciones de cuidado'} accessibilityState={{expanded:showCare}}
@@ -54,31 +54,31 @@ export function ActivitiesScreen({theme,guideId,onSelect,onBack,onPlay,restoreY=
      <Text style={[styles.careLink,{color:theme.primaryText}]}>ⓘ  {showCare?'Ocultar indicaciones':'Cuidado y accesibilidad'}  {showCare?'⌃':'⌄'}</Text>
    </Pressable>
    {showCare?<View style={[styles.carePanel,{backgroundColor:theme.surfaceSoft}]}>
-    <Body theme={theme}>{selected.safety} Participar es voluntario: permite respuesta escrita, sentada o por voz. Con menores, dos adultos responsables y protocolos locales de protección.</Body>
+    <Body theme={theme}>{selected.safety}Participating is voluntary: it allows written, seated or voice response. With minors, two responsible adults and local protection protocols.</Body>
    </View>:null}
   </View>:<>
-   <ScreenTitle theme={theme}>Dinámicas pastorales</ScreenTitle>
-   <Body theme={theme} muted>Encuentros sencillos para reunir, compartir y aprender.</Body>
+   <ScreenTitle theme={theme}>Pastoral dynamics</ScreenTitle>
+   <Body theme={theme} muted>Simple meetings to gather, share and learn.</Body>
    <View style={styles.introArt}><GroupIllustration/></View>
    <View style={styles.summary}>
-    <ActivityMetric icon="👥" value="20" label="dinámicas" theme={theme}/>
+    <ActivityMetric icon="👥" value="20" label="dynamic" theme={theme}/>
     <ActivityMetric icon="◷" value="10–25" label="minutos aprox." theme={theme}/>
     <ActivityMetric icon="✦" value="12+" label="edad sugerida" theme={theme}/>
    </View>
-   {onPlay?<Pressable accessibilityRole="button" accessibilityLabel="Jugar trivia, verdadero/falso y ordenar versículos" onPress={onPlay} style={[styles.gameRow,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-    <Text style={[styles.gameIcon,{color:theme.primaryText}]}>◇</Text><View style={{flex:1}}><Text style={[styles.rowTitle,{color:theme.text}]}>Juegos bíblicos</Text><Text style={[styles.rowSubtitle,{color:theme.secondary}]}>Trivia · Verdadero/Falso · Ordenar versículos</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
+   {onPlay?<Pressable accessibilityRole="button" accessibilityLabel="Play trivia, true/false and order verses" onPress={onPlay} style={[styles.gameRow,{backgroundColor:theme.surface,borderColor:theme.border}]}>
+    <Text style={[styles.gameIcon,{color:theme.primaryText}]}>◇</Text><View style={{flex:1}}><Text style={[styles.rowTitle,{color:theme.text}]}>Bible games</Text><Text style={[styles.rowSubtitle,{color:theme.secondary}]}>Trivia · True/False · Sort verses</Text></View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
    </Pressable>:null}
-   <Text style={[styles.subhead,{color:theme.text}]}>Elige una dinámica</Text>
-   <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>{(['Todas',...activityCategories] as const).map(c=><ChoiceChip key={c} theme={theme} label={c} selected={category===c} onPress={()=>setCategory(c)}/>)}</ScrollView>
-   <View style={styles.list}>{filtered.map((item,i)=><Pressable key={item.id} accessibilityRole="button" accessibilityLabel={'Abrir guía '+item.title+', '+item.groupSize+' personas, '+item.minutes+' minutos'} onPress={()=>goTo(item.id)}
+   <Text style={[styles.subhead,{color:theme.text}]}>Choose a dynamic</Text>
+   <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>{(["All",...activityCategories] as const).map(c=><ChoiceChip key={c} theme={theme} label={c} selected={category===c} onPress={()=>setCategory(c)}/>)}</ScrollView>
+   <View style={styles.list}>{filtered.map((item,i)=><Pressable key={item.id} accessibilityRole="button" accessibilityLabel={"Open guide"+item.title+', '+item.groupSize+' personas, '+item.minutes+' minutos'} onPress={()=>goTo(item.id)}
     style={({pressed})=>[styles.listRow,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
      <View style={[styles.listIndex,{backgroundColor:theme.selectionBg}]}><Text style={[styles.listIndexText,{color:theme.primaryText}]}>{i+1}</Text></View>
      <View style={styles.listCopy}><Text style={[styles.rowTitle,{color:theme.text}]}>{item.title}</Text><Text style={[styles.rowSubtitle,{color:theme.secondary}]}>{item.goal}</Text>
       <Text style={[styles.rowNumbers,{color:theme.primaryText}]}>👥 {item.groupSize} personas    ◷ {item.minutes} min</Text>
      </View><Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
     </Pressable>)}</View>
-   <Pressable accessibilityRole="button" accessibilityLabel={showCare?'Ocultar recomendaciones para facilitadores':'Recomendaciones para facilitadores'} onPress={()=>setShowCare(x=>!x)} style={styles.careButton}><Text style={[styles.careLink,{color:theme.secondary}]}>ⓘ  {showCare?'Ocultar información':'Uso responsable de las dinámicas'}</Text></Pressable>
-   {showCare?<Body theme={theme} muted>Estas actividades son orientaciones para facilitadores. Adáptalas a la edad y al contexto del grupo; no sustituyen la formación de responsables ni los protocolos de protección vigentes.</Body>:null}
+   <Pressable accessibilityRole="button" accessibilityLabel={showCare?"Hide recommendations for facilitators":"Recommendations for facilitators"} onPress={()=>setShowCare(x=>!x)} style={styles.careButton}><Text style={[styles.careLink,{color:theme.secondary}]}>ⓘ  {showCare?"Hide information":"Responsible use of dynamics"}</Text></Pressable>
+   {showCare?<Body theme={theme} muted>These activities are guidelines for facilitators. Adapt them to the age and context of the group; They do not replace the training of those responsible or the current protection protocols.</Body>:null}
   </>}
  </ScrollView></Screen>;
 }

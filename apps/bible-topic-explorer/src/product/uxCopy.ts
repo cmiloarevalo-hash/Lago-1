@@ -1,10 +1,10 @@
 export const uxCopy = {
-  exploreTipTitle: 'Dos formas de explorar',
-  exploreTipBody: 'Elige un tema curado desde A–Z o usa la búsqueda textual. Lo que escribes libremente nunca se convierte en un tema por sorpresa.',
-  reminderCaution: 'El sistema operativo puede retrasar una notificación. Puedes cambiar o apagar el recordatorio cuando quieras.',
-  savedReference: 'Guardado en tu biblioteca.',
+  exploreTipTitle: "Two ways to explore",
+  exploreTipBody: "Choose a topic curated from A–Z or use textual search. What you write freely never becomes a topic by surprise.",
+  reminderCaution: "The operating system may delay a notification. You can change or turn off the reminder whenever you want.",
+  savedReference: "Saved to your library.",
   removedReference: 'Referencia retirada de guardados.',
-  savedReflection: 'Reflexión guardada en este dispositivo.',
+  savedReflection: "Reflection saved on this device.",
 } as const;
 
 export const visualMotionPolicy = {

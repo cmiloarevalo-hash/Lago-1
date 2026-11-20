@@ -13,11 +13,11 @@ import {spacing,type Theme} from '../theme';
 type Props={theme:Theme;appearance:VisibleTheme;planId?:string;day?:number;onSelect:(id:string,day?:number)=>void;onBack:()=>void;onRead:(book:string,chapter:number,start:number,end:number)=>void};
 export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}:Props){
  const db=useSQLiteContext(),repo=useMemo(()=>new SQLitePlanRepository(db),[db]);
- const [filter,setFilter]=useState('Todos'),[rows,setRows]=useState<readonly {day:number;done:boolean;note:string}[]>([]);
+ const [filter,setFilter]=useState("All"),[rows,setRows]=useState<readonly {day:number;done:boolean;note:string}[]>([]);
  const [note,setNote]=useState(''),[error,setError]=useState(''),[saving,setSaving]=useState(false);
  const plan=planById(planId??''),entry=plan?.days.find(d=>d.day===day);
  const art=editorialArt(appearance);
- const refresh=useCallback(()=>{if(!planId){setRows([]);return;}void repo.list(planId).then(setRows).catch(()=>setError('No fue posible leer el avance local.'));},[repo,planId]);
+ const refresh=useCallback(()=>{if(!planId){setRows([]);return;}void repo.list(planId).then(setRows).catch(()=>setError("It was not possible to read the local preview."));},[repo,planId]);
  useEffect(()=>{refresh();},[refresh]);
  useEffect(()=>{setNote(rows.find(r=>r.day===day)?.note??'');},[day,rows]);
  const done=rows.filter(r=>r.done).length;
@@ -31,61 +31,61 @@ export function PlansScreen({theme,appearance,planId,day,onSelect,onBack,onRead}
      await configureReminder(true,prefs.reminderTime,false,{planId:plan.id,planTitle:plan.title,
       day:nextPendingReadingDay(rows),title:details.title});
     }
-   })().catch(()=>{});}catch{setError('No se pudo guardar. Las notas anteriores permanecen intactas.');}finally{setSaving(false);}};
- const reset=()=>{if(!plan)return;Alert.alert('Reiniciar avance de este plan','Solo se quitarán las marcas de progreso; tus notas privadas se conservarán.',[{text:'Cancelar',style:'cancel'},{text:'Reiniciar progreso',style:'destructive',onPress:()=>{void repo.resetProgress(plan.id).then(refresh).catch(()=>setError('No se pudo reiniciar.'));}}]);};
- const introTitle='Planes de lectura';
+   })().catch(()=>{});}catch{setError("Could not save. The previous notes remain intact.");}finally{setSaving(false);}};
+ const reset=()=>{if(!plan)return;Alert.alert('Reiniciar avance de este plan',"Only progress marks will be removed; your private notes will be preserved.",[{text:"Cancel",style:'cancel'},{text:'Reiniciar progreso',style:'destructive',onPress:()=>{void repo.resetProgress(plan.id).then(refresh).catch(()=>setError('No se pudo reiniciar.'));}}]);};
+ const introTitle="Reading plans";
  return <Screen theme={theme}><KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS==='ios'?'padding':'height'}><ScrollView contentContainerStyle={styles.stack} keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag">
-  <Action theme={theme} variant="tertiary" label={entry?'← Volver al plan':plan?'← Todos los planes':'← Volver'} onPress={onBack}/>
-  <View style={styles.header}><Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>{introTitle}</Text><Metadata theme={theme}>Un encuentro con la Palabra · RV1909</Metadata></View>
+  <Action theme={theme} variant="tertiary" label={entry?"← Back to plan":plan?"← All plans":"← Back"} onPress={onBack}/>
+  <View style={styles.header}><Text accessibilityRole="header" style={[styles.pageTitle,{color:theme.text}]}>{introTitle}</Text><Metadata theme={theme}>An encounter with the Word · WEBP</Metadata></View>
   {error?<StatusBanner theme={theme} kind="error">{error}</StatusBanner>:null}
-  {!plan?<><View style={styles.filterRow}>{['Todos','Evangelios','Servicio','Reflexión','Oración'].map(v=><ChoiceChip key={v} theme={theme} label={v} selected={filter===v} onPress={()=>setFilter(v)}/>)}</View>
-   {readingPlans.filter(p=>filter==='Todos'||p.theme===filter).map((p,index)=><View key={p.id} style={[styles.planCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
+  {!plan?<><View style={styles.filterRow}>{["All",'Evangelios','Servicio',"Reflection","Prayer"].map(v=><ChoiceChip key={v} theme={theme} label={v} selected={filter===v} onPress={()=>setFilter(v)}/>)}</View>
+   {readingPlans.filter(p=>filter==="All"||p.theme===filter).map((p,index)=><View key={p.id} style={[styles.planCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
     <ImageBackground source={art.book} resizeMode="cover" style={styles.planImage} imageStyle={styles.topCorners}>
-     <Image source={art.botanical} accessibilityIgnoresInvertColors style={styles.bookLeaves}/><View style={[styles.highlightPill,{backgroundColor:'rgba(255,255,255,0.91)'}]}><Text style={[styles.pillText,{color:theme.primaryText}]}>{index===0?'✦ DESTACADO':'✧ 7 DÍAS'}</Text></View>
+     <Image source={art.botanical} accessibilityIgnoresInvertColors style={styles.bookLeaves}/><View style={[styles.highlightPill,{backgroundColor:'rgba(255,255,255,0.91)'}]}><Text style={[styles.pillText,{color:theme.primaryText}]}>{index===0?'✦ DESTACADO':"✧ 7 DAYS"}</Text></View>
     </ImageBackground>
     <View style={styles.planText}><Text style={[styles.planTitle,{color:theme.text}]}>{p.title}</Text><Body theme={theme} muted>{p.intro}</Body>
-     <Text style={[styles.caption,{color:theme.secondary}]}>7 lecturas · Biblia Reina-Valera 1909</Text>
+     <Text style={[styles.caption,{color:theme.secondary}]}>7 readings · Reina-Valera Bible 1909</Text>
      <Action theme={theme} label={'Comenzar plan  →'} onPress={()=>onSelect(p.id)}/>
     </View>
    </View>)}
   </>:<>
    <ImageBackground source={art.book} resizeMode="cover" style={[styles.selectedHero,{borderColor:theme.border}]} imageStyle={styles.roundImage}>
     <View style={styles.heroTint}/><Image source={art.botanical} accessibilityIgnoresInvertColors style={styles.selectedLeaves}/>
-    <View style={styles.selectedHeroText}><Text style={[styles.heroKicker,{color:theme.primaryText}]}>PLAN DE SIETE DÍAS</Text><Text style={[styles.selectedTitle,{color:theme.text}]}>{plan.title}</Text></View>
+    <View style={styles.selectedHeroText}><Text style={[styles.heroKicker,{color:theme.primaryText}]}>SEVEN DAY PLAN</Text><Text style={[styles.selectedTitle,{color:theme.text}]}>{plan.title}</Text></View>
    </ImageBackground>
    <View style={[styles.progressPanel,{backgroundColor:theme.surface,borderColor:theme.border,shadowColor:theme.primary}]}>
-    <View style={styles.progressHeading}><Text style={[styles.captionStrong,{color:theme.text}]}>Tu progreso</Text><Text style={[styles.caption,{color:theme.secondary}]}>{done} de 7 días</Text></View>
+    <View style={styles.progressHeading}><Text style={[styles.captionStrong,{color:theme.text}]}>Your progress</Text><Text style={[styles.caption,{color:theme.secondary}]}>{done}7 days</Text></View>
     <View accessibilityRole="progressbar" accessibilityValue={{min:0,max:7,now:done}} style={[styles.progressTrack,{backgroundColor:theme.raised}]}><View style={[styles.progressFill,{width:(done/7*100)+'%' as `${number}%`,backgroundColor:theme.primary}]}/></View>
-    <View style={styles.dayDots}>{plan.days.map(d=>{const completed=rows.some(r=>r.day===d.day&&r.done);const current=day===d.day||!day&&d.day===nextDay;return <Pressable key={d.day} accessibilityRole="button" accessibilityLabel={'Día '+d.day+(completed?', completado':', pendiente')} accessibilityState={{selected:current}} onPress={()=>onSelect(plan.id,d.day)} style={styles.dotCell}>
+    <View style={styles.dayDots}>{plan.days.map(d=>{const completed=rows.some(r=>r.day===d.day&&r.done);const current=day===d.day||!day&&d.day===nextDay;return <Pressable key={d.day} accessibilityRole="button" accessibilityLabel={"Day"+d.day+(completed?', completado':', pendiente')} accessibilityState={{selected:current}} onPress={()=>onSelect(plan.id,d.day)} style={styles.dotCell}>
       <View style={[styles.dot,{backgroundColor:completed?theme.primary:current?theme.selectionBg:theme.surface,borderColor:current?theme.primary:completed?theme.primary:theme.border}]}><Text style={{color:completed?theme.onPrimary:theme.primaryText,fontWeight:'700'}}>{completed?'✓':current?'●':''}</Text></View><Text style={[styles.dayLabel,{color:theme.secondary}]}>{d.day}</Text>
      </Pressable>;})}</View>
-    <Action theme={theme} label={'Continuar · día '+nextDay+'  →'} onPress={()=>onSelect(plan.id,nextDay)}/>
+    <Action theme={theme} label={"Continue · day"+nextDay+'  →'} onPress={()=>onSelect(plan.id,nextDay)}/>
    </View>
    {entry?<View style={styles.entryStack}>
     <View style={[styles.dayReading,{backgroundColor:theme.surface,borderColor:theme.border}]}>
-     <Text style={[styles.miniKicker,{color:theme.primaryText}]}>DÍA {entry.day} DE 7 · LECTURA</Text>
+     <Text style={[styles.miniKicker,{color:theme.primaryText}]}>DAY {entry.day}OF 7 · READING</Text>
      <Text style={[styles.dayTitle,{color:theme.text}]}>{entry.title}</Text>
-     <Text style={[styles.caption,{color:theme.secondary}]}>{entry.book} {entry.chapter}:{entry.start}–{entry.end} · RV1909</Text>
-     <Action theme={theme} label="Leer pasaje en contexto →" onPress={()=>onRead(entry.book,entry.chapter,entry.start,entry.end)}/>
+     <Text style={[styles.caption,{color:theme.secondary}]}>{entry.book} {entry.chapter}:{entry.start}–{entry.end} · WEBP</Text>
+     <Action theme={theme} label="Read passage in context →" onPress={()=>onRead(entry.book,entry.chapter,entry.start,entry.end)}/>
     </View>
-    <Section theme={theme} title="Reflexión"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.reflection}</Text></Section>
-    <Section theme={theme} title="Oración libre"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.prayer}</Text></Section>
-    <Section theme={theme} title="Un paso para hoy"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.action}</Text></Section>
+    <Section theme={theme} title="Reflection"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.reflection}</Text></Section>
+    <Section theme={theme} title="free prayer"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.prayer}</Text></Section>
+    <Section theme={theme} title="One step for today"><Text selectable style={[styles.scriptureProse,{color:theme.text}]}>{entry.action}</Text></Section>
     <View style={[styles.notesPanel,{backgroundColor:theme.surfaceSoft}]}>
-     <Text style={[styles.dayTitle,{color:theme.text}]}>Mis notas privadas</Text>
-     <TextInput multiline value={note} onChangeText={setNote} maxLength={5000} placeholder="Escribe lo que quieras conservar…" placeholderTextColor={theme.secondary} accessibilityLabel={'Nota privada del día '+entry.day} style={[styles.noteInput,{color:theme.text,backgroundColor:theme.surface,borderColor:theme.border}]}/>
-     <Action theme={theme} label="Guardar mi nota" loading={saving} onPress={()=>{void save();}}/>
-     <Action theme={theme} variant="secondary" label={rows.some(r=>r.day===entry.day&&r.done)?'Marcar como pendiente':'Marcar día completado ✓'} loading={saving} onPress={()=>{void save(!rows.some(r=>r.day===entry.day&&r.done));}}/>
+     <Text style={[styles.dayTitle,{color:theme.text}]}>My private notes</Text>
+     <TextInput multiline value={note} onChangeText={setNote} maxLength={5000} placeholder="Write what you want to keep…" placeholderTextColor={theme.secondary} accessibilityLabel={"Private note of the day"+entry.day} style={[styles.noteInput,{color:theme.text,backgroundColor:theme.surface,borderColor:theme.border}]}/>
+     <Action theme={theme} label="Save my note" loading={saving} onPress={()=>{void save();}}/>
+     <Action theme={theme} variant="secondary" label={rows.some(r=>r.day===entry.day&&r.done)?"Mark as pending":"Mark day completed ✓"} loading={saving} onPress={()=>{void save(!rows.some(r=>r.day===entry.day&&r.done));}}/>
     </View>
-   </View>:<><View style={styles.sectionHeader}><Text style={[styles.dayTitle,{color:theme.text}]}>Tus siete lecturas</Text><Metadata theme={theme}>Elige un día</Metadata></View>
-     <View style={[styles.daysList,{backgroundColor:theme.surface,borderColor:theme.border}]}>{plan.days.map(d=>{const completed=rows.some(r=>r.day===d.day&&r.done);const current=d.day===nextDay;return <Pressable key={d.day} accessibilityRole="button" accessibilityLabel={'Abrir día '+d.day+', '+d.title} onPress={()=>onSelect(plan.id,d.day)} style={({pressed})=>[styles.dayRow,{backgroundColor:current?theme.selectionBg:pressed?theme.surfaceSoft:'transparent'}]}>
+   </View>:<><View style={styles.sectionHeader}><Text style={[styles.dayTitle,{color:theme.text}]}>Your seven readings</Text><Metadata theme={theme}>Choose a day</Metadata></View>
+     <View style={[styles.daysList,{backgroundColor:theme.surface,borderColor:theme.border}]}>{plan.days.map(d=>{const completed=rows.some(r=>r.day===d.day&&r.done);const current=d.day===nextDay;return <Pressable key={d.day} accessibilityRole="button" accessibilityLabel={"Open day"+d.day+', '+d.title} onPress={()=>onSelect(plan.id,d.day)} style={({pressed})=>[styles.dayRow,{backgroundColor:current?theme.selectionBg:pressed?theme.surfaceSoft:'transparent'}]}>
       <View style={[styles.dayCircle,{borderColor:theme.border,backgroundColor:completed?theme.primary:theme.surface}]}><Text style={{color:completed?theme.onPrimary:theme.primaryText}}>{completed?'✓':current?'◎':'○'}</Text></View>
-      <View style={styles.dayCopy}><Text style={[styles.dayRowTitle,{color:theme.text}]}>Día {d.day} · {d.title}</Text><Text style={[styles.caption,{color:theme.secondary}]}>{d.book} {d.chapter}:{d.start}–{d.end}</Text></View>
+      <View style={styles.dayCopy}><Text style={[styles.dayRowTitle,{color:theme.text}]}>Day {d.day} · {d.title}</Text><Text style={[styles.caption,{color:theme.secondary}]}>{d.book} {d.chapter}:{d.start}–{d.end}</Text></View>
       <Text style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
      </Pressable>;})}</View>
-     <Action theme={theme} variant="tertiary" label="Reiniciar progreso (sin borrar notas)" onPress={reset}/>
+     <Action theme={theme} variant="tertiary" label="Reset progress (without deleting notes)" onPress={reset}/>
    </>}
-   <Metadata theme={theme}>Los pasajes RV1909 son locales. Las reflexiones están pendientes de revisión pastoral.</Metadata>
+   <Metadata theme={theme}>WEBP tickets are local. The reflections are pending pastoral review.</Metadata>
   </>}
  </ScrollView></KeyboardAvoidingView></Screen>;
 }

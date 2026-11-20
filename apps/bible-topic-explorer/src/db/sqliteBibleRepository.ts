@@ -7,16 +7,16 @@ const DEFAULT_LIMIT=50;const MAX_LIMIT=100;
 function boundedLimit(limit?:number){if(limit===undefined||!Number.isFinite(limit))return DEFAULT_LIMIT;return Math.max(1,Math.min(MAX_LIMIT,Math.trunc(limit)));}
 function literalNeedle(raw:string){const t=raw.trim();return t.length>=2&&t.startsWith('"')&&t.endsWith('"')?t.slice(1,-1).trim():t;}
 function escapeLike(value:string){return value.replace(/\\/g,'\\\\').replace(/%/g,'\\%').replace(/_/g,'\\_');}
-function fold(value:string){return value.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function fold(value:string){return value.toLocaleLowerCase('en').normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
 function escapeRegex(value:string){return value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
-function containsWholeTerm(text:string,term:string){const hay=fold(text);const needle=fold(term);return new RegExp(`(^|[^a-z0-9ñ])${escapeRegex(needle)}(?=$|[^a-z0-9ñ])`,'u').test(hay);}
+function containsWholeTerm(text:string,term:string){const hay=fold(text);const needle=fold(term);return new RegExp(`(^|[^a-z0-9])${escapeRegex(needle)}(?=$|[^a-z0-9])`,'u').test(hay);}
 function firstWholeTerm(text:string,terms:readonly string[]){return terms.find(term=>containsWholeTerm(text,term));}
-/** Read-only adapter for the authoritative bundled RV1909 corpus. */
+/** Read-only adapter for the authoritative bundled WEBP corpus. */
 export class SQLiteBibleRepository implements BibleRepository{
  constructor(private readonly db:Pick<SQLiteDatabase,'getAllAsync'>){}
  async getChapter(bookId:string,chapter:number):Promise<readonly BibleVerse[]>{if(!Number.isInteger(chapter)||chapter<1)return[];const rows=await this.db.getAllAsync<ChapterRow>(`SELECT v.book_id AS bookId, b.default_name_es AS bookName, v.chapter_num AS chapter, v.verse_start AS verse, v.source_verse_label AS sourceVerseLabel, v.display_text AS text FROM verses v JOIN books b ON b.id=v.book_id WHERE v.translation_id=? AND (v.book_id=? OR b.default_name_es=?) AND v.chapter_num=? ORDER BY v.id`,RUNTIME_TRANSLATION_ID,bookId,bookId,chapter);return rows.map(row=>this.mapVerse(row));}
  async getBookChapterCount(bookId:string):Promise<number>{const rows=await this.db.getAllAsync<{chapterCount:number}>(`SELECT tb.source_chapter_count AS chapterCount FROM translation_books tb JOIN books b ON b.id=tb.book_id WHERE tb.translation_id=? AND (tb.book_id=? OR b.default_name_es=?) LIMIT 1`,RUNTIME_TRANSLATION_ID,bookId,bookId);return rows[0]?.chapterCount??0;}
- async searchLiteral(query:string,limit?:number):Promise<readonly BibleSearchHit[]>{const needle=literalNeedle(query);if(!needle)return[];const rows=await this.db.getAllAsync<ChapterRow>(`SELECT v.book_id AS bookId, b.default_name_es AS bookName, v.chapter_num AS chapter, v.verse_start AS verse, v.source_verse_label AS sourceVerseLabel, v.display_text AS text FROM verses v JOIN books b ON b.id=v.book_id JOIN translation_books tb ON tb.translation_id=v.translation_id AND tb.book_id=v.book_id WHERE v.translation_id=? AND lower(v.display_text) LIKE '%' || lower(?) || '%' ESCAPE '\\' ORDER BY tb.order_index, v.chapter_num, v.id LIMIT ?`,RUNTIME_TRANSLATION_ID,escapeLike(needle),boundedLimit(limit)*20);return rows.filter(row=>containsWholeTerm(row.text,needle)).slice(0,boundedLimit(limit)).map(row=>({...this.mapVerse(row),matchType:'literal_exact' as const,explanation:`Coincidencia literal completa en RV1909: “${needle}”.`}));}
+ async searchLiteral(query:string,limit?:number):Promise<readonly BibleSearchHit[]>{const needle=literalNeedle(query);if(!needle)return[];const rows=await this.db.getAllAsync<ChapterRow>(`SELECT v.book_id AS bookId, b.default_name_es AS bookName, v.chapter_num AS chapter, v.verse_start AS verse, v.source_verse_label AS sourceVerseLabel, v.display_text AS text FROM verses v JOIN books b ON b.id=v.book_id JOIN translation_books tb ON tb.translation_id=v.translation_id AND tb.book_id=v.book_id WHERE v.translation_id=? AND lower(v.display_text) LIKE '%' || lower(?) || '%' ESCAPE '\\' ORDER BY tb.order_index, v.chapter_num, v.id LIMIT ?`,RUNTIME_TRANSLATION_ID,escapeLike(needle),boundedLimit(limit)*20);return rows.filter(row=>containsWholeTerm(row.text,needle)).slice(0,boundedLimit(limit)).map(row=>({...this.mapVerse(row),matchType:'literal_exact' as const,explanation:`Exact whole-word match in WEBP: “${needle}”.`}));}
  /** Streams only bounded SQLite rows per round trip. Searching the full corpus remains
   * deterministic, offline and READ ONLY; AbortSignal is checked between pages.
   * Lexical tier is scanned before thematic tier, preserving canonical order.
@@ -53,8 +53,8 @@ export class SQLiteBibleRepository implements BibleRepository{
      seen.add(key);
      const matchType:MatchType=tier==='lexical'?'lexical_related_form':'thematic_term';
      hits.push({...this.mapVerse(row),matchType,explanation:matchType==='lexical_related_form'
-      ?`Evidencia curada para “${topic.label}”: forma completa “${term}” en RV1909.`
-      :`Evidencia temática curada para “${topic.label}”: término completo “${term}” en RV1909.`});
+      ?`Curated lexical evidence for “${topic.label}”: whole word “${term}” in WEBP.`
+      :`Curated thematic evidence for “${topic.label}”: whole word “${term}” in WEBP.`});
      if(hits.length>=maxHits)return hits;
     }
     if(rows.length<pageSize)break;

@@ -11,9 +11,9 @@ export function topicReviewStatus(topicId:string):'PROPUESTO'|'EN_REVISION'|'VAL
 export function reviewMessage(topicId:string):string {
  const p=availablePreview(topicId);
  return p?.status==='EN_REVISION'
-   ? 'Muestra contrastada inicialmente con RV1909; revisión contextual y aprobación pastoral humana pendientes.'
-   : p ? 'Referencias propuestas; revisión contextual y aprobación pastoral humana pendientes.'
-   : 'Ficha contextual y referencias pendientes de revisión editorial; no se muestran pasajes aún.';
+   ? "Sample initially contrasted with WEBP; Contextual review and human pastoral approval pending."
+   : p ? "Proposed references; Contextual review and human pastoral approval pending."
+   : "Contextual file and references pending editorial review; no passages are shown yet.";
 }
 export function focusMatchesVerse(verse:{verse:number;sourceVerseLabel:string}, target:{verse?:number;sourceVerseLabel?:string;verseEnd?:number;sourceVerseLabels?:readonly string[]}):boolean{
  if(target.sourceVerseLabels?.length)return target.sourceVerseLabels.includes(verse.sourceVerseLabel);

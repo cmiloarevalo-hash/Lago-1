@@ -19,7 +19,7 @@ const fontOptions=[{scale:0.8,label:'80%'},{scale:1,label:'100%'},{scale:1.2,lab
 export function SettingsScreen({theme,onPreferencesChange}:{theme:Theme;onPreferencesChange?:(value:LocalPreferences)=>void}){
  const db=useSQLiteContext();const persistence=useMemo(()=>new SQLiteLocalPersistence(db),[db]);const [prefs,setPrefs]=useState(defaultPreferences);const [status,setStatus]=useState('Cargando preferencias locales…');const [statusKind,setStatusKind]=useState<StatusKind>('info');const [reminderState,setReminderState]=useState<ReminderState>('off');
  const [reminderPlan,setReminderPlan]=useState('encuentro');
- const [reminderTitle,setReminderTitle]=useState('Mi lectura bíblica');
+ const [reminderTitle,setReminderTitle]=useState("My Bible reading");
  const [draftTime,setDraftTime]=useState(defaultPreferences.reminderTime);
  const [nextDay,setNextDay]=useState(1);
  useEffect(()=>{let active=true;
@@ -30,13 +30,13 @@ export function SettingsScreen({theme,onPreferencesChange}:{theme:Theme;onPrefer
    setPrefs(value);setDraftTime(value.reminderTime);onPreferencesChange?.(value);
    setReminderPlan(details.planId);setReminderTitle(details.title);setNextDay(next);
    void configureReminder(value.reminderEnabled,value.reminderTime,false,{
-    planId:details.planId,planTitle:planById(details.planId)?.title??'Lectura bíblica',day:next,title:details.title
+    planId:details.planId,planTitle:planById(details.planId)?.title??"Bible reading",day:next,title:details.title
    }).then(setReminderState);
    setStatus('');
-  }).catch(()=>{if(active){setStatus('No se pudieron leer las preferencias locales.');setStatusKind('error');}});
+  }).catch(()=>{if(active){setStatus("Could not read local preferences.");setStatusKind('error');}});
   return()=>{active=false;};
  },[persistence,onPreferencesChange,db]);
- const update=async(next:LocalPreferences)=>{setPrefs(next);onPreferencesChange?.(next);try{await persistence.setPreferences(next);setStatus('Preferencias guardadas en este dispositivo.');setStatusKind('success');}catch{setStatus('No se pudieron guardar las preferencias locales.');setStatusKind('error');}};
+ const update=async(next:LocalPreferences)=>{setPrefs(next);onPreferencesChange?.(next);try{await persistence.setPreferences(next);setStatus('Preferencias guardadas en este dispositivo.');setStatusKind('success');}catch{setStatus("Local preferences could not be saved.");setStatusKind('error');}};
 
  const chooseTime=()=>{
   const [hour,minute]=draftTime.split(':').map(Number);
@@ -52,7 +52,7 @@ export function SettingsScreen({theme,onPreferencesChange}:{theme:Theme;onPrefer
   void new SQLitePlanRepository(db).list(planId).then(rows=>setNextDay(nextPendingReadingDay(rows))).catch(()=>{});
  };
  const saveReminder=async(enabled:boolean)=>{
-  const title=reminderTitle.trim()||'Mi lectura bíblica';
+  const title=reminderTitle.trim()||"My Bible reading";
   const plan=planById(reminderPlan);
   try{
    await persistence.setReminderPlan(reminderPlan,title);
@@ -60,42 +60,42 @@ export function SettingsScreen({theme,onPreferencesChange}:{theme:Theme;onPrefer
    const day=nextPendingReadingDay(rows);
    setNextDay(day);
    const actual=await configureReminder(enabled,draftTime,enabled,{
-    planId:reminderPlan,planTitle:plan?.title??'Lectura bíblica',day,title
+    planId:reminderPlan,planTitle:plan?.title??"Bible reading",day,title
    });
    setReminderState(actual);
    if(enabled&&actual!=='active'){
-    setStatus(actual==='denied'?'Activa las notificaciones en Ajustes de Android si quieres recibir avisos.':'No fue posible programar la notificación en este dispositivo.');
+    setStatus(actual==='denied'?"Turn on notifications in Android Settings if you want to receive notifications.":"It was not possible to schedule the notification on this device.");
     setStatusKind('warning');
     return;
    }
    await update({...prefs,reminderEnabled:enabled,reminderTime:draftTime});
-  }catch{setStatus('No se pudo guardar el recordatorio. Tus lecturas se conservan.');setStatusKind('error');}
+  }catch{setStatus("The reminder could not be saved. Your readings are preserved.");setStatusKind('error');}
  };
 
- return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><View style={[styles.intro,{borderLeftColor:theme.purple}]}><ScreenTitle theme={theme}>Ajustes</ScreenTitle><Body theme={theme} muted>Preferencias locales, sin cuenta obligatoria.</Body></View>{status?(statusKind==='error'?<StatusBanner theme={theme} kind="error">{status}</StatusBanner>:<Body theme={theme} muted>{status}</Body>):null}
- <Section theme={theme} title="Apariencia" description="Tres atmósferas editoriales con fondos claros; tu elección se conserva en este dispositivo."><View style={styles.choices}>{themeOptions.map(option=><ChoiceChip key={option.id} label={option.label} theme={theme} selected={prefs.theme===option.id} onPress={()=>{void update({...prefs,theme:option.id});}}/>)}</View></Section>
- <Section theme={theme} title="Tamaño de lectura" description="Ajusta el texto bíblico. La interfaz sigue el escalado de texto del sistema dentro de límites seguros para la navegación fija."><View style={styles.choices}>{fontOptions.map(option=><ChoiceChip key={option.scale} label={option.label} theme={theme} selected={Math.abs(prefs.fontScale-option.scale)<0.01} onPress={()=>{void update({...prefs,fontScale:option.scale});}}/>)}</View><Metadata theme={theme}>Preferencia: {Math.round(prefs.fontScale*100)}%</Metadata></Section>
- <Section theme={theme} title="Recordatorio de lectura"
-   description="Un aviso personal que abre el siguiente día de tu plan bíblico. Solo se activa si tú quieres.">
-  <Field theme={theme} label="Nombre de tu recordatorio" value={reminderTitle}
-    onChangeText={setReminderTitle} maxLength={90} placeholder="Ej.: Leer la Biblia al despertar"/>
-  <Body theme={theme} muted>Elige tu plan</Body>
+ return <Screen theme={theme}><ScrollView contentContainerStyle={styles.stack}><View style={[styles.intro,{borderLeftColor:theme.purple}]}><ScreenTitle theme={theme}>Settings</ScreenTitle><Body theme={theme} muted>Local preferences, no account required.</Body></View>{status?(statusKind==='error'?<StatusBanner theme={theme} kind="error">{status}</StatusBanner>:<Body theme={theme} muted>{status}</Body>):null}
+ <Section theme={theme} title="Apariencia" description="Three editorial atmospheres with light backgrounds; Your choice is preserved on this device."><View style={styles.choices}>{themeOptions.map(option=><ChoiceChip key={option.id} label={option.label} theme={theme} selected={prefs.theme===option.id} onPress={()=>{void update({...prefs,theme:option.id});}}/>)}</View></Section>
+ <Section theme={theme} title="Reading size" description="Adjust the biblical text. The interface follows the system's text scaling within safe limits for fixed navigation."><View style={styles.choices}>{fontOptions.map(option=><ChoiceChip key={option.scale} label={option.label} theme={theme} selected={Math.abs(prefs.fontScale-option.scale)<0.01} onPress={()=>{void update({...prefs,fontScale:option.scale});}}/>)}</View><Metadata theme={theme}>Preferencia: {Math.round(prefs.fontScale*100)}%</Metadata></Section>
+ <Section theme={theme} title="Reading reminder"
+   description="A personal prompt that opens the next day of your Bible plan. It is only activated if you want it to.">
+  <Field theme={theme} label="Name of your reminder" value={reminderTitle}
+    onChangeText={setReminderTitle} maxLength={90} placeholder="Ex: Read the Bible when you wake up"/>
+  <Body theme={theme} muted>Choose your plan</Body>
   <View style={styles.choices}>{readingPlans.map(plan=><ChoiceChip key={plan.id}
     theme={theme} label={plan.title} selected={reminderPlan===plan.id} onPress={()=>choosePlan(plan.id)}/>)}</View>
-  <Metadata theme={theme}>Siguiente lectura: día {nextDay} de 7</Metadata>
-  <Body theme={theme} muted>Hora del celular</Body>
+  <Metadata theme={theme}>Next reading: day {nextDay} de 7</Metadata>
+  <Body theme={theme} muted>cell phone time</Body>
   {Platform.OS==='android'?<Action theme={theme} variant="secondary"
     label={'Elegir hora · '+draftTime+'  →'} onPress={chooseTime}/>:
    <View style={styles.choices}>{reminderTimeOptions.map(time=><ChoiceChip key={time}
     theme={theme} label={time} selected={draftTime===time} onPress={()=>setDraftTime(time)}/>)}</View>}
-  <SettingRow theme={theme} label="Notificación" value={reminderState==='active'?'Activada':reminderState==='denied'?'Permiso denegado':reminderState==='unavailable'?'No disponible':'Desactivada'}/>
-  <Action label="Guardar nombre, plan y hora" variant="secondary" theme={theme} onPress={()=>{void saveReminder(prefs.reminderEnabled);}}/>
-  <Action label={prefs.reminderEnabled?'Desactivar aviso':'Activar aviso de lectura'}
+  <SettingRow theme={theme} label="Notification" value={reminderState==='active'?'Activada':reminderState==='denied'?'Permiso denegado':reminderState==='unavailable'?"Not available":'Desactivada'}/>
+  <Action label="Save name, plan and time" variant="secondary" theme={theme} onPress={()=>{void saveReminder(prefs.reminderEnabled);}}/>
+  <Action label={prefs.reminderEnabled?"Disable notice":"Activate reading notification"}
     theme={theme} onPress={()=>{void saveReminder(!prefs.reminderEnabled);}}/>
-  <Metadata theme={theme}>Los avisos se gestionan mediante notificaciones locales de Android y pueden sufrir retrasos.</Metadata>
+  <Metadata theme={theme}>Notifications are managed by local Android notifications and may be subject to delays.</Metadata>
  </Section>
- <Section theme={theme} title="Introducción"><Body theme={theme} muted>{onboardingSteps.map(step=>step.title).join(' · ')}</Body><SettingRow theme={theme} label="Estado" value={prefs.onboardingComplete?'Completada':'Pendiente'}/><Action label={prefs.onboardingComplete?'Volver a mostrar ayudas contextuales':'Marcar introducción como vista'} variant="tertiary" theme={theme} onPress={()=>{void update({...prefs,onboardingComplete:!prefs.onboardingComplete});}}/></Section>
- <Section theme={theme} title="Respaldo manual y privado" description="Exporta una copia JSON solo al elegir una carpeta de Android; no se sube a la nube automáticamente ni se borran datos."><Action theme={theme} variant="secondary" label="Exportar copia de notas y destacados" onPress={()=>Alert.alert('Respaldo privado','El archivo JSON incluirá notas, destacados, historial y preferencias. Elige una carpeta que controles; quien tenga el archivo podrá leer tus notas. No se borrará nada.',[{text:'Cancelar',style:'cancel'},{text:'Elegir carpeta',onPress:()=>{void exportPrivateBackup(db).then(filename=>{setStatus('Respaldo creado: '+filename);setStatusKind('success');}).catch(()=>{setStatus('Respaldo no realizado: selección cancelada, destino incompatible o error al escribir. Los datos originales no cambian.');setStatusKind('warning');});}}])}/><Metadata theme={theme}>No restaura automáticamente ni incluye archivos PDF/EPUB; conserva únicamente su índice de lectura. Guarda el JSON en un lugar seguro.</Metadata></Section>
- <Section theme={theme} title="Privacidad y fuente"><SettingRow theme={theme} label="Cuenta" value="No requerida"/><SettingRow theme={theme} label="Datos de uso" value="Locales"/><SettingRow theme={theme} label="Traducción" value="RV1909"/><Metadata theme={theme}>Reina-Valera 1909 · BibleAquifer · dominio público/CC0 del paquete.</Metadata></Section></ScrollView></Screen>;
+ <Section theme={theme} title="Introduction"><Body theme={theme} muted>{onboardingSteps.map(step=>step.title).join(' · ')}</Body><SettingRow theme={theme} label="Estado" value={prefs.onboardingComplete?'Completada':'Pendiente'}/><Action label={prefs.onboardingComplete?"Show contextual help again":"Mark introduction as view"} variant="tertiary" theme={theme} onPress={()=>{void update({...prefs,onboardingComplete:!prefs.onboardingComplete});}}/></Section>
+ <Section theme={theme} title="Respaldo manual y privado" description="Export a JSON copy only when choosing an Android folder; It is not uploaded to the cloud automatically or data is deleted."><Action theme={theme} variant="secondary" label="Export copy of notes and highlights" onPress={()=>Alert.alert('Respaldo privado',"The JSON file will include notes, highlights, history, and preferences. Choose a folder that you control; whoever has the file will be able to read your notes. Nothing will be deleted.",[{text:"Cancel",style:'cancel'},{text:'Elegir carpeta',onPress:()=>{void exportPrivateBackup(db).then(filename=>{setStatus('Respaldo creado: '+filename);setStatusKind('success');}).catch(()=>{setStatus("Backup not performed: selection canceled, incompatible destination, or error writing. The original data does not change.");setStatusKind('warning');});}}])}/><Metadata theme={theme}>Does not automatically restore or include PDF/EPUB files; it retains only its reading index. Save the JSON in a safe place.</Metadata></Section>
+ <Section theme={theme} title="Privacidad y fuente"><SettingRow theme={theme} label="Cuenta" value="No requerida"/><SettingRow theme={theme} label="Datos de uso" value="Locales"/><SettingRow theme={theme} label="Translation" value="WEBP"/><Metadata theme={theme}>World English Bible · BibleAquifer · public domain/CC0 of the package.</Metadata></Section></ScrollView></Screen>;
 }
 const styles=StyleSheet.create({stack:{gap:spacing.md,paddingBottom:spacing.xxl},intro:{gap:spacing.xs,borderLeftWidth:3,paddingLeft:spacing.md,paddingVertical:spacing.xs},choices:{flexDirection:'row',flexWrap:'wrap',gap:spacing.xs}});

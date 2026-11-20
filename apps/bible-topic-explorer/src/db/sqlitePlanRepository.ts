@@ -1,5 +1,5 @@
 import type {SQLiteDatabase} from 'expo-sqlite';
-/** Additive tables only: no edits to baseline RV1909, saved notes or highlights. */
+/** Additive tables only: no edits to baseline WEBP, saved notes or highlights. */
 export class SQLitePlanRepository {
  private ready?:Promise<void>;
  constructor(private db:SQLiteDatabase){}
@@ -16,7 +16,7 @@ export class SQLitePlanRepository {
   return rows.map(r=>({...r,done:r.done===1}));
  }
  async save(planId:string,day:number,done:boolean,note:string):Promise<void>{
-  if(day<1||day>7||!Number.isInteger(day)||note.length>5000)throw Error('Datos de plan inválidos');
+  if(day<1||day>7||!Number.isInteger(day)||note.length>5000)throw Error("Invalid plan data");
   await this.init();
   await this.db.runAsync(`INSERT INTO app_plan_days(plan_id,day,done,note,updated_at) VALUES(?,?,?,?,?)
   ON CONFLICT(plan_id,day) DO UPDATE SET done=excluded.done,note=excluded.note,updated_at=excluded.updated_at`,planId,day,done?1:0,note,new Date().toISOString());

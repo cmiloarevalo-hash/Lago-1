@@ -8,10 +8,10 @@ import {Action,Body,ChoiceChip,Metadata,Screen,ScreenTitle,Section} from '../pri
 
 const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const familyGlyphs:Record<string,string>={
- 'Dios y fe':'✦','Amor y relaciones':'♡','Perdón y restauración':'❧',
- 'Vida interior':'☼','Dificultades y emociones':'◇','Oración y práctica espiritual':'✧',
- 'Carácter y conducta':'♧','Decisiones y vida cotidiana':'➜','Biblia y comprensión':'▤',
- 'Esperanza y vida cristiana':'✺'
+ "God and Faith":'✦',"Love and Relationships":'♡',"Forgiveness and Restoration":'❧',
+ "Inner Life":'☼','Difficulties and Emotions':'◇',"Prayer and Spiritual Practice":'✧',
+ "Character and Conduct":'♧',"Decisions and Daily Life":'➜',"Bible and Understanding":'▤',
+ "Hope and Christian Life":'✺'
 };
 const topicGlyphs:Record<string,string>={
  dios:'✦',jesus:'✧',confianza:'◇',amor:'♡',amistad:'♡',familia:'⌂',
@@ -20,16 +20,16 @@ const topicGlyphs:Record<string,string>={
 };
 const iconFor=(family:string,topicId?:string)=>topicId&&topicGlyphs[topicId]||familyGlyphs[family]||'✦';
 const familyLead:Record<string,string>={
- 'Dios y fe':'Preguntas sobre creer y confiar',
- 'Amor y relaciones':'Amistades, familia y respeto',
- 'Perdón y restauración':'Aprender de los errores',
- 'Vida interior':'Calma, alegría y esperanza',
- 'Dificultades y emociones':'Lo que sentimos también importa',
- 'Oración y práctica espiritual':'Espacios para conectar con Dios',
- 'Carácter y conducta':'Decisiones que se notan',
- 'Decisiones y vida cotidiana':'Lo que vivimos cada día',
- 'Biblia y comprensión':'Descubre las historias bíblicas',
- 'Esperanza y vida cristiana':'Caminar con fe y esperanza'
+ "God and Faith":"Questions about believing and trusting",
+ "Love and Relationships":'Friendships, family and respect',
+ "Forgiveness and Restoration":"Learn from mistakes",
+ "Inner Life":"Calm, joy and hope",
+ 'Difficulties and Emotions':"What we feel matters too",
+ "Prayer and Spiritual Practice":"Spaces to connect with God",
+ "Character and Conduct":"Decisions that are noticeable",
+ "Decisions and Daily Life":"What we live every day",
+ "Bible and Understanding":"Discover the biblical stories",
+ "Hope and Christian Life":"Walk with faith and hope"
 };
 const developedTopics=topicCatalog.filter(topic=>(availablePreview(topic.id)?.passages.length??0)>0);
 const familyTopicsWithContent=(family:string)=>developedTopics.filter(topic=>topic.family===family);
@@ -44,7 +44,7 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
  const selectedLetter=topicUi.selectedLetter??'A';
  const selectedTopic=useMemo(()=>developedTopics.find(t=>t.id===topicUi.topicId),[topicUi.topicId]);
  const preview=selectedTopic?availablePreview(selectedTopic.id):undefined;
- const letterTopics=useMemo(()=>developedTopics.filter(t=>normalizeTopicText(t.label).charAt(0).toUpperCase()===selectedLetter).sort((a,b)=>a.label.localeCompare(b.label,'es')),[selectedLetter]);
+ const letterTopics=useMemo(()=>developedTopics.filter(t=>normalizeTopicText(t.label).charAt(0).toUpperCase()===selectedLetter).sort((a,b)=>a.label.localeCompare(b.label,'en')),[selectedLetter]);
  const familyList=useMemo(()=>topicUi.family==='__all__'?letterTopics:topicUi.family?familyTopicsWithContent(topicUi.family):[],[topicUi.family,letterTopics]);
  const scrollTo=(target:number)=>{
   restoring.current=true;
@@ -83,44 +83,44 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
   onScroll={e=>{if(!restoring.current)y.current=e.nativeEvent.contentOffset.y;}}
   onContentSizeChange={()=>{if(restore.current&&topicUi.scrollY>0){scrollTo(topicUi.scrollY);restore.current=false;}}}>
   <View style={styles.intro}><View style={[styles.accent,{backgroundColor:theme.sky}]}/>
-   <ScreenTitle theme={theme}>Explorar temas</ScreenTitle>
-   <Body theme={theme} muted>Elige lo que te interesa o te preocupa. Encuentra una idea y léela en la Biblia.</Body>
+   <ScreenTitle theme={theme}>Explore topics</ScreenTitle>
+   <Body theme={theme} muted>Choose what interests you or worries you. Find an idea and read it in the Bible.</Body>
   </View>
-  <Text style={[styles.count,{color:theme.secondary}]}>{developedTopics.length} temas con contenido · Biblia RV1909</Text>
-  {topicUi.family?<Action theme={theme} variant="tertiary" label={selectedTopic?'← Volver a los temas':'← Volver a familias'} onPress={backTopics}/>:null}
-  {!topicUi.family?<Section theme={theme} title="Elige una familia">
+  <Text style={[styles.count,{color:theme.secondary}]}>{developedTopics.length} topics with content · WEBP Bible</Text>
+  {topicUi.family?<Action theme={theme} variant="tertiary" label={selectedTopic?"← Return to topics":"← Return to families"} onPress={backTopics}/>:null}
+  {!topicUi.family?<Section theme={theme} title="Choose a family">
    <View style={styles.familyRows}>{visibleFamilies.map(family=><Pressable key={family}
-    accessibilityRole="button" accessibilityLabel={'Explorar '+family} onPress={()=>changeState({...topicUi,mode:'topics',family,topicId:undefined,scrollY:0,listScrollY:0})}
+    accessibilityRole="button" accessibilityLabel={"Explore "+family} onPress={()=>changeState({...topicUi,mode:'topics',family,topicId:undefined,scrollY:0,listScrollY:0})}
     style={({pressed})=>[styles.row,{backgroundColor:pressed?theme.surfaceSoft:theme.surface,borderColor:theme.border}]}>
     <View style={[styles.iconCircle,{backgroundColor:theme.selectionBg}]}><Text accessibilityElementsHidden style={[styles.icon,{color:theme.primaryText}]}>{iconFor(family)}</Text></View>
     <View style={styles.rowCopy}>
      <Text style={[styles.rowTitle,{color:theme.text}]}>{family}</Text>
-     <Text style={[styles.rowDesc,{color:theme.secondary}]}>{familyLead[family]??'Explora este tema'}</Text>
-     <Text style={[styles.rowCount,{color:theme.primaryText}]}>{familyTopicsWithContent(family).length} temas</Text>
+     <Text style={[styles.rowDesc,{color:theme.secondary}]}>{familyLead[family]??"Explore this topic"}</Text>
+     <Text style={[styles.rowCount,{color:theme.primaryText}]}>{familyTopicsWithContent(family).length} topics</Text>
     </View><Text accessibilityElementsHidden style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
    </Pressable>)}</View>
-   <Action theme={theme} variant="tertiary" label="Ver temas A–Z" onPress={()=>changeState({...topicUi,mode:'topics',family:'__all__',topicId:undefined,scrollY:0,listScrollY:0})}/>
+   <Action theme={theme} variant="tertiary" label="View topics A–Z" onPress={()=>changeState({...topicUi,mode:'topics',family:'__all__',topicId:undefined,scrollY:0,listScrollY:0})}/>
   </Section>:null}
-  {topicUi.family&&!selectedTopic?<Section theme={theme} title={topicUi.family==='__all__'?'Índice A–Z':topicUi.family} description="Toca el tema que quieras descubrir.">
+  {topicUi.family&&!selectedTopic?<Section theme={theme} title={topicUi.family==='__all__'?"A–Z index":topicUi.family} description="Tap the topic you want to discover.">
    {topicUi.family==='__all__'?<ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.letters}>
     {letters.map(letter=><ChoiceChip key={letter} label={letter} theme={theme} selected={selectedLetter===letter} onPress={()=>changeState({...topicUi,selectedLetter:letter,scrollY:0})}/>)}
    </ScrollView>:null}
    <View style={styles.topicList}>{familyList.map(topic=>{
     const itemPreview=availablePreview(topic.id);
-    return <Pressable key={topic.id} accessibilityRole="button" accessibilityLabel={'Ver concepto '+topic.label}
+    return <Pressable key={topic.id} accessibilityRole="button" accessibilityLabel={'View topic '+topic.label}
      onPress={()=>changeState({...topicUi,topicId:topic.id,listScrollY:y.current,scrollY:0})}
      style={({pressed})=>[styles.topicRow,{borderColor:theme.border,backgroundColor:pressed?theme.surfaceSoft:theme.surface}]}>
      <View style={[styles.topicIconCircle,{backgroundColor:theme.selectionBg}]}><Text accessibilityElementsHidden style={[styles.topicIcon,{color:theme.primaryText}]}>{iconFor(topic.family,topic.id)}</Text></View>
      <View style={styles.rowCopy}>
-      <Text style={[styles.topicTitle,{color:theme.text}]}>{topic.label.charAt(0).toLocaleUpperCase('es')+topic.label.slice(1)}</Text>
-      <Text style={[styles.topicSubtitle,{color:theme.secondary}]}>{itemPreview?.subtopic??'Un tema para descubrir'}</Text>
+      <Text style={[styles.topicTitle,{color:theme.text}]}>{topic.label.charAt(0).toLocaleUpperCase('en')+topic.label.slice(1)}</Text>
+      <Text style={[styles.topicSubtitle,{color:theme.secondary}]}>{itemPreview?.subtopic??"A topic to discover"}</Text>
      </View>
      <Text accessibilityElementsHidden style={[styles.arrow,{color:theme.primaryText}]}>›</Text>
     </Pressable>;
    })}</View>
-   {!familyList.length?<Body theme={theme} muted>No hay temas disponibles para esta letra.</Body>:null}
+   {!familyList.length?<Body theme={theme} muted>There are no themes available for this letter.</Body>:null}
   </Section>:null}
-  {selectedTopic?<Section theme={theme} title={selectedTopic.label.charAt(0).toLocaleUpperCase('es')+selectedTopic.label.slice(1)}>
+  {selectedTopic?<Section theme={theme} title={selectedTopic.label.charAt(0).toLocaleUpperCase('en')+selectedTopic.label.slice(1)}>
    <View style={[styles.featured,{backgroundColor:theme.surface,borderColor:theme.border}]}>
     <View style={styles.topicDetailHeader}>
      <View style={[styles.detailIcon,{backgroundColor:theme.selectionBg}]}><Text accessibilityElementsHidden style={[styles.detailIconText,{color:theme.primaryText}]}>{iconFor(selectedTopic.family,selectedTopic.id)}</Text></View>
@@ -129,15 +129,15 @@ export function SearchScreen({theme,onOpenReader,topicUi=initialTopicUiState,onT
     <Text style={[styles.detailHeading,{color:theme.text}]}>{preview?.subtopic??''}</Text>
     {preview?<Text style={[styles.detailSynopsis,{color:theme.text}]}>{preview.synopsis}</Text>:null}
    </View>
-   {preview?<Section theme={theme} title="Léelo en la Biblia">
-    <Text style={[styles.passagesIntro,{color:theme.secondary}]}>Dos pasajes para leer y pensar a tu ritmo.</Text>
+   {preview?<Section theme={theme} title="Read it in the Bible">
+    <Text style={[styles.passagesIntro,{color:theme.secondary}]}>Two passages to read and think at your own pace.</Text>
     {preview.passages.map(passage=><View key={passage.reference} style={[styles.passageCard,{backgroundColor:theme.surface,borderColor:theme.border}]}>
      <View style={styles.passageHead}><View style={[styles.bookIcon,{backgroundColor:theme.surfaceSoft}]}><Text style={[styles.bookGlyph,{color:theme.primaryText}]}>▤</Text></View>
-      <Text style={[styles.reference,{color:theme.text}]}>{passage.reference} · RV1909</Text></View>
+      <Text style={[styles.reference,{color:theme.text}]}>{passage.reference} · WEBP</Text></View>
      <Text style={[styles.passageReason,{color:theme.secondary}]}>{passage.rationale}</Text>
-     <Pressable accessibilityRole="button" accessibilityLabel={'Leer '+passage.reference+' en RV1909'} onPress={()=>openPassage(passage)}
+     <Pressable accessibilityRole="button" accessibilityLabel={"Read "+passage.reference+' in WEBP'} onPress={()=>openPassage(passage)}
       style={[styles.readAction,{borderTopColor:theme.border}]}>
-      <Text style={[styles.readText,{color:theme.primaryText}]}>Leer este pasaje</Text><Text style={[styles.readArrow,{color:theme.primaryText}]}>›</Text>
+      <Text style={[styles.readText,{color:theme.primaryText}]}>Read this passage</Text><Text style={[styles.readArrow,{color:theme.primaryText}]}>›</Text>
      </Pressable>
     </View>)}
    </Section>:null}
